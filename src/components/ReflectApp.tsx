@@ -167,8 +167,8 @@ function Heading() {
       <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Inter',sans-serif] font-bold from-white justify-center leading-[0] not-italic relative shrink-0 text-[88px] text-[transparent] text-center to-[rgba(255,255,255,0.7)]">
         <p className="leading-[100px]">全球广告增长平台</p>
       </div>
-      <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Inter',sans-serif] font-semibold from-white/90 justify-center leading-[0] not-italic relative shrink-0 text-[32px] text-[transparent] text-center to-[rgba(255,255,255,0.5)] mt-[16px]">
-        <p className="leading-[44px]">智能驱动，全球汇流，日本聚势</p>
+      <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Inter',sans-serif] font-semibold from-white/90 justify-center leading-[0] not-italic relative shrink-0 text-[40px] text-[transparent] text-center to-[rgba(255,255,255,0.5)] mt-[20px]">
+        <p className="leading-[56px]">智能驱动，全球汇流，日本聚势</p>
       </div>
     </div>
   );
