@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import imgLogo from "@/assets/6cd6160d50ff71e9df1fcad0f48149dce2e9b97b.png";
+import imgLogo from "@/assets/ByteMobiLOGO-02.png";
 
 export function OptimizedHeader() {
   return (
@@ -12,9 +12,8 @@ export function OptimizedHeader() {
     >
       <div className="backdrop-blur-xl bg-[rgba(3,0,20,0.4)] border border-white/[0.08] rounded-full px-8 py-3 flex items-center justify-between shadow-2xl w-full max-w-5xl">
         {/* Logo */}
-        <a href="https://reflect.app/home/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 shrink-0">
-          <img src={imgLogo} alt="Reflect" className="w-9 h-9" />
-          <span className="text-white font-medium text-base tracking-tight">Reflect</span>
+        <a href="/" className="flex items-center shrink-0">
+          <img src={imgLogo} alt="ByteMobi" className="w-9 h-9 object-contain" />
         </a>
         
         {/* Nav Links */}
