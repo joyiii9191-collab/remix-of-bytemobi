@@ -65,7 +65,7 @@ import { imgGradient, imgGradientOverlay, imgContainer, imgContainer1, imgContai
 
 function Container1() {
   return (
-    <div className="absolute content-stretch flex flex-col items-center left-0 px-[120px] right-0 top-[210px]" data-name="Container">
+    <div className="absolute content-stretch flex flex-col items-center left-0 px-[120px] right-0 top-[260px]" data-name="Container">
       <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[20px] text-[rgba(239,237,253,0.6)] text-center tracking-[0.05em]">
         <p className="leading-[30px]">Intelligently Driven, Converging Global Streams, Igniting Momentum in Japan</p>
       </div>
@@ -163,11 +163,11 @@ function Link() {
 
 function Heading() {
   return (
-    <div className="absolute content-stretch flex flex-col items-center left-0 px-[120px] right-0 top-[48px]" data-name="Heading 1">
+    <div className="absolute content-stretch flex flex-col items-center left-0 px-[120px] right-0 top-[40px]" data-name="Heading 1">
       <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Inter',sans-serif] font-bold from-white justify-center leading-[0] not-italic relative shrink-0 text-[88px] text-[transparent] text-center to-[rgba(255,255,255,0.7)]">
         <p className="leading-[100px]">全球广告增长平台</p>
       </div>
-      <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Inter',sans-serif] font-semibold from-white/90 justify-center leading-[0] not-italic relative shrink-0 text-[40px] text-[transparent] text-center to-[rgba(255,255,255,0.5)] mt-[20px]">
+      <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Inter',sans-serif] font-semibold from-white/90 justify-center leading-[0] not-italic relative shrink-0 text-[40px] text-[transparent] text-center to-[rgba(255,255,255,0.5)] mt-[40px]">
         <p className="leading-[56px]">智能驱动，全球汇流，日本聚势</p>
       </div>
     </div>
@@ -176,7 +176,7 @@ function Heading() {
 
 function Container() {
   return (
-    <div className="h-[280px] relative shrink-0 w-[1440px] z-[4]" data-name="Container">
+    <div className="h-[340px] relative shrink-0 w-[1440px] z-[4]" data-name="Container">
       <Container1 />
       <Link />
       <Heading />
