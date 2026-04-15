@@ -1,4 +1,5 @@
 // @ts-nocheck
+import { useState, useRef, useEffect } from "react";
 import svgPaths from "./svg-ww2hb5tg6t";
 import IntegrationsGrid from "./IntegrationsGrid";
 import ColorBends from "./ColorBends";
@@ -1204,11 +1205,11 @@ function Container62() {
 }
 
 function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string }) {
-  const [display, setDisplay] = React.useState(0);
-  const ref = React.useRef<HTMLSpanElement>(null);
-  const hasAnimated = React.useRef(false);
+  const [display, setDisplay] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const hasAnimated = useRef(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated.current) {
