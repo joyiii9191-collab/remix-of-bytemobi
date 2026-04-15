@@ -589,7 +589,6 @@ function Container5() {
 function Container4() {
   return (
     <div className="absolute content-stretch flex flex-col h-[810px] items-start left-0 mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[0px_0px] mask-size-[1440px_810px] right-0 top-0" style={{ maskImage: `url('${imgContainer}')` }} data-name="Container">
-      <QC3D7BecfWebm />
       <MaskGroup2 />
       <Container5 />
     </div>
@@ -608,7 +607,7 @@ function Section({ className }: { className?: string }) {
   return (
     <div className={className || "absolute content-stretch flex flex-col gap-[232px] isolate items-center left-0 pt-[173px] right-0 top-0"} data-name="Section">
       <Container />
-      <div className="absolute h-[600px] left-0 right-0 top-[300px] z-[3] overflow-hidden" style={{ pointerEvents: 'none' }} data-name="LaserFlow">
+      <div className="absolute h-[600px] left-0 right-0 top-[420px] z-[3] overflow-hidden" style={{ pointerEvents: 'none' }} data-name="LaserFlow">
         <LaserFlow
           color="#BA9CFF"
           verticalSizing={1.8}
@@ -622,7 +621,7 @@ function Section({ className }: { className?: string }) {
           decay={1.2}
           falloffStart={1.3}
           verticalBeamOffset={0.1}
-          horizontalBeamOffset={0.0}
+          horizontalBeamOffset={0.08}
           style={{ width: '100%', height: '100%', position: 'absolute', inset: 0 }}
         />
       </div>
