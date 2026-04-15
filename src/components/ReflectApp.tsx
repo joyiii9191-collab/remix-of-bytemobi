@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import svgPaths from "./svg-ww2hb5tg6t";
 import IntegrationsGrid from "./IntegrationsGrid";
 import BentoBusinessCards from "./BentoBusinessCards";
+import Aurora from "./Aurora";
 import ColorBends from "./ColorBends";
 import imgQCb311D1CPng from "@/assets/ca87b13c3dba5b82f5b55f7a1fbe96037f74413d.png";
 import imgQC3D7BecfWebm from "@/assets/8f7f3e78fa25f538b70e2685192395598c425a33.png";
@@ -1244,7 +1245,17 @@ function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string
 function Section1() {
   return (
     <div className="relative w-full h-full flex items-center justify-center px-16 pt-[80px]" data-name="Section">
-      <div className="w-full max-w-[1100px] flex items-center gap-20">
+      {/* Aurora at bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-[40%] pointer-events-none z-0">
+        <Aurora
+          colorStops={["#5227FF", "#B497CF", "#7c3aed"]}
+          blend={0.5}
+          amplitude={1.0}
+          speed={0.8}
+          flip={true}
+        />
+      </div>
+      <div className="w-full max-w-[1100px] flex items-center gap-20 relative z-[1]">
         {/* Left side — brand text */}
         <div className="w-[380px] shrink-0 flex flex-col gap-6">
           {/* Tag pill */}
