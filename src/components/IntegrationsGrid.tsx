@@ -1,7 +1,7 @@
 import React from "react";
 import iconZapier from "@/assets/icon-zapier.png";
 import iconReadwise from "@/assets/icon-readwise.png";
-import iconGlobeNetwork from "@/assets/icon-globe-network.png";
+import imgLogo from "@/assets/ByteMobiLOGO-02.png";
 import iconGoogleOutlook from "@/assets/icon-google-outlook.png";
 import iconChromeSafari from "@/assets/icon-chrome-safari.png";
 
@@ -13,14 +13,14 @@ interface IntegrationCardProps {
   iconBg?: string;
 }
 
-function IntegrationCard({ icon, title, description, iconSize = 64, iconBg }: IntegrationCardProps) {
+function IntegrationCard({ icon, title, description, iconSize = 52, iconBg }: IntegrationCardProps) {
   return (
-    <div className="flex flex-col items-center text-center gap-4 group">
+    <div className="flex flex-col items-center text-center gap-3 group cursor-pointer">
       <div className="relative">
-        {/* Glow effect */}
-        <div className="absolute inset-0 rounded-2xl bg-purple-500/20 blur-xl scale-125 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        {/* Hover glow */}
+        <div className="absolute inset-[-12px] rounded-2xl bg-purple-500/25 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         <div
-          className={`relative rounded-2xl overflow-hidden ${iconBg || ''}`}
+          className={`relative rounded-xl overflow-hidden ${iconBg || ''}`}
           style={{ width: iconSize, height: iconSize }}
         >
           <img
@@ -31,8 +31,8 @@ function IntegrationCard({ icon, title, description, iconSize = 64, iconBg }: In
           />
         </div>
       </div>
-      <h3 className="text-white font-semibold text-lg">{title}</h3>
-      <p className="text-white/50 text-sm max-w-[280px] leading-relaxed">{description}</p>
+      <h3 className="text-white font-semibold text-[15px] leading-tight">{title}</h3>
+      <p className="text-white/50 text-[13px] max-w-[240px] leading-relaxed">{description}</p>
     </div>
   );
 }
@@ -42,52 +42,51 @@ export default function IntegrationsGrid() {
     <div className="relative w-full h-full flex flex-col items-center justify-center px-8">
       {/* Background subtle glow */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-purple-600/5 blur-[120px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-purple-600/5 blur-[100px]" />
       </div>
 
-      <div className="relative grid grid-cols-2 gap-x-[200px] gap-y-[80px] items-start max-w-[900px]">
-        {/* Top row — positions swapped: Readwise left, Zapier right */}
+      <div className="relative grid grid-cols-2 gap-x-[180px] gap-y-[40px] items-start max-w-[800px]">
+        {/* Top row — positions swapped */}
         <IntegrationCard
           icon={iconReadwise}
           title="Readwise"
           description="Sync your reading highlights and notes with Reflect."
-          iconSize={64}
           iconBg="bg-white"
         />
         <IntegrationCard
           icon={iconZapier}
           title="Zapier"
           description="Connect with Reflect with dozens of applications without code"
-          iconSize={64}
         />
 
-        {/* Center globe with glow */}
-        <div className="col-span-2 flex justify-center -my-4">
-          <div className="relative">
-            <div className="absolute inset-[-20px] rounded-full bg-purple-500/30 blur-2xl animate-pulse" />
+        {/* Center logo with glow animation */}
+        <div className="col-span-2 flex justify-center py-2">
+          <div className="relative group">
+            {/* Outer pulsing glow */}
+            <div className="absolute inset-[-16px] rounded-full bg-purple-500/20 blur-2xl animate-pulse" />
+            {/* Inner steady glow */}
+            <div className="absolute inset-[-8px] rounded-full bg-purple-400/15 blur-lg" />
             <img
-              src={iconGlobeNetwork}
-              alt="Network"
+              src={imgLogo}
+              alt="ByteMobi Logo"
               loading="lazy"
-              width={80}
-              height={80}
-              className="relative drop-shadow-[0_0_20px_rgba(168,85,247,0.6)]"
+              width={64}
+              height={64}
+              className="relative drop-shadow-[0_0_16px_rgba(168,85,247,0.5)] rounded-full"
             />
           </div>
         </div>
 
-        {/* Bottom row — positions swapped: Chrome/Safari left, Google/Outlook right */}
+        {/* Bottom row — positions swapped */}
         <IntegrationCard
           icon={iconChromeSafari}
           title="Chrome and Safari"
           description="Save web clips and sync with your Kindle"
-          iconSize={64}
         />
         <IntegrationCard
           icon={iconGoogleOutlook}
           title="Google and Outlook"
           description="Integrate your contacts and calendars"
-          iconSize={64}
         />
       </div>
     </div>
