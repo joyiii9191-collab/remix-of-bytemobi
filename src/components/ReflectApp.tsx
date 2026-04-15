@@ -1237,7 +1237,7 @@ function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string
   }, [value]);
 
   return (
-    <span ref={ref} className="text-[28px] font-semibold bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 text-[transparent] tabular-nums">
+    <span ref={ref} className="text-[28px] font-semibold text-white tabular-nums">
       {display}{suffix}
     </span>
   );
