@@ -33,26 +33,26 @@
 }
 
 .neon-glow--1 {
-  box-shadow: 0 0 16px 2px hsla(277, 100%, 61%, 0.28);
-  border: 2px solid hsla(277, 100%, 61%, 0.42);
-  filter: blur(8px);
-}
-
-.neon-glow--2 {
-  box-shadow: 0 0 12px 1px hsla(277, 100%, 61%, 0.22);
-  border: 2px solid hsla(277, 100%, 61%, 0.34);
+  box-shadow: 0 0 12px 1px hsla(277, 100%, 61%, 0.18);
+  border: 1px solid hsla(277, 100%, 61%, 0.28);
   filter: blur(6px);
 }
 
-.neon-glow--3 {
-  box-shadow: 0 0 8px 1px hsla(277, 100%, 61%, 0.18);
-  border: 2px solid hsla(277, 100%, 61%, 0.26);
+.neon-glow--2 {
+  box-shadow: 0 0 8px 1px hsla(277, 100%, 61%, 0.14);
+  border: 1px solid hsla(277, 100%, 61%, 0.22);
   filter: blur(4px);
 }
 
+.neon-glow--3 {
+  box-shadow: 0 0 6px 1px hsla(277, 100%, 61%, 0.10);
+  border: 1px solid hsla(277, 100%, 61%, 0.16);
+  filter: blur(3px);
+}
+
 .neon-glow--4 {
-  box-shadow: 0 0 4px 0px hsla(277, 100%, 61%, 0.14);
-  border: 2px solid hsla(277, 100%, 61%, 0.18);
+  box-shadow: 0 0 3px 0px hsla(277, 100%, 61%, 0.08);
+  border: 1px solid hsla(277, 100%, 61%, 0.12);
   filter: blur(2px);
 }
 
