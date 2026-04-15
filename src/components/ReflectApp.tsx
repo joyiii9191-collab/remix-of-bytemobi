@@ -2137,22 +2137,7 @@ function Section4New() {
 }
 
 
-  return (
-    <div className="absolute content-stretch flex flex-col items-start justify-center left-0 mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[0px_0px] mask-size-[1012.879px_1012.879px] size-[783.993px] top-0" style={{ maskImage: `url('${imgContainer7}')` }} data-name="Container">
-      <div className="rounded-[392px] shrink-0 size-[784px]" style={{ backgroundImage: "linear-gradient(267deg, rgba(99, 102, 241, 0.4) 13.23%, rgba(3, 0, 20, 0) 50%)" }} data-name="Gradient" />
-      <div className="absolute flex h-[196.866px] items-center justify-center left-[-1092.69px] top-[79.66px] w-[339.982px]" style={{ "--transform-inner-width": "1200", "--transform-inner-height": "19" } as React.CSSProperties}>
-        <div className="flex-none rotate-60">
-          <div className="h-[392px] relative w-px" data-name="Vertical Divider">
-            <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
-              <img alt="" className="absolute max-w-none object-cover size-full" src={imgVerticalDivider5} />
-              <img alt="" className="absolute max-w-none object-cover size-full" src={imgVerticalDivider6} />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+
 
 function Container82() {
   return (
