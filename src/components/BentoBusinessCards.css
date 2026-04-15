@@ -78,7 +78,7 @@
   font-size: 28px;
   font-weight: 700;
   letter-spacing: 0.04em;
-  background: linear-gradient(135deg, hsla(277, 100%, 75%, 1), hsla(220, 100%, 75%, 1));
+  background: linear-gradient(135deg, hsla(277, 80%, 55%, 1), hsla(220, 80%, 55%, 1));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -86,7 +86,7 @@
 
 .bento-biz-scene {
   font-size: 12px;
-  color: hsla(0, 0%, 100%, 0.4);
+  color: hsla(0, 0%, 100%, 0.3);
   font-weight: 500;
 }
 
@@ -111,7 +111,7 @@
 .bento-biz-abbr-sm {
   font-size: 18px;
   font-weight: 700;
-  background: linear-gradient(135deg, hsla(277, 100%, 75%, 1), hsla(220, 100%, 75%, 1));
+  background: linear-gradient(135deg, hsla(277, 80%, 55%, 1), hsla(220, 80%, 55%, 1));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -119,14 +119,14 @@
 
 .bento-biz-full {
   font-size: 12px;
-  color: hsla(0, 0%, 100%, 0.35);
+  color: hsla(0, 0%, 100%, 0.25);
   font-weight: 400;
 }
 
 .bento-biz-desc {
   font-size: 12px;
   line-height: 20px;
-  color: hsla(0, 0%, 100%, 0.5);
+  color: hsla(0, 0%, 100%, 0.35);
   margin: 0;
   text-align: justify;
 }

@@ -1235,7 +1235,7 @@ function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string
   }, [value]);
 
   return (
-    <span ref={ref} className="text-[28px] font-semibold bg-clip-text bg-gradient-to-r from-purple-300 to-blue-300 text-[transparent] tabular-nums">
+    <span ref={ref} className="text-[28px] font-semibold bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 text-[transparent] tabular-nums">
       {display}{suffix}
     </span>
   );
@@ -1275,17 +1275,17 @@ function Section1() {
           <div className="flex gap-8 mt-2">
             <div className="flex flex-col gap-1">
               <AnimatedNumber value={200} suffix="+" />
-              <span className="text-[11px] text-white/35 tracking-wide">合作媒体</span>
+              <span className="text-[11px] text-white/25 tracking-wide">合作媒体</span>
             </div>
             <div className="w-px h-12 bg-white/[0.06]" />
             <div className="flex flex-col gap-1">
               <AnimatedNumber value={50} suffix="+" />
-              <span className="text-[11px] text-white/35 tracking-wide">覆盖国家</span>
+              <span className="text-[11px] text-white/25 tracking-wide">覆盖国家</span>
             </div>
             <div className="w-px h-12 bg-white/[0.06]" />
             <div className="flex flex-col gap-1">
               <AnimatedNumber value={10} suffix="亿+" />
-              <span className="text-[11px] text-white/35 tracking-wide">日均流量</span>
+              <span className="text-[11px] text-white/25 tracking-wide">日均流量</span>
             </div>
           </div>
         </div>
