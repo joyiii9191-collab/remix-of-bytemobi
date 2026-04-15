@@ -609,17 +609,17 @@ function Section({ className }: { className?: string }) {
       {/* ColorBends Background */}
       <div className="absolute inset-0 z-[0] overflow-hidden" style={{ pointerEvents: 'none' }}>
         <ColorBends
-          colors={["#7B2FFF", "#BA9CFF", "#3B0A7A", "#9CB2FF", "#1a0533"]}
-          speed={0.12}
-          noise={0.08}
-          rotation={135}
-          scale={1.2}
-          frequency={0.8}
-          warpStrength={0.6}
-          intensity={1.8}
-          bandWidth={5}
-          iterations={2}
-          mouseInfluence={0.3}
+          colors={["#9B5FFF", "#D4BBFF", "#6B2FC7", "#B8A0FF", "#4A1A8A", "#E0D0FF"]}
+          speed={0.15}
+          noise={0.1}
+          rotation={120}
+          scale={1.0}
+          frequency={1.2}
+          warpStrength={0.8}
+          intensity={2.2}
+          bandWidth={4}
+          iterations={3}
+          mouseInfluence={0.4}
           transparent={false}
           style={{ width: '100%', height: '100%' }}
         />
