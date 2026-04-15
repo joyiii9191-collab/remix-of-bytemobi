@@ -600,7 +600,7 @@ function MaskGroup1() {
 
 function Section({ className }: { className?: string }) {
   return (
-    <div className={className || "absolute content-stretch flex flex-col isolate items-center left-0 right-0 top-0 h-[900px]"} data-name="Section" style={{ backgroundColor: '#0a0a12' }}>
+    <div className={className || "absolute content-stretch flex flex-col isolate items-center left-0 right-0 top-0 h-[550px]"} data-name="Section" style={{ backgroundColor: '#0a0a12' }}>
       {/* ColorBends Background */}
       <div className="absolute inset-0 z-[0] overflow-hidden">
         <ColorBends
@@ -1202,7 +1202,7 @@ function Container62() {
 
 function Section1() {
   return (
-    <div className="absolute h-[1287px] left-0 right-0 top-[1653px]" data-name="Section">
+    <div className="absolute h-[1287px] left-0 right-0 top-[550px]" data-name="Section">
       <Container36 />
       <Container45 />
       <Container62 />
@@ -1774,7 +1774,7 @@ function Q44E26A19Png() {
 
 function Section2() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[48px] isolate items-center left-0 pb-[145px] pt-[496px] right-0 top-[2940px]" data-name="Section">
+    <div className="absolute content-stretch flex flex-col gap-[48px] isolate items-center left-0 pb-[145px] pt-[496px] right-0 top-[1837px]" data-name="Section">
       <Container65 />
       <Container68 />
       <MaskGroup14 />
@@ -2044,7 +2044,7 @@ function Container90() {
 
 function Section3() {
   return (
-    <div className="-translate-x-1/2 absolute h-[1110px] left-1/2 top-[4181px] w-[890px]" data-name="Section">
+    <div className="-translate-x-1/2 absolute h-[1110px] left-1/2 top-[3078px] w-[890px]" data-name="Section">
       <Container80 />
       <div className="absolute h-[212px] left-[-48px] top-[541px] w-px" data-name="Vertical Divider">
         <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgVerticalDivider7} />
@@ -2167,7 +2167,7 @@ function Container95() {
 
 function Section4() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[48px] items-center left-0 pb-[236px] pt-[222px] right-0 top-[5291px]" data-name="Section">
+    <div className="absolute content-stretch flex flex-col gap-[48px] items-center left-0 pb-[236px] pt-[222px] right-0 top-[4188px]" data-name="Section">
       <MaskGroup16 />
       <Container94 />
       <Container95 />
@@ -3473,7 +3473,7 @@ function Container150() {
 
 function Section5() {
   return (
-    <div className="absolute content-stretch flex flex-col isolate items-start left-0 pb-[24px] pt-[294px] right-0 top-[6067px]" data-name="Section">
+    <div className="absolute content-stretch flex flex-col isolate items-start left-0 pb-[24px] pt-[294px] right-0 top-[4964px]" data-name="Section">
       <Container98 />
       <Container101 />
       <Container150 />
@@ -3793,7 +3793,7 @@ function Container165() {
 
 function Section6() {
   return (
-    <div className="-translate-x-1/2 absolute content-stretch flex flex-col gap-[48px] isolate items-center left-1/2 pb-[172px] pt-[116px] top-[7221px] w-[1440px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 1440 940\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(64.944 0 0 47 720 470)\\'><stop stop-color=\\'rgba(148,101,255,0.06)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(3,0,20,0)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} data-name="Section">
+    <div className="-translate-x-1/2 absolute content-stretch flex flex-col gap-[48px] isolate items-center left-1/2 pb-[172px] pt-[116px] top-[6118px] w-[1440px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 1440 940\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(64.944 0 0 47 720 470)\\'><stop stop-color=\\'rgba(148,101,255,0.06)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(3,0,20,0)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} data-name="Section">
       <Container152 />
       <Background3 />
       <Container165 />
@@ -4537,7 +4537,7 @@ function Container192() {
 
 function Section7() {
   return (
-    <div className="absolute h-[1256px] left-0 right-0 top-[8161px]" data-name="Section">
+    <div className="absolute h-[1256px] left-0 right-0 top-[7058px]" data-name="Section">
       <Container166 />
       <Container174 />
       <Container176 />
@@ -5241,7 +5241,7 @@ function Container231() {
 
 function Section8() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[48px] isolate items-center left-0 pb-[72px] pt-[108px] right-0 top-[9417px]" data-name="Section">
+    <div className="absolute content-stretch flex flex-col gap-[48px] isolate items-center left-0 pb-[72px] pt-[108px] right-0 top-[8314px]" data-name="Section">
       <Container196 />
       <Container198 />
       <Container231 />
@@ -5441,7 +5441,7 @@ function Container242() {
 
 function Section9() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[40px] isolate items-center left-0 pt-[96px] right-0 top-[10285px]" data-name="Section">
+    <div className="absolute content-stretch flex flex-col gap-[40px] isolate items-center left-0 pt-[96px] right-0 top-[9182px]" data-name="Section">
       <Container233 />
       <Link2 />
       <MaskGroup53 />
@@ -5882,7 +5882,7 @@ function Container251() {
 
 function Container243({ className }: { className?: string }) {
   return (
-    <div className={className || "absolute content-stretch flex flex-col gap-[20px] items-center left-0 pb-[52px] pt-[180px] right-0 top-[11109px]"} data-name="Container">
+    <div className={className || "absolute content-stretch flex flex-col gap-[20px] items-center left-0 pb-[52px] pt-[180px] right-0 top-[10006px]"} data-name="Container">
       <Container244 />
       <Container251 />
     </div>
@@ -6004,7 +6004,7 @@ function MaskGroup56() {
 
 function Section10() {
   return (
-    <div className="-translate-x-1/2 absolute content-stretch flex flex-col gap-[32px] h-[600px] isolate items-center left-1/2 overflow-clip pt-[64px] top-[12097px] w-[1440px]" data-name="Section">
+    <div className="-translate-x-1/2 absolute content-stretch flex flex-col gap-[32px] h-[600px] isolate items-center left-1/2 overflow-clip pt-[64px] top-[10994px] w-[1440px]" data-name="Section">
       <Container255 />
       <Link4 />
       <MaskGroup56 />
@@ -6515,7 +6515,7 @@ function Container260() {
 
 function BackgroundHorizontalBorder() {
   return (
-    <div className="absolute content-stretch flex flex-col items-center left-0 pt-px px-[156px] right-0 top-[13100px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 1440 603\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(72 0 0 26.568 720 0)\\'><stop stop-color=\\'rgba(147,130,255,0.08)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(147,130,255,0)\\' offset=\\'1\\'/></radialGradient></defs></svg>'), linear-gradient(90deg, rgb(3, 0, 20) 0%, rgb(3, 0, 20) 100%)" }} data-name="Background+HorizontalBorder">
+    <div className="absolute content-stretch flex flex-col items-center left-0 pt-px px-[156px] right-0 top-[11997px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 1440 603\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(72 0 0 26.568 720 0)\\'><stop stop-color=\\'rgba(147,130,255,0.08)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(147,130,255,0)\\' offset=\\'1\\'/></radialGradient></defs></svg>'), linear-gradient(90deg, rgb(3, 0, 20) 0%, rgb(3, 0, 20) 100%)" }} data-name="Background+HorizontalBorder">
       <div aria-hidden="true" className="absolute border-[rgba(255,255,255,0.1)] border-solid border-t inset-0 pointer-events-none" />
       <Container260 />
     </div>
@@ -6996,7 +6996,7 @@ function Container279() {
 
 function Section11() {
   return (
-    <div className="-translate-x-1/2 absolute content-stretch flex flex-col items-center left-1/2 top-[12697px] w-[1200px]" data-name="Section">
+    <div className="-translate-x-1/2 absolute content-stretch flex flex-col items-center left-1/2 top-[11594px] w-[1200px]" data-name="Section">
       <Container278 />
       <Container279 />
     </div>
@@ -7254,7 +7254,7 @@ function OverlayOverlayBlur() {
 
 export default function ReflectApp() {
   return (
-    <div className="relative w-full min-h-[13800px]" style={{ backgroundImage: "linear-gradient(90deg, rgb(3, 0, 20) 0%, rgb(3, 0, 20) 100%), linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%)" }} data-name="Reflect App">
+    <div className="relative w-full min-h-[12697px]" style={{ backgroundImage: "linear-gradient(90deg, rgb(3, 0, 20) 0%, rgb(3, 0, 20) 100%), linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%)" }} data-name="Reflect App">
       {/* Background Lighting Effects */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <div className="absolute top-[200px] left-[-200px] size-[800px] rounded-full bg-purple-600/10 blur-[150px]" />
