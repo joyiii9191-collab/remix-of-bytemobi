@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   border-radius: 26px;
-  background: hsl(var(--card));
+  background: hsl(var(--background));
   isolation: isolate;
 }
 
@@ -10,7 +10,7 @@
   position: relative;
   z-index: 2;
   border-radius: 26px;
-  background: hsl(var(--card));
+  background: hsl(var(--background));
   overflow: hidden;
 }
 
