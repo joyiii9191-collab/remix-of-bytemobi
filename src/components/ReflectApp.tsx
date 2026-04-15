@@ -65,9 +65,9 @@ import { imgGradient, imgGradientOverlay, imgContainer, imgContainer1, imgContai
 
 function Container1() {
   return (
-    <div className="absolute content-stretch flex flex-col items-center left-0 px-[120px] right-0 top-[220px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.5)] text-center whitespace-nowrap">
-        <p className="leading-[24px]">Intelligently Driven, Converging Global Streams, Igniting Momentum in Japan</p>
+    <div className="absolute content-stretch flex flex-col items-center left-0 px-[120px] right-0 top-[210px]" data-name="Container">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[20px] text-[rgba(239,237,253,0.6)] text-center tracking-[0.05em]">
+        <p className="leading-[30px]">Intelligently Driven, Converging Global Streams, Igniting Momentum in Japan</p>
       </div>
     </div>
   );
