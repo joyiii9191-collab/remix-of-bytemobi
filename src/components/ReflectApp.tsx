@@ -5,6 +5,7 @@ import IntegrationsGrid from "./IntegrationsGrid";
 import BentoBusinessCards from "./BentoBusinessCards";
 import Aurora from "./Aurora";
 import ColorBends from "./ColorBends";
+import "./LiquidGlassCard.css";
 import imgQCb311D1CPng from "@/assets/ca87b13c3dba5b82f5b55f7a1fbe96037f74413d.png";
 import imgQC3D7BecfWebm from "@/assets/8f7f3e78fa25f538b70e2685192395598c425a33.png";
 import imgQ6C12DbaePng from "@/assets/5d3fc7562b3454b57dbfd13b639f4b550f37a55c.png";
@@ -1255,55 +1256,64 @@ function Section1() {
           flip={true}
         />
       </div>
-      <div className="w-full max-w-[1100px] flex items-center gap-20 relative z-[1]">
-        {/* Left side — brand text */}
-        <div className="w-[380px] shrink-0 flex flex-col gap-6">
-          {/* Tag pill */}
-          <div className="flex items-center gap-2 self-start">
-            <div className="h-px w-6 bg-gradient-to-r from-purple-500 to-transparent" />
-            <span className="text-[11px] tracking-[0.15em] uppercase text-purple-400/70 font-medium">About ByteMobi</span>
+
+      {/* Main liquid glass panel */}
+      <div className="liquid-glass liquid-glass--panel w-full max-w-[1100px] relative z-[1]">
+        <div className="flex items-center gap-12 p-10">
+          {/* Left side — brand text */}
+          <div className="w-[380px] shrink-0 flex flex-col gap-6">
+            {/* Tag pill */}
+            <div className="flex items-center gap-2 self-start">
+              <div className="h-px w-6" style={{ background: 'linear-gradient(to right, hsla(277, 100%, 61%, 0.6), transparent)' }} />
+              <span className="text-[11px] tracking-[0.15em] uppercase font-medium" style={{ color: 'hsla(277, 80%, 70%, 0.7)' }}>About ByteMobi</span>
+            </div>
+
+            {/* Title */}
+            <h2 className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[44px] leading-[1.1] font-semibold tracking-tight bg-clip-text bg-gradient-to-b from-white via-white to-white/60 text-[transparent]">
+              品牌简介
+            </h2>
+
+            {/* Subtitle */}
+            <p className="text-[18px] leading-[28px] font-medium" style={{ color: 'hsla(0, 0%, 100%, 0.8)' }}>
+              聚焦全球品牌与效果广告营销
+            </p>
+
+            {/* Divider — glass style */}
+            <div className="w-12 h-px" style={{ background: 'linear-gradient(to right, hsla(277, 100%, 61%, 0.4), hsla(220, 100%, 60%, 0.4))' }} />
+
+            {/* Description */}
+            <p className="text-[13px] leading-[22px] text-justify max-w-[360px]" style={{ color: 'hsla(0, 0%, 100%, 0.4)' }}>
+              依托自有程序化流量体系整合全球头部媒体及合作伙伴生态资源，构建多元化流量网络，以全球布局为基础，深度拓展日本市场，为广告主提供高效的一站式广告投放与流量变现解决方案。
+            </p>
+
+            {/* Stats row */}
+            <div className="flex gap-8 mt-2">
+              <div className="flex flex-col gap-1">
+                <AnimatedNumber value={200} suffix="+" />
+                <span className="text-[11px] tracking-wide" style={{ color: 'hsla(0, 0%, 100%, 0.25)' }}>合作媒体</span>
+              </div>
+              <div className="w-px h-12" style={{ background: 'hsla(0, 0%, 100%, 0.06)' }} />
+              <div className="flex flex-col gap-1">
+                <AnimatedNumber value={50} suffix="+" />
+                <span className="text-[11px] tracking-wide" style={{ color: 'hsla(0, 0%, 100%, 0.25)' }}>覆盖国家</span>
+              </div>
+              <div className="w-px h-12" style={{ background: 'hsla(0, 0%, 100%, 0.06)' }} />
+              <div className="flex flex-col gap-1">
+                <AnimatedNumber value={10} suffix="亿+" />
+                <span className="text-[11px] tracking-wide" style={{ color: 'hsla(0, 0%, 100%, 0.25)' }}>日均流量</span>
+              </div>
+            </div>
           </div>
 
-          {/* Title */}
-          <h2 className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[44px] leading-[1.1] font-semibold tracking-tight bg-clip-text bg-gradient-to-b from-white via-white to-white/60 text-[transparent]">
-            品牌简介
-          </h2>
+          {/* Vertical divider — glass edge */}
+          <div className="w-px self-stretch" style={{
+            background: 'linear-gradient(180deg, transparent 5%, hsla(0, 0%, 100%, 0.08) 30%, hsla(0, 0%, 100%, 0.08) 70%, transparent 95%)',
+          }} />
 
-          {/* Subtitle */}
-          <p className="text-[18px] leading-[28px] font-medium text-white/80">
-            聚焦全球品牌与效果广告营销
-          </p>
-
-          {/* Divider */}
-          <div className="w-12 h-px bg-gradient-to-r from-purple-500/40 to-blue-500/40" />
-
-          {/* Description */}
-          <p className="text-[13px] leading-[22px] text-white/40 text-justify max-w-[360px]">
-            依托自有程序化流量体系整合全球头部媒体及合作伙伴生态资源，构建多元化流量网络，以全球布局为基础，深度拓展日本市场，为广告主提供高效的一站式广告投放与流量变现解决方案。
-          </p>
-
-          {/* Stats row */}
-          <div className="flex gap-8 mt-2">
-            <div className="flex flex-col gap-1">
-              <AnimatedNumber value={200} suffix="+" />
-              <span className="text-[11px] text-white/25 tracking-wide">合作媒体</span>
-            </div>
-            <div className="w-px h-12 bg-white/[0.06]" />
-            <div className="flex flex-col gap-1">
-              <AnimatedNumber value={50} suffix="+" />
-              <span className="text-[11px] text-white/25 tracking-wide">覆盖国家</span>
-            </div>
-            <div className="w-px h-12 bg-white/[0.06]" />
-            <div className="flex flex-col gap-1">
-              <AnimatedNumber value={10} suffix="亿+" />
-              <span className="text-[11px] text-white/25 tracking-wide">日均流量</span>
-            </div>
+          {/* Right side — 4 cards grid */}
+          <div className="flex-1 grid grid-cols-2 gap-5">
+            <IntegrationsGrid />
           </div>
-        </div>
-
-        {/* Right side — 4 cards grid */}
-        <div className="flex-1 grid grid-cols-2 gap-6">
-          <IntegrationsGrid />
         </div>
       </div>
     </div>
@@ -1878,67 +1888,55 @@ function Section2() {
       {/* Header */}
       <div className="flex flex-col items-center gap-4 mb-12">
         <div className="flex items-center gap-2">
-          <div className="h-px w-6 bg-gradient-to-r from-purple-500 to-transparent" />
-          <span className="text-[11px] tracking-[0.15em] uppercase text-purple-400/70 font-medium">Core Business</span>
-          <div className="h-px w-6 bg-gradient-to-l from-purple-500 to-transparent" />
+          <div className="h-px w-6" style={{ background: 'linear-gradient(to right, hsla(277, 100%, 61%, 0.6), transparent)' }} />
+          <span className="text-[11px] tracking-[0.15em] uppercase font-medium" style={{ color: 'hsla(277, 80%, 70%, 0.7)' }}>Core Business</span>
+          <div className="h-px w-6" style={{ background: 'linear-gradient(to left, hsla(277, 100%, 61%, 0.6), transparent)' }} />
         </div>
 
         <h2 className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[44px] leading-[1.1] font-semibold tracking-tight bg-clip-text bg-gradient-to-b from-white via-white to-white/60 text-[transparent]">
           核心业务板块
         </h2>
 
-        <p className="text-[18px] leading-[28px] font-medium text-white/80">
+        <p className="text-[18px] leading-[28px] font-medium" style={{ color: 'hsla(0, 0%, 100%, 0.8)' }}>
           品牌与效果广告
         </p>
 
-        <p className="text-[13px] leading-[22px] text-white/40 text-center max-w-[480px]">
+        <p className="text-[13px] leading-[22px] text-center max-w-[480px]" style={{ color: 'hsla(0, 0%, 100%, 0.4)' }}>
           帮助广告主精准触达目标用户，兼顾品牌曝光与效果转化
         </p>
       </div>
 
-      {/* Glass Screen Frame - bottom cropped */}
+      {/* Browser-style liquid glass frame */}
       <div className="relative w-full max-w-[1060px] overflow-hidden" style={{ maxHeight: '580px' }}>
-         {/* Liquid glass frame */}
-         <div className="relative rounded-[20px] overflow-hidden"
-           style={{
-             background: 'hsla(0, 0%, 100%, 0.03)',
-             backdropFilter: 'blur(60px) saturate(1.5)',
-             WebkitBackdropFilter: 'blur(60px) saturate(1.5)',
-             border: '1px solid hsla(0, 0%, 100%, 0.1)',
-             boxShadow: '0 20px 80px -16px hsla(0, 0%, 0%, 0.6), inset 0 1px 0 0 hsla(0, 0%, 100%, 0.12), inset 0 -1px 0 0 hsla(0, 0%, 100%, 0.03)',
-           }}
-         >
-           {/* Top bar */}
-           <div className="flex items-center gap-[7px] px-5 py-[14px]"
-             style={{
-               borderBottom: '1px solid hsla(0, 0%, 100%, 0.06)',
-               background: 'hsla(0, 0%, 100%, 0.02)',
-             }}
-           >
-             <div className="w-[11px] h-[11px] rounded-full" style={{ background: '#FF5F57', boxShadow: '0 0 4px hsla(3, 100%, 67%, 0.3)' }} />
-             <div className="w-[11px] h-[11px] rounded-full" style={{ background: '#FEBC2E', boxShadow: '0 0 4px hsla(40, 99%, 58%, 0.3)' }} />
-             <div className="w-[11px] h-[11px] rounded-full" style={{ background: '#28C840', boxShadow: '0 0 4px hsla(130, 69%, 47%, 0.3)' }} />
-             <div className="flex-1 flex justify-center ml-4">
-               <div className="px-6 py-[5px] rounded-md text-[11px] tracking-wide"
-                 style={{
-                   background: 'hsla(0, 0%, 100%, 0.04)',
-                   border: '1px solid hsla(0, 0%, 100%, 0.06)',
-                   color: 'hsla(0, 0%, 100%, 0.2)',
-                 }}
-               >
-                 reflectmedia.com
-               </div>
-             </div>
-             <div className="w-[80px]" />
-           </div>
-           {/* Content */}
-           <div className="relative p-6">
-             <div className="absolute top-0 left-0 right-0 h-[1px] pointer-events-none" style={{ background: 'linear-gradient(90deg, transparent 10%, hsla(0, 0%, 100%, 0.06) 50%, transparent 90%)' }} />
-             <BentoBusinessCards />
-           </div>
-         </div>
-         {/* Bottom fade */}
-         <div className="absolute bottom-0 left-0 right-0 h-[80px] pointer-events-none z-10" style={{ background: 'linear-gradient(to top, hsla(240, 15%, 5%, 1) 0%, hsla(240, 15%, 5%, 0.8) 40%, transparent 100%)' }} />
+        <div className="liquid-glass liquid-glass--browser">
+          {/* Browser top bar */}
+          <div className="flex items-center gap-[7px] px-5 py-[14px]"
+            style={{
+              borderBottom: '1px solid hsla(0, 0%, 100%, 0.06)',
+              background: 'hsla(0, 0%, 100%, 0.02)',
+            }}
+          >
+            <div className="w-[11px] h-[11px] rounded-full" style={{ background: '#FF5F57', boxShadow: '0 0 4px hsla(3, 100%, 67%, 0.3)' }} />
+            <div className="w-[11px] h-[11px] rounded-full" style={{ background: '#FEBC2E', boxShadow: '0 0 4px hsla(40, 99%, 58%, 0.3)' }} />
+            <div className="w-[11px] h-[11px] rounded-full" style={{ background: '#28C840', boxShadow: '0 0 4px hsla(130, 69%, 47%, 0.3)' }} />
+            <div className="flex-1 flex justify-center ml-4">
+              <div className="liquid-glass liquid-glass--inner px-6 py-[5px] !rounded-md">
+                <span className="text-[11px] tracking-wide relative z-[1]" style={{ color: 'hsla(0, 0%, 100%, 0.25)' }}>
+                  reflectmedia.com
+                </span>
+              </div>
+            </div>
+            <div className="w-[80px]" />
+          </div>
+
+          {/* Content area */}
+          <div className="relative p-6">
+            <BentoBusinessCards />
+          </div>
+        </div>
+
+        {/* Bottom fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-[80px] pointer-events-none z-10" style={{ background: 'linear-gradient(to top, hsla(240, 15%, 5%, 1) 0%, hsla(240, 15%, 5%, 0.8) 40%, transparent 100%)' }} />
       </div>
     </div>
   );
