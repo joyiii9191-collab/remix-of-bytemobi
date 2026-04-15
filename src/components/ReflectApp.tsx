@@ -1886,7 +1886,7 @@ function Section2() {
       </div>
 
       {/* Glass Screen Frame - bottom cropped */}
-      <div className="relative w-full max-w-[1060px] overflow-hidden" style={{ maxHeight: '420px' }}>
+      <div className="relative w-full max-w-[1060px] overflow-hidden" style={{ maxHeight: '520px' }}>
         <div className="relative rounded-2xl border border-white/[0.08] p-[1px]"
           style={{
             background: 'transparent',
