@@ -600,7 +600,7 @@ function MaskGroup1() {
 
 function Section({ className }: { className?: string }) {
   return (
-    <div className={className || "absolute content-stretch flex flex-col isolate items-center left-0 right-0 top-0 h-[900px]"} data-name="Section" style={{ backgroundColor: '#0a0a12' }}>
+    <div className={className || "absolute content-stretch flex flex-col isolate items-center left-0 right-0 top-0 h-screen"} data-name="Section" style={{ backgroundColor: '#0a0a12' }}>
       {/* ColorBends Background */}
       <div className="absolute inset-0 z-[0] overflow-hidden">
         <ColorBends
