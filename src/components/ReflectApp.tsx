@@ -608,7 +608,7 @@ function Section({ className }: { className?: string }) {
   return (
     <div className={className || "absolute content-stretch flex flex-col gap-[232px] isolate items-center left-0 pt-[173px] right-0 top-0"} data-name="Section">
       <Container />
-      <div className="absolute h-[900px] left-0 right-0 top-[-173px] z-[3] overflow-hidden" style={{ pointerEvents: 'none' }} data-name="LaserFlow">
+      <div className="absolute h-[600px] left-0 right-0 top-[300px] z-[3] overflow-hidden" style={{ pointerEvents: 'none' }} data-name="LaserFlow">
         <LaserFlow
           color="#BA9CFF"
           verticalSizing={1.8}
@@ -621,7 +621,7 @@ function Section({ className }: { className?: string }) {
           wispIntensity={4}
           decay={1.2}
           falloffStart={1.3}
-          verticalBeamOffset={-0.15}
+          verticalBeamOffset={0.1}
           horizontalBeamOffset={0.0}
           style={{ width: '100%', height: '100%', position: 'absolute', inset: 0 }}
         />
