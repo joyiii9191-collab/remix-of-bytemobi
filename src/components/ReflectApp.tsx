@@ -1204,8 +1204,9 @@ function Container62() {
 }
 
 function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string }) {
-  const [display, setDisplay] = React.useState(0);
-  const ref = React.useRef<HTMLSpanElement>(null);
+  const [display, setDisplay] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const hasAnimated = useRef(false);
   const hasAnimated = React.useRef(false);
 
   React.useEffect(() => {
