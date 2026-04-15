@@ -2362,6 +2362,97 @@ function Section6LogoWall() {
   );
 }
 
+function Section8TrafficMap() {
+  return (
+    <div className="relative w-full h-full flex flex-col items-center justify-center px-[80px] gap-[48px]" data-name="Section8TrafficMap">
+      {/* Ambient glow */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        background: 'radial-gradient(ellipse 60% 40% at 50% 50%, rgba(120,60,255,0.08) 0%, transparent 70%)'
+      }} />
+
+      {/* Header */}
+      <div className="flex flex-col items-center gap-4 z-10">
+        <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/[0.03] text-[13px] text-[#818089] tracking-wide">
+          <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
+          Global Coverage
+        </span>
+        <h2 className="text-[44px] font-semibold text-white leading-[1.15] tracking-tight text-center">
+          我们的<span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">流量分布</span>区域
+        </h2>
+        <p className="text-[17px] text-[#818089] leading-[1.6] text-center max-w-[600px]">
+          覆盖全球主要市场，为您的业务提供精准的流量支持
+        </p>
+      </div>
+
+      {/* Large placeholder map */}
+      <div className="relative w-full max-w-[1100px] z-10" style={{ aspectRatio: '16/9' }}>
+        <div
+          className="w-full h-full rounded-[24px] overflow-hidden"
+          style={{
+            background: 'linear-gradient(135deg, rgba(30,20,60,0.9) 0%, rgba(10,8,30,0.95) 50%, rgba(20,15,50,0.9) 100%)',
+            border: '1px solid rgba(255,255,255,0.06)',
+            boxShadow: '0 0 80px rgba(100,60,255,0.08), inset 0 1px 0 rgba(255,255,255,0.04)',
+          }}
+        >
+          {/* Grid overlay */}
+          <div className="absolute inset-0 opacity-[0.03]" style={{
+            backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
+            backgroundSize: '60px 60px',
+          }} />
+
+          {/* Decorative dots representing traffic nodes */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <svg viewBox="0 0 800 450" className="w-full h-full opacity-30">
+              {/* Simplified world map dots */}
+              {[
+                // North America
+                { cx: 180, cy: 140, r: 6 }, { cx: 200, cy: 160, r: 4 }, { cx: 160, cy: 170, r: 5 },
+                { cx: 220, cy: 150, r: 3 }, { cx: 190, cy: 180, r: 4 },
+                // Europe
+                { cx: 400, cy: 120, r: 6 }, { cx: 420, cy: 130, r: 5 }, { cx: 380, cy: 140, r: 4 },
+                { cx: 410, cy: 150, r: 3 }, { cx: 430, cy: 110, r: 4 },
+                // Asia
+                { cx: 600, cy: 150, r: 7 }, { cx: 620, cy: 170, r: 5 }, { cx: 580, cy: 160, r: 4 },
+                { cx: 640, cy: 140, r: 4 }, { cx: 610, cy: 190, r: 6 }, { cx: 650, cy: 180, r: 3 },
+                // South America
+                { cx: 250, cy: 300, r: 4 }, { cx: 270, cy: 280, r: 3 }, { cx: 260, cy: 320, r: 5 },
+                // Africa
+                { cx: 420, cy: 250, r: 4 }, { cx: 440, cy: 230, r: 3 },
+                // Oceania
+                { cx: 680, cy: 320, r: 4 }, { cx: 700, cy: 310, r: 3 },
+              ].map((dot, i) => (
+                <circle key={i} cx={dot.cx} cy={dot.cy} r={dot.r} fill="url(#dotGlow)" />
+              ))}
+              {/* Connection lines */}
+              {[
+                { x1: 200, y1: 160, x2: 400, y2: 120 },
+                { x1: 400, y1: 130, x2: 600, y2: 150 },
+                { x1: 200, y1: 160, x2: 600, y2: 150 },
+                { x1: 250, y1: 300, x2: 420, y2: 250 },
+                { x1: 600, y1: 150, x2: 680, y2: 320 },
+              ].map((line, i) => (
+                <line key={i} x1={line.x1} y1={line.y1} x2={line.x2} y2={line.y2}
+                  stroke="rgba(139,92,246,0.3)" strokeWidth="0.5" strokeDasharray="4 4" />
+              ))}
+              <defs>
+                <radialGradient id="dotGlow">
+                  <stop offset="0%" stopColor="rgba(139,92,246,1)" />
+                  <stop offset="100%" stopColor="rgba(139,92,246,0)" />
+                </radialGradient>
+              </defs>
+            </svg>
+          </div>
+
+          {/* Center label */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="text-[#818089]/40 text-[18px] tracking-widest uppercase">Traffic Distribution Map</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 
 function Container82() {
   return (
