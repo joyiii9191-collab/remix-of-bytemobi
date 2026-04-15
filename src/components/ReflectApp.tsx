@@ -7486,75 +7486,12 @@ export default function ReflectApp() {
         </div>
       </SnapSection>
 
-      {/* 第4屏：Section3 */}
+      {/* 第12屏：Footer */}
       <SnapSection>
         <div className="relative w-full h-full flex items-center justify-center">
           <div className="relative w-full h-full">
-            <Section3 />
-          </div>
-        </div>
-      </SnapSection>
-
-      {/* 第5屏：Section4 */}
-      <SnapSection>
-        <div className="relative w-full h-full flex items-center justify-center">
-          <div className="relative w-full h-full">
-            <Section4 />
-          </div>
-        </div>
-      </SnapSection>
-
-      {/* 第6屏：Section5 */}
-      <SnapSection>
-        <div className="relative w-full h-full flex items-center justify-center">
-          <div className="relative w-full h-full">
-            <Section5 />
-          </div>
-        </div>
-      </SnapSection>
-
-      {/* 第7屏：Section6 */}
-      <SnapSection>
-        <div className="relative w-full h-full flex items-center justify-center">
-          <div className="relative w-full h-full">
-            <Section6 />
-          </div>
-        </div>
-      </SnapSection>
-
-      {/* 第8屏：Section7 */}
-      <SnapSection>
-        <div className="relative w-full h-full flex items-center justify-center">
-          <div className="relative w-full h-full">
-            <Section7 />
-          </div>
-        </div>
-      </SnapSection>
-
-      {/* 第9屏：Section8 */}
-      <SnapSection>
-        <div className="relative w-full h-full flex items-center justify-center">
-          <div className="relative w-full h-full">
-            <Section8 />
-          </div>
-        </div>
-      </SnapSection>
-
-      {/* 第10屏：Section9 + Container243 */}
-      <SnapSection>
-        <div className="relative w-full h-full flex items-center justify-center">
-          <div className="relative w-full h-full">
-            <Section9 />
-            <Container243 className="relative" />
-          </div>
-        </div>
-      </SnapSection>
-
-      {/* 第11屏：Section10 */}
-      <SnapSection>
-        <div className="relative w-full h-full flex items-center justify-center">
-          <div className="relative w-full h-full">
-            <Section10 />
+            <Section11 />
+            <BackgroundHorizontalBorder />
           </div>
         </div>
       </SnapSection>
