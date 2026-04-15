@@ -1886,27 +1886,24 @@ function Section2() {
       </div>
 
       {/* Glass Screen Frame - bottom cropped */}
-      <div className="relative w-full max-w-[1060px] overflow-hidden" style={{ maxHeight: '520px' }}>
-        <div className="relative rounded-2xl border border-white/[0.08] p-[1px]"
+      <div className="relative w-full max-w-[1060px] overflow-hidden" style={{ maxHeight: '540px' }}>
+        {/* Outer glass container */}
+        <div className="relative rounded-2xl overflow-hidden"
           style={{
-            background: 'transparent',
+            background: 'hsla(0, 0%, 100%, 0.04)',
+            backdropFilter: 'blur(40px) saturate(1.2)',
+            WebkitBackdropFilter: 'blur(40px) saturate(1.2)',
+            border: '1px solid hsla(0, 0%, 100%, 0.1)',
+            boxShadow: '0 8px 40px -8px hsla(0, 0%, 0%, 0.4), inset 0 1px 0 0 hsla(0, 0%, 100%, 0.06)',
           }}
         >
-          {/* Inner screen area */}
-          <div className="relative rounded-[14px] overflow-hidden"
-            style={{
-              background: 'hsla(240, 15%, 7%, 0.6)',
-              backdropFilter: 'blur(20px)',
-            }}
-          >
-            {/* Content */}
-            <div className="relative z-[1] p-8 pt-10">
-              <BentoBusinessCards />
-            </div>
+          {/* Content */}
+          <div className="relative z-[1] p-7">
+            <BentoBusinessCards />
           </div>
         </div>
-        {/* Bottom fade to hide cut-off */}
-        <div className="absolute bottom-0 left-0 right-0 h-[80px] bg-gradient-to-t from-[hsla(240,15%,5%,1)] via-[hsla(240,15%,5%,0.8)] to-transparent pointer-events-none z-10" />
+        {/* Bottom fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-[60px] bg-gradient-to-t from-[hsla(240,15%,5%,1)] to-transparent pointer-events-none z-10" />
       </div>
     </div>
   );
