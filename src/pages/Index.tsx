@@ -1,16 +1,82 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React, { useEffect, useState, useRef } from "react";
+import ReflectApp from "../components/ReflectApp";
+import { OptimizedHeader } from "../components/OptimizedHeader";
+import { MouseGlow } from "../components/MouseGlow";
+import { Starfield } from "../components/Starfield";
+import { ScrollReveal } from "../components/ScrollReveal";
+import { motion, AnimatePresence } from "motion/react";
+import { ArrowUp } from "lucide-react";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+export default function Index() {
+  const [scale, setScale] = useState(1);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      const baseWidth = 1440;
+      if (width < baseWidth) {
+        setScale(width / baseWidth);
+      } else {
+        setScale(1);
+      }
+    };
+
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 800);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
+    <div className="min-h-screen bg-[#030014] text-white font-sans" style={{ userSelect: "none" }}>
+      <OptimizedHeader />
+      <MouseGlow />
+      
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <Starfield />
+      </div>
+
+      <main className="relative z-10 flex flex-col items-center overflow-x-hidden">
+        <div
+          ref={containerRef}
+          className="w-[1440px] origin-top shrink-0 transition-transform duration-200 ease-out"
+          style={{ transform: `scale(${scale})` }}
+        >
+          <ScrollReveal delay={0.2}>
+            <ReflectApp />
+          </ScrollReveal>
+        </div>
+      </main>
+
+      <AnimatePresence>
+        {showBackToTop && (
+          <motion.button
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            onClick={scrollToTop}
+            className="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-white/10 backdrop-blur-lg border border-white/20 hover:bg-white/20 transition-all shadow-xl"
+            aria-label="Back to top"
+          >
+            <ArrowUp size={24} />
+          </motion.button>
+        )}
+      </AnimatePresence>
+
+      <div className="fixed bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-purple-500/50 to-transparent blur-sm pointer-events-none" />
     </div>
   );
-};
-
-const Index = PlaceholderIndex;
-
-export default Index;
+}
