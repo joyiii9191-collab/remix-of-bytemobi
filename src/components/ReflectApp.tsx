@@ -7252,38 +7252,123 @@ function OverlayOverlayBlur() {
   );
 }
 
+function SnapSection({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return (
+    <div className={`h-screen w-full snap-start snap-always relative overflow-hidden ${className}`}>
+      {children}
+    </div>
+  );
+}
+
 export default function ReflectApp() {
   return (
-    <div className="relative w-full" style={{ minHeight: 'calc(100vh + 11447px)', backgroundImage: "linear-gradient(90deg, rgb(3, 0, 20) 0%, rgb(3, 0, 20) 100%), linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%)" }} data-name="Reflect App">
-      {/* Background Lighting Effects */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-        <div className="absolute top-[200px] left-[-200px] size-[800px] rounded-full bg-purple-600/10 blur-[150px]" />
-        <div className="absolute top-[1200px] right-[-300px] size-[1000px] rounded-full bg-indigo-600/10 blur-[200px]" />
-        <div className="absolute top-[4000px] left-[10%] size-[1200px] rounded-full bg-blue-600/5 blur-[250px]" />
-        <div className="absolute top-[7000px] right-[10%] size-[1200px] rounded-full bg-purple-600/10 blur-[250px]" />
-        <div className="absolute top-[10000px] left-[5%] size-[1500px] rounded-full bg-indigo-600/10 blur-[300px]" />
-        <div className="absolute bottom-[200px] right-[10%] size-[1000px] rounded-full bg-purple-600/10 blur-[200px]" />
-      </div>
+    <div className="w-full" style={{ backgroundImage: "linear-gradient(90deg, rgb(3, 0, 20) 0%, rgb(3, 0, 20) 100%), linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%)" }} data-name="Reflect App">
 
-      <Section />
-      <div className="absolute left-0 right-0" style={{ top: '100vh' }}>
-        <div className="relative w-full min-h-[11447px]">
-          <Section1 />
-          <Section2 />
-          <Section3 />
-          <Section4 />
-          <Section5 />
-          <Section6 />
-          <Section7 />
-          <Section8 />
-          <Section9 />
-          <Container243 />
-          <Section10 />
-          <Section11 />
-          <BackgroundHorizontalBorder />
+      {/* 第1屏：Hero */}
+      <SnapSection>
+        <Section className="relative w-full h-full flex flex-col isolate items-center" />
+      </SnapSection>
+
+      {/* 第2屏：Section1 */}
+      <SnapSection>
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative w-full h-full">
+            <Section1 />
+          </div>
         </div>
-      </div>
-      {/* Nav bar removed - using OptimizedHeader from parent */}
+      </SnapSection>
+
+      {/* 第3屏：Section2 */}
+      <SnapSection>
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative w-full h-full">
+            <Section2 />
+          </div>
+        </div>
+      </SnapSection>
+
+      {/* 第4屏：Section3 */}
+      <SnapSection>
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative w-full h-full">
+            <Section3 />
+          </div>
+        </div>
+      </SnapSection>
+
+      {/* 第5屏：Section4 */}
+      <SnapSection>
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative w-full h-full">
+            <Section4 />
+          </div>
+        </div>
+      </SnapSection>
+
+      {/* 第6屏：Section5 */}
+      <SnapSection>
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative w-full h-full">
+            <Section5 />
+          </div>
+        </div>
+      </SnapSection>
+
+      {/* 第7屏：Section6 */}
+      <SnapSection>
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative w-full h-full">
+            <Section6 />
+          </div>
+        </div>
+      </SnapSection>
+
+      {/* 第8屏：Section7 */}
+      <SnapSection>
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative w-full h-full">
+            <Section7 />
+          </div>
+        </div>
+      </SnapSection>
+
+      {/* 第9屏：Section8 */}
+      <SnapSection>
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative w-full h-full">
+            <Section8 />
+          </div>
+        </div>
+      </SnapSection>
+
+      {/* 第10屏：Section9 + Container243 */}
+      <SnapSection>
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative w-full h-full">
+            <Section9 />
+            <Container243 className="relative" />
+          </div>
+        </div>
+      </SnapSection>
+
+      {/* 第11屏：Section10 */}
+      <SnapSection>
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative w-full h-full">
+            <Section10 />
+          </div>
+        </div>
+      </SnapSection>
+
+      {/* 第12屏：Section11 + Footer */}
+      <SnapSection>
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative w-full h-full">
+            <Section11 />
+            <BackgroundHorizontalBorder />
+          </div>
+        </div>
+      </SnapSection>
     </div>
   );
 }
