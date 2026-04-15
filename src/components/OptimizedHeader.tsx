@@ -1,58 +1,63 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import imgLogo from "@/assets/ByteMobiLOGO-02.png";
+import { useLanguage, type Language } from '@/contexts/LanguageContext';
+
+const navKeys = [
+  'nav.home',
+  'nav.globalFlow',
+  'nav.japanFocus',
+  'nav.programmaticAds',
+  'nav.mediaResources',
+  'nav.aboutUs',
+];
+
+const languages: Language[] = ['CN', 'EN', 'JP'];
 
 export function OptimizedHeader() {
+  const { language, setLanguage, t } = useLanguage();
+
   return (
     <motion.header 
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "circOut" }}
-      className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4"
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/90 border-b border-black/[0.06] shadow-sm"
     >
-      <div className="backdrop-blur-xl bg-[rgba(3,0,20,0.4)] border border-white/[0.08] rounded-full px-8 py-3 flex items-center justify-between shadow-2xl w-full max-w-5xl">
+      <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
         {/* Logo */}
         <a href="/" className="flex items-center shrink-0">
           <img src={imgLogo} alt="ByteMobi" className="w-9 h-9 object-contain" />
         </a>
         
         {/* Nav Links */}
-        <nav className="hidden md:flex items-center bg-white/[0.02] border border-white/[0.08] rounded-full px-4 py-2.5 gap-1">
-          {['Product', 'Pricing', 'Company', 'Blog', 'Changelog'].map((item) => (
+        <nav className="hidden lg:flex items-center gap-1">
+          {navKeys.map((key) => (
             <a 
-              key={item} 
-              href={`#${item.toLowerCase()}`} 
-              className="text-sm text-white/70 hover:text-white transition-colors px-3 py-1 rounded-full hover:bg-white/5"
+              key={key} 
+              href={`#${key.split('.')[1]}`} 
+              className="text-sm text-gray-700 hover:text-gray-900 transition-colors px-3 py-2 rounded-lg hover:bg-black/[0.04] font-medium"
             >
-              {item}
+              {t(key)}
             </a>
           ))}
         </nav>
 
-        {/* Actions */}
-        <div className="flex items-center gap-5 shrink-0">
-          <a href="https://reflect.app/auth" target="_blank" rel="noopener noreferrer" className="text-sm text-white font-medium hover:text-white/80 transition-colors">
-            Login
-          </a>
-          <a 
-            href="https://reflect.app/auth" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="relative text-sm text-[#f4f0ff] font-medium px-4 py-2 rounded-lg backdrop-blur-sm overflow-hidden transition-all hover:scale-105 active:scale-95"
-            style={{
-              background: 'linear-gradient(180deg, rgba(60,8,126,0) 0%, rgba(60,8,126,0.32) 100%), linear-gradient(90deg, rgba(113,47,255,0.12) 0%, rgba(113,47,255,0.12) 100%)',
-              boxShadow: 'inset 0 0 12px rgba(191,151,255,0.24)',
-            }}
-          >
-            <div 
-              className="absolute inset-0 rounded-lg pointer-events-none"
-              style={{
-                background: 'linear-gradient(180deg, rgba(207,184,255,0.24) 0%, rgba(207,184,255,0) 100%), linear-gradient(90deg, rgba(207,184,255,0.32) 0%, rgba(207,184,255,0.32) 100%)',
-                maskImage: 'linear-gradient(to right, white 0%, transparent 100%)',
-              }}
-            />
-            Start free trial
-          </a>
+        {/* Language Switcher */}
+        <div className="flex items-center gap-1 shrink-0 bg-gray-100 rounded-full p-1">
+          {languages.map((lang) => (
+            <button
+              key={lang}
+              onClick={() => setLanguage(lang)}
+              className={`text-xs font-semibold px-3 py-1.5 rounded-full transition-all ${
+                language === lang
+                  ? 'bg-white text-gray-900 shadow-sm'
+                  : 'text-gray-500 hover:text-gray-700'
+              }`}
+            >
+              {lang}
+            </button>
+          ))}
         </div>
       </div>
     </motion.header>
