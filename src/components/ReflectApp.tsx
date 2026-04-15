@@ -1928,55 +1928,66 @@ function Section2() {
         </p>
       </div>
 
-      {/* Cards grid — 3 columns */}
-      <div className="grid grid-cols-3 gap-6 w-full max-w-[1100px]">
-        {bizCards.map((card) => (
-          <div key={card.abbr} className="group relative flex flex-col overflow-hidden rounded-[20px] cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
-            style={{ boxShadow: card.shadow }}
-          >
-            {/* Radial gradient background */}
-            <div className="absolute inset-0 pointer-events-none rounded-[20px]" style={{ background: card.gradient }} />
+      {/* Horizontal scroll cards */}
+      <div className="w-full overflow-x-auto overflow-y-hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}>
+        <style>{`.hide-scrollbar::-webkit-scrollbar { display: none; }`}</style>
+        <div className="hide-scrollbar flex gap-6 px-16 pb-4" style={{ width: 'max-content' }}>
+          {bizCards.map((card) => (
+            <div key={card.abbr} className="group relative flex flex-col overflow-hidden rounded-[20px] cursor-pointer transition-transform duration-300 hover:scale-[1.02] shrink-0 w-[360px]"
+              style={{ boxShadow: card.shadow }}
+            >
+              {/* Radial gradient background */}
+              <div className="absolute inset-0 pointer-events-none rounded-[20px]" style={{ background: card.gradient }} />
 
-            {/* Content */}
-            <div className="relative flex flex-col gap-5 pt-6 px-6">
-              {/* Icon + Title row */}
-              <div className="flex items-center gap-3">
-                <div className="flex items-center justify-center size-[52px] rounded-[12px]" style={{
-                  background: 'linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 100%)',
-                  boxShadow: '0px 1.189px 2.377px 0px rgba(0,0,0,0.28)',
-                }}>
-                  <span className="text-[20px] font-bold text-white">{card.abbr}</span>
+              {/* Content */}
+              <div className="relative flex flex-col gap-5 pt-6 px-6">
+                {/* Icon + Title + Arrow row */}
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center justify-center size-[52px] rounded-[12px]" style={{
+                    background: 'linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 100%)',
+                    boxShadow: '0px 1.189px 2.377px 0px rgba(0,0,0,0.28)',
+                  }}>
+                    <span className="text-[20px] font-bold text-white">{card.abbr}</span>
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-[18px] font-normal text-white leading-[20.7px]">{card.full}</p>
+                  </div>
+                  {/* Arrow button */}
+                  <div className="flex items-center justify-center size-[36px] rounded-[8px] relative overflow-hidden"
+                    style={{ boxShadow: '0px 0px 0px 1px rgba(255,255,255,0.25)' }}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-b from-[rgba(255,255,255,0.03)] to-[rgba(255,255,255,0.1)] rounded-[8px]" />
+                    <span className="relative text-white text-[16px]">›</span>
+                    <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_1px_0px_0px_rgba(255,255,255,0.05),inset_0px_-1px_0px_0px_rgba(0,0,0,0.2)]" />
+                  </div>
                 </div>
-                <div className="flex-1">
-                  <p className="text-[18px] font-normal text-white leading-[20.7px]">{card.full}</p>
+
+                {/* Description */}
+                <div className="overflow-hidden">
+                  <p className="text-[14px] font-medium text-white leading-[22px] opacity-80">
+                    {card.scene}
+                  </p>
+                  <p className="text-[13px] text-white/50 leading-[20px] mt-1">
+                    {card.desc}
+                  </p>
                 </div>
+
+                {/* Divider */}
+                <div className="bg-[rgba(255,255,255,0.05)] h-px w-full" />
               </div>
 
-              {/* Description */}
-              <div className="overflow-hidden">
-                <p className="text-[14px] font-medium text-white leading-[22px] opacity-80">
-                  {card.scene}
-                </p>
-                <p className="text-[13px] text-white/50 leading-[20px] mt-1 line-clamp-3">
-                  {card.desc}
-                </p>
+              {/* Bottom decorative area — taller like reference */}
+              <div className="relative h-[280px] overflow-hidden">
+                <div className="absolute inset-0" style={{
+                  background: 'linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.2) 100%)',
+                }} />
               </div>
 
-              {/* Divider */}
-              <div className="bg-[rgba(255,255,255,0.05)] h-px w-full" />
+              {/* Inner border + shadow overlay */}
+              <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_1px_0px_0px_rgba(255,255,255,0.1),inset_0px_0px_0px_1px_rgba(255,255,255,0.06)]" />
             </div>
-
-            {/* Bottom decorative area */}
-            <div className="relative h-[120px] overflow-hidden">
-              <div className="absolute inset-0" style={{
-                background: 'linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.3) 100%)',
-              }} />
-            </div>
-
-            {/* Inner border + shadow overlay */}
-            <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_1px_0px_0px_rgba(255,255,255,0.1),inset_0px_0px_0px_1px_rgba(255,255,255,0.06)]" />
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
