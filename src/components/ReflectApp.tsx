@@ -600,7 +600,7 @@ function MaskGroup1() {
 
 function Section({ className }: { className?: string }) {
   return (
-    <div className={className || "absolute content-stretch flex flex-col isolate items-center left-0 right-0 top-0 h-screen"} data-name="Section" style={{ backgroundColor: '#0a0a12' }}>
+    <div className={className || "relative w-full h-full flex flex-col isolate items-center"} data-name="Section" style={{ backgroundColor: '#0a0a12' }}>
       {/* ColorBends Background */}
       <div className="absolute inset-0 z-[0] overflow-hidden">
         <ColorBends
@@ -1202,7 +1202,7 @@ function Container62() {
 
 function Section1() {
   return (
-    <div className="absolute h-[1287px] left-0 right-0 top-0" data-name="Section">
+    <div className="relative w-full h-full" data-name="Section">
       <Container36 />
       <Container45 />
       <Container62 />
@@ -1774,7 +1774,7 @@ function Q44E26A19Png() {
 
 function Section2() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[48px] isolate items-center left-0 pb-[145px] pt-[496px] right-0 top-[1287px]" data-name="Section">
+    <div className="relative w-full h-full flex flex-col gap-[48px] isolate items-center pb-[145px] pt-[96px]" data-name="Section">
       <Container65 />
       <Container68 />
       <MaskGroup14 />
@@ -2044,7 +2044,7 @@ function Container90() {
 
 function Section3() {
   return (
-    <div className="-translate-x-1/2 absolute h-[1110px] left-1/2 top-[2528px] w-[890px]" data-name="Section">
+    <div className="relative w-full h-full mx-auto max-w-[890px]" data-name="Section">
       <Container80 />
       <div className="absolute h-[212px] left-[-48px] top-[541px] w-px" data-name="Vertical Divider">
         <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgVerticalDivider7} />
@@ -2167,7 +2167,7 @@ function Container95() {
 
 function Section4() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[48px] items-center left-0 pb-[236px] pt-[222px] right-0 top-[3638px]" data-name="Section">
+    <div className="relative w-full h-full flex flex-col gap-[48px] items-center pb-[96px] pt-[96px]" data-name="Section">
       <MaskGroup16 />
       <Container94 />
       <Container95 />
@@ -3473,7 +3473,7 @@ function Container150() {
 
 function Section5() {
   return (
-    <div className="absolute content-stretch flex flex-col isolate items-start left-0 pb-[24px] pt-[294px] right-0 top-[4414px]" data-name="Section">
+    <div className="relative w-full h-full flex flex-col isolate items-start pb-[24px] pt-[96px]" data-name="Section">
       <Container98 />
       <Container101 />
       <Container150 />
@@ -3793,7 +3793,7 @@ function Container165() {
 
 function Section6() {
   return (
-    <div className="-translate-x-1/2 absolute content-stretch flex flex-col gap-[48px] isolate items-center left-1/2 pb-[172px] pt-[116px] top-[5568px] w-[1440px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 1440 940\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(64.944 0 0 47 720 470)\\'><stop stop-color=\\'rgba(148,101,255,0.06)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(3,0,20,0)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} data-name="Section">
+    <div className="relative w-full h-full mx-auto max-w-[1440px] flex flex-col gap-[48px] isolate items-center pb-[72px] pt-[64px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 1440 940\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(64.944 0 0 47 720 470)\\'><stop stop-color=\\'rgba(148,101,255,0.06)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(3,0,20,0)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} data-name="Section">
       <Container152 />
       <Background3 />
       <Container165 />
@@ -4537,7 +4537,7 @@ function Container192() {
 
 function Section7() {
   return (
-    <div className="absolute h-[1256px] left-0 right-0 top-[6508px]" data-name="Section">
+    <div className="relative w-full h-full" data-name="Section">
       <Container166 />
       <Container174 />
       <Container176 />
@@ -5241,7 +5241,7 @@ function Container231() {
 
 function Section8() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[48px] isolate items-center left-0 pb-[72px] pt-[108px] right-0 top-[7764px]" data-name="Section">
+    <div className="relative w-full h-full flex flex-col gap-[48px] isolate items-center pb-[72px] pt-[64px]" data-name="Section">
       <Container196 />
       <Container198 />
       <Container231 />
@@ -5441,7 +5441,7 @@ function Container242() {
 
 function Section9() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[40px] isolate items-center left-0 pt-[96px] right-0 top-[8632px]" data-name="Section">
+    <div className="relative w-full h-full flex flex-col gap-[40px] isolate items-center pt-[64px]" data-name="Section">
       <Container233 />
       <Link2 />
       <MaskGroup53 />
@@ -5882,7 +5882,7 @@ function Container251() {
 
 function Container243({ className }: { className?: string }) {
   return (
-    <div className={className || "absolute content-stretch flex flex-col gap-[20px] items-center left-0 pb-[52px] pt-[180px] right-0 top-[9456px]"} data-name="Container">
+    <div className={className || "relative w-full flex flex-col gap-[20px] items-center pb-[52px] pt-[64px]"} data-name="Container">
       <Container244 />
       <Container251 />
     </div>
@@ -6004,7 +6004,7 @@ function MaskGroup56() {
 
 function Section10() {
   return (
-    <div className="-translate-x-1/2 absolute content-stretch flex flex-col gap-[32px] h-[600px] isolate items-center left-1/2 overflow-clip pt-[64px] top-[10444px] w-[1440px]" data-name="Section">
+    <div className="relative w-full h-full mx-auto max-w-[1440px] flex flex-col gap-[32px] isolate items-center overflow-clip pt-[64px]" top-[10444px] w-[1440px]" data-name="Section">
       <Container255 />
       <Link4 />
       <MaskGroup56 />
