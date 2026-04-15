@@ -7266,19 +7266,23 @@ export default function ReflectApp() {
       </div>
 
       <Section />
-      <Section1 />
-      <Section2 />
-      <Section3 />
-      <Section4 />
-      <Section5 />
-      <Section6 />
-      <Section7 />
-      <Section8 />
-      <Section9 />
-      <Container243 />
-      <Section10 />
-      <Section11 />
-      <BackgroundHorizontalBorder />
+      <div className="absolute left-0 right-0" style={{ top: '100vh' }}>
+        <div className="relative w-full min-h-[11447px]">
+          <Section1 />
+          <Section2 />
+          <Section3 />
+          <Section4 />
+          <Section5 />
+          <Section6 />
+          <Section7 />
+          <Section8 />
+          <Section9 />
+          <Container243 />
+          <Section10 />
+          <Section11 />
+          <BackgroundHorizontalBorder />
+        </div>
+      </div>
       {/* Nav bar removed - using OptimizedHeader from parent */}
     </div>
   );
