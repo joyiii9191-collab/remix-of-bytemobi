@@ -2371,7 +2371,88 @@ function Container82() {
   );
 }
 
-function MaskGroup15() {
+function GlowIcon({ icon }: { icon: string }) {
+  return (
+    <div className="relative shrink-0 size-[64px]">
+      {/* Glow layers */}
+      <div className="absolute inset-0 mix-blend-plus-lighter rounded-[15px]" style={{
+        background: 'radial-gradient(circle at 25% 25%, rgba(120,60,255,0.25) 0%, transparent 60%)',
+      }} />
+      <div className="absolute inset-0 mix-blend-plus-lighter rounded-[15px]" style={{
+        background: 'radial-gradient(circle at 50% 50%, rgba(99,102,241,0.15) 0%, transparent 50%)',
+      }} />
+      <div className="backdrop-blur-[26px] bg-[#030014] flex items-center justify-center overflow-hidden p-[15px] rounded-[15px] size-full border border-[rgba(255,255,255,0.06)]" style={{
+        boxShadow: 'inset 0 0 21px rgba(115,80,255,0.2)',
+      }}>
+        <span className="text-[24px]">{icon}</span>
+      </div>
+    </div>
+  );
+}
+
+function ValueItem({ icon, title, description }: { icon: string; title: string; description: string }) {
+  return (
+    <div className="flex gap-6 items-center">
+      <GlowIcon icon={icon} />
+      <div className="flex flex-col gap-2">
+        <p className="font-medium text-[24px] text-white tracking-[-1px] leading-[1.2]">{title}</p>
+        <p className="text-[16px] text-[#818089] leading-[1.6] tracking-[-0.24px]">{description}</p>
+      </div>
+    </div>
+  );
+}
+
+function Section7Values() {
+  const values = [
+    { icon: '👍', title: 'Simplicity', description: 'We make complexity effortless.' },
+    { icon: '💡', title: 'Innovation', description: 'Always push boundaries with purpose.' },
+    { icon: '🔍', title: 'Transparency', description: 'Growth built on trust.' },
+    { icon: '✅', title: 'Empowerment', description: 'Give users control, not confusion.' },
+  ];
+
+  return (
+    <div className="relative w-full h-full flex items-center justify-center px-[80px] gap-[100px]" data-name="Section7Values">
+      {/* Left image placeholder */}
+      <div className="h-[658px] shrink-0 w-[590px] rounded-[24px] overflow-hidden" style={{
+        background: 'linear-gradient(135deg, rgba(99,102,241,0.15) 0%, rgba(120,60,255,0.1) 50%, rgba(59,130,246,0.08) 100%)',
+        border: '1px solid rgba(255,255,255,0.06)',
+      }}>
+        <div className="w-full h-full flex items-center justify-center">
+          <div className="text-white/10 text-[80px] font-bold">IMG</div>
+        </div>
+      </div>
+
+      {/* Right content */}
+      <div className="flex flex-col gap-[48px] flex-1 justify-center">
+        {/* Header */}
+        <div className="flex flex-col gap-6">
+          <div className="self-start px-4 py-[5px] rounded-full border border-[rgba(255,255,255,0.2)] relative">
+            <div className="absolute inset-0 bg-[rgba(255,255,255,0.05)] rounded-full pointer-events-none" />
+            <div className="absolute inset-[-0.5px] rounded-full pointer-events-none" style={{ boxShadow: 'inset 0 0 21px rgba(115,80,255,0.2)' }} />
+            <span className="text-[14px] text-white leading-[1.6] tracking-[-0.21px] relative">Product Impact</span>
+          </div>
+          <h2 className="text-[48px] font-medium text-white leading-[1.1] tracking-[-2px]">Our Values</h2>
+        </div>
+
+        {/* Value items */}
+        <div className="flex flex-col gap-6">
+          {values.map((v, i) => (
+            <div key={i}>
+              <ValueItem icon={v.icon} title={v.title} description={v.description} />
+              {i < values.length - 1 && (
+                <div className="mt-6 h-px w-full" style={{
+                  background: 'linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0) 100%)',
+                }} />
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
   return (
     <div className="relative size-[784px]" data-name="Mask Group">
       <Container82 />
@@ -7870,6 +7951,15 @@ export default function ReflectApp() {
         <div className="relative w-full h-full flex items-center justify-center">
           <div className="relative w-full h-full">
             <Section6LogoWall />
+          </div>
+        </div>
+      </SnapSection>
+
+      {/* 第7屏：Our Values */}
+      <SnapSection>
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative w-full h-full">
+            <Section7Values />
           </div>
         </div>
       </SnapSection>
