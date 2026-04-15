@@ -7763,11 +7763,20 @@ export default function ReflectApp() {
         </div>
       </SnapSection>
 
-      {/* 第4屏：Section - Dashboard showcase */}
+      {/* 第4屏：Dashboard左 + 文案右 */}
       <SnapSection>
         <div className="relative w-full h-full flex items-center justify-center">
           <div className="relative w-full h-full">
-            <Section4New />
+            <Section4Screen />
+          </div>
+        </div>
+      </SnapSection>
+
+      {/* 第5屏：文案左 + Dashboard右 */}
+      <SnapSection>
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative w-full h-full">
+            <Section5Screen />
           </div>
         </div>
       </SnapSection>
