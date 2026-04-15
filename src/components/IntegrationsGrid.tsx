@@ -3,40 +3,62 @@ import imgLogo from "@/assets/ByteMobiLOGO-02.png";
 import iconGlobalJapan from "@/assets/icon-global-japan.png";
 import iconOneStop from "@/assets/icon-one-stop.png";
 
-const nodes = [
-  { label: "头部媒体及合作伙伴", placeholders: 3, angle: -45 },
-  { label: "自有程序化流量体系", placeholders: 3, angle: 45 },
-  { label: "布局全球，深拓日本", icon: iconGlobalJapan, angle: -135 },
-  { label: "一站式解决方案", icon: iconOneStop, angle: 135 },
+const features = [
+  {
+    label: "头部媒体及合作伙伴",
+    hasPlaceholders: true,
+    gridArea: "a",
+  },
+  {
+    label: "自有程序化流量体系",
+    hasPlaceholders: true,
+    gridArea: "b",
+  },
+  {
+    label: "布局全球，深拓日本",
+    icon: iconGlobalJapan,
+    gridArea: "c",
+  },
+  {
+    label: "一站式解决方案",
+    icon: iconOneStop,
+    gridArea: "d",
+  },
 ];
 
-function OrbitNode({ label, icon, placeholders, x, y }: { label: string; icon?: string; placeholders?: number; x: number; y: number }) {
+function FeatureCard({
+  label,
+  icon,
+  hasPlaceholders,
+}: {
+  label: string;
+  icon?: string;
+  hasPlaceholders?: boolean;
+}) {
   return (
-    <div
-      className="absolute flex flex-col items-center gap-2 group cursor-pointer"
-      style={{ left: x, top: y, transform: "translate(-50%, -50%)" }}
-    >
-      {/* Glow on hover */}
-      <div className="absolute inset-[-16px] rounded-2xl bg-purple-500/20 blur-2xl opacity-0 group-hover:opacity-80 transition-opacity duration-500" />
-      
-      {placeholders ? (
-        <div className="relative flex gap-1.5">
-          {Array.from({ length: placeholders }).map((_, i) => (
+    <div className="group relative flex flex-col items-center justify-center gap-3 rounded-2xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-md p-5 transition-all duration-500 hover:border-purple-500/20 hover:bg-white/[0.04] hover:shadow-[0_0_40px_-10px_rgba(168,85,247,0.15)]">
+      {/* Hover glow */}
+      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500/0 to-blue-500/0 group-hover:from-purple-500/[0.04] group-hover:to-blue-500/[0.04] transition-all duration-500" />
+
+      {hasPlaceholders ? (
+        <div className="relative flex gap-2">
+          {[0, 1, 2].map((i) => (
             <div
               key={i}
-              className="w-[42px] h-[42px] rounded-lg bg-white/[0.06] border border-white/[0.08] backdrop-blur-sm flex items-center justify-center transition-all duration-300 group-hover:border-purple-400/30 group-hover:bg-white/[0.1]"
+              className="w-10 h-10 rounded-lg bg-white/[0.06] border border-white/[0.08] flex items-center justify-center transition-all duration-300 group-hover:border-purple-400/20 group-hover:bg-white/[0.08]"
+              style={{ animationDelay: `${i * 100}ms` }}
             >
-              <div className="w-5 h-5 rounded bg-white/15" />
+              <div className="w-5 h-5 rounded bg-gradient-to-br from-white/10 to-white/5" />
             </div>
           ))}
         </div>
       ) : icon ? (
-        <div className="relative w-[52px] h-[52px] rounded-xl overflow-hidden transition-transform duration-300 group-hover:scale-110">
+        <div className="relative w-11 h-11 rounded-xl overflow-hidden transition-transform duration-500 group-hover:scale-110">
           <img src={icon} alt={label} loading="lazy" className="w-full h-full object-contain" />
         </div>
       ) : null}
-      
-      <span className="text-white/70 text-[12px] font-medium leading-tight text-center whitespace-nowrap group-hover:text-white/90 transition-colors duration-300">
+
+      <span className="relative text-white/50 text-[11px] font-medium leading-tight text-center whitespace-nowrap group-hover:text-white/80 transition-colors duration-300">
         {label}
       </span>
     </div>
@@ -44,79 +66,53 @@ function OrbitNode({ label, icon, placeholders, x, y }: { label: string; icon?: 
 }
 
 export default function IntegrationsGrid() {
-  const cx = 240, cy = 210;
-  const rx = 180, ry = 150;
-
   return (
-    <div className="relative w-[480px] h-[420px] mx-auto">
-      {/* Ambient glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] h-[360px] rounded-full bg-purple-600/[0.04] blur-[80px] pointer-events-none" />
+    <div className="relative w-full max-w-[420px]">
+      {/* Background ambient glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-purple-600/[0.06] blur-[100px] pointer-events-none" />
 
-      {/* Orbit ring */}
-      <div
-        className="absolute border border-white/[0.04] rounded-full pointer-events-none"
-        style={{ left: cx - rx, top: cy - ry, width: rx * 2, height: ry * 2 }}
-      />
-      {/* Inner ring */}
-      <div
-        className="absolute border border-white/[0.03] rounded-full pointer-events-none"
-        style={{ left: cx - rx * 0.55, top: cy - ry * 0.55, width: rx * 1.1, height: ry * 1.1 }}
-      />
+      {/* Bento grid */}
+      <div className="relative grid grid-cols-2 gap-3">
+        {/* Top left */}
+        <FeatureCard {...features[0]} />
+        {/* Top right */}
+        <FeatureCard {...features[1]} />
 
-      {/* Connecting lines from center to each node */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ overflow: "visible" }}>
-        {nodes.map((node, i) => {
-          const rad = (node.angle * Math.PI) / 180;
-          const nx = cx + rx * Math.cos(rad);
-          const ny = cy + ry * Math.sin(rad);
-          return (
-            <line
-              key={i}
-              x1={cx} y1={cy} x2={nx} y2={ny}
-              stroke="rgba(168,85,247,0.08)"
-              strokeWidth={1}
-              strokeDasharray="4 4"
+        {/* Center logo — spanning full width */}
+        <div className="col-span-2 flex items-center justify-center py-4 relative">
+          {/* Connecting lines */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-purple-500/10 to-transparent" />
+          </div>
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="h-full w-px bg-gradient-to-b from-transparent via-purple-500/10 to-transparent" />
+          </div>
+          {/* Diagonal lines */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none">
+            <line x1="0" y1="0" x2="100%" y2="100%" stroke="rgba(168,85,247,0.06)" strokeWidth="1" />
+            <line x1="100%" y1="0" x2="0" y2="100%" stroke="rgba(168,85,247,0.06)" strokeWidth="1" />
+          </svg>
+
+          <div className="relative z-10">
+            <div className="absolute inset-[-24px] rounded-full bg-purple-500/15 blur-2xl animate-pulse" />
+            <div className="absolute inset-[-12px] rounded-full bg-purple-400/10 blur-lg" />
+            <div className="absolute inset-[-2px] rounded-full bg-gradient-to-br from-purple-500/25 to-blue-500/25" />
+            <img
+              src={imgLogo}
+              alt="ByteMobi"
+              loading="lazy"
+              width={64}
+              height={64}
+              className="relative rounded-full drop-shadow-[0_0_24px_rgba(168,85,247,0.5)]"
             />
-          );
-        })}
-      </svg>
-
-      {/* Center logo */}
-      <div
-        className="absolute"
-        style={{ left: cx, top: cy, transform: "translate(-50%, -50%)" }}
-      >
-        <div className="relative">
-          <div className="absolute inset-[-20px] rounded-full bg-purple-500/20 blur-2xl animate-pulse" />
-          <div className="absolute inset-[-10px] rounded-full bg-purple-400/10 blur-lg" />
-          <div className="absolute inset-[-3px] rounded-full bg-gradient-to-br from-purple-500/20 to-blue-500/20" />
-          <img
-            src={imgLogo}
-            alt="ByteMobi"
-            loading="lazy"
-            width={68}
-            height={68}
-            className="relative rounded-full drop-shadow-[0_0_20px_rgba(168,85,247,0.4)]"
-          />
+          </div>
         </div>
-      </div>
 
-      {/* Orbit nodes */}
-      {nodes.map((node, i) => {
-        const rad = (node.angle * Math.PI) / 180;
-        const nx = cx + rx * Math.cos(rad);
-        const ny = cy + ry * Math.sin(rad);
-        return (
-          <OrbitNode
-            key={i}
-            label={node.label}
-            icon={node.icon}
-            placeholders={node.placeholders}
-            x={nx}
-            y={ny}
-          />
-        );
-      })}
+        {/* Bottom left */}
+        <FeatureCard {...features[2]} />
+        {/* Bottom right */}
+        <FeatureCard {...features[3]} />
+      </div>
     </div>
   );
 }
