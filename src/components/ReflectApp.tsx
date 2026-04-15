@@ -7262,7 +7262,7 @@ export default function ReflectApp() {
       <Section10 />
       <Section11 />
       <BackgroundHorizontalBorder />
-      <OverlayOverlayBlur />
+      {/* Nav bar removed - using OptimizedHeader from parent */}
     </div>
   );
 }
