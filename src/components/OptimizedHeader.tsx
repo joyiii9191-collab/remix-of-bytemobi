@@ -31,7 +31,7 @@ export function OptimizedHeader() {
         </a>
         
         {/* Nav Links */}
-        <nav className="hidden lg:flex items-center bg-white/[0.04] border border-white/[0.08] rounded-full px-4 py-2.5 gap-1">
+        <nav className="hidden lg:flex items-center gap-1">
           {navKeys.map((key) => (
             <a 
               key={key} 
