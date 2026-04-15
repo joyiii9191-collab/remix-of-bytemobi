@@ -1,5 +1,6 @@
 // @ts-nocheck
 import svgPaths from "./svg-ww2hb5tg6t";
+import { LaserFlow } from "./LaserFlow";
 import imgQCb311D1CPng from "@/assets/ca87b13c3dba5b82f5b55f7a1fbe96037f74413d.png";
 import imgQC3D7BecfWebm from "@/assets/8f7f3e78fa25f538b70e2685192395598c425a33.png";
 import imgQ6C12DbaePng from "@/assets/5d3fc7562b3454b57dbfd13b639f4b550f37a55c.png";
@@ -607,7 +608,24 @@ function Section({ className }: { className?: string }) {
   return (
     <div className={className || "absolute content-stretch flex flex-col gap-[232px] isolate items-center left-0 pt-[173px] right-0 top-0"} data-name="Section">
       <Container />
-      <div className="absolute h-[900px] left-0 right-0 top-[-173px] z-[3]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 1440 900\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(54.346 0 0 73.602 720 239.04)\\'><stop stop-color=\\'rgba(148,101,255,0.08)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(3,0,20,0)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} data-name="Gradient" />
+      <div className="absolute h-[900px] left-0 right-0 top-[-173px] z-[3] overflow-hidden" style={{ pointerEvents: 'none' }} data-name="LaserFlow">
+        <LaserFlow
+          color="#BA9CFF"
+          verticalSizing={1.8}
+          horizontalSizing={0.6}
+          fogIntensity={0.35}
+          fogScale={0.25}
+          flowSpeed={0.3}
+          wispDensity={0.8}
+          wispSpeed={12}
+          wispIntensity={4}
+          decay={1.2}
+          falloffStart={1.3}
+          verticalBeamOffset={-0.15}
+          horizontalBeamOffset={0.0}
+          style={{ width: '100%', height: '100%', position: 'absolute', inset: 0 }}
+        />
+      </div>
       <Container3 />
       <MaskGroup1 />
     </div>
