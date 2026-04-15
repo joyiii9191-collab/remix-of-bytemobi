@@ -22,21 +22,21 @@ export function OptimizedHeader() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "circOut" }}
-      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/90 border-b border-black/[0.06] shadow-sm"
+      className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4"
     >
-      <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+      <div className="backdrop-blur-xl bg-white/[0.08] border border-white/[0.12] rounded-full px-8 py-3 flex items-center justify-between shadow-2xl w-full max-w-6xl">
         {/* Logo */}
         <a href="/" className="flex items-center shrink-0">
           <img src={imgLogo} alt="ByteMobi" className="w-9 h-9 object-contain" />
         </a>
         
         {/* Nav Links */}
-        <nav className="hidden lg:flex items-center gap-1">
+        <nav className="hidden lg:flex items-center bg-white/[0.04] border border-white/[0.08] rounded-full px-4 py-2.5 gap-1">
           {navKeys.map((key) => (
             <a 
               key={key} 
               href={`#${key.split('.')[1]}`} 
-              className="text-sm text-gray-700 hover:text-gray-900 transition-colors px-3 py-2 rounded-lg hover:bg-black/[0.04] font-medium"
+              className="text-sm text-white/70 hover:text-white transition-colors px-3 py-1 rounded-full hover:bg-white/[0.08] whitespace-nowrap"
             >
               {t(key)}
             </a>
@@ -44,15 +44,15 @@ export function OptimizedHeader() {
         </nav>
 
         {/* Language Switcher */}
-        <div className="flex items-center gap-1 shrink-0 bg-gray-100 rounded-full p-1">
+        <div className="flex items-center gap-0.5 shrink-0 bg-white/[0.06] border border-white/[0.08] rounded-full p-1">
           {languages.map((lang) => (
             <button
               key={lang}
               onClick={() => setLanguage(lang)}
-              className={`text-xs font-semibold px-3 py-1.5 rounded-full transition-all ${
+              className={`text-xs font-medium px-3 py-1.5 rounded-full transition-all ${
                 language === lang
-                  ? 'bg-white text-gray-900 shadow-sm'
-                  : 'text-gray-500 hover:text-gray-700'
+                  ? 'bg-white/[0.15] text-white shadow-sm'
+                  : 'text-white/50 hover:text-white/80'
               }`}
             >
               {lang}
