@@ -1885,48 +1885,28 @@ function Section2() {
         </p>
       </div>
 
-      {/* Laptop Screen */}
-      <div className="relative w-full max-w-[1060px]">
-        {/* Laptop body */}
-        <div className="relative">
-          {/* Screen bezel */}
-          <div className="rounded-t-xl bg-[hsla(240,10%,13%,1)] p-[3px] pb-0">
-            {/* Top bezel bar with camera */}
-            <div className="flex items-center justify-center py-2 px-4 relative">
-              <div className="w-[6px] h-[6px] rounded-full bg-white/10 ring-1 ring-white/[0.06]" />
-            </div>
-            {/* Screen area */}
-            <div className="relative rounded-t-lg overflow-hidden border border-white/[0.06] border-b-0"
-              style={{
-                background: 'linear-gradient(180deg, hsla(240, 15%, 8%, 1) 0%, hsla(240, 15%, 6%, 1) 100%)',
-              }}
-            >
-              {/* Dot grid pattern */}
-              <div className="absolute inset-0 opacity-[0.08]" style={{
-                backgroundImage: 'radial-gradient(circle, hsla(0,0%,100%,0.4) 1px, transparent 1px)',
-                backgroundSize: '24px 24px',
-              }} />
-
-              {/* Content */}
-              <div className="relative z-[1] p-8">
-                <BentoBusinessCards />
-              </div>
-            </div>
-          </div>
-          {/* Laptop base / hinge */}
-          <div className="relative h-[18px] mx-auto"
+      {/* Glass Screen Frame - bottom cropped */}
+      <div className="relative w-full max-w-[1060px] overflow-hidden" style={{ maxHeight: '420px' }}>
+        <div className="relative rounded-2xl border border-white/[0.08] p-[1px]"
+          style={{
+            background: 'transparent',
+          }}
+        >
+          {/* Inner screen area */}
+          <div className="relative rounded-[14px] overflow-hidden"
             style={{
-              background: 'linear-gradient(180deg, hsla(240,10%,15%,1) 0%, hsla(240,10%,11%,1) 100%)',
-              borderRadius: '0 0 4px 4px',
-              borderTop: '1px solid hsla(0,0%,100%,0.06)',
+              background: 'hsla(240, 15%, 7%, 0.6)',
+              backdropFilter: 'blur(20px)',
             }}
           >
-            {/* Hinge notch */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-[4px] rounded-b-md bg-white/[0.04]" />
+            {/* Content */}
+            <div className="relative z-[1] p-8 pt-10">
+              <BentoBusinessCards />
+            </div>
           </div>
-          {/* Desk surface shadow */}
-          <div className="absolute -bottom-4 left-[10%] right-[10%] h-[20px] bg-purple-500/5 blur-[16px] rounded-full" />
         </div>
+        {/* Bottom fade to hide cut-off */}
+        <div className="absolute bottom-0 left-0 right-0 h-[80px] bg-gradient-to-t from-[hsla(240,15%,5%,1)] via-[hsla(240,15%,5%,0.8)] to-transparent pointer-events-none z-10" />
       </div>
     </div>
   );
