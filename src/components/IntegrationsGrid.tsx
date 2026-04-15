@@ -1,92 +1,100 @@
 import React from "react";
-import iconZapier from "@/assets/icon-zapier.png";
-import iconReadwise from "@/assets/icon-readwise.png";
 import imgLogo from "@/assets/ByteMobiLOGO-02.png";
-import iconGoogleOutlook from "@/assets/icon-google-outlook.png";
-import iconChromeSafari from "@/assets/icon-chrome-safari.png";
+import iconGlobalJapan from "@/assets/icon-global-japan.png";
+import iconOneStop from "@/assets/icon-one-stop.png";
 
 interface IntegrationCardProps {
-  icon: string;
+  icon?: string;
   title: string;
-  description: string;
   iconSize?: number;
   iconBg?: string;
+  placeholders?: number;
 }
 
-function IntegrationCard({ icon, title, description, iconSize = 52, iconBg }: IntegrationCardProps) {
+function IntegrationCard({ icon, title, iconSize = 44, iconBg, placeholders }: IntegrationCardProps) {
   return (
-    <div className="flex flex-col items-center text-center gap-3 group cursor-pointer">
+    <div className="flex flex-col items-center text-center gap-2.5 group cursor-pointer">
       <div className="relative">
         {/* Hover glow */}
-        <div className="absolute inset-[-12px] rounded-2xl bg-purple-500/25 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        <div
-          className={`relative rounded-xl overflow-hidden ${iconBg || ''}`}
-          style={{ width: iconSize, height: iconSize }}
-        >
-          <img
-            src={icon}
-            alt={title}
-            loading="lazy"
-            className="w-full h-full object-contain"
-          />
-        </div>
+        <div className="absolute inset-[-10px] rounded-2xl bg-purple-500/25 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        {placeholders ? (
+          <div className="relative flex gap-2">
+            {Array.from({ length: placeholders }).map((_, i) => (
+              <div
+                key={i}
+                className="rounded-lg bg-white/10 border border-white/10 flex items-center justify-center"
+                style={{ width: iconSize, height: iconSize }}
+              >
+                <div className="w-6 h-6 rounded bg-white/20" />
+              </div>
+            ))}
+          </div>
+        ) : icon ? (
+          <div
+            className={`relative rounded-xl overflow-hidden ${iconBg || ''}`}
+            style={{ width: iconSize, height: iconSize }}
+          >
+            <img
+              src={icon}
+              alt={title}
+              loading="lazy"
+              className="w-full h-full object-contain"
+            />
+          </div>
+        ) : null}
       </div>
-      <h3 className="text-white font-semibold text-[15px] leading-tight">{title}</h3>
-      <p className="text-white/50 text-[13px] max-w-[240px] leading-relaxed">{description}</p>
+      <h3 className="text-white/90 font-medium text-[13px] leading-tight">{title}</h3>
     </div>
   );
 }
 
 export default function IntegrationsGrid() {
   return (
-    <div className="relative w-full h-full flex flex-col items-center justify-center px-8">
+    <div className="relative w-full h-full flex flex-col items-center justify-center">
       {/* Background subtle glow */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-purple-600/5 blur-[100px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-purple-600/5 blur-[100px]" />
       </div>
 
-      <div className="relative grid grid-cols-2 gap-x-[180px] gap-y-[40px] items-start max-w-[800px]">
-        {/* Top row — positions swapped */}
+      <div className="relative grid grid-cols-2 gap-x-[120px] gap-y-[28px] items-start max-w-[600px]">
+        {/* Top row */}
         <IntegrationCard
-          icon={iconReadwise}
-          title="Readwise"
-          description="Sync your reading highlights and notes with Reflect."
-          iconBg="bg-white"
+          title="头部媒体及合作伙伴"
+          placeholders={3}
+          iconSize={40}
         />
         <IntegrationCard
-          icon={iconZapier}
-          title="Zapier"
-          description="Connect with Reflect with dozens of applications without code"
+          title="自有程序化流量体系"
+          placeholders={3}
+          iconSize={40}
         />
 
         {/* Center logo with glow animation */}
-        <div className="col-span-2 flex justify-center py-2">
+        <div className="col-span-2 flex justify-center py-1">
           <div className="relative group">
-            {/* Outer pulsing glow */}
-            <div className="absolute inset-[-16px] rounded-full bg-purple-500/20 blur-2xl animate-pulse" />
-            {/* Inner steady glow */}
-            <div className="absolute inset-[-8px] rounded-full bg-purple-400/15 blur-lg" />
+            <div className="absolute inset-[-14px] rounded-full bg-purple-500/20 blur-2xl animate-pulse" />
+            <div className="absolute inset-[-6px] rounded-full bg-purple-400/15 blur-lg" />
             <img
               src={imgLogo}
               alt="ByteMobi Logo"
               loading="lazy"
-              width={64}
-              height={64}
+              width={56}
+              height={56}
               className="relative drop-shadow-[0_0_16px_rgba(168,85,247,0.5)] rounded-full"
             />
           </div>
         </div>
 
-        {/* Bottom row — positions swapped */}
+        {/* Bottom row */}
         <IntegrationCard
-          icon={iconChromeSafari}
-          title="Chrome and Safari"
-          description="Save web clips and sync with your Kindle"
+          icon={iconGlobalJapan}
+          title="布局全球，深拓日本"
+          iconSize={44}
         />
         <IntegrationCard
-          icon={iconGoogleOutlook}
-          title="Google and Outlook"
-          description="Integrate your contacts and calendars"
+          icon={iconOneStop}
+          title="一站式解决方案"
+          iconSize={44}
         />
       </div>
     </div>
