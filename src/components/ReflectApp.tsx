@@ -1898,49 +1898,48 @@ function Section2() {
 
       {/* Glass Screen Frame - bottom cropped */}
       <div className="relative w-full max-w-[1060px] overflow-hidden" style={{ maxHeight: '580px' }}>
-         {/* Browser window frame - glass shell */}
-         <div className="relative rounded-[16px] overflow-hidden"
+         {/* Device bezel frame */}
+         <div className="relative rounded-[24px] p-[6px]"
            style={{
-             background: 'hsla(0, 0%, 8%, 0.65)',
-             backdropFilter: 'blur(80px) saturate(1.6)',
-             WebkitBackdropFilter: 'blur(80px) saturate(1.6)',
-             border: '1px solid hsla(0, 0%, 100%, 0.1)',
-             boxShadow: '0 20px 80px -16px hsla(0, 0%, 0%, 0.7), 0 4px 24px -4px hsla(0, 0%, 0%, 0.4), inset 0 1px 0 0 hsla(0, 0%, 100%, 0.1), inset 0 -1px 0 0 hsla(0, 0%, 100%, 0.03)',
+             background: 'linear-gradient(180deg, hsla(0, 0%, 18%, 0.6) 0%, hsla(0, 0%, 10%, 0.8) 100%)',
+             boxShadow: '0 30px 100px -20px hsla(0, 0%, 0%, 0.8), 0 0 0 1px hsla(0, 0%, 100%, 0.06), inset 0 1px 0 0 hsla(0, 0%, 100%, 0.1), inset 0 -1px 0 0 hsla(0, 0%, 0%, 0.3)',
            }}
          >
-           {/* Top bar with traffic lights */}
-           <div className="flex items-center gap-[7px] px-5 py-[14px]"
+           {/* Inner screen */}
+           <div className="relative rounded-[18px] overflow-hidden"
              style={{
-               borderBottom: '1px solid hsla(0, 0%, 100%, 0.06)',
-               background: 'hsla(0, 0%, 100%, 0.02)',
+               background: 'hsla(0, 0%, 4%, 0.9)',
+               border: '1px solid hsla(0, 0%, 100%, 0.04)',
+               boxShadow: 'inset 0 1px 0 0 hsla(0, 0%, 100%, 0.05), inset 0 0 20px 0 hsla(0, 0%, 0%, 0.4)',
              }}
            >
-             <div className="w-[11px] h-[11px] rounded-full" style={{ background: '#FF5F57', boxShadow: '0 0 4px hsla(3, 100%, 67%, 0.3)' }} />
-             <div className="w-[11px] h-[11px] rounded-full" style={{ background: '#FEBC2E', boxShadow: '0 0 4px hsla(40, 99%, 58%, 0.3)' }} />
-             <div className="w-[11px] h-[11px] rounded-full" style={{ background: '#28C840', boxShadow: '0 0 4px hsla(130, 69%, 47%, 0.3)' }} />
-             {/* Address bar area */}
-             <div className="flex-1 flex justify-center ml-4">
-               <div className="px-6 py-[5px] rounded-md text-[11px] tracking-wide"
-                 style={{
-                   background: 'hsla(0, 0%, 100%, 0.04)',
-                   border: '1px solid hsla(0, 0%, 100%, 0.06)',
-                   color: 'hsla(0, 0%, 100%, 0.25)',
-                 }}
-               >
-                 reflectmedia.com
+             {/* Top bar with traffic lights */}
+             <div className="flex items-center gap-[7px] px-5 py-[14px]"
+               style={{
+                 borderBottom: '1px solid hsla(0, 0%, 100%, 0.04)',
+                 background: 'hsla(0, 0%, 100%, 0.015)',
+               }}
+             >
+               <div className="w-[11px] h-[11px] rounded-full" style={{ background: '#FF5F57', boxShadow: '0 0 4px hsla(3, 100%, 67%, 0.3)' }} />
+               <div className="w-[11px] h-[11px] rounded-full" style={{ background: '#FEBC2E', boxShadow: '0 0 4px hsla(40, 99%, 58%, 0.3)' }} />
+               <div className="w-[11px] h-[11px] rounded-full" style={{ background: '#28C840', boxShadow: '0 0 4px hsla(130, 69%, 47%, 0.3)' }} />
+               <div className="flex-1 flex justify-center ml-4">
+                 <div className="px-6 py-[5px] rounded-md text-[11px] tracking-wide"
+                   style={{
+                     background: 'hsla(0, 0%, 100%, 0.03)',
+                     border: '1px solid hsla(0, 0%, 100%, 0.05)',
+                     color: 'hsla(0, 0%, 100%, 0.2)',
+                   }}
+                 >
+                   reflectmedia.com
+                 </div>
                </div>
+               <div className="w-[80px]" />
              </div>
-             <div className="w-[80px]" />
-           </div>
-           {/* Inner content - glass panel */}
-           <div className="relative p-6"
-             style={{
-               background: 'linear-gradient(180deg, hsla(0, 0%, 100%, 0.015) 0%, hsla(0, 0%, 100%, 0.005) 100%)',
-             }}
-           >
-             {/* Subtle inner glass reflection */}
-             <div className="absolute top-0 left-0 right-0 h-[1px] pointer-events-none" style={{ background: 'linear-gradient(90deg, transparent 10%, hsla(0, 0%, 100%, 0.06) 50%, transparent 90%)' }} />
-             <BentoBusinessCards />
+             {/* Content area */}
+             <div className="relative p-6">
+               <BentoBusinessCards />
+             </div>
            </div>
          </div>
          {/* Bottom fade */}
