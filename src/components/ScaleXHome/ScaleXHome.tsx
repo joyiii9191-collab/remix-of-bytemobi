@@ -1,3 +1,4 @@
+// @ts-nocheck
 import svgPaths from "./svg-oxfdi11hki";
 import imgUserImage1 from "./ba0d086cabe767ede6d098d280175fc203bd2e7f.png";
 import imgUserImage2 from "./67b539e31ff45c1b5644fa0c576d1f741a3b9f3b.png";
