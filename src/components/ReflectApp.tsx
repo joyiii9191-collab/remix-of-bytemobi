@@ -1255,55 +1255,64 @@ function Section1() {
           flip={true}
         />
       </div>
-      <div className="w-full max-w-[1100px] flex items-center gap-20 relative z-[1]">
-        {/* Left side — brand text */}
-        <div className="w-[380px] shrink-0 flex flex-col gap-6">
-          {/* Tag pill */}
-          <div className="flex items-center gap-2 self-start">
-            <div className="h-px w-6 bg-gradient-to-r from-purple-500 to-transparent" />
-            <span className="text-[11px] tracking-[0.15em] uppercase text-purple-400/70 font-medium">About ByteMobi</span>
+
+      {/* Main liquid glass panel */}
+      <div className="liquid-glass liquid-glass--panel w-full max-w-[1100px] relative z-[1]">
+        <div className="flex items-center gap-12 p-10">
+          {/* Left side — brand text */}
+          <div className="w-[380px] shrink-0 flex flex-col gap-6">
+            {/* Tag pill */}
+            <div className="flex items-center gap-2 self-start">
+              <div className="h-px w-6" style={{ background: 'linear-gradient(to right, hsla(277, 100%, 61%, 0.6), transparent)' }} />
+              <span className="text-[11px] tracking-[0.15em] uppercase font-medium" style={{ color: 'hsla(277, 80%, 70%, 0.7)' }}>About ByteMobi</span>
+            </div>
+
+            {/* Title */}
+            <h2 className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[44px] leading-[1.1] font-semibold tracking-tight bg-clip-text bg-gradient-to-b from-white via-white to-white/60 text-[transparent]">
+              品牌简介
+            </h2>
+
+            {/* Subtitle */}
+            <p className="text-[18px] leading-[28px] font-medium" style={{ color: 'hsla(0, 0%, 100%, 0.8)' }}>
+              聚焦全球品牌与效果广告营销
+            </p>
+
+            {/* Divider — glass style */}
+            <div className="w-12 h-px" style={{ background: 'linear-gradient(to right, hsla(277, 100%, 61%, 0.4), hsla(220, 100%, 60%, 0.4))' }} />
+
+            {/* Description */}
+            <p className="text-[13px] leading-[22px] text-justify max-w-[360px]" style={{ color: 'hsla(0, 0%, 100%, 0.4)' }}>
+              依托自有程序化流量体系整合全球头部媒体及合作伙伴生态资源，构建多元化流量网络，以全球布局为基础，深度拓展日本市场，为广告主提供高效的一站式广告投放与流量变现解决方案。
+            </p>
+
+            {/* Stats row */}
+            <div className="flex gap-8 mt-2">
+              <div className="flex flex-col gap-1">
+                <AnimatedNumber value={200} suffix="+" />
+                <span className="text-[11px] tracking-wide" style={{ color: 'hsla(0, 0%, 100%, 0.25)' }}>合作媒体</span>
+              </div>
+              <div className="w-px h-12" style={{ background: 'hsla(0, 0%, 100%, 0.06)' }} />
+              <div className="flex flex-col gap-1">
+                <AnimatedNumber value={50} suffix="+" />
+                <span className="text-[11px] tracking-wide" style={{ color: 'hsla(0, 0%, 100%, 0.25)' }}>覆盖国家</span>
+              </div>
+              <div className="w-px h-12" style={{ background: 'hsla(0, 0%, 100%, 0.06)' }} />
+              <div className="flex flex-col gap-1">
+                <AnimatedNumber value={10} suffix="亿+" />
+                <span className="text-[11px] tracking-wide" style={{ color: 'hsla(0, 0%, 100%, 0.25)' }}>日均流量</span>
+              </div>
+            </div>
           </div>
 
-          {/* Title */}
-          <h2 className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[44px] leading-[1.1] font-semibold tracking-tight bg-clip-text bg-gradient-to-b from-white via-white to-white/60 text-[transparent]">
-            品牌简介
-          </h2>
+          {/* Vertical divider — glass edge */}
+          <div className="w-px self-stretch" style={{
+            background: 'linear-gradient(180deg, transparent 5%, hsla(0, 0%, 100%, 0.08) 30%, hsla(0, 0%, 100%, 0.08) 70%, transparent 95%)',
+          }} />
 
-          {/* Subtitle */}
-          <p className="text-[18px] leading-[28px] font-medium text-white/80">
-            聚焦全球品牌与效果广告营销
-          </p>
-
-          {/* Divider */}
-          <div className="w-12 h-px bg-gradient-to-r from-purple-500/40 to-blue-500/40" />
-
-          {/* Description */}
-          <p className="text-[13px] leading-[22px] text-white/40 text-justify max-w-[360px]">
-            依托自有程序化流量体系整合全球头部媒体及合作伙伴生态资源，构建多元化流量网络，以全球布局为基础，深度拓展日本市场，为广告主提供高效的一站式广告投放与流量变现解决方案。
-          </p>
-
-          {/* Stats row */}
-          <div className="flex gap-8 mt-2">
-            <div className="flex flex-col gap-1">
-              <AnimatedNumber value={200} suffix="+" />
-              <span className="text-[11px] text-white/25 tracking-wide">合作媒体</span>
-            </div>
-            <div className="w-px h-12 bg-white/[0.06]" />
-            <div className="flex flex-col gap-1">
-              <AnimatedNumber value={50} suffix="+" />
-              <span className="text-[11px] text-white/25 tracking-wide">覆盖国家</span>
-            </div>
-            <div className="w-px h-12 bg-white/[0.06]" />
-            <div className="flex flex-col gap-1">
-              <AnimatedNumber value={10} suffix="亿+" />
-              <span className="text-[11px] text-white/25 tracking-wide">日均流量</span>
-            </div>
+          {/* Right side — 4 cards grid */}
+          <div className="flex-1 grid grid-cols-2 gap-5">
+            <IntegrationsGrid />
           </div>
-        </div>
-
-        {/* Right side — 4 cards grid */}
-        <div className="flex-1 grid grid-cols-2 gap-6">
-          <IntegrationsGrid />
         </div>
       </div>
     </div>
