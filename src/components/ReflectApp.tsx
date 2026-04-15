@@ -2154,7 +2154,15 @@ function Section4New() {
   );
 }
 
-function MaskGroup15() {
+function Container82() {
+  return (
+    <div className="absolute content-stretch flex flex-col items-start justify-center left-0 mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[0px_0px] mask-size-[1012.879px_1012.879px] size-[783.993px] top-0" style={{ maskImage: `url('${imgContainer7}')` }} data-name="Container">
+      <div className="rounded-[392px] shrink-0 size-[784px]" style={{ backgroundImage: "linear-gradient(267deg, rgba(99, 102, 241, 0.4) 13.23%, rgba(3, 0, 20, 0) 50%)" }} data-name="Gradient" />
+    </div>
+  );
+}
+
+
   return (
     <div className="relative size-[784px]" data-name="Mask Group">
       <Container82 />
