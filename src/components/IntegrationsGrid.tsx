@@ -1,7 +1,7 @@
 import React from "react";
 import iconGlobalJapan from "@/assets/icon-global-japan.png";
 import iconOneStop from "@/assets/icon-one-stop.png";
-import "./NeonCard.css";
+import "../components/LiquidGlassCard.css";
 
 function FeatureCard({
   label,
@@ -13,21 +13,20 @@ function FeatureCard({
   hasPlaceholders?: boolean;
 }) {
   return (
-    <div className="neon-card">
-      <div className="neon-glow neon-glow--1" />
-      <div className="neon-glow neon-glow--2" />
-      <div className="neon-glow neon-glow--3" />
-      <div className="neon-glow neon-glow--4" />
-      <div className="neon-glow neon-glow--white" />
-      <div className="neon-card__content flex flex-col items-center justify-center gap-3 p-6 aspect-[4/3]">
+    <div className="liquid-glass liquid-glass--inner liquid-glass--glow cursor-pointer">
+      <div className="flex flex-col items-center justify-center gap-3 p-6 aspect-[4/3]">
         {hasPlaceholders ? (
           <div className="flex gap-2.5">
             {[0, 1, 2].map((i) => (
               <div
                 key={i}
-                className="w-11 h-11 rounded-lg bg-white/[0.03] border border-white/[0.06] flex items-center justify-center"
+                className="w-11 h-11 rounded-lg flex items-center justify-center"
+                style={{
+                  background: 'hsla(0, 0%, 100%, 0.03)',
+                  border: '1px solid hsla(0, 0%, 100%, 0.06)',
+                }}
               >
-                <div className="w-5 h-5 rounded bg-white/[0.04]" />
+                <div className="w-5 h-5 rounded" style={{ background: 'hsla(0, 0%, 100%, 0.04)' }} />
               </div>
             ))}
           </div>
@@ -37,7 +36,9 @@ function FeatureCard({
           </div>
         ) : null}
 
-        <span className="text-white/50 text-[12px] font-medium leading-tight text-center whitespace-nowrap">
+        <span className="text-[12px] font-medium leading-tight text-center whitespace-nowrap"
+          style={{ color: 'hsla(0, 0%, 100%, 0.5)' }}
+        >
           {label}
         </span>
       </div>
