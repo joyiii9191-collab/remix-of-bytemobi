@@ -1899,6 +1899,15 @@ function Q44E26A19Png() {
 }
 
 function Section2() {
+  const bizCards = [
+    { abbr: "CPM", full: "Cost Per Mille", scene: "品牌曝光与流量触达", desc: "按千次广告展示计费，帮助广告主高效提升品牌知名度、产品曝光度与市场影响力，广泛适用于品牌推广、活动宣发等场景。", gradient: "radial-gradient(ellipse at 50% 40%, rgba(32,35,91,0.7) 0%, rgba(7,9,33,0.7) 82%)", shadow: "0px 0px 20px 3px rgba(7,13,79,0.05), 0px 0px 40px 20px rgba(7,13,79,0.05)" },
+    { abbr: "CPC", full: "Cost Per Click", scene: "精准点击引流", desc: "按用户实际广告点击计费，能够有效控制获客成本，精准触达高意向用户，助力广告主提升流量质量与页面访问转化效率。", gradient: "radial-gradient(ellipse at 50% 40%, rgba(43,94,180,0.7) 0%, rgba(28,55,108,0.56) 50%, rgba(13,16,35,0.42) 100%)", shadow: "0px 0px 20px 3px rgba(7,13,79,0.1), 0px 0px 40px 20px rgba(85,0,98,0.1)" },
+    { abbr: "CPA", full: "Cost Per Action", scene: "深度转化行为获取", desc: "针对APP深度转化行为的用户获取，例如注册、充值、交易等关键转化事件，帮助广告主实现更高质量的用户增长。", gradient: "radial-gradient(ellipse at 50% 40%, rgba(13,110,48,1) 0%, rgba(11,82,36,1) 50%, rgba(8,53,24,1) 100%)", shadow: "0px 0px 20px 3px rgba(46,212,105,0.05), 0px 0px 40px 20px rgba(46,212,105,0.05)" },
+    { abbr: "CPI", full: "Cost Per Install", scene: "APP新用户获取", desc: "面向APP新用户获取，同时支持老用户召回与二次激活，帮助应用快速扩大用户规模。", gradient: "radial-gradient(ellipse at 50% 40%, rgba(39,61,180,0.7) 0%, rgba(27,35,109,0.55) 50%, rgba(15,9,38,0.4) 100%)", shadow: "0px 0px 20px 3px rgba(7,13,79,0.1), 0px 0px 40px 20px rgba(85,0,98,0.1)" },
+    { abbr: "CPS", full: "Cost Per Sale", scene: "电商与Revenue Share", desc: "针对电商、博彩及其他Revenue Share模式的客户，通过高质量流量获取真实付费用户，并按照实际成交或收益进行合作。", gradient: "radial-gradient(ellipse at 50% 40%, rgba(120,40,20,0.7) 0%, rgba(60,20,15,0.6) 50%, rgba(20,8,8,0.5) 100%)", shadow: "0px 0px 20px 3px rgba(180,60,30,0.08), 0px 0px 40px 20px rgba(120,30,15,0.06)" },
+    { abbr: "CPL", full: "Cost Per Lead", scene: "用户线索获取", desc: "面向WAP端用户线索获取，通过表单提交、注册等方式帮助广告主收集潜在客户信息，广泛应用于金融、电商及服务类行业。", gradient: "radial-gradient(ellipse at 50% 40%, rgba(80,30,120,0.7) 0%, rgba(50,20,80,0.55) 50%, rgba(20,8,35,0.4) 100%)", shadow: "0px 0px 20px 3px rgba(120,50,180,0.08), 0px 0px 40px 20px rgba(80,20,120,0.06)" },
+  ];
+
   return (
     <div className="relative w-full h-full flex flex-col items-center justify-center px-16" data-name="Section">
       {/* Header */}
@@ -1908,51 +1917,66 @@ function Section2() {
           <span className="text-[11px] tracking-[0.15em] uppercase font-medium" style={{ color: 'hsla(277, 80%, 70%, 0.7)' }}>Core Business</span>
           <div className="h-px w-6" style={{ background: 'linear-gradient(to left, hsla(277, 100%, 61%, 0.6), transparent)' }} />
         </div>
-
         <h2 className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[44px] leading-[1.1] font-semibold tracking-tight bg-clip-text bg-gradient-to-b from-white via-white to-white/60 text-[transparent]">
           核心业务板块
         </h2>
-
         <p className="text-[18px] leading-[28px] font-medium" style={{ color: 'hsla(0, 0%, 100%, 0.8)' }}>
           品牌与效果广告
         </p>
-
         <p className="text-[13px] leading-[22px] text-center max-w-[480px]" style={{ color: 'hsla(0, 0%, 100%, 0.4)' }}>
           帮助广告主精准触达目标用户，兼顾品牌曝光与效果转化
         </p>
       </div>
 
-      {/* Browser-style liquid glass frame */}
-      <div className="relative w-full max-w-[1060px] overflow-hidden" style={{ maxHeight: '580px' }}>
-        <div className="liquid-glass liquid-glass--browser">
-          {/* Browser top bar */}
-          <div className="flex items-center gap-[7px] px-5 py-[14px]"
-            style={{
-              borderBottom: '1px solid hsla(0, 0%, 100%, 0.06)',
-              background: 'hsla(0, 0%, 100%, 0.02)',
-            }}
+      {/* Cards grid — 3 columns */}
+      <div className="grid grid-cols-3 gap-6 w-full max-w-[1100px]">
+        {bizCards.map((card) => (
+          <div key={card.abbr} className="group relative flex flex-col overflow-hidden rounded-[20px] cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
+            style={{ boxShadow: card.shadow }}
           >
-            <div className="w-[11px] h-[11px] rounded-full" style={{ background: '#FF5F57', boxShadow: '0 0 4px hsla(3, 100%, 67%, 0.3)' }} />
-            <div className="w-[11px] h-[11px] rounded-full" style={{ background: '#FEBC2E', boxShadow: '0 0 4px hsla(40, 99%, 58%, 0.3)' }} />
-            <div className="w-[11px] h-[11px] rounded-full" style={{ background: '#28C840', boxShadow: '0 0 4px hsla(130, 69%, 47%, 0.3)' }} />
-            <div className="flex-1 flex justify-center ml-4">
-              <div className="liquid-glass liquid-glass--inner px-6 py-[5px] !rounded-md">
-                <span className="text-[11px] tracking-wide relative z-[1]" style={{ color: 'hsla(0, 0%, 100%, 0.25)' }}>
-                  reflectmedia.com
-                </span>
+            {/* Radial gradient background */}
+            <div className="absolute inset-0 pointer-events-none rounded-[20px]" style={{ background: card.gradient }} />
+
+            {/* Content */}
+            <div className="relative flex flex-col gap-5 pt-6 px-6">
+              {/* Icon + Title row */}
+              <div className="flex items-center gap-3">
+                <div className="flex items-center justify-center size-[52px] rounded-[12px]" style={{
+                  background: 'linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 100%)',
+                  boxShadow: '0px 1.189px 2.377px 0px rgba(0,0,0,0.28)',
+                }}>
+                  <span className="text-[20px] font-bold text-white">{card.abbr}</span>
+                </div>
+                <div className="flex-1">
+                  <p className="text-[18px] font-normal text-white leading-[20.7px]">{card.full}</p>
+                </div>
               </div>
+
+              {/* Description */}
+              <div className="overflow-hidden">
+                <p className="text-[14px] font-medium text-white leading-[22px] opacity-80">
+                  {card.scene}
+                </p>
+                <p className="text-[13px] text-white/50 leading-[20px] mt-1 line-clamp-3">
+                  {card.desc}
+                </p>
+              </div>
+
+              {/* Divider */}
+              <div className="bg-[rgba(255,255,255,0.05)] h-px w-full" />
             </div>
-            <div className="w-[80px]" />
-          </div>
 
-          {/* Content area */}
-          <div className="relative p-6">
-            <BentoBusinessCards />
-          </div>
-        </div>
+            {/* Bottom decorative area */}
+            <div className="relative h-[120px] overflow-hidden">
+              <div className="absolute inset-0" style={{
+                background: 'linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.3) 100%)',
+              }} />
+            </div>
 
-        {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-[80px] pointer-events-none z-10" style={{ background: 'linear-gradient(to top, hsla(240, 15%, 5%, 1) 0%, hsla(240, 15%, 5%, 0.8) 40%, transparent 100%)' }} />
+            {/* Inner border + shadow overlay */}
+            <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_1px_0px_0px_rgba(255,255,255,0.1),inset_0px_0px_0px_1px_rgba(255,255,255,0.06)]" />
+          </div>
+        ))}
       </div>
     </div>
   );
