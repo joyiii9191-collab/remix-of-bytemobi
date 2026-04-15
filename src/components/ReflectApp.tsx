@@ -607,19 +607,20 @@ function Section({ className }: { className?: string }) {
   return (
     <div className={className || "absolute content-stretch flex flex-col isolate items-center left-0 right-0 top-0 h-[900px]"} data-name="Section">
       {/* ColorBends Background */}
-      <div className="absolute inset-0 z-[0] overflow-hidden" style={{ pointerEvents: 'none' }}>
+      <div className="absolute inset-0 z-[0] overflow-hidden">
         <ColorBends
           colors={["#9B5FFF", "#D4BBFF", "#6B2FC7", "#B8A0FF", "#4A1A8A", "#E0D0FF"]}
           speed={0.15}
           noise={0.1}
-          rotation={120}
-          scale={1.0}
-          frequency={1.2}
-          warpStrength={0.8}
-          intensity={2.2}
-          bandWidth={4}
-          iterations={3}
-          mouseInfluence={0.4}
+          rotation={45}
+          scale={0.8}
+          frequency={0.8}
+          warpStrength={1.2}
+          intensity={1.8}
+          bandWidth={5}
+          iterations={4}
+          mouseInfluence={1.0}
+          parallax={0.8}
           transparent={false}
           style={{ width: '100%', height: '100%' }}
         />
