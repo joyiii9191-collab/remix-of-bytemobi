@@ -8,7 +8,7 @@ export default function Index() {
   return (
     <div
       className="h-screen overflow-y-auto bg-[#030014] text-white font-sans snap-y snap-mandatory"
-      style={{ userSelect: "none", scrollBehavior: "smooth" }}
+      style={{ userSelect: "none" }}
     >
       <OptimizedHeader />
       <MouseGlow />
