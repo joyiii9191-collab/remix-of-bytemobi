@@ -7781,6 +7781,15 @@ export default function ReflectApp() {
         </div>
       </SnapSection>
 
+      {/* 第6屏：Logo流动墙 */}
+      <SnapSection>
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative w-full h-full">
+            <Section6LogoWall />
+          </div>
+        </div>
+      </SnapSection>
+
       {/* Footer */}
       <SnapSection>
         <div className="relative w-full h-full flex items-center justify-center">
