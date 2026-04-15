@@ -2276,7 +2276,91 @@ function Section5Screen() {
   );
 }
 
+function LogoCard({ label }: { label: string }) {
+  return (
+    <div className="relative shrink-0 size-[64px]">
+      {/* Glow layers */}
+      <div className="absolute inset-0 mix-blend-plus-lighter rounded-[15px]" style={{
+        background: 'radial-gradient(ellipse at center, rgba(99,102,241,0.15) 0%, transparent 70%)',
+      }} />
+      <div className="absolute inset-0 mix-blend-plus-lighter rounded-[15px]" style={{
+        background: 'radial-gradient(ellipse at center, rgba(186,156,255,0.1) 0%, transparent 60%)',
+      }} />
+      <div className="backdrop-blur-[26px] bg-[#030014] flex items-center justify-center overflow-hidden p-[15px] rounded-[15px] size-full border border-[rgba(255,255,255,0.08)]" style={{
+        boxShadow: 'inset 0 0 20px rgba(99,102,241,0.08), 0 0 30px rgba(99,102,241,0.05)',
+      }}>
+        <span className="text-[16px] font-bold text-white/30">{label}</span>
+      </div>
+    </div>
+  );
+}
 
+function LogoMarquee({ direction = 'left', logos }: { direction?: 'left' | 'right'; logos: string[] }) {
+  const doubled = [...logos, ...logos];
+  return (
+    <div className="relative w-full overflow-hidden">
+      {/* Fade edges */}
+      <div className="absolute left-0 top-0 bottom-0 w-[120px] z-10" style={{ background: 'linear-gradient(90deg, #030014 0%, transparent 100%)' }} />
+      <div className="absolute right-0 top-0 bottom-0 w-[120px] z-10" style={{ background: 'linear-gradient(270deg, #030014 0%, transparent 100%)' }} />
+      <div
+        className="flex items-center gap-6"
+        style={{
+          animation: `${direction === 'left' ? 'marqueeLeft' : 'marqueeRight'} 30s linear infinite`,
+          width: 'max-content',
+        }}
+      >
+        {doubled.map((label, i) => (
+          <LogoCard key={i} label={label} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function Section6LogoWall() {
+  const row1 = ['AI', 'G', 'M', 'FB', 'X', 'TT', 'LI', 'YT', 'IG', 'SP', 'DC', 'SL', 'GH', 'FG', 'NT'];
+  const row2 = ['AW', 'AZ', 'MS', 'AP', 'NV', 'TW', 'RD', 'PT', 'DB', 'SN', 'ZM', 'HB', 'JR', 'AT', 'CF'];
+
+  return (
+    <div className="relative w-full h-full flex flex-col items-center justify-center gap-10" data-name="Section6LogoWall">
+      {/* Background glow */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        background: 'radial-gradient(ellipse at 50% 50%, rgba(99,102,241,0.08) 0%, transparent 60%)',
+      }} />
+
+      {/* Title */}
+      <div className="flex flex-col items-center gap-4 z-[1] mb-4">
+        <span className="text-[12px] px-3 py-1 rounded-full border border-[rgba(255,255,255,0.15)] text-white/60 tracking-[0.12em] uppercase">Integrations</span>
+        <h2 className="text-[48px] leading-[1.15] font-bold tracking-tight text-white text-center">
+          <span className="bg-clip-text text-[transparent]" style={{ backgroundImage: 'linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0.7) 100%)' }}>
+            Seamlessly Connected
+          </span>
+        </h2>
+        <p className="text-[16px] leading-[26px] text-white/40 max-w-[480px] text-center">
+          Integrate with the tools you already use. Our platform connects with 100+ services.
+        </p>
+      </div>
+
+      {/* Logo rows */}
+      <div className="flex flex-col gap-6 w-full z-[1]">
+        <LogoMarquee direction="left" logos={row1} />
+        <LogoMarquee direction="right" logos={row2} />
+      </div>
+
+      {/* Keyframes style */}
+      <style>{`
+        @keyframes marqueeLeft {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        @keyframes marqueeRight {
+          0% { transform: translateX(-50%); }
+          100% { transform: translateX(0); }
+        }
+      `}</style>
+    </div>
+  );
+}
 
 
 function Container82() {
@@ -7777,6 +7861,15 @@ export default function ReflectApp() {
         <div className="relative w-full h-full flex items-center justify-center">
           <div className="relative w-full h-full">
             <Section5Screen />
+          </div>
+        </div>
+      </SnapSection>
+
+      {/* 第6屏：Logo流动墙 */}
+      <SnapSection>
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative w-full h-full">
+            <Section6LogoWall />
           </div>
         </div>
       </SnapSection>
