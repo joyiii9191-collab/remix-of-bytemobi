@@ -1899,20 +1899,33 @@ function Section2() {
       {/* Glass Screen Frame - bottom cropped */}
       <div className="relative w-full max-w-[1060px] overflow-hidden" style={{ maxHeight: '540px' }}>
         {/* Outer glass container */}
-        <div className="relative rounded-2xl overflow-hidden"
-          style={{
-            background: 'hsla(0, 0%, 100%, 0.04)',
-            backdropFilter: 'blur(40px) saturate(1.2)',
-            WebkitBackdropFilter: 'blur(40px) saturate(1.2)',
-            border: '1px solid hsla(0, 0%, 100%, 0.1)',
-            boxShadow: '0 8px 40px -8px hsla(0, 0%, 0%, 0.4), inset 0 1px 0 0 hsla(0, 0%, 100%, 0.06)',
-          }}
-        >
-          {/* Content */}
-          <div className="relative z-[1] p-7">
-            <BentoBusinessCards />
-          </div>
-        </div>
+         {/* Browser window frame */}
+         <div className="relative rounded-2xl overflow-hidden"
+           style={{
+             background: 'hsla(0, 0%, 100%, 0.03)',
+             backdropFilter: 'blur(60px) saturate(1.4)',
+             WebkitBackdropFilter: 'blur(60px) saturate(1.4)',
+             border: '1px solid hsla(0, 0%, 100%, 0.12)',
+             boxShadow: '0 8px 60px -12px hsla(0, 0%, 0%, 0.5), 0 2px 20px -4px hsla(0, 0%, 0%, 0.3), inset 0 1px 0 0 hsla(0, 0%, 100%, 0.08)',
+           }}
+         >
+           {/* Browser top bar */}
+           <div className="flex items-center gap-[6px] px-4 py-3 border-b"
+             style={{ borderColor: 'hsla(0, 0%, 100%, 0.08)' }}
+           >
+             <div className="w-[10px] h-[10px] rounded-full" style={{ background: '#FF5F57' }} />
+             <div className="w-[10px] h-[10px] rounded-full" style={{ background: '#FEBC2E' }} />
+             <div className="w-[10px] h-[10px] rounded-full" style={{ background: '#28C840' }} />
+           </div>
+           {/* Inner content area */}
+           <div className="relative z-[1] p-7"
+             style={{
+               background: 'hsla(0, 0%, 100%, 0.02)',
+             }}
+           >
+             <BentoBusinessCards />
+           </div>
+         </div>
         {/* Bottom fade */}
         <div className="absolute bottom-0 left-0 right-0 h-[60px] bg-gradient-to-t from-[hsla(240,15%,5%,1)] to-transparent pointer-events-none z-10" />
       </div>
