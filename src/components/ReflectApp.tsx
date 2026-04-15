@@ -6004,7 +6004,7 @@ function MaskGroup56() {
 
 function Section10() {
   return (
-    <div className="relative w-full h-full mx-auto max-w-[1440px] flex flex-col gap-[32px] isolate items-center overflow-clip pt-[64px]" top-[10444px] w-[1440px]" data-name="Section">
+    <div className="relative w-full h-full mx-auto max-w-[1440px] flex flex-col gap-[32px] isolate items-center overflow-clip pt-[64px]" data-name="Section">
       <Container255 />
       <Link4 />
       <MaskGroup56 />
