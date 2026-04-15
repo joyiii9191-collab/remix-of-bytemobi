@@ -32,19 +32,15 @@ export function OptimizedHeader() {
         
         {/* Nav Links */}
         <nav className="hidden lg:flex items-center gap-1">
-          {navKeys.map((key) => {
-            const navId = key.split('.')[1];
-            const href = navId === 'globalFlow' ? '/global-flow' : `#${navId}`;
-            return (
-              <a 
-                key={key} 
-                href={href}
-                className="text-sm text-white/70 hover:text-white transition-colors px-3 py-1 rounded-full hover:bg-white/[0.08] whitespace-nowrap"
-              >
-                {t(key)}
-              </a>
-            );
-          })}
+          {navKeys.map((key) => (
+            <a 
+              key={key} 
+              href={`#${key.split('.')[1]}`} 
+              className="text-sm text-white/70 hover:text-white transition-colors px-3 py-1 rounded-full hover:bg-white/[0.08] whitespace-nowrap"
+            >
+              {t(key)}
+            </a>
+          ))}
         </nav>
 
         {/* Language Switcher */}
