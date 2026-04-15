@@ -1885,39 +1885,47 @@ function Section2() {
         </p>
       </div>
 
-      {/* Laptop Screen with Glow */}
+      {/* Laptop Screen */}
       <div className="relative w-full max-w-[1060px]">
-        {/* Top glow beam */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[200px] z-10 pointer-events-none">
-          {/* Central beam */}
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[2px] h-[160px] bg-gradient-to-t from-purple-400/90 via-purple-300/40 to-transparent" />
-          {/* Beam glow spread */}
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80px] h-[120px] bg-gradient-to-t from-purple-500/30 via-purple-400/10 to-transparent blur-[20px]" />
-          {/* Wide ambient glow */}
-          <div className="absolute bottom-[-20px] left-1/2 -translate-x-1/2 w-[400px] h-[80px] bg-purple-500/15 blur-[40px] rounded-full" />
-          {/* Hot spot at contact point */}
-          <div className="absolute bottom-[-4px] left-1/2 -translate-x-1/2 w-[60px] h-[12px] bg-purple-300/40 blur-[12px] rounded-full" />
-        </div>
+        {/* Laptop body */}
+        <div className="relative">
+          {/* Screen bezel */}
+          <div className="rounded-t-xl bg-[hsla(240,10%,13%,1)] p-[3px] pb-0">
+            {/* Top bezel bar with camera */}
+            <div className="flex items-center justify-center py-2 px-4 relative">
+              <div className="w-[6px] h-[6px] rounded-full bg-white/10 ring-1 ring-white/[0.06]" />
+            </div>
+            {/* Screen area */}
+            <div className="relative rounded-t-lg overflow-hidden border border-white/[0.06] border-b-0"
+              style={{
+                background: 'linear-gradient(180deg, hsla(240, 15%, 8%, 1) 0%, hsla(240, 15%, 6%, 1) 100%)',
+              }}
+            >
+              {/* Dot grid pattern */}
+              <div className="absolute inset-0 opacity-[0.08]" style={{
+                backgroundImage: 'radial-gradient(circle, hsla(0,0%,100%,0.4) 1px, transparent 1px)',
+                backgroundSize: '24px 24px',
+              }} />
 
-        {/* Screen frame */}
-        <div className="relative rounded-2xl border border-white/[0.08] overflow-hidden"
-          style={{
-            background: 'linear-gradient(180deg, hsla(260, 20%, 10%, 0.8) 0%, hsla(240, 20%, 8%, 0.9) 100%)',
-          }}
-        >
-          {/* Top edge glow on border */}
-          <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-purple-400/50 to-transparent" />
-          
-          {/* Dot grid pattern */}
-          <div className="absolute inset-0 opacity-[0.15]" style={{
-            backgroundImage: 'radial-gradient(circle, hsla(0,0%,100%,0.3) 1px, transparent 1px)',
-            backgroundSize: '24px 24px',
-          }} />
-
-          {/* Content area */}
-          <div className="relative z-[1] p-8 pt-10">
-            <BentoBusinessCards />
+              {/* Content */}
+              <div className="relative z-[1] p-8">
+                <BentoBusinessCards />
+              </div>
+            </div>
           </div>
+          {/* Laptop base / hinge */}
+          <div className="relative h-[18px] mx-auto"
+            style={{
+              background: 'linear-gradient(180deg, hsla(240,10%,15%,1) 0%, hsla(240,10%,11%,1) 100%)',
+              borderRadius: '0 0 4px 4px',
+              borderTop: '1px solid hsla(0,0%,100%,0.06)',
+            }}
+          >
+            {/* Hinge notch */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-[4px] rounded-b-md bg-white/[0.04]" />
+          </div>
+          {/* Desk surface shadow */}
+          <div className="absolute -bottom-4 left-[10%] right-[10%] h-[20px] bg-purple-500/5 blur-[16px] rounded-full" />
         </div>
       </div>
     </div>
