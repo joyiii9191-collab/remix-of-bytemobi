@@ -1203,8 +1203,17 @@ function Container62() {
 
 function Section1() {
   return (
-    <div className="relative w-full h-full" data-name="Section">
-      <IntegrationsGrid />
+    <div className="relative w-full h-full flex flex-col items-center" data-name="Section">
+      {/* Title */}
+      <div className="pt-[60px] pb-[16px]">
+        <div className="bg-clip-text bg-gradient-to-b from-white to-[rgba(255,255,255,0.7)] text-[transparent] text-center">
+          <p className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[48px] leading-[56px]">品牌简介</p>
+        </div>
+      </div>
+      {/* Integrations Grid */}
+      <div className="flex-1 w-full">
+        <IntegrationsGrid />
+      </div>
     </div>
   );
 }
