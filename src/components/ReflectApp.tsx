@@ -605,28 +605,28 @@ function MaskGroup1() {
 
 function Section({ className }: { className?: string }) {
   return (
-    <div className={className || "absolute content-stretch flex flex-col isolate items-center left-0 right-0 top-0 h-[900px]"} data-name="Section">
+    <div className={className || "absolute content-stretch flex flex-col isolate items-center left-0 right-0 top-0 h-[900px]"} data-name="Section" style={{ backgroundColor: '#0a0a12' }}>
       {/* ColorBends Background */}
       <div className="absolute inset-0 z-[0] overflow-hidden">
         <ColorBends
-          colors={["#9B5FFF", "#D4BBFF", "#6B2FC7", "#B8A0FF", "#4A1A8A", "#E0D0FF"]}
-          speed={0.15}
-          noise={0.1}
-          rotation={45}
-          scale={0.8}
-          frequency={0.8}
-          warpStrength={1.2}
-          intensity={1.8}
-          bandWidth={5}
-          iterations={4}
-          mouseInfluence={1.0}
-          parallax={0.8}
-          transparent={false}
+          colors={["#c840ff", "#9B5FFF", "#ff5caa", "#7b2fff"]}
+          speed={0.2}
+          noise={0.12}
+          rotation={90}
+          scale={1}
+          frequency={1}
+          warpStrength={1}
+          intensity={1.5}
+          bandWidth={6}
+          iterations={1}
+          mouseInfluence={1}
+          parallax={0.5}
+          transparent
           style={{ width: '100%', height: '100%' }}
         />
       </div>
-      {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 z-[1] pointer-events-none bg-gradient-to-b from-[rgba(3,0,20,0.3)] via-transparent to-[rgba(3,0,20,0.7)]" />
+      {/* Subtle top/bottom fade */}
+      <div className="absolute inset-0 z-[1] pointer-events-none bg-gradient-to-b from-[rgba(10,10,18,0.15)] via-transparent to-[rgba(10,10,18,0.4)]" />
       {/* Content */}
       <div className="relative z-[4] pt-[173px] w-full flex flex-col items-center pointer-events-none">
         <Container />
