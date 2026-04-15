@@ -1990,7 +1990,7 @@ function Section2() {
               {/* Inner border + shadow overlay */}
               <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_1px_0px_0px_rgba(255,255,255,0.1),inset_0px_0px_0px_1px_rgba(255,255,255,0.06)]" />
             </div>
-          ))}
+          )})}
         </div>
       </div>
     </div>
