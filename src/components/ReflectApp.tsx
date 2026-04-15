@@ -1922,12 +1922,26 @@ function Section2() {
       <div className="w-full overflow-x-auto overflow-y-hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}>
         <style>{`.hide-scrollbar::-webkit-scrollbar { display: none; }`}</style>
         <div className="hide-scrollbar flex gap-6 px-16 pb-4" style={{ width: 'max-content' }}>
-          {bizCards.map((card) => (
-            <div key={card.abbr} className="group relative flex flex-col overflow-hidden rounded-[20px] cursor-pointer transition-transform duration-300 hover:scale-[1.02] shrink-0 w-[360px]"
+          {bizCards.map((card) => {
+            const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+            const [isHovered, setIsHovered] = useState(false);
+            return (
+            <div key={card.abbr} className="group relative flex flex-col overflow-hidden rounded-[20px] cursor-pointer shrink-0 w-[360px]"
               style={{ boxShadow: card.shadow }}
+              onMouseMove={(e) => {
+                const rect = e.currentTarget.getBoundingClientRect();
+                setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+              }}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
             >
               {/* Radial gradient background */}
               <div className="absolute inset-0 pointer-events-none rounded-[20px]" style={{ background: card.gradient }} />
+              {/* Spotlight overlay */}
+              <div className="absolute inset-0 pointer-events-none rounded-[20px] transition-opacity duration-300" style={{
+                opacity: isHovered ? 1 : 0,
+                background: `radial-gradient(400px circle at ${mousePos.x}px ${mousePos.y}px, rgba(255,255,255,0.08) 0%, transparent 60%)`,
+              }} />
 
               {/* Content */}
               <div className="relative flex flex-col gap-5 pt-6 px-6">
