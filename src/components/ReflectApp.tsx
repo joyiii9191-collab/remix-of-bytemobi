@@ -605,28 +605,31 @@ function MaskGroup1() {
 
 function Section({ className }: { className?: string }) {
   return (
-    <div className={className || "absolute content-stretch flex flex-col gap-[232px] isolate items-center left-0 pt-[173px] right-0 top-0"} data-name="Section">
-      <Container />
-      <div className="absolute h-[600px] left-0 right-0 top-[420px] z-[3] overflow-hidden" style={{ pointerEvents: 'none' }} data-name="LaserFlow">
-        <LaserFlow
-          color="#BA9CFF"
-          verticalSizing={1.8}
-          horizontalSizing={0.6}
-          fogIntensity={0.35}
-          fogScale={0.25}
-          flowSpeed={0.3}
-          wispDensity={0.8}
-          wispSpeed={12}
-          wispIntensity={4}
-          decay={1.2}
-          falloffStart={1.3}
-          verticalBeamOffset={0.1}
-          horizontalBeamOffset={0.08}
-          style={{ width: '100%', height: '100%', position: 'absolute', inset: 0 }}
+    <div className={className || "absolute content-stretch flex flex-col isolate items-center left-0 right-0 top-0 h-[900px]"} data-name="Section">
+      {/* ColorBends Background */}
+      <div className="absolute inset-0 z-[0] overflow-hidden" style={{ pointerEvents: 'none' }}>
+        <ColorBends
+          colors={["#7B2FFF", "#BA9CFF", "#3B0A7A", "#9CB2FF", "#1a0533"]}
+          speed={0.12}
+          noise={0.08}
+          rotation={135}
+          scale={1.2}
+          frequency={0.8}
+          warpStrength={0.6}
+          intensity={1.8}
+          bandWidth={5}
+          iterations={2}
+          mouseInfluence={0.3}
+          transparent={false}
+          style={{ width: '100%', height: '100%' }}
         />
       </div>
-      <Container3 />
-      <MaskGroup1 />
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[rgba(3,0,20,0.5)] via-[rgba(3,0,20,0.2)] to-[rgba(3,0,20,0.9)]" />
+      {/* Content */}
+      <div className="relative z-[4] pt-[173px] w-full flex flex-col items-center">
+        <Container />
+      </div>
     </div>
   );
 }
