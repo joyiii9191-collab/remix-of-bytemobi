@@ -2,6 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import svgPaths from "./svg-ww2hb5tg6t";
 import IntegrationsGrid from "./IntegrationsGrid";
+import BentoBusinessCards from "./BentoBusinessCards";
 import ColorBends from "./ColorBends";
 import imgQCb311D1CPng from "@/assets/ca87b13c3dba5b82f5b55f7a1fbe96037f74413d.png";
 import imgQC3D7BecfWebm from "@/assets/8f7f3e78fa25f538b70e2685192395598c425a33.png";
@@ -1862,11 +1863,30 @@ function Q44E26A19Png() {
 
 function Section2() {
   return (
-    <div className="relative w-full h-full flex flex-col gap-[48px] isolate items-center pb-[145px] pt-[96px]" data-name="Section">
-      <Container65 />
-      <Container68 />
-      <MaskGroup14 />
-      <Q44E26A19Png />
+    <div className="relative w-full h-full flex flex-col items-center justify-center px-16" data-name="Section">
+      {/* Header */}
+      <div className="flex flex-col items-center gap-4 mb-12">
+        <div className="flex items-center gap-2">
+          <div className="h-px w-6 bg-gradient-to-r from-purple-500 to-transparent" />
+          <span className="text-[11px] tracking-[0.15em] uppercase text-purple-400/70 font-medium">Core Business</span>
+          <div className="h-px w-6 bg-gradient-to-l from-purple-500 to-transparent" />
+        </div>
+
+        <h2 className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[44px] leading-[1.1] font-semibold tracking-tight bg-clip-text bg-gradient-to-b from-white via-white to-white/60 text-[transparent]">
+          核心业务板块
+        </h2>
+
+        <p className="text-[18px] leading-[28px] font-medium text-white/80">
+          品牌与效果广告
+        </p>
+
+        <p className="text-[13px] leading-[22px] text-white/40 text-center max-w-[480px]">
+          帮助广告主精准触达目标用户，兼顾品牌曝光与效果转化
+        </p>
+      </div>
+
+      {/* Bento Cards */}
+      <BentoBusinessCards />
     </div>
   );
 }
