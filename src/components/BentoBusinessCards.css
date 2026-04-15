@@ -21,7 +21,7 @@
   position: relative;
   z-index: 2;
   border-radius: 20px;
-  background: hsl(var(--background));
+  background: hsl(var(--surface-panel));
   border: 1px solid hsla(0, 0%, 100%, 0.06);
   overflow: hidden;
   height: 100%;
@@ -33,10 +33,9 @@
 }
 
 .bento-biz-card:hover .bento-biz-card__content {
-  border-color: hsla(277, 100%, 61%, 0.3);
+  border-color: hsla(277, 100%, 61%, 0.24);
 }
 
-/* Glow layers */
 .bento-biz-glow {
   position: absolute;
   inset: 0;
@@ -52,14 +51,14 @@
 }
 
 .bento-biz-glow--1 {
-  box-shadow: 0 0 20px 4px hsla(277, 100%, 61%, 0.2);
-  border: 1px solid hsla(277, 100%, 61%, 0.4);
+  box-shadow: 0 0 20px 4px hsla(277, 100%, 61%, 0.18);
+  border: 1px solid hsla(277, 100%, 61%, 0.28);
   filter: blur(6px);
 }
 
 .bento-biz-glow--2 {
-  box-shadow: 0 0 10px 2px hsla(0, 0%, 100%, 0.08);
-  border: 1px solid hsla(0, 0%, 100%, 0.06);
+  box-shadow: 0 0 8px 1px hsla(0, 0%, 100%, 0.05);
+  border: 1px solid hsla(0, 0%, 100%, 0.04);
   filter: blur(4px);
 }
 
