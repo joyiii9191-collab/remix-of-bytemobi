@@ -27,9 +27,64 @@
 }
 
 .neon-card::before {
-  display: none;
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 19px;
+  border: 1px solid hsla(0, 0%, 100%, 0.08);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .neon-glow {
-  display: none;
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.neon-glow--1 {
+  box-shadow: 0 0 12px 1px hsla(277, 100%, 61%, 0.18);
+  border: 1px solid hsla(277, 100%, 61%, 0.28);
+  filter: blur(6px);
+}
+
+.neon-glow--2 {
+  box-shadow: 0 0 8px 1px hsla(277, 100%, 61%, 0.14);
+  border: 1px solid hsla(277, 100%, 61%, 0.22);
+  filter: blur(4px);
+}
+
+.neon-glow--3 {
+  box-shadow: 0 0 6px 1px hsla(277, 100%, 61%, 0.10);
+  border: 1px solid hsla(277, 100%, 61%, 0.16);
+  filter: blur(3px);
+}
+
+.neon-glow--4 {
+  box-shadow: 0 0 3px 0px hsla(277, 100%, 61%, 0.08);
+  border: 1px solid hsla(277, 100%, 61%, 0.12);
+  filter: blur(2px);
+}
+
+.neon-glow--white {
+  box-shadow: 0 0 6px 1px hsla(0, 0%, 100%, 0.06);
+  border: 2px solid hsla(0, 0%, 100%, 0.05);
+  filter: blur(4px);
+}
+
+.neon-card:hover .neon-glow--1 {
+  box-shadow: 0 0 20px 4px hsla(277, 100%, 61%, 0.38);
+  border-color: hsla(277, 100%, 61%, 0.58);
+}
+
+.neon-card:hover .neon-glow--white {
+  box-shadow: 0 0 8px 1px hsla(0, 0%, 100%, 0.1);
+  border-color: hsla(0, 0%, 100%, 0.08);
+}
+
+.neon-glow,
+.neon-card::before {
+  transition: all 0.3s ease;
 }
