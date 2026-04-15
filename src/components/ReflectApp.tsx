@@ -626,9 +626,9 @@ function Section({ className }: { className?: string }) {
         />
       </div>
       {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[rgba(3,0,20,0.5)] via-[rgba(3,0,20,0.2)] to-[rgba(3,0,20,0.9)]" />
+      <div className="absolute inset-0 z-[1] pointer-events-none bg-gradient-to-b from-[rgba(3,0,20,0.3)] via-transparent to-[rgba(3,0,20,0.7)]" />
       {/* Content */}
-      <div className="relative z-[4] pt-[173px] w-full flex flex-col items-center">
+      <div className="relative z-[4] pt-[173px] w-full flex flex-col items-center pointer-events-none">
         <Container />
       </div>
     </div>
