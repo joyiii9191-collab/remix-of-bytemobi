@@ -1882,6 +1882,38 @@ function Q44E26A19Png() {
   );
 }
 
+function StarParticles() {
+  const stars = [
+    { x: '3%', y: '8%', opacity: 0.28 }, { x: '12%', y: '3%', opacity: 0.19 },
+    { x: '25%', y: '6%', opacity: 0.33 }, { x: '38%', y: '2%', opacity: 0.12 },
+    { x: '52%', y: '5%', opacity: 0.37 }, { x: '65%', y: '1%', opacity: 0.15 },
+    { x: '78%', y: '4%', opacity: 0.27 }, { x: '88%', y: '7%', opacity: 0.22 },
+    { x: '95%', y: '3%', opacity: 0.31 }, { x: '42%', y: '8%', opacity: 0.16 },
+    { x: '2%', y: '25%', opacity: 0.11 }, { x: '1%', y: '45%', opacity: 0.31 },
+    { x: '3%', y: '65%', opacity: 0.17 }, { x: '1.5%', y: '80%', opacity: 0.25 },
+    { x: '97%', y: '20%', opacity: 0.25 }, { x: '98%', y: '50%', opacity: 0.31 },
+    { x: '96%', y: '70%', opacity: 0.12 }, { x: '99%', y: '85%', opacity: 0.18 },
+    { x: '15%', y: '95%', opacity: 0.37 }, { x: '30%', y: '97%', opacity: 0.18 },
+    { x: '55%', y: '96%', opacity: 0.25 }, { x: '72%', y: '98%', opacity: 0.14 },
+    { x: '85%', y: '95%', opacity: 0.33 }, { x: '92%', y: '97%', opacity: 0.22 },
+  ];
+  const glowStars = [
+    { x: '8%', y: '5%', opacity: 0.33 }, { x: '83%', y: '2%', opacity: 0.32 },
+    { x: '5%', y: '55%', opacity: 0.14 }, { x: '95%', y: '40%', opacity: 0.37 },
+    { x: '45%', y: '97%', opacity: 0.28 }, { x: '70%', y: '96%', opacity: 0.27 },
+  ];
+  return (
+    <div className="absolute inset-[-45px_-60px] pointer-events-none">
+      {stars.map((s, i) => (
+        <div key={i} className="absolute bg-white rounded-[1px] size-px" style={{ left: s.x, top: s.y, opacity: s.opacity }} />
+      ))}
+      {glowStars.map((s, i) => (
+        <div key={`g${i}`} className="absolute bg-white rounded-[1px] size-px" style={{ left: s.x, top: s.y, opacity: s.opacity, boxShadow: '0px 0px 1px 1px rgba(50,145,255,0.8), 0px 0px 2px 1px rgba(50,145,255,0.25)' }} />
+      ))}
+    </div>
+  );
+}
+
 function Section2() {
   return (
     <div className="relative w-full h-full flex flex-col items-center justify-center px-16" data-name="Section">
@@ -1906,32 +1938,97 @@ function Section2() {
         </p>
       </div>
 
-      {/* Browser-style liquid glass frame */}
-      <div className="relative w-full max-w-[1060px] overflow-hidden" style={{ maxHeight: '580px' }}>
-        <div className="liquid-glass liquid-glass--browser">
-          {/* Browser top bar */}
-          <div className="flex items-center gap-[7px] px-5 py-[14px]"
+      {/* Figma-style double-border glass frame */}
+      <div className="relative w-full max-w-[1204px]">
+        {/* Star particles around the frame */}
+        <StarParticles />
+
+        {/* Blurred radial glow behind frame */}
+        <div className="absolute inset-[-60px] blur-[10px] pointer-events-none">
+          <div className="absolute inset-0" style={{
+            background: 'radial-gradient(ellipse 538px 370px at 51% 5%, rgba(255,148,148,0.08) 5%, rgba(222,226,255,0.05) 46%, rgba(241,242,255,0) 100%)'
+          }} />
+        </div>
+
+        {/* Outer glass border */}
+        <div
+          className="relative overflow-clip rounded-[19px]"
+          style={{
+            border: '1px solid rgba(255,255,255,0.08)',
+            boxShadow: '0px 0px 40px 20px rgba(255,255,255,0.03)',
+            padding: '9px',
+          }}
+        >
+          {/* Outer glass fill */}
+          <div
+            aria-hidden
+            className="absolute inset-0 pointer-events-none rounded-[19px]"
             style={{
-              borderBottom: '1px solid hsla(0, 0%, 100%, 0.06)',
-              background: 'hsla(0, 0%, 100%, 0.02)',
+              backdropFilter: 'blur(1px)',
+              background: 'radial-gradient(ellipse 1033px 370px at 51% 5%, rgba(255,148,148,0.11) 0%, rgba(222,226,255,0.08) 46%, rgba(241,242,255,0.02) 100%), linear-gradient(90deg, rgba(0,0,0,0.44) 0%, rgba(0,0,0,0.44) 100%)',
+            }}
+          />
+
+          {/* Inner dark panel */}
+          <div
+            className="relative overflow-clip rounded-[12px] w-full"
+            style={{
+              border: '1px solid rgba(255,255,255,0.08)',
+              boxShadow: '0px 0px 2px 0px rgba(255,255,255,0.19)',
+              background: '#07080a',
             }}
           >
-            <div className="w-[11px] h-[11px] rounded-full" style={{ background: '#FF5F57', boxShadow: '0 0 4px hsla(3, 100%, 67%, 0.3)' }} />
-            <div className="w-[11px] h-[11px] rounded-full" style={{ background: '#FEBC2E', boxShadow: '0 0 4px hsla(40, 99%, 58%, 0.3)' }} />
-            <div className="w-[11px] h-[11px] rounded-full" style={{ background: '#28C840', boxShadow: '0 0 4px hsla(130, 69%, 47%, 0.3)' }} />
-            <div className="flex-1 flex justify-center ml-4">
-              <div className="liquid-glass liquid-glass--inner px-6 py-[5px] !rounded-md">
-                <span className="text-[11px] tracking-wide relative z-[1]" style={{ color: 'hsla(0, 0%, 100%, 0.25)' }}>
-                  reflectmedia.com
+            {/* Inner top highlight */}
+            <div className="absolute inset-0 pointer-events-none rounded-[inherit]" style={{ boxShadow: 'inset 0px 0.5px 0px 1px rgba(255,255,255,0.3)' }} />
+
+            {/* Tab bar / top chrome */}
+            <div className="relative h-[48px] flex items-center px-4" style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
+              {/* macOS window dots */}
+              <div className="flex items-center gap-[6px] mr-4">
+                <div className="rounded-full size-[12px]" style={{ background: 'rgba(255,255,255,0.2)' }} />
+                <div className="rounded-full size-[12px]" style={{ background: 'rgba(255,255,255,0.2)' }} />
+                <div className="rounded-full size-[12px]" style={{ background: 'rgba(255,255,255,0.2)' }} />
+              </div>
+              {/* Tab area */}
+              <div className="flex-1 flex items-center justify-center">
+                <span className="text-[12px] font-medium tracking-wide" style={{ color: 'rgba(255,255,255,0.4)' }}>
+                  reflectmedia.com — 核心业务
                 </span>
               </div>
             </div>
-            <div className="w-[80px]" />
-          </div>
 
-          {/* Content area */}
-          <div className="relative p-6">
-            <BentoBusinessCards />
+            {/* Content area with BentoBusinessCards */}
+            <div className="relative p-8 min-h-[400px] flex items-center justify-center">
+              <BentoBusinessCards />
+            </div>
+
+            {/* Bottom bar */}
+            <div
+              className="relative flex items-center justify-between px-[13px] py-[5.5px] h-[40px]"
+              style={{
+                backdropFilter: 'blur(24px)',
+                background: 'rgba(0,0,0,0.1)',
+                borderTop: '1px solid rgba(143,141,145,0.2)',
+                borderRadius: '0 0 12px 12px',
+              }}
+            >
+              <span className="text-[12px] font-semibold" style={{ color: 'rgba(255,255,255,0.6)' }}>
+                Business Models
+              </span>
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2">
+                  <span className="text-[13px] font-medium" style={{ color: 'rgba(255,255,255,0.6)' }}>Actions</span>
+                  <div className="flex gap-[2px]">
+                    <div className="bg-[rgba(255,255,255,0.1)] h-[21px] w-[24px] rounded-[4px] flex items-center justify-center">
+                      <span className="text-[11px] font-semibold" style={{ color: 'rgba(255,255,255,0.6)' }}>⌘</span>
+                    </div>
+                    <div className="bg-[rgba(255,255,255,0.1)] h-[21px] w-[24px] rounded-[4px] flex items-center justify-center">
+                      <span className="text-[11px] font-semibold" style={{ color: 'rgba(255,255,255,0.6)' }}>K</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
