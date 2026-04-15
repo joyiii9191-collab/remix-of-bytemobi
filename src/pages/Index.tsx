@@ -7,10 +7,9 @@ import { Starfield } from "../components/Starfield";
 export default function Index() {
   return (
     <>
-      <style>{`html, body, #root { height: 100%; overflow: hidden; margin: 0; }`}</style>
       <div
         className="h-full overflow-y-scroll bg-[#030014] text-white font-sans"
-        style={{ userSelect: "none", scrollSnapType: "y mandatory" }}
+        style={{ userSelect: "none", scrollSnapType: "y mandatory", WebkitOverflowScrolling: "touch" }}
       >
         <OptimizedHeader />
         <MouseGlow />
