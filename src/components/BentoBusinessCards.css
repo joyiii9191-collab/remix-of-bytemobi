@@ -11,7 +11,7 @@
 /* Card container */
 .bento-biz-card {
   position: relative;
-  border-radius: 20px;
+  border-radius: 16px;
   isolation: isolate;
   min-height: 160px;
   cursor: pointer;
@@ -20,46 +20,23 @@
 .bento-biz-card__content {
   position: relative;
   z-index: 2;
-  border-radius: 20px;
-  background: hsl(var(--surface-panel));
-  border: 1px solid hsla(0, 0%, 100%, 0.06);
+  border-radius: 16px;
+  background: hsla(240, 20%, 12%, 0.55);
+  backdrop-filter: blur(24px) saturate(1.2);
+  -webkit-backdrop-filter: blur(24px) saturate(1.2);
+  border: 1px solid hsla(0, 0%, 100%, 0.04);
   overflow: hidden;
   height: 100%;
   padding: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: border-color 0.3s ease;
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .bento-biz-card:hover .bento-biz-card__content {
-  border-color: hsla(277, 100%, 61%, 0.24);
-}
-
-.bento-biz-glow {
-  position: absolute;
-  inset: 0;
-  border-radius: 20px;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.bento-biz-card:hover .bento-biz-glow {
-  opacity: 1;
-}
-
-.bento-biz-glow--1 {
-  box-shadow: 0 0 20px 4px hsla(277, 100%, 61%, 0.18);
-  border: 1px solid hsla(277, 100%, 61%, 0.28);
-  filter: blur(6px);
-}
-
-.bento-biz-glow--2 {
-  box-shadow: 0 0 8px 1px hsla(0, 0%, 100%, 0.05);
-  border: 1px solid hsla(0, 0%, 100%, 0.04);
-  filter: blur(4px);
+  background: hsla(240, 20%, 14%, 0.65);
+  border-color: hsla(277, 80%, 60%, 0.12);
 }
 
 /* Default state: centered abbreviation + scene */

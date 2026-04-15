@@ -57,9 +57,6 @@ function BentoCard({ card }: { card: BizCard }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Glow layers */}
-      <div className="bento-biz-glow bento-biz-glow--1" />
-      <div className="bento-biz-glow bento-biz-glow--2" />
 
       <div className="bento-biz-card__content">
         {/* Default state */}
