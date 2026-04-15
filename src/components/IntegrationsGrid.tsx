@@ -1,8 +1,7 @@
 import React from "react";
 import iconGlobalJapan from "@/assets/icon-global-japan.png";
 import iconOneStop from "@/assets/icon-one-stop.png";
-import BorderGlow from "./BorderGlow";
-import "./BorderGlow.css";
+import "./NeonCard.css";
 
 function FeatureCard({
   label,
@@ -14,18 +13,13 @@ function FeatureCard({
   hasPlaceholders?: boolean;
 }) {
   return (
-    <BorderGlow
-      edgeSensitivity={30}
-      glowColor="40 80 80"
-      backgroundColor="#120F17"
-      borderRadius={28}
-      glowRadius={40}
-      glowIntensity={1}
-      coneSpread={25}
-      animated={false}
-      colors={['#c084fc', '#f472b6', '#38bdf8']}
-    >
-      <div className="flex flex-col items-center justify-center gap-3 p-6 aspect-[4/3]">
+    <div className="neon-card">
+      <div className="neon-glow neon-glow--1" />
+      <div className="neon-glow neon-glow--2" />
+      <div className="neon-glow neon-glow--3" />
+      <div className="neon-glow neon-glow--4" />
+      <div className="neon-glow neon-glow--white" />
+      <div className="neon-card__content flex flex-col items-center justify-center gap-3 p-6 aspect-[4/3]">
         {hasPlaceholders ? (
           <div className="flex gap-2.5">
             {[0, 1, 2].map((i) => (
@@ -47,7 +41,7 @@ function FeatureCard({
           {label}
         </span>
       </div>
-    </BorderGlow>
+    </div>
   );
 }
 
