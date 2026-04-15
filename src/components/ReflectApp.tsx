@@ -1152,7 +1152,7 @@ function Heading1() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-0 pl-[390.13px] pr-[390.12px] right-0 top-[44px]" data-name="Heading 2">
       <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] from-white justify-center leading-[0] not-italic relative shrink-0 text-[56px] text-[transparent] text-center to-[rgba(255,255,255,0.7)] whitespace-nowrap">
-        <p className="leading-[64px]">Notes with an AI assistant</p>
+        <p className="leading-[64px]">品牌简介</p>
       </div>
     </div>
   );
