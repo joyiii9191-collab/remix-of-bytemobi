@@ -65,9 +65,9 @@ import { imgGradient, imgGradientOverlay, imgContainer, imgContainer1, imgContai
 
 function Container1() {
   return (
-    <div className="absolute content-stretch flex flex-col items-center left-0 pl-[556.88px] pr-[556.87px] right-0 top-[140px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[18px] text-[rgba(239,237,253,0.7)] text-center whitespace-nowrap">
-        <p className="leading-[28px]">Never miss a note, idea or connection.</p>
+    <div className="absolute content-stretch flex flex-col items-center left-0 px-[120px] right-0 top-[160px]" data-name="Container">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.5)] text-center whitespace-nowrap">
+        <p className="leading-[24px]">Intelligently Driven, Converging Global Streams, Igniting Momentum in Japan</p>
       </div>
     </div>
   );
@@ -158,22 +158,17 @@ function Container2() {
 }
 
 function Link() {
-  return (
-    <a className="-translate-x-1/2 absolute content-stretch cursor-pointer flex items-center left-[calc(50%+0.33px)] overflow-clip pl-[8px] pr-[13px] py-[4px] rounded-[32px] top-0" href="https://reflect.app/#ai" target="_blank" data-name="Link">
-      <div aria-hidden="true" className="absolute backdrop-blur-[3px] bg-[rgba(255,255,255,0)] inset-0 pointer-events-none rounded-[32px]" />
-      <SvgMargin />
-      <Container2 />
-      <div className="absolute inset-[0_-0.34px_0_0] mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[0%_0%] mask-size-[100%_100%] rounded-[32px]" style={{ backgroundImage: "linear-gradient(90.01deg, rgba(229, 156, 255, 0.24) 0%, rgba(186, 156, 255, 0.24) 50.01%, rgba(156, 178, 255, 0.24) 100%)", maskImage: `url('${imgGradient}')` }} data-name="Gradient" />
-      <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_-7px_11px_0px_rgba(164,143,255,0.12)]" />
-    </a>
-  );
+  return null;
 }
 
 function Heading() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-0 px-[120px] right-0 top-[48px]" data-name="Heading 1">
-      <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Inter',sans-serif] font-bold from-white justify-center leading-[0] not-italic relative shrink-0 text-[96px] text-[transparent] text-center to-[rgba(255,255,255,0.7)]">
-        <p className="leading-[108px]">Think better with Reflect</p>
+      <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Inter',sans-serif] font-bold from-white justify-center leading-[0] not-italic relative shrink-0 text-[88px] text-[transparent] text-center to-[rgba(255,255,255,0.7)]">
+        <p className="leading-[100px]">全球广告增长平台</p>
+      </div>
+      <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Inter',sans-serif] font-semibold from-white/90 justify-center leading-[0] not-italic relative shrink-0 text-[32px] text-[transparent] text-center to-[rgba(255,255,255,0.5)] mt-[16px]">
+        <p className="leading-[44px]">智能驱动，全球汇流，日本聚势</p>
       </div>
     </div>
   );
