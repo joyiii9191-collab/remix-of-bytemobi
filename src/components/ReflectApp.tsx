@@ -1203,6 +1203,42 @@ function Container62() {
   );
 }
 
+function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string }) {
+  const [display, setDisplay] = React.useState(0);
+  const ref = React.useRef<HTMLSpanElement>(null);
+  const hasAnimated = React.useRef(false);
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true;
+          const duration = 1500;
+          const start = performance.now();
+          const animate = (now: number) => {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            // easeOutExpo
+            const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+            setDisplay(Math.round(eased * value));
+            if (progress < 1) requestAnimationFrame(animate);
+          };
+          requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.5 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [value]);
+
+  return (
+    <span ref={ref} className="text-[28px] font-semibold bg-clip-text bg-gradient-to-r from-purple-300 to-blue-300 text-[transparent] tabular-nums">
+      {display}{suffix}
+    </span>
+  );
+}
+
 function Section1() {
   return (
     <div className="relative w-full h-full flex items-center justify-center px-16 pt-[80px]" data-name="Section">
@@ -1229,31 +1265,31 @@ function Section1() {
           <div className="w-12 h-px bg-gradient-to-r from-purple-500/40 to-blue-500/40" />
 
           {/* Description */}
-          <p className="text-[14px] leading-[24px] text-white/40 text-justify">
-            依托自有程序化流量体系整合全球头部媒体及合作伙伴生态资源，构建多元化流量网络，以全球布局为基础，深度拓展日本市场，为广告主提供高效的一站式广告投放与流量变现解决方案
+          <p className="text-[13px] leading-[22px] text-white/40 text-justify max-w-[360px]">
+            依托自有程序化流量体系整合全球头部媒体及合作伙伴生态资源，构建多元化流量网络，以全球布局为基础，深度拓展日本市场，为广告主提供高效的一站式广告投放与流量变现解决方案。
           </p>
 
           {/* Stats row */}
           <div className="flex gap-8 mt-2">
             <div className="flex flex-col gap-1">
-              <span className="text-[28px] font-semibold bg-clip-text bg-gradient-to-r from-purple-300 to-blue-300 text-[transparent]">200+</span>
+              <AnimatedNumber value={200} suffix="+" />
               <span className="text-[11px] text-white/35 tracking-wide">合作媒体</span>
             </div>
             <div className="w-px h-12 bg-white/[0.06]" />
             <div className="flex flex-col gap-1">
-              <span className="text-[28px] font-semibold bg-clip-text bg-gradient-to-r from-purple-300 to-blue-300 text-[transparent]">50+</span>
+              <AnimatedNumber value={50} suffix="+" />
               <span className="text-[11px] text-white/35 tracking-wide">覆盖国家</span>
             </div>
             <div className="w-px h-12 bg-white/[0.06]" />
             <div className="flex flex-col gap-1">
-              <span className="text-[28px] font-semibold bg-clip-text bg-gradient-to-r from-purple-300 to-blue-300 text-[transparent]">10亿+</span>
+              <AnimatedNumber value={10} suffix="亿+" />
               <span className="text-[11px] text-white/35 tracking-wide">日均流量</span>
             </div>
           </div>
         </div>
 
-        {/* Right side — bento grid */}
-        <div className="flex-1 flex items-center justify-center">
+        {/* Right side — 4 cards grid */}
+        <div className="flex-1 grid grid-cols-2 gap-4">
           <IntegrationsGrid />
         </div>
       </div>
