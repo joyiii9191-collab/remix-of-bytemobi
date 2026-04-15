@@ -1888,6 +1888,57 @@ function Q44E26A19Png() {
   );
 }
 
+function SpotlightBizCard({ card }: { card: { abbr: string; full: string; scene: string; desc: string; gradient: string; shadow: string } }) {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
+  return (
+    <div className="group relative flex flex-col overflow-hidden rounded-[20px] cursor-pointer shrink-0 w-[360px]"
+      style={{ boxShadow: card.shadow }}
+      onMouseMove={(e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="absolute inset-0 pointer-events-none rounded-[20px]" style={{ background: card.gradient }} />
+      <div className="absolute inset-0 pointer-events-none rounded-[20px] transition-opacity duration-300" style={{
+        opacity: isHovered ? 1 : 0,
+        background: `radial-gradient(400px circle at ${mousePos.x}px ${mousePos.y}px, rgba(255,255,255,0.08) 0%, transparent 60%)`,
+      }} />
+      <div className="relative flex flex-col gap-5 pt-6 px-6">
+        <div className="flex items-center gap-3">
+          <div className="flex items-center justify-center size-[52px] rounded-[12px]" style={{
+            background: 'linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 100%)',
+            boxShadow: '0px 1.189px 2.377px 0px rgba(0,0,0,0.28)',
+          }}>
+            <span className="text-[20px] font-bold text-white">{card.abbr}</span>
+          </div>
+          <div className="flex-1">
+            <p className="text-[18px] font-normal text-white leading-[20.7px]">{card.full}</p>
+          </div>
+          <div className="flex items-center justify-center size-[36px] rounded-[8px] relative overflow-hidden"
+            style={{ boxShadow: '0px 0px 0px 1px rgba(255,255,255,0.25)' }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-b from-[rgba(255,255,255,0.03)] to-[rgba(255,255,255,0.1)] rounded-[8px]" />
+            <span className="relative text-white text-[16px]">›</span>
+            <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_1px_0px_0px_rgba(255,255,255,0.05),inset_0px_-1px_0px_0px_rgba(0,0,0,0.2)]" />
+          </div>
+        </div>
+        <div className="overflow-hidden">
+          <p className="text-[14px] font-medium text-white leading-[22px] opacity-80">{card.scene}</p>
+          <p className="text-[13px] text-white/50 leading-[20px] mt-1">{card.desc}</p>
+        </div>
+        <div className="bg-[rgba(255,255,255,0.05)] h-px w-full" />
+      </div>
+      <div className="relative h-[280px] overflow-hidden">
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.2) 100%)' }} />
+      </div>
+      <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_1px_0px_0px_rgba(255,255,255,0.1),inset_0px_0px_0px_1px_rgba(255,255,255,0.06)]" />
+    </div>
+  );
+}
+
 function Section2() {
   const bizCards = [
     { abbr: "CPM", full: "Cost Per Mille", scene: "品牌曝光与流量触达", desc: "按千次广告展示计费，帮助广告主高效提升品牌知名度、产品曝光度与市场影响力，广泛适用于品牌推广、活动宣发等场景。", gradient: "radial-gradient(ellipse at 50% 40%, rgba(32,35,91,0.7) 0%, rgba(7,9,33,0.7) 82%)", shadow: "0px 0px 20px 3px rgba(7,13,79,0.05), 0px 0px 40px 20px rgba(7,13,79,0.05)" },
@@ -1923,59 +1974,7 @@ function Section2() {
         <style>{`.hide-scrollbar::-webkit-scrollbar { display: none; }`}</style>
         <div className="hide-scrollbar flex gap-6 px-16 pb-4" style={{ width: 'max-content' }}>
           {bizCards.map((card) => (
-            <div key={card.abbr} className="group relative flex flex-col overflow-hidden rounded-[20px] cursor-pointer transition-transform duration-300 hover:scale-[1.02] shrink-0 w-[360px]"
-              style={{ boxShadow: card.shadow }}
-            >
-              {/* Radial gradient background */}
-              <div className="absolute inset-0 pointer-events-none rounded-[20px]" style={{ background: card.gradient }} />
-
-              {/* Content */}
-              <div className="relative flex flex-col gap-5 pt-6 px-6">
-                {/* Icon + Title + Arrow row */}
-                <div className="flex items-center gap-3">
-                  <div className="flex items-center justify-center size-[52px] rounded-[12px]" style={{
-                    background: 'linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 100%)',
-                    boxShadow: '0px 1.189px 2.377px 0px rgba(0,0,0,0.28)',
-                  }}>
-                    <span className="text-[20px] font-bold text-white">{card.abbr}</span>
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-[18px] font-normal text-white leading-[20.7px]">{card.full}</p>
-                  </div>
-                  {/* Arrow button */}
-                  <div className="flex items-center justify-center size-[36px] rounded-[8px] relative overflow-hidden"
-                    style={{ boxShadow: '0px 0px 0px 1px rgba(255,255,255,0.25)' }}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-b from-[rgba(255,255,255,0.03)] to-[rgba(255,255,255,0.1)] rounded-[8px]" />
-                    <span className="relative text-white text-[16px]">›</span>
-                    <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_1px_0px_0px_rgba(255,255,255,0.05),inset_0px_-1px_0px_0px_rgba(0,0,0,0.2)]" />
-                  </div>
-                </div>
-
-                {/* Description */}
-                <div className="overflow-hidden">
-                  <p className="text-[14px] font-medium text-white leading-[22px] opacity-80">
-                    {card.scene}
-                  </p>
-                  <p className="text-[13px] text-white/50 leading-[20px] mt-1">
-                    {card.desc}
-                  </p>
-                </div>
-
-                {/* Divider */}
-                <div className="bg-[rgba(255,255,255,0.05)] h-px w-full" />
-              </div>
-
-              {/* Bottom decorative area — taller like reference */}
-              <div className="relative h-[280px] overflow-hidden">
-                <div className="absolute inset-0" style={{
-                  background: 'linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.2) 100%)',
-                }} />
-              </div>
-
-              {/* Inner border + shadow overlay */}
-              <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_1px_0px_0px_rgba(255,255,255,0.1),inset_0px_0px_0px_1px_rgba(255,255,255,0.06)]" />
-            </div>
+            <SpotlightBizCard key={card.abbr} card={card} />
           ))}
         </div>
       </div>
