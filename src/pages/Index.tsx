@@ -8,30 +8,15 @@ import { motion, AnimatePresence } from "motion/react";
 import { ArrowUp } from "lucide-react";
 
 export default function Index() {
-  const [scale, setScale] = useState(1);
   const [showBackToTop, setShowBackToTop] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      const baseWidth = 1440;
-      if (width < baseWidth) {
-        setScale(width / baseWidth);
-      } else {
-        setScale(1);
-      }
-    };
-
     const handleScroll = () => {
       setShowBackToTop(window.scrollY > 800);
     };
 
-    handleResize();
-    window.addEventListener("resize", handleResize);
     window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("resize", handleResize);
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
@@ -49,16 +34,10 @@ export default function Index() {
         <Starfield />
       </div>
 
-      <main className="relative z-10 flex flex-col items-center overflow-x-hidden">
-        <div
-          ref={containerRef}
-          className="w-[1440px] origin-top shrink-0 transition-transform duration-200 ease-out"
-          style={{ transform: `scale(${scale})` }}
-        >
-          <ScrollReveal delay={0.2}>
-            <ReflectApp />
-          </ScrollReveal>
-        </div>
+      <main className="relative z-10 w-full overflow-x-hidden">
+        <ScrollReveal delay={0.2}>
+          <ReflectApp />
+        </ScrollReveal>
       </main>
 
       <AnimatePresence>
