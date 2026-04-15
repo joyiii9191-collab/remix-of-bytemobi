@@ -1273,26 +1273,20 @@ function Section1() {
 
           {/* Stats row */}
           <div className="flex gap-8 mt-2">
-            {[
-              { value: 200, suffix: "+", label: "合作媒体" },
-              { value: 50, suffix: "+", label: "覆盖国家" },
-              { value: 10, suffix: "亿+", label: "日均流量" },
-            ].map((stat, i) => (
-              <>
-                {i > 0 && <div key={`sep-${i}`} className="w-px h-12 bg-white/[0.06]" />}
-                <div
-                  key={stat.label}
-                  className="relative flex flex-col gap-1 px-3 py-2 rounded-lg cursor-default group/stat"
-                >
-                  <div className="absolute inset-0 rounded-lg bg-white/0 group-hover/stat:bg-white/[0.04] transition-colors duration-300 pointer-events-none" />
-                  <div className="absolute inset-0 rounded-lg opacity-0 group-hover/stat:opacity-100 transition-opacity duration-300 pointer-events-none"
-                    style={{ boxShadow: "0 0 20px 4px hsla(277, 100%, 61%, 0.12), inset 0 0 12px 2px hsla(277, 100%, 61%, 0.06)" }}
-                  />
-                  <AnimatedNumber value={stat.value} suffix={stat.suffix} />
-                  <span className="text-[11px] text-white/25 tracking-wide relative z-10">{stat.label}</span>
-                </div>
-              </>
-            ))}
+            <div className="flex flex-col gap-1">
+              <AnimatedNumber value={200} suffix="+" />
+              <span className="text-[11px] text-white/25 tracking-wide">合作媒体</span>
+            </div>
+            <div className="w-px h-12 bg-white/[0.06]" />
+            <div className="flex flex-col gap-1">
+              <AnimatedNumber value={50} suffix="+" />
+              <span className="text-[11px] text-white/25 tracking-wide">覆盖国家</span>
+            </div>
+            <div className="w-px h-12 bg-white/[0.06]" />
+            <div className="flex flex-col gap-1">
+              <AnimatedNumber value={10} suffix="亿+" />
+              <span className="text-[11px] text-white/25 tracking-wide">日均流量</span>
+            </div>
           </div>
         </div>
 
