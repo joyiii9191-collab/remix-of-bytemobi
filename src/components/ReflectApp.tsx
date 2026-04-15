@@ -2162,7 +2162,7 @@ function Container82() {
   );
 }
 
-
+function MaskGroup15() {
   return (
     <div className="relative size-[784px]" data-name="Mask Group">
       <Container82 />
