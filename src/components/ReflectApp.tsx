@@ -600,7 +600,7 @@ function MaskGroup1() {
 
 function Section({ className }: { className?: string }) {
   return (
-    <div className={className || "absolute content-stretch flex flex-col isolate items-center left-0 right-0 top-0 h-screen"} data-name="Section" style={{ backgroundColor: '#0a0a12' }}>
+    <div className={className || "relative w-full h-full flex flex-col isolate items-center"} data-name="Section" style={{ backgroundColor: '#0a0a12' }}>
       {/* ColorBends Background */}
       <div className="absolute inset-0 z-[0] overflow-hidden">
         <ColorBends
@@ -1202,7 +1202,7 @@ function Container62() {
 
 function Section1() {
   return (
-    <div className="absolute h-[1287px] left-0 right-0 top-0" data-name="Section">
+    <div className="relative w-full h-full" data-name="Section">
       <Container36 />
       <Container45 />
       <Container62 />
@@ -1774,7 +1774,7 @@ function Q44E26A19Png() {
 
 function Section2() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[48px] isolate items-center left-0 pb-[145px] pt-[496px] right-0 top-[1287px]" data-name="Section">
+    <div className="relative w-full h-full flex flex-col gap-[48px] isolate items-center pb-[145px] pt-[96px]" data-name="Section">
       <Container65 />
       <Container68 />
       <MaskGroup14 />
@@ -2044,7 +2044,7 @@ function Container90() {
 
 function Section3() {
   return (
-    <div className="-translate-x-1/2 absolute h-[1110px] left-1/2 top-[2528px] w-[890px]" data-name="Section">
+    <div className="relative w-full h-full mx-auto max-w-[890px]" data-name="Section">
       <Container80 />
       <div className="absolute h-[212px] left-[-48px] top-[541px] w-px" data-name="Vertical Divider">
         <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgVerticalDivider7} />
@@ -2167,7 +2167,7 @@ function Container95() {
 
 function Section4() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[48px] items-center left-0 pb-[236px] pt-[222px] right-0 top-[3638px]" data-name="Section">
+    <div className="relative w-full h-full flex flex-col gap-[48px] items-center pb-[96px] pt-[96px]" data-name="Section">
       <MaskGroup16 />
       <Container94 />
       <Container95 />
@@ -3473,7 +3473,7 @@ function Container150() {
 
 function Section5() {
   return (
-    <div className="absolute content-stretch flex flex-col isolate items-start left-0 pb-[24px] pt-[294px] right-0 top-[4414px]" data-name="Section">
+    <div className="relative w-full h-full flex flex-col isolate items-start pb-[24px] pt-[96px]" data-name="Section">
       <Container98 />
       <Container101 />
       <Container150 />
@@ -3793,7 +3793,7 @@ function Container165() {
 
 function Section6() {
   return (
-    <div className="-translate-x-1/2 absolute content-stretch flex flex-col gap-[48px] isolate items-center left-1/2 pb-[172px] pt-[116px] top-[5568px] w-[1440px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 1440 940\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(64.944 0 0 47 720 470)\\'><stop stop-color=\\'rgba(148,101,255,0.06)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(3,0,20,0)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} data-name="Section">
+    <div className="relative w-full h-full mx-auto max-w-[1440px] flex flex-col gap-[48px] isolate items-center pb-[72px] pt-[64px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 1440 940\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(64.944 0 0 47 720 470)\\'><stop stop-color=\\'rgba(148,101,255,0.06)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(3,0,20,0)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} data-name="Section">
       <Container152 />
       <Background3 />
       <Container165 />
@@ -4537,7 +4537,7 @@ function Container192() {
 
 function Section7() {
   return (
-    <div className="absolute h-[1256px] left-0 right-0 top-[6508px]" data-name="Section">
+    <div className="relative w-full h-full" data-name="Section">
       <Container166 />
       <Container174 />
       <Container176 />
@@ -5241,7 +5241,7 @@ function Container231() {
 
 function Section8() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[48px] isolate items-center left-0 pb-[72px] pt-[108px] right-0 top-[7764px]" data-name="Section">
+    <div className="relative w-full h-full flex flex-col gap-[48px] isolate items-center pb-[72px] pt-[64px]" data-name="Section">
       <Container196 />
       <Container198 />
       <Container231 />
@@ -5441,7 +5441,7 @@ function Container242() {
 
 function Section9() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[40px] isolate items-center left-0 pt-[96px] right-0 top-[8632px]" data-name="Section">
+    <div className="relative w-full h-full flex flex-col gap-[40px] isolate items-center pt-[64px]" data-name="Section">
       <Container233 />
       <Link2 />
       <MaskGroup53 />
@@ -5882,7 +5882,7 @@ function Container251() {
 
 function Container243({ className }: { className?: string }) {
   return (
-    <div className={className || "absolute content-stretch flex flex-col gap-[20px] items-center left-0 pb-[52px] pt-[180px] right-0 top-[9456px]"} data-name="Container">
+    <div className={className || "relative w-full flex flex-col gap-[20px] items-center pb-[52px] pt-[64px]"} data-name="Container">
       <Container244 />
       <Container251 />
     </div>
@@ -6004,7 +6004,7 @@ function MaskGroup56() {
 
 function Section10() {
   return (
-    <div className="-translate-x-1/2 absolute content-stretch flex flex-col gap-[32px] h-[600px] isolate items-center left-1/2 overflow-clip pt-[64px] top-[10444px] w-[1440px]" data-name="Section">
+    <div className="relative w-full h-full mx-auto max-w-[1440px] flex flex-col gap-[32px] isolate items-center overflow-clip pt-[64px]" data-name="Section">
       <Container255 />
       <Link4 />
       <MaskGroup56 />
@@ -6515,7 +6515,7 @@ function Container260() {
 
 function BackgroundHorizontalBorder() {
   return (
-    <div className="absolute content-stretch flex flex-col items-center left-0 pt-px px-[156px] right-0 top-[11447px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 1440 603\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(72 0 0 26.568 720 0)\\'><stop stop-color=\\'rgba(147,130,255,0.08)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(147,130,255,0)\\' offset=\\'1\\'/></radialGradient></defs></svg>'), linear-gradient(90deg, rgb(3, 0, 20) 0%, rgb(3, 0, 20) 100%)" }} data-name="Background+HorizontalBorder">
+    <div className="relative w-full flex flex-col items-center pt-px px-[156px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 1440 603\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(72 0 0 26.568 720 0)\\'><stop stop-color=\\'rgba(147,130,255,0.08)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(147,130,255,0)\\' offset=\\'1\\'/></radialGradient></defs></svg>'), linear-gradient(90deg, rgb(3, 0, 20) 0%, rgb(3, 0, 20) 100%)" }} data-name="Background+HorizontalBorder">
       <div aria-hidden="true" className="absolute border-[rgba(255,255,255,0.1)] border-solid border-t inset-0 pointer-events-none" />
       <Container260 />
     </div>
@@ -6996,7 +6996,7 @@ function Container279() {
 
 function Section11() {
   return (
-    <div className="-translate-x-1/2 absolute content-stretch flex flex-col items-center left-1/2 top-[11044px] w-[1200px]" data-name="Section">
+    <div className="relative w-full max-w-[1200px] mx-auto flex flex-col items-center" data-name="Section">
       <Container278 />
       <Container279 />
     </div>
@@ -7252,38 +7252,123 @@ function OverlayOverlayBlur() {
   );
 }
 
+function SnapSection({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return (
+    <div className={`h-screen w-full snap-start snap-always relative overflow-hidden ${className}`}>
+      {children}
+    </div>
+  );
+}
+
 export default function ReflectApp() {
   return (
-    <div className="relative w-full" style={{ minHeight: 'calc(100vh + 11447px)', backgroundImage: "linear-gradient(90deg, rgb(3, 0, 20) 0%, rgb(3, 0, 20) 100%), linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%)" }} data-name="Reflect App">
-      {/* Background Lighting Effects */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-        <div className="absolute top-[200px] left-[-200px] size-[800px] rounded-full bg-purple-600/10 blur-[150px]" />
-        <div className="absolute top-[1200px] right-[-300px] size-[1000px] rounded-full bg-indigo-600/10 blur-[200px]" />
-        <div className="absolute top-[4000px] left-[10%] size-[1200px] rounded-full bg-blue-600/5 blur-[250px]" />
-        <div className="absolute top-[7000px] right-[10%] size-[1200px] rounded-full bg-purple-600/10 blur-[250px]" />
-        <div className="absolute top-[10000px] left-[5%] size-[1500px] rounded-full bg-indigo-600/10 blur-[300px]" />
-        <div className="absolute bottom-[200px] right-[10%] size-[1000px] rounded-full bg-purple-600/10 blur-[200px]" />
-      </div>
+    <div className="w-full" style={{ backgroundImage: "linear-gradient(90deg, rgb(3, 0, 20) 0%, rgb(3, 0, 20) 100%), linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%)" }} data-name="Reflect App">
 
-      <Section />
-      <div className="absolute left-0 right-0" style={{ top: '100vh' }}>
-        <div className="relative w-full min-h-[11447px]">
-          <Section1 />
-          <Section2 />
-          <Section3 />
-          <Section4 />
-          <Section5 />
-          <Section6 />
-          <Section7 />
-          <Section8 />
-          <Section9 />
-          <Container243 />
-          <Section10 />
-          <Section11 />
-          <BackgroundHorizontalBorder />
+      {/* 第1屏：Hero */}
+      <SnapSection>
+        <Section className="relative w-full h-full flex flex-col isolate items-center" />
+      </SnapSection>
+
+      {/* 第2屏：Section1 */}
+      <SnapSection>
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative w-full h-full">
+            <Section1 />
+          </div>
         </div>
-      </div>
-      {/* Nav bar removed - using OptimizedHeader from parent */}
+      </SnapSection>
+
+      {/* 第3屏：Section2 */}
+      <SnapSection>
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative w-full h-full">
+            <Section2 />
+          </div>
+        </div>
+      </SnapSection>
+
+      {/* 第4屏：Section3 */}
+      <SnapSection>
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative w-full h-full">
+            <Section3 />
+          </div>
+        </div>
+      </SnapSection>
+
+      {/* 第5屏：Section4 */}
+      <SnapSection>
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative w-full h-full">
+            <Section4 />
+          </div>
+        </div>
+      </SnapSection>
+
+      {/* 第6屏：Section5 */}
+      <SnapSection>
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative w-full h-full">
+            <Section5 />
+          </div>
+        </div>
+      </SnapSection>
+
+      {/* 第7屏：Section6 */}
+      <SnapSection>
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative w-full h-full">
+            <Section6 />
+          </div>
+        </div>
+      </SnapSection>
+
+      {/* 第8屏：Section7 */}
+      <SnapSection>
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative w-full h-full">
+            <Section7 />
+          </div>
+        </div>
+      </SnapSection>
+
+      {/* 第9屏：Section8 */}
+      <SnapSection>
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative w-full h-full">
+            <Section8 />
+          </div>
+        </div>
+      </SnapSection>
+
+      {/* 第10屏：Section9 + Container243 */}
+      <SnapSection>
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative w-full h-full">
+            <Section9 />
+            <Container243 className="relative" />
+          </div>
+        </div>
+      </SnapSection>
+
+      {/* 第11屏：Section10 */}
+      <SnapSection>
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative w-full h-full">
+            <Section10 />
+          </div>
+        </div>
+      </SnapSection>
+
+      {/* 第12屏：Section11 + Footer */}
+      <SnapSection>
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative w-full h-full">
+            <Section11 />
+            <BackgroundHorizontalBorder />
+          </div>
+        </div>
+      </SnapSection>
     </div>
   );
 }
