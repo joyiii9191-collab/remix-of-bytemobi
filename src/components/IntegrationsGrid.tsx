@@ -25,9 +25,9 @@ function FeatureCard({
             {[0, 1, 2].map((i) => (
               <div
                 key={i}
-                className="w-11 h-11 rounded-lg bg-white/[0.06] border border-white/[0.08] flex items-center justify-center"
+                className="w-11 h-11 rounded-lg bg-white/[0.03] border border-white/[0.06] flex items-center justify-center"
               >
-                <div className="w-5 h-5 rounded bg-gradient-to-br from-white/10 to-white/5" />
+                <div className="w-5 h-5 rounded bg-white/[0.04]" />
               </div>
             ))}
           </div>
