@@ -1291,7 +1291,7 @@ function Section1() {
         </div>
 
         {/* Right side — 4 cards grid */}
-        <div className="flex-1 grid grid-cols-2 gap-4">
+        <div className="flex-1 grid grid-cols-2 gap-6">
           <IntegrationsGrid />
         </div>
       </div>
