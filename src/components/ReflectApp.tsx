@@ -67,8 +67,8 @@ import { imgGradient, imgGradientOverlay, imgContainer, imgContainer1, imgContai
 function Container1() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-0 px-[120px] right-0 top-[260px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[20px] text-[rgba(239,237,253,0.6)] text-center tracking-[0.05em]">
-        <p className="leading-[30px]">Intelligently Driven, Converging Global Streams, Igniting Momentum in Japan</p>
+      <div className="flex flex-col font-['Inter',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-center tracking-[0.12em]">
+        <p className="leading-[28px] bg-clip-text text-[transparent]" style={{ backgroundImage: "linear-gradient(90deg, rgba(229,156,255,0.5) 0%, rgba(186,156,255,0.6) 50%, rgba(156,178,255,0.5) 100%)" }}>Intelligently Driven, Converging Global Streams, Igniting Momentum in Japan</p>
       </div>
     </div>
   );
@@ -165,11 +165,13 @@ function Link() {
 function Heading() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-0 px-[120px] right-0 top-[40px]" data-name="Heading 1">
-      <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Inter',sans-serif] font-bold from-white justify-center leading-[0] not-italic relative shrink-0 text-[88px] text-[transparent] text-center to-[rgba(255,255,255,0.7)]">
-        <p className="leading-[100px]">全球广告增长平台</p>
+      <div className="bg-clip-text flex flex-col font-['Inter',sans-serif] font-bold justify-center leading-[0] not-italic relative shrink-0 text-[80px] text-[transparent] text-center" style={{ backgroundImage: "linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0.85) 50%, rgba(255,255,255,0.55) 100%)" }}>
+        <p className="leading-[96px] tracking-[-0.02em]">全球广告增长平台</p>
       </div>
-      <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Inter',sans-serif] font-semibold from-white/90 justify-center leading-[0] not-italic relative shrink-0 text-[40px] text-[transparent] text-center to-[rgba(255,255,255,0.5)] mt-[40px]">
-        <p className="leading-[56px]">智能驱动，全球汇流，日本聚势</p>
+      <div className="flex flex-col justify-center leading-[0] not-italic relative shrink-0 text-center mt-[36px]">
+        <p className="leading-[52px] text-[36px] font-medium tracking-[0.04em] bg-clip-text text-[transparent]" style={{ backgroundImage: "linear-gradient(90deg, rgba(229,156,255,0.9) 0%, rgba(186,156,255,0.95) 50%, rgba(156,178,255,0.9) 100%)" }}>
+          智能驱动，全球汇流，日本聚势
+        </p>
       </div>
     </div>
   );
