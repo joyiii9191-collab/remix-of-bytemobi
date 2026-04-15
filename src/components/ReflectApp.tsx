@@ -1,6 +1,6 @@
 // @ts-nocheck
 import svgPaths from "./svg-ww2hb5tg6t";
-import { LaserFlow } from "./LaserFlow";
+import ColorBends from "./ColorBends";
 import imgQCb311D1CPng from "@/assets/ca87b13c3dba5b82f5b55f7a1fbe96037f74413d.png";
 import imgQC3D7BecfWebm from "@/assets/8f7f3e78fa25f538b70e2685192395598c425a33.png";
 import imgQ6C12DbaePng from "@/assets/5d3fc7562b3454b57dbfd13b639f4b550f37a55c.png";
@@ -171,9 +171,9 @@ function Link() {
 
 function Heading() {
   return (
-    <div className="absolute content-stretch flex flex-col items-center left-0 pl-[320.48px] pr-[320.49px] right-0 top-[48px]" data-name="Heading 1">
-      <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] from-white justify-center leading-[0] not-italic relative shrink-0 text-[72px] text-[transparent] text-center to-[rgba(255,255,255,0.7)] whitespace-nowrap">
-        <p className="leading-[80px]">Think better with Reflect</p>
+    <div className="absolute content-stretch flex flex-col items-center left-0 px-[120px] right-0 top-[48px]" data-name="Heading 1">
+      <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Inter',sans-serif] font-bold from-white justify-center leading-[0] not-italic relative shrink-0 text-[96px] text-[transparent] text-center to-[rgba(255,255,255,0.7)]">
+        <p className="leading-[108px]">Think better with Reflect</p>
       </div>
     </div>
   );
@@ -181,7 +181,7 @@ function Heading() {
 
 function Container() {
   return (
-    <div className="h-[168px] relative shrink-0 w-[1440px] z-[4]" data-name="Container">
+    <div className="h-[280px] relative shrink-0 w-[1440px] z-[4]" data-name="Container">
       <Container1 />
       <Link />
       <Heading />
@@ -605,28 +605,31 @@ function MaskGroup1() {
 
 function Section({ className }: { className?: string }) {
   return (
-    <div className={className || "absolute content-stretch flex flex-col gap-[232px] isolate items-center left-0 pt-[173px] right-0 top-0"} data-name="Section">
-      <Container />
-      <div className="absolute h-[600px] left-0 right-0 top-[420px] z-[3] overflow-hidden" style={{ pointerEvents: 'none' }} data-name="LaserFlow">
-        <LaserFlow
-          color="#BA9CFF"
-          verticalSizing={1.8}
-          horizontalSizing={0.6}
-          fogIntensity={0.35}
-          fogScale={0.25}
-          flowSpeed={0.3}
-          wispDensity={0.8}
-          wispSpeed={12}
-          wispIntensity={4}
-          decay={1.2}
-          falloffStart={1.3}
-          verticalBeamOffset={0.1}
-          horizontalBeamOffset={0.08}
-          style={{ width: '100%', height: '100%', position: 'absolute', inset: 0 }}
+    <div className={className || "absolute content-stretch flex flex-col isolate items-center left-0 right-0 top-0 h-[900px]"} data-name="Section">
+      {/* ColorBends Background */}
+      <div className="absolute inset-0 z-[0] overflow-hidden" style={{ pointerEvents: 'none' }}>
+        <ColorBends
+          colors={["#9B5FFF", "#D4BBFF", "#6B2FC7", "#B8A0FF", "#4A1A8A", "#E0D0FF"]}
+          speed={0.15}
+          noise={0.1}
+          rotation={120}
+          scale={1.0}
+          frequency={1.2}
+          warpStrength={0.8}
+          intensity={2.2}
+          bandWidth={4}
+          iterations={3}
+          mouseInfluence={0.4}
+          transparent={false}
+          style={{ width: '100%', height: '100%' }}
         />
       </div>
-      <Container3 />
-      <MaskGroup1 />
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[rgba(3,0,20,0.5)] via-[rgba(3,0,20,0.2)] to-[rgba(3,0,20,0.9)]" />
+      {/* Content */}
+      <div className="relative z-[4] pt-[173px] w-full flex flex-col items-center">
+        <Container />
+      </div>
     </div>
   );
 }
