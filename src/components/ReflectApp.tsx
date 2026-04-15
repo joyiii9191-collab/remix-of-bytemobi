@@ -1203,23 +1203,54 @@ function Container62() {
 
 function Section1() {
   return (
-    <div className="relative w-full h-full flex items-center justify-center px-12 pt-[80px]" data-name="Section">
-      <div className="w-full max-w-[1200px] flex items-center gap-12">
-        {/* Left side — text (narrower) */}
-        <div className="w-[340px] shrink-0 flex flex-col gap-5 items-center text-center">
-          {/* Decorative accent line */}
-          <div className="w-8 h-[2px] bg-gradient-to-r from-purple-500 to-blue-500 rounded-full opacity-60" />
-          <div className="bg-clip-text bg-gradient-to-b from-white to-[rgba(255,255,255,0.7)] text-[transparent]">
-            <h2 className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[40px] leading-[48px] font-semibold tracking-tight">品牌简介</h2>
+    <div className="relative w-full h-full flex items-center justify-center px-16 pt-[80px]" data-name="Section">
+      <div className="w-full max-w-[1100px] flex items-center gap-20">
+        {/* Left side — brand text */}
+        <div className="w-[380px] shrink-0 flex flex-col gap-6">
+          {/* Tag pill */}
+          <div className="flex items-center gap-2 self-start">
+            <div className="h-px w-6 bg-gradient-to-r from-purple-500 to-transparent" />
+            <span className="text-[11px] tracking-[0.15em] uppercase text-purple-400/70 font-medium">About ByteMobi</span>
           </div>
-          <p className="text-[17px] leading-[26px] font-medium bg-clip-text bg-gradient-to-r from-purple-300 to-blue-300 text-[transparent]">
+
+          {/* Title */}
+          <h2 className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[44px] leading-[1.1] font-semibold tracking-tight bg-clip-text bg-gradient-to-b from-white via-white to-white/60 text-[transparent]">
+            品牌简介
+          </h2>
+
+          {/* Subtitle */}
+          <p className="text-[18px] leading-[28px] font-medium text-white/80">
             聚焦全球品牌与效果广告营销
           </p>
-          <p className="text-[13px] leading-[22px] text-white/45 max-w-[320px] text-justify">
+
+          {/* Divider */}
+          <div className="w-12 h-px bg-gradient-to-r from-purple-500/40 to-blue-500/40" />
+
+          {/* Description */}
+          <p className="text-[14px] leading-[24px] text-white/40 text-justify">
             依托自有程序化流量体系整合全球头部媒体及合作伙伴生态资源，构建多元化流量网络，以全球布局为基础，深度拓展日本市场，为广告主提供高效的一站式广告投放与流量变现解决方案
           </p>
+
+          {/* Stats row */}
+          <div className="flex gap-8 mt-2">
+            <div className="flex flex-col gap-1">
+              <span className="text-[28px] font-semibold bg-clip-text bg-gradient-to-r from-purple-300 to-blue-300 text-[transparent]">200+</span>
+              <span className="text-[11px] text-white/35 tracking-wide">合作媒体</span>
+            </div>
+            <div className="w-px h-12 bg-white/[0.06]" />
+            <div className="flex flex-col gap-1">
+              <span className="text-[28px] font-semibold bg-clip-text bg-gradient-to-r from-purple-300 to-blue-300 text-[transparent]">50+</span>
+              <span className="text-[11px] text-white/35 tracking-wide">覆盖国家</span>
+            </div>
+            <div className="w-px h-12 bg-white/[0.06]" />
+            <div className="flex flex-col gap-1">
+              <span className="text-[28px] font-semibold bg-clip-text bg-gradient-to-r from-purple-300 to-blue-300 text-[transparent]">10亿+</span>
+              <span className="text-[11px] text-white/35 tracking-wide">日均流量</span>
+            </div>
+          </div>
         </div>
-        {/* Right side — orbit integrations */}
+
+        {/* Right side — bento grid */}
         <div className="flex-1 flex items-center justify-center">
           <IntegrationsGrid />
         </div>
