@@ -56,30 +56,30 @@ export default function IntegrationsGrid() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-purple-600/5 blur-[100px]" />
       </div>
 
-      <div className="relative grid grid-cols-2 gap-x-[120px] gap-y-[28px] items-start max-w-[600px]">
+      <div className="relative grid grid-cols-2 gap-x-[140px] gap-y-[32px] items-start max-w-[680px]">
         {/* Top row */}
         <IntegrationCard
           title="头部媒体及合作伙伴"
           placeholders={3}
-          iconSize={40}
+          iconSize={48}
         />
         <IntegrationCard
           title="自有程序化流量体系"
           placeholders={3}
-          iconSize={40}
+          iconSize={48}
         />
 
         {/* Center logo with glow animation */}
-        <div className="col-span-2 flex justify-center py-1">
+        <div className="col-span-2 flex justify-center py-2">
           <div className="relative group">
-            <div className="absolute inset-[-14px] rounded-full bg-purple-500/20 blur-2xl animate-pulse" />
-            <div className="absolute inset-[-6px] rounded-full bg-purple-400/15 blur-lg" />
+            <div className="absolute inset-[-18px] rounded-full bg-purple-500/20 blur-2xl animate-pulse" />
+            <div className="absolute inset-[-8px] rounded-full bg-purple-400/15 blur-lg" />
             <img
               src={imgLogo}
               alt="ByteMobi Logo"
               loading="lazy"
-              width={56}
-              height={56}
+              width={72}
+              height={72}
               className="relative drop-shadow-[0_0_16px_rgba(168,85,247,0.5)] rounded-full"
             />
           </div>
@@ -89,12 +89,12 @@ export default function IntegrationsGrid() {
         <IntegrationCard
           icon={iconGlobalJapan}
           title="布局全球，深拓日本"
-          iconSize={44}
+          iconSize={56}
         />
         <IntegrationCard
           icon={iconOneStop}
           title="一站式解决方案"
-          iconSize={44}
+          iconSize={56}
         />
       </div>
     </div>

@@ -1206,19 +1206,19 @@ function Section1() {
     <div className="relative w-full h-full flex items-center justify-center px-8 pt-[80px]" data-name="Section">
       <div className="w-full max-w-[1200px] flex items-center gap-16">
         {/* Left side — text */}
-        <div className="flex-1 flex flex-col gap-5">
+        <div className="flex-1 flex flex-col gap-5 items-center text-center">
           <div className="bg-clip-text bg-gradient-to-b from-white to-[rgba(255,255,255,0.7)] text-[transparent]">
             <h2 className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[42px] leading-[50px] font-semibold">品牌简介</h2>
           </div>
           <p className="text-[18px] leading-[26px] font-medium text-white/80">
             聚焦全球品牌与效果广告营销
           </p>
-          <p className="text-[14px] leading-[24px] text-white/50 max-w-[460px]">
+          <p className="text-[14px] leading-[24px] text-white/50 max-w-[460px] text-justify">
             依托自有程序化流量体系整合全球头部媒体及合作伙伴生态资源，构建多元化流量网络，以全球布局为基础，深度拓展日本市场，为广告主提供高效的一站式广告投放与流量变现解决方案
           </p>
         </div>
         {/* Right side — integrations grid */}
-        <div className="flex-1 h-[420px]">
+        <div className="flex-1 h-[480px]">
           <IntegrationsGrid />
         </div>
       </div>
