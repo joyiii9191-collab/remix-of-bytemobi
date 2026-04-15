@@ -1,6 +1,6 @@
 // @ts-nocheck
 import svgPaths from "./svg-ww2hb5tg6t";
-import { LaserFlow } from "./LaserFlow";
+import ColorBends from "./ColorBends";
 import imgQCb311D1CPng from "@/assets/ca87b13c3dba5b82f5b55f7a1fbe96037f74413d.png";
 import imgQC3D7BecfWebm from "@/assets/8f7f3e78fa25f538b70e2685192395598c425a33.png";
 import imgQ6C12DbaePng from "@/assets/5d3fc7562b3454b57dbfd13b639f4b550f37a55c.png";
@@ -171,9 +171,9 @@ function Link() {
 
 function Heading() {
   return (
-    <div className="absolute content-stretch flex flex-col items-center left-0 pl-[320.48px] pr-[320.49px] right-0 top-[48px]" data-name="Heading 1">
-      <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] from-white justify-center leading-[0] not-italic relative shrink-0 text-[72px] text-[transparent] text-center to-[rgba(255,255,255,0.7)] whitespace-nowrap">
-        <p className="leading-[80px]">Think better with Reflect</p>
+    <div className="absolute content-stretch flex flex-col items-center left-0 px-[120px] right-0 top-[48px]" data-name="Heading 1">
+      <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Inter',sans-serif] font-bold from-white justify-center leading-[0] not-italic relative shrink-0 text-[96px] text-[transparent] text-center to-[rgba(255,255,255,0.7)]">
+        <p className="leading-[108px]">Think better with Reflect</p>
       </div>
     </div>
   );
@@ -181,7 +181,7 @@ function Heading() {
 
 function Container() {
   return (
-    <div className="h-[168px] relative shrink-0 w-[1440px] z-[4]" data-name="Container">
+    <div className="h-[280px] relative shrink-0 w-[1440px] z-[4]" data-name="Container">
       <Container1 />
       <Link />
       <Heading />
