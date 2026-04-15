@@ -7254,7 +7254,7 @@ function OverlayOverlayBlur() {
 
 export default function ReflectApp() {
   return (
-    <div className="relative w-full min-h-[12697px]" style={{ backgroundImage: "linear-gradient(90deg, rgb(3, 0, 20) 0%, rgb(3, 0, 20) 100%), linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%)" }} data-name="Reflect App">
+    <div className="relative w-full" style={{ minHeight: 'calc(100vh + 11447px)', backgroundImage: "linear-gradient(90deg, rgb(3, 0, 20) 0%, rgb(3, 0, 20) 100%), linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%)" }} data-name="Reflect App">
       {/* Background Lighting Effects */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <div className="absolute top-[200px] left-[-200px] size-[800px] rounded-full bg-purple-600/10 blur-[150px]" />
