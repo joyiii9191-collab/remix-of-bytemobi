@@ -6515,7 +6515,7 @@ function Container260() {
 
 function BackgroundHorizontalBorder() {
   return (
-    <div className="absolute content-stretch flex flex-col items-center left-0 pt-px px-[156px] right-0 top-[11447px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 1440 603\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(72 0 0 26.568 720 0)\\'><stop stop-color=\\'rgba(147,130,255,0.08)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(147,130,255,0)\\' offset=\\'1\\'/></radialGradient></defs></svg>'), linear-gradient(90deg, rgb(3, 0, 20) 0%, rgb(3, 0, 20) 100%)" }} data-name="Background+HorizontalBorder">
+    <div className="relative w-full flex flex-col items-center pt-px px-[156px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 1440 603\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(72 0 0 26.568 720 0)\\'><stop stop-color=\\'rgba(147,130,255,0.08)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(147,130,255,0)\\' offset=\\'1\\'/></radialGradient></defs></svg>'), linear-gradient(90deg, rgb(3, 0, 20) 0%, rgb(3, 0, 20) 100%)" }} data-name="Background+HorizontalBorder">
       <div aria-hidden="true" className="absolute border-[rgba(255,255,255,0.1)] border-solid border-t inset-0 pointer-events-none" />
       <Container260 />
     </div>
@@ -6996,7 +6996,7 @@ function Container279() {
 
 function Section11() {
   return (
-    <div className="-translate-x-1/2 absolute content-stretch flex flex-col items-center left-1/2 top-[11044px] w-[1200px]" data-name="Section">
+    <div className="relative w-full max-w-[1200px] mx-auto flex flex-col items-center" data-name="Section">
       <Container278 />
       <Container279 />
     </div>
