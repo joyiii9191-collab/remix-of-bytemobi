@@ -1898,48 +1898,43 @@ function Section2() {
 
       {/* Glass Screen Frame - bottom cropped */}
       <div className="relative w-full max-w-[1060px] overflow-hidden" style={{ maxHeight: '580px' }}>
-         {/* Device bezel frame */}
-         <div className="relative rounded-[24px] p-[6px]"
+         {/* Liquid glass frame */}
+         <div className="relative rounded-[20px] overflow-hidden"
            style={{
-             background: 'linear-gradient(180deg, hsla(0, 0%, 18%, 0.6) 0%, hsla(0, 0%, 10%, 0.8) 100%)',
-             boxShadow: '0 30px 100px -20px hsla(0, 0%, 0%, 0.8), 0 0 0 1px hsla(0, 0%, 100%, 0.06), inset 0 1px 0 0 hsla(0, 0%, 100%, 0.1), inset 0 -1px 0 0 hsla(0, 0%, 0%, 0.3)',
+             background: 'hsla(0, 0%, 100%, 0.03)',
+             backdropFilter: 'blur(60px) saturate(1.5)',
+             WebkitBackdropFilter: 'blur(60px) saturate(1.5)',
+             border: '1px solid hsla(0, 0%, 100%, 0.1)',
+             boxShadow: '0 20px 80px -16px hsla(0, 0%, 0%, 0.6), inset 0 1px 0 0 hsla(0, 0%, 100%, 0.12), inset 0 -1px 0 0 hsla(0, 0%, 100%, 0.03)',
            }}
          >
-           {/* Inner screen */}
-           <div className="relative rounded-[18px] overflow-hidden"
+           {/* Top bar */}
+           <div className="flex items-center gap-[7px] px-5 py-[14px]"
              style={{
-               background: 'hsla(0, 0%, 4%, 0.9)',
-               border: '1px solid hsla(0, 0%, 100%, 0.04)',
-               boxShadow: 'inset 0 1px 0 0 hsla(0, 0%, 100%, 0.05), inset 0 0 20px 0 hsla(0, 0%, 0%, 0.4)',
+               borderBottom: '1px solid hsla(0, 0%, 100%, 0.06)',
+               background: 'hsla(0, 0%, 100%, 0.02)',
              }}
            >
-             {/* Top bar with traffic lights */}
-             <div className="flex items-center gap-[7px] px-5 py-[14px]"
-               style={{
-                 borderBottom: '1px solid hsla(0, 0%, 100%, 0.04)',
-                 background: 'hsla(0, 0%, 100%, 0.015)',
-               }}
-             >
-               <div className="w-[11px] h-[11px] rounded-full" style={{ background: '#FF5F57', boxShadow: '0 0 4px hsla(3, 100%, 67%, 0.3)' }} />
-               <div className="w-[11px] h-[11px] rounded-full" style={{ background: '#FEBC2E', boxShadow: '0 0 4px hsla(40, 99%, 58%, 0.3)' }} />
-               <div className="w-[11px] h-[11px] rounded-full" style={{ background: '#28C840', boxShadow: '0 0 4px hsla(130, 69%, 47%, 0.3)' }} />
-               <div className="flex-1 flex justify-center ml-4">
-                 <div className="px-6 py-[5px] rounded-md text-[11px] tracking-wide"
-                   style={{
-                     background: 'hsla(0, 0%, 100%, 0.03)',
-                     border: '1px solid hsla(0, 0%, 100%, 0.05)',
-                     color: 'hsla(0, 0%, 100%, 0.2)',
-                   }}
-                 >
-                   reflectmedia.com
-                 </div>
+             <div className="w-[11px] h-[11px] rounded-full" style={{ background: '#FF5F57', boxShadow: '0 0 4px hsla(3, 100%, 67%, 0.3)' }} />
+             <div className="w-[11px] h-[11px] rounded-full" style={{ background: '#FEBC2E', boxShadow: '0 0 4px hsla(40, 99%, 58%, 0.3)' }} />
+             <div className="w-[11px] h-[11px] rounded-full" style={{ background: '#28C840', boxShadow: '0 0 4px hsla(130, 69%, 47%, 0.3)' }} />
+             <div className="flex-1 flex justify-center ml-4">
+               <div className="px-6 py-[5px] rounded-md text-[11px] tracking-wide"
+                 style={{
+                   background: 'hsla(0, 0%, 100%, 0.04)',
+                   border: '1px solid hsla(0, 0%, 100%, 0.06)',
+                   color: 'hsla(0, 0%, 100%, 0.2)',
+                 }}
+               >
+                 reflectmedia.com
                </div>
-               <div className="w-[80px]" />
              </div>
-             {/* Content area */}
-             <div className="relative p-6">
-               <BentoBusinessCards />
-             </div>
+             <div className="w-[80px]" />
+           </div>
+           {/* Content */}
+           <div className="relative p-6">
+             <div className="absolute top-0 left-0 right-0 h-[1px] pointer-events-none" style={{ background: 'linear-gradient(90deg, transparent 10%, hsla(0, 0%, 100%, 0.06) 50%, transparent 90%)' }} />
+             <BentoBusinessCards />
            </div>
          </div>
          {/* Bottom fade */}
