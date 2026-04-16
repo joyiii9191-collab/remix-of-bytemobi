@@ -2378,7 +2378,6 @@ function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 
   }, []);
 
   const animName = direction === 'left' ? 'marqueeLeft' : 'marqueeRight';
-  const tagAnimName = direction === 'left' ? 'tagMarqueeLeft' : 'tagMarqueeRight';
 
   return (
     <div ref={wrapperRef} className="relative w-full overflow-hidden">
@@ -2387,24 +2386,28 @@ function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 
       <div className="absolute right-0 top-0 bottom-0 w-[120px] z-10" style={{ background: 'linear-gradient(270deg, #030014 0%, transparent 100%)' }} />
       
       <div className="flex flex-col gap-3">
-        {/* Tag - independent animation: starts centered, then scrolls */}
+        {/* Tag - starts centered, then uses same marquee as logos */}
         {tag && (
           <div
             ref={tagRef}
-            className="w-max"
+            className="flex items-center"
             style={{
+              width: 'max-content',
               opacity: tagPhase === 'idle' ? 0 : 1,
-              transition: 'opacity 0.6s ease-out',
+              transition: tagPhase === 'centered' ? 'opacity 0.6s ease-out' : 'none',
               ...(tagPhase === 'centered' ? {
                 transform: 'translateX(calc(50vw - 50%))',
               } : tagPhase === 'flowing' ? {
-                animation: `${tagAnimName} 30s linear infinite`,
+                animation: `${animName} 30s linear infinite`,
               } : {}),
             }}
           >
-            <span className="text-[12px] px-3 py-1 rounded-full border border-[rgba(255,255,255,0.15)] text-white/50 tracking-[0.08em] whitespace-nowrap">
-              {tag}
-            </span>
+            {/* Duplicate tag for seamless loop */}
+            {[0, 1].map((copy) => (
+              <span key={copy} className="text-[12px] px-3 py-1 rounded-full border border-[rgba(255,255,255,0.15)] text-white/50 tracking-[0.08em] whitespace-nowrap mx-[calc(50vw)]">
+                {tag}
+              </span>
+            ))}
           </div>
         )}
 
@@ -2464,14 +2467,6 @@ function Section6LogoWall() {
         @keyframes marqueeRight {
           0% { transform: translateX(-50%); }
           100% { transform: translateX(0); }
-        }
-        @keyframes tagMarqueeLeft {
-          0% { transform: translateX(calc(50vw - 50%)); }
-          100% { transform: translateX(calc(50vw - 50% - 100%)); }
-        }
-        @keyframes tagMarqueeRight {
-          0% { transform: translateX(calc(50vw - 50% - 100%)); }
-          100% { transform: translateX(calc(50vw - 50%)); }
         }
       `}</style>
     </div>
