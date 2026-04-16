@@ -641,7 +641,7 @@ function Section({ className }: { className?: string }) {
     <div className={className || "relative w-full h-full flex flex-col isolate items-center"} data-name="Section" style={{ backgroundColor: '#0a0a12' }}>
       {/* Prism Background */}
       <div className="absolute inset-0 z-[0] overflow-hidden">
-        <Prism />
+        <Prism noise={0.05} glow={1.2} bloom={1.2} colorFrequency={1.2} />
       </div>
       {/* Subtle top/bottom fade */}
       <div className="absolute inset-0 z-[1] pointer-events-none from-[rgba(10,10,18,0.15)] via-transparent to-[rgba(10,10,18,0.4)]" />
