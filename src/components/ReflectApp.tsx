@@ -2315,7 +2315,11 @@ function Section5Screen() {
           }
           @keyframes focusDotPulse {
             0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-            50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0.6; }
+            50% { transform: translate(-50%, -50%) scale(1.4); opacity: 0.7; }
+          }
+          @keyframes focusRingPulse {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+            100% { transform: translate(-50%, -50%) scale(3); opacity: 0; }
           }
           @keyframes revealBoxExpand {
             0% { width: 0px; height: 0px; opacity: 0; }
