@@ -2671,7 +2671,7 @@ function AttributionItem({ item, isActive, onClick }: {
   );
 }
 
-function FocusReveal({ left, top, imageSrc, objectPosition }: { left: string; top: string; imageSrc: string; objectPosition?: string }) {
+function FocusReveal({ left, top }: { left: string; top: string }) {
   return (
     <>
       {/* Pulsing dot */}
@@ -2695,8 +2695,8 @@ function FocusReveal({ left, top, imageSrc, objectPosition }: { left: string; to
         animation: 'focusRingPulse 1.5s ease-out infinite',
         zIndex: 4,
       }} />
-      {/* Expanding reveal box with clear image inside */}
-      <div className="absolute pointer-events-none overflow-hidden" style={{
+      {/* Expanding border frame only */}
+      <div className="absolute pointer-events-none" style={{
         left, top,
         transform: 'translate(-50%, -50%)',
         animation: 'revealBoxExpand 1.2s ease-out 0.3s forwards',
@@ -2704,23 +2704,44 @@ function FocusReveal({ left, top, imageSrc, objectPosition }: { left: string; to
         border: '2px solid rgba(255, 255, 255, 0.8)',
         borderRadius: '8px',
         boxShadow: '0 0 15px rgba(255, 255, 255, 0.3)',
-        zIndex: 3,
-      }}>
-        <img
-          src={imageSrc}
-          alt=""
-          className="absolute"
-          style={{
-            width: '590px', height: '658px',
-            left: '50%', top: '50%',
-            marginLeft: `-${parseFloat(left) / 100 * 590}px`,
-            marginTop: `-${parseFloat(top) / 100 * 658}px`,
-            objectFit: 'cover',
-            objectPosition: objectPosition || 'center',
-          }}
-        />
-      </div>
+        zIndex: 4,
+      }} />
     </>
+  );
+}
+
+/* Clear image overlay that clips to the reveal box area */
+function ClearImageOverlay({ left, top, imageSrc, objectPosition }: { left: string; top: string; imageSrc: string; objectPosition?: string }) {
+  const [expanded, setExpanded] = useState(false);
+  const lNum = parseFloat(left);
+  const tNum = parseFloat(top);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setExpanded(true), 300);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Box final size: 280x360 in 590x658 container
+  const halfW = (140 / 590) * 100; // ~23.7%
+  const halfH = (180 / 658) * 100; // ~27.4%
+
+  const clipPath = expanded
+    ? `inset(${tNum - halfH}% ${100 - lNum - halfW}% ${100 - tNum - halfH}% ${lNum - halfW}% round 8px)`
+    : `inset(${tNum}% ${100 - lNum}% ${100 - tNum}% ${lNum}% round 8px)`;
+
+  return (
+    <div className="absolute inset-0 pointer-events-none" style={{
+      zIndex: 3,
+      clipPath,
+      transition: 'clip-path 1.2s ease-out',
+    }}>
+      <img
+        src={imageSrc}
+        alt=""
+        className="w-full h-full object-cover"
+        style={{ objectPosition: objectPosition || 'center' }}
+      />
+    </div>
   );
 }
 
@@ -2819,15 +2840,24 @@ function Section7Values() {
 
         {/* Focus point + expanding box - CTA: phone screen */}
         {activeIndex === 0 && (
-          <FocusReveal left="52%" top="42%" imageSrc={ctaPhoneImg} />
+          <>
+            <FocusReveal left="52%" top="42%" />
+            <ClearImageOverlay left="52%" top="42%" imageSrc={ctaPhoneImg} />
+          </>
         )}
         {/* Focus point + expanding box - VTA: laptop/tablet */}
         {activeIndex === 1 && (
-          <FocusReveal left="22%" top="62%" imageSrc={vtaVideoImg} objectPosition="left center" />
+          <>
+            <FocusReveal left="22%" top="62%" />
+            <ClearImageOverlay left="22%" top="62%" imageSrc={vtaVideoImg} objectPosition="left center" />
+          </>
         )}
         {/* Focus point + expanding box - CTV: TV screen */}
         {activeIndex === 2 && (
-          <FocusReveal left="48%" top="30%" imageSrc={ctvTvImg} />
+          <>
+            <FocusReveal left="48%" top="30%" />
+            <ClearImageOverlay left="48%" top="30%" imageSrc={ctvTvImg} />
+          </>
         )}
       </div>
     </div>
