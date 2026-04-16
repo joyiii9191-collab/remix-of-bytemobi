@@ -2706,19 +2706,23 @@ function FocusReveal({ left, top, imageSrc, objectPosition }: { left: string; to
         boxShadow: '0 0 15px rgba(255, 255, 255, 0.3)',
         zIndex: 3,
       }}>
-        <img
-          src={imageSrc}
-          alt=""
-          className="absolute"
-          style={{
-            width: '590px', height: '658px',
-            left: `calc(50% - ${left} * 590 / 100)`,
-            top: `calc(50% - ${top} * 658 / 100)`,
-            objectFit: 'cover',
-            objectPosition: objectPosition || 'center',
-            filter: 'blur(0px)',
-          }}
-        />
+        {/* Clear image aligned to match background position */}
+        <div className="absolute" style={{
+          width: '590px', height: '658px',
+          left: '50%', top: '50%',
+          transform: `translate(-${left}, -${top})`,
+          overflow: 'hidden',
+        }}>
+          <img
+            src={imageSrc}
+            alt=""
+            className="w-full h-full"
+            style={{
+              objectFit: 'cover',
+              objectPosition: objectPosition || 'center',
+            }}
+          />
+        </div>
       </div>
     </>
   );
