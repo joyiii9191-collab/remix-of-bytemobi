@@ -72,6 +72,7 @@ import imgQ87026E2EPng from "@/assets/35c6759d07f4f158de3afe431f509a063b5abe0e.p
 import imgQF23Fe959Png from "@/assets/6250114cf817974b149d15ffb431a9338126261a.png";
 import imgVerticalDivider11 from "@/assets/8c08ec7f5bfe7291638cbaf898bf26ada2734e3a.png";
 import ctaPhoneImg from "@/assets/cta-phone.png";
+import vtaVideoImg from "@/assets/vta-video.png";
 import imgVerticalDivider12 from "@/assets/8be4521167f90e33c61585f2a1abbc398394f011.png";
 import imgQ97C536F9Png from "@/assets/c15512823ce337cb821c754588168969f9900517.png";
 import imgContainer9 from "@/assets/ae98c5539785aebf8bd0c344a161775eaa675ab9.png";
