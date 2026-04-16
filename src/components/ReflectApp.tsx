@@ -2482,7 +2482,7 @@ function Section8TrafficMap() {
           />
         </div>
         <h2 className="text-[44px] font-semibold text-white leading-[1.15] tracking-tight text-center">
-          我们的<span className=" text-transparent">流量分布</span>区域
+          我们的<span className=" text-transparent">流量覆盖</span>区域
         </h2>
         <p className="text-[17px] text-[#818089] leading-[1.6] text-center max-w-[600px]">
           覆盖全球主要市场，为您的业务提供精准的流量支持
