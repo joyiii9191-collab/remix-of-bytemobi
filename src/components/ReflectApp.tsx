@@ -7726,7 +7726,156 @@ function Container279() {
   );
 }
 
-function Section11() {
+function Section9Solution() {
+  const steps = [
+    {
+      num: "01",
+      title: "需求沟通",
+      desc: "深入了解客户推广目标、预算规模与目标市场，量身定制投放策略。",
+    },
+    {
+      num: "02",
+      title: "方案制定",
+      desc: "根据行业特征与用户画像，整合优质流量资源，输出专属投放方案。",
+    },
+    {
+      num: "03",
+      title: "素材优化",
+      desc: "专业创意团队提供多语言素材制作与A/B测试，持续提升广告效果。",
+    },
+    {
+      num: "04",
+      title: "投放执行",
+      desc: "全渠道精准投放，实时监控数据表现，灵活调整优化策略。",
+    },
+    {
+      num: "05",
+      title: "效果复盘",
+      desc: "定期输出数据报告，深度分析ROI与转化路径，驱动持续增长。",
+    },
+  ];
+
+  return (
+    <div className="relative w-full h-full flex flex-col items-center justify-center px-[80px] gap-[56px]">
+      {/* Header */}
+      <div className="flex flex-col items-center gap-[24px] z-10">
+        <div
+          className="flex items-center px-[16px] py-[5px] rounded-full relative"
+          style={{
+            border: "1px solid rgba(255,255,255,0.2)",
+            background: "rgba(255,255,255,0.05)",
+          }}
+        >
+          <span className="text-[14px] text-white font-normal tracking-[-0.21px] leading-[1.6]">
+            One-Stop Solution
+          </span>
+          <div
+            className="absolute inset-[-0.5px] rounded-full pointer-events-none"
+            style={{ boxShadow: "inset 0 0 21px rgba(115,80,255,0.2)" }}
+          />
+        </div>
+        <h2
+          className="text-[48px] font-medium leading-[1.1] tracking-[-2px] text-center"
+          style={{
+            background: "linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0.45) 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
+        >
+          一站式解决方案
+        </h2>
+        <p className="text-[16px] leading-[1.6] text-center max-w-[600px]" style={{ color: "rgba(255,255,255,0.5)" }}>
+          从需求沟通到效果复盘，全流程专业服务，让出海推广更简单高效
+        </p>
+      </div>
+
+      {/* Steps Flow */}
+      <div className="flex items-start gap-0 w-full max-w-[1100px] z-10">
+        {steps.map((step, i) => (
+          <div key={step.num} className="flex items-start flex-1">
+            {/* Step Card */}
+            <div className="flex flex-col items-center gap-[20px] flex-1">
+              {/* Number circle */}
+              <div
+                className="w-[64px] h-[64px] rounded-full flex items-center justify-center relative"
+                style={{
+                  background: "linear-gradient(135deg, rgba(120,60,255,0.15) 0%, rgba(60,120,255,0.1) 100%)",
+                  border: "1px solid rgba(120,60,255,0.3)",
+                }}
+              >
+                <span className="text-[20px] font-semibold" style={{ color: "rgba(160,120,255,0.9)" }}>
+                  {step.num}
+                </span>
+                <div
+                  className="absolute inset-[-0.5px] rounded-full pointer-events-none"
+                  style={{ boxShadow: "inset 0 0 21px rgba(115,80,255,0.25)" }}
+                />
+              </div>
+
+              {/* Title + Desc */}
+              <div className="flex flex-col items-center gap-[8px] text-center px-[8px]">
+                <p className="text-[20px] font-medium text-white leading-[1.2]">{step.title}</p>
+                <p className="text-[13px] leading-[1.6]" style={{ color: "rgba(255,255,255,0.45)" }}>
+                  {step.desc}
+                </p>
+              </div>
+            </div>
+
+            {/* Connector line */}
+            {i < steps.length - 1 && (
+              <div className="flex items-center pt-[30px]">
+                <div
+                  className="w-[40px] h-[1px]"
+                  style={{
+                    background: "linear-gradient(90deg, rgba(120,60,255,0.4) 0%, rgba(60,120,255,0.2) 100%)",
+                  }}
+                />
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* Bottom glass card */}
+      <div
+        className="w-full max-w-[1100px] rounded-[24px] p-[40px] z-10"
+        style={{
+          background: "linear-gradient(135deg, rgba(120,60,255,0.06) 0%, rgba(30,30,60,0.4) 100%)",
+          border: "1px solid rgba(255,255,255,0.06)",
+          backdropFilter: "blur(20px)",
+        }}
+      >
+        <div className="flex items-center justify-between">
+          <div className="flex flex-col gap-[8px]">
+            <p className="text-[24px] font-medium text-white leading-[1.2]">准备好开始了吗？</p>
+            <p className="text-[14px] leading-[1.6]" style={{ color: "rgba(255,255,255,0.45)" }}>
+              立即联系我们，获取专属出海推广方案
+            </p>
+          </div>
+          <div
+            className="px-[32px] py-[14px] rounded-full cursor-pointer"
+            style={{
+              background: "linear-gradient(135deg, rgba(120,60,255,0.8) 0%, rgba(80,40,200,0.9) 100%)",
+              boxShadow: "0 0 30px rgba(120,60,255,0.3)",
+            }}
+          >
+            <span className="text-[15px] font-medium text-white whitespace-nowrap">联系我们</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Background glow */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
+        style={{
+          background: "radial-gradient(circle, rgba(120,60,255,0.08) 0%, transparent 70%)",
+        }}
+      />
+    </div>
+  );
+}
+
+
   return (
     <div className="relative w-full max-w-[1200px] mx-auto flex flex-col items-center" data-name="Section">
       <Container278 />
