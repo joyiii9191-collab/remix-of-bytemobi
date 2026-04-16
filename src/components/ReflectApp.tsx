@@ -1261,7 +1261,7 @@ function Section1() {
             horizontalBeamOffset={0.1}
             verticalBeamOffset={0.0}
             color="#CF9EFF"
-            horizontalSizing={0.9}
+            horizontalSizing={1.5}
             verticalSizing={2}
             wispDensity={1}
             wispSpeed={15}
