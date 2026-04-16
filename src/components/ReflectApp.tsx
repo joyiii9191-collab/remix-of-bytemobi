@@ -2069,12 +2069,17 @@ function Section4Screen() {
           ].map((item, i) => (
             <div key={`left-${i}`} className="absolute" style={{ top: `${item.top}px`, left: `${item.left}px` }}>
               <div className="relative w-[60px] h-[60px]" style={{ overflow: 'visible' }}>
-                {/* Top-left corner glow only */}
-                <div className="absolute w-[40px] h-[40px] -top-[6px] -left-[6px] rounded-tl-[14px]" style={{ background: 'radial-gradient(ellipse at top left, #b638ff 0%, transparent 70%)', filter: 'blur(8px)', mixBlendMode: 'plus-lighter' }} />
-                <div className="absolute w-[35px] h-[35px] -top-[4px] -left-[4px] rounded-tl-[14px]" style={{ background: 'radial-gradient(ellipse at top left, #b638ff 0%, transparent 70%)', filter: 'blur(5px)', mixBlendMode: 'plus-lighter' }} />
-                <div className="absolute w-[30px] h-[30px] -top-[3px] -left-[3px] rounded-tl-[14px]" style={{ background: 'radial-gradient(ellipse at top left, white 0%, transparent 60%)', filter: 'blur(4px)', mixBlendMode: 'plus-lighter' }} />
-                {/* Subtle full border */}
-                <div className="absolute inset-0 rounded-[14px]" style={{ border: '1px solid rgba(255,255,255,0.08)' }} />
+                {/* Glow layer 1 - outermost purple blur */}
+                <div className="absolute inset-[-16px] rounded-[28px]" style={{ border: '2px solid #b638ff', filter: 'blur(8px)', mixBlendMode: 'plus-lighter', maskImage: 'conic-gradient(from 180deg at 50% 50%, black 0deg, transparent 120deg)', WebkitMaskImage: 'conic-gradient(from 180deg at 50% 50%, black 0deg, transparent 120deg)' }} />
+                {/* Glow layer 2 - mid purple */}
+                <div className="absolute inset-[-12px] rounded-[24px]" style={{ border: '2px solid #b638ff', filter: 'blur(5px)', mixBlendMode: 'plus-lighter', maskImage: 'conic-gradient(from 180deg at 50% 50%, black 0deg, transparent 110deg)', WebkitMaskImage: 'conic-gradient(from 180deg at 50% 50%, black 0deg, transparent 110deg)' }} />
+                {/* Glow layer 3 - inner purple */}
+                <div className="absolute inset-[-8px] rounded-[20px]" style={{ border: '2px solid #b638ff', filter: 'blur(3px)', mixBlendMode: 'plus-lighter', maskImage: 'conic-gradient(from 180deg at 50% 50%, black 0deg, transparent 100deg)', WebkitMaskImage: 'conic-gradient(from 180deg at 50% 50%, black 0deg, transparent 100deg)' }} />
+                {/* Glow layer 4 - tight purple */}
+                <div className="absolute inset-[-4px] rounded-[16px]" style={{ border: '1.5px solid #b638ff', filter: 'blur(2px)', mixBlendMode: 'plus-lighter', maskImage: 'conic-gradient(from 180deg at 50% 50%, black 0deg, transparent 90deg)', WebkitMaskImage: 'conic-gradient(from 180deg at 50% 50%, black 0deg, transparent 90deg)' }} />
+                {/* Glow layer 5 - white core highlight */}
+                <div className="absolute inset-[-2px] rounded-[14px]" style={{ border: '1.5px solid white', filter: 'blur(1px)', mixBlendMode: 'plus-lighter', maskImage: 'conic-gradient(from 180deg at 50% 50%, black 0deg, transparent 80deg)', WebkitMaskImage: 'conic-gradient(from 180deg at 50% 50%, black 0deg, transparent 80deg)' }} />
+                {/* Card content */}
                 <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: '#030014', border: '3px solid #030014' }}>
                   <div className="w-[32px] h-[32px] rounded-md" style={{ background: 'rgba(255,255,255,0.06)' }} />
                 </div>
@@ -2090,12 +2095,17 @@ function Section4Screen() {
           ].map((item, i) => (
             <div key={`right-${i}`} className="absolute" style={{ top: `${item.top}px`, right: `${item.right}px` }}>
               <div className="relative w-[60px] h-[60px]" style={{ overflow: 'visible' }}>
-                {/* Top-left corner glow only */}
-                <div className="absolute w-[40px] h-[40px] -top-[6px] -left-[6px] rounded-tl-[14px]" style={{ background: 'radial-gradient(ellipse at top left, #b638ff 0%, transparent 70%)', filter: 'blur(8px)', mixBlendMode: 'plus-lighter' }} />
-                <div className="absolute w-[35px] h-[35px] -top-[4px] -left-[4px] rounded-tl-[14px]" style={{ background: 'radial-gradient(ellipse at top left, #b638ff 0%, transparent 70%)', filter: 'blur(5px)', mixBlendMode: 'plus-lighter' }} />
-                <div className="absolute w-[30px] h-[30px] -top-[3px] -left-[3px] rounded-tl-[14px]" style={{ background: 'radial-gradient(ellipse at top left, white 0%, transparent 60%)', filter: 'blur(4px)', mixBlendMode: 'plus-lighter' }} />
-                {/* Subtle full border */}
-                <div className="absolute inset-0 rounded-[14px]" style={{ border: '1px solid rgba(255,255,255,0.08)' }} />
+                {/* Glow layer 1 - outermost purple blur */}
+                <div className="absolute inset-[-16px] rounded-[28px]" style={{ border: '2px solid #b638ff', filter: 'blur(8px)', mixBlendMode: 'plus-lighter', maskImage: 'conic-gradient(from 180deg at 50% 50%, black 0deg, transparent 120deg)', WebkitMaskImage: 'conic-gradient(from 180deg at 50% 50%, black 0deg, transparent 120deg)' }} />
+                {/* Glow layer 2 */}
+                <div className="absolute inset-[-12px] rounded-[24px]" style={{ border: '2px solid #b638ff', filter: 'blur(5px)', mixBlendMode: 'plus-lighter', maskImage: 'conic-gradient(from 180deg at 50% 50%, black 0deg, transparent 110deg)', WebkitMaskImage: 'conic-gradient(from 180deg at 50% 50%, black 0deg, transparent 110deg)' }} />
+                {/* Glow layer 3 */}
+                <div className="absolute inset-[-8px] rounded-[20px]" style={{ border: '2px solid #b638ff', filter: 'blur(3px)', mixBlendMode: 'plus-lighter', maskImage: 'conic-gradient(from 180deg at 50% 50%, black 0deg, transparent 100deg)', WebkitMaskImage: 'conic-gradient(from 180deg at 50% 50%, black 0deg, transparent 100deg)' }} />
+                {/* Glow layer 4 */}
+                <div className="absolute inset-[-4px] rounded-[16px]" style={{ border: '1.5px solid #b638ff', filter: 'blur(2px)', mixBlendMode: 'plus-lighter', maskImage: 'conic-gradient(from 180deg at 50% 50%, black 0deg, transparent 90deg)', WebkitMaskImage: 'conic-gradient(from 180deg at 50% 50%, black 0deg, transparent 90deg)' }} />
+                {/* Glow layer 5 - white core */}
+                <div className="absolute inset-[-2px] rounded-[14px]" style={{ border: '1.5px solid white', filter: 'blur(1px)', mixBlendMode: 'plus-lighter', maskImage: 'conic-gradient(from 180deg at 50% 50%, black 0deg, transparent 80deg)', WebkitMaskImage: 'conic-gradient(from 180deg at 50% 50%, black 0deg, transparent 80deg)' }} />
+                {/* Card content */}
                 <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: '#030014', border: '3px solid #030014' }}>
                   <div className="w-[32px] h-[32px] rounded-md" style={{ background: 'rgba(255,255,255,0.06)' }} />
                 </div>
