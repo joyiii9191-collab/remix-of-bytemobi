@@ -2328,8 +2328,8 @@ function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 
   return (
     <div ref={wrapperRef} className="relative w-full overflow-hidden">
       {/* Fade edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-[120px] z-10" style={{ background: 'linear-gradient(90deg, #030014 0%, transparent 100%)' }} />
-      <div className="absolute right-0 top-0 bottom-0 w-[120px] z-10" style={{ background: 'linear-gradient(270deg, #030014 0%, transparent 100%)' }} />
+      <div className="absolute left-0 top-0 bottom-0 w-[120px] z-10" style={{ background: 'linear-gradient(90deg, rgba(3,0,20,0.8) 0%, transparent 100%)' }} />
+      <div className="absolute right-0 top-0 bottom-0 w-[120px] z-10" style={{ background: 'linear-gradient(270deg, rgba(3,0,20,0.8) 0%, transparent 100%)' }} />
       
       <div className="flex flex-col gap-3">
         {/* Tag */}
