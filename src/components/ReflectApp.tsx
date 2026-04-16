@@ -2334,7 +2334,7 @@ function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 
   const doubled = [...logos, ...logos];
   const wrapperRef = useRef<HTMLDivElement>(null);
   const tagRef = useRef<HTMLDivElement>(null);
-  const [tagPhase, setTagPhase] = useState<'idle' | 'centered' | 'flowing'>('idle');
+  const [phase, setPhase] = useState<'idle' | 'centered' | 'flowing'>('idle');
 
   useEffect(() => {
     const el = wrapperRef.current;
@@ -2342,8 +2342,8 @@ function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTagPhase('centered');
-          const timer = setTimeout(() => setTagPhase('flowing'), 1800);
+          setPhase('centered');
+          const timer = setTimeout(() => setPhase('flowing'), 2200);
           observer.disconnect();
           return () => clearTimeout(timer);
         }
@@ -2363,23 +2363,22 @@ function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 
       <div className="absolute right-0 top-0 bottom-0 w-[120px] z-10" style={{ background: 'linear-gradient(270deg, #030014 0%, transparent 100%)' }} />
       
       <div className="flex flex-col gap-3">
-        {/* Tag - starts centered, then uses same marquee as logos */}
+        {/* Tag */}
         {tag && (
           <div
             ref={tagRef}
             className="flex items-center"
             style={{
               width: 'max-content',
-              opacity: tagPhase === 'idle' ? 0 : 1,
-              transition: tagPhase === 'centered' ? 'opacity 0.6s ease-out' : 'none',
-              ...(tagPhase === 'centered' ? {
+              opacity: phase === 'idle' ? 0 : 1,
+              transition: phase === 'centered' ? 'opacity 0.6s ease-out' : 'none',
+              ...(phase === 'centered' ? {
                 transform: 'translateX(calc(50vw - 50%))',
-              } : tagPhase === 'flowing' ? {
+              } : phase === 'flowing' ? {
                 animation: `${animName} 30s linear infinite`,
               } : {}),
             }}
           >
-            {/* Duplicate tag for seamless loop */}
             {[0, 1].map((copy) => (
               <span key={copy} className="text-[12px] px-3 py-1 rounded-full border border-[rgba(255,255,255,0.15)] text-white/50 tracking-[0.08em] whitespace-nowrap mx-[calc(50vw)]">
                 {tag}
@@ -2388,12 +2387,18 @@ function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 
           </div>
         )}
 
-        {/* Logos - always flowing */}
+        {/* Logos - start centered, then flow */}
         <div
           className="flex items-center gap-6"
           style={{
             width: 'max-content',
-            animation: `${animName} 30s linear infinite`,
+            opacity: phase === 'idle' ? 0 : 1,
+            transition: phase === 'centered' ? 'opacity 0.8s ease-out, transform 0.8s ease-out' : 'none',
+            ...(phase === 'centered' ? {
+              transform: `translateX(calc(50vw - ${logos.length * 39}px))`,
+            } : phase === 'flowing' ? {
+              animation: `${animName} 30s linear infinite`,
+            } : {}),
           }}
         >
           {doubled.map((label, i) => (
