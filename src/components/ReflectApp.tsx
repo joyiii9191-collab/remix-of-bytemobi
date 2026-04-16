@@ -98,8 +98,8 @@ import { imgGradient, imgGradientOverlay, imgContainer, imgContainer1, imgContai
 function Container1() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-0 px-[120px] right-0 top-[260px]" data-name="Container">
-      <div className="flex flex-col font-['Inter',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-center tracking-[0.12em]">
-        <p className="leading-[28px] bg-clip-text text-[transparent]" style={{ backgroundImage: "linear-gradient(90deg, rgba(229,156,255,0.5) 0%, rgba(186,156,255,0.6) 50%, rgba(156,178,255,0.5) 100%)" }}>Intelligently Driven, Converging Global Streams, Igniting Momentum in Japan</p>
+      <div className="flex flex-col font-['Inter',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-center tracking-[0.12em]">
+        <p className="leading-[28px]">Intelligently Driven, Converging Global Streams, Igniting Momentum in Japan</p>
       </div>
     </div>
   );
@@ -182,7 +182,7 @@ function SvgMargin() {
 function Container2() {
   return (
     <div className="content-stretch flex flex-col items-center relative shrink-0" data-name="Container">
-      <div className="bg-clip-text flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[transparent] text-center whitespace-nowrap" role="link" style={{ backgroundImage: "linear-gradient(90deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 100%), linear-gradient(90.0085deg, rgb(229, 156, 255) 0%, rgb(186, 156, 255) 50.01%, rgb(156, 178, 255) 100%)" }} tabIndex="0">
+      <div className=" flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] text-center whitespace-nowrap" role="link" tabIndex="0">
         <p className="cursor-pointer leading-[20px]">New: Our AI integration just landed</p>
       </div>
     </div>
@@ -196,11 +196,11 @@ function Link() {
 function Heading() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-0 px-[120px] right-0 top-[40px]" data-name="Heading 1">
-      <div className="bg-clip-text flex flex-col font-['Inter',sans-serif] font-bold justify-center leading-[0] not-italic relative shrink-0 text-[80px] text-[transparent] text-center" style={{ backgroundImage: "linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0.85) 50%, rgba(255,255,255,0.55) 100%)" }}>
+      <div className=" flex flex-col font-['Inter',sans-serif] font-bold justify-center leading-[0] not-italic text-white relative shrink-0 text-[80px] text-center">
         <p className="leading-[96px] tracking-[-0.02em]">全球广告增长平台</p>
       </div>
-      <div className="flex flex-col justify-center leading-[0] not-italic relative shrink-0 text-center mt-[36px]">
-        <p className="leading-[52px] text-[36px] font-medium tracking-[0.04em] bg-clip-text text-[transparent]" style={{ backgroundImage: "linear-gradient(90deg, rgba(229,156,255,0.9) 0%, rgba(186,156,255,0.95) 50%, rgba(156,178,255,0.9) 100%)" }}>
+      <div className="flex flex-col justify-center leading-[0] not-italic text-white relative shrink-0 text-center mt-[36px]">
+        <p className="leading-[52px] text-[36px] font-medium tracking-[0.04em]">
           智能驱动，全球汇流，日本聚势
         </p>
       </div>
@@ -292,7 +292,7 @@ function Container3() {
   return (
     <div className="content-stretch flex flex-col h-[766px] items-start justify-center relative shrink-0 w-[1216px] z-[2]" data-name="Container">
       <OverlayBorderShadow />
-      <div className="absolute bg-gradient-to-b from-[rgba(4,1,21,0)] h-[767px] left-0 right-0 to-[#030014] to-[82.36%] top-0 via-[34.48%] via-[rgba(4,1,21,0.7)]" data-name="Gradient" />
+      <div className="absolute from-[rgba(4,1,21,0)] h-[767px] left-0 right-0 to-[#030014] to-[82.36%] top-0 via-[34.48%] via-[rgba(4,1,21,0.7)]" data-name="Gradient" />
       <OverlayBorder />
       <Svg1 />
     </div>
@@ -656,7 +656,7 @@ function Section({ className }: { className?: string }) {
         />
       </div>
       {/* Subtle top/bottom fade */}
-      <div className="absolute inset-0 z-[1] pointer-events-none bg-gradient-to-b from-[rgba(10,10,18,0.15)] via-transparent to-[rgba(10,10,18,0.4)]" />
+      <div className="absolute inset-0 z-[1] pointer-events-none from-[rgba(10,10,18,0.15)] via-transparent to-[rgba(10,10,18,0.4)]" />
       {/* Content */}
       <div className="relative z-[4] pt-[173px] w-full flex flex-col items-center pointer-events-none">
         <Container />
@@ -712,7 +712,7 @@ function MaskGroup10() {
 function Container39() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[15px] text-white w-full">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[15px] text-white w-full">
         <p className="leading-[24px]">How to use AI to take better notes</p>
       </div>
     </div>
@@ -722,7 +722,7 @@ function Container39() {
 function Container40() {
   return (
     <div className="absolute content-stretch flex flex-col h-[8px] items-start mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[0px_0px] mask-size-[180px_8px] opacity-50 right-0 top-0 w-[180px]" style={{ maskImage: `url('${imgContainer5}')` }} data-name="Container">
-      <div className="bg-gradient-to-r from-[rgba(201,177,255,0)] h-px shrink-0 to-[rgba(201,177,255,0)] via-1/2 via-[#c9b1ff] w-full" data-name="Horizontal Divider" />
+      <div className=" from-[rgba(201,177,255,0)] h-px shrink-0 to-[rgba(201,177,255,0)] via-1/2 via-[#c9b1ff] w-full" data-name="Horizontal Divider" />
     </div>
   );
 }
@@ -738,7 +738,7 @@ function MaskGroup11() {
 function Container41() {
   return (
     <div className="absolute bottom-0 content-stretch flex flex-col h-[8px] items-start left-0 mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[0px_0px] mask-size-[180px_8px] opacity-50 w-[180px]" style={{ maskImage: `url('${imgContainer5}')` }} data-name="Container">
-      <div className="bg-gradient-to-r from-[rgba(201,177,255,0)] h-px shrink-0 to-[rgba(201,177,255,0)] via-1/2 via-[#c9b1ff] w-full" data-name="Horizontal Divider" />
+      <div className=" from-[rgba(201,177,255,0)] h-px shrink-0 to-[rgba(201,177,255,0)] via-1/2 via-[#c9b1ff] w-full" data-name="Horizontal Divider" />
     </div>
   );
 }
@@ -762,7 +762,7 @@ function Margin() {
 function Container43() {
   return (
     <div className="content-stretch flex flex-col items-start relative self-stretch shrink-0" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[13px] text-white whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[13px] text-white whitespace-nowrap">
         <p className="leading-[24px]">What can LLMs like GPT do, specifically for note-taking?</p>
       </div>
     </div>
@@ -795,7 +795,7 @@ function Svg2() {
 function Container44() {
   return (
     <div className="content-stretch flex flex-col items-center relative shrink-0" data-name="Container">
-      <div className="bg-clip-text flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[13px] text-[transparent] text-center whitespace-nowrap" style={{ backgroundImage: "linear-gradient(90deg, rgb(252, 114, 255) 0%, rgb(143, 104, 255) 25%, rgb(72, 123, 255) 50%, rgb(44, 217, 255) 75%, rgb(44, 255, 204) 100%)" }}>
+      <div className=" flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[13px] text-center whitespace-nowrap">
         <p className="leading-[24px]">Click to see magic</p>
       </div>
     </div>
@@ -866,7 +866,7 @@ function Heading2() {
     <div className="relative shrink-0 w-full z-[2]" data-name="Heading 3">
       <div className="flex flex-col items-center size-full">
         <div className="content-stretch flex flex-col items-center pl-[479.11px] pr-[479.12px] relative size-full">
-          <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] from-white justify-center leading-[0] not-italic relative shrink-0 text-[32px] text-[transparent] text-center to-[rgba(255,255,255,0.7)] w-full">
+          <div className=" flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] justify-center leading-[0] not-italic text-white relative shrink-0 text-[32px] text-center w-full">
             <p className="leading-[40px]">What can you do with Reflect AI?</p>
           </div>
         </div>
@@ -898,7 +898,7 @@ function Svg3() {
 function Container48() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-0 pl-[64.2px] pr-[64.22px] right-0 top-[84px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[16px] text-center whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[16px] text-center whitespace-nowrap">
         <p className="leading-[24px]">Transcribe voice notes</p>
       </div>
     </div>
@@ -908,7 +908,7 @@ function Container48() {
 function Container49() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-0 pl-[48.31px] pr-[48.33px] right-0 top-[108px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.6)] text-center whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.6)] text-center whitespace-nowrap">
         <p className="leading-[24px]">with human-level accuracy</p>
       </div>
     </div>
@@ -955,7 +955,7 @@ function Svg4() {
 function Container51() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-0 px-[57.5px] right-0 top-[84px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[16px] text-center whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[16px] text-center whitespace-nowrap">
         <p className="leading-[24px]">Generate article outlines</p>
       </div>
     </div>
@@ -965,7 +965,7 @@ function Container51() {
 function Container52() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-0 pl-[39.19px] pr-[39.2px] right-0 top-[108px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.6)] text-center whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.6)] text-center whitespace-nowrap">
         <p className="leading-[24px]">from your scattered thoughts</p>
       </div>
     </div>
@@ -1016,7 +1016,7 @@ function Svg5() {
 function Container54() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-0 pl-[36.81px] pr-[36.83px] right-0 top-[84px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[16px] text-center whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[16px] text-center whitespace-nowrap">
         <p className="leading-[24px]">List key takeaways and action</p>
       </div>
     </div>
@@ -1026,7 +1026,7 @@ function Container54() {
 function Container55() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-0 pl-[34.55px] pr-[34.54px] right-0 top-[108px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.6)] text-center whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.6)] text-center whitespace-nowrap">
         <p className="leading-[24px]">items from your meeting notes</p>
       </div>
     </div>
@@ -1077,7 +1077,7 @@ function Svg6() {
 function Container57() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-0 pl-[67.59px] pr-[67.6px] right-0 top-[84px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[16px] text-center whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[16px] text-center whitespace-nowrap">
         <p className="leading-[24px]">Fix grammar, spelling,</p>
       </div>
     </div>
@@ -1087,7 +1087,7 @@ function Container57() {
 function Container58() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-0 pl-[56.48px] pr-[56.5px] right-0 top-[108px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.6)] text-center whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.6)] text-center whitespace-nowrap">
         <p className="leading-[24px]">and improve your writing</p>
       </div>
     </div>
@@ -1133,7 +1133,7 @@ function Svg7() {
 function Container60() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-0 pl-[94.58px] pr-[94.59px] right-0 top-[84px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[16px] text-center whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[16px] text-center whitespace-nowrap">
         <p className="leading-[24px]">Save your own</p>
       </div>
     </div>
@@ -1143,7 +1143,7 @@ function Container60() {
 function Container61() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-0 pl-[88.5px] pr-[88.52px] right-0 top-[108px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.6)] text-center whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.6)] text-center whitespace-nowrap">
         <p className="leading-[24px]">custom prompts</p>
       </div>
     </div>
@@ -1185,7 +1185,7 @@ function Container45() {
 function Heading1() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-0 pl-[390.13px] pr-[390.12px] right-0 top-[44px]" data-name="Heading 2">
-      <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] from-white justify-center leading-[0] not-italic relative shrink-0 text-[56px] text-[transparent] text-center to-[rgba(255,255,255,0.7)] whitespace-nowrap">
+      <div className=" flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] justify-center leading-[0] not-italic text-white relative shrink-0 text-[56px] text-center whitespace-nowrap">
         <p className="leading-[64px]">品牌简介</p>
       </div>
     </div>
@@ -1195,7 +1195,7 @@ function Heading1() {
 function Container63() {
   return (
     <div className="-translate-x-1/2 absolute content-stretch flex flex-col items-center left-1/2 max-w-[744px] pl-[108px] pr-[108.02px] top-[120px] w-[744px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] text-center whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] text-center whitespace-nowrap">
         <p className="leading-[24px] mb-0">Reflect uses GPT-4 and Whisper from OpenAI to improve your writing,</p>
         <p className="leading-[24px]">organize your thoughts, and act as your intellectual thought partner.</p>
       </div>
@@ -1206,7 +1206,7 @@ function Container63() {
 function Container64() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0" data-name="Container">
-      <div className="bg-clip-text flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[transparent] whitespace-nowrap" style={{ backgroundImage: "linear-gradient(90deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 100%), linear-gradient(90.0086deg, rgb(229, 156, 255) 0%, rgb(186, 156, 255) 50.01%, rgb(156, 178, 255) 100%)" }}>
+      <div className=" flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] whitespace-nowrap">
         <p className="leading-[20px]">Reflect AI</p>
       </div>
     </div>
@@ -1318,7 +1318,7 @@ function Section1() {
                 </div>
 
                 {/* Title */}
-                <h2 className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[44px] leading-[1.1] font-semibold tracking-tight bg-clip-text bg-gradient-to-b from-white via-white to-white/60 text-[transparent]">
+                <h2 className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[44px] leading-[1.1] font-semibold tracking-tight">
                   品牌简介
                 </h2>
 
@@ -1376,7 +1376,7 @@ function Section1() {
 function Heading3() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-0 pl-[354.98px] pr-[354.99px] right-0 top-[44px]" data-name="Heading 2">
-      <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] from-white justify-center leading-[0] not-italic relative shrink-0 text-[56px] text-[transparent] text-center to-[rgba(255,255,255,0.7)] whitespace-nowrap">
+      <div className=" flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] justify-center leading-[0] not-italic text-white relative shrink-0 text-[56px] text-center whitespace-nowrap">
         <p className="leading-[64px]">Give your brain superpowers</p>
       </div>
     </div>
@@ -1386,7 +1386,7 @@ function Heading3() {
 function Container66() {
   return (
     <div className="-translate-x-1/2 absolute content-stretch flex flex-col items-center left-1/2 max-w-[545px] pl-[0.98px] pr-px top-[120px] w-[545px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] text-center whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] text-center whitespace-nowrap">
         <p className="leading-[24px] mb-0">Mirror the way your mind works by associating notes through backlinks.</p>
         <p className="leading-[24px]">Reflect builds you a second brain that you can reference anytime.</p>
       </div>
@@ -1397,7 +1397,7 @@ function Container66() {
 function Container67() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0" data-name="Container">
-      <div className="bg-clip-text flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[transparent] whitespace-nowrap" style={{ backgroundImage: "linear-gradient(90deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 100%), linear-gradient(90.0085deg, rgb(229, 156, 255) 0%, rgb(186, 156, 255) 50.01%, rgb(156, 178, 255) 100%)" }}>
+      <div className=" flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] whitespace-nowrap">
         <p className="leading-[20px]">All your notes, connected</p>
       </div>
     </div>
@@ -1530,7 +1530,7 @@ function OverlayBorder1() {
   return (
     <div className="absolute bg-[rgba(10,8,27,0.7)] content-stretch flex flex-col items-start left-[-33.5px] px-[11px] py-[5px] rounded-[99px] top-[35px]" data-name="Overlay+Border">
       <div aria-hidden="true" className="absolute border border-[rgba(255,255,255,0.05)] border-solid inset-0 pointer-events-none rounded-[99px]" />
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[12px] text-[rgba(239,237,253,0.7)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[12px] text-[rgba(239,237,253,0.7)] whitespace-nowrap">
         <p className="leading-[16px]">Alex MacCaw</p>
       </div>
     </div>
@@ -1561,7 +1561,7 @@ function OverlayBorder2() {
   return (
     <div className="absolute bg-[rgba(10,8,27,0.7)] content-stretch flex flex-col items-start left-[-37.37px] px-[11px] py-[5px] rounded-[99px] top-[35px]" data-name="Overlay+Border">
       <div aria-hidden="true" className="absolute border border-[rgba(255,255,255,0.05)] border-solid inset-0 pointer-events-none rounded-[99px]" />
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[12px] text-[rgba(239,237,253,0.7)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[12px] text-[rgba(239,237,253,0.7)] whitespace-nowrap">
         <p className="leading-[16px]">The power of...</p>
       </div>
     </div>
@@ -1592,7 +1592,7 @@ function OverlayBorder3() {
   return (
     <div className="absolute bg-[rgba(10,8,27,0.7)] content-stretch flex flex-col items-start left-[-10.91px] px-[11px] py-[5px] rounded-[99px] top-[43px]" data-name="Overlay+Border">
       <div aria-hidden="true" className="absolute border border-[rgba(255,255,255,0.05)] border-solid inset-0 pointer-events-none rounded-[99px]" />
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[12px] text-[rgba(239,237,253,0.7)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[12px] text-[rgba(239,237,253,0.7)] whitespace-nowrap">
         <p className="leading-[16px]">Reflect</p>
       </div>
     </div>
@@ -1623,7 +1623,7 @@ function OverlayBorder4() {
   return (
     <div className="absolute bg-[rgba(10,8,27,0.7)] content-stretch flex flex-col items-start left-[-36.78px] px-[11px] py-[5px] rounded-[99px] top-[35px]" data-name="Overlay+Border">
       <div aria-hidden="true" className="absolute border border-[rgba(255,255,255,0.05)] border-solid inset-0 pointer-events-none rounded-[99px]" />
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[12px] text-[rgba(239,237,253,0.7)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[12px] text-[rgba(239,237,253,0.7)] whitespace-nowrap">
         <p className="leading-[16px]">Tips and tricks</p>
       </div>
     </div>
@@ -1654,7 +1654,7 @@ function OverlayBorder5() {
   return (
     <div className="absolute bg-[rgba(10,8,27,0.7)] content-stretch flex flex-col items-start left-[-40.94px] px-[11px] py-[5px] rounded-[99px] top-[35px]" data-name="Overlay+Border">
       <div aria-hidden="true" className="absolute border border-[rgba(255,255,255,0.05)] border-solid inset-0 pointer-events-none rounded-[99px]" />
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[12px] text-[rgba(239,237,253,0.7)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[12px] text-[rgba(239,237,253,0.7)] whitespace-nowrap">
         <p className="leading-[16px]">Saving websites</p>
       </div>
     </div>
@@ -1893,7 +1893,7 @@ function Container68() {
       <Background />
       <Background1 />
       <div className="absolute bg-gradient-to-l from-[rgba(243,238,255,0.12)] h-px left-[319px] to-[rgba(243,238,255,0)] top-0 w-[456px]" data-name="Horizontal Divider" />
-      <div className="absolute bg-gradient-to-r bottom-0 from-[rgba(243,238,255,0.12)] h-px left-[96px] to-[rgba(243,238,255,0)] w-[456px]" data-name="Horizontal Divider" />
+      <div className="absolute bottom-0 from-[rgba(243,238,255,0.12)] h-px left-[96px] to-[rgba(243,238,255,0)] w-[456px]" data-name="Horizontal Divider" />
       <div className="absolute h-[280px] left-0 top-[104px] w-px" data-name="Vertical Divider">
         <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgVerticalDivider2} />
       </div>
@@ -1967,7 +1967,7 @@ function SpotlightBizCard({ card }: { card: { abbr: string; full: string; scene:
           <div className="flex items-center justify-center size-[36px] rounded-[8px] relative overflow-hidden"
             style={{ boxShadow: '0px 0px 0px 1px rgba(255,255,255,0.25)' }}
           >
-            <div className="absolute inset-0 bg-gradient-to-b from-[rgba(255,255,255,0.03)] to-[rgba(255,255,255,0.1)] rounded-[8px]" />
+            <div className="absolute inset-0 from-[rgba(255,255,255,0.03)] to-[rgba(255,255,255,0.1)] rounded-[8px]" />
             <span className="relative text-white text-[16px]">›</span>
             <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_1px_0px_0px_rgba(255,255,255,0.05),inset_0px_-1px_0px_0px_rgba(0,0,0,0.2)]" />
           </div>
@@ -2004,7 +2004,7 @@ function Section2() {
           <span className="text-[14px] text-white font-normal tracking-[-0.21px] leading-[1.6]">Core Business</span>
           <div className="absolute inset-[-0.5px] rounded-full pointer-events-none" style={{ boxShadow: "inset 0 0 21px rgba(115,80,255,0.2)" }} />
         </div>
-        <h2 className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[44px] leading-[1.1] font-semibold tracking-tight bg-clip-text bg-gradient-to-b from-white via-white to-white/60 text-[transparent]">
+        <h2 className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[44px] leading-[1.1] font-semibold tracking-tight">
           核心业务板块
         </h2>
         <p className="text-[18px] leading-[28px] font-medium" style={{ color: 'hsla(0, 0%, 100%, 0.8)' }}>
@@ -2465,7 +2465,7 @@ function Section6LogoWall() {
       <div className="flex flex-col items-center gap-4 z-[1] mb-4">
         
         <h2 className="text-[48px] leading-[1.15] font-bold tracking-tight text-white text-center">
-          <span className="bg-clip-text text-[transparent]" style={{ backgroundImage: 'linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0.7) 100%)' }}>
+          <span className="">
             合作伙伴生态资源
           </span>
         </h2>
@@ -2521,7 +2521,7 @@ function Section8TrafficMap() {
           />
         </div>
         <h2 className="text-[44px] font-semibold text-white leading-[1.15] tracking-tight text-center">
-          我们的<span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">流量分布</span>区域
+          我们的<span className=" text-transparent">流量分布</span>区域
         </h2>
         <p className="text-[17px] text-[#818089] leading-[1.6] text-center max-w-[600px]">
           覆盖全球主要市场，为您的业务提供精准的流量支持
@@ -2697,8 +2697,8 @@ function MaskGroup15() {
 
 function Background2() {
   return (
-    <div className="absolute bg-gradient-to-b from-[rgba(3,0,20,0.8)] h-[600px] left-[-30.9%] right-[-30.9%] to-[#030014] to-[37.87%] top-[446px]" data-name="Background">
-      <div className="absolute bg-gradient-to-r from-[rgba(255,255,255,0)] h-px left-0 to-[rgba(255,255,255,0)] top-0 via-1/2 via-[rgba(255,255,255,0.12)] w-[1440px]" data-name="Horizontal Divider" />
+    <div className="absolute from-[rgba(3,0,20,0.8)] h-[600px] left-[-30.9%] right-[-30.9%] to-[#030014] to-[37.87%] top-[446px]" data-name="Background">
+      <div className="absolute from-[rgba(255,255,255,0)] h-px left-0 to-[rgba(255,255,255,0)] top-0 via-1/2 via-[rgba(255,255,255,0.12)] w-[1440px]" data-name="Horizontal Divider" />
     </div>
   );
 }
@@ -2767,7 +2767,7 @@ function Svg14() {
 function Container85() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-[32px] pl-[81.33px] pr-[81.34px] right-[32px] top-[84px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[16px] text-center whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[16px] text-center whitespace-nowrap">
         <p className="leading-[24px]">Integrated with your devices</p>
       </div>
     </div>
@@ -2777,7 +2777,7 @@ function Container85() {
 function Container86() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-[32px] px-[22.55px] right-[32px] top-[116px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] text-center whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] text-center whitespace-nowrap">
         <p className="leading-[24px] mb-0">{`We're everywhere, mobile or desktop, online`}</p>
         <p className="leading-[24px]">or offline. Everything is synced in real-time.</p>
       </div>
@@ -2819,7 +2819,7 @@ function Svg15() {
 function Container88() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-[32px] pl-[127.63px] pr-[127.64px] right-[32px] top-[84px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[16px] text-center whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[16px] text-center whitespace-nowrap">
         <p className="leading-[24px]">Secure but open</p>
       </div>
     </div>
@@ -2829,7 +2829,7 @@ function Container88() {
 function Container89() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-[32px] px-[7.17px] right-[32px] top-[116px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] text-center whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] text-center whitespace-nowrap">
         <p className="leading-[24px] mb-0">End-to-end encryption keeps your notes secure.</p>
         <p className="leading-[24px]">Our export and API keeps your notes accessible.</p>
       </div>
@@ -2869,7 +2869,7 @@ function Container83() {
 function Heading4() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-0 pl-[158.44px] pr-[158.43px] right-0 top-[44px]" data-name="Heading 2">
-      <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] from-white justify-center leading-[0] not-italic relative shrink-0 text-[56px] text-[transparent] text-center to-[rgba(255,255,255,0.7)] whitespace-nowrap">
+      <div className=" flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] justify-center leading-[0] not-italic text-white relative shrink-0 text-[56px] text-center whitespace-nowrap">
         <p className="leading-[64px]">Never lose information</p>
       </div>
     </div>
@@ -2879,7 +2879,7 @@ function Heading4() {
 function Container91() {
   return (
     <div className="-translate-x-1/2 absolute content-stretch flex flex-col items-center left-1/2 max-w-[614px] px-[0.84px] top-[120px] w-[614px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] text-center whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] text-center whitespace-nowrap">
         <p className="leading-[24px] mb-0">Collect your web snippets, Kindle highlights and important links – all in one place.</p>
         <p className="leading-[24px]">Then quickly find them again from any device.</p>
       </div>
@@ -2890,7 +2890,7 @@ function Container91() {
 function Container92() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0" data-name="Container">
-      <div className="bg-clip-text flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[transparent] whitespace-nowrap" style={{ backgroundImage: "linear-gradient(90deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 100%), linear-gradient(90.0085deg, rgb(229, 156, 255) 0%, rgb(186, 156, 255) 50.01%, rgb(156, 178, 255) 100%)" }}>
+      <div className=" flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] whitespace-nowrap">
         <p className="leading-[20px]">Research and reading</p>
       </div>
     </div>
@@ -2992,7 +2992,7 @@ function Container94() {
 function Heading5() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-0 pl-[486.05px] pr-[486.04px] right-0 top-[44px]" data-name="Heading 2">
-      <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] from-white justify-center leading-[0] not-italic relative shrink-0 text-[56px] text-[transparent] text-center to-[rgba(255,255,255,0.7)] whitespace-nowrap">
+      <div className=" flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] justify-center leading-[0] not-italic text-white relative shrink-0 text-[56px] text-center whitespace-nowrap">
         <p className="leading-[64px]">Hardened security</p>
       </div>
     </div>
@@ -3002,7 +3002,7 @@ function Heading5() {
 function Container96() {
   return (
     <div className="-translate-x-1/2 absolute content-stretch flex flex-col items-center left-1/2 max-w-[455px] pl-[9.27px] pr-[9.28px] top-[120px] w-[455px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] text-center whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] text-center whitespace-nowrap">
         <p className="leading-[24px] mb-0">The contents of your notes are end-to-end encrypted. No</p>
         <p className="leading-[24px]">one else can read them (not even us).</p>
       </div>
@@ -3013,7 +3013,7 @@ function Container96() {
 function Container97() {
   return (
     <div className="content-stretch flex flex-col items-center relative shrink-0" data-name="Container">
-      <div className="bg-clip-text flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[transparent] text-center whitespace-nowrap" style={{ backgroundImage: "linear-gradient(90deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 100%), linear-gradient(90.0085deg, rgb(229, 156, 255) 0%, rgb(186, 156, 255) 50.01%, rgb(156, 178, 255) 100%)" }}>
+      <div className=" flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] text-center whitespace-nowrap">
         <p className="leading-[20px]">Encryption</p>
       </div>
     </div>
@@ -3054,9 +3054,9 @@ function Section4() {
 function Heading6() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-0 px-[504.59px] right-0 top-[44px]" data-name="Heading 2">
-      <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] from-white justify-center leading-[0] not-italic relative shrink-0 text-[56px] text-[transparent] text-center to-[rgba(255,255,255,0.7)] whitespace-nowrap">
+      <div className=" flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] justify-center leading-[0] not-italic text-white relative shrink-0 text-[56px] text-center whitespace-nowrap">
         <p className="leading-[64px] mb-0">Get more out</p>
-        <p className="bg-clip-text bg-gradient-to-b from-white leading-[64px] to-[rgba(255,255,255,0.7)]">of your meetings</p>
+        <p className=" leading-[64px]">of your meetings</p>
       </div>
     </div>
   );
@@ -3065,7 +3065,7 @@ function Heading6() {
 function Container99() {
   return (
     <div className="-translate-x-1/2 absolute content-stretch flex flex-col items-center left-1/2 max-w-[554px] px-[0.08px] top-[184px] w-[554px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] text-center whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] text-center whitespace-nowrap">
         <p className="leading-[24px] mb-0">Keep track of all your meetings and what was discussed.</p>
         <p className="leading-[24px]">Import events quickly with our Google Calendar and Outlook integrations.</p>
       </div>
@@ -3076,7 +3076,7 @@ function Container99() {
 function Container100() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0" data-name="Container">
-      <div className="bg-clip-text flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[transparent] whitespace-nowrap" style={{ backgroundImage: "linear-gradient(90deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 100%), linear-gradient(90.0086deg, rgb(229, 156, 255) 0%, rgb(186, 156, 255) 50.01%, rgb(156, 178, 255) 100%)" }}>
+      <div className=" flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] whitespace-nowrap">
         <p className="leading-[20px]">Meetings</p>
       </div>
     </div>
@@ -3274,7 +3274,7 @@ function ImgMargin1() {
 function Container111() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[13px] text-[rgba(255,255,255,0.8)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[13px] text-[rgba(255,255,255,0.8)] whitespace-nowrap">
         <p className="leading-[20px]">Google Calendar</p>
       </div>
     </div>
@@ -3284,7 +3284,7 @@ function Container111() {
 function Container112() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[13px] text-[rgba(255,255,255,0.44)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[13px] text-[rgba(255,255,255,0.44)] whitespace-nowrap">
         <p className="leading-[20px]">alexmaccaw@gmail.com</p>
       </div>
     </div>
@@ -3397,7 +3397,7 @@ function QE30Fe909Png4() {
 function Container116() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[13px] text-[rgba(255,255,255,0.8)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[13px] text-[rgba(255,255,255,0.8)] whitespace-nowrap">
         <p className="leading-[20px]">Google Calendar</p>
       </div>
     </div>
@@ -3407,7 +3407,7 @@ function Container116() {
 function Container117() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[13px] text-[rgba(255,255,255,0.44)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[13px] text-[rgba(255,255,255,0.44)] whitespace-nowrap">
         <p className="leading-[20px]">alexmaccaw@gmail.com</p>
       </div>
     </div>
@@ -3447,7 +3447,7 @@ function MaskGroup27() {
 function Container119() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[13px] text-[rgba(255,255,255,0.8)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[13px] text-[rgba(255,255,255,0.8)] whitespace-nowrap">
         <p className="leading-[20px]">Outlook</p>
       </div>
     </div>
@@ -3457,7 +3457,7 @@ function Container119() {
 function Container120() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[13px] text-[rgba(255,255,255,0.44)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[13px] text-[rgba(255,255,255,0.44)] whitespace-nowrap">
         <p className="leading-[20px]">alexmaccaw@outlook.com</p>
       </div>
     </div>
@@ -3544,7 +3544,7 @@ function MaskGroup29() {
 function Container124() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[13px] text-[rgba(255,255,255,0.44)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[13px] text-[rgba(255,255,255,0.44)] whitespace-nowrap">
         <p className="leading-[20px]">alexmaccaw@outlook.com</p>
       </div>
     </div>
@@ -3584,7 +3584,7 @@ function Container125() {
   return (
     <div className="relative shrink-0 w-full" data-name="Container">
       <div className="content-stretch flex flex-col items-start pl-[8px] relative size-full">
-        <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[13px] text-[rgba(255,255,255,0.32)] w-full">
+        <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[13px] text-[rgba(255,255,255,0.32)] w-full">
           <p className="leading-[24px]">Meetings</p>
         </div>
       </div>
@@ -3595,7 +3595,7 @@ function Container125() {
 function Container126() {
   return (
     <div className="content-stretch flex flex-col items-start max-w-[195px] overflow-clip pr-[15.17px] relative shrink-0" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[13px] text-[rgba(255,255,255,0.8)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[13px] text-[rgba(255,255,255,0.8)] whitespace-nowrap">
         <p className="leading-[24px]">Meeting with Jonathan at Co</p>
       </div>
     </div>
@@ -3620,7 +3620,7 @@ function OverlayBorderShadow2() {
 function Container127() {
   return (
     <div className="content-stretch flex flex-col items-start max-w-[195px] overflow-clip pr-[12.17px] relative shrink-0" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[13px] text-[rgba(255,255,255,0.8)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[13px] text-[rgba(255,255,255,0.8)] whitespace-nowrap">
         <p className="leading-[24px]">Product call with the Design t</p>
       </div>
     </div>
@@ -3645,7 +3645,7 @@ function OverlayBorderShadow3() {
 function Container128() {
   return (
     <div className="content-stretch flex flex-col items-start max-w-[195px] overflow-clip relative shrink-0" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[13px] text-[rgba(255,255,255,0.8)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[13px] text-[rgba(255,255,255,0.8)] whitespace-nowrap">
         <p className="leading-[24px]">Team call to figure out whats</p>
       </div>
     </div>
@@ -3746,7 +3746,7 @@ function Container131() {
   return (
     <div className="relative shrink-0 w-full" data-name="Container">
       <div className="content-stretch flex flex-col items-start pl-[8px] relative size-full">
-        <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[13px] text-[rgba(255,255,255,0.32)] w-full">
+        <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[13px] text-[rgba(255,255,255,0.32)] w-full">
           <p className="leading-[24px]">Meetings</p>
         </div>
       </div>
@@ -3757,7 +3757,7 @@ function Container131() {
 function Container132() {
   return (
     <div className="content-stretch flex flex-col items-start max-w-[195px] overflow-clip pr-[15.17px] relative shrink-0" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[13px] text-[rgba(255,255,255,0.8)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[13px] text-[rgba(255,255,255,0.8)] whitespace-nowrap">
         <p className="leading-[24px]">Meeting with Jonathan at Co</p>
       </div>
     </div>
@@ -3782,7 +3782,7 @@ function OverlayBorderShadow5() {
 function Container133() {
   return (
     <div className="content-stretch flex flex-col items-start max-w-[195px] overflow-clip pr-[12.17px] relative shrink-0" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[13px] text-[rgba(255,255,255,0.8)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[13px] text-[rgba(255,255,255,0.8)] whitespace-nowrap">
         <p className="leading-[24px]">Product call with the Design t</p>
       </div>
     </div>
@@ -3807,7 +3807,7 @@ function OverlayBorderShadow6() {
 function Container134() {
   return (
     <div className="content-stretch flex flex-col items-start max-w-[195px] overflow-clip relative shrink-0" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[13px] text-[rgba(255,255,255,0.8)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[13px] text-[rgba(255,255,255,0.8)] whitespace-nowrap">
         <p className="leading-[24px]">Team call to figure out whats</p>
       </div>
     </div>
@@ -3889,7 +3889,7 @@ function QE30Fe909Png7() {
 function Container137() {
   return (
     <div className="content-stretch flex flex-col items-start max-w-[195px] overflow-clip pr-[3.39px] relative shrink-0" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[13px] text-[rgba(255,255,255,0.8)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[13px] text-[rgba(255,255,255,0.8)] whitespace-nowrap">
         <p className="leading-[24px]">Meeting with Jonathan at Co…</p>
       </div>
     </div>
@@ -3899,7 +3899,7 @@ function Container137() {
 function Margin1() {
   return (
     <div className="content-stretch flex flex-col items-start pr-[4px] relative shrink-0" data-name="Margin">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[13px] text-[rgba(255,255,255,0.36)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[13px] text-[rgba(255,255,255,0.36)] whitespace-nowrap">
         <p className="leading-[24px]">5:00am</p>
       </div>
     </div>
@@ -3933,7 +3933,7 @@ function OverlayBorderShadow8() {
 function Container139() {
   return (
     <div className="content-stretch flex flex-col items-start max-w-[195px] overflow-clip relative shrink-0" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[13px] text-[rgba(255,255,255,0.8)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[13px] text-[rgba(255,255,255,0.8)] whitespace-nowrap">
         <p className="leading-[24px]">Product call with the Design t…</p>
       </div>
     </div>
@@ -3943,7 +3943,7 @@ function Container139() {
 function Margin2() {
   return (
     <div className="content-stretch flex flex-col items-start pr-[4px] relative shrink-0" data-name="Margin">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[13px] text-[rgba(255,255,255,0.36)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[13px] text-[rgba(255,255,255,0.36)] whitespace-nowrap">
         <p className="leading-[24px]">7:00am</p>
       </div>
     </div>
@@ -3977,7 +3977,7 @@ function OverlayBorderShadow9() {
 function Container141() {
   return (
     <div className="content-stretch flex flex-col items-start max-w-[195px] overflow-clip relative shrink-0" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[13px] text-[rgba(255,255,255,0.8)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[13px] text-[rgba(255,255,255,0.8)] whitespace-nowrap">
         <p className="leading-[24px]">Team call to figure out whats</p>
       </div>
     </div>
@@ -3987,7 +3987,7 @@ function Container141() {
 function Margin3() {
   return (
     <div className="content-stretch flex flex-col items-start pr-[4px] relative shrink-0" data-name="Margin">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[13px] text-[rgba(255,255,255,0.36)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[13px] text-[rgba(255,255,255,0.36)] whitespace-nowrap">
         <p className="leading-[24px]">12:00pm</p>
       </div>
     </div>
@@ -4076,7 +4076,7 @@ function QE30Fe909Png8() {
 function Margin4() {
   return (
     <div className="content-stretch flex flex-col items-start pr-[4px] relative shrink-0" data-name="Margin">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[13px] text-[rgba(255,255,255,0.36)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[13px] text-[rgba(255,255,255,0.36)] whitespace-nowrap">
         <p className="leading-[24px]">5:00am</p>
       </div>
     </div>
@@ -4123,7 +4123,7 @@ function OverlayBorderShadow11() {
 function Margin5() {
   return (
     <div className="content-stretch flex flex-col items-start pr-[4px] relative shrink-0" data-name="Margin">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[13px] text-[rgba(255,255,255,0.36)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[13px] text-[rgba(255,255,255,0.36)] whitespace-nowrap">
         <p className="leading-[24px]">7:00am</p>
       </div>
     </div>
@@ -4170,7 +4170,7 @@ function OverlayBorderShadow12() {
 function Margin6() {
   return (
     <div className="content-stretch flex flex-col items-start pr-[4px] relative shrink-0" data-name="Margin">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[13px] text-[rgba(255,255,255,0.36)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[13px] text-[rgba(255,255,255,0.36)] whitespace-nowrap">
         <p className="leading-[24px]">12:00pm</p>
       </div>
     </div>
@@ -4314,7 +4314,7 @@ function Container101() {
       <div className="flex flex-row justify-center overflow-clip rounded-[inherit] size-full">
         <div className="content-stretch flex items-start justify-center px-[240px] relative size-full">
           <Container102 />
-          <div className="absolute bg-gradient-to-b bottom-0 from-[rgba(3,0,20,0)] h-[272px] left-0 right-0 to-[#030014] to-[82.36%] via-[34.48%] via-[rgba(3,0,20,0.5)]" data-name="Gradient" />
+          <div className="absolute bottom-0 from-[rgba(3,0,20,0)] h-[272px] left-0 right-0 to-[#030014] to-[82.36%] via-[34.48%] via-[rgba(3,0,20,0.5)]" data-name="Gradient" />
         </div>
       </div>
     </div>
@@ -4360,7 +4360,7 @@ function Section5() {
 function Container153() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0" data-name="Container">
-      <div className="bg-clip-text flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[transparent] whitespace-nowrap" style={{ backgroundImage: "linear-gradient(90deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 100%), linear-gradient(90.0085deg, rgb(229, 156, 255) 0%, rgb(186, 156, 255) 50.01%, rgb(156, 178, 255) 100%)" }}>
+      <div className=" flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] whitespace-nowrap">
         <p className="leading-[20px]">Integrations</p>
       </div>
     </div>
@@ -4383,7 +4383,7 @@ function Container154() {
     <div className="relative shrink-0 w-full" data-name="Container">
       <div className="flex flex-col items-center size-full">
         <div className="content-stretch flex flex-col items-center pl-[574.42px] pr-[574.44px] relative size-full">
-          <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] from-white justify-center leading-[0] not-italic relative shrink-0 text-[56px] text-[transparent] text-center to-[rgba(255,255,255,0.7)] w-full">
+          <div className=" flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] justify-center leading-[0] not-italic text-white relative shrink-0 text-[56px] text-center w-full">
             <p className="leading-[64px]">Use Reflect</p>
           </div>
         </div>
@@ -4397,7 +4397,7 @@ function Container155() {
     <div className="relative shrink-0 w-full" data-name="Container">
       <div className="flex flex-col items-center size-full">
         <div className="content-stretch flex flex-col items-center pl-[520.42px] pr-[520.44px] relative size-full">
-          <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] from-white justify-center leading-[0] not-italic relative shrink-0 text-[56px] text-[transparent] text-center to-[rgba(255,255,255,0.7)] w-full">
+          <div className=" flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] justify-center leading-[0] not-italic text-white relative shrink-0 text-[56px] text-center w-full">
             <p className="leading-[64px]">with other apps</p>
           </div>
         </div>
@@ -4437,7 +4437,7 @@ function Image4() {
 function Container156() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-[32px] pl-[177.64px] pr-[177.66px] right-[32px] top-[96px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[16px] text-center whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[16px] text-center whitespace-nowrap">
         <p className="leading-[24px]">Zapier</p>
       </div>
     </div>
@@ -4447,7 +4447,7 @@ function Container156() {
 function Container157() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-[32px] px-[64.69px] right-[32px] top-[128px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] text-center whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] text-center whitespace-nowrap">
         <p className="leading-[24px] mb-0">Connect with Reflect with dozens of</p>
         <p className="leading-[24px]">applications without code</p>
       </div>
@@ -4478,7 +4478,7 @@ function Image5() {
 function Container158() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-[32px] pl-[165.14px] pr-[165.16px] right-[32px] top-[96px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[16px] text-center whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[16px] text-center whitespace-nowrap">
         <p className="leading-[24px]">Readwise</p>
       </div>
     </div>
@@ -4488,7 +4488,7 @@ function Container158() {
 function Container159() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-[32px] px-[78.52px] right-[32px] top-[128px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] text-center whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] text-center whitespace-nowrap">
         <p className="leading-[24px] mb-0">Sync your reading highlights and</p>
         <p className="leading-[24px]">notes with Reflect.</p>
       </div>
@@ -4519,7 +4519,7 @@ function QFfb847CcPng() {
 function Container160() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-[32px] pl-[126.25px] pr-[126.27px] right-[32px] top-[104px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[16px] text-center whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[16px] text-center whitespace-nowrap">
         <p className="leading-[24px]">Google and Outlook</p>
       </div>
     </div>
@@ -4529,7 +4529,7 @@ function Container160() {
 function Container161() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-[32px] pl-[58.41px] pr-[58.42px] right-[32px] top-[136px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] text-center whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] text-center whitespace-nowrap">
         <p className="leading-[24px]">Integrate your contacts and calendars</p>
       </div>
     </div>
@@ -4559,7 +4559,7 @@ function Q0Fbeed8CPng() {
 function Container162() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-[32px] px-[131px] right-[32px] top-[104px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[16px] text-center whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[16px] text-center whitespace-nowrap">
         <p className="leading-[24px]">Chrome and Safari</p>
       </div>
     </div>
@@ -4569,7 +4569,7 @@ function Container162() {
 function Container163() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-[32px] pl-[46.42px] pr-[46.44px] right-[32px] top-[136px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] text-center whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] text-center whitespace-nowrap">
         <p className="leading-[24px]">Save web clips and sync with your Kindle</p>
       </div>
     </div>
@@ -4819,7 +4819,7 @@ function Container166() {
 function Margin7() {
   return (
     <div className="content-stretch flex flex-col items-start pr-[16px] relative shrink-0" data-name="Margin">
-      <div className="bg-clip-text flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[72px] text-[transparent] whitespace-nowrap" style={{ backgroundImage: "linear-gradient(90.0086deg, rgb(229, 156, 255) 0%, rgb(186, 156, 255) 50.01%, rgb(156, 178, 255) 100%)" }}>
+      <div className=" flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] justify-center leading-[0] not-italic text-white relative shrink-0 text-[72px] whitespace-nowrap">
         <p className="leading-[80px]">$10</p>
       </div>
     </div>
@@ -4829,7 +4829,7 @@ function Margin7() {
 function Container175() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
         <p className="leading-[24px] mb-0">/month</p>
         <p className="leading-[24px]">(billed annually)</p>
       </div>
@@ -4903,7 +4903,7 @@ function SvgMargin1() {
 function Container179() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
         <p className="leading-[24px]">Networked note-taking</p>
       </div>
     </div>
@@ -4976,7 +4976,7 @@ function SvgMargin2() {
 function Container181() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
         <p className="leading-[24px]">Chrome and Safari web clipper</p>
       </div>
     </div>
@@ -5049,7 +5049,7 @@ function SvgMargin3() {
 function Container183() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
         <p className="leading-[24px]">Kindle offline sync</p>
       </div>
     </div>
@@ -5132,7 +5132,7 @@ function SvgMargin4() {
 function Container186() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
         <p className="leading-[24px]">End to end encryption</p>
       </div>
     </div>
@@ -5205,7 +5205,7 @@ function SvgMargin5() {
 function Container188() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
         <p className="leading-[24px]">Kindle highlights sync</p>
       </div>
     </div>
@@ -5278,7 +5278,7 @@ function SvgMargin6() {
 function Container190() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
         <p className="leading-[24px]">iOS app</p>
       </div>
     </div>
@@ -5337,7 +5337,7 @@ function Link1() {
         <div className="absolute inset-0 rounded-[inherit] shadow-[inset_0px_0px_12px_0px_rgba(191,151,255,0.24)]" />
       </div>
       <Container191 />
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[14px] text-left whitespace-nowrap" role="link" tabIndex="0">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[14px] text-left whitespace-nowrap" role="link" tabIndex="0">
         <p className="cursor-pointer leading-[20px]">Start your 14-day trial</p>
       </div>
     </a>
@@ -5347,7 +5347,7 @@ function Link1() {
 function Container193() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0" data-name="Container">
-      <div className="bg-clip-text flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[transparent] whitespace-nowrap" style={{ backgroundImage: "linear-gradient(90deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 100%), linear-gradient(90.0085deg, rgb(229, 156, 255) 0%, rgb(186, 156, 255) 50.01%, rgb(156, 178, 255) 100%)" }}>
+      <div className=" flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] whitespace-nowrap">
         <p className="leading-[20px]">Get access</p>
       </div>
     </div>
@@ -5370,7 +5370,7 @@ function Container194() {
     <div className="relative shrink-0 w-full" data-name="Container">
       <div className="flex flex-col items-center size-full">
         <div className="content-stretch flex flex-col items-center pl-[396.91px] pr-[396.92px] relative size-full">
-          <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] from-white justify-center leading-[0] not-italic relative shrink-0 text-[48px] text-[transparent] text-center to-[rgba(255,255,255,0.7)] w-full">
+          <div className=" flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] justify-center leading-[0] not-italic text-white relative shrink-0 text-[48px] text-center w-full">
             <p className="leading-[56px]">We like keeping things simple</p>
           </div>
         </div>
@@ -5384,7 +5384,7 @@ function Container195() {
     <div className="relative shrink-0 w-full" data-name="Container">
       <div className="flex flex-col items-center size-full">
         <div className="content-stretch flex flex-col items-center pl-[508.45px] pr-[508.47px] relative size-full">
-          <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] from-white justify-center leading-[0] not-italic relative shrink-0 text-[48px] text-[transparent] text-center to-[rgba(255,255,255,0.7)] w-full">
+          <div className=" flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] justify-center leading-[0] not-italic text-white relative shrink-0 text-[48px] text-center w-full">
             <p className="leading-[56px]">One plan one price.</p>
           </div>
         </div>
@@ -5426,7 +5426,7 @@ function Section7() {
 function Heading9() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-0 pl-[497.56px] pr-[497.58px] right-0 top-[44px]" data-name="Heading 2">
-      <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] from-white justify-center leading-[0] not-italic relative shrink-0 text-[56px] text-[transparent] text-center to-[rgba(255,255,255,0.7)] whitespace-nowrap">
+      <div className=" flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] justify-center leading-[0] not-italic text-white relative shrink-0 text-[56px] text-center whitespace-nowrap">
         <p className="leading-[64px]">Loved by thinkers</p>
       </div>
     </div>
@@ -5436,7 +5436,7 @@ function Heading9() {
 function Container197() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0" data-name="Container">
-      <div className="bg-clip-text flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[transparent] whitespace-nowrap" style={{ backgroundImage: "linear-gradient(90deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 100%), linear-gradient(90.0086deg, rgb(229, 156, 255) 0%, rgb(186, 156, 255) 50.01%, rgb(156, 178, 255) 100%)" }}>
+      <div className=" flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] whitespace-nowrap">
         <p className="leading-[20px]">Wall of love</p>
       </div>
     </div>
@@ -5487,7 +5487,7 @@ function ImgMargin3() {
 function Container202() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
         <p className="leading-[24px]">Sean Rose</p>
       </div>
     </div>
@@ -5497,7 +5497,7 @@ function Container202() {
 function Container203() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
         <p className="leading-[20px]">@seanrose</p>
       </div>
     </div>
@@ -5525,7 +5525,7 @@ function Container200() {
 function Container204() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] w-full">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] w-full">
         <p className="mb-0">
           <span className="leading-[24px]">{`Really, really liking `}</span>
           <a className="cursor-pointer leading-[24px] text-[#9382ff]" href="https://reflect.app/" target="_blank">
@@ -5582,7 +5582,7 @@ function ImgMargin4() {
 function Container207() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
         <p className="leading-[24px]">Ryan Delk</p>
       </div>
     </div>
@@ -5592,7 +5592,7 @@ function Container207() {
 function Container208() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
         <p className="leading-[20px]">@delk</p>
       </div>
     </div>
@@ -5620,7 +5620,7 @@ function Container205() {
 function Container209() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] w-full">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] w-full">
         <p>
           <span className="leading-[24px]">{`Don’t take it from me: `}</span>
           <a className="cursor-pointer leading-[24px] text-[#9382ff]" href="https://reflect.app/" target="_blank">
@@ -5674,7 +5674,7 @@ function ImgMargin5() {
 function Container212() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
         <p className="leading-[24px]">Demetria Giles</p>
       </div>
     </div>
@@ -5684,7 +5684,7 @@ function Container212() {
 function Container213() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
         <p className="leading-[20px]">@drosewritings</p>
       </div>
     </div>
@@ -5712,7 +5712,7 @@ function Container210() {
 function Container214() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] w-full">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] w-full">
         <p className="mb-0">
           <span className="leading-[24px]">{`Playing around with `}</span>
           <a className="cursor-pointer leading-[24px] text-[#9382ff]" href="https://reflect.app/" target="_blank">
@@ -5779,7 +5779,7 @@ function ImgMargin6() {
 function Container218() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
         <p className="leading-[24px]">Jeremy McPeak</p>
       </div>
     </div>
@@ -5789,7 +5789,7 @@ function Container218() {
 function Container219() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
         <p className="leading-[20px]">@jwmcpeak</p>
       </div>
     </div>
@@ -5817,7 +5817,7 @@ function Container216() {
 function Container220() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] w-full">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] w-full">
         <p className="mb-0">
           <span className="leading-[24px]">{`I just received an invite to `}</span>
           <a className="cursor-pointer leading-[24px] text-[#9382ff]" href="https://reflect.app/" target="_blank">
@@ -5874,7 +5874,7 @@ function ImgMargin7() {
 function Container223() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
         <p className="leading-[24px]">Fabrizio Rinaldi</p>
       </div>
     </div>
@@ -5884,7 +5884,7 @@ function Container223() {
 function Container224() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
         <p className="leading-[20px]">@linuz90</p>
       </div>
     </div>
@@ -5912,7 +5912,7 @@ function Container221() {
 function Container225() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] w-full">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] w-full">
         <p className="mb-0">
           <span className="leading-[24px]">{`I’m keeping `}</span>
           <a className="cursor-pointer leading-[24px] text-[#9382ff]" href="https://reflect.app/" target="_blank">
@@ -5968,7 +5968,7 @@ function ImgMargin8() {
 function Container228() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
         <p className="leading-[24px]">Jonathan Simcoe</p>
       </div>
     </div>
@@ -5978,7 +5978,7 @@ function Container228() {
 function Container229() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
         <p className="leading-[20px]">@jdsimcoe</p>
       </div>
     </div>
@@ -6006,7 +6006,7 @@ function Container226() {
 function Container230() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] w-full">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] w-full">
         <p className="leading-[24px] mb-0">All righty. I have to give a massive shout-out to</p>
         <p className="mb-0">
           <a className="cursor-pointer leading-[24px] text-[#9382ff]" href="https://twitter.com/maccaw" target="_blank">
@@ -6130,7 +6130,7 @@ function Container234() {
     <div className="relative shrink-0 w-full" data-name="Container">
       <div className="flex flex-col items-center size-full">
         <div className="content-stretch flex flex-col items-center pl-[469.52px] pr-[469.51px] relative size-full">
-          <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] from-white justify-center leading-[0] not-italic relative shrink-0 text-[56px] text-[transparent] text-center to-[rgba(255,255,255,0.7)] w-full">
+          <div className=" flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] justify-center leading-[0] not-italic text-white relative shrink-0 text-[56px] text-center w-full">
             <p className="leading-[64px]">{`We're an indie team`}</p>
           </div>
         </div>
@@ -6144,7 +6144,7 @@ function Container235() {
     <div className="relative shrink-0 w-full" data-name="Container">
       <div className="flex flex-col items-center size-full">
         <div className="content-stretch flex flex-col items-center px-[415.78px] relative size-full">
-          <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] from-white justify-center leading-[0] not-italic relative shrink-0 text-[56px] text-[transparent] text-center to-[rgba(255,255,255,0.7)] w-full">
+          <div className=" flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] justify-center leading-[0] not-italic text-white relative shrink-0 text-[56px] text-center w-full">
             <p className="leading-[64px]">dotted across the globe</p>
           </div>
         </div>
@@ -6165,7 +6165,7 @@ function Heading10() {
 function Container236() {
   return (
     <div className="-translate-x-1/2 absolute content-stretch flex flex-col items-center left-1/2 max-w-[455px] pl-[3.23px] pr-[3.25px] top-[184px] w-[455px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] text-center whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] text-center whitespace-nowrap">
         <p className="leading-[24px] mb-0">Our mission is to improve the way people think by making a</p>
         <p className="leading-[24px]">jolly good note-taking app.</p>
       </div>
@@ -6176,7 +6176,7 @@ function Container236() {
 function Container237() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0" data-name="Container">
-      <div className="bg-clip-text flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[transparent] whitespace-nowrap" style={{ backgroundImage: "linear-gradient(90deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 100%), linear-gradient(90.0086deg, rgb(229, 156, 255) 0%, rgb(186, 156, 255) 50.01%, rgb(156, 178, 255) 100%)" }}>
+      <div className=" flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] whitespace-nowrap">
         <p className="leading-[20px]">About</p>
       </div>
     </div>
@@ -6214,7 +6214,7 @@ function Link2() {
       <div className="absolute inset-0 rounded-[8px]" data-name="Border">
         <div aria-hidden="true" className="absolute border border-[rgba(243,238,255,0.08)] border-solid inset-0 pointer-events-none rounded-[8px]" />
       </div>
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[14px] text-left whitespace-nowrap" role="link" tabIndex="0">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[14px] text-left whitespace-nowrap" role="link" tabIndex="0">
         <p className="cursor-pointer leading-[20px]">See our values</p>
       </div>
     </a>
@@ -6352,7 +6352,7 @@ function Container247() {
     <div className="relative shrink-0 w-full" data-name="Container">
       <div className="flex flex-col items-center size-full">
         <div className="content-stretch flex flex-col items-center pl-[146.8px] pr-[146.81px] relative size-full">
-          <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] from-white justify-center leading-[0] not-italic relative shrink-0 text-[56px] text-[transparent] text-center to-[rgba(255,255,255,0.7)] w-full">
+          <div className=" flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] justify-center leading-[0] not-italic text-white relative shrink-0 text-[56px] text-center w-full">
             <p className="leading-[64px]">Learn how to take great</p>
           </div>
         </div>
@@ -6366,7 +6366,7 @@ function Container248() {
     <div className="relative shrink-0 w-full" data-name="Container">
       <div className="flex flex-col items-center size-full">
         <div className="content-stretch flex flex-col items-center pl-[170.02px] pr-[170.03px] relative size-full">
-          <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] from-white justify-center leading-[0] not-italic relative shrink-0 text-[56px] text-[transparent] text-center to-[rgba(255,255,255,0.7)] w-full">
+          <div className=" flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] justify-center leading-[0] not-italic text-white relative shrink-0 text-[56px] text-center w-full">
             <p className="leading-[64px]">notes at our academy</p>
           </div>
         </div>
@@ -6387,7 +6387,7 @@ function Heading11() {
 function Container249() {
   return (
     <div className="-translate-x-1/2 absolute content-stretch flex flex-col items-center left-1/2 max-w-[455px] px-[82.73px] top-[184px] w-[455px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] text-center whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.7)] text-center whitespace-nowrap">
         <p className="leading-[24px] mb-0">Master the principles of note-taking in</p>
         <p className="leading-[24px]">{`Reflect's free online Academy.`}</p>
       </div>
@@ -6398,7 +6398,7 @@ function Container249() {
 function Container250() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0" data-name="Container">
-      <div className="bg-clip-text flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[transparent] whitespace-nowrap" style={{ backgroundImage: "linear-gradient(90deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 100%), linear-gradient(90.0086deg, rgb(229, 156, 255) 0%, rgb(186, 156, 255) 50.01%, rgb(156, 178, 255) 100%)" }}>
+      <div className=" flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] whitespace-nowrap">
         <p className="leading-[20px]">Academy</p>
       </div>
     </div>
@@ -6436,7 +6436,7 @@ function Link3() {
       <div className="absolute inset-0 rounded-[8px]" data-name="Border">
         <div aria-hidden="true" className="absolute border border-[rgba(243,238,255,0.08)] border-solid inset-0 pointer-events-none rounded-[8px]" />
       </div>
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[14px] text-left whitespace-nowrap" role="link" tabIndex="0">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[14px] text-left whitespace-nowrap" role="link" tabIndex="0">
         <p className="cursor-pointer leading-[20px]">Take the course</p>
       </div>
     </a>
@@ -6465,7 +6465,7 @@ function Container244() {
 function Margin15() {
   return (
     <div className="content-stretch flex flex-col items-start pr-[8px] relative shrink-0" data-name="Margin">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[12px] text-[rgba(239,237,253,0.32)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[12px] text-[rgba(239,237,253,0.32)] whitespace-nowrap">
         <p className="leading-[16px]">Press “Controls” to play:</p>
       </div>
     </div>
@@ -6639,7 +6639,7 @@ function Margin14() {
 function Margin20() {
   return (
     <div className="content-stretch flex flex-col items-start pr-[8px] relative shrink-0" data-name="Margin">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[12px] text-[rgba(239,237,253,0.32)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[12px] text-[rgba(239,237,253,0.32)] whitespace-nowrap">
         <p className="leading-[16px]">Rotate</p>
       </div>
     </div>
@@ -6696,7 +6696,7 @@ function Margin19() {
 function Margin21() {
   return (
     <div className="content-stretch flex flex-col items-start pr-[8px] relative shrink-0" data-name="Margin">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[12px] text-[rgba(239,237,253,0.32)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[12px] text-[rgba(239,237,253,0.32)] whitespace-nowrap">
         <p className="leading-[16px]">Fall Faster:</p>
       </div>
     </div>
@@ -6768,7 +6768,7 @@ function Container243({ className }: { className?: string }) {
 function Heading12() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-0 pl-[409.27px] pr-[409.26px] right-0 top-[44px]" data-name="Heading 2">
-      <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] from-white justify-center leading-[0] not-italic relative shrink-0 text-[56px] text-[transparent] text-center to-[rgba(255,255,255,0.7)] whitespace-nowrap">
+      <div className=" flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] justify-center leading-[0] not-italic text-white relative shrink-0 text-[56px] text-center whitespace-nowrap">
         <p className="leading-[64px]">Think better with Reflect</p>
       </div>
     </div>
@@ -6778,7 +6778,7 @@ function Heading12() {
 function Container256() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0" data-name="Container">
-      <div className="bg-clip-text flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[transparent] whitespace-nowrap" style={{ backgroundImage: "linear-gradient(90deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 100%), linear-gradient(90.0086deg, rgb(229, 156, 255) 0%, rgb(186, 156, 255) 50.01%, rgb(156, 178, 255) 100%)" }}>
+      <div className=" flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] whitespace-nowrap">
         <p className="leading-[20px]">Get started</p>
       </div>
     </div>
@@ -6832,7 +6832,7 @@ function Link4() {
         <div className="absolute inset-0 rounded-[inherit] shadow-[inset_0px_0px_12px_0px_rgba(191,151,255,0.24)]" />
       </div>
       <Container257 />
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[14px] text-left whitespace-nowrap" role="link" tabIndex="0">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[14px] text-left whitespace-nowrap" role="link" tabIndex="0">
         <p className="cursor-pointer leading-[20px]">Start your 14-day trial</p>
       </div>
     </a>
@@ -6909,7 +6909,7 @@ function ImgMargin9() {
 function Container263() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-white whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-white whitespace-nowrap">
         <p className="leading-[24px]">Reflect</p>
       </div>
     </div>
@@ -6986,7 +6986,7 @@ function Container261() {
 function Container267() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[14px] w-full">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[14px] w-full">
         <p className="leading-[20px]">Product</p>
       </div>
     </div>
@@ -6996,7 +6996,7 @@ function Container267() {
 function ItemLinkFeatures() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Item → Link - Features">
-      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] w-full" href="https://reflect.app/#features" target="_blank">
+      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] w-full" href="https://reflect.app/#features" target="_blank">
         <p className="cursor-pointer leading-[20px]">Features</p>
       </a>
     </div>
@@ -7006,7 +7006,7 @@ function ItemLinkFeatures() {
 function ItemLinkIntegrations() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Item → Link - Integrations">
-      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] w-full" href="https://reflect.app/#integrations" target="_blank">
+      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] w-full" href="https://reflect.app/#integrations" target="_blank">
         <p className="cursor-pointer leading-[20px]">Integrations</p>
       </a>
     </div>
@@ -7016,7 +7016,7 @@ function ItemLinkIntegrations() {
 function ItemLinkPricing() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Item → Link - Pricing">
-      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] w-full" href="https://reflect.app/#pricing" target="_blank">
+      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] w-full" href="https://reflect.app/#pricing" target="_blank">
         <p className="cursor-pointer leading-[20px]">Pricing</p>
       </a>
     </div>
@@ -7026,7 +7026,7 @@ function ItemLinkPricing() {
 function ItemLinkChangelog() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Item → Link - Changelog">
-      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] w-full" href="https://reflect.app/changelog" target="_blank">
+      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] w-full" href="https://reflect.app/changelog" target="_blank">
         <p className="cursor-pointer leading-[20px]">Changelog</p>
       </a>
     </div>
@@ -7036,7 +7036,7 @@ function ItemLinkChangelog() {
 function ItemLinkRoadmap() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Item → Link - Roadmap">
-      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] w-full" href="https://reflect.academy/roadmap" target="_blank">
+      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] w-full" href="https://reflect.academy/roadmap" target="_blank">
         <p className="cursor-pointer leading-[20px]">Roadmap</p>
       </a>
     </div>
@@ -7069,7 +7069,7 @@ function Container266() {
 function Container269() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[14px] w-full">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[14px] w-full">
         <p className="leading-[20px]">Company</p>
       </div>
     </div>
@@ -7079,7 +7079,7 @@ function Container269() {
 function ItemLinkOurTeam() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Item → Link - Our team">
-      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] w-full" href="https://reflect.academy/our-team" target="_blank">
+      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] w-full" href="https://reflect.academy/our-team" target="_blank">
         <p className="cursor-pointer leading-[20px]">Our team</p>
       </a>
     </div>
@@ -7089,7 +7089,7 @@ function ItemLinkOurTeam() {
 function ItemLinkOurValues() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Item → Link - Our values">
-      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] w-full" href="https://reflect.academy/our-values" target="_blank">
+      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] w-full" href="https://reflect.academy/our-values" target="_blank">
         <p className="cursor-pointer leading-[20px]">Our values</p>
       </a>
     </div>
@@ -7099,7 +7099,7 @@ function ItemLinkOurValues() {
 function ItemLinkBlog() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Item → Link - Blog">
-      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] w-full" href="https://reflect.app/blog" target="_blank">
+      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] w-full" href="https://reflect.app/blog" target="_blank">
         <p className="cursor-pointer leading-[20px]">Blog</p>
       </a>
     </div>
@@ -7130,7 +7130,7 @@ function Container268() {
 function Container271() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[14px] w-full">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[14px] w-full">
         <p className="leading-[20px]">Resources</p>
       </div>
     </div>
@@ -7140,7 +7140,7 @@ function Container271() {
 function ItemLinkDownloads() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Item → Link - Downloads">
-      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] w-full" href="https://reflect.app/downloads" target="_blank">
+      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] w-full" href="https://reflect.app/downloads" target="_blank">
         <p className="cursor-pointer leading-[20px]">Downloads</p>
       </a>
     </div>
@@ -7150,7 +7150,7 @@ function ItemLinkDownloads() {
 function ItemLinkDocumentation() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Item → Link - Documentation">
-      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] w-full" href="https://reflect.academy/" target="_blank">
+      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] w-full" href="https://reflect.academy/" target="_blank">
         <p className="cursor-pointer leading-[20px]">Documentation</p>
       </a>
     </div>
@@ -7160,7 +7160,7 @@ function ItemLinkDocumentation() {
 function ItemLinkContact() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Item → Link - Contact">
-      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] w-full" href="https://reflect.academy/contact-us" target="_blank">
+      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] w-full" href="https://reflect.academy/contact-us" target="_blank">
         <p className="cursor-pointer leading-[20px]">Contact</p>
       </a>
     </div>
@@ -7211,7 +7211,7 @@ function HorizontalBorder() {
 function Container273() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[rgba(239,237,253,0.7)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] text-[rgba(239,237,253,0.7)] whitespace-nowrap">
         <p className="leading-[20px]">Keep up to date with everything Reflect</p>
       </div>
     </div>
@@ -7221,7 +7221,7 @@ function Container273() {
 function Container272() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0" data-name="Container">
-      <div className="bg-clip-text bg-gradient-to-b flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] from-white justify-center leading-[0] not-italic relative shrink-0 text-[24px] text-[transparent] to-[rgba(255,255,255,0.7)] whitespace-nowrap">
+      <div className=" flex flex-col font-['Aeonik_TRIAL:Regular',sans-serif] justify-center leading-[0] not-italic text-white relative shrink-0 text-[24px] whitespace-nowrap">
         <p className="leading-[32px]">Join our newsletter</p>
       </div>
       <Container273 />
@@ -7232,7 +7232,7 @@ function Container272() {
 function Container275() {
   return (
     <div className="content-stretch flex flex-col items-start overflow-clip relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] w-full">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] w-full">
         <p className="leading-[normal]">Enter your email</p>
       </div>
     </div>
@@ -7284,7 +7284,7 @@ function Button() {
           <div className="absolute inset-0 rounded-[8px]" data-name="Border">
             <div aria-hidden="true" className="absolute border border-[rgba(243,238,255,0.08)] border-solid inset-0 pointer-events-none rounded-[8px]" />
           </div>
-          <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[14px] text-center whitespace-nowrap">
+          <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[14px] text-center whitespace-nowrap">
             <p className="leading-[20px]">Subscribe</p>
           </div>
         </div>
@@ -7315,7 +7315,7 @@ function HorizontalBorder1() {
 function ItemMargin() {
   return (
     <div className="content-stretch flex flex-col items-start pr-[16px] relative shrink-0" data-name="Item:margin">
-      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] whitespace-nowrap" href="https://reflect.app/privacy" target="_blank">
+      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] whitespace-nowrap" href="https://reflect.app/privacy" target="_blank">
         <p className="cursor-pointer leading-[20px]">Privacy Policy</p>
       </a>
     </div>
@@ -7325,7 +7325,7 @@ function ItemMargin() {
 function ItemMargin1() {
   return (
     <div className="content-stretch flex flex-col items-start pr-[16px] relative shrink-0" data-name="Item:margin">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
         <p className="leading-[20px]">·</p>
       </div>
     </div>
@@ -7335,7 +7335,7 @@ function ItemMargin1() {
 function ItemMargin2() {
   return (
     <div className="content-stretch flex flex-col items-start pr-[16px] relative shrink-0" data-name="Item:margin">
-      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] whitespace-nowrap" href="https://reflect.app/terms" target="_blank">
+      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] whitespace-nowrap" href="https://reflect.app/terms" target="_blank">
         <p className="cursor-pointer leading-[20px]">Terms of Conditions</p>
       </a>
     </div>
@@ -7363,7 +7363,7 @@ function Container277() {
 function Margin23() {
   return (
     <div className="content-stretch flex flex-col items-start pr-[16px] relative shrink-0" data-name="Margin">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
         <p className="leading-[20px]">Reflect App, LLC. All rights reserved.</p>
       </div>
     </div>
@@ -7446,7 +7446,7 @@ function Svg33() {
 function Container282() {
   return (
     <div className="absolute content-stretch flex flex-col items-start left-[32px] right-[32px] top-[84px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
         <p className="leading-[24px]">Built for speed</p>
       </div>
     </div>
@@ -7456,7 +7456,7 @@ function Container282() {
 function Container283() {
   return (
     <div className="absolute content-stretch flex flex-col items-start left-[32px] right-[32px] top-[112px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
         <p className="leading-[24px] mb-0">Instantly sync your notes</p>
         <p className="leading-[24px]">across devices</p>
       </div>
@@ -7498,7 +7498,7 @@ function Svg34() {
 function Container285() {
   return (
     <div className="absolute content-stretch flex flex-col items-start left-[32px] right-[32px] top-[84px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
         <p className="leading-[24px]">Networked notes</p>
       </div>
     </div>
@@ -7508,7 +7508,7 @@ function Container285() {
 function Container286() {
   return (
     <div className="absolute content-stretch flex flex-col items-start left-[32px] right-[32px] top-[112px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
         <p className="leading-[24px] mb-0">Form a graph of ideas with</p>
         <p className="leading-[24px]">backlinked notes</p>
       </div>
@@ -7552,7 +7552,7 @@ function Svg35() {
 function Container288() {
   return (
     <div className="absolute content-stretch flex flex-col items-start left-[32px] right-[32px] top-[84px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
         <p className="leading-[24px]">iOS app</p>
       </div>
     </div>
@@ -7562,7 +7562,7 @@ function Container288() {
 function Container289() {
   return (
     <div className="absolute content-stretch flex flex-col items-start left-[32px] right-[32px] top-[112px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
         <p className="leading-[24px] mb-0">Capture ideas on the go,</p>
         <p className="leading-[24px]">online or offline</p>
       </div>
@@ -7606,7 +7606,7 @@ function Svg36() {
 function Container291() {
   return (
     <div className="absolute content-stretch flex flex-col items-start left-[32px] right-[32px] top-[84px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
         <p className="leading-[24px]">End-to-end encryption</p>
       </div>
     </div>
@@ -7616,7 +7616,7 @@ function Container291() {
 function Container292() {
   return (
     <div className="absolute content-stretch flex flex-col items-start left-[32px] right-[32px] top-[112px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
         <p className="leading-[24px] mb-0">Only you can access your</p>
         <p className="leading-[24px]">notes</p>
       </div>
@@ -7660,7 +7660,7 @@ function Svg37() {
 function Container294() {
   return (
     <div className="absolute content-stretch flex flex-col items-start left-[32px] right-[32px] top-[84px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
         <p className="leading-[24px]">Calendar integration</p>
       </div>
     </div>
@@ -7670,7 +7670,7 @@ function Container294() {
 function Container295() {
   return (
     <div className="absolute content-stretch flex flex-col items-start left-[32px] right-[32px] top-[112px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
         <p className="leading-[24px] mb-0">Keep track of meetings and</p>
         <p className="leading-[24px]">agendas</p>
       </div>
@@ -7708,7 +7708,7 @@ function Svg38() {
 function Container297() {
   return (
     <div className="absolute content-stretch flex flex-col items-start left-[32px] right-[32px] top-[84px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
         <p className="leading-[24px]">Publishing</p>
       </div>
     </div>
@@ -7718,7 +7718,7 @@ function Container297() {
 function Container298() {
   return (
     <div className="absolute content-stretch flex flex-col items-start left-[32px] right-[32px] top-[112px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
         <p className="leading-[24px] mb-0">Share anything you write with</p>
         <p className="leading-[24px]">one click</p>
       </div>
@@ -7765,7 +7765,7 @@ function Svg39() {
 function Container300() {
   return (
     <div className="absolute content-stretch flex flex-col items-start left-[32px] right-[32px] top-[84px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
         <p className="leading-[24px]">Instant capture</p>
       </div>
     </div>
@@ -7775,7 +7775,7 @@ function Container300() {
 function Container301() {
   return (
     <div className="absolute content-stretch flex flex-col items-start left-[32px] right-[32px] top-[112px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
         <p className="leading-[24px] mb-0">Save snippets from your</p>
         <p className="leading-[24px]">browser and Kindle</p>
       </div>
@@ -7818,7 +7818,7 @@ function Svg40() {
 function Container303() {
   return (
     <div className="absolute content-stretch flex flex-col items-start left-[32px] right-[32px] top-[84px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[16px] whitespace-nowrap">
         <p className="leading-[24px]">Frictionless search</p>
       </div>
     </div>
@@ -7828,7 +7828,7 @@ function Container303() {
 function Container304() {
   return (
     <div className="absolute content-stretch flex flex-col items-start left-[32px] right-[32px] top-[112px]" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-[rgba(239,237,253,0.6)] whitespace-nowrap">
         <p className="leading-[24px] mb-0">Easily recall and index past</p>
         <p className="leading-[24px]">notes and ideas</p>
       </div>
@@ -8206,7 +8206,7 @@ function Section11() {
 function LinkProduct() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Link - Product">
-      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[rgba(255,255,255,0.9)] whitespace-nowrap" href="https://reflect.app/#connected" target="_blank">
+      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] text-[rgba(255,255,255,0.9)] whitespace-nowrap" href="https://reflect.app/#connected" target="_blank">
         <p className="cursor-pointer leading-[20px]">Product</p>
       </a>
     </div>
@@ -8232,7 +8232,7 @@ function ItemMargin3() {
 function LinkPricing() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Link - Pricing">
-      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[rgba(255,255,255,0.9)] whitespace-nowrap" href="https://reflect.app/#pricing" target="_blank">
+      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] text-[rgba(255,255,255,0.9)] whitespace-nowrap" href="https://reflect.app/#pricing" target="_blank">
         <p className="cursor-pointer leading-[20px]">Pricing</p>
       </a>
     </div>
@@ -8258,7 +8258,7 @@ function ItemMargin4() {
 function LinkCompany() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Link - Company">
-      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[rgba(255,255,255,0.9)] whitespace-nowrap" href="https://reflect.app/#about" target="_blank">
+      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] text-[rgba(255,255,255,0.9)] whitespace-nowrap" href="https://reflect.app/#about" target="_blank">
         <p className="cursor-pointer leading-[20px]">Company</p>
       </a>
     </div>
@@ -8284,7 +8284,7 @@ function ItemMargin5() {
 function LinkBlog() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Link - Blog">
-      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[rgba(255,255,255,0.9)] whitespace-nowrap" href="https://reflect.app/blog" target="_blank">
+      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] text-[rgba(255,255,255,0.9)] whitespace-nowrap" href="https://reflect.app/blog" target="_blank">
         <p className="cursor-pointer leading-[20px]">Blog</p>
       </a>
     </div>
@@ -8310,7 +8310,7 @@ function ItemMargin6() {
 function LinkChangelog() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Link - Changelog">
-      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[rgba(255,255,255,0.9)] whitespace-nowrap" href="https://reflect.app/changelog" target="_blank">
+      <a className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] text-[rgba(255,255,255,0.9)] whitespace-nowrap" href="https://reflect.app/changelog" target="_blank">
         <p className="cursor-pointer leading-[20px]">Changelog</p>
       </a>
     </div>
@@ -8367,7 +8367,7 @@ function ImgMargin10() {
 function Container306() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-left text-white whitespace-nowrap" role="link" tabIndex="0">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-left text-white whitespace-nowrap" role="link" tabIndex="0">
         <p className="cursor-pointer leading-[24px]">Reflect</p>
       </div>
     </div>
@@ -8386,7 +8386,7 @@ function Link5() {
 function LinkMargin() {
   return (
     <div className="content-stretch flex flex-col items-start pr-[24px] relative shrink-0" data-name="Link:margin">
-      <a className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-white whitespace-nowrap" href="https://reflect.app/auth" target="_blank">
+      <a className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[14px] text-white whitespace-nowrap" href="https://reflect.app/auth" target="_blank">
         <p className="cursor-pointer leading-[20px]">Login</p>
       </a>
     </div>
@@ -8417,7 +8417,7 @@ function Link6() {
         <div className="absolute inset-0 rounded-[inherit] shadow-[inset_0px_0px_12px_0px_rgba(191,151,255,0.24)]" />
       </div>
       <Container308 />
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#f4f0ff] text-[14px] text-left whitespace-nowrap" role="link" tabIndex="0">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic text-white relative shrink-0 text-[#f4f0ff] text-[14px] text-left whitespace-nowrap" role="link" tabIndex="0">
         <p className="cursor-pointer leading-[20px]">Start free trial</p>
       </div>
     </a>
