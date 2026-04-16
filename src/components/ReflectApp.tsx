@@ -8038,7 +8038,7 @@ function Section9Solution() {
   ];
 
   return (
-    <div className="relative w-full h-full flex flex-col items-center justify-center px-[80px] gap-[56px]">
+    <div className="relative w-full h-full flex flex-col items-center justify-center px-[80px] gap-[32px]">
       {/* Header */}
       <div className="flex flex-col items-center gap-[24px] z-10">
         <div
