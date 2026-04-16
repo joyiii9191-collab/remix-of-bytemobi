@@ -2737,7 +2737,7 @@ function Section7Values() {
   return (
     <div className="relative w-full h-full flex items-center justify-center px-[80px] gap-[60px]" data-name="Section7Values">
       {/* Left content - match right image height */}
-      <div className="flex flex-col flex-1 h-[658px] relative">
+      <div className="flex flex-col flex-1 h-[658px] justify-between">
         {/* Top: title + items */}
         <div className="flex flex-col gap-[24px] pt-[20px]">
           <div className="flex items-baseline gap-4">
@@ -2764,7 +2764,7 @@ function Section7Values() {
         </div>
 
         {/* Bottom: pinned to bottom of 658px container */}
-        <div className="absolute bottom-0 left-0 right-0 flex flex-col gap-[20px]">
+        <div className="flex flex-col gap-[20px] pb-[10px]">
           {/* Tech support header */}
           <div className="flex items-baseline gap-4">
             <div className="flex flex-col gap-1">
