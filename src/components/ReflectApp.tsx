@@ -8633,7 +8633,7 @@ function SnapSection({ children, className = "" }: { children: React.ReactNode; 
 
 export default function ReflectApp() {
   return (
-    <div className="w-full" style={{ backgroundImage: "linear-gradient(90deg, rgb(3, 0, 20) 0%, rgb(3, 0, 20) 100%), linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%)" }} data-name="Reflect App">
+    <div className="w-full" style={{ backgroundImage: "linear-gradient(160deg, rgb(8, 3, 30) 0%, rgb(3, 0, 20) 30%, rgb(5, 2, 28) 60%, rgb(3, 0, 20) 100%)" }} data-name="Reflect App">
 
       {/* 第1屏：Hero */}
       <SnapSection>
