@@ -2481,7 +2481,7 @@ function Section8TrafficMap() {
             style={{ boxShadow: "inset 0 0 21px rgba(115,80,255,0.2)" }}
           />
         </div>
-        <h2 className="text-[44px] font-semibold text-white leading-[1.15] tracking-tight text-center">
+        <h2 className="text-[36px] font-semibold text-white leading-[1.15] tracking-tight text-center">
           我们的流量分布区域
         </h2>
         <p className="text-[17px] text-[#818089] leading-[1.6] text-center max-w-[600px]">
