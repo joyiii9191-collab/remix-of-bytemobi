@@ -2186,53 +2186,26 @@ function Section5Screen() {
 
       {/* Left content */}
       <div className="flex flex-col gap-6 max-w-[480px] shrink-0 z-[1]">
-        {/* Tag */}
-        <div className="flex items-center gap-2 self-start">
-          <span className="text-[12px] px-3 py-1 rounded-full border border-[rgba(255,255,255,0.15)] text-white/60">Latest release</span>
-          <span className="text-[12px] text-white/40">Introducing ScaleX ChatGPT Plugin</span>
-        </div>
-
         {/* Heading */}
         <h2 className="text-[52px] leading-[1.1] font-bold tracking-tight text-white">
-          Turn visitors into loyal customers – <span className="bg-clip-text text-[transparent]" style={{ backgroundImage: 'linear-gradient(90deg, #a855f7, #7c3aed)' }}>10x</span> faster.
+          头部大媒体资源
         </h2>
 
         {/* Description */}
         <p className="text-[16px] leading-[26px] text-white/50 max-w-[420px]">
-          Capture, engage, and convert more leads with a platform built to drive real growth – no complicated setups, no wasted time.
+          整合全球主流媒体资源，提升广告覆盖率与投放效果
         </p>
 
-        {/* Social proof */}
-        <div className="relative rounded-[16px] p-4 flex items-center gap-3 mt-2" style={{
-          background: 'rgba(255,255,255,0.04)',
-          border: '1px solid rgba(255,255,255,0.08)',
-        }}>
-          <div className="flex -space-x-2">
-            {[0,1,2].map(i => (
-              <div key={i} className="size-[36px] rounded-full border-2 border-[rgb(3,0,20)]" style={{
-                background: `linear-gradient(135deg, ${['#a855f7','#6366f1','#3b82f6'][i]} 0%, ${['#7c3aed','#4f46e5','#2563eb'][i]} 100%)`,
-              }} />
-            ))}
-          </div>
-          <div className="flex flex-col">
-            <span className="text-[13px] text-white/80 font-medium">Join 100k+ entrepreneurs and elevate your business today!</span>
-            <span className="text-[12px] text-white/40">Don't miss out on this opportunity to grow your network.</span>
-          </div>
-        </div>
-
-        {/* CTA buttons */}
+        {/* CTA button - Raycast style with flowing light border */}
         <div className="flex items-center gap-4 mt-2">
-          <button className="px-6 py-3 rounded-[10px] text-[14px] font-medium text-white" style={{
-            background: 'linear-gradient(135deg, #7c3aed 0%, #a855f7 100%)',
-            boxShadow: '0 4px 20px -4px rgba(124,58,237,0.5)',
-          }}>
-            Start Free Today
-          </button>
-          <button className="px-6 py-3 rounded-[10px] text-[14px] font-medium text-white border border-[rgba(255,255,255,0.15)]" style={{
+          <a href="/media-resources" className="raycast-btn relative inline-flex items-center gap-2 px-7 py-3 rounded-full text-[14px] font-medium text-white/90 overflow-hidden" style={{
             background: 'rgba(255,255,255,0.04)',
           }}>
-            Watch Demo
-          </button>
+            <span className="raycast-btn-border" />
+            <span className="raycast-btn-bg" />
+            <span className="relative z-[1]">了解大媒体资源</span>
+            <span className="relative z-[1] ml-1">→</span>
+          </a>
         </div>
       </div>
 
