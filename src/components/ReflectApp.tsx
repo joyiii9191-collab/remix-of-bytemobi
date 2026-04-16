@@ -2237,26 +2237,47 @@ function Section5Screen() {
       </div>
 
       {/* Right - Glass Icons showcase */}
-      <div className="relative flex-1 max-w-[560px] z-[1]">
-        <div className="flex items-end gap-6" style={{ perspective: '900px' }}>
-          {/* TG - Main showcase */}
-          <div className="flex-shrink-0 group cursor-pointer flex flex-col items-center" style={{ transform: 'rotateY(-2deg)' }}>
-            <img src={new URL('../assets/tg-glass.png', import.meta.url).href} alt="Gather" className="w-[150px] h-[150px] object-contain transition-all duration-500 group-hover:scale-115 group-hover:-translate-y-4 group-hover:drop-shadow-[0_12px_40px_rgba(255,140,50,0.4)]" style={{ filter: 'drop-shadow(0 8px 24px rgba(255,140,50,0.25))' }} />
-            <span className="text-[11px] font-medium text-white/35 mt-3 transition-all duration-500 group-hover:text-white/60">核心媒体合作伙伴</span>
+      <div className="relative flex-1 max-w-[560px] z-[1] flex items-center justify-center">
+        <div className="relative" style={{ width: 300, height: 300 }}>
+          {/* TG - Center */}
+          <div className="absolute group cursor-pointer" style={{ left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }}>
+            <img src={new URL('../assets/tg-glass.png', import.meta.url).href} alt="Gather" className="w-[140px] h-[140px] object-contain transition-all duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_12px_40px_rgba(255,140,50,0.45)]" style={{ filter: 'drop-shadow(0 8px 24px rgba(255,140,50,0.3))', animation: 'floatCenter 4s ease-in-out infinite' }} />
+            <span className="block text-center text-[11px] font-medium text-white/35 mt-2">核心媒体合作伙伴</span>
           </div>
-          {/* Google */}
-          <div className="flex-shrink-0 group cursor-pointer flex items-center justify-center" style={{ transform: 'rotateY(-3deg) translateZ(-30px)' }}>
-            <img src={new URL('../assets/google-glass.png', import.meta.url).href} alt="Google" className="w-[90px] h-[90px] object-contain transition-all duration-500 group-hover:scale-115 group-hover:-translate-y-3 group-hover:drop-shadow-[0_10px_30px_rgba(66,133,244,0.35)]" style={{ filter: 'drop-shadow(0 6px 18px rgba(66,133,244,0.2))' }} />
+          {/* Google - Top right */}
+          <div className="absolute group cursor-pointer" style={{ right: -10, top: 10, animation: 'floatOrbit1 5s ease-in-out infinite' }}>
+            <img src={new URL('../assets/google-glass.png', import.meta.url).href} alt="Google" className="w-[72px] h-[72px] object-contain transition-all duration-500 group-hover:scale-115 group-hover:drop-shadow-[0_10px_30px_rgba(66,133,244,0.4)]" style={{ filter: 'drop-shadow(0 5px 16px rgba(66,133,244,0.25))' }} />
           </div>
-          {/* TikTok */}
-          <div className="flex-shrink-0 group cursor-pointer flex items-center justify-center" style={{ transform: 'rotateY(-5deg) translateZ(-60px)' }}>
-            <img src={new URL('../assets/tiktok-glass.png', import.meta.url).href} alt="TikTok" className="w-[65px] h-[65px] object-contain transition-all duration-500 group-hover:scale-115 group-hover:-translate-y-3 group-hover:drop-shadow-[0_8px_25px_rgba(255,0,80,0.35)]" style={{ filter: 'drop-shadow(0 5px 14px rgba(255,0,80,0.2))' }} />
+          {/* TikTok - Bottom right */}
+          <div className="absolute group cursor-pointer" style={{ right: -20, bottom: 20, animation: 'floatOrbit2 6s ease-in-out infinite' }}>
+            <img src={new URL('../assets/tiktok-glass.png', import.meta.url).href} alt="TikTok" className="w-[60px] h-[60px] object-contain transition-all duration-500 group-hover:scale-115 group-hover:drop-shadow-[0_8px_25px_rgba(255,0,80,0.4)]" style={{ filter: 'drop-shadow(0 4px 12px rgba(255,0,80,0.2))' }} />
           </div>
-          {/* Meta */}
-          <div className="flex-shrink-0 group cursor-pointer flex items-center justify-center" style={{ transform: 'rotateY(-6deg) translateZ(-90px)' }}>
-            <img src={new URL('../assets/meta-glass.png', import.meta.url).href} alt="Meta" className="w-[50px] h-[50px] object-contain transition-all duration-500 group-hover:scale-115 group-hover:-translate-y-2 group-hover:drop-shadow-[0_6px_20px_rgba(0,120,255,0.35)]" style={{ filter: 'drop-shadow(0 4px 12px rgba(0,120,255,0.2))' }} />
+          {/* Meta - Left */}
+          <div className="absolute group cursor-pointer" style={{ left: -15, top: '55%', transform: 'translateY(-50%)', animation: 'floatOrbit3 5.5s ease-in-out infinite' }}>
+            <img src={new URL('../assets/meta-glass.png', import.meta.url).href} alt="Meta" className="w-[55px] h-[55px] object-contain transition-all duration-500 group-hover:scale-115 group-hover:drop-shadow-[0_6px_20px_rgba(0,120,255,0.4)]" style={{ filter: 'drop-shadow(0 4px 12px rgba(0,120,255,0.2))' }} />
           </div>
         </div>
+        <style>{`
+          @keyframes floatCenter {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+          }
+          @keyframes floatOrbit1 {
+            0%, 100% { transform: translate(0, 0); }
+            33% { transform: translate(-6px, -10px); }
+            66% { transform: translate(6px, -4px); }
+          }
+          @keyframes floatOrbit2 {
+            0%, 100% { transform: translate(0, 0); }
+            33% { transform: translate(8px, -8px); }
+            66% { transform: translate(-4px, 6px); }
+          }
+          @keyframes floatOrbit3 {
+            0%, 100% { transform: translate(0, -50%); }
+            33% { transform: translate(6px, calc(-50% + 10px)); }
+            66% { transform: translate(-8px, calc(-50% - 6px)); }
+          }
+        `}</style>
       </div>
     </div>
   );
