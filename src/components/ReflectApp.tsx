@@ -642,7 +642,7 @@ function Section({ className }: { className?: string }) {
       {/* ColorBends Background */}
       <div className="absolute inset-0 z-[0] overflow-hidden">
         <ColorBends
-          colors={["#ff5c7a", "#8a5cff", "#00ffd1"]}
+          colors={["#7c3aed", "#6d28d9", "#5b21b6"]}
           rotation={90}
           speed={0.2}
           scale={1}
