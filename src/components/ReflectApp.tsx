@@ -2261,7 +2261,6 @@ function Section5Screen() {
     </div>
   );
 }
-}
 
 function LogoCard({ label, index = 0 }: { label: string; index?: number }) {
   const duration = 3 + (index % 5) * 0.8;
