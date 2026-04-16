@@ -2324,33 +2324,16 @@ function Section5Screen() {
 }
 
 function LogoCard({ label, index = 0, image }: { label: string; index?: number; image?: string }) {
-  const duration = 3 + (index % 5) * 0.8;
-  const delay = -(index * 0.7);
   return (
-    <div className="relative shrink-0 size-[72px] rounded-[16px] overflow-visible">
-      <span className="absolute inset-0 rounded-[16px] z-0" style={{
-        padding: '1px',
-        background: 'conic-gradient(from var(--ray-angle, 0deg), transparent 0%, transparent 25%, rgba(255,255,255,0.4) 30%, rgba(255,255,255,0.7) 35%, rgba(255,255,255,0.4) 40%, transparent 45%, transparent 100%)',
-        WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-        mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-        WebkitMaskComposite: 'xor',
-        maskComposite: 'exclude',
-        animation: `raycast-rotate ${duration}s linear ${delay}s infinite`,
-      }} />
-      <div className="absolute inset-[1px] rounded-[15px] z-0" style={{
+    <div className="relative shrink-0 h-[64px] min-w-[120px] px-5 rounded-[14px] overflow-hidden"
+      style={{
         background: 'linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(10,5,20,0.85) 40%, rgba(10,5,20,0.9) 100%)',
-        border: '1px solid rgba(168,130,255,0.1)',
-        boxShadow: 'inset 0 1px 0 0 rgba(255,255,255,0.08), inset 0 0 12px rgba(168,130,255,0.05), 0 4px 16px rgba(0,0,0,0.3)',
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
-      }}>
-        <div className="absolute top-0 left-[15%] right-[15%] h-[1px]" style={{
-          background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.12) 30%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.12) 70%, transparent 100%)',
-        }} />
-      </div>
-      <div className="relative z-[1] size-full flex items-center justify-center p-3">
+        border: '1px solid rgba(255,255,255,0.08)',
+      }}
+    >
+      <div className="relative z-[1] size-full flex items-center justify-center py-3">
         {image ? (
-          <img src={image} alt={label} className="w-full h-full object-contain rounded-[6px]" loading="lazy" />
+          <img src={image} alt={label} className="h-full w-auto max-w-[100px] object-contain" loading="lazy" />
         ) : (
           <div className="size-[36px] rounded-[8px] flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.05)' }}>
             <div className="size-[20px] rounded-[4px]" style={{ background: 'rgba(255,255,255,0.08)' }} />
