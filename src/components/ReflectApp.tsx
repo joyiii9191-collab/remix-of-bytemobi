@@ -2237,49 +2237,72 @@ function Section5Screen() {
       </div>
 
       {/* Right - Logo showcase */}
-      <div className="relative flex-1 max-w-[480px] z-[1]">
-        <div className="flex flex-col gap-4">
+      <div className="relative flex-1 max-w-[520px] z-[1]">
+        <div className="flex items-end gap-4">
           {/* Main logo - large */}
-          <div className="liquid-glass liquid-glass--panel relative group">
-            <div className="flex items-center justify-center p-12 aspect-[16/9]">
-              {/* Top-left purple glow */}
+          <div className="liquid-glass liquid-glass--panel relative group flex-shrink-0" style={{ width: '220px', height: '220px', borderRadius: '28px' }}>
+            <div className="flex items-center justify-center w-full h-full">
               <div className="absolute top-0 left-0 w-[60%] h-[60%] pointer-events-none rounded-[inherit]" style={{
                 background: 'radial-gradient(circle at 0% 0%, rgba(168,130,255,0.25) 0%, rgba(124,58,237,0.08) 40%, transparent 70%)',
               }} />
-              {/* Logo placeholder */}
-              <div className="w-[120px] h-[120px] rounded-2xl flex items-center justify-center" style={{
+              <div className="w-[100px] h-[100px] rounded-2xl flex items-center justify-center" style={{
                 background: 'rgba(255,255,255,0.04)',
                 border: '1px solid rgba(255,255,255,0.08)',
                 boxShadow: '0 0 30px rgba(124,58,237,0.1)',
               }}>
-                <div className="w-14 h-14 rounded-xl" style={{ background: 'linear-gradient(135deg, rgba(168,130,255,0.3), rgba(124,58,237,0.15))' }} />
+                <div className="w-12 h-12 rounded-xl" style={{ background: 'linear-gradient(135deg, rgba(168,130,255,0.3), rgba(124,58,237,0.15))' }} />
               </div>
             </div>
-            <div className="absolute bottom-4 left-0 right-0 text-center">
-              <span className="text-[13px] font-medium text-white/40">核心媒体合作伙伴</span>
+            <div className="absolute bottom-3 left-0 right-0 text-center">
+              <span className="text-[11px] font-medium text-white/40">核心媒体合作伙伴</span>
             </div>
           </div>
 
-          {/* 3 secondary logos */}
-          <div className="grid grid-cols-3 gap-3">
-            {['战略合作媒体', '优质流量平台', '数据服务商'].map((label, i) => (
-              <div key={i} className="liquid-glass liquid-glass--inner liquid-glass--glow relative group">
-                <div className="flex flex-col items-center justify-center gap-3 p-5 aspect-square">
-                  {/* Top-left purple glow */}
-                  <div className="absolute top-0 left-0 w-[70%] h-[70%] pointer-events-none rounded-[inherit]" style={{
-                    background: 'radial-gradient(circle at 0% 0%, rgba(168,130,255,0.35) 0%, rgba(124,58,237,0.12) 35%, transparent 65%)',
-                  }} />
-                  {/* Logo placeholder */}
-                  <div className="w-11 h-11 rounded-xl flex items-center justify-center" style={{
-                    background: 'rgba(255,255,255,0.04)',
-                    border: '1px solid rgba(255,255,255,0.08)',
-                  }}>
-                    <div className="w-5 h-5 rounded-md" style={{ background: 'linear-gradient(135deg, rgba(168,130,255,0.25), rgba(124,58,237,0.12))' }} />
-                  </div>
-                  <span className="text-[11px] font-medium text-white/40 text-center leading-tight">{label}</span>
-                </div>
+          {/* Secondary - medium */}
+          <div className="liquid-glass liquid-glass--inner liquid-glass--glow relative group flex-shrink-0" style={{ width: '140px', height: '140px', borderRadius: '22px' }}>
+            <div className="flex flex-col items-center justify-center w-full h-full gap-2">
+              <div className="absolute top-0 left-0 w-[70%] h-[70%] pointer-events-none rounded-[inherit]" style={{
+                background: 'radial-gradient(circle at 0% 0%, rgba(168,130,255,0.35) 0%, rgba(124,58,237,0.12) 35%, transparent 65%)',
+              }} />
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{
+                background: 'rgba(255,255,255,0.04)',
+                border: '1px solid rgba(255,255,255,0.08)',
+              }}>
+                <div className="w-5 h-5 rounded-md" style={{ background: 'linear-gradient(135deg, rgba(168,130,255,0.25), rgba(124,58,237,0.12))' }} />
               </div>
-            ))}
+              <span className="text-[10px] font-medium text-white/35 text-center">战略合作媒体</span>
+            </div>
+          </div>
+
+          {/* Tertiary - small */}
+          <div className="liquid-glass liquid-glass--inner liquid-glass--glow relative group flex-shrink-0" style={{ width: '95px', height: '95px', borderRadius: '18px' }}>
+            <div className="flex flex-col items-center justify-center w-full h-full gap-1.5">
+              <div className="absolute top-0 left-0 w-[70%] h-[70%] pointer-events-none rounded-[inherit]" style={{
+                background: 'radial-gradient(circle at 0% 0%, rgba(168,130,255,0.35) 0%, rgba(124,58,237,0.12) 35%, transparent 65%)',
+              }} />
+              <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{
+                background: 'rgba(255,255,255,0.04)',
+                border: '1px solid rgba(255,255,255,0.08)',
+              }}>
+                <div className="w-3.5 h-3.5 rounded" style={{ background: 'linear-gradient(135deg, rgba(168,130,255,0.25), rgba(124,58,237,0.12))' }} />
+              </div>
+              <span className="text-[9px] font-medium text-white/30 text-center">优质流量平台</span>
+            </div>
+          </div>
+
+          {/* Quaternary - smallest */}
+          <div className="liquid-glass liquid-glass--inner liquid-glass--glow relative group flex-shrink-0" style={{ width: '65px', height: '65px', borderRadius: '14px' }}>
+            <div className="flex flex-col items-center justify-center w-full h-full">
+              <div className="absolute top-0 left-0 w-[70%] h-[70%] pointer-events-none rounded-[inherit]" style={{
+                background: 'radial-gradient(circle at 0% 0%, rgba(168,130,255,0.35) 0%, rgba(124,58,237,0.12) 35%, transparent 65%)',
+              }} />
+              <div className="w-5 h-5 rounded-md flex items-center justify-center" style={{
+                background: 'rgba(255,255,255,0.04)',
+                border: '1px solid rgba(255,255,255,0.08)',
+              }}>
+                <div className="w-2.5 h-2.5 rounded-sm" style={{ background: 'linear-gradient(135deg, rgba(168,130,255,0.25), rgba(124,58,237,0.12))' }} />
+              </div>
+            </div>
           </div>
         </div>
       </div>
