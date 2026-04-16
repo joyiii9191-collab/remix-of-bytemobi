@@ -1263,9 +1263,9 @@ function Section1() {
               {/* Left side — brand text */}
               <div className="w-[380px] shrink-0 flex flex-col gap-6">
                 {/* Tag pill */}
-                <div className="flex items-center gap-2 self-start">
-                  <div className="h-px w-6" style={{ background: 'linear-gradient(to right, hsla(277, 100%, 61%, 0.6), transparent)' }} />
-                  <span className="text-[11px] tracking-[0.15em] uppercase font-medium" style={{ color: 'hsla(277, 80%, 70%, 0.7)' }}>About ByteMobi</span>
+                <div className="flex items-center px-[16px] py-[5px] rounded-full relative self-start" style={{ border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.05)" }}>
+                  <span className="text-[14px] text-white font-normal tracking-[-0.21px] leading-[1.6]">About ByteMobi</span>
+                  <div className="absolute inset-[-0.5px] rounded-full pointer-events-none" style={{ boxShadow: "inset 0 0 21px rgba(115,80,255,0.2)" }} />
                 </div>
 
                 {/* Title */}
@@ -1953,10 +1953,9 @@ function Section2() {
     <div className="relative w-full h-full flex flex-col items-center justify-center px-16" data-name="Section">
       {/* Header */}
       <div className="flex flex-col items-center gap-4 mb-12">
-        <div className="flex items-center gap-2">
-          <div className="h-px w-6" style={{ background: 'linear-gradient(to right, hsla(277, 100%, 61%, 0.6), transparent)' }} />
-          <span className="text-[11px] tracking-[0.15em] uppercase font-medium" style={{ color: 'hsla(277, 80%, 70%, 0.7)' }}>Core Business</span>
-          <div className="h-px w-6" style={{ background: 'linear-gradient(to left, hsla(277, 100%, 61%, 0.6), transparent)' }} />
+        <div className="flex items-center px-[16px] py-[5px] rounded-full relative" style={{ border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.05)" }}>
+          <span className="text-[14px] text-white font-normal tracking-[-0.21px] leading-[1.6]">Core Business</span>
+          <div className="absolute inset-[-0.5px] rounded-full pointer-events-none" style={{ boxShadow: "inset 0 0 21px rgba(115,80,255,0.2)" }} />
         </div>
         <h2 className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[44px] leading-[1.1] font-semibold tracking-tight bg-clip-text bg-gradient-to-b from-white via-white to-white/60 text-[transparent]">
           核心业务板块
