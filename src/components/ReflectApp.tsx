@@ -2749,7 +2749,7 @@ function Section7Values() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 min-h-[200px]">
             {items.map((item, i) => (
               <div key={i}>
                 <AttributionItem item={item} isActive={activeIndex === i} onClick={() => setActiveIndex(i)} />
