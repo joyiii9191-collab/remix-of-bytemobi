@@ -1285,9 +1285,13 @@ function Section1() {
 
       {/* Main Figma-style glass container with LaserFlow */}
       <div className="w-full max-w-[1100px] relative z-[1]">
-        {/* Background glow */}
+        {/* Background glow - multi-layer prismatic */}
         <div className="absolute inset-[-60px] blur-[10px] pointer-events-none" style={{
-          background: 'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(255,117,117,0.12) 5%, rgba(154,170,255,0.07) 60%, transparent 100%)'
+          background: `
+            radial-gradient(ellipse 70% 50% at 40% 40%, rgba(139,92,246,0.18) 0%, transparent 70%),
+            radial-gradient(ellipse 60% 50% at 65% 55%, rgba(59,130,246,0.14) 0%, transparent 70%),
+            radial-gradient(ellipse 50% 40% at 50% 70%, rgba(236,72,153,0.08) 0%, transparent 70%)
+          `
         }} />
 
         {/* LaserFlow animation above the card — seamless connection */}
@@ -1956,6 +1960,14 @@ function Section2() {
 
   return (
     <div className="relative w-full h-full flex flex-col items-center justify-center px-16" data-name="Section">
+      {/* Multi-layer prismatic glow */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        background: `
+          radial-gradient(ellipse 55% 45% at 50% 45%, rgba(139,92,246,0.18) 0%, transparent 70%),
+          radial-gradient(ellipse 45% 50% at 75% 65%, rgba(59,130,246,0.12) 0%, transparent 70%),
+          radial-gradient(ellipse 40% 35% at 25% 60%, rgba(236,72,153,0.08) 0%, transparent 70%)
+        `
+      }} />
       {/* Header */}
       <div className="flex flex-col items-center gap-4 mb-10">
         <div className="flex items-center px-[16px] py-[5px] rounded-full relative" style={{ border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.05)" }}>
@@ -2007,10 +2019,13 @@ function Q62492B69Png() {
 function Section4Screen() {
   return (
     <div className="relative w-full h-full flex items-center justify-center px-16 gap-16 overflow-hidden" data-name="Section4Screen">
-      {/* Purple glow behind dashboard */}
-      <div className="absolute left-[10%] top-1/2 -translate-y-1/2 w-[500px] h-[400px] pointer-events-none" style={{
-        background: 'radial-gradient(ellipse at center, rgba(120,60,255,0.15) 0%, transparent 70%)',
-        filter: 'blur(60px)',
+      {/* Multi-layer prismatic glow */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        background: `
+          radial-gradient(ellipse 50% 45% at 35% 50%, rgba(139,92,246,0.2) 0%, transparent 70%),
+          radial-gradient(ellipse 40% 40% at 70% 55%, rgba(59,130,246,0.14) 0%, transparent 70%),
+          radial-gradient(ellipse 35% 30% at 55% 75%, rgba(236,72,153,0.08) 0%, transparent 70%)
+        `
       }} />
 
       {/* Left integrations grid - Figma reference style */}
@@ -2196,10 +2211,13 @@ function Section4Screen() {
 function Section5Screen() {
   return (
     <div className="relative w-full h-full flex items-center justify-center px-16 gap-16" data-name="Section5Screen">
-      {/* Purple glow behind dashboard */}
-      <div className="absolute right-[15%] top-1/2 -translate-y-1/2 w-[500px] h-[400px] pointer-events-none" style={{
-        background: 'radial-gradient(ellipse at center, rgba(120,60,255,0.15) 0%, transparent 70%)',
-        filter: 'blur(60px)',
+      {/* Multi-layer prismatic glow */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        background: `
+          radial-gradient(ellipse 50% 45% at 65% 45%, rgba(139,92,246,0.2) 0%, transparent 70%),
+          radial-gradient(ellipse 40% 40% at 30% 55%, rgba(236,72,153,0.12) 0%, transparent 70%),
+          radial-gradient(ellipse 35% 35% at 50% 70%, rgba(59,130,246,0.1) 0%, transparent 70%)
+        `
       }} />
 
       {/* Left content */}
@@ -2425,9 +2443,13 @@ function Section6LogoWall() {
 
   return (
     <div className="relative w-full h-full flex flex-col items-center justify-center gap-10" data-name="Section6LogoWall">
-      {/* Background glow */}
+      {/* Multi-layer prismatic glow */}
       <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'radial-gradient(ellipse at 50% 50%, rgba(99,102,241,0.08) 0%, transparent 60%)',
+        background: `
+          radial-gradient(ellipse 60% 40% at 50% 30%, rgba(139,92,246,0.15) 0%, transparent 70%),
+          radial-gradient(ellipse 50% 45% at 50% 70%, rgba(236,72,153,0.1) 0%, transparent 70%),
+          radial-gradient(ellipse 45% 35% at 30% 50%, rgba(59,130,246,0.12) 0%, transparent 70%)
+        `
       }} />
 
       {/* Title */}
@@ -2467,9 +2489,13 @@ function Section6LogoWall() {
 function Section8TrafficMap() {
   return (
     <div className="relative w-full h-full flex flex-col items-center justify-center px-[80px] gap-[24px] pt-[80px]" data-name="Section8TrafficMap">
-      {/* Ambient glow */}
+      {/* Multi-layer prismatic glow */}
       <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'radial-gradient(ellipse 60% 40% at 50% 50%, rgba(120,60,255,0.08) 0%, transparent 70%)'
+        background: `
+          radial-gradient(ellipse 55% 40% at 50% 45%, rgba(139,92,246,0.18) 0%, transparent 70%),
+          radial-gradient(ellipse 40% 45% at 25% 65%, rgba(59,130,246,0.12) 0%, transparent 70%),
+          radial-gradient(ellipse 35% 30% at 75% 35%, rgba(236,72,153,0.1) 0%, transparent 70%)
+        `
       }} />
 
       {/* Header */}
@@ -2745,6 +2771,14 @@ function Section7Values() {
 
   return (
     <div className="relative w-full h-full flex items-center justify-center px-[80px] gap-[60px]" data-name="Section7Values">
+      {/* Multi-layer prismatic glow */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        background: `
+          radial-gradient(ellipse 45% 50% at 25% 45%, rgba(139,92,246,0.18) 0%, transparent 70%),
+          radial-gradient(ellipse 50% 40% at 75% 55%, rgba(59,130,246,0.14) 0%, transparent 70%),
+          radial-gradient(ellipse 35% 35% at 50% 75%, rgba(236,72,153,0.08) 0%, transparent 70%)
+        `
+      }} />
       {/* Left content - match right image height */}
       <div className="flex flex-col flex-1 gap-[24px]">
         {/* Top: title + items */}
@@ -8048,6 +8082,14 @@ function Section9Solution() {
 
   return (
     <div className="relative w-full h-full flex flex-col items-center justify-center px-[80px] gap-[56px]">
+      {/* Multi-layer prismatic glow */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        background: `
+          radial-gradient(ellipse 55% 45% at 50% 40%, rgba(139,92,246,0.18) 0%, transparent 70%),
+          radial-gradient(ellipse 40% 45% at 25% 65%, rgba(59,130,246,0.14) 0%, transparent 70%),
+          radial-gradient(ellipse 35% 30% at 70% 70%, rgba(236,72,153,0.1) 0%, transparent 70%)
+        `
+      }} />
       {/* Header */}
       <div className="flex flex-col items-center gap-[24px] z-10">
         <div
@@ -8179,6 +8221,14 @@ function Section10Contact() {
 
   return (
     <div className="relative w-full h-full flex items-center justify-center px-[80px]">
+      {/* Multi-layer prismatic glow */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        background: `
+          radial-gradient(ellipse 45% 50% at 70% 40%, rgba(139,92,246,0.16) 0%, transparent 70%),
+          radial-gradient(ellipse 50% 40% at 30% 60%, rgba(59,130,246,0.12) 0%, transparent 70%),
+          radial-gradient(ellipse 35% 35% at 55% 75%, rgba(236,72,153,0.08) 0%, transparent 70%)
+        `
+      }} />
       <div className="flex gap-[80px] w-full max-w-[1100px] items-center z-10">
         {/* Left: Text */}
         <div className="flex flex-col gap-[32px] flex-1">
