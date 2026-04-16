@@ -2358,6 +2358,18 @@ function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 
   const wrapperRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [phase, setPhase] = useState<'idle' | 'centered' | 'flowing'>('idle');
+  const [centerOffset, setCenterOffset] = useState(0);
+
+  // Calculate center offset once container is rendered
+  useEffect(() => {
+    const wrapper = wrapperRef.current;
+    const container = containerRef.current;
+    if (!wrapper || !container) return;
+    const wrapperW = wrapper.offsetWidth;
+    const containerW = container.scrollWidth;
+    // Center the tag (which is at the start of the container) in the viewport
+    setCenterOffset((wrapperW / 2) - 60); // offset so tag appears near center
+  }, []);
 
   useEffect(() => {
     const el = wrapperRef.current;
@@ -2377,6 +2389,13 @@ function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 
     return () => observer.disconnect();
   }, []);
 
+  const getTransform = () => {
+    if (phase === 'idle' || phase === 'centered') {
+      return `translateX(${centerOffset}px)`;
+    }
+    return undefined;
+  };
+
   return (
     <div ref={wrapperRef} className="relative w-full overflow-hidden">
       {/* Fade edges */}
@@ -2387,9 +2406,9 @@ function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 
         className="flex flex-col gap-3"
         style={{
           width: 'max-content',
-          transform: phase === 'flowing' ? undefined : 'translateX(calc(50vw - 25%))',
+          transform: getTransform(),
           animation: phase === 'flowing' ? `${direction === 'left' ? 'marqueeLeft' : 'marqueeRight'} 30s linear infinite` : 'none',
-          transition: phase === 'centered' ? 'transform 0.8s ease-out' : 'none',
+          transition: phase === 'centered' ? 'opacity 0.6s ease-out' : 'none',
           opacity: phase === 'idle' ? 0 : 1,
         }}
       >
