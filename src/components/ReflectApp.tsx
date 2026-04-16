@@ -2078,28 +2078,18 @@ function Section4Screen() {
             { top: 323, left: 30, opacity: 1 },
           ].map((item, i) => (
             <div key={`left-${i}`} className="absolute" style={{ top: `${item.top}px`, left: `${item.left}px` }}>
-              <div className="relative w-[60px] h-[60px]" style={{ overflow: 'visible' }}>
-                {/* Conic gradient glow fixed at top-left */}
-                <div className="absolute inset-0 rounded-[12px]" style={{
-                  padding: '2px',
-                  background: 'conic-gradient(from 180deg at 15% 15%, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.3) 8%, transparent 25%, transparent 100%)',
-                  WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                  WebkitMaskComposite: 'xor',
-                  mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                  maskComposite: 'exclude',
+              <div className="relative w-[60px] h-[60px]">
+                {/* Conic gradient border glow fixed at top-left */}
+                <div className="absolute -inset-[1px] rounded-[13px]" style={{
+                  background: 'conic-gradient(from 180deg at 15% 15%, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.2) 8%, transparent 20%, transparent 100%)',
                 }} />
                 {/* Blur glow at top-left */}
-                <div className="absolute inset-0 rounded-[12px]" style={{
-                  padding: '2px',
-                  background: 'conic-gradient(from 180deg at 15% 15%, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.15) 10%, transparent 30%, transparent 100%)',
-                  WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                  WebkitMaskComposite: 'xor',
-                  mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                  maskComposite: 'exclude',
+                <div className="absolute -inset-[1px] rounded-[13px]" style={{
+                  background: 'conic-gradient(from 180deg at 15% 15%, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 10%, transparent 25%, transparent 100%)',
                   filter: 'blur(4px)',
                 }} />
                 {/* Card content */}
-                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: '#030014', border: '1px solid rgba(255,255,255,0.06)' }}>
+                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: '#030014' }}>
                   <div className="w-[32px] h-[32px] rounded-md" style={{ background: 'rgba(255,255,255,0.06)' }} />
                 </div>
               </div>
