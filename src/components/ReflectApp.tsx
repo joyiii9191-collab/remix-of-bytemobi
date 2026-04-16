@@ -2757,8 +2757,27 @@ function Section7Values() {
           ))}
         </div>
 
+        {/* Tech support header */}
+        <div className="flex items-baseline gap-4 mt-2">
+          <div className="flex flex-col gap-1">
+            <h3 className="text-[20px] font-medium text-white leading-[1.2]">技术支持</h3>
+            <p className="text-[13px] text-[rgba(239,237,253,0.5)]">高精度数据对接</p>
+          </div>
+          <div className="flex gap-2">
+            {['S2S 对接', 'API 接入', 'MMP 接入'].map((label) => (
+              <div key={label} className="px-3 py-[4px] rounded-full relative" style={{
+                background: 'rgba(255,255,255,0.04)',
+                backdropFilter: 'blur(20px)',
+                border: '1px solid rgba(139,92,246,0.15)',
+              }}>
+                <span className="text-[12px] text-[rgba(239,237,253,0.7)] relative z-[1]">{label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Three info containers */}
-        <div className="relative h-[196px] mt-2">
+        <div className="relative h-[196px] mt-3">
           {/* Card 1 */}
           <div className="absolute inset-[0_auto_0_0] w-[calc(33.33%-8px)] overflow-clip flex items-center justify-center">
             <img src={adjustLogo} alt="Adjust" className="h-[40px] object-contain brightness-0 invert" />
