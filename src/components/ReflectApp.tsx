@@ -2829,7 +2829,6 @@ function Section7Values() {
         {activeIndex === 2 && (
           <FocusReveal left="48%" top="30%" imageSrc={ctvTvImg} />
         )}
-        )}
       </div>
     </div>
   );
