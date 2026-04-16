@@ -8112,7 +8112,7 @@ function Section9Solution() {
           const IconComp = LucideIcons[step.icon as keyof typeof LucideIcons] as React.ComponentType<any>;
 
           return (
-            <React.Fragment key={step.title}>
+            <Fragment key={step.title}>
               {/* Icon node on ring */}
               <div className="absolute flex items-center justify-center" style={{
                 left: cx - 24,
@@ -8128,7 +8128,7 @@ function Section9Solution() {
                   {IconComp ? <IconComp size={20} style={{ color: 'rgba(180,150,255,0.95)' }} /> : null}
                 </div>
               </div>
-            </React.Fragment>
+            </Fragment>
           );
         })}
 
