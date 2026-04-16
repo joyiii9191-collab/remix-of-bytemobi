@@ -2312,6 +2312,10 @@ function Section5Screen() {
             33% { transform: translate(6px, calc(-50% + 10px)); }
             66% { transform: translate(-8px, calc(-50% - 6px)); }
           }
+          @keyframes attributionProgress {
+            0% { width: 0%; }
+            100% { width: 100%; }
+          }
         `}</style>
       </div>
     </div>
