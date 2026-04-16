@@ -1963,29 +1963,25 @@ function SpotlightBizCard({ card }: { card: { abbr: string; full: string; scene:
           : 'inset 0px 1px 0px 0px rgba(255,255,255,0.06)',
       }} />
 
-      <div className="relative flex flex-col p-5">
-        {/* Collapsed: just the abbreviation centered */}
-        <div className="flex items-center gap-3 transition-all duration-400">
+      <div className="relative flex flex-col p-5 h-full">
+        {/* Header row - always visible */}
+        <div className="flex items-center gap-3">
           <div className="flex items-center justify-center size-[44px] rounded-[10px] shrink-0 transition-all duration-400" style={{
             background: isHovered ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.06)',
             border: `1px solid rgba(255,255,255,${isHovered ? '0.15' : '0.08'})`,
           }}>
             <span className="text-[16px] font-bold text-white">{card.abbr}</span>
           </div>
-          {/* Full name - visible on hover */}
-          <div className="flex-1 min-w-0 overflow-hidden transition-all duration-400" style={{
-            maxHeight: isHovered ? '40px' : '0px',
+          <div className="flex-1 min-w-0 transition-opacity duration-400" style={{
             opacity: isHovered ? 1 : 0,
           }}>
             <p className="text-[14px] font-normal text-white/60 leading-tight">{card.full}</p>
           </div>
         </div>
 
-        {/* Expanded content - visible on hover */}
-        <div className="overflow-hidden transition-all duration-500 ease-out" style={{
-          maxHeight: isHovered ? '200px' : '0px',
+        {/* Content - always takes space, fades in/out */}
+        <div className="mt-3 transition-opacity duration-500 ease-out" style={{
           opacity: isHovered ? 1 : 0,
-          marginTop: isHovered ? '12px' : '0px',
         }}>
           <p className="text-[14px] font-medium text-white leading-[20px]">{card.scene}</p>
           <p className="text-[12px] text-white/40 leading-[18px] mt-1">{card.desc}</p>
