@@ -2283,8 +2283,8 @@ function Section5Screen() {
           <div className="absolute group cursor-pointer" style={{ right: 20, top: 10, animation: 'floatOrbit1 5s ease-in-out infinite' }}>
             <img src={new URL('../assets/google-glass.png', import.meta.url).href} alt="Google" className="w-[70px] h-[70px] object-contain transition-all duration-500 group-hover:scale-125 group-hover:-translate-y-2 group-hover:drop-shadow-[0_10px_30px_rgba(66,133,244,0.5)]" style={{ filter: 'drop-shadow(0 5px 16px rgba(66,133,244,0.25))' }} />
           </div>
-          {/* TikTok - Top left (between Meta and Google) */}
-          <div className="absolute group cursor-pointer" style={{ left: 30, top: 15, animation: 'floatOrbit2 6s ease-in-out infinite' }}>
+          {/* TikTok - Bottom right */}
+          <div className="absolute group cursor-pointer" style={{ right: 30, bottom: 50, animation: 'floatOrbit2 6s ease-in-out infinite' }}>
             <img src={new URL('../assets/tiktok-glass.png', import.meta.url).href} alt="TikTok" className="w-[70px] h-[70px] object-contain transition-all duration-500 group-hover:scale-125 group-hover:-translate-y-2 group-hover:drop-shadow-[0_8px_25px_rgba(255,0,80,0.5)]" style={{ filter: 'drop-shadow(0 4px 12px rgba(255,0,80,0.2))' }} />
           </div>
           {/* Meta - Left */}
