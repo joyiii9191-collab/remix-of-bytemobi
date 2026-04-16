@@ -2468,14 +2468,6 @@ function Section6LogoWall() {
           0% { transform: translateX(-50%); }
           100% { transform: translateX(0); }
         }
-        @keyframes tagMarqueeLeft {
-          0% { transform: translateX(calc(50vw - 50%)); }
-          100% { transform: translateX(calc(50vw - 50% - 100%)); }
-        }
-        @keyframes tagMarqueeRight {
-          0% { transform: translateX(calc(50vw - 50% - 100%)); }
-          100% { transform: translateX(calc(50vw - 50%)); }
-        }
       `}</style>
     </div>
   );
