@@ -2792,9 +2792,9 @@ function Section7Values() {
             objectPosition: 'left center',
           }}
         />
-        {/* CTV placeholder - reuse CTA for now */}
+        {/* CTV image - TV scene */}
         <img
-          src={ctaPhoneImg}
+          src={ctvTvImg}
           alt="CTV demonstration"
           className="absolute inset-0 w-full h-full object-cover transition-all duration-1000"
           style={{
@@ -2810,6 +2810,10 @@ function Section7Values() {
         {/* Focus point + expanding box - VTA: laptop/tablet */}
         {activeIndex === 1 && (
           <FocusReveal left="28%" top="55%" />
+        )}
+        {/* Focus point + expanding box - CTV: TV screen */}
+        {activeIndex === 2 && (
+          <FocusReveal left="48%" top="30%" />
         )}
       </div>
     </div>
