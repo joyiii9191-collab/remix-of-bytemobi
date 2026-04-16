@@ -2140,21 +2140,45 @@ function Section4Screen() {
             <div className="w-[60px] h-[60px] rounded-[12px]" style={{ background: '#030014', border: '3px solid #030014' }} />
           </div>
 
-          {/* Center - neon glow logo frame (layered blur borders from Figma) */}
+          {/* Center - neon glow logo frame with rotating conic gradient */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[160px] h-[160px]">
-            {/* Layer 1 - base border */}
-            <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid rgba(255,255,255,0.1)' }} />
-            {/* Layer 2 - purple blur 8px */}
-            <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid rgba(168,130,255,0.7)', filter: 'blur(8px)', mixBlendMode: 'plus-lighter' }} />
-            {/* Layer 3 - purple blur 6px */}
-            <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid rgba(124,58,237,0.8)', filter: 'blur(6px)', mixBlendMode: 'plus-lighter' }} />
-            {/* Layer 4 - purple blur 4px */}
-            <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid rgba(168,130,255,0.8)', filter: 'blur(4px)', mixBlendMode: 'plus-lighter' }} />
-            {/* Layer 5 - purple blur 2px */}
-            <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid rgba(124,58,237,0.9)', filter: 'blur(2px)', mixBlendMode: 'plus-lighter' }} />
-            {/* Layer 6 - white blur 4px */}
-            <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid white', filter: 'blur(4px)', mixBlendMode: 'plus-lighter' }} />
-            {/* Logo - no animation */}
+            {/* Rotating conic-gradient border */}
+            <div
+              className="absolute inset-0 rounded-[26px]"
+              style={{
+                padding: '3px',
+                background: 'conic-gradient(from var(--ray-angle, 0deg), transparent 0%, transparent 25%, rgba(168,130,255,0.6) 30%, rgba(124,58,237,0.8) 35%, rgba(168,130,255,0.6) 40%, transparent 45%, transparent 100%)',
+                WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                WebkitMaskComposite: 'xor',
+                mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                maskComposite: 'exclude',
+                animation: 'raycast-rotate 3s linear infinite',
+              }}
+            />
+            {/* Glow layer behind the rotating border */}
+            <div
+              className="absolute inset-0 rounded-[26px]"
+              style={{
+                padding: '3px',
+                background: 'conic-gradient(from var(--ray-angle, 0deg), transparent 0%, transparent 25%, rgba(168,130,255,0.4) 30%, rgba(124,58,237,0.5) 35%, rgba(168,130,255,0.4) 40%, transparent 45%, transparent 100%)',
+                WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                WebkitMaskComposite: 'xor',
+                mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                maskComposite: 'exclude',
+                animation: 'raycast-rotate 3s linear infinite',
+                filter: 'blur(6px)',
+              }}
+            />
+            {/* Inner background */}
+            <div
+              className="absolute inset-[3px] rounded-[23px]"
+              style={{
+                background: 'rgba(10, 5, 20, 0.85)',
+                border: '1px solid rgba(168, 130, 255, 0.12)',
+                boxShadow: 'inset 0 0 12px rgba(168, 130, 255, 0.06), 0 0 15px rgba(168, 130, 255, 0.05)',
+              }}
+            />
+            {/* Logo */}
             <div className="relative w-full h-full rounded-[22px] flex items-center justify-center z-[1]">
               <img
                 src={logo3d}
