@@ -1933,12 +1933,17 @@ function Q44E26A19Png() {
   );
 }
 
-function SpotlightBizCard({ card }: { card: { abbr: string; full: string; scene: string; desc: string; gradient: string; shadow: string } }) {
+function SpotlightBizCard({ card }: { card: { abbr: string; full: string; scene: string; desc: string } }) {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
   return (
-    <div className="group relative flex flex-col overflow-hidden rounded-[20px] cursor-pointer shrink-0 w-[360px]"
-      style={{ boxShadow: card.shadow }}
+    <div className="group relative flex flex-col overflow-hidden rounded-[16px] cursor-pointer"
+      style={{
+        background: 'rgba(255,255,255,0.03)',
+        border: '1px solid rgba(255,255,255,0.08)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
+      }}
       onMouseMove={(e) => {
         const rect = e.currentTarget.getBoundingClientRect();
         setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
@@ -1946,58 +1951,54 @@ function SpotlightBizCard({ card }: { card: { abbr: string; full: string; scene:
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="absolute inset-0 pointer-events-none rounded-[20px]" style={{ background: card.gradient }} />
-      <div className="absolute inset-0 pointer-events-none rounded-[20px] transition-opacity duration-300" style={{
+      {/* Mouse glow */}
+      <div className="absolute inset-0 pointer-events-none rounded-[16px] transition-opacity duration-300" style={{
         opacity: isHovered ? 1 : 0,
-        background: `radial-gradient(400px circle at ${mousePos.x}px ${mousePos.y}px, rgba(255,255,255,0.08) 0%, transparent 60%)`,
+        background: `radial-gradient(300px circle at ${mousePos.x}px ${mousePos.y}px, rgba(255,255,255,0.06) 0%, transparent 60%)`,
       }} />
-      <div className="relative flex flex-col gap-5 pt-6 px-6">
+      {/* Top border highlight */}
+      <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_1px_0px_0px_rgba(255,255,255,0.08)]" />
+
+      <div className="relative flex flex-col gap-3 p-5">
         <div className="flex items-center gap-3">
-          <div className="flex items-center justify-center size-[52px] rounded-[12px]" style={{
-            background: 'linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 100%)',
-            boxShadow: '0px 1.189px 2.377px 0px rgba(0,0,0,0.28)',
+          <div className="flex items-center justify-center size-[44px] rounded-[10px] shrink-0" style={{
+            background: 'rgba(255,255,255,0.06)',
+            border: '1px solid rgba(255,255,255,0.08)',
           }}>
-            <span className="text-[20px] font-bold text-white">{card.abbr}</span>
+            <span className="text-[16px] font-bold text-white">{card.abbr}</span>
           </div>
-          <div className="flex-1">
-            <p className="text-[18px] font-normal text-white leading-[20.7px]">{card.full}</p>
+          <div className="flex-1 min-w-0">
+            <p className="text-[14px] font-normal text-white/60 leading-tight">{card.full}</p>
           </div>
-          <div className="flex items-center justify-center size-[36px] rounded-[8px] relative overflow-hidden"
-            style={{ boxShadow: '0px 0px 0px 1px rgba(255,255,255,0.25)' }}
+          <div className="flex items-center justify-center size-[28px] rounded-[6px] shrink-0"
+            style={{ border: '1px solid rgba(255,255,255,0.12)' }}
           >
-            <div className="absolute inset-0 from-[rgba(255,255,255,0.03)] to-[rgba(255,255,255,0.1)] rounded-[8px]" />
-            <span className="relative text-white text-[16px]">›</span>
-            <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_1px_0px_0px_rgba(255,255,255,0.05),inset_0px_-1px_0px_0px_rgba(0,0,0,0.2)]" />
+            <span className="text-white/40 text-[14px]">›</span>
           </div>
         </div>
-        <div className="overflow-hidden">
-          <p className="text-[14px] font-medium text-white leading-[22px] opacity-80">{card.scene}</p>
-          <p className="text-[13px] text-white/50 leading-[20px] mt-1">{card.desc}</p>
+        <div>
+          <p className="text-[14px] font-medium text-white leading-[20px]">{card.scene}</p>
+          <p className="text-[12px] text-white/40 leading-[18px] mt-1 line-clamp-3">{card.desc}</p>
         </div>
-        <div className="bg-[rgba(255,255,255,0.05)] h-px w-full" />
       </div>
-      <div className="relative h-[280px] overflow-hidden">
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.2) 100%)' }} />
-      </div>
-      <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_1px_0px_0px_rgba(255,255,255,0.1),inset_0px_0px_0px_1px_rgba(255,255,255,0.06)]" />
     </div>
   );
 }
 
 function Section2() {
   const bizCards = [
-    { abbr: "CPM", full: "Cost Per Mille", scene: "品牌曝光与流量触达", desc: "按千次广告展示计费，帮助广告主高效提升品牌知名度、产品曝光度与市场影响力，广泛适用于品牌推广、活动宣发等场景。", gradient: "radial-gradient(ellipse at 50% 40%, rgba(32,35,91,0.7) 0%, rgba(7,9,33,0.7) 82%)", shadow: "0px 0px 20px 3px rgba(7,13,79,0.05), 0px 0px 40px 20px rgba(7,13,79,0.05)" },
-    { abbr: "CPC", full: "Cost Per Click", scene: "精准点击引流", desc: "按用户实际广告点击计费，能够有效控制获客成本，精准触达高意向用户，助力广告主提升流量质量与页面访问转化效率。", gradient: "radial-gradient(ellipse at 50% 40%, rgba(43,94,180,0.7) 0%, rgba(28,55,108,0.56) 50%, rgba(13,16,35,0.42) 100%)", shadow: "0px 0px 20px 3px rgba(7,13,79,0.1), 0px 0px 40px 20px rgba(85,0,98,0.1)" },
-    { abbr: "CPA", full: "Cost Per Action", scene: "深度转化行为获取", desc: "针对APP深度转化行为的用户获取，例如注册、充值、交易等关键转化事件，帮助广告主实现更高质量的用户增长。", gradient: "radial-gradient(ellipse at 50% 40%, rgba(13,110,48,1) 0%, rgba(11,82,36,1) 50%, rgba(8,53,24,1) 100%)", shadow: "0px 0px 20px 3px rgba(46,212,105,0.05), 0px 0px 40px 20px rgba(46,212,105,0.05)" },
-    { abbr: "CPI", full: "Cost Per Install", scene: "APP新用户获取", desc: "面向APP新用户获取，同时支持老用户召回与二次激活，帮助应用快速扩大用户规模。", gradient: "radial-gradient(ellipse at 50% 40%, rgba(39,61,180,0.7) 0%, rgba(27,35,109,0.55) 50%, rgba(15,9,38,0.4) 100%)", shadow: "0px 0px 20px 3px rgba(7,13,79,0.1), 0px 0px 40px 20px rgba(85,0,98,0.1)" },
-    { abbr: "CPS", full: "Cost Per Sale", scene: "电商与Revenue Share", desc: "针对电商、博彩及其他Revenue Share模式的客户，通过高质量流量获取真实付费用户，并按照实际成交或收益进行合作。", gradient: "radial-gradient(ellipse at 50% 40%, rgba(120,40,20,0.7) 0%, rgba(60,20,15,0.6) 50%, rgba(20,8,8,0.5) 100%)", shadow: "0px 0px 20px 3px rgba(180,60,30,0.08), 0px 0px 40px 20px rgba(120,30,15,0.06)" },
-    { abbr: "CPL", full: "Cost Per Lead", scene: "用户线索获取", desc: "面向WAP端用户线索获取，通过表单提交、注册等方式帮助广告主收集潜在客户信息，广泛应用于金融、电商及服务类行业。", gradient: "radial-gradient(ellipse at 50% 40%, rgba(80,30,120,0.7) 0%, rgba(50,20,80,0.55) 50%, rgba(20,8,35,0.4) 100%)", shadow: "0px 0px 20px 3px rgba(120,50,180,0.08), 0px 0px 40px 20px rgba(80,20,120,0.06)" },
+    { abbr: "CPM", full: "Cost Per Mille", scene: "品牌曝光与流量触达", desc: "按千次广告展示计费，帮助广告主高效提升品牌知名度、产品曝光度与市场影响力，广泛适用于品牌推广、活动宣发等场景。" },
+    { abbr: "CPC", full: "Cost Per Click", scene: "精准点击引流", desc: "按用户实际广告点击计费，能够有效控制获客成本，精准触达高意向用户，助力广告主提升流量质量与页面访问转化效率。" },
+    { abbr: "CPA", full: "Cost Per Action", scene: "深度转化行为获取", desc: "针对APP深度转化行为的用户获取，例如注册、充值、交易等关键转化事件，帮助广告主实现更高质量的用户增长。" },
+    { abbr: "CPI", full: "Cost Per Install", scene: "APP新用户获取", desc: "面向APP新用户获取，同时支持老用户召回与二次激活，帮助应用快速扩大用户规模。" },
+    { abbr: "CPS", full: "Cost Per Sale", scene: "电商与Revenue Share", desc: "针对电商、博彩及其他Revenue Share模式的客户，通过高质量流量获取真实付费用户，并按照实际成交或收益进行合作。" },
+    { abbr: "CPL", full: "Cost Per Lead", scene: "用户线索获取", desc: "面向WAP端用户线索获取，通过表单提交、注册等方式帮助广告主收集潜在客户信息，广泛应用于金融、电商及服务类行业。" },
   ];
 
   return (
     <div className="relative w-full h-full flex flex-col items-center justify-center px-16" data-name="Section">
       {/* Header */}
-      <div className="flex flex-col items-center gap-4 mb-12">
+      <div className="flex flex-col items-center gap-4 mb-10">
         <div className="flex items-center px-[16px] py-[5px] rounded-full relative" style={{ border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.05)" }}>
           <span className="text-[14px] text-white font-normal tracking-[-0.21px] leading-[1.6]">Core Business</span>
           <div className="absolute inset-[-0.5px] rounded-full pointer-events-none" style={{ boxShadow: "inset 0 0 21px rgba(115,80,255,0.2)" }} />
@@ -2013,14 +2014,11 @@ function Section2() {
         </p>
       </div>
 
-      {/* Horizontal scroll cards */}
-      <div className="w-full overflow-x-auto overflow-y-hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}>
-        <style>{`.hide-scrollbar::-webkit-scrollbar { display: none; }`}</style>
-        <div className="hide-scrollbar flex gap-6 px-16 pb-4" style={{ width: 'max-content' }}>
-          {bizCards.map((card) => (
-            <SpotlightBizCard key={card.abbr} card={card} />
-          ))}
-        </div>
+      {/* 2x3 Grid */}
+      <div className="w-full max-w-[960px] grid grid-cols-3 gap-4">
+        {bizCards.map((card) => (
+          <SpotlightBizCard key={card.abbr} card={card} />
+        ))}
       </div>
     </div>
   );
