@@ -2764,7 +2764,7 @@ function Section7Values() {
         </div>
 
         {/* Bottom: pinned to bottom of 658px container */}
-        <div className="absolute bottom-0 left-0 right-0 flex flex-col gap-[20px]">
+        <div className="flex flex-col gap-[20px] pb-[10px]">
           {/* Tech support header */}
           <div className="flex items-baseline gap-4">
             <div className="flex flex-col gap-1">
