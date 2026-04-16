@@ -1981,16 +1981,16 @@ function Section2() {
         <MagicBento
           cards={bizCards}
           textAutoHide={true}
-          enableStars
-          enableSpotlight
-          enableBorderGlow={true}
+          enableStars={false}
+          enableSpotlight={false}
+          enableBorderGlow={false}
           enableTilt={false}
           enableMagnetism={false}
           clickEffect={false}
           spotlightRadius={400}
-          particleCount={12}
+          particleCount={0}
           glowColor="132, 0, 255"
-          disableAnimations={false}
+          disableAnimations={true}
         />
       </div>
     </div>
