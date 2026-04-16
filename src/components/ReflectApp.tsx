@@ -2024,87 +2024,108 @@ function Section4Screen() {
 
       {/* Left integrations grid - Figma reference style */}
       <div className="relative flex-1 max-w-[560px] z-[1] flex items-center justify-center">
-        <div className="relative w-[480px] h-[420px]">
+        <div className="relative w-[550px] h-[493px]">
           {/* Connection lines - SVG */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 480 420">
-            {/* Left column to center */}
-            <line x1="80" y1="70" x2="160" y2="70" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
-            <line x1="160" y1="70" x2="160" y2="140" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
-            <line x1="160" y1="140" x2="160" y2="210" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
-            <line x1="80" y1="210" x2="160" y2="210" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
-            <line x1="80" y1="350" x2="160" y2="350" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
-            <line x1="160" y1="280" x2="160" y2="350" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
-            {/* Right column to center */}
-            <line x1="320" y1="70" x2="400" y2="70" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
-            <line x1="320" y1="70" x2="320" y2="140" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
-            <line x1="320" y1="210" x2="400" y2="210" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
-            <line x1="320" y1="280" x2="320" y2="350" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
-            <line x1="320" y1="350" x2="400" y2="350" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
-            {/* Top and bottom center lines */}
-            <line x1="240" y1="0" x2="240" y2="120" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
-            <line x1="240" y1="300" x2="240" y2="420" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
+          <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 550 493">
+            {/* Vertical center line top */}
+            <line x1="275" y1="0" x2="275" y2="140" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+            {/* Vertical center line bottom */}
+            <line x1="275" y1="353" x2="275" y2="493" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+            {/* Left horizontal lines to center */}
+            <path d="M 97 140 L 170 140 L 170 247" stroke="rgba(255,255,255,0.08)" strokeWidth="1" fill="none" />
+            <path d="M 97 247 L 170 247" stroke="rgba(255,255,255,0.08)" strokeWidth="1" fill="none" />
+            <path d="M 97 353 L 170 353 L 170 247" stroke="rgba(255,255,255,0.08)" strokeWidth="1" fill="none" />
+            {/* Right horizontal lines to center */}
+            <path d="M 453 140 L 380 140 L 380 247" stroke="rgba(255,255,255,0.08)" strokeWidth="1" fill="none" />
+            <path d="M 453 247 L 380 247" stroke="rgba(255,255,255,0.08)" strokeWidth="1" fill="none" />
+            <path d="M 453 353 L 380 353 L 380 247" stroke="rgba(255,255,255,0.08)" strokeWidth="1" fill="none" />
             {/* Dots at intersections */}
-            <circle cx="160" cy="140" r="2.5" fill="rgba(255,255,255,0.2)" />
-            <circle cx="160" cy="280" r="2.5" fill="rgba(255,255,255,0.2)" />
-            <circle cx="320" cy="140" r="2.5" fill="rgba(255,255,255,0.2)" />
-            <circle cx="320" cy="280" r="2.5" fill="rgba(255,255,255,0.2)" />
-            <circle cx="240" cy="0" r="2.5" fill="rgba(255,255,255,0.15)" />
-            <circle cx="240" cy="420" r="2.5" fill="rgba(255,255,255,0.15)" />
+            <circle cx="170" cy="140" r="3" fill="rgba(255,255,255,0.25)" />
+            <circle cx="170" cy="353" r="3" fill="rgba(255,255,255,0.25)" />
+            <circle cx="380" cy="140" r="3" fill="rgba(255,255,255,0.25)" />
+            <circle cx="380" cy="353" r="3" fill="rgba(255,255,255,0.25)" />
+            <circle cx="275" cy="0" r="3" fill="rgba(255,255,255,0.15)" />
+            <circle cx="275" cy="493" r="3" fill="rgba(255,255,255,0.15)" />
+            {/* Dot pattern bottom center */}
+            {Array.from({ length: 8 }).map((_, row) =>
+              Array.from({ length: 12 }).map((_, col) => (
+                <circle
+                  key={`dot-${row}-${col}`}
+                  cx={220 + col * 10}
+                  cy={370 + row * 10}
+                  r="1"
+                  fill={`rgba(255,255,255,${0.06 + Math.random() * 0.08})`}
+                />
+              ))
+            )}
           </svg>
 
+          {/* Icon card component - reusable */}
           {/* Left column icons */}
           {[
-            { top: '30px', left: '16px', color: 'rgba(60,130,255,0.15)' },
-            { top: '170px', left: '16px', color: 'rgba(255,180,50,0.15)' },
-            { top: '310px', left: '16px', color: 'rgba(100,220,180,0.15)' },
+            { top: 110, left: 30, opacity: 1 },
+            { top: 217, left: 30, opacity: 1 },
+            { top: 323, left: 30, opacity: 1 },
           ].map((item, i) => (
-            <div key={`left-${i}`} className="absolute w-[72px] h-[72px] rounded-[16px] flex items-center justify-center" style={{
-              top: item.top, left: item.left,
-              background: 'linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              boxShadow: `inset 0 1px 0 rgba(255,255,255,0.06), 0 0 20px ${item.color}`,
-            }}>
-              <div className="w-9 h-9 rounded-lg" style={{ background: item.color }} />
+            <div key={`left-${i}`} className="absolute" style={{ top: `${item.top}px`, left: `${item.left}px` }}>
+              <div className="relative w-[60px] h-[60px]">
+                {/* Glow layers */}
+                <div className="absolute inset-0 rounded-[14px]" style={{ border: '2px solid #b638ff', filter: 'blur(6px)', mixBlendMode: 'plus-lighter', opacity: 0.4 }} />
+                <div className="absolute inset-0 rounded-[14px]" style={{ border: '2px solid #b638ff', filter: 'blur(3px)', mixBlendMode: 'plus-lighter', opacity: 0.3 }} />
+                <div className="absolute inset-0 rounded-[14px]" style={{ border: '1px solid rgba(255,255,255,0.1)' }} />
+                {/* Icon frame */}
+                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: '#030014', border: '3px solid #030014' }}>
+                  <div className="w-[32px] h-[32px] rounded-md" style={{ background: 'rgba(255,255,255,0.06)' }} />
+                </div>
+              </div>
             </div>
           ))}
 
+          {/* Right column icons */}
+          {[
+            { top: 110, right: 30, opacity: 1 },
+            { top: 217, right: 30, opacity: 1 },
+            { top: 323, right: 30, opacity: 1 },
+          ].map((item, i) => (
+            <div key={`right-${i}`} className="absolute" style={{ top: `${item.top}px`, right: `${item.right}px` }}>
+              <div className="relative w-[60px] h-[60px]">
+                {/* Glow layers */}
+                <div className="absolute inset-0 rounded-[14px]" style={{ border: '2px solid #b638ff', filter: 'blur(6px)', mixBlendMode: 'plus-lighter', opacity: 0.4 }} />
+                <div className="absolute inset-0 rounded-[14px]" style={{ border: '2px solid #b638ff', filter: 'blur(3px)', mixBlendMode: 'plus-lighter', opacity: 0.3 }} />
+                <div className="absolute inset-0 rounded-[14px]" style={{ border: '1px solid rgba(255,255,255,0.1)' }} />
+                {/* Icon frame */}
+                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: '#030014', border: '3px solid #030014' }}>
+                  <div className="w-[32px] h-[32px] rounded-md" style={{ background: 'rgba(255,255,255,0.06)' }} />
+                </div>
+              </div>
+            </div>
+          ))}
+
+          {/* Corner faded icons - top left */}
+          <div className="absolute" style={{ top: '10px', left: '30px', opacity: 0.05 }}>
+            <div className="w-[60px] h-[60px] rounded-[12px]" style={{ background: '#030014', border: '3px solid #030014' }} />
+          </div>
+          {/* Corner faded icons - top right */}
+          <div className="absolute" style={{ top: '10px', right: '30px', opacity: 0.05 }}>
+            <div className="w-[60px] h-[60px] rounded-[12px]" style={{ background: '#030014', border: '3px solid #030014' }} />
+          </div>
+          {/* Corner faded icons - bottom left */}
+          <div className="absolute" style={{ bottom: '10px', left: '30px', opacity: 0.05 }}>
+            <div className="w-[60px] h-[60px] rounded-[12px]" style={{ background: '#030014', border: '3px solid #030014' }} />
+          </div>
+          {/* Corner faded icons - bottom right */}
+          <div className="absolute" style={{ bottom: '10px', right: '30px', opacity: 0.05 }}>
+            <div className="w-[60px] h-[60px] rounded-[12px]" style={{ background: '#030014', border: '3px solid #030014' }} />
+          </div>
+
           {/* Center - neon glow logo frame (layered blur borders from Figma) */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[160px] h-[160px]">
-            {/* Layer 2: blur-[8px] purple border */}
-            <div className="absolute inset-0 rounded-[26px]" style={{
-              border: '4px solid #b638ff',
-              filter: 'blur(8px)',
-              mixBlendMode: 'plus-lighter',
-            }} />
-            {/* Layer 3: blur-[6px] */}
-            <div className="absolute inset-0 rounded-[26px]" style={{
-              border: '4px solid #b638ff',
-              filter: 'blur(6px)',
-              mixBlendMode: 'plus-lighter',
-            }} />
-            {/* Layer 4: blur-[4px] */}
-            <div className="absolute inset-0 rounded-[26px]" style={{
-              border: '4px solid #b638ff',
-              filter: 'blur(4px)',
-              mixBlendMode: 'plus-lighter',
-            }} />
-            {/* Layer 5: blur-[2px] */}
-            <div className="absolute inset-0 rounded-[26px]" style={{
-              border: '4px solid #b638ff',
-              filter: 'blur(2px)',
-              mixBlendMode: 'plus-lighter',
-            }} />
-            {/* Layer 6: white core glow */}
-            <div className="absolute inset-0 rounded-[26px]" style={{
-              border: '4px solid white',
-              filter: 'blur(4px)',
-              mixBlendMode: 'plus-lighter',
-            }} />
-            {/* Layer 1: base white/10% border */}
-            <div className="absolute inset-0 rounded-[26px]" style={{
-              border: '4px solid rgba(255,255,255,0.1)',
-            }} />
-            {/* Logo inside */}
+            <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid #b638ff', filter: 'blur(8px)', mixBlendMode: 'plus-lighter' }} />
+            <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid #b638ff', filter: 'blur(6px)', mixBlendMode: 'plus-lighter' }} />
+            <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid #b638ff', filter: 'blur(4px)', mixBlendMode: 'plus-lighter' }} />
+            <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid #b638ff', filter: 'blur(2px)', mixBlendMode: 'plus-lighter' }} />
+            <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid white', filter: 'blur(4px)', mixBlendMode: 'plus-lighter' }} />
+            <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid rgba(255,255,255,0.1)' }} />
             <div className="relative w-full h-full rounded-[22px] flex items-center justify-center z-[1]">
               <img
                 src={logo3d}
@@ -2117,22 +2138,6 @@ function Section4Screen() {
               />
             </div>
           </div>
-
-          {/* Right column icons */}
-          {[
-            { top: '30px', right: '16px', color: 'rgba(0,210,210,0.15)' },
-            { top: '170px', right: '16px', color: 'rgba(255,100,50,0.15)' },
-            { top: '310px', right: '16px', color: 'rgba(80,200,120,0.15)' },
-          ].map((item, i) => (
-            <div key={`right-${i}`} className="absolute w-[72px] h-[72px] rounded-[16px] flex items-center justify-center" style={{
-              top: item.top, right: item.right,
-              background: 'linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              boxShadow: `inset 0 1px 0 rgba(255,255,255,0.06), 0 0 20px ${item.color}`,
-            }}>
-              <div className="w-9 h-9 rounded-lg" style={{ background: item.color }} />
-            </div>
-          ))}
         </div>
       </div>
 
