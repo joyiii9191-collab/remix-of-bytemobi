@@ -2030,44 +2030,25 @@ function Section4Screen() {
           filter: 'blur(40px)',
         }} />
         
-        {/* Liquid glass container */}
+        {/* Logo with light effects */}
         <div className="relative group">
-          {/* Outer glass ring */}
+          {/* Outer glow ring */}
           <div className="absolute -inset-8 rounded-full" style={{
             background: 'conic-gradient(from 180deg, rgba(120,180,255,0.08), rgba(168,130,255,0.12), rgba(236,140,200,0.08), rgba(120,180,255,0.08))',
             filter: 'blur(20px)',
             animation: 'logo-orbit 8s linear infinite',
           }} />
           
-          {/* Glass reflection surface */}
-          <div className="relative rounded-[32px] p-8" style={{
-            background: 'linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 50%, rgba(255,255,255,0.04) 100%)',
-            border: '1px solid rgba(255,255,255,0.1)',
-            boxShadow: '0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1), inset 0 -1px 0 rgba(255,255,255,0.05)',
-            backdropFilter: 'blur(20px)',
-            WebkitBackdropFilter: 'blur(20px)',
-          }}>
-            {/* Top highlight */}
-            <div className="absolute top-0 left-[10%] right-[10%] h-[1px]" style={{
-              background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)',
-            }} />
-            
-            {/* Logo image with float animation */}
-            <img 
-              src={logo3d} 
-              alt="Logo" 
-              className="relative z-[1] w-[320px] h-[320px] object-contain drop-shadow-2xl"
-              style={{
-                animation: 'logo-float 6s ease-in-out infinite',
-                filter: 'drop-shadow(0 20px 40px rgba(120,100,255,0.2))',
-              }}
-            />
-            
-            {/* Bottom reflection */}
-            <div className="absolute bottom-0 left-[5%] right-[5%] h-[40%] rounded-b-[32px] pointer-events-none" style={{
-              background: 'linear-gradient(to top, rgba(168,130,255,0.04) 0%, transparent 100%)',
-            }} />
-          </div>
+          {/* Logo image with float animation */}
+          <img 
+            src={logo3d} 
+            alt="Logo" 
+            className="relative z-[1] w-[360px] h-[360px] object-contain"
+            style={{
+              animation: 'logo-float 6s ease-in-out infinite',
+              filter: 'drop-shadow(0 20px 40px rgba(120,100,255,0.25))',
+            }}
+          />
           
           {/* Floating light orbs */}
           <div className="absolute -top-4 -right-4 w-3 h-3 rounded-full" style={{
