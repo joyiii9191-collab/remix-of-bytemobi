@@ -2026,38 +2026,48 @@ function Section4Screen() {
       <div className="relative flex-1 max-w-[560px] z-[1] flex items-center justify-center">
         <div className="relative w-[550px] h-[493px]">
           {/* Connection lines - SVG */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 550 493">
-            {/* Vertical center line top */}
-            <line x1="275" y1="0" x2="275" y2="140" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
-            {/* Vertical center line bottom */}
-            <line x1="275" y1="353" x2="275" y2="493" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
-            {/* Left horizontal lines to center */}
-            <path d="M 97 140 L 170 140 L 170 247" stroke="rgba(255,255,255,0.08)" strokeWidth="1" fill="none" />
-            <path d="M 97 247 L 170 247" stroke="rgba(255,255,255,0.08)" strokeWidth="1" fill="none" />
-            <path d="M 97 353 L 170 353 L 170 247" stroke="rgba(255,255,255,0.08)" strokeWidth="1" fill="none" />
-            {/* Right horizontal lines to center */}
-            <path d="M 453 140 L 380 140 L 380 247" stroke="rgba(255,255,255,0.08)" strokeWidth="1" fill="none" />
-            <path d="M 453 247 L 380 247" stroke="rgba(255,255,255,0.08)" strokeWidth="1" fill="none" />
-            <path d="M 453 353 L 380 353 L 380 247" stroke="rgba(255,255,255,0.08)" strokeWidth="1" fill="none" />
-            {/* Dots at intersections */}
-            <circle cx="170" cy="140" r="3" fill="rgba(255,255,255,0.25)" />
-            <circle cx="170" cy="353" r="3" fill="rgba(255,255,255,0.25)" />
-            <circle cx="380" cy="140" r="3" fill="rgba(255,255,255,0.25)" />
-            <circle cx="380" cy="353" r="3" fill="rgba(255,255,255,0.25)" />
-            <circle cx="275" cy="0" r="3" fill="rgba(255,255,255,0.15)" />
-            <circle cx="275" cy="493" r="3" fill="rgba(255,255,255,0.15)" />
-            {/* Dot pattern bottom center */}
-            {Array.from({ length: 8 }).map((_, row) =>
-              Array.from({ length: 12 }).map((_, col) => (
-                <circle
-                  key={`dot-${row}-${col}`}
-                  cx={220 + col * 10}
-                  cy={370 + row * 10}
-                  r="1"
-                  fill={`rgba(255,255,255,${0.06 + Math.random() * 0.08})`}
-                />
-              ))
-            )}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 550 493" fill="none">
+            {/* Top center vertical line */}
+            <line x1="275" y1="0" x2="275" y2="167" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+            {/* Bottom center vertical line */}
+            <line x1="275" y1="327" x2="275" y2="493" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+
+            {/* Left icon 1 (top, y=140) → center: horizontal then curve down */}
+            <path d="M 90 140 L 140 140 L 140 140 Q 140 140 140 140 L 140 140" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+            <line x1="140" y1="140" x2="160" y2="140" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+            <path d="M 160 140 Q 175 140 175 155 L 175 232 Q 175 247 190 247 L 195 247" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+
+            {/* Left icon 2 (mid, y=247) → center: straight horizontal */}
+            <line x1="90" y1="247" x2="195" y2="247" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+
+            {/* Left icon 3 (bottom, y=353) → center: horizontal then curve up */}
+            <line x1="90" y1="353" x2="160" y2="353" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+            <path d="M 160 353 Q 175 353 175 338 L 175 262 Q 175 247 190 247 L 195 247" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+
+            {/* Right icon 1 (top, y=140) → center: horizontal then curve down */}
+            <line x1="460" y1="140" x2="390" y2="140" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+            <path d="M 390 140 Q 375 140 375 155 L 375 232 Q 375 247 360 247 L 355 247" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+
+            {/* Right icon 2 (mid, y=247) → center: straight horizontal */}
+            <line x1="460" y1="247" x2="355" y2="247" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+
+            {/* Right icon 3 (bottom, y=353) → center: horizontal then curve up */}
+            <line x1="460" y1="353" x2="390" y2="353" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+            <path d="M 390 353 Q 375 353 375 338 L 375 262 Q 375 247 360 247 L 355 247" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+
+            {/* Bottom center → curve to left bottom */}
+            <path d="M 275 400 Q 275 430 245 430 L 175 430 Q 160 430 160 445 L 160 493" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+            {/* Bottom center → curve to right bottom */}
+            <path d="M 275 400 Q 275 430 305 430 L 375 430 Q 390 430 390 445 L 390 493" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+
+            {/* Dots at key intersections */}
+            <circle cx="275" cy="167" r="2.5" fill="rgba(255,255,255,0.2)" />
+            <circle cx="275" cy="327" r="2.5" fill="rgba(255,255,255,0.2)" />
+            <circle cx="275" cy="400" r="2.5" fill="rgba(255,255,255,0.2)" />
+            <circle cx="140" cy="140" r="2" fill="rgba(255,255,255,0.15)" />
+            <circle cx="140" cy="353" r="2" fill="rgba(255,255,255,0.15)" />
+            <circle cx="410" cy="140" r="2" fill="rgba(255,255,255,0.15)" />
+            <circle cx="410" cy="353" r="2" fill="rgba(255,255,255,0.15)" />
           </svg>
 
           {/* Icon card component - reusable */}
