@@ -639,25 +639,9 @@ function MaskGroup1() {
 function Section({ className }: { className?: string }) {
   return (
     <div className={className || "relative w-full h-full flex flex-col isolate items-center"} data-name="Section" style={{ backgroundColor: '#0a0a12' }}>
-      {/* ColorBends Background */}
+      {/* Prism Background */}
       <div className="absolute inset-0 z-[0] overflow-hidden">
-        <ColorBends
-          colors={["#7c3aed", "#6d28d9", "#5b21b6"]}
-          rotation={90}
-          speed={0.2}
-          scale={1}
-          frequency={1}
-          warpStrength={1}
-          mouseInfluence={1}
-          noise={0.15}
-          parallax={0.5}
-          iterations={1}
-          intensity={1.5}
-          bandWidth={6}
-          transparent
-          autoRotate={0}
-          color="#A855F7"
-        />
+        <Prism />
       </div>
       {/* Subtle top/bottom fade */}
       <div className="absolute inset-0 z-[1] pointer-events-none from-[rgba(10,10,18,0.15)] via-transparent to-[rgba(10,10,18,0.4)]" />
