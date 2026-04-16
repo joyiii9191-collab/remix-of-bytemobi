@@ -644,10 +644,10 @@ function Section({ className }: { className?: string }) {
           height={3.5}
           baseWidth={5.5}
           scale={3.6}
-          hueShift={0}
-          colorFrequency={1}
+          hueShift={3.8}
+          colorFrequency={0.6}
           noise={0}
-          glow={1}
+          glow={1.2}
         />
       </div>
       {/* Subtle top/bottom fade */}
