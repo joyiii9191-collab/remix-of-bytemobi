@@ -2081,10 +2081,10 @@ function Section4Screen() {
               <div className="relative w-[60px] h-[60px]">
                 {/* Top-left corner glow */}
                 <div className="absolute -inset-[2px] rounded-[14px]" style={{
-                  background: 'radial-gradient(circle at 0% 0%, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 30%, transparent 60%)',
+                  background: 'radial-gradient(circle at 0% 0%, rgba(168,130,255,0.5) 0%, rgba(124,58,237,0.2) 30%, transparent 60%)',
                 }} />
                 {/* Card content */}
-                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: '#030014', border: '1px solid rgba(255,255,255,0.05)' }}>
+                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: '#030014', border: '1px solid rgba(168,130,255,0.08)' }}>
                   <div className="w-[32px] h-[32px] rounded-md" style={{ background: 'rgba(255,255,255,0.06)' }} />
                 </div>
               </div>
@@ -2101,10 +2101,10 @@ function Section4Screen() {
               <div className="relative w-[60px] h-[60px]">
                 {/* Top-left corner glow */}
                 <div className="absolute -inset-[2px] rounded-[14px]" style={{
-                  background: 'radial-gradient(circle at 0% 0%, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 30%, transparent 60%)',
+                  background: 'radial-gradient(circle at 0% 0%, rgba(168,130,255,0.5) 0%, rgba(124,58,237,0.2) 30%, transparent 60%)',
                 }} />
                 {/* Card content */}
-                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: '#030014', border: '1px solid rgba(255,255,255,0.05)' }}>
+                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: '#030014', border: '1px solid rgba(168,130,255,0.08)' }}>
                   <div className="w-[32px] h-[32px] rounded-md" style={{ background: 'rgba(255,255,255,0.06)' }} />
                 </div>
               </div>
@@ -2128,42 +2128,24 @@ function Section4Screen() {
             <div className="w-[60px] h-[60px] rounded-[12px]" style={{ background: '#030014', border: '3px solid #030014' }} />
           </div>
 
-          {/* Center - neon glow logo frame with rotating conic gradient */}
+          {/* Center - static purple glow logo frame */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[160px] h-[160px]">
-            {/* Rotating conic-gradient border */}
-            <div
-              className="absolute inset-0 rounded-[26px]"
-              style={{
-                padding: '3px',
-                background: 'conic-gradient(from var(--ray-angle, 0deg), transparent 0%, transparent 25%, rgba(255,255,255,0.6) 30%, rgba(255,255,255,0.9) 35%, rgba(255,255,255,0.6) 40%, transparent 45%, transparent 100%)',
-                WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                WebkitMaskComposite: 'xor',
-                mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                maskComposite: 'exclude',
-                animation: 'raycast-rotate 3s linear infinite',
-              }}
-            />
-            {/* Glow layer behind the rotating border */}
-            <div
-              className="absolute inset-0 rounded-[26px]"
-              style={{
-                padding: '3px',
-                background: 'conic-gradient(from var(--ray-angle, 0deg), transparent 0%, transparent 25%, rgba(255,255,255,0.3) 30%, rgba(255,255,255,0.5) 35%, rgba(255,255,255,0.3) 40%, transparent 45%, transparent 100%)',
-                WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                WebkitMaskComposite: 'xor',
-                mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                maskComposite: 'exclude',
-                animation: 'raycast-rotate 3s linear infinite',
-                filter: 'blur(6px)',
-              }}
-            />
+            {/* Static purple border glow */}
+            <div className="absolute -inset-[3px] rounded-[28px]" style={{
+              background: 'linear-gradient(135deg, rgba(168,130,255,0.6), rgba(124,58,237,0.4), rgba(168,130,255,0.6))',
+            }} />
+            {/* Blur glow */}
+            <div className="absolute -inset-[3px] rounded-[28px]" style={{
+              background: 'linear-gradient(135deg, rgba(168,130,255,0.4), rgba(124,58,237,0.3), rgba(168,130,255,0.4))',
+              filter: 'blur(8px)',
+            }} />
             {/* Inner background */}
             <div
-              className="absolute inset-[3px] rounded-[23px]"
+              className="absolute inset-0 rounded-[26px]"
               style={{
-                background: 'rgba(10, 5, 20, 0.85)',
-                border: '1px solid rgba(255, 255, 255, 0.12)',
-                boxShadow: 'inset 0 0 12px rgba(255, 255, 255, 0.06), 0 0 15px rgba(255, 255, 255, 0.05)',
+                background: 'rgba(10, 5, 20, 0.9)',
+                border: '1px solid rgba(168, 130, 255, 0.15)',
+                boxShadow: 'inset 0 0 20px rgba(168, 130, 255, 0.08), 0 0 20px rgba(124, 58, 237, 0.1)',
               }}
             />
             {/* Logo */}
