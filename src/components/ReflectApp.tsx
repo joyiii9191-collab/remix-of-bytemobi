@@ -1957,8 +1957,10 @@ function Section2() {
 
   return (
     <div className="relative w-full h-full flex flex-col items-center justify-center px-16" data-name="Section" style={{ backgroundImage: `url(${coreBusinessBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0" style={{ background: 'rgba(3, 0, 20, 0.55)' }} />
       {/* Header */}
-      <div className="flex flex-col items-center gap-4 mb-10">
+      <div className="relative z-10 flex flex-col items-center gap-4 mb-10">
         <div className="flex items-center px-[16px] py-[5px] rounded-full relative" style={{ border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.05)" }}>
           <span className="text-[14px] text-white font-normal tracking-[-0.21px] leading-[1.6]">Core Business</span>
           <div className="absolute inset-[-0.5px] rounded-full pointer-events-none" style={{ boxShadow: "inset 0 0 21px rgba(115,80,255,0.2)" }} />
@@ -1975,7 +1977,7 @@ function Section2() {
       </div>
 
       {/* MagicBento Grid */}
-      <div className="w-full max-w-[1200px]">
+      <div className="relative z-10 w-full max-w-[1200px]">
         <MagicBento
           cards={bizCards}
           textAutoHide={true}
