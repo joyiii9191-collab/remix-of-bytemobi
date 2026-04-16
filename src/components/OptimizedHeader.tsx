@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import imgLogo from "@/assets/ByteMobiLOGO-02.png";
+import imgLogo from "@/assets/logo-new.png";
 import { useLanguage, type Language } from '@/contexts/LanguageContext';
 
 const navKeys = [
