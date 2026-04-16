@@ -1312,9 +1312,9 @@ function Section1() {
         </div>
 
         {/* Glass shell */}
-        <div className="relative rounded-[24px] w-full" style={{ border: '1px solid rgba(168,130,255,0.35)', boxShadow: '0 0 40px rgba(168,130,255,0.15), 0 0 80px rgba(168,130,255,0.08), inset 0 0 30px rgba(168,130,255,0.05)' }}>
+        <div className="relative rounded-[24px] w-full" style={{ border: '1px solid rgba(255,255,255,0.15)', boxShadow: '0 0 40px rgba(168,130,255,0.1), 0 0 80px rgba(168,130,255,0.05), inset 0 1px 0 rgba(255,255,255,0.1)' }}>
           {/* Background fill */}
-          <div className="absolute inset-0 pointer-events-none rounded-[24px]" style={{ background: 'rgba(18,15,23,0.85)' }} />
+          <div className="absolute inset-0 pointer-events-none rounded-[24px]" style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.04) 100%)', backdropFilter: 'blur(30px)' }} />
           {/* Content */}
           <div className="overflow-clip rounded-[inherit] size-full relative z-[1]">
             <div className="flex items-center gap-12 p-10 relative">
@@ -2136,11 +2136,11 @@ function Section4Screen() {
             <div
               className="absolute inset-0 rounded-[26px]"
               style={{
-                background: 'rgba(10, 5, 20, 0.6)',
-                backdropFilter: 'blur(12px)',
-                WebkitBackdropFilter: 'blur(12px)',
-                border: '1px solid rgba(168, 130, 255, 0.12)',
-                boxShadow: 'inset 0 0 30px rgba(124, 58, 237, 0.05), 0 0 40px rgba(124, 58, 237, 0.06)',
+                background: 'rgba(255, 255, 255, 0.06)',
+                backdropFilter: 'blur(20px)',
+                WebkitBackdropFilter: 'blur(20px)',
+                border: '1px solid rgba(255, 255, 255, 0.12)',
+                boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 30px rgba(124, 58, 237, 0.06)',
               }}
             />
             {/* Logo */}
@@ -2295,8 +2295,9 @@ function LogoCard({ label, index = 0, image }: { label: string; index?: number; 
   return (
     <div className="relative shrink-0 h-[64px] min-w-[120px] px-5 rounded-[14px] overflow-hidden"
       style={{
-        background: 'linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(10,5,20,0.85) 40%, rgba(10,5,20,0.9) 100%)',
-        border: '1px solid rgba(255,255,255,0.08)',
+        background: 'linear-gradient(145deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
+        border: '1px solid rgba(255,255,255,0.12)',
+        backdropFilter: 'blur(20px)',
       }}
     >
       <div className="relative z-[1] size-full flex items-center justify-center py-3">
@@ -2501,9 +2502,10 @@ function Section8TrafficMap() {
         <div
           className="w-full h-full rounded-[24px] overflow-hidden"
           style={{
-            background: 'linear-gradient(135deg, rgba(30,20,60,0.9) 0%, rgba(10,8,30,0.95) 50%, rgba(20,15,50,0.9) 100%)',
-            border: '1px solid rgba(255,255,255,0.06)',
-            boxShadow: '0 0 80px rgba(100,60,255,0.08), inset 0 1px 0 rgba(255,255,255,0.04)',
+            background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.04) 50%, rgba(255,255,255,0.06) 100%)',
+            border: '1px solid rgba(255,255,255,0.12)',
+            boxShadow: '0 0 60px rgba(100,60,255,0.08), inset 0 1px 0 rgba(255,255,255,0.1)',
+            backdropFilter: 'blur(30px)',
           }}
         >
           {/* Grid overlay */}
@@ -2584,8 +2586,9 @@ function GlowIcon({ icon }: { icon: string }) {
       <div className="absolute inset-0 mix-blend-plus-lighter rounded-[15px]" style={{
         background: 'radial-gradient(circle at 50% 50%, rgba(99,102,241,0.15) 0%, transparent 50%)',
       }} />
-      <div className="backdrop-blur-[26px] bg-[#030014] flex items-center justify-center overflow-hidden p-[15px] rounded-[15px] size-full border border-[rgba(255,255,255,0.06)]" style={{
-        boxShadow: 'inset 0 0 21px rgba(115,80,255,0.2)',
+      <div className="backdrop-blur-[26px] flex items-center justify-center overflow-hidden p-[15px] rounded-[15px] size-full border border-[rgba(255,255,255,0.12)]" style={{
+        background: 'rgba(255,255,255,0.06)',
+        boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.1), 0 0 20px rgba(115,80,255,0.08)',
       }}>
         <span className="text-[24px]">{icon}</span>
       </div>
