@@ -2685,8 +2685,8 @@ function RevealCard({ imageSrc, left, top, isActive, objectPosition }: {
   const bigHalfW = (120 / 590) * 100;
   const bigHalfH = (150 / 658) * 100;
 
-  const smallClip = `inset(${tNum - smallHalfH}% ${100 - lNum - smallHalfW}% ${100 - tNum - smallHalfH}% ${lNum - smallHalfW}% round 6px)`;
-  const bigClip = `inset(${tNum - bigHalfH}% ${100 - lNum - bigHalfW}% ${100 - tNum - bigHalfH}% ${lNum - bigHalfW}% round 8px)`;
+  const smallClip = `inset(${Math.max(0, tNum - smallHalfH)}% ${Math.max(0, 100 - lNum - smallHalfW)}% ${Math.max(0, 100 - tNum - smallHalfH)}% ${Math.max(0, lNum - smallHalfW)}% round 6px)`;
+  const bigClip = `inset(${Math.max(0, tNum - bigHalfH)}% ${Math.max(0, 100 - lNum - bigHalfW)}% ${Math.max(0, 100 - tNum - bigHalfH)}% ${Math.max(0, lNum - bigHalfW)}% round 8px)`;
 
   return (
     <>
