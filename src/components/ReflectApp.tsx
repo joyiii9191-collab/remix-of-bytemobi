@@ -2129,11 +2129,8 @@ function Section4Screen() {
             {/* Animated border glow */}
             <span className="raycast-btn-border" />
             <span className="raycast-btn-bg" />
-            <span className="relative z-[1]">釉面介绍</span>
-            <span className="relative z-[1] w-[1px] h-[16px] bg-white/20" />
-            <span className="relative z-[1] flex items-center gap-1">
-              加入候补名单 <span className="ml-0.5">→</span>
-            </span>
+            <span className="relative z-[1]">了解程序化广告</span>
+            <span className="relative z-[1] ml-1">→</span>
           </a>
         </div>
       </div>
