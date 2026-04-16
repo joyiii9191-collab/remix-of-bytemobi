@@ -2015,7 +2015,22 @@ function Q62492B69Png() {
 
 function Section4Screen() {
   return (
-    <div className="relative w-full h-full flex items-center justify-center px-16 gap-16" data-name="Section4Screen">
+    <div className="relative w-full h-full flex items-center justify-center px-16 gap-16 overflow-hidden" data-name="Section4Screen">
+      {/* Light rays background */}
+      <LightRays
+        raysOrigin="top-center"
+        raysColor="#A855F7"
+        raysSpeed={1}
+        lightSpread={0.5}
+        rayLength={3}
+        followMouse={true}
+        mouseInfluence={0.1}
+        noiseAmount={0}
+        distortion={0}
+        pulsating={false}
+        fadeDistance={1.6}
+        saturation={1}
+      />
       {/* Purple glow behind dashboard */}
       <div className="absolute left-[10%] top-1/2 -translate-y-1/2 w-[500px] h-[400px] pointer-events-none" style={{
         background: 'radial-gradient(ellipse at center, rgba(120,60,255,0.15) 0%, transparent 70%)',
