@@ -1262,7 +1262,7 @@ function Section1() {
             verticalBeamOffset={0.0}
             color="#CF9EFF"
             horizontalSizing={0.9}
-            verticalSizing={0.5}
+            verticalSizing={2}
             wispDensity={1}
             wispSpeed={15}
             wispIntensity={5}
@@ -1277,7 +1277,7 @@ function Section1() {
         </div>
 
         {/* Glass shell */}
-        <div className="relative rounded-[24px] w-full" style={{ border: '2px solid rgba(168,130,255,0.5)', boxShadow: '0 0 20px rgba(168,130,255,0.3), 0 0 60px rgba(168,130,255,0.15), inset 0 0 30px rgba(168,130,255,0.1)' }}>
+        <div className="relative rounded-[24px] w-full" style={{ border: '2px solid rgba(168,130,255,0.6)', boxShadow: '0 0 30px rgba(168,130,255,0.4), 0 0 80px rgba(168,130,255,0.2), 0 0 120px rgba(168,130,255,0.1), inset 0 0 40px rgba(168,130,255,0.12)' }}>
           {/* Background fill */}
           <div className="absolute inset-0 pointer-events-none rounded-[24px]" style={{ background: 'rgba(18,15,23,0.85)' }} />
           {/* Top glow where laser meets the card */}
