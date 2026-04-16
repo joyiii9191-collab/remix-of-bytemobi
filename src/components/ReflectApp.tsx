@@ -1960,7 +1960,7 @@ function Section2() {
       {/* Dark overlay for text readability */}
       <div className="absolute inset-0" style={{ background: 'rgba(3, 0, 20, 0.55)' }} />
       {/* Header */}
-      <div className="flex flex-col items-center gap-4 mb-10">
+      <div className="relative z-10 flex flex-col items-center gap-4 mb-10">
         <div className="flex items-center px-[16px] py-[5px] rounded-full relative" style={{ border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.05)" }}>
           <span className="text-[14px] text-white font-normal tracking-[-0.21px] leading-[1.6]">Core Business</span>
           <div className="absolute inset-[-0.5px] rounded-full pointer-events-none" style={{ boxShadow: "inset 0 0 21px rgba(115,80,255,0.2)" }} />
