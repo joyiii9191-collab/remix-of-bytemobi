@@ -2735,13 +2735,13 @@ function Section7Values() {
     <div className="relative w-full h-full flex items-center justify-center px-[80px] gap-[100px]" data-name="Section7Values">
       {/* Left content */}
       <div className="flex flex-col gap-[40px] flex-1 justify-center">
-        <div className="flex flex-col gap-5">
-          <div className="self-start px-4 py-[5px] rounded-full border border-[rgba(255,255,255,0.2)] relative">
+        <div className="flex items-baseline gap-4">
+          <h2 className="text-[44px] font-medium text-white leading-[1.1] tracking-[-2px]">多元化流量网络</h2>
+          <div className="px-4 py-[5px] rounded-full border border-[rgba(255,255,255,0.2)] relative">
             <div className="absolute inset-0 bg-[rgba(255,255,255,0.05)] rounded-full pointer-events-none" />
             <div className="absolute inset-[-0.5px] rounded-full pointer-events-none" style={{ boxShadow: 'inset 0 0 21px rgba(115,80,255,0.2)' }} />
-            <span className="text-[14px] text-white leading-[1.6] tracking-[-0.21px] relative">支持多种归因方式</span>
+            <span className="text-[14px] text-white leading-[1.6] tracking-[-0.21px] relative">多种归因方式</span>
           </div>
-          <h2 className="text-[44px] font-medium text-white leading-[1.1] tracking-[-2px]">多元化流量网络</h2>
         </div>
 
         <div className="flex flex-col gap-5">
