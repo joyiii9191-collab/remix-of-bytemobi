@@ -1977,7 +1977,7 @@ function Section2() {
       </div>
 
       {/* MagicBento Grid */}
-      <div className="w-full max-w-[1200px]">
+      <div className="relative z-10 w-full max-w-[1200px]">
         <MagicBento
           cards={bizCards}
           textAutoHide={true}
