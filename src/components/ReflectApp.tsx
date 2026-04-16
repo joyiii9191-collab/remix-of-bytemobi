@@ -5,6 +5,7 @@ import IntegrationsGrid from "./IntegrationsGrid";
 import BentoBusinessCards from "./BentoBusinessCards";
 import Aurora from "./Aurora";
 import ColorBends from "./ColorBends";
+import LaserFlow from "./LaserFlow";
 import "./LiquidGlassCard.css";
 import imgQCb311D1CPng from "@/assets/ca87b13c3dba5b82f5b55f7a1fbe96037f74413d.png";
 import imgQC3D7BecfWebm from "@/assets/8f7f3e78fa25f538b70e2685192395598c425a33.png";
@@ -1245,16 +1246,38 @@ function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string
 
 function Section1() {
   return (
-    <div className="relative w-full h-full flex items-center justify-center px-16 pt-[80px]" data-name="Section">
+    <div className="relative w-full h-full flex items-center justify-center px-16 pt-[100px]" data-name="Section">
 
-      {/* Main Figma-style glass container */}
+      {/* Main Figma-style glass container with LaserFlow */}
       <div className="w-full max-w-[1100px] relative z-[1]">
         {/* Background glow */}
         <div className="absolute inset-[-60px] blur-[10px] pointer-events-none" style={{
           background: 'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(255,117,117,0.12) 5%, rgba(154,170,255,0.07) 60%, transparent 100%)'
         }} />
+
+        {/* LaserFlow animation above the card */}
+        <div className="relative w-full h-[120px] mb-[-1px] rounded-t-[24px] overflow-hidden">
+          <LaserFlow
+            horizontalBeamOffset={0.1}
+            verticalBeamOffset={0.0}
+            color="#CF9EFF"
+            horizontalSizing={0.5}
+            verticalSizing={2}
+            wispDensity={1}
+            wispSpeed={15}
+            wispIntensity={5}
+            flowSpeed={0.35}
+            flowStrength={0.25}
+            fogIntensity={0.45}
+            fogScale={0.3}
+            fogFallSpeed={0.6}
+            decay={1.1}
+            falloffStart={1.2}
+          />
+        </div>
+
         {/* Glass shell */}
-        <div className="relative rounded-[24px] w-full">
+        <div className="relative rounded-b-[24px] w-full">
           {/* Background fill */}
           <div className="absolute bg-[rgba(255,255,255,0.01)] inset-0 pointer-events-none rounded-[24px]" />
           {/* Content */}
