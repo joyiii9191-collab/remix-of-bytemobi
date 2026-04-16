@@ -2765,7 +2765,10 @@ function Section7Values() {
                 style={{
                   width: '590px', height: '658px',
                   left: '50%', top: '50%',
-                  transform: `translate(calc(-52% * 590px / 100), calc(-42% * 658px / 100))`,
+                  transform: 'translate(calc(-1 * 52% / 100 * 590), calc(-1 * 42% / 100 * 658))',
+                  objectFit: 'cover',
+                }}
+              />
                   objectFit: 'cover',
                   filter: 'blur(0px)',
                 }}
