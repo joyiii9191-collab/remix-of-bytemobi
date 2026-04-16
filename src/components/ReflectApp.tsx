@@ -2769,10 +2769,6 @@ function Section7Values() {
                   objectFit: 'cover',
                 }}
               />
-                  objectFit: 'cover',
-                  filter: 'blur(0px)',
-                }}
-              />
             </div>
           </>
         )}
