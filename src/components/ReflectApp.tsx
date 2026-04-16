@@ -2465,7 +2465,7 @@ function Section8TrafficMap() {
       }} />
 
       {/* Header */}
-      <div className="flex flex-col items-center gap-4 z-10">
+      <div className="flex flex-col items-center gap-3 z-10">
         <div
           className="flex items-center px-[16px] py-[5px] rounded-full relative"
           style={{
