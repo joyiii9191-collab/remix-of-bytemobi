@@ -8078,34 +8078,42 @@ function Section9Solution() {
       </div>
 
       {/* Steps Flow - 2 rows x 3 columns */}
-      <div className="grid grid-cols-3 gap-x-[48px] gap-y-[48px] w-full max-w-[1100px] z-10">
+      <div className="grid grid-cols-3 gap-[16px] w-full max-w-[1100px] z-10">
         {steps.map((step) => (
-          <div key={step.title} className="flex flex-col items-center gap-[16px]">
-            {/* Icon circle */}
+          <div
+            key={step.title}
+            className="relative overflow-hidden rounded-[16px] p-[32px] flex flex-col items-start gap-[20px]"
+            style={{
+              background: "rgba(255,255,255,0.04)",
+              border: "1px solid rgba(255,255,255,0.08)",
+            }}
+          >
+            {/* Icon */}
             <div
-              className="w-[56px] h-[56px] rounded-full flex items-center justify-center relative"
+              className="w-[40px] h-[40px] rounded-[10px] flex items-center justify-center"
               style={{
-                background: "linear-gradient(135deg, rgba(120,60,255,0.15) 0%, rgba(60,120,255,0.1) 100%)",
-                border: "1px solid rgba(120,60,255,0.3)",
+                background: "linear-gradient(135deg, rgba(120,60,255,0.18) 0%, rgba(60,120,255,0.12) 100%)",
+                border: "1px solid rgba(120,60,255,0.25)",
               }}
             >
               {(() => {
                 const IconComp = LucideIcons[step.icon as keyof typeof LucideIcons] as React.ComponentType<any>;
-                return IconComp ? <IconComp size={24} style={{ color: "rgba(160,120,255,0.9)" }} /> : null;
+                return IconComp ? <IconComp size={20} style={{ color: "rgba(180,150,255,0.9)" }} /> : null;
               })()}
-              <div
-                className="absolute inset-[-0.5px] rounded-full pointer-events-none"
-                style={{ boxShadow: "inset 0 0 21px rgba(115,80,255,0.25)" }}
-              />
             </div>
 
-            {/* Title + Desc */}
-            <div className="flex flex-col items-center gap-[10px] text-center px-[6px]">
-              <p className="text-[15px] font-semibold leading-[1.4] tracking-wide" style={{ color: "rgba(255,255,255,0.95)" }}>{step.title}</p>
-              <p className="text-[12px] leading-[1.7]" style={{ color: "rgba(255,255,255,0.45)" }}>
-                {step.desc}
-              </p>
-            </div>
+            {/* Divider */}
+            <div className="w-[16px] h-px" style={{ background: "rgba(255,255,255,0.24)" }} />
+
+            {/* Title */}
+            <p className="text-[16px] font-medium leading-[1.4]" style={{ color: "rgba(244,240,255,1)" }}>
+              {step.title}
+            </p>
+
+            {/* Description */}
+            <p className="text-[14px] font-normal leading-[1.6]" style={{ color: "rgba(239,237,253,0.5)" }}>
+              {step.desc}
+            </p>
           </div>
         ))}
       </div>
