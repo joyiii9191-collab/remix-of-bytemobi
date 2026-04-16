@@ -1261,7 +1261,7 @@ function Section1() {
             horizontalBeamOffset={0.1}
             verticalBeamOffset={0.0}
             color="#CF9EFF"
-            horizontalSizing={0.5}
+            horizontalSizing={1.2}
             verticalSizing={2}
             wispDensity={1}
             wispSpeed={15}
@@ -1277,12 +1277,12 @@ function Section1() {
         </div>
 
         {/* Glass shell */}
-        <div className="relative rounded-[24px] w-full" style={{ border: '1px solid rgba(168,130,255,0.3)' }}>
+        <div className="relative rounded-[24px] w-full" style={{ border: '1px solid rgba(168,130,255,0.35)', boxShadow: '0 0 40px rgba(168,130,255,0.15), 0 0 80px rgba(168,130,255,0.08), inset 0 0 30px rgba(168,130,255,0.05)' }}>
           {/* Background fill */}
           <div className="absolute inset-0 pointer-events-none rounded-[24px]" style={{ background: 'rgba(18,15,23,0.85)' }} />
           {/* Top glow where laser meets the card */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] h-[80px] pointer-events-none rounded-t-[24px] z-[1]" style={{
-            background: 'radial-gradient(ellipse 100% 100% at 50% 0%, rgba(207,158,255,0.25) 0%, rgba(207,158,255,0.08) 40%, transparent 70%)'
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[100px] pointer-events-none rounded-t-[24px] z-[1]" style={{
+            background: 'radial-gradient(ellipse 100% 100% at 50% 0%, rgba(207,158,255,0.35) 0%, rgba(207,158,255,0.15) 40%, transparent 70%)'
           }} />
           {/* Content */}
           <div className="overflow-clip rounded-[inherit] size-full relative z-[1]">
