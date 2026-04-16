@@ -8133,7 +8133,17 @@ function Section9Solution() {
 
 
 function Section10Contact() {
-  const [form, setForm] = useState({ name: "", email: "", company: "", message: "" });
+  const [form, setForm] = useState({
+    partnerType: "",
+    company: "",
+    name: "",
+    email: "",
+    contactMethod: "Teams",
+    contactValue: "",
+    contactOther: "",
+    trafficSource: "",
+    message: "",
+  });
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e: any) => {
@@ -8144,6 +8154,17 @@ function Section10Contact() {
     e.preventDefault();
     setSubmitted(true);
   };
+
+  const inputStyle = {
+    background: "rgba(255,255,255,0.04)",
+    border: "1px solid rgba(255,255,255,0.08)",
+  };
+
+  const inputClass = "w-full px-[16px] py-[12px] rounded-[12px] text-[14px] text-white placeholder:text-white/30 outline-none";
+  const selectClass = "w-full px-[16px] py-[12px] rounded-[12px] text-[14px] text-white outline-none appearance-none cursor-pointer";
+  const labelClass = "text-[13px] font-medium mb-[6px] block";
+
+  const showTrafficSource = form.partnerType === "发行商";
 
   return (
     <div className="relative w-full h-full flex items-center justify-center px-[80px]">
@@ -8163,39 +8184,34 @@ function Section10Contact() {
               </span>
               <div
                 className="absolute inset-[-0.5px] rounded-full pointer-events-none"
-                style={{ boxShadow: "inset 0 0 21px rgba(115,80,255,0.2)" }}
+                style={{
+                  background: "linear-gradient(180deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 100%)",
+                  mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                  maskComposite: "xor",
+                  WebkitMaskComposite: "xor",
+                  padding: "1px",
+                }}
               />
             </div>
-            <h2
-              className="text-[48px] font-medium leading-[1.1] tracking-[-2px]"
-              style={{
-                background: "linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0.45) 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
+            <h2 className="text-[36px] font-semibold text-white leading-[1.15] tracking-[-0.72px]">
               联系我们
             </h2>
-            <p className="text-[16px] leading-[1.6] max-w-[400px]" style={{ color: "rgba(255,255,255,0.5)" }}>
-              无论您有任何出海推广需求，欢迎随时与我们取得联系，专业团队将为您提供定制化解决方案。
+            <p className="text-[15px] leading-[1.7]" style={{ color: "rgba(255,255,255,0.5)" }}>
+              无论您是广告主、发行商还是媒介，我们都能为您提供专业的出海推广方案。填写表单，我们的团队将尽快与您取得联系。
             </p>
           </div>
 
-          <div className="flex flex-col gap-[20px]">
+          <div className="flex flex-col gap-[16px]">
             {[
-              { label: "邮箱", value: "contact@example.com" },
-              { label: "电话", value: "+86 400-XXX-XXXX" },
-              { label: "地址", value: "北京市朝阳区XXX大厦" },
-            ].map((item) => (
-              <div key={item.label} className="flex items-center gap-[12px]">
+              { icon: "📧", label: "邮箱", value: "contact@reflect.com" },
+              { icon: "📍", label: "地址", value: "深圳市南山区科技园" },
+            ].map((item, i) => (
+              <div key={i} className="flex items-center gap-[12px]">
                 <div
-                  className="w-[40px] h-[40px] rounded-full flex items-center justify-center"
-                  style={{
-                    background: "rgba(120,60,255,0.1)",
-                    border: "1px solid rgba(120,60,255,0.2)",
-                  }}
+                  className="w-[40px] h-[40px] rounded-[10px] flex items-center justify-center text-[18px]"
+                  style={{ background: "rgba(120,60,255,0.1)", border: "1px solid rgba(120,60,255,0.2)" }}
                 >
-                  <div className="w-[6px] h-[6px] rounded-full" style={{ background: "rgba(160,120,255,0.8)" }} />
+                  {item.icon}
                 </div>
                 <div className="flex flex-col">
                   <span className="text-[12px]" style={{ color: "rgba(255,255,255,0.4)" }}>{item.label}</span>
@@ -8229,61 +8245,101 @@ function Section10Contact() {
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col gap-[20px]">
-              <div className="flex gap-[16px]">
-                <input
-                  name="name"
-                  value={form.name}
+            <form onSubmit={handleSubmit} className="flex flex-col gap-[16px]">
+              {/* 合作方 */}
+              <div>
+                <label className={labelClass} style={{ color: "rgba(255,255,255,0.6)" }}>合作方 *</label>
+                <div className="flex gap-[8px] flex-wrap">
+                  {["广告主", "发行商", "媒介", "其他"].map((type) => (
+                    <button
+                      key={type}
+                      type="button"
+                      onClick={() => setForm((prev: any) => ({ ...prev, partnerType: type }))}
+                      className="px-[16px] py-[8px] rounded-full text-[13px] transition-all cursor-pointer"
+                      style={{
+                        background: form.partnerType === type ? "rgba(120,60,255,0.3)" : "rgba(255,255,255,0.04)",
+                        border: form.partnerType === type ? "1px solid rgba(120,60,255,0.5)" : "1px solid rgba(255,255,255,0.08)",
+                        color: form.partnerType === type ? "white" : "rgba(255,255,255,0.5)",
+                      }}
+                    >
+                      {type}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* 公司名称 */}
+              <div>
+                <label className={labelClass} style={{ color: "rgba(255,255,255,0.6)" }}>公司名称</label>
+                <input name="company" value={form.company} onChange={handleChange} placeholder="请输入公司名称" className={inputClass} style={inputStyle} />
+              </div>
+
+              {/* 姓名 + 邮箱 */}
+              <div className="flex gap-[12px]">
+                <div className="flex-1">
+                  <label className={labelClass} style={{ color: "rgba(255,255,255,0.6)" }}>姓名 *</label>
+                  <input name="name" value={form.name} onChange={handleChange} placeholder="请输入姓名" required className={inputClass} style={inputStyle} />
+                </div>
+                <div className="flex-1">
+                  <label className={labelClass} style={{ color: "rgba(255,255,255,0.6)" }}>邮箱 *</label>
+                  <input name="email" type="email" value={form.email} onChange={handleChange} placeholder="请输入邮箱" required className={inputClass} style={inputStyle} />
+                </div>
+              </div>
+
+              {/* 联系方式 */}
+              <div>
+                <label className={labelClass} style={{ color: "rgba(255,255,255,0.6)" }}>联系方式</label>
+                <div className="flex gap-[12px]">
+                  <select
+                    name="contactMethod"
+                    value={form.contactMethod}
+                    onChange={handleChange}
+                    className={selectClass}
+                    style={{ ...inputStyle, width: "140px", flex: "0 0 140px", backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`, backgroundRepeat: "no-repeat", backgroundPosition: "right 12px center" }}
+                  >
+                    <option value="Teams" style={{ background: "#1a1a2e" }}>Teams</option>
+                    <option value="Telegram" style={{ background: "#1a1a2e" }}>Telegram</option>
+                    <option value="WeChat" style={{ background: "#1a1a2e" }}>WeChat</option>
+                    <option value="Others" style={{ background: "#1a1a2e" }}>Others</option>
+                  </select>
+                  <input
+                    name={form.contactMethod === "Others" ? "contactOther" : "contactValue"}
+                    value={form.contactMethod === "Others" ? form.contactOther : form.contactValue}
+                    onChange={handleChange}
+                    placeholder={form.contactMethod === "Others" ? "请填写联系方式" : `请输入${form.contactMethod}账号`}
+                    className={inputClass}
+                    style={{ ...inputStyle, flex: 1 }}
+                  />
+                </div>
+              </div>
+
+              {/* 流量来源 - 仅发行商显示 */}
+              {showTrafficSource && (
+                <div>
+                  <label className={labelClass} style={{ color: "rgba(255,255,255,0.6)" }}>流量来源 <span style={{ color: "rgba(255,255,255,0.3)" }}>（可选）</span></label>
+                  <input name="trafficSource" value={form.trafficSource} onChange={handleChange} placeholder="请描述主要流量来源" className={inputClass} style={inputStyle} />
+                </div>
+              )}
+
+              {/* 主要需求描述 */}
+              <div>
+                <label className={labelClass} style={{ color: "rgba(255,255,255,0.6)" }}>主要需求描述 *</label>
+                <textarea
+                  name="message"
+                  value={form.message}
                   onChange={handleChange}
-                  placeholder="姓名"
+                  placeholder="请简要描述您的需求..."
                   required
-                  className="flex-1 px-[16px] py-[12px] rounded-[12px] text-[14px] text-white placeholder:text-white/30 outline-none"
-                  style={{
-                    background: "rgba(255,255,255,0.04)",
-                    border: "1px solid rgba(255,255,255,0.08)",
-                  }}
-                />
-                <input
-                  name="email"
-                  type="email"
-                  value={form.email}
-                  onChange={handleChange}
-                  placeholder="邮箱"
-                  required
-                  className="flex-1 px-[16px] py-[12px] rounded-[12px] text-[14px] text-white placeholder:text-white/30 outline-none"
-                  style={{
-                    background: "rgba(255,255,255,0.04)",
-                    border: "1px solid rgba(255,255,255,0.08)",
-                  }}
+                  rows={3}
+                  className={`${inputClass} resize-none`}
+                  style={inputStyle}
                 />
               </div>
-              <input
-                name="company"
-                value={form.company}
-                onChange={handleChange}
-                placeholder="公司名称"
-                className="w-full px-[16px] py-[12px] rounded-[12px] text-[14px] text-white placeholder:text-white/30 outline-none"
-                style={{
-                  background: "rgba(255,255,255,0.04)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                }}
-              />
-              <textarea
-                name="message"
-                value={form.message}
-                onChange={handleChange}
-                placeholder="请描述您的需求..."
-                required
-                rows={4}
-                className="w-full px-[16px] py-[12px] rounded-[12px] text-[14px] text-white placeholder:text-white/30 outline-none resize-none"
-                style={{
-                  background: "rgba(255,255,255,0.04)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                }}
-              />
+
+              {/* 提交按钮 */}
               <button
                 type="submit"
-                className="w-full py-[14px] rounded-full text-[15px] font-medium text-white cursor-pointer transition-all hover:opacity-90"
+                className="w-full py-[14px] rounded-full text-[15px] font-medium text-white cursor-pointer transition-all hover:opacity-90 mt-[4px]"
                 style={{
                   background: "linear-gradient(135deg, rgba(120,60,255,0.8) 0%, rgba(80,40,200,0.9) 100%)",
                   boxShadow: "0 0 30px rgba(120,60,255,0.3)",
