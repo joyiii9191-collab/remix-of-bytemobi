@@ -2604,11 +2604,11 @@ function AttributionItem({ item, isActive, onClick }: {
             color: isActive ? 'rgba(167,139,250,0.5)' : 'rgba(255,255,255,0.5)',
           }}>({item.titleFull})</span>
         </p>
-        <p className="text-[15px] text-[#818089] leading-[1.6] tracking-[-0.24px]">{item.description}</p>
         <div
           className="transition-all duration-500 overflow-hidden"
-          style={{ maxHeight: isActive ? '40px' : '0px', opacity: isActive ? 1 : 0 }}
+          style={{ maxHeight: isActive ? '80px' : '0px', opacity: isActive ? 1 : 0 }}
         >
+          <p className="text-[15px] text-[#818089] leading-[1.6] tracking-[-0.24px]">{item.description}</p>
           <p className="text-[14px] text-[rgba(239,237,253,0.5)] leading-[1.6] mt-1">
             <span className="text-[rgba(239,237,253,0.4)] mr-1">适用场景：</span>{item.scenes}
           </p>
