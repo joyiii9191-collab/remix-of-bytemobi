@@ -32,6 +32,7 @@ import logoMtg from "@/assets/logo-mtg.png";
 import logoPubmatic from "@/assets/logo-pubmatic.png";
 import logoAppsflyer from "@/assets/logo-appsflyer.png";
 import logoAdjust from "@/assets/logo-adjust.png";
+import adjustLogo from "@/assets/adjust-logo.png";
 import logoFirebase from "@/assets/logo-firebase.png";
 import logoTenjin from "@/assets/logo-tenjin.png";
 import logoAppstore from "@/assets/logo-appstore.png";
