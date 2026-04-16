@@ -79,7 +79,7 @@ export default function LightRays({
     if (followMouse) window.addEventListener('mousemove', handleMouseMove);
 
     const color = hexToRgb(raysColor);
-    const rayCount = 12;
+    const rayCount = 24;
     let time = 0;
 
     const draw = () => {
@@ -96,27 +96,36 @@ export default function LightRays({
         const noise = noiseAmount > 0 ? Math.sin(time * 3 + i * 1.3) * noiseAmount * 20 : 0;
         const len = (canvas.height * 0.6 * rayLength) + noise;
         const pulse = pulsating ? 0.5 + Math.sin(time * 3 + i * 0.5) * 0.5 : 1;
-        const alpha = (0.03 + Math.sin(time + i * 0.8) * 0.015) * pulse * saturation;
+        const alpha = (0.12 + Math.sin(time + i * 0.8) * 0.04) * pulse * saturation;
 
         const endX = ox + Math.cos(angle) * len;
         const endY = oy + Math.sin(angle) * len;
 
-        const gradient = ctx.createLinearGradient(ox, oy, endX, endY);
-        gradient.addColorStop(0, `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha * 1.5})`);
-        gradient.addColorStop(0.3, `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha})`);
-        gradient.addColorStop(1 / fadeDistance, `rgba(${color.r}, ${color.g}, ${color.b}, 0)`);
+        const gradient = ctx.createRadialGradient(ox, oy, 0, ox, oy, len);
+        gradient.addColorStop(0, `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha * 2})`);
+        gradient.addColorStop(0.2, `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha * 1.2})`);
+        gradient.addColorStop(0.5, `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha * 0.5})`);
+        gradient.addColorStop(1, `rgba(${color.r}, ${color.g}, ${color.b}, 0)`);
 
         ctx.save();
         ctx.globalCompositeOperation = 'lighter';
         ctx.beginPath();
         ctx.moveTo(ox, oy);
 
-        const spread = 30 + i * 5;
-        ctx.lineTo(endX - spread, endY);
+        const spread = 80 + i * 12;
+        const midX = (ox + endX) / 2;
+        const midY = (oy + endY) / 2;
+        const perpX = -(endY - oy) / len * spread * 0.6;
+        const perpY = (endX - ox) / len * spread * 0.6;
+        
+        ctx.quadraticCurveTo(midX + perpX, midY + perpY, endX - spread, endY);
         ctx.lineTo(endX + spread, endY);
+        ctx.quadraticCurveTo(midX - perpX, midY - perpY, ox, oy);
         ctx.closePath();
         ctx.fillStyle = gradient;
+        ctx.filter = 'blur(8px)';
         ctx.fill();
+        ctx.filter = 'none';
         ctx.restore();
       }
 
