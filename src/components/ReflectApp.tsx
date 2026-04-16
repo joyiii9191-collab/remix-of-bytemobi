@@ -2760,30 +2760,17 @@ function Section7Values() {
               animation: 'focusRingPulse 1.5s ease-out infinite',
               zIndex: 3,
             }} />
-            {/* Expanding reveal box */}
-            <div className="absolute" style={{
+            {/* Expanding reveal box frame */}
+            <div className="absolute pointer-events-none" style={{
               left: '52%', top: '42%',
               transform: 'translate(-50%, -50%)',
               animation: 'revealBoxExpand 1.2s ease-out 0.3s forwards',
               width: '0px', height: '0px',
-               border: '2px solid rgba(255, 255, 255, 0.8)',
-               borderRadius: '8px',
-               boxShadow: '0 0 15px rgba(255, 255, 255, 0.3)',
+              border: '2px solid rgba(255, 255, 255, 0.8)',
+              borderRadius: '8px',
+              boxShadow: '0 0 15px rgba(255, 255, 255, 0.3), inset 0 0 20px rgba(255,255,255,0.05)',
               zIndex: 2,
-              overflow: 'hidden',
-            }}>
-              <img
-                src={ctaPhoneImg}
-                alt=""
-                className="absolute"
-                style={{
-                  width: '590px', height: '658px',
-                  left: '50%', top: '50%',
-                  transform: 'translate(-307px, -276px)',
-                  objectFit: 'cover',
-                }}
-              />
-            </div>
+            }} />
           </>
         )}
         {/* Blur overlay for non-CTA states */}
