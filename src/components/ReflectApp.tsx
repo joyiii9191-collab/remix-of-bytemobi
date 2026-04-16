@@ -2741,12 +2741,12 @@ function Section7Values() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-3">
           {items.map((item, i) => (
             <div key={i}>
               <AttributionItem item={item} isActive={activeIndex === i} onClick={() => setActiveIndex(i)} />
               {i < items.length - 1 && (
-                <div className="mt-5 h-px w-full" style={{
+                <div className="mt-3 h-px w-full" style={{
                   background: 'linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0) 100%)',
                 }} />
               )}
@@ -2755,7 +2755,7 @@ function Section7Values() {
         </div>
 
         {/* Tech support header */}
-        <div className="flex items-baseline gap-4 mt-2">
+        <div className="flex items-baseline gap-4">
           <div className="flex flex-col gap-1">
             <h3 className="text-[20px] font-medium text-white leading-[1.2]">技术支持</h3>
             <p className="text-[13px] text-[rgba(239,237,253,0.5)]">高精度数据对接</p>
@@ -2774,7 +2774,7 @@ function Section7Values() {
         </div>
 
         {/* Three info containers */}
-        <div className="relative h-[72px] mt-3 flex items-center">
+        <div className="relative h-[60px] flex items-center">
           {/* Card 1 */}
           <div className="w-[calc(33.33%-8px)] flex items-center justify-center">
             <img src={adjustLogo} alt="Adjust" className="h-[40px] object-contain brightness-0 invert" />
