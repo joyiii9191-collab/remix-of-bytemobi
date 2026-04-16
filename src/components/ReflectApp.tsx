@@ -1255,8 +1255,8 @@ function Section1() {
           background: 'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(255,117,117,0.12) 5%, rgba(154,170,255,0.07) 60%, transparent 100%)'
         }} />
 
-        {/* LaserFlow animation above the card */}
-        <div className="relative w-full h-[120px] mb-[-1px] rounded-t-[24px] overflow-hidden">
+        {/* LaserFlow animation above the card — seamless connection */}
+        <div className="relative w-full h-[160px] mb-[-40px] z-[2]" style={{ pointerEvents: 'none' }}>
           <LaserFlow
             horizontalBeamOffset={0.1}
             verticalBeamOffset={0.0}
@@ -1277,11 +1277,15 @@ function Section1() {
         </div>
 
         {/* Glass shell */}
-        <div className="relative rounded-b-[24px] w-full">
+        <div className="relative rounded-[24px] w-full" style={{ border: '1px solid rgba(168,130,255,0.3)' }}>
           {/* Background fill */}
-          <div className="absolute bg-[rgba(255,255,255,0.01)] inset-0 pointer-events-none rounded-[24px]" />
+          <div className="absolute inset-0 pointer-events-none rounded-[24px]" style={{ background: 'rgba(18,15,23,0.85)' }} />
+          {/* Top glow where laser meets the card */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] h-[80px] pointer-events-none rounded-t-[24px] z-[1]" style={{
+            background: 'radial-gradient(ellipse 100% 100% at 50% 0%, rgba(207,158,255,0.25) 0%, rgba(207,158,255,0.08) 40%, transparent 70%)'
+          }} />
           {/* Content */}
-          <div className="overflow-clip rounded-[inherit] size-full">
+          <div className="overflow-clip rounded-[inherit] size-full relative z-[1]">
             <div className="flex items-center gap-12 p-10 relative">
               {/* Left side — brand text */}
               <div className="w-[380px] shrink-0 flex flex-col gap-6">
@@ -1339,10 +1343,8 @@ function Section1() {
               </div>
             </div>
           </div>
-          {/* Inner shadow — 9px thick frosted inner border */}
+          {/* Inner shadow */}
           <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_0px_0px_9px_rgba(255,255,255,0.03)]" />
-          {/* Outer border */}
-          <div className="absolute border border-[rgba(255,255,255,0.1)] border-solid inset-0 pointer-events-none rounded-[24px]" />
         </div>
       </div>
     </div>
