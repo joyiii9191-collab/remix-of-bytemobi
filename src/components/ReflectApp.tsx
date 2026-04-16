@@ -2391,11 +2391,11 @@ function Section6LogoWall() {
         <span className="text-[12px] px-3 py-1 rounded-full border border-[rgba(255,255,255,0.15)] text-white/60 tracking-[0.12em] uppercase">Integrations</span>
         <h2 className="text-[48px] leading-[1.15] font-bold tracking-tight text-white text-center">
           <span className="bg-clip-text text-[transparent]" style={{ backgroundImage: 'linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0.7) 100%)' }}>
-            Seamlessly Connected
+            合作伙伴生态资源
           </span>
         </h2>
         <p className="text-[16px] leading-[26px] text-white/40 max-w-[480px] text-center">
-          Integrate with the tools you already use. Our platform connects with 100+ services.
+          丰富流量来源，构建多元化投放渠道，实现广告精准触达
         </p>
       </div>
 
