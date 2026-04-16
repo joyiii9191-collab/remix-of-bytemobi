@@ -2021,81 +2021,64 @@ function Section4Screen() {
         filter: 'blur(60px)',
       }} />
 
-      {/* Left dashboard mockup */}
-      <div className="relative flex-1 max-w-[520px] z-[1]">
-        <div className="relative rounded-[20px] overflow-hidden" style={{
-          background: 'rgba(255,255,255,0.03)',
-          border: '1px solid rgba(255,255,255,0.08)',
-          boxShadow: '0 20px 80px -16px rgba(0,0,0,0.6)',
-        }}>
-          {/* Dashboard header */}
-          <div className="flex items-center gap-3 px-5 py-4 border-b border-[rgba(255,255,255,0.06)]">
-            <div className="size-[32px] rounded-[8px] bg-[#7c3aed] flex items-center justify-center">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4h12v2H2zM2 10h12v2H2z" fill="white"/></svg>
-            </div>
-            <div className="flex-1 flex justify-end">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-[8px]" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)' }}>
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="6" cy="6" r="5" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5"/><path d="M10 10l3 3" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" strokeLinecap="round"/></svg>
-                <span className="text-[12px] text-white/30">Search something...</span>
-              </div>
-            </div>
+      {/* Left logo showcase - liquid glass style */}
+      <div className="relative flex-1 max-w-[520px] z-[1] flex items-center justify-center">
+        {/* Ambient glow behind logo */}
+        <div className="absolute w-[400px] h-[400px] rounded-full" style={{
+          background: 'radial-gradient(circle, rgba(120,180,255,0.15) 0%, rgba(168,85,247,0.1) 40%, transparent 70%)',
+          filter: 'blur(40px)',
+        }} />
+        
+        {/* Liquid glass container */}
+        <div className="relative group">
+          {/* Outer glass ring */}
+          <div className="absolute -inset-8 rounded-full" style={{
+            background: 'conic-gradient(from 180deg, rgba(120,180,255,0.08), rgba(168,130,255,0.12), rgba(236,140,200,0.08), rgba(120,180,255,0.08))',
+            filter: 'blur(20px)',
+            animation: 'logo-orbit 8s linear infinite',
+          }} />
+          
+          {/* Glass reflection surface */}
+          <div className="relative rounded-[32px] p-8" style={{
+            background: 'linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 50%, rgba(255,255,255,0.04) 100%)',
+            border: '1px solid rgba(255,255,255,0.1)',
+            boxShadow: '0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1), inset 0 -1px 0 rgba(255,255,255,0.05)',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+          }}>
+            {/* Top highlight */}
+            <div className="absolute top-0 left-[10%] right-[10%] h-[1px]" style={{
+              background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)',
+            }} />
+            
+            {/* Logo image with float animation */}
+            <img 
+              src={logo3d} 
+              alt="Logo" 
+              className="relative z-[1] w-[320px] h-[320px] object-contain drop-shadow-2xl"
+              style={{
+                animation: 'logo-float 6s ease-in-out infinite',
+                filter: 'drop-shadow(0 20px 40px rgba(120,100,255,0.2))',
+              }}
+            />
+            
+            {/* Bottom reflection */}
+            <div className="absolute bottom-0 left-[5%] right-[5%] h-[40%] rounded-b-[32px] pointer-events-none" style={{
+              background: 'linear-gradient(to top, rgba(168,130,255,0.04) 0%, transparent 100%)',
+            }} />
           </div>
-
-          <div className="flex">
-            {/* Sidebar icons */}
-            <div className="flex flex-col items-center gap-4 px-3 py-5 border-r border-[rgba(255,255,255,0.06)]">
-              {['🔍','⊞','✏','⚙','♡','⊛'].map((icon, i) => (
-                <div key={i} className={`size-[32px] rounded-[8px] flex items-center justify-center text-[14px] ${i === 1 ? 'bg-[#7c3aed] text-white' : 'text-white/30'}`}>
-                  {icon}
-                </div>
-              ))}
-            </div>
-
-            {/* Main content */}
-            <div className="flex-1 p-5 flex flex-col gap-4">
-              {/* Metric cards */}
-              <div className="grid grid-cols-2 gap-3">
-                <div className="rounded-[12px] p-4" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-[12px] text-white/40">Leads Captured</span>
-                    <div className="size-[24px] rounded-[6px] bg-[rgba(124,58,237,0.2)] flex items-center justify-center">
-                      <span className="text-[10px] text-[#a855f7]">📊</span>
-                    </div>
-                  </div>
-                  <span className="text-[28px] font-bold text-white">1,248</span>
-                  <p className="text-[11px] text-green-400 mt-1">↑ +5% compared to last month</p>
-                </div>
-                <div className="rounded-[12px] p-4" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-[12px] text-white/40">Conversion Rate</span>
-                  </div>
-                  <span className="text-[28px] font-bold text-white">27%</span>
-                  <p className="text-[11px] text-green-400 mt-1">↑ +11% compared to last month</p>
-                </div>
-              </div>
-
-              {/* Chart area */}
-              <div className="rounded-[12px] p-4" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
-                <span className="text-[14px] font-medium text-white mb-3 block">Conversion Performance</span>
-                <div className="flex items-end gap-1 h-[100px]">
-                  {[40, 20, 55, 35, 70, 45, 80, 60, 90, 50, 75, 85].map((h, i) => (
-                    <div key={i} className="flex-1 rounded-t-[2px]" style={{
-                      height: `${h}%`,
-                      background: i >= 8 ? 'rgba(124,58,237,0.6)' : 'rgba(255,255,255,0.06)',
-                    }} />
-                  ))}
-                </div>
-                <div className="flex justify-between mt-2">
-                  {['Mon','Tue','Wed','Thu','Fri'].map(d => (
-                    <span key={d} className="text-[10px] text-white/20">{d}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Inner border overlay */}
-          <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_1px_0px_0px_rgba(255,255,255,0.1),inset_0px_0px_0px_1px_rgba(255,255,255,0.04)]" />
+          
+          {/* Floating light orbs */}
+          <div className="absolute -top-4 -right-4 w-3 h-3 rounded-full" style={{
+            background: 'rgba(120,180,255,0.4)',
+            boxShadow: '0 0 20px rgba(120,180,255,0.3)',
+            animation: 'logo-orb1 4s ease-in-out infinite',
+          }} />
+          <div className="absolute -bottom-2 -left-6 w-2 h-2 rounded-full" style={{
+            background: 'rgba(236,140,200,0.4)',
+            boxShadow: '0 0 15px rgba(236,140,200,0.3)',
+            animation: 'logo-orb2 5s ease-in-out infinite',
+          }} />
         </div>
       </div>
 
