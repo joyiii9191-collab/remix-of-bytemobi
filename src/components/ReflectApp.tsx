@@ -2600,19 +2600,19 @@ function AttributionItem({ item, isActive, onClick }: {
         </p>
         <p className="text-[15px] text-[#818089] leading-[1.6] tracking-[-0.24px]">{item.description}</p>
         <div
-          className="overflow-hidden transition-all duration-500"
-          style={{ maxHeight: isActive ? '80px' : '0', opacity: isActive ? 1 : 0 }}
+          className="transition-opacity duration-500"
+          style={{ height: '30px', opacity: isActive ? 1 : 0 }}
         >
           <p className="text-[14px] text-[#a78bfa] leading-[1.6] mt-1">
             <span className="text-white/40 mr-1">适用场景：</span>{item.scenes}
           </p>
         </div>
       </div>
-      {isActive && (
-        <div className="mt-3 h-[2px] w-full rounded-full overflow-hidden bg-white/5">
+      <div className="mt-3 h-[2px] w-full rounded-full overflow-hidden bg-white/5">
+        {isActive && (
           <div className="h-full bg-gradient-to-r from-[#7c3aed] to-[#6366f1] rounded-full" style={{ animation: 'attributionProgress 5s linear forwards' }} />
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }
