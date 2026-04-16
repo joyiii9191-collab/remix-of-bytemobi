@@ -2790,7 +2790,7 @@ function Section7Values() {
           alt="CTA demonstration"
           className="absolute inset-0 w-full h-full object-cover transition-all duration-1000"
           style={{
-            filter: activeIndex === 0 ? 'blur(0px)' : 'blur(8px)',
+            filter: activeIndex === 0 ? 'blur(6px)' : 'blur(12px)',
             opacity: activeIndex === 0 ? 1 : 0,
           }}
         />
@@ -2800,7 +2800,7 @@ function Section7Values() {
           alt="VTA demonstration"
           className="absolute inset-0 w-full h-full transition-all duration-1000"
           style={{
-            filter: activeIndex === 1 ? 'blur(0px)' : 'blur(8px)',
+            filter: activeIndex === 1 ? 'blur(6px)' : 'blur(12px)',
             opacity: activeIndex === 1 ? 1 : 0,
             objectFit: 'cover',
             objectPosition: 'left center',
@@ -2812,22 +2812,23 @@ function Section7Values() {
           alt="CTV demonstration"
           className="absolute inset-0 w-full h-full object-cover transition-all duration-1000"
           style={{
-            filter: activeIndex === 2 ? 'blur(0px)' : 'blur(8px)',
+            filter: activeIndex === 2 ? 'blur(6px)' : 'blur(12px)',
             opacity: activeIndex === 2 ? 1 : 0,
           }}
         />
 
         {/* Focus point + expanding box - CTA: phone screen */}
         {activeIndex === 0 && (
-          <FocusReveal left="52%" top="42%" />
+          <FocusReveal left="52%" top="42%" imageSrc={ctaPhoneImg} />
         )}
         {/* Focus point + expanding box - VTA: laptop/tablet */}
         {activeIndex === 1 && (
-          <FocusReveal left="28%" top="55%" />
+          <FocusReveal left="22%" top="62%" imageSrc={vtaVideoImg} objectPosition="left center" />
         )}
         {/* Focus point + expanding box - CTV: TV screen */}
         {activeIndex === 2 && (
-          <FocusReveal left="48%" top="30%" />
+          <FocusReveal left="48%" top="30%" imageSrc={ctvTvImg} />
+        )}
         )}
       </div>
     </div>
