@@ -1256,7 +1256,7 @@ function Section1() {
         }} />
 
         {/* LaserFlow animation above the card — seamless connection */}
-        <div className="relative w-full h-[260px] mb-[-80px] z-[2] overflow-visible" style={{ pointerEvents: 'none' }}>
+        <div className="relative w-full h-[260px] mb-[-180px] z-[2] overflow-visible" style={{ pointerEvents: 'none' }}>
           <LaserFlow
             horizontalBeamOffset={0.1}
             verticalBeamOffset={0.0}
