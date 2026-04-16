@@ -2451,9 +2451,12 @@ function Section6LogoWall() {
     { label: 'Mtg', image: logoMtg },
   ];
   const row2 = [
-    { label: 'AW' }, { label: 'AZ' }, { label: 'MS' }, { label: 'AP' }, { label: 'NV' },
-    { label: 'TW' }, { label: 'RD' }, { label: 'PT' }, { label: 'DB' }, { label: 'SN' },
-    { label: 'ZM' }, { label: 'HB' }, { label: 'JR' }, { label: 'AT' }, { label: 'CF' },
+    { label: 'PubMatic', image: logoPubmatic },
+    { label: 'AppsFlyer', image: logoAppsflyer },
+    { label: 'Adjust', image: logoAdjust },
+    { label: 'Firebase', image: logoFirebase },
+    { label: 'Tenjin', image: logoTenjin },
+    { label: 'App Store', image: logoAppstore },
   ];
 
   return (
