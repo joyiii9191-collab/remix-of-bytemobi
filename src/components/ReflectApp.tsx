@@ -8102,9 +8102,9 @@ function Section9Solution() {
               </div>
 
               {/* Title + Desc */}
-              <div className="flex flex-col items-center gap-[6px] text-center px-[4px]">
-                <p className="text-[16px] font-medium text-white leading-[1.2]">{step.title}</p>
-                <p className="text-[12px] leading-[1.6]" style={{ color: "rgba(255,255,255,0.45)" }}>
+              <div className="flex flex-col items-center gap-[10px] text-center px-[6px]">
+                <p className="text-[15px] font-semibold leading-[1.4] tracking-wide" style={{ color: "rgba(255,255,255,0.95)" }}>{step.title}</p>
+                <p className="text-[12px] leading-[1.7]" style={{ color: "rgba(255,255,255,0.45)" }}>
                   {step.desc}
                 </p>
               </div>
