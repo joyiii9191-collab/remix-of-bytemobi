@@ -7,6 +7,10 @@ import Aurora from "./Aurora";
 import ColorBends from "./ColorBends";
 import LaserFlow from "./LaserFlow";
 import "./LiquidGlassCard.css";
+import glassGoogle from "@/assets/glass-google.png";
+import glassMeta from "@/assets/glass-meta.png";
+import glassTiktok from "@/assets/glass-tiktok.png";
+import glassGather from "@/assets/glass-gather.png";
 import imgQCb311D1CPng from "@/assets/ca87b13c3dba5b82f5b55f7a1fbe96037f74413d.png";
 import imgQC3D7BecfWebm from "@/assets/8f7f3e78fa25f538b70e2685192395598c425a33.png";
 import imgQ6C12DbaePng from "@/assets/5d3fc7562b3454b57dbfd13b639f4b550f37a55c.png";
@@ -2236,60 +2240,58 @@ function Section5Screen() {
         </div>
       </div>
 
-      {/* Right - Glass Icons showcase */}
-      <div className="relative flex-1 max-w-[520px] z-[1]">
-        <div className="flex items-end gap-5">
+      {/* Right - Glass Logo showcase */}
+      <div className="relative flex-1 max-w-[600px] z-[1]">
+        <div className="flex items-end gap-6">
+          {/* Small logos row */}
           {[
-            { size: 200, iconSize: 80, radius: 40, label: '核心媒体合作伙伴' },
-            { size: 130, iconSize: 52, radius: 28, label: '战略合作媒体' },
-            { size: 90, iconSize: 36, radius: 20, label: '优质流量平台' },
-            { size: 65, iconSize: 26, radius: 15, label: '' },
+            { src: glassGoogle, size: 100, imgSize: 70, radius: 24, label: 'Google' },
+            { src: glassMeta, size: 110, imgSize: 80, radius: 26, label: 'Meta' },
+            { src: glassTiktok, size: 100, imgSize: 70, radius: 24, label: 'TikTok' },
           ].map((card, i) => (
             <div key={i} className="flex-shrink-0 group cursor-pointer" style={{ width: card.size, height: card.size }}>
-              <div className="relative w-full h-full flex flex-col items-center justify-center gap-2 transition-transform duration-300 group-hover:scale-105" style={{ borderRadius: card.radius }}>
-                {/* Glass background */}
+              <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 group-hover:scale-105" style={{ borderRadius: card.radius }}>
                 <div className="absolute inset-0" style={{
                   borderRadius: card.radius,
-                  background: 'linear-gradient(135deg, hsla(0,0%,100%,0.12) 0%, hsla(0,0%,100%,0.04) 50%, hsla(0,0%,100%,0.06) 100%)',
+                  background: 'linear-gradient(135deg, hsla(0,0%,100%,0.1) 0%, hsla(0,0%,100%,0.03) 50%, hsla(0,0%,100%,0.05) 100%)',
                   backdropFilter: 'blur(40px) saturate(1.4)',
                   WebkitBackdropFilter: 'blur(40px) saturate(1.4)',
-                  boxShadow: '0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 hsla(0,0%,100%,0.15), inset 0 -1px 0 hsla(0,0%,100%,0.05)',
-                  border: '1px solid hsla(0,0%,100%,0.12)',
+                  boxShadow: '0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 hsla(0,0%,100%,0.12), inset 0 -1px 0 hsla(0,0%,100%,0.04)',
+                  border: '1px solid hsla(0,0%,100%,0.1)',
                 }} />
-                {/* Top highlight */}
                 <div className="absolute pointer-events-none" style={{
                   top: 0, left: '15%', right: '15%', height: 1,
-                  borderRadius: `${card.radius}px ${card.radius}px 0 0`,
-                  background: 'linear-gradient(90deg, transparent, hsla(0,0%,100%,0.2) 50%, transparent)',
+                  background: 'linear-gradient(90deg, transparent, hsla(0,0%,100%,0.18) 50%, transparent)',
                 }} />
-                {/* Inner glass icon */}
-                <div className="relative z-[1] flex items-center justify-center transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(168,130,255,0.2)]" style={{
-                  width: card.iconSize,
-                  height: card.iconSize,
-                  borderRadius: card.iconSize * 0.25,
-                  background: 'linear-gradient(135deg, hsla(0,0%,100%,0.1) 0%, hsla(0,0%,100%,0.03) 100%)',
-                  backdropFilter: 'blur(20px)',
-                  WebkitBackdropFilter: 'blur(20px)',
-                  border: '1px solid hsla(0,0%,100%,0.1)',
-                  boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.12), 0 4px 12px rgba(0,0,0,0.2)',
-                }}>
-                  <div style={{
-                    width: card.iconSize * 0.45,
-                    height: card.iconSize * 0.45,
-                    borderRadius: card.iconSize * 0.12,
-                    background: 'linear-gradient(135deg, rgba(168,130,255,0.35), rgba(124,58,237,0.18))',
-                    boxShadow: '0 0 12px rgba(168,130,255,0.15)',
-                  }} />
-                </div>
-                {card.label && (
-                  <span className="relative z-[1] font-medium text-center leading-tight" style={{
-                    fontSize: i === 0 ? 11 : i === 1 ? 10 : 9,
-                    color: 'hsla(0,0%,100%,0.4)',
-                  }}>{card.label}</span>
-                )}
+                <img src={card.src} alt={card.label} className="relative z-[1] object-contain" style={{
+                  width: card.imgSize, height: card.imgSize,
+                  filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.3))',
+                }} />
               </div>
             </div>
           ))}
+
+          {/* Featured logo - Gather */}
+          <div className="flex-shrink-0 group cursor-pointer" style={{ width: 200, height: 220 }}>
+            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 group-hover:scale-105" style={{ borderRadius: 36 }}>
+              <div className="absolute inset-0" style={{
+                borderRadius: 36,
+                background: 'linear-gradient(135deg, hsla(0,0%,100%,0.12) 0%, hsla(0,0%,100%,0.04) 50%, hsla(0,0%,100%,0.07) 100%)',
+                backdropFilter: 'blur(50px) saturate(1.5)',
+                WebkitBackdropFilter: 'blur(50px) saturate(1.5)',
+                boxShadow: '0 12px 48px rgba(0,0,0,0.4), inset 0 1px 0 hsla(0,0%,100%,0.16), inset 0 -1px 0 hsla(0,0%,100%,0.05), 0 0 40px rgba(168,130,255,0.08)',
+                border: '1px solid hsla(0,0%,100%,0.14)',
+              }} />
+              <div className="absolute pointer-events-none" style={{
+                top: 0, left: '10%', right: '10%', height: 1,
+                background: 'linear-gradient(90deg, transparent, hsla(0,0%,100%,0.22) 50%, transparent)',
+              }} />
+              <img src={glassGather} alt="Gather" className="relative z-[1] object-contain" style={{
+                width: 140, height: 160,
+                filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.4))',
+              }} />
+            </div>
+          </div>
         </div>
       </div>
     </div>
