@@ -1958,7 +1958,7 @@ function Section2() {
   return (
     <div className="relative w-full h-full flex flex-col items-center justify-center px-16" data-name="Section" style={{ backgroundImage: `url(${coreBusinessBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       {/* Dark overlay for text readability */}
-      <div className="absolute inset-0" style={{ background: 'rgba(255, 255, 255, 0.55)' }} />
+      <div className="absolute inset-0" style={{ background: 'rgba(0, 0, 0, 0.15)' }} />
       {/* Header */}
       <div className="relative z-10 flex flex-col items-center gap-4 mb-10">
         <div className="flex items-center px-[16px] py-[5px] rounded-full relative" style={{ border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.05)" }}>
