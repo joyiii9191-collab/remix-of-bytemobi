@@ -2677,9 +2677,9 @@ function Section7Values() {
     },
   ];
 
-  const [activeIndex, setActiveIndex] = React.useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % items.length);
     }, 5000);
