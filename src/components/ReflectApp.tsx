@@ -2138,10 +2138,6 @@ function Section4Screen() {
 
       {/* Right content */}
       <div className="flex flex-col gap-6 max-w-[480px] shrink-0 z-[1]">
-        {/* Tag */}
-        <div className="flex items-center gap-2 self-start">
-          <span className="text-[12px] px-3 py-1 rounded-full border border-[rgba(255,255,255,0.15)] text-white/60">自有流量</span>
-        </div>
 
         {/* Heading */}
         <h2 className="text-[42px] leading-[1.1] font-bold tracking-tight text-white">
