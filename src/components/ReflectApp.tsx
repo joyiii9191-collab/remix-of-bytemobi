@@ -2759,8 +2759,8 @@ function Section7Values() {
         {/* Three info containers */}
         <div className="relative h-[196px] mt-2">
           {/* Card 1 */}
-          <div className="absolute inset-[0_auto_0_0] w-[calc(33.33%-8px)] overflow-clip">
-            <div className="absolute bg-[rgba(255,255,255,0.24)] h-[16px] left-0 top-[72px] w-px" />
+          <div className="absolute inset-[0_auto_0_0] w-[calc(33.33%-8px)] overflow-clip flex items-center justify-center">
+            <img src={adjustLogo} alt="Adjust" className="h-[40px] object-contain brightness-0 invert" />
           </div>
           {/* Card 2 */}
           <div className="absolute inset-[0_auto_0_calc(33.33%+4px)] w-[calc(33.33%-8px)] overflow-clip">
