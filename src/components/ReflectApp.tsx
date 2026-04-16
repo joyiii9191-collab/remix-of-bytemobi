@@ -2681,12 +2681,12 @@ function RevealCard({ imageSrc, left, top, isActive, objectPosition }: {
   // Small initial box: 60x80 in 590x658
   const smallHalfW = (30 / 590) * 100;
   const smallHalfH = (40 / 658) * 100;
-  // Large expanded box: 280x360 in 590x658
-  const bigHalfW = (140 / 590) * 100;
-  const bigHalfH = (180 / 658) * 100;
+  // Large expanded box: 240x300 in 590x658
+  const bigHalfW = (120 / 590) * 100;
+  const bigHalfH = (150 / 658) * 100;
 
-  const smallClip = `inset(${tNum - smallHalfH}% ${100 - lNum - smallHalfW}% ${100 - tNum - smallHalfH}% ${lNum - smallHalfW}% round 6px)`;
-  const bigClip = `inset(${tNum - bigHalfH}% ${100 - lNum - bigHalfW}% ${100 - tNum - bigHalfH}% ${lNum - bigHalfW}% round 8px)`;
+  const smallClip = `inset(${Math.max(0, tNum - smallHalfH)}% ${Math.max(0, 100 - lNum - smallHalfW)}% ${Math.max(0, 100 - tNum - smallHalfH)}% ${Math.max(0, lNum - smallHalfW)}% round 6px)`;
+  const bigClip = `inset(${Math.max(0, tNum - bigHalfH)}% ${Math.max(0, 100 - lNum - bigHalfW)}% ${Math.max(0, 100 - tNum - bigHalfH)}% ${Math.max(0, lNum - bigHalfW)}% round 8px)`;
 
   return (
     <>
@@ -2719,8 +2719,8 @@ function RevealCard({ imageSrc, left, top, isActive, objectPosition }: {
       <div className="absolute pointer-events-none" style={{
         left, top,
         transform: 'translate(-50%, -50%)',
-        width: isActive ? '280px' : '60px',
-        height: isActive ? '360px' : '80px',
+        width: isActive ? '240px' : '60px',
+        height: isActive ? '300px' : '80px',
         border: '2px solid rgba(255, 255, 255, 0.8)',
         borderRadius: isActive ? '8px' : '6px',
         boxShadow: '0 0 15px rgba(255, 255, 255, 0.3)',
@@ -2822,7 +2822,7 @@ function Section7Values() {
         </div>
         {/* VTA */}
         <div className="absolute inset-0 transition-opacity duration-1000" style={{ opacity: activeIndex === 1 ? 1 : 0 }}>
-          <RevealCard imageSrc={vtaVideoImg} left="22%" top="62%" isActive={activeIndex === 1} objectPosition="left center" />
+          <RevealCard imageSrc={vtaVideoImg} left="30%" top="55%" isActive={activeIndex === 1} objectPosition="left center" />
         </div>
         {/* CTV */}
         <div className="absolute inset-0 transition-opacity duration-1000" style={{ opacity: activeIndex === 2 ? 1 : 0 }}>
