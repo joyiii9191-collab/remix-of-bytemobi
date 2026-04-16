@@ -2306,7 +2306,7 @@ function LogoCard({ label, index = 0 }: { label: string; index?: number }) {
     <div className="relative shrink-0 size-[72px] rounded-[16px] overflow-visible">
       <span className="absolute inset-0 rounded-[16px] z-0" style={{
         padding: '1px',
-        background: 'conic-gradient(from var(--ray-angle, 0deg), transparent 0%, transparent 25%, rgba(168,130,255,0.5) 30%, rgba(124,58,237,0.7) 35%, rgba(168,130,255,0.5) 40%, transparent 45%, transparent 100%)',
+        background: 'conic-gradient(from var(--ray-angle, 0deg), transparent 0%, transparent 25%, rgba(255,255,255,0.4) 30%, rgba(255,255,255,0.7) 35%, rgba(255,255,255,0.4) 40%, transparent 45%, transparent 100%)',
         WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
         mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
         WebkitMaskComposite: 'xor',
