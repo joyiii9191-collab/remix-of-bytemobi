@@ -8069,18 +8069,19 @@ function Section9Solution() {
         {steps.map((step, i) => (
           <div key={step.num} className="flex items-start flex-1">
             {/* Step Card */}
-            <div className="flex flex-col items-center gap-[20px] flex-1">
-              {/* Number circle */}
+            <div className="flex flex-col items-center gap-[16px] flex-1">
+              {/* Icon circle */}
               <div
-                className="w-[64px] h-[64px] rounded-full flex items-center justify-center relative"
+                className="w-[56px] h-[56px] rounded-full flex items-center justify-center relative"
                 style={{
                   background: "linear-gradient(135deg, rgba(120,60,255,0.15) 0%, rgba(60,120,255,0.1) 100%)",
                   border: "1px solid rgba(120,60,255,0.3)",
                 }}
               >
-                <span className="text-[20px] font-semibold" style={{ color: "rgba(160,120,255,0.9)" }}>
-                  {step.num}
-                </span>
+                {(() => {
+                  const IconComp = LucideIcons[step.icon as keyof typeof LucideIcons] as React.ComponentType<any>;
+                  return IconComp ? <IconComp size={24} style={{ color: "rgba(160,120,255,0.9)" }} /> : null;
+                })()}
                 <div
                   className="absolute inset-[-0.5px] rounded-full pointer-events-none"
                   style={{ boxShadow: "inset 0 0 21px rgba(115,80,255,0.25)" }}
@@ -8088,9 +8089,9 @@ function Section9Solution() {
               </div>
 
               {/* Title + Desc */}
-              <div className="flex flex-col items-center gap-[8px] text-center px-[8px]">
-                <p className="text-[20px] font-medium text-white leading-[1.2]">{step.title}</p>
-                <p className="text-[13px] leading-[1.6]" style={{ color: "rgba(255,255,255,0.45)" }}>
+              <div className="flex flex-col items-center gap-[6px] text-center px-[4px]">
+                <p className="text-[16px] font-medium text-white leading-[1.2]">{step.title}</p>
+                <p className="text-[12px] leading-[1.6]" style={{ color: "rgba(255,255,255,0.45)" }}>
                   {step.desc}
                 </p>
               </div>
