@@ -32,6 +32,7 @@ import logoMtg from "@/assets/logo-mtg.png";
 import logoPubmatic from "@/assets/logo-pubmatic.png";
 import logoAppsflyer from "@/assets/logo-appsflyer.png";
 import logoAdjust from "@/assets/logo-adjust.png";
+import adjustLogo from "@/assets/adjust-logo.png";
 import logoFirebase from "@/assets/logo-firebase.png";
 import logoTenjin from "@/assets/logo-tenjin.png";
 import logoAppstore from "@/assets/logo-appstore.png";
@@ -2759,8 +2760,8 @@ function Section7Values() {
         {/* Three info containers */}
         <div className="relative h-[196px] mt-2">
           {/* Card 1 */}
-          <div className="absolute inset-[0_auto_0_0] w-[calc(33.33%-8px)] overflow-clip">
-            <div className="absolute bg-[rgba(255,255,255,0.24)] h-[16px] left-0 top-[72px] w-px" />
+          <div className="absolute inset-[0_auto_0_0] w-[calc(33.33%-8px)] overflow-clip flex items-center justify-center">
+            <img src={adjustLogo} alt="Adjust" className="h-[40px] object-contain brightness-0 invert" />
           </div>
           {/* Card 2 */}
           <div className="absolute inset-[0_auto_0_calc(33.33%+4px)] w-[calc(33.33%-8px)] overflow-clip">
