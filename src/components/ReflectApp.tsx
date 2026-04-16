@@ -2463,6 +2463,12 @@ function Section6LogoWall() {
     { label: 'Firebase', image: logoFirebase },
     { label: 'Tenjin', image: logoTenjin },
     { label: 'App Store', image: logoAppstore },
+    { label: 'Transsion', image: logoTranssion },
+    { label: 'vivo', image: logoVivo },
+    { label: 'Samsung', image: logoSamsung },
+    { label: 'Huawei', image: logoHuawei },
+    { label: 'OPPO', image: logoOppo },
+    { label: 'Xiaomi', image: logoXiaomi },
   ];
 
   return (
