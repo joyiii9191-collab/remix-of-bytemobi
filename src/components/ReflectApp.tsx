@@ -2236,74 +2236,60 @@ function Section5Screen() {
         </div>
       </div>
 
-      {/* Right - Logo showcase */}
+      {/* Right - Glass Icons showcase */}
       <div className="relative flex-1 max-w-[520px] z-[1]">
-        <div className="flex items-end gap-4">
-          {/* Main logo - large */}
-          <div className="liquid-glass liquid-glass--panel relative group flex-shrink-0" style={{ width: '220px', height: '220px', borderRadius: '28px' }}>
-            <div className="flex items-center justify-center w-full h-full">
-              <div className="absolute top-0 left-0 w-[60%] h-[60%] pointer-events-none rounded-[inherit]" style={{
-                background: 'radial-gradient(circle at 0% 0%, rgba(168,130,255,0.25) 0%, rgba(124,58,237,0.08) 40%, transparent 70%)',
-              }} />
-              <div className="w-[100px] h-[100px] rounded-2xl flex items-center justify-center" style={{
-                background: 'rgba(255,255,255,0.04)',
-                border: '1px solid rgba(255,255,255,0.08)',
-                boxShadow: '0 0 30px rgba(124,58,237,0.1)',
-              }}>
-                <div className="w-12 h-12 rounded-xl" style={{ background: 'linear-gradient(135deg, rgba(168,130,255,0.3), rgba(124,58,237,0.15))' }} />
+        <div className="flex items-end gap-5">
+          {[
+            { size: 200, iconSize: 80, radius: 40, label: '核心媒体合作伙伴' },
+            { size: 130, iconSize: 52, radius: 28, label: '战略合作媒体' },
+            { size: 90, iconSize: 36, radius: 20, label: '优质流量平台' },
+            { size: 65, iconSize: 26, radius: 15, label: '' },
+          ].map((card, i) => (
+            <div key={i} className="flex-shrink-0 group cursor-pointer" style={{ width: card.size, height: card.size }}>
+              <div className="relative w-full h-full flex flex-col items-center justify-center gap-2 transition-transform duration-300 group-hover:scale-105" style={{ borderRadius: card.radius }}>
+                {/* Glass background */}
+                <div className="absolute inset-0" style={{
+                  borderRadius: card.radius,
+                  background: 'linear-gradient(135deg, hsla(0,0%,100%,0.12) 0%, hsla(0,0%,100%,0.04) 50%, hsla(0,0%,100%,0.06) 100%)',
+                  backdropFilter: 'blur(40px) saturate(1.4)',
+                  WebkitBackdropFilter: 'blur(40px) saturate(1.4)',
+                  boxShadow: '0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 hsla(0,0%,100%,0.15), inset 0 -1px 0 hsla(0,0%,100%,0.05)',
+                  border: '1px solid hsla(0,0%,100%,0.12)',
+                }} />
+                {/* Top highlight */}
+                <div className="absolute pointer-events-none" style={{
+                  top: 0, left: '15%', right: '15%', height: 1,
+                  borderRadius: `${card.radius}px ${card.radius}px 0 0`,
+                  background: 'linear-gradient(90deg, transparent, hsla(0,0%,100%,0.2) 50%, transparent)',
+                }} />
+                {/* Inner glass icon */}
+                <div className="relative z-[1] flex items-center justify-center transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(168,130,255,0.2)]" style={{
+                  width: card.iconSize,
+                  height: card.iconSize,
+                  borderRadius: card.iconSize * 0.25,
+                  background: 'linear-gradient(135deg, hsla(0,0%,100%,0.1) 0%, hsla(0,0%,100%,0.03) 100%)',
+                  backdropFilter: 'blur(20px)',
+                  WebkitBackdropFilter: 'blur(20px)',
+                  border: '1px solid hsla(0,0%,100%,0.1)',
+                  boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.12), 0 4px 12px rgba(0,0,0,0.2)',
+                }}>
+                  <div style={{
+                    width: card.iconSize * 0.45,
+                    height: card.iconSize * 0.45,
+                    borderRadius: card.iconSize * 0.12,
+                    background: 'linear-gradient(135deg, rgba(168,130,255,0.35), rgba(124,58,237,0.18))',
+                    boxShadow: '0 0 12px rgba(168,130,255,0.15)',
+                  }} />
+                </div>
+                {card.label && (
+                  <span className="relative z-[1] font-medium text-center leading-tight" style={{
+                    fontSize: i === 0 ? 11 : i === 1 ? 10 : 9,
+                    color: 'hsla(0,0%,100%,0.4)',
+                  }}>{card.label}</span>
+                )}
               </div>
             </div>
-            <div className="absolute bottom-3 left-0 right-0 text-center">
-              <span className="text-[11px] font-medium text-white/40">核心媒体合作伙伴</span>
-            </div>
-          </div>
-
-          {/* Secondary - medium */}
-          <div className="liquid-glass liquid-glass--inner liquid-glass--glow relative group flex-shrink-0" style={{ width: '140px', height: '140px', borderRadius: '22px' }}>
-            <div className="flex flex-col items-center justify-center w-full h-full gap-2">
-              <div className="absolute top-0 left-0 w-[70%] h-[70%] pointer-events-none rounded-[inherit]" style={{
-                background: 'radial-gradient(circle at 0% 0%, rgba(168,130,255,0.35) 0%, rgba(124,58,237,0.12) 35%, transparent 65%)',
-              }} />
-              <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{
-                background: 'rgba(255,255,255,0.04)',
-                border: '1px solid rgba(255,255,255,0.08)',
-              }}>
-                <div className="w-5 h-5 rounded-md" style={{ background: 'linear-gradient(135deg, rgba(168,130,255,0.25), rgba(124,58,237,0.12))' }} />
-              </div>
-              <span className="text-[10px] font-medium text-white/35 text-center">战略合作媒体</span>
-            </div>
-          </div>
-
-          {/* Tertiary - small */}
-          <div className="liquid-glass liquid-glass--inner liquid-glass--glow relative group flex-shrink-0" style={{ width: '95px', height: '95px', borderRadius: '18px' }}>
-            <div className="flex flex-col items-center justify-center w-full h-full gap-1.5">
-              <div className="absolute top-0 left-0 w-[70%] h-[70%] pointer-events-none rounded-[inherit]" style={{
-                background: 'radial-gradient(circle at 0% 0%, rgba(168,130,255,0.35) 0%, rgba(124,58,237,0.12) 35%, transparent 65%)',
-              }} />
-              <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{
-                background: 'rgba(255,255,255,0.04)',
-                border: '1px solid rgba(255,255,255,0.08)',
-              }}>
-                <div className="w-3.5 h-3.5 rounded" style={{ background: 'linear-gradient(135deg, rgba(168,130,255,0.25), rgba(124,58,237,0.12))' }} />
-              </div>
-              <span className="text-[9px] font-medium text-white/30 text-center">优质流量平台</span>
-            </div>
-          </div>
-
-          {/* Quaternary - smallest */}
-          <div className="liquid-glass liquid-glass--inner liquid-glass--glow relative group flex-shrink-0" style={{ width: '65px', height: '65px', borderRadius: '14px' }}>
-            <div className="flex flex-col items-center justify-center w-full h-full">
-              <div className="absolute top-0 left-0 w-[70%] h-[70%] pointer-events-none rounded-[inherit]" style={{
-                background: 'radial-gradient(circle at 0% 0%, rgba(168,130,255,0.35) 0%, rgba(124,58,237,0.12) 35%, transparent 65%)',
-              }} />
-              <div className="w-5 h-5 rounded-md flex items-center justify-center" style={{
-                background: 'rgba(255,255,255,0.04)',
-                border: '1px solid rgba(255,255,255,0.08)',
-              }}>
-                <div className="w-2.5 h-2.5 rounded-sm" style={{ background: 'linear-gradient(135deg, rgba(168,130,255,0.25), rgba(124,58,237,0.12))' }} />
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
