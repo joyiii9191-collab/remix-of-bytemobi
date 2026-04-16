@@ -8038,7 +8038,7 @@ function Section9Solution() {
   ];
 
   return (
-    <div className="relative w-full h-full flex flex-col items-center justify-center px-[80px] gap-[56px]">
+    <div className="relative w-full h-full flex flex-col items-center justify-center px-[80px] gap-[32px]">
       {/* Header */}
       <div className="flex flex-col items-center gap-[24px] z-10">
         <div
@@ -8071,52 +8071,119 @@ function Section9Solution() {
         </p>
       </div>
 
-      {/* Steps Flow */}
-      <div className="flex items-start gap-0 w-full max-w-[1100px] z-10">
-        {steps.map((step, i) => (
-          <div key={step.num} className="flex items-start flex-1">
-            {/* Step Card */}
-            <div className="flex flex-col items-center gap-[16px] flex-1">
-              {/* Icon circle */}
-              <div
-                className="w-[56px] h-[56px] rounded-full flex items-center justify-center relative"
-                style={{
-                  background: "linear-gradient(135deg, rgba(120,60,255,0.15) 0%, rgba(60,120,255,0.1) 100%)",
-                  border: "1px solid rgba(120,60,255,0.3)",
-                }}
-              >
-                {(() => {
-                  const IconComp = LucideIcons[step.icon as keyof typeof LucideIcons] as React.ComponentType<any>;
-                  return IconComp ? <IconComp size={24} style={{ color: "rgba(160,120,255,0.9)" }} /> : null;
-                })()}
-                <div
-                  className="absolute inset-[-0.5px] rounded-full pointer-events-none"
-                  style={{ boxShadow: "inset 0 0 21px rgba(115,80,255,0.25)" }}
-                />
-              </div>
+      {/* Circular Process Ring */}
+      <div className="relative w-[520px] h-[520px] z-10">
+        {/* Outer ring */}
+        <div className="absolute inset-0 rounded-full" style={{
+          background: 'conic-gradient(from 0deg, rgba(120,60,255,0.3), rgba(60,180,255,0.3), rgba(255,180,60,0.3), rgba(255,80,120,0.3), rgba(120,60,255,0.3))',
+          mask: 'radial-gradient(circle, transparent 55%, black 56%, black 72%, transparent 73%)',
+          WebkitMask: 'radial-gradient(circle, transparent 55%, black 56%, black 72%, transparent 73%)',
+        }} />
+        {/* Ring segment borders */}
+        <div className="absolute inset-0 rounded-full" style={{
+          background: 'conic-gradient(from 0deg, rgba(255,255,255,0.1) 0deg, transparent 1deg, transparent 59deg, rgba(255,255,255,0.1) 60deg, transparent 61deg, transparent 119deg, rgba(255,255,255,0.1) 120deg, transparent 121deg, transparent 179deg, rgba(255,255,255,0.1) 180deg, transparent 181deg, transparent 239deg, rgba(255,255,255,0.1) 240deg, transparent 241deg, transparent 299deg, rgba(255,255,255,0.1) 300deg, transparent 301deg, transparent 359deg)',
+          mask: 'radial-gradient(circle, transparent 55%, black 56%, black 72%, transparent 73%)',
+          WebkitMask: 'radial-gradient(circle, transparent 55%, black 56%, black 72%, transparent 73%)',
+        }} />
 
-              {/* Title + Desc */}
-              <div className="flex flex-col items-center gap-[6px] text-center px-[4px]">
-                <p className="text-[16px] font-medium text-white leading-[1.2]">{step.title}</p>
-                <p className="text-[12px] leading-[1.6]" style={{ color: "rgba(255,255,255,0.45)" }}>
-                  {step.desc}
-                </p>
-              </div>
-            </div>
-
-            {/* Connector line */}
-            {i < steps.length - 1 && (
-              <div className="flex items-center pt-[30px]">
-                <div
-                  className="w-[40px] h-[1px]"
-                  style={{
-                    background: "linear-gradient(90deg, rgba(120,60,255,0.4) 0%, rgba(60,120,255,0.2) 100%)",
-                  }}
-                />
-              </div>
-            )}
+        {/* Center content */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-[200px] h-[200px] rounded-full flex flex-col items-center justify-center gap-2" style={{
+            background: 'linear-gradient(135deg, rgba(120,60,255,0.15) 0%, rgba(30,30,60,0.6) 100%)',
+            border: '1px solid rgba(120,60,255,0.3)',
+            boxShadow: '0 0 40px rgba(120,60,255,0.15)',
+          }}>
+            <LucideIcons.RefreshCw size={36} style={{ color: 'rgba(160,120,255,0.9)' }} />
+            <span className="text-[14px] font-medium text-white text-center leading-[1.3]">全流程<br/>闭环服务</span>
           </div>
-        ))}
+        </div>
+
+        {/* Step nodes positioned around the ring */}
+        {steps.map((step, i) => {
+          const angle = (i * 60 - 90) * (Math.PI / 180); // Start from top, 60° apart
+          const radius = 260; // Ring center radius
+          const cx = 260 + radius * Math.cos(angle);
+          const cy = 260 + radius * Math.sin(angle);
+          // Label offset: push outward
+          const labelRadius = 340;
+          const lx = 260 + labelRadius * Math.cos(angle);
+          const ly = 260 + labelRadius * Math.sin(angle);
+
+          const IconComp = LucideIcons[step.icon as keyof typeof LucideIcons] as React.ComponentType<any>;
+
+          return (
+            <React.Fragment key={step.title}>
+              {/* Icon node on ring */}
+              <div className="absolute flex items-center justify-center" style={{
+                left: cx - 24,
+                top: cy - 24,
+                width: 48,
+                height: 48,
+              }}>
+                <div className="w-[48px] h-[48px] rounded-full flex items-center justify-center" style={{
+                  background: 'linear-gradient(135deg, rgba(120,60,255,0.25) 0%, rgba(60,120,255,0.15) 100%)',
+                  border: '1px solid rgba(120,60,255,0.4)',
+                  boxShadow: '0 0 20px rgba(120,60,255,0.2)',
+                }}>
+                  {IconComp ? <IconComp size={20} style={{ color: 'rgba(180,150,255,0.95)' }} /> : null}
+                </div>
+              </div>
+            </React.Fragment>
+          );
+        })}
+
+        {/* Labels around the outside */}
+        {steps.map((step, i) => {
+          const angle = (i * 60 - 90) * (Math.PI / 180);
+          const labelRadius = 340;
+          const lx = 260 + labelRadius * Math.cos(angle);
+          const ly = 260 + labelRadius * Math.sin(angle);
+          // Determine text alignment based on position
+          const isLeft = Math.cos(angle) < -0.3;
+          const isRight = Math.cos(angle) > 0.3;
+          const isTop = Math.sin(angle) < -0.3;
+
+          return (
+            <div key={step.title + '-label'} className="absolute flex flex-col" style={{
+              left: lx,
+              top: ly,
+              transform: `translate(${isLeft ? '-100%' : isRight ? '0%' : '-50%'}, ${isTop ? '-100%' : '-50%'})`,
+              maxWidth: 140,
+              textAlign: isLeft ? 'right' : isRight ? 'left' : 'center',
+            }}>
+              <p className="text-[13px] font-medium text-white leading-[1.3] whitespace-nowrap">{step.title}</p>
+              <p className="text-[11px] leading-[1.5] mt-[2px]" style={{ color: 'rgba(255,255,255,0.4)' }}>{step.desc}</p>
+            </div>
+          );
+        })}
+
+        {/* Connector arrows on ring (SVG arcs) */}
+        <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 520 520">
+          {steps.map((_, i) => {
+            const startAngle = (i * 60 - 90 + 12) * (Math.PI / 180);
+            const endAngle = (i * 60 - 90 + 48) * (Math.PI / 180);
+            const r = 186;
+            const x1 = 260 + r * Math.cos(startAngle);
+            const y1 = 260 + r * Math.sin(startAngle);
+            const x2 = 260 + r * Math.cos(endAngle);
+            const y2 = 260 + r * Math.sin(endAngle);
+            // Arrow head
+            const arrowAngle = endAngle + 0.15;
+            const ax = 260 + r * Math.cos(arrowAngle);
+            const ay = 260 + r * Math.sin(arrowAngle);
+
+            return (
+              <path
+                key={i}
+                d={`M ${x1} ${y1} A ${r} ${r} 0 0 1 ${x2} ${y2}`}
+                fill="none"
+                stroke="rgba(160,120,255,0.3)"
+                strokeWidth="1.5"
+                strokeDasharray="4 3"
+              />
+            );
+          })}
+        </svg>
       </div>
 
       {/* Bottom glass card */}
