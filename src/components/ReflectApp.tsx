@@ -2280,9 +2280,9 @@ function Section5Screen() {
       <div className="relative flex-1 max-w-[560px] z-[1] flex items-center justify-center">
         <div className="relative" style={{ width: 380, height: 380 }}>
           {/* TG - Center */}
-          <div className="absolute group cursor-pointer" style={{ left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }}>
-            <img src={new URL('../assets/tg-glass.png', import.meta.url).href} alt="Gather" className="w-[210px] h-[210px] object-contain transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-3 group-hover:drop-shadow-[0_16px_50px_rgba(255,140,50,0.5)]" style={{ filter: 'drop-shadow(0 10px 30px rgba(255,140,50,0.3))', animation: 'floatCenter 4s ease-in-out infinite' }} />
-            <span className="block text-center text-[11px] font-medium text-white/35 mt-2">核心媒体合作伙伴</span>
+          <div className="absolute group cursor-pointer" style={{ left: '50%', top: '50%', transform: 'translate(-50%, -50%)', animation: 'floatCenter 4s ease-in-out infinite' }}>
+            <img src={new URL('../assets/tg-glass.png', import.meta.url).href} alt="Gather" className="w-[210px] h-[210px] object-contain transition-all duration-500 group-hover:scale-125 group-hover:-translate-y-2 group-hover:drop-shadow-[0_16px_50px_rgba(255,140,50,0.5)]" style={{ filter: 'drop-shadow(0 10px 30px rgba(255,140,50,0.3))' }} />
+            <span className="block text-center text-[11px] font-medium text-white/35 mt-2 transition-opacity duration-500 group-hover:text-white/60">核心媒体合作伙伴</span>
           </div>
           {/* Google - Top right */}
           <div className="absolute group cursor-pointer" style={{ right: -10, top: 15, animation: 'floatOrbit1 5s ease-in-out infinite' }}>
