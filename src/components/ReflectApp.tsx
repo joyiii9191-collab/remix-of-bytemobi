@@ -2275,7 +2275,7 @@ function Section5Screen() {
       <div className="relative flex-1 max-w-[560px] z-[1] flex items-center justify-center">
         <div className="relative" style={{ width: 480, height: 440 }}>
           {/* TG - Center */}
-          <div className="absolute group cursor-pointer" style={{ left: '50%', top: '45%', transform: 'translate(-50%, -50%)', animation: 'floatCenter 4s ease-in-out infinite' }}>
+          <div className="absolute group cursor-pointer" style={{ left: '50%', top: '42%', transform: 'translate(-50%, -50%)', animation: 'floatCenter 4s ease-in-out infinite' }}>
             <img src={new URL('../assets/tg-glass.png', import.meta.url).href} alt="Gather" className="w-[210px] h-[210px] object-contain transition-all duration-500 group-hover:scale-125 group-hover:-translate-y-2 group-hover:drop-shadow-[0_16px_50px_rgba(255,140,50,0.5)]" style={{ filter: 'drop-shadow(0 10px 30px rgba(255,140,50,0.3))' }} />
             <span className="block text-center text-[11px] font-medium text-white/35 mt-2 transition-opacity duration-500 group-hover:text-white/60">核心媒体合作伙伴</span>
           </div>
@@ -2294,8 +2294,8 @@ function Section5Screen() {
         </div>
         <style>{`
           @keyframes floatCenter {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
+            0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+            50% { transform: translate(-50%, -50%) translateY(-8px); }
           }
           @keyframes floatOrbit1 {
             0%, 100% { transform: translate(0, 0); }
