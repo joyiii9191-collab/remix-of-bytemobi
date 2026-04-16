@@ -2595,13 +2595,13 @@ function AttributionItem({ item, isActive, onClick }: {
   return (
     <div className="cursor-pointer transition-all duration-500" onClick={onClick}>
       <div className="flex flex-col gap-2">
-        <p className="font-medium tracking-[-0.5px] leading-[1.3] transition-all duration-500" style={{
-          fontSize: isActive ? '26px' : '22px',
-          color: isActive ? '#a78bfa' : 'white',
+        <p className="font-medium tracking-[-0.5px] leading-[1.3] transition-all duration-500 text-white" style={{
+          fontSize: isActive ? '55px' : '22px',
         }}>
           {item.title}
-          <span className="text-[15px] ml-1 transition-colors duration-500" style={{
-            color: isActive ? 'rgba(167,139,250,0.5)' : 'rgba(255,255,255,0.5)',
+          <span className="ml-1 transition-all duration-500" style={{
+            fontSize: isActive ? '20px' : '15px',
+            color: 'rgba(255,255,255,0.5)',
           }}>({item.titleFull})</span>
         </p>
         <div
