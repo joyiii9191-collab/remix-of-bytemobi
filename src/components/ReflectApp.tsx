@@ -2755,6 +2755,44 @@ function Section7Values() {
             </div>
           ))}
         </div>
+
+        {/* Three glass info cards */}
+        <div className="grid grid-cols-3 gap-3 mt-2">
+          {[
+            { icon: '⚡', title: '高速同步', desc: '跨设备实时数据同步' },
+            { icon: '🔒', title: '端到端加密', desc: '企业级数据安全保障' },
+            { icon: '🌐', title: '全球节点', desc: '覆盖全球低延迟网络' },
+          ].map((card, i) => (
+            <div
+              key={i}
+              className="relative overflow-hidden rounded-[12px] p-5 flex flex-col gap-2"
+              style={{
+                background: 'rgba(255,255,255,0.04)',
+                backdropFilter: 'blur(30px) saturate(1.4)',
+                WebkitBackdropFilter: 'blur(30px) saturate(1.4)',
+                border: '1px solid rgba(139,92,246,0.12)',
+                boxShadow: 'inset 0 1px 0 0 rgba(255,255,255,0.06), 0 4px 24px -6px rgba(0,0,0,0.25)',
+              }}
+            >
+              {/* Top-right glow */}
+              <div className="absolute -top-10 -right-10 w-[120px] h-[120px] rounded-full pointer-events-none" style={{
+                background: 'radial-gradient(circle, rgba(139,92,246,0.18) 0%, rgba(139,92,246,0.06) 40%, transparent 70%)',
+              }} />
+              {/* Gradient border overlay */}
+              <div className="absolute inset-[-1px] rounded-[12px] pointer-events-none" style={{
+                padding: '1px',
+                background: 'linear-gradient(135deg, rgba(139,92,246,0.25) 0%, rgba(139,92,246,0.08) 30%, rgba(255,255,255,0.06) 50%, rgba(139,92,246,0.08) 70%, rgba(139,92,246,0.2) 100%)',
+                mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                maskComposite: 'exclude',
+                WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                WebkitMaskComposite: 'xor',
+              }} />
+              <div className="text-[24px] relative z-[1]">{card.icon}</div>
+              <div className="text-[14px] font-medium text-[#f4f0ff] relative z-[1]">{card.title}</div>
+              <div className="text-[12px] text-[rgba(239,237,253,0.5)] relative z-[1]">{card.desc}</div>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Right image with blur reveal animation */}
