@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { useState, useRef, useEffect, Fragment } from "react";
+import { useState, useRef, useEffect } from "react";
 import * as LucideIcons from "lucide-react";
 import svgPaths from "./svg-ww2hb5tg6t";
 import IntegrationsGrid from "./IntegrationsGrid";
@@ -8038,7 +8038,7 @@ function Section9Solution() {
   ];
 
   return (
-    <div className="relative w-full h-full flex flex-col items-center justify-center px-[80px] gap-[32px]">
+    <div className="relative w-full h-full flex flex-col items-center justify-center px-[80px] gap-[56px]">
       {/* Header */}
       <div className="flex flex-col items-center gap-[24px] z-10">
         <div
@@ -8071,140 +8071,81 @@ function Section9Solution() {
         </p>
       </div>
 
-      {/* Circular Process Ring - SVG vector */}
-      <div className="relative w-[420px] h-[420px] z-10">
-        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 420 420">
-          <defs>
-            <linearGradient id="ringGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="rgba(120,60,255,0.4)" />
-              <stop offset="50%" stopColor="rgba(60,140,255,0.3)" />
-              <stop offset="100%" stopColor="rgba(120,60,255,0.4)" />
-            </linearGradient>
-            <linearGradient id="ringGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="rgba(255,120,180,0.3)" />
-              <stop offset="100%" stopColor="rgba(180,80,255,0.3)" />
-            </linearGradient>
-          </defs>
-
-          {/* Main ring */}
-          <circle cx="210" cy="210" r="155" fill="none" stroke="url(#ringGrad1)" strokeWidth="28" opacity="0.6" />
-          <circle cx="210" cy="210" r="155" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="28" />
-
-          {/* Segment divider lines */}
-          {steps.map((_, i) => {
-            const angle = (i * 60 - 90) * (Math.PI / 180);
-            const innerR = 141;
-            const outerR = 169;
-            return (
-              <line
-                key={`div-${i}`}
-                x1={210 + innerR * Math.cos(angle)}
-                y1={210 + innerR * Math.sin(angle)}
-                x2={210 + outerR * Math.cos(angle)}
-                y2={210 + outerR * Math.sin(angle)}
-                stroke="rgba(255,255,255,0.12)"
-                strokeWidth="1"
-              />
-            );
-          })}
-
-          {/* Flow arrows between segments */}
-          {steps.map((_, i) => {
-            const startA = (i * 60 - 90 + 14) * (Math.PI / 180);
-            const endA = (i * 60 - 90 + 46) * (Math.PI / 180);
-            const r = 155;
-            const x1 = 210 + r * Math.cos(startA);
-            const y1 = 210 + r * Math.sin(startA);
-            const x2 = 210 + r * Math.cos(endA);
-            const y2 = 210 + r * Math.sin(endA);
-            // Arrowhead
-            const tipA = endA + 0.06;
-            const backA1 = endA - 0.08;
-            const aR1 = 150;
-            const aR2 = 160;
-            return (
-              <g key={`arrow-${i}`}>
-                <path
-                  d={`M ${x1} ${y1} A ${r} ${r} 0 0 1 ${x2} ${y2}`}
-                  fill="none"
-                  stroke="rgba(180,140,255,0.35)"
-                  strokeWidth="1.5"
-                  strokeDasharray="5 4"
+      {/* Steps Flow */}
+      <div className="flex items-start gap-0 w-full max-w-[1100px] z-10">
+        {steps.map((step, i) => (
+          <div key={step.num} className="flex items-start flex-1">
+            {/* Step Card */}
+            <div className="flex flex-col items-center gap-[16px] flex-1">
+              {/* Icon circle */}
+              <div
+                className="w-[56px] h-[56px] rounded-full flex items-center justify-center relative"
+                style={{
+                  background: "linear-gradient(135deg, rgba(120,60,255,0.15) 0%, rgba(60,120,255,0.1) 100%)",
+                  border: "1px solid rgba(120,60,255,0.3)",
+                }}
+              >
+                {(() => {
+                  const IconComp = LucideIcons[step.icon as keyof typeof LucideIcons] as React.ComponentType<any>;
+                  return IconComp ? <IconComp size={24} style={{ color: "rgba(160,120,255,0.9)" }} /> : null;
+                })()}
+                <div
+                  className="absolute inset-[-0.5px] rounded-full pointer-events-none"
+                  style={{ boxShadow: "inset 0 0 21px rgba(115,80,255,0.25)" }}
                 />
-                <polygon
-                  points={`${210 + r * Math.cos(tipA)},${210 + r * Math.sin(tipA)} ${210 + aR1 * Math.cos(backA1)},${210 + aR1 * Math.sin(backA1)} ${210 + aR2 * Math.cos(backA1)},${210 + aR2 * Math.sin(backA1)}`}
-                  fill="rgba(180,140,255,0.5)"
-                />
-              </g>
-            );
-          })}
-        </svg>
+              </div>
 
-        {/* Center content */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-[140px] h-[140px] rounded-full flex flex-col items-center justify-center gap-1.5" style={{
-            background: 'linear-gradient(135deg, rgba(120,60,255,0.15) 0%, rgba(30,30,60,0.6) 100%)',
-            border: '1px solid rgba(120,60,255,0.3)',
-            boxShadow: '0 0 30px rgba(120,60,255,0.15)',
-          }}>
-            <LucideIcons.RefreshCw size={28} style={{ color: 'rgba(160,120,255,0.9)' }} />
-            <span className="text-[12px] font-medium text-white text-center leading-[1.3]">全流程<br/>闭环服务</span>
-          </div>
-        </div>
-
-        {/* Step icon nodes on ring */}
-        {steps.map((step, i) => {
-          const angle = (i * 60 - 90) * (Math.PI / 180);
-          const r = 155;
-          const cx = 210 + r * Math.cos(angle);
-          const cy = 210 + r * Math.sin(angle);
-          const IconComp = LucideIcons[step.icon as keyof typeof LucideIcons] as React.ComponentType<any>;
-
-          return (
-            <div key={step.title} className="absolute" style={{
-              left: cx - 20,
-              top: cy - 20,
-              width: 40,
-              height: 40,
-            }}>
-              <div className="w-[40px] h-[40px] rounded-full flex items-center justify-center" style={{
-                background: 'linear-gradient(135deg, rgba(120,60,255,0.3) 0%, rgba(40,20,80,0.8) 100%)',
-                border: '1px solid rgba(140,100,255,0.5)',
-                boxShadow: '0 0 16px rgba(120,60,255,0.25)',
-              }}>
-                {IconComp ? <IconComp size={18} style={{ color: 'rgba(190,160,255,0.95)' }} /> : null}
+              {/* Title + Desc */}
+              <div className="flex flex-col items-center gap-[6px] text-center px-[4px]">
+                <p className="text-[16px] font-medium text-white leading-[1.2]">{step.title}</p>
+                <p className="text-[12px] leading-[1.6]" style={{ color: "rgba(255,255,255,0.45)" }}>
+                  {step.desc}
+                </p>
               </div>
             </div>
-          );
-        })}
 
-        {/* Labels around outside */}
-        {steps.map((step, i) => {
-          const angle = (i * 60 - 90) * (Math.PI / 180);
-          const labelR = 260;
-          const lx = 210 + labelR * Math.cos(angle);
-          const ly = 210 + labelR * Math.sin(angle);
-          const cosA = Math.cos(angle);
-          const sinA = Math.sin(angle);
-          const isLeft = cosA < -0.3;
-          const isRight = cosA > 0.3;
-          const isTop = sinA < -0.3;
-
-          return (
-            <div key={step.title + '-label'} className="absolute flex flex-col" style={{
-              left: lx,
-              top: ly,
-              transform: `translate(${isLeft ? '-100%' : isRight ? '0%' : '-50%'}, ${isTop ? '-100%' : '-50%'})`,
-              maxWidth: 130,
-              textAlign: isLeft ? 'right' : isRight ? 'left' : 'center',
-            }}>
-              <p className="text-[12px] font-medium text-white leading-[1.3] whitespace-nowrap">{step.title}</p>
-              <p className="text-[10px] leading-[1.5] mt-[2px]" style={{ color: 'rgba(255,255,255,0.4)' }}>{step.desc}</p>
-            </div>
-          );
-        })}
+            {/* Connector line */}
+            {i < steps.length - 1 && (
+              <div className="flex items-center pt-[30px]">
+                <div
+                  className="w-[40px] h-[1px]"
+                  style={{
+                    background: "linear-gradient(90deg, rgba(120,60,255,0.4) 0%, rgba(60,120,255,0.2) 100%)",
+                  }}
+                />
+              </div>
+            )}
+          </div>
+        ))}
       </div>
 
+      {/* Bottom glass card */}
+      <div
+        className="w-full max-w-[1100px] rounded-[24px] p-[40px] z-10"
+        style={{
+          background: "linear-gradient(135deg, rgba(120,60,255,0.06) 0%, rgba(30,30,60,0.4) 100%)",
+          border: "1px solid rgba(255,255,255,0.06)",
+          backdropFilter: "blur(20px)",
+        }}
+      >
+        <div className="flex items-center justify-between">
+          <div className="flex flex-col gap-[8px]">
+            <p className="text-[24px] font-medium text-white leading-[1.2]">准备好开始了吗？</p>
+            <p className="text-[14px] leading-[1.6]" style={{ color: "rgba(255,255,255,0.45)" }}>
+              立即联系我们，获取专属出海推广方案
+            </p>
+          </div>
+          <div
+            className="px-[32px] py-[14px] rounded-full cursor-pointer"
+            style={{
+              background: "linear-gradient(135deg, rgba(120,60,255,0.8) 0%, rgba(80,40,200,0.9) 100%)",
+              boxShadow: "0 0 30px rgba(120,60,255,0.3)",
+            }}
+          >
+            <span className="text-[15px] font-medium text-white whitespace-nowrap">联系我们</span>
+          </div>
+        </div>
+      </div>
 
       {/* Background glow */}
       <div
