@@ -2147,7 +2147,7 @@ function Section4Screen() {
               className="absolute inset-0 rounded-[26px]"
               style={{
                 padding: '3px',
-                background: 'conic-gradient(from var(--ray-angle, 0deg), transparent 0%, transparent 25%, rgba(168,130,255,0.6) 30%, rgba(124,58,237,0.8) 35%, rgba(168,130,255,0.6) 40%, transparent 45%, transparent 100%)',
+                background: 'conic-gradient(from var(--ray-angle, 0deg), transparent 0%, transparent 25%, rgba(255,255,255,0.6) 30%, rgba(255,255,255,0.9) 35%, rgba(255,255,255,0.6) 40%, transparent 45%, transparent 100%)',
                 WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
                 WebkitMaskComposite: 'xor',
                 mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
@@ -2160,7 +2160,7 @@ function Section4Screen() {
               className="absolute inset-0 rounded-[26px]"
               style={{
                 padding: '3px',
-                background: 'conic-gradient(from var(--ray-angle, 0deg), transparent 0%, transparent 25%, rgba(168,130,255,0.4) 30%, rgba(124,58,237,0.5) 35%, rgba(168,130,255,0.4) 40%, transparent 45%, transparent 100%)',
+                background: 'conic-gradient(from var(--ray-angle, 0deg), transparent 0%, transparent 25%, rgba(255,255,255,0.3) 30%, rgba(255,255,255,0.5) 35%, rgba(255,255,255,0.3) 40%, transparent 45%, transparent 100%)',
                 WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
                 WebkitMaskComposite: 'xor',
                 mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
@@ -2174,8 +2174,8 @@ function Section4Screen() {
               className="absolute inset-[3px] rounded-[23px]"
               style={{
                 background: 'rgba(10, 5, 20, 0.85)',
-                border: '1px solid rgba(168, 130, 255, 0.12)',
-                boxShadow: 'inset 0 0 12px rgba(168, 130, 255, 0.06), 0 0 15px rgba(168, 130, 255, 0.05)',
+                border: '1px solid rgba(255, 255, 255, 0.12)',
+                boxShadow: 'inset 0 0 12px rgba(255, 255, 255, 0.06), 0 0 15px rgba(255, 255, 255, 0.05)',
               }}
             />
             {/* Logo */}
