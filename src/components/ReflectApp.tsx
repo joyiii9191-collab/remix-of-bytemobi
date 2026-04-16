@@ -2712,16 +2712,28 @@ function FocusReveal({ left, top }: { left: string; top: string }) {
 
 /* Clear image overlay that clips to the reveal box area */
 function ClearImageOverlay({ left, top, imageSrc, objectPosition }: { left: string; top: string; imageSrc: string; objectPosition?: string }) {
+  const [expanded, setExpanded] = useState(false);
   const lNum = parseFloat(left);
   const tNum = parseFloat(top);
-  // revealBoxExpand: 0->30%: 40x50, 30%->100%: 280x360
-  // We animate clip-path via CSS animation on a wrapper
+
+  useEffect(() => {
+    const timer = setTimeout(() => setExpanded(true), 300);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Box final size: 280x360 in 590x658 container
+  const halfW = (140 / 590) * 100; // ~23.7%
+  const halfH = (180 / 658) * 100; // ~27.4%
+
+  const clipPath = expanded
+    ? `inset(${tNum - halfH}% ${100 - lNum - halfW}% ${100 - tNum - halfH}% ${lNum - halfW}% round 8px)`
+    : `inset(${tNum}% ${100 - lNum}% ${100 - tNum}% ${lNum}% round 8px)`;
+
   return (
     <div className="absolute inset-0 pointer-events-none" style={{
       zIndex: 3,
-      animation: 'clipReveal 1.2s ease-out 0.3s forwards',
-      clipPath: `inset(${tNum}% 0% 0% ${lNum}% round 8px)`,
-      // initial clip = collapsed to the focal point
+      clipPath,
+      transition: 'clip-path 1.2s ease-out',
     }}>
       <img
         src={imageSrc}
