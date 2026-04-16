@@ -8186,33 +8186,6 @@ function Section9Solution() {
         </svg>
       </div>
 
-      {/* Bottom glass card */}
-      <div
-        className="w-full max-w-[1100px] rounded-[24px] p-[40px] z-10"
-        style={{
-          background: "linear-gradient(135deg, rgba(120,60,255,0.06) 0%, rgba(30,30,60,0.4) 100%)",
-          border: "1px solid rgba(255,255,255,0.06)",
-          backdropFilter: "blur(20px)",
-        }}
-      >
-        <div className="flex items-center justify-between">
-          <div className="flex flex-col gap-[8px]">
-            <p className="text-[24px] font-medium text-white leading-[1.2]">准备好开始了吗？</p>
-            <p className="text-[14px] leading-[1.6]" style={{ color: "rgba(255,255,255,0.45)" }}>
-              立即联系我们，获取专属出海推广方案
-            </p>
-          </div>
-          <div
-            className="px-[32px] py-[14px] rounded-full cursor-pointer"
-            style={{
-              background: "linear-gradient(135deg, rgba(120,60,255,0.8) 0%, rgba(80,40,200,0.9) 100%)",
-              boxShadow: "0 0 30px rgba(120,60,255,0.3)",
-            }}
-          >
-            <span className="text-[15px] font-medium text-white whitespace-nowrap">联系我们</span>
-          </div>
-        </div>
-      </div>
 
       {/* Background glow */}
       <div
