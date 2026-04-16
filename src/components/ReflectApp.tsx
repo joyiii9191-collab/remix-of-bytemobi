@@ -2763,8 +2763,8 @@ function Section7Values() {
           </div>
         </div>
 
-        {/* Bottom: pinned to bottom of 658px container */}
-        <div className="flex flex-col gap-[20px] pb-[10px]">
+        {/* Bottom: tech support + logos */}
+        <div className="flex flex-col gap-[20px]">
           {/* Tech support header */}
           <div className="flex items-baseline gap-4">
             <div className="flex flex-col gap-1">
