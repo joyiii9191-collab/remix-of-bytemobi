@@ -7999,28 +7999,33 @@ function Container279() {
 function Section9Solution() {
   const steps = [
     {
-      num: "01",
-      title: "需求沟通",
+      icon: "ClipboardList",
+      title: "投放策略制定",
       desc: "深入了解客户推广目标、预算规模与目标市场，量身定制投放策略。",
     },
     {
-      num: "02",
-      title: "方案制定",
-      desc: "根据行业特征与用户画像，整合优质流量资源，输出专属投放方案。",
+      icon: "Building2",
+      title: "媒体开户与资源整合",
+      desc: "快速完成主流媒体平台开户，整合优质流量资源与渠道。",
     },
     {
-      num: "03",
-      title: "素材优化",
+      icon: "Palette",
+      title: "素材制作与创意支持",
       desc: "专业创意团队提供多语言素材制作与A/B测试，持续提升广告效果。",
     },
     {
-      num: "04",
-      title: "投放执行",
+      icon: "Rocket",
+      title: "投手投放与执行管理",
       desc: "全渠道精准投放，实时监控数据表现，灵活调整优化策略。",
     },
     {
-      num: "05",
-      title: "效果复盘",
+      icon: "BrainCircuit",
+      title: "智能优化与效果提升",
+      desc: "AI驱动智能出价与人群定向优化，持续提升ROI与转化率。",
+    },
+    {
+      icon: "BarChart3",
+      title: "流量变现与报告分析",
       desc: "定期输出数据报告，深度分析ROI与转化路径，驱动持续增长。",
     },
   ];
