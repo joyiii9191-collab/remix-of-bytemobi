@@ -1263,7 +1263,7 @@ function Section1() {
     <div className="relative w-full h-full flex items-center justify-center px-16 pt-[100px]" data-name="Section">
 
       {/* Main Figma-style glass container with LaserFlow */}
-      <div className="w-full max-w-[1100px] relative z-[1]">
+      <div className="w-full relative z-[1]">
         {/* Background glow */}
         <div className="absolute inset-[-60px] blur-[10px] pointer-events-none" style={{
           background: 'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(255,117,117,0.12) 5%, rgba(154,170,255,0.07) 60%, transparent 100%)'
