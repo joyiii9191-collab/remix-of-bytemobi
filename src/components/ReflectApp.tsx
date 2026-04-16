@@ -2816,60 +2816,18 @@ function Section7Values() {
 
       {/* Right image with blur reveal animation */}
       <div className="h-[658px] shrink-0 w-[590px] rounded-[24px] overflow-hidden relative">
-        {/* CTA image */}
-        <img
-          src={ctaPhoneImg}
-          alt="CTA demonstration"
-          className="absolute inset-0 w-full h-full object-cover transition-all duration-1000"
-          style={{
-            filter: activeIndex === 0 ? 'blur(6px)' : 'blur(12px)',
-            opacity: activeIndex === 0 ? 1 : 0,
-          }}
-        />
-        {/* VTA image - left half crop, focus on laptop */}
-        <img
-          src={vtaVideoImg}
-          alt="VTA demonstration"
-          className="absolute inset-0 w-full h-full transition-all duration-1000"
-          style={{
-            filter: activeIndex === 1 ? 'blur(6px)' : 'blur(12px)',
-            opacity: activeIndex === 1 ? 1 : 0,
-            objectFit: 'cover',
-            objectPosition: 'left center',
-          }}
-        />
-        {/* CTV image - TV scene */}
-        <img
-          src={ctvTvImg}
-          alt="CTV demonstration"
-          className="absolute inset-0 w-full h-full object-cover transition-all duration-1000"
-          style={{
-            filter: activeIndex === 2 ? 'blur(6px)' : 'blur(12px)',
-            opacity: activeIndex === 2 ? 1 : 0,
-          }}
-        />
-
-        {/* Focus point + expanding box - CTA: phone screen */}
-        {activeIndex === 0 && (
-          <>
-            <FocusReveal left="52%" top="42%" />
-            <ClearImageOverlay left="52%" top="42%" imageSrc={ctaPhoneImg} />
-          </>
-        )}
-        {/* Focus point + expanding box - VTA: laptop/tablet */}
-        {activeIndex === 1 && (
-          <>
-            <FocusReveal left="22%" top="62%" />
-            <ClearImageOverlay left="22%" top="62%" imageSrc={vtaVideoImg} objectPosition="left center" />
-          </>
-        )}
-        {/* Focus point + expanding box - CTV: TV screen */}
-        {activeIndex === 2 && (
-          <>
-            <FocusReveal left="48%" top="30%" />
-            <ClearImageOverlay left="48%" top="30%" imageSrc={ctvTvImg} />
-          </>
-        )}
+        {/* CTA */}
+        <div className="absolute inset-0 transition-opacity duration-1000" style={{ opacity: activeIndex === 0 ? 1 : 0 }}>
+          <RevealCard imageSrc={ctaPhoneImg} left="52%" top="42%" isActive={activeIndex === 0} />
+        </div>
+        {/* VTA */}
+        <div className="absolute inset-0 transition-opacity duration-1000" style={{ opacity: activeIndex === 1 ? 1 : 0 }}>
+          <RevealCard imageSrc={vtaVideoImg} left="22%" top="62%" isActive={activeIndex === 1} objectPosition="left center" />
+        </div>
+        {/* CTV */}
+        <div className="absolute inset-0 transition-opacity duration-1000" style={{ opacity: activeIndex === 2 ? 1 : 0 }}>
+          <RevealCard imageSrc={ctvTvImg} left="48%" top="30%" isActive={activeIndex === 2} />
+        </div>
       </div>
     </div>
   );
