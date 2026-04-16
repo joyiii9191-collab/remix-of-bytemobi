@@ -2079,18 +2079,27 @@ function Section4Screen() {
           ].map((item, i) => (
             <div key={`left-${i}`} className="absolute" style={{ top: `${item.top}px`, left: `${item.left}px` }}>
               <div className="relative w-[60px] h-[60px]" style={{ overflow: 'visible' }}>
-                {/* Glow layer 1 - outermost */}
-                <div className="absolute rounded-[28px]" style={{ top: '-16px', left: '-16px', right: '0', bottom: '0', border: '2px solid rgba(182,56,255,0.4)', filter: 'blur(8px)', mixBlendMode: 'plus-lighter', maskImage: 'linear-gradient(to right, black 0%, black 40%, transparent 70%)', WebkitMaskImage: 'linear-gradient(to right, black 0%, black 40%, transparent 70%)' }} />
-                {/* Glow layer 2 */}
-                <div className="absolute rounded-[24px]" style={{ top: '-12px', left: '-12px', right: '0', bottom: '0', border: '2px solid rgba(182,56,255,0.5)', filter: 'blur(5px)', mixBlendMode: 'plus-lighter', maskImage: 'linear-gradient(to right, black 0%, black 40%, transparent 70%)', WebkitMaskImage: 'linear-gradient(to right, black 0%, black 40%, transparent 70%)' }} />
-                {/* Glow layer 3 */}
-                <div className="absolute rounded-[20px]" style={{ top: '-8px', left: '-8px', right: '0', bottom: '0', border: '2px solid rgba(182,56,255,0.6)', filter: 'blur(3px)', mixBlendMode: 'plus-lighter', maskImage: 'linear-gradient(to right, black 0%, black 40%, transparent 65%)', WebkitMaskImage: 'linear-gradient(to right, black 0%, black 40%, transparent 65%)' }} />
-                {/* Glow layer 4 */}
-                <div className="absolute rounded-[16px]" style={{ top: '-4px', left: '-4px', right: '0', bottom: '0', border: '1.5px solid rgba(182,56,255,0.7)', filter: 'blur(2px)', mixBlendMode: 'plus-lighter', maskImage: 'linear-gradient(to right, black 0%, black 35%, transparent 60%)', WebkitMaskImage: 'linear-gradient(to right, black 0%, black 35%, transparent 60%)' }} />
-                {/* Glow layer 5 - inner core */}
-                <div className="absolute rounded-[14px]" style={{ top: '-2px', left: '-2px', right: '0', bottom: '0', border: '1px solid rgba(255,255,255,0.3)', filter: 'blur(1px)', mixBlendMode: 'plus-lighter', maskImage: 'linear-gradient(to right, black 0%, black 30%, transparent 55%)', WebkitMaskImage: 'linear-gradient(to right, black 0%, black 30%, transparent 55%)' }} />
+                {/* Conic gradient glow fixed at top-left */}
+                <div className="absolute inset-0 rounded-[12px]" style={{
+                  padding: '2px',
+                  background: 'conic-gradient(from 180deg at 15% 15%, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.3) 8%, transparent 25%, transparent 100%)',
+                  WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                  WebkitMaskComposite: 'xor',
+                  mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                  maskComposite: 'exclude',
+                }} />
+                {/* Blur glow at top-left */}
+                <div className="absolute inset-0 rounded-[12px]" style={{
+                  padding: '2px',
+                  background: 'conic-gradient(from 180deg at 15% 15%, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.15) 10%, transparent 30%, transparent 100%)',
+                  WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                  WebkitMaskComposite: 'xor',
+                  mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                  maskComposite: 'exclude',
+                  filter: 'blur(4px)',
+                }} />
                 {/* Card content */}
-                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: '#030014', border: '3px solid #030014' }}>
+                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: '#030014', border: '1px solid rgba(255,255,255,0.06)' }}>
                   <div className="w-[32px] h-[32px] rounded-md" style={{ background: 'rgba(255,255,255,0.06)' }} />
                 </div>
               </div>
@@ -2105,18 +2114,27 @@ function Section4Screen() {
           ].map((item, i) => (
             <div key={`right-${i}`} className="absolute" style={{ top: `${item.top}px`, right: `${item.right}px` }}>
               <div className="relative w-[60px] h-[60px]" style={{ overflow: 'visible' }}>
-                {/* Glow layer 1 - outermost */}
-                <div className="absolute rounded-[28px]" style={{ top: '-16px', left: '-16px', right: '0', bottom: '0', border: '2px solid rgba(182,56,255,0.4)', filter: 'blur(8px)', mixBlendMode: 'plus-lighter', maskImage: 'linear-gradient(to right, black 0%, black 40%, transparent 70%)', WebkitMaskImage: 'linear-gradient(to right, black 0%, black 40%, transparent 70%)' }} />
-                {/* Glow layer 2 */}
-                <div className="absolute rounded-[24px]" style={{ top: '-12px', left: '-12px', right: '0', bottom: '0', border: '2px solid rgba(182,56,255,0.5)', filter: 'blur(5px)', mixBlendMode: 'plus-lighter', maskImage: 'linear-gradient(to right, black 0%, black 40%, transparent 70%)', WebkitMaskImage: 'linear-gradient(to right, black 0%, black 40%, transparent 70%)' }} />
-                {/* Glow layer 3 */}
-                <div className="absolute rounded-[20px]" style={{ top: '-8px', left: '-8px', right: '0', bottom: '0', border: '2px solid rgba(182,56,255,0.6)', filter: 'blur(3px)', mixBlendMode: 'plus-lighter', maskImage: 'linear-gradient(to right, black 0%, black 40%, transparent 65%)', WebkitMaskImage: 'linear-gradient(to right, black 0%, black 40%, transparent 65%)' }} />
-                {/* Glow layer 4 */}
-                <div className="absolute rounded-[16px]" style={{ top: '-4px', left: '-4px', right: '0', bottom: '0', border: '1.5px solid rgba(182,56,255,0.7)', filter: 'blur(2px)', mixBlendMode: 'plus-lighter', maskImage: 'linear-gradient(to right, black 0%, black 35%, transparent 60%)', WebkitMaskImage: 'linear-gradient(to right, black 0%, black 35%, transparent 60%)' }} />
-                {/* Glow layer 5 - inner core */}
-                <div className="absolute rounded-[14px]" style={{ top: '-2px', left: '-2px', right: '0', bottom: '0', border: '1px solid rgba(255,255,255,0.3)', filter: 'blur(1px)', mixBlendMode: 'plus-lighter', maskImage: 'linear-gradient(to right, black 0%, black 30%, transparent 55%)', WebkitMaskImage: 'linear-gradient(to right, black 0%, black 30%, transparent 55%)' }} />
+                {/* Conic gradient glow fixed at top-left */}
+                <div className="absolute inset-0 rounded-[12px]" style={{
+                  padding: '2px',
+                  background: 'conic-gradient(from 180deg at 15% 15%, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.3) 8%, transparent 25%, transparent 100%)',
+                  WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                  WebkitMaskComposite: 'xor',
+                  mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                  maskComposite: 'exclude',
+                }} />
+                {/* Blur glow at top-left */}
+                <div className="absolute inset-0 rounded-[12px]" style={{
+                  padding: '2px',
+                  background: 'conic-gradient(from 180deg at 15% 15%, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.15) 10%, transparent 30%, transparent 100%)',
+                  WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                  WebkitMaskComposite: 'xor',
+                  mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                  maskComposite: 'exclude',
+                  filter: 'blur(4px)',
+                }} />
                 {/* Card content */}
-                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: '#030014', border: '3px solid #030014' }}>
+                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: '#030014', border: '1px solid rgba(255,255,255,0.06)' }}>
                   <div className="w-[32px] h-[32px] rounded-md" style={{ background: 'rgba(255,255,255,0.06)' }} />
                 </div>
               </div>
