@@ -2068,13 +2068,13 @@ function Section4Screen() {
             { top: 323, left: 30, opacity: 1 },
           ].map((item, i) => (
             <div key={`left-${i}`} className="absolute" style={{ top: `${item.top}px`, left: `${item.left}px` }}>
-              <div className="relative w-[60px] h-[60px]">
-                <div className="absolute inset-0 rounded-[14px]" style={{ border: '3px solid #b638ff', filter: 'blur(8px)', mixBlendMode: 'plus-lighter' }} />
-                <div className="absolute inset-0 rounded-[14px]" style={{ border: '3px solid #b638ff', filter: 'blur(5px)', mixBlendMode: 'plus-lighter' }} />
-                <div className="absolute inset-0 rounded-[14px]" style={{ border: '2px solid #b638ff', filter: 'blur(3px)', mixBlendMode: 'plus-lighter' }} />
-                <div className="absolute inset-0 rounded-[14px]" style={{ border: '2px solid #b638ff', filter: 'blur(1px)', mixBlendMode: 'plus-lighter' }} />
-                <div className="absolute inset-0 rounded-[14px]" style={{ border: '2px solid white', filter: 'blur(3px)', mixBlendMode: 'plus-lighter' }} />
-                <div className="absolute inset-0 rounded-[14px]" style={{ border: '2px solid rgba(255,255,255,0.1)' }} />
+              <div className="relative w-[60px] h-[60px]" style={{ overflow: 'visible' }}>
+                {/* Top-left corner glow only */}
+                <div className="absolute w-[40px] h-[40px] -top-[6px] -left-[6px] rounded-tl-[14px]" style={{ background: 'radial-gradient(ellipse at top left, #b638ff 0%, transparent 70%)', filter: 'blur(8px)', mixBlendMode: 'plus-lighter' }} />
+                <div className="absolute w-[35px] h-[35px] -top-[4px] -left-[4px] rounded-tl-[14px]" style={{ background: 'radial-gradient(ellipse at top left, #b638ff 0%, transparent 70%)', filter: 'blur(5px)', mixBlendMode: 'plus-lighter' }} />
+                <div className="absolute w-[30px] h-[30px] -top-[3px] -left-[3px] rounded-tl-[14px]" style={{ background: 'radial-gradient(ellipse at top left, white 0%, transparent 60%)', filter: 'blur(4px)', mixBlendMode: 'plus-lighter' }} />
+                {/* Subtle full border */}
+                <div className="absolute inset-0 rounded-[14px]" style={{ border: '1px solid rgba(255,255,255,0.08)' }} />
                 <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: '#030014', border: '3px solid #030014' }}>
                   <div className="w-[32px] h-[32px] rounded-md" style={{ background: 'rgba(255,255,255,0.06)' }} />
                 </div>
@@ -2089,13 +2089,13 @@ function Section4Screen() {
             { top: 323, right: 30, opacity: 1 },
           ].map((item, i) => (
             <div key={`right-${i}`} className="absolute" style={{ top: `${item.top}px`, right: `${item.right}px` }}>
-              <div className="relative w-[60px] h-[60px]">
-                <div className="absolute inset-0 rounded-[14px]" style={{ border: '3px solid #b638ff', filter: 'blur(8px)', mixBlendMode: 'plus-lighter' }} />
-                <div className="absolute inset-0 rounded-[14px]" style={{ border: '3px solid #b638ff', filter: 'blur(5px)', mixBlendMode: 'plus-lighter' }} />
-                <div className="absolute inset-0 rounded-[14px]" style={{ border: '2px solid #b638ff', filter: 'blur(3px)', mixBlendMode: 'plus-lighter' }} />
-                <div className="absolute inset-0 rounded-[14px]" style={{ border: '2px solid #b638ff', filter: 'blur(1px)', mixBlendMode: 'plus-lighter' }} />
-                <div className="absolute inset-0 rounded-[14px]" style={{ border: '2px solid white', filter: 'blur(3px)', mixBlendMode: 'plus-lighter' }} />
-                <div className="absolute inset-0 rounded-[14px]" style={{ border: '2px solid rgba(255,255,255,0.1)' }} />
+              <div className="relative w-[60px] h-[60px]" style={{ overflow: 'visible' }}>
+                {/* Top-left corner glow only */}
+                <div className="absolute w-[40px] h-[40px] -top-[6px] -left-[6px] rounded-tl-[14px]" style={{ background: 'radial-gradient(ellipse at top left, #b638ff 0%, transparent 70%)', filter: 'blur(8px)', mixBlendMode: 'plus-lighter' }} />
+                <div className="absolute w-[35px] h-[35px] -top-[4px] -left-[4px] rounded-tl-[14px]" style={{ background: 'radial-gradient(ellipse at top left, #b638ff 0%, transparent 70%)', filter: 'blur(5px)', mixBlendMode: 'plus-lighter' }} />
+                <div className="absolute w-[30px] h-[30px] -top-[3px] -left-[3px] rounded-tl-[14px]" style={{ background: 'radial-gradient(ellipse at top left, white 0%, transparent 60%)', filter: 'blur(4px)', mixBlendMode: 'plus-lighter' }} />
+                {/* Subtle full border */}
+                <div className="absolute inset-0 rounded-[14px]" style={{ border: '1px solid rgba(255,255,255,0.08)' }} />
                 <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: '#030014', border: '3px solid #030014' }}>
                   <div className="w-[32px] h-[32px] rounded-md" style={{ background: 'rgba(255,255,255,0.06)' }} />
                 </div>
