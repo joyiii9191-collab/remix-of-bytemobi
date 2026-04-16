@@ -10,6 +10,7 @@ import Prism from "./Prism";
 import LaserFlow from "./LaserFlow";
 import LightRays from "./LightRays";
 import MagicBento from "./MagicBento";
+import StarBorder from "./StarBorder";
 import "./LiquidGlassCard.css";
 import imgQCb311D1CPng from "@/assets/ca87b13c3dba5b82f5b55f7a1fbe96037f74413d.png";
 import imgQC3D7BecfWebm from "@/assets/8f7f3e78fa25f538b70e2685192395598c425a33.png";
@@ -212,6 +213,11 @@ function Heading() {
         <p className="leading-[52px] text-[36px] font-medium tracking-[0.04em]">
           智能驱动，全球汇流，日本聚势
         </p>
+      </div>
+      <div className="mt-[40px] pointer-events-auto">
+        <StarBorder as="button" className="custom-class" color="magenta" speed="5s">
+          获取一站式解决方案
+        </StarBorder>
       </div>
     </div>
   );
