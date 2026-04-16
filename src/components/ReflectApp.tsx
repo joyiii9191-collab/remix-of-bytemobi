@@ -2458,14 +2458,14 @@ function Section6LogoWall() {
 
 function Section8TrafficMap() {
   return (
-    <div className="relative w-full h-full flex flex-col items-center justify-center px-[80px] gap-[48px]" data-name="Section8TrafficMap">
+    <div className="relative w-full h-full flex flex-col items-center justify-center px-[80px] gap-[24px] pt-[80px]" data-name="Section8TrafficMap">
       {/* Ambient glow */}
       <div className="absolute inset-0 pointer-events-none" style={{
         background: 'radial-gradient(ellipse 60% 40% at 50% 50%, rgba(120,60,255,0.08) 0%, transparent 70%)'
       }} />
 
       {/* Header */}
-      <div className="flex flex-col items-center gap-4 z-10">
+      <div className="flex flex-col items-center gap-3 z-10">
         <div
           className="flex items-center px-[16px] py-[5px] rounded-full relative"
           style={{
@@ -2481,7 +2481,7 @@ function Section8TrafficMap() {
             style={{ boxShadow: "inset 0 0 21px rgba(115,80,255,0.2)" }}
           />
         </div>
-        <h2 className="text-[44px] font-semibold text-white leading-[1.15] tracking-tight text-center">
+        <h2 className="text-[36px] font-semibold text-white leading-[1.15] tracking-tight text-center">
           我们的流量分布区域
         </h2>
         <p className="text-[17px] text-[#818089] leading-[1.6] text-center max-w-[600px]">
@@ -2490,7 +2490,7 @@ function Section8TrafficMap() {
       </div>
 
       {/* Large placeholder map */}
-      <div className="relative w-full max-w-[1100px] z-10" style={{ aspectRatio: '16/9' }}>
+      <div className="relative w-full max-w-[1100px] z-10 flex-1 min-h-0">
         <div
           className="w-full h-full rounded-[24px] overflow-hidden"
           style={{
