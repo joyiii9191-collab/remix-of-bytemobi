@@ -2022,45 +2022,93 @@ function Section4Screen() {
         filter: 'blur(60px)',
       }} />
 
-      {/* Left logo showcase - liquid glass style */}
-      <div className="relative flex-1 max-w-[520px] z-[1] flex items-center justify-center">
-        {/* Ambient glow behind logo */}
-        <div className="absolute w-[400px] h-[400px] rounded-full" style={{
-          background: 'radial-gradient(circle, rgba(120,180,255,0.15) 0%, rgba(168,85,247,0.1) 40%, transparent 70%)',
-          filter: 'blur(40px)',
-        }} />
-        
-        {/* Logo with light effects */}
-        <div className="relative group">
-          {/* Outer glow ring */}
-          <div className="absolute -inset-8 rounded-full" style={{
-            background: 'conic-gradient(from 180deg, rgba(120,180,255,0.08), rgba(168,130,255,0.12), rgba(236,140,200,0.08), rgba(120,180,255,0.08))',
-            filter: 'blur(20px)',
-            animation: 'logo-orbit 8s linear infinite',
-          }} />
-          
-          {/* Logo image with float animation */}
-          <img 
-            src={logo3d} 
-            alt="Logo" 
-            className="relative z-[1] w-[360px] h-[360px] object-contain"
-            style={{
-              animation: 'logo-float 6s ease-in-out infinite',
-              filter: 'drop-shadow(0 20px 40px rgba(120,100,255,0.25))',
-            }}
-          />
-          
-          {/* Floating light orbs */}
-          <div className="absolute -top-4 -right-4 w-3 h-3 rounded-full" style={{
-            background: 'rgba(120,180,255,0.4)',
-            boxShadow: '0 0 20px rgba(120,180,255,0.3)',
-            animation: 'logo-orb1 4s ease-in-out infinite',
-          }} />
-          <div className="absolute -bottom-2 -left-6 w-2 h-2 rounded-full" style={{
-            background: 'rgba(236,140,200,0.4)',
-            boxShadow: '0 0 15px rgba(236,140,200,0.3)',
-            animation: 'logo-orb2 5s ease-in-out infinite',
-          }} />
+      {/* Left integrations grid - Figma reference style */}
+      <div className="relative flex-1 max-w-[560px] z-[1] flex items-center justify-center">
+        <div className="relative w-[480px] h-[420px]">
+          {/* Connection lines - SVG */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 480 420">
+            {/* Left column to center */}
+            <line x1="80" y1="70" x2="160" y2="70" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+            <line x1="160" y1="70" x2="160" y2="140" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+            <line x1="160" y1="140" x2="160" y2="210" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+            <line x1="80" y1="210" x2="160" y2="210" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+            <line x1="80" y1="350" x2="160" y2="350" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+            <line x1="160" y1="280" x2="160" y2="350" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+            {/* Right column to center */}
+            <line x1="320" y1="70" x2="400" y2="70" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+            <line x1="320" y1="70" x2="320" y2="140" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+            <line x1="320" y1="210" x2="400" y2="210" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+            <line x1="320" y1="280" x2="320" y2="350" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+            <line x1="320" y1="350" x2="400" y2="350" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+            {/* Top and bottom center lines */}
+            <line x1="240" y1="0" x2="240" y2="120" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
+            <line x1="240" y1="300" x2="240" y2="420" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
+            {/* Dots at intersections */}
+            <circle cx="160" cy="140" r="2.5" fill="rgba(255,255,255,0.2)" />
+            <circle cx="160" cy="280" r="2.5" fill="rgba(255,255,255,0.2)" />
+            <circle cx="320" cy="140" r="2.5" fill="rgba(255,255,255,0.2)" />
+            <circle cx="320" cy="280" r="2.5" fill="rgba(255,255,255,0.2)" />
+            <circle cx="240" cy="0" r="2.5" fill="rgba(255,255,255,0.15)" />
+            <circle cx="240" cy="420" r="2.5" fill="rgba(255,255,255,0.15)" />
+          </svg>
+
+          {/* Left column icons */}
+          {[
+            { top: '30px', left: '16px', color: 'rgba(60,130,255,0.15)' },
+            { top: '170px', left: '16px', color: 'rgba(255,180,50,0.15)' },
+            { top: '310px', left: '16px', color: 'rgba(100,220,180,0.15)' },
+          ].map((item, i) => (
+            <div key={`left-${i}`} className="absolute w-[72px] h-[72px] rounded-[16px] flex items-center justify-center" style={{
+              top: item.top, left: item.left,
+              background: 'linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              boxShadow: `inset 0 1px 0 rgba(255,255,255,0.06), 0 0 20px ${item.color}`,
+            }}>
+              <div className="w-9 h-9 rounded-lg" style={{ background: item.color }} />
+            </div>
+          ))}
+
+          {/* Center - neon glow logo frame */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[160px] h-[160px]">
+            {/* Outer neon glow */}
+            <div className="absolute -inset-4 rounded-[28px]" style={{
+              background: 'transparent',
+              boxShadow: '0 0 30px 8px rgba(200,120,255,0.3), 0 0 60px 16px rgba(180,100,255,0.15), inset 0 0 30px 8px rgba(200,120,255,0.1)',
+              border: '2px solid rgba(220,160,255,0.5)',
+            }} />
+            {/* Inner frame */}
+            <div className="relative w-full h-full rounded-[22px] flex items-center justify-center overflow-hidden" style={{
+              background: 'linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%)',
+              border: '1.5px solid rgba(220,170,255,0.35)',
+              boxShadow: 'inset 0 0 20px rgba(200,120,255,0.08)',
+            }}>
+              <img
+                src={logo3d}
+                alt="Logo"
+                className="w-[110px] h-[110px] object-contain"
+                style={{
+                  animation: 'logo-float 6s ease-in-out infinite',
+                  filter: 'drop-shadow(0 4px 20px rgba(180,120,255,0.3))',
+                }}
+              />
+            </div>
+          </div>
+
+          {/* Right column icons */}
+          {[
+            { top: '30px', right: '16px', color: 'rgba(0,210,210,0.15)' },
+            { top: '170px', right: '16px', color: 'rgba(255,100,50,0.15)' },
+            { top: '310px', right: '16px', color: 'rgba(80,200,120,0.15)' },
+          ].map((item, i) => (
+            <div key={`right-${i}`} className="absolute w-[72px] h-[72px] rounded-[16px] flex items-center justify-center" style={{
+              top: item.top, right: item.right,
+              background: 'linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              boxShadow: `inset 0 1px 0 rgba(255,255,255,0.06), 0 0 20px ${item.color}`,
+            }}>
+              <div className="w-9 h-9 rounded-lg" style={{ background: item.color }} />
+            </div>
+          ))}
         </div>
       </div>
 
