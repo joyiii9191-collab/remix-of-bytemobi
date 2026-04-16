@@ -649,7 +649,7 @@ function MaskGroup1() {
 
 function Section({ className }: { className?: string }) {
   return (
-    <div className={className || "relative w-full h-full flex flex-col isolate items-center"} data-name="Section">
+    <div className={className || "relative w-full h-full flex flex-col isolate items-center"} data-name="Section" style={{ backgroundColor: '#0a0a12' }}>
       {/* Prism Background */}
       <div className="absolute inset-0 z-[0] overflow-hidden">
         <Prism
@@ -1285,6 +1285,10 @@ function Section1() {
 
       {/* Main Figma-style glass container with LaserFlow */}
       <div className="w-full max-w-[1100px] relative z-[1]">
+        {/* Background glow */}
+        <div className="absolute inset-[-60px] blur-[10px] pointer-events-none" style={{
+          background: 'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(255,117,117,0.12) 5%, rgba(154,170,255,0.07) 60%, transparent 100%)'
+        }} />
 
         {/* LaserFlow animation above the card — seamless connection */}
         <div className="relative w-full h-[160px] mb-[-80px] z-[2]" style={{ pointerEvents: 'none' }}>
@@ -1308,9 +1312,9 @@ function Section1() {
         </div>
 
         {/* Glass shell */}
-        <div className="relative rounded-[24px] w-full" style={{ border: '1px solid rgba(255,255,255,0.15)', boxShadow: '0 0 40px rgba(168,130,255,0.1), 0 0 80px rgba(168,130,255,0.05), inset 0 1px 0 rgba(255,255,255,0.1)' }}>
+        <div className="relative rounded-[24px] w-full" style={{ border: '1px solid rgba(168,130,255,0.35)', boxShadow: '0 0 40px rgba(168,130,255,0.15), 0 0 80px rgba(168,130,255,0.08), inset 0 0 30px rgba(168,130,255,0.05)' }}>
           {/* Background fill */}
-          <div className="absolute inset-0 pointer-events-none rounded-[24px]" style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.04) 100%)', backdropFilter: 'blur(30px)' }} />
+          <div className="absolute inset-0 pointer-events-none rounded-[24px]" style={{ background: 'rgba(18,15,23,0.85)' }} />
           {/* Content */}
           <div className="overflow-clip rounded-[inherit] size-full relative z-[1]">
             <div className="flex items-center gap-12 p-10 relative">
@@ -2003,6 +2007,11 @@ function Q62492B69Png() {
 function Section4Screen() {
   return (
     <div className="relative w-full h-full flex items-center justify-center px-16 gap-16 overflow-hidden" data-name="Section4Screen">
+      {/* Purple glow behind dashboard */}
+      <div className="absolute left-[10%] top-1/2 -translate-y-1/2 w-[500px] h-[400px] pointer-events-none" style={{
+        background: 'radial-gradient(ellipse at center, rgba(120,60,255,0.15) 0%, transparent 70%)',
+        filter: 'blur(60px)',
+      }} />
 
       {/* Left integrations grid - Figma reference style */}
       <div className="relative flex-1 max-w-[560px] z-[1] flex items-center justify-center">
@@ -2127,11 +2136,11 @@ function Section4Screen() {
             <div
               className="absolute inset-0 rounded-[26px]"
               style={{
-                background: 'rgba(255, 255, 255, 0.06)',
-                backdropFilter: 'blur(20px)',
-                WebkitBackdropFilter: 'blur(20px)',
-                border: '1px solid rgba(255, 255, 255, 0.12)',
-                boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 30px rgba(124, 58, 237, 0.06)',
+                background: 'rgba(10, 5, 20, 0.6)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                border: '1px solid rgba(168, 130, 255, 0.12)',
+                boxShadow: 'inset 0 0 30px rgba(124, 58, 237, 0.05), 0 0 40px rgba(124, 58, 237, 0.06)',
               }}
             />
             {/* Logo */}
@@ -2187,6 +2196,11 @@ function Section4Screen() {
 function Section5Screen() {
   return (
     <div className="relative w-full h-full flex items-center justify-center px-16 gap-16" data-name="Section5Screen">
+      {/* Purple glow behind dashboard */}
+      <div className="absolute right-[15%] top-1/2 -translate-y-1/2 w-[500px] h-[400px] pointer-events-none" style={{
+        background: 'radial-gradient(ellipse at center, rgba(120,60,255,0.15) 0%, transparent 70%)',
+        filter: 'blur(60px)',
+      }} />
 
       {/* Left content */}
       <div className="flex flex-col gap-6 max-w-[480px] shrink-0 z-[1]">
@@ -2281,9 +2295,8 @@ function LogoCard({ label, index = 0, image }: { label: string; index?: number; 
   return (
     <div className="relative shrink-0 h-[64px] min-w-[120px] px-5 rounded-[14px] overflow-hidden"
       style={{
-        background: 'linear-gradient(145deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
-        border: '1px solid rgba(255,255,255,0.12)',
-        backdropFilter: 'blur(20px)',
+        background: 'linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(10,5,20,0.85) 40%, rgba(10,5,20,0.9) 100%)',
+        border: '1px solid rgba(255,255,255,0.08)',
       }}
     >
       <div className="relative z-[1] size-full flex items-center justify-center py-3">
@@ -2328,8 +2341,8 @@ function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 
   return (
     <div ref={wrapperRef} className="relative w-full overflow-hidden">
       {/* Fade edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-[120px] z-10" style={{ background: 'linear-gradient(90deg, rgba(3,0,20,0.8) 0%, transparent 100%)' }} />
-      <div className="absolute right-0 top-0 bottom-0 w-[120px] z-10" style={{ background: 'linear-gradient(270deg, rgba(3,0,20,0.8) 0%, transparent 100%)' }} />
+      <div className="absolute left-0 top-0 bottom-0 w-[120px] z-10" style={{ background: 'linear-gradient(90deg, #030014 0%, transparent 100%)' }} />
+      <div className="absolute right-0 top-0 bottom-0 w-[120px] z-10" style={{ background: 'linear-gradient(270deg, #030014 0%, transparent 100%)' }} />
       
       <div className="flex flex-col gap-3">
         {/* Tag */}
@@ -2411,6 +2424,10 @@ function Section6LogoWall() {
 
   return (
     <div className="relative w-full h-full flex flex-col items-center justify-center gap-10" data-name="Section6LogoWall">
+      {/* Background glow */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        background: 'radial-gradient(ellipse at 50% 50%, rgba(99,102,241,0.08) 0%, transparent 60%)',
+      }} />
 
       {/* Title */}
       <div className="flex flex-col items-center gap-4 z-[1] mb-4">
@@ -2449,6 +2466,10 @@ function Section6LogoWall() {
 function Section8TrafficMap() {
   return (
     <div className="relative w-full h-full flex flex-col items-center justify-center px-[80px] gap-[24px] pt-[80px]" data-name="Section8TrafficMap">
+      {/* Ambient glow */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        background: 'radial-gradient(ellipse 60% 40% at 50% 50%, rgba(120,60,255,0.08) 0%, transparent 70%)'
+      }} />
 
       {/* Header */}
       <div className="flex flex-col items-center gap-3 z-10">
@@ -2480,10 +2501,9 @@ function Section8TrafficMap() {
         <div
           className="w-full h-full rounded-[24px] overflow-hidden"
           style={{
-            background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.04) 50%, rgba(255,255,255,0.06) 100%)',
-            border: '1px solid rgba(255,255,255,0.12)',
-            boxShadow: '0 0 60px rgba(100,60,255,0.08), inset 0 1px 0 rgba(255,255,255,0.1)',
-            backdropFilter: 'blur(30px)',
+            background: 'linear-gradient(135deg, rgba(30,20,60,0.9) 0%, rgba(10,8,30,0.95) 50%, rgba(20,15,50,0.9) 100%)',
+            border: '1px solid rgba(255,255,255,0.06)',
+            boxShadow: '0 0 80px rgba(100,60,255,0.08), inset 0 1px 0 rgba(255,255,255,0.04)',
           }}
         >
           {/* Grid overlay */}
@@ -2564,9 +2584,8 @@ function GlowIcon({ icon }: { icon: string }) {
       <div className="absolute inset-0 mix-blend-plus-lighter rounded-[15px]" style={{
         background: 'radial-gradient(circle at 50% 50%, rgba(99,102,241,0.15) 0%, transparent 50%)',
       }} />
-      <div className="backdrop-blur-[26px] flex items-center justify-center overflow-hidden p-[15px] rounded-[15px] size-full border border-[rgba(255,255,255,0.12)]" style={{
-        background: 'rgba(255,255,255,0.06)',
-        boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.1), 0 0 20px rgba(115,80,255,0.08)',
+      <div className="backdrop-blur-[26px] bg-[#030014] flex items-center justify-center overflow-hidden p-[15px] rounded-[15px] size-full border border-[rgba(255,255,255,0.06)]" style={{
+        boxShadow: 'inset 0 0 21px rgba(115,80,255,0.2)',
       }}>
         <span className="text-[24px]">{icon}</span>
       </div>
@@ -8068,10 +8087,8 @@ function Section9Solution() {
               <div
                 className="w-[56px] h-[56px] rounded-full flex items-center justify-center relative"
                 style={{
-                  background: "rgba(255,255,255,0.08)",
-                  border: "1px solid rgba(255,255,255,0.15)",
-                  backdropFilter: "blur(20px)",
-                  boxShadow: "inset 0 1px 0 rgba(255,255,255,0.1), 0 0 20px rgba(120,60,255,0.08)",
+                  background: "linear-gradient(135deg, rgba(120,60,255,0.15) 0%, rgba(60,120,255,0.1) 100%)",
+                  border: "1px solid rgba(120,60,255,0.3)",
                 }}
               >
                 {(() => {
@@ -8109,6 +8126,13 @@ function Section9Solution() {
       </div>
 
 
+      {/* Background glow */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
+        style={{
+          background: "radial-gradient(circle, rgba(120,60,255,0.08) 0%, transparent 70%)",
+        }}
+      />
     </div>
   );
 }
@@ -8331,6 +8355,11 @@ function Section10Contact() {
         </div>
       </div>
 
+      {/* Background glow */}
+      <div
+        className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none"
+        style={{ background: "radial-gradient(circle, rgba(120,60,255,0.06) 0%, transparent 70%)" }}
+      />
     </div>
   );
 }
@@ -8604,7 +8633,7 @@ function SnapSection({ children, className = "" }: { children: React.ReactNode; 
 
 export default function ReflectApp() {
   return (
-    <div className="w-full" style={{ backgroundImage: "linear-gradient(160deg, rgb(8, 3, 30) 0%, rgb(3, 0, 20) 30%, rgb(5, 2, 28) 60%, rgb(3, 0, 20) 100%)" }} data-name="Reflect App">
+    <div className="w-full" style={{ backgroundImage: "linear-gradient(90deg, rgb(3, 0, 20) 0%, rgb(3, 0, 20) 100%), linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%)" }} data-name="Reflect App">
 
       {/* 第1屏：Hero */}
       <SnapSection>
