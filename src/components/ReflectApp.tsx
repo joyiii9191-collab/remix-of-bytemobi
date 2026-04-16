@@ -15,6 +15,14 @@ import imgVerticalDivider from "@/assets/ac2eb037d77f8237ede48a3afc7330a2c1d2a95
 import imgVerticalDivider1 from "@/assets/1591e87697198101447f11664b328358928e0134.png";
 import imgQC92Fad10Png from "@/assets/0e0b93789f680040932a23db46863f95278916f9.png";
 import logo3d from "@/assets/logo-3d.png";
+import logoChartboost from "@/assets/logo-chartboost.png";
+import logoAudienceNetwork from "@/assets/logo-audience-network.png";
+import logoKiip from "@/assets/logo-kiip.png";
+import logoStartapp from "@/assets/logo-startapp.jpg";
+import logoTapjoy from "@/assets/logo-tapjoy.png";
+import logoAdmob from "@/assets/logo-admob.png";
+import logoApplovin from "@/assets/logo-applovin.png";
+import logoIronsource from "@/assets/logo-ironsource.png";
 import imgQF6418F24Png from "@/assets/855bd636812be95fbb29b5f939c42167715a1bb3.png";
 import imgQ871C3758Png from "@/assets/c14f43844921a3b41d95b2af1ef5bd30d73a1b6d.png";
 import imgVerticalDivider2 from "@/assets/a73ed680cbd1094cce46fa47751b942b452322f4.png";
@@ -2299,7 +2307,7 @@ function Section5Screen() {
   );
 }
 
-function LogoCard({ label, index = 0 }: { label: string; index?: number }) {
+function LogoCard({ label, index = 0, image }: { label: string; index?: number; image?: string }) {
   const duration = 3 + (index % 5) * 0.8;
   const delay = -(index * 0.7);
   return (
@@ -2324,16 +2332,20 @@ function LogoCard({ label, index = 0 }: { label: string; index?: number }) {
           background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.12) 30%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.12) 70%, transparent 100%)',
         }} />
       </div>
-      <div className="relative z-[1] size-full flex items-center justify-center">
-        <div className="size-[36px] rounded-[8px] flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.05)' }}>
-          <div className="size-[20px] rounded-[4px]" style={{ background: 'rgba(255,255,255,0.08)' }} />
-        </div>
+      <div className="relative z-[1] size-full flex items-center justify-center p-3">
+        {image ? (
+          <img src={image} alt={label} className="w-full h-full object-contain rounded-[6px]" loading="lazy" />
+        ) : (
+          <div className="size-[36px] rounded-[8px] flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.05)' }}>
+            <div className="size-[20px] rounded-[4px]" style={{ background: 'rgba(255,255,255,0.08)' }} />
+          </div>
+        )}
       </div>
     </div>
   );
 }
 
-function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 'right'; logos: string[]; tag?: string }) {
+function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 'right'; logos: { label: string; image?: string }[]; tag?: string }) {
   const doubled = [...logos, ...logos];
   const wrapperRef = useRef<HTMLDivElement>(null);
   const tagRef = useRef<HTMLDivElement>(null);
@@ -2404,8 +2416,8 @@ function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 
             } : {}),
           }}
         >
-          {doubled.map((label, i) => (
-            <LogoCard key={i} label={label} index={i} />
+          {doubled.map((item, i) => (
+            <LogoCard key={i} label={item.label} index={i} image={item.image} />
           ))}
         </div>
       </div>
@@ -2414,8 +2426,28 @@ function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 
 }
 
 function Section6LogoWall() {
-  const row1 = ['AI', 'G', 'M', 'FB', 'X', 'TT', 'LI', 'YT', 'IG', 'SP', 'DC', 'SL', 'GH', 'FG', 'NT'];
-  const row2 = ['AW', 'AZ', 'MS', 'AP', 'NV', 'TW', 'RD', 'PT', 'DB', 'SN', 'ZM', 'HB', 'JR', 'AT', 'CF'];
+  const row1 = [
+    { label: 'Chartboost', image: logoChartboost },
+    { label: 'Audience Network', image: logoAudienceNetwork },
+    { label: 'Kiip', image: logoKiip },
+    { label: 'StartApp', image: logoStartapp },
+    { label: 'Tapjoy', image: logoTapjoy },
+    { label: 'AdMob', image: logoAdmob },
+    { label: 'AppLovin', image: logoApplovin },
+    { label: 'ironSource', image: logoIronsource },
+    { label: 'Chartboost', image: logoChartboost },
+    { label: 'Audience Network', image: logoAudienceNetwork },
+    { label: 'Kiip', image: logoKiip },
+    { label: 'StartApp', image: logoStartapp },
+    { label: 'Tapjoy', image: logoTapjoy },
+    { label: 'AdMob', image: logoAdmob },
+    { label: 'AppLovin', image: logoApplovin },
+  ];
+  const row2 = [
+    { label: 'AW' }, { label: 'AZ' }, { label: 'MS' }, { label: 'AP' }, { label: 'NV' },
+    { label: 'TW' }, { label: 'RD' }, { label: 'PT' }, { label: 'DB' }, { label: 'SN' },
+    { label: 'ZM' }, { label: 'HB' }, { label: 'JR' }, { label: 'AT' }, { label: 'CF' },
+  ];
 
   return (
     <div className="relative w-full h-full flex flex-col items-center justify-center gap-10" data-name="Section6LogoWall">
