@@ -2756,42 +2756,60 @@ function Section7Values() {
           ))}
         </div>
 
-        {/* Three glass info cards */}
-        <div className="grid grid-cols-3 gap-3 mt-2">
-          {[
-            { icon: '⚡', title: '高速同步', desc: '跨设备实时数据同步' },
-            { icon: '🔒', title: '端到端加密', desc: '企业级数据安全保障' },
-            { icon: '🌐', title: '全球节点', desc: '覆盖全球低延迟网络' },
-          ].map((card, i) => (
-            <div
-              key={i}
-              className="relative overflow-hidden rounded-[12px] p-5 flex flex-col gap-2"
-              style={{
-                background: 'rgba(255,255,255,0.04)',
-                backdropFilter: 'blur(30px) saturate(1.4)',
-                WebkitBackdropFilter: 'blur(30px) saturate(1.4)',
-                border: '1px solid rgba(139,92,246,0.12)',
-                boxShadow: 'inset 0 1px 0 0 rgba(255,255,255,0.06), 0 4px 24px -6px rgba(0,0,0,0.25)',
-              }}
-            >
-              {/* Top-right glow */}
-              <div className="absolute -top-10 -right-10 w-[120px] h-[120px] rounded-full pointer-events-none" style={{
-                background: 'radial-gradient(circle, rgba(139,92,246,0.18) 0%, rgba(139,92,246,0.06) 40%, transparent 70%)',
-              }} />
-              {/* Gradient border overlay */}
-              <div className="absolute inset-[-1px] rounded-[12px] pointer-events-none" style={{
-                padding: '1px',
-                background: 'linear-gradient(135deg, rgba(139,92,246,0.25) 0%, rgba(139,92,246,0.08) 30%, rgba(255,255,255,0.06) 50%, rgba(139,92,246,0.08) 70%, rgba(139,92,246,0.2) 100%)',
-                mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                maskComposite: 'exclude',
-                WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                WebkitMaskComposite: 'xor',
-              }} />
-              <div className="text-[24px] relative z-[1]">{card.icon}</div>
-              <div className="text-[14px] font-medium text-[#f4f0ff] relative z-[1]">{card.title}</div>
-              <div className="text-[12px] text-[rgba(239,237,253,0.5)] relative z-[1]">{card.desc}</div>
+        {/* Three info containers */}
+        <div className="relative h-[196px] mt-2">
+          {/* Card 1 */}
+          <div className="absolute inset-[0_auto_0_0] w-[calc(33.33%-8px)] overflow-clip">
+            <div className="absolute left-[24px] top-[20px] size-[32px]">
+              <svg className="absolute block inset-0 size-full" fill="none" viewBox="0 0 40 40">
+                <path d="M20 5L35 23H5L20 5Z" fill="url(#g1)" fillOpacity="0.24" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M13 35V32H27V35H13Z" fill="white" opacity="0.32" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M20 28V18" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
+                <defs><linearGradient id="g1" x1="20" x2="20" y1="5" y2="23" gradientUnits="userSpaceOnUse"><stop stopColor="white" stopOpacity="0" /><stop offset="1" stopColor="white" /></linearGradient></defs>
+              </svg>
             </div>
-          ))}
+            <div className="absolute left-[24px] right-[24px] top-[68px]">
+              <p className="font-['Inter',sans-serif] font-medium text-[14px] text-[#f4f0ff] leading-[22px]">高速同步</p>
+            </div>
+            <div className="absolute left-[24px] right-[24px] top-[94px]">
+              <p className="font-['Inter',sans-serif] text-[14px] text-[rgba(239,237,253,0.6)] leading-[22px]">跨设备实时数据同步</p>
+            </div>
+            <div className="absolute bg-[rgba(255,255,255,0.24)] h-[16px] left-0 top-[72px] w-px" />
+          </div>
+          {/* Card 2 */}
+          <div className="absolute inset-[0_auto_0_calc(33.33%+4px)] w-[calc(33.33%-8px)] overflow-clip">
+            <div className="absolute left-[24px] top-[20px] size-[32px]">
+              <svg className="absolute block inset-0 size-full" fill="none" viewBox="0 0 40 40">
+                <rect x="8" y="8" width="24" height="24" rx="4" fill="url(#g2)" fillOpacity="0.24" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M16 20L19 23L25 17" stroke="white" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
+                <defs><linearGradient id="g2" x1="20" x2="20" y1="8" y2="32" gradientUnits="userSpaceOnUse"><stop stopColor="white" stopOpacity="0" /><stop offset="1" stopColor="white" /></linearGradient></defs>
+              </svg>
+            </div>
+            <div className="absolute left-[24px] right-[24px] top-[68px]">
+              <p className="font-['Inter',sans-serif] font-medium text-[14px] text-[#f4f0ff] leading-[22px]">端到端加密</p>
+            </div>
+            <div className="absolute left-[24px] right-[24px] top-[94px]">
+              <p className="font-['Inter',sans-serif] text-[14px] text-[rgba(239,237,253,0.6)] leading-[22px]">企业级数据安全保障</p>
+            </div>
+            <div className="absolute bg-[rgba(255,255,255,0.24)] h-[16px] left-0 top-[72px] w-px" />
+          </div>
+          {/* Card 3 */}
+          <div className="absolute inset-[0_0_0_calc(66.66%+8px)] w-[calc(33.33%-8px)] overflow-clip">
+            <div className="absolute left-[24px] top-[20px] size-[32px]">
+              <svg className="absolute block inset-0 size-full" fill="none" viewBox="0 0 40 40">
+                <circle cx="20" cy="20" r="12" fill="url(#g3)" fillOpacity="0.24" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M14 20H26M20 14V26" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
+                <defs><linearGradient id="g3" x1="20" x2="20" y1="8" y2="32" gradientUnits="userSpaceOnUse"><stop stopColor="white" stopOpacity="0" /><stop offset="1" stopColor="white" /></linearGradient></defs>
+              </svg>
+            </div>
+            <div className="absolute left-[24px] right-[24px] top-[68px]">
+              <p className="font-['Inter',sans-serif] font-medium text-[14px] text-[#f4f0ff] leading-[22px]">全球节点</p>
+            </div>
+            <div className="absolute left-[24px] right-[24px] top-[94px]">
+              <p className="font-['Inter',sans-serif] text-[14px] text-[rgba(239,237,253,0.6)] leading-[22px]">覆盖全球低延迟网络</p>
+            </div>
+            <div className="absolute bg-[rgba(255,255,255,0.24)] h-[16px] left-0 top-[72px] w-px" />
+          </div>
         </div>
       </div>
 
