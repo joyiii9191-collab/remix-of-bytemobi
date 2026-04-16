@@ -2840,15 +2840,24 @@ function Section7Values() {
 
         {/* Focus point + expanding box - CTA: phone screen */}
         {activeIndex === 0 && (
-          <FocusReveal left="52%" top="42%" imageSrc={ctaPhoneImg} />
+          <>
+            <FocusReveal left="52%" top="42%" />
+            <ClearImageOverlay left="52%" top="42%" imageSrc={ctaPhoneImg} />
+          </>
         )}
         {/* Focus point + expanding box - VTA: laptop/tablet */}
         {activeIndex === 1 && (
-          <FocusReveal left="22%" top="62%" imageSrc={vtaVideoImg} objectPosition="left center" />
+          <>
+            <FocusReveal left="22%" top="62%" />
+            <ClearImageOverlay left="22%" top="62%" imageSrc={vtaVideoImg} objectPosition="left center" />
+          </>
         )}
         {/* Focus point + expanding box - CTV: TV screen */}
         {activeIndex === 2 && (
-          <FocusReveal left="48%" top="30%" imageSrc={ctvTvImg} />
+          <>
+            <FocusReveal left="48%" top="30%" />
+            <ClearImageOverlay left="48%" top="30%" imageSrc={ctvTvImg} />
+          </>
         )}
       </div>
     </div>
