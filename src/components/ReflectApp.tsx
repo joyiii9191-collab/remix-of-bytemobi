@@ -2490,7 +2490,7 @@ function Section8TrafficMap() {
       </div>
 
       {/* Large placeholder map */}
-      <div className="relative w-full max-w-[1100px] z-10" style={{ aspectRatio: '16/9' }}>
+      <div className="relative w-full max-w-[1100px] z-10 flex-1 min-h-0">
         <div
           className="w-full h-full rounded-[24px] overflow-hidden"
           style={{
