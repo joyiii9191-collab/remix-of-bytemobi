@@ -213,6 +213,11 @@ function Heading() {
           智能驱动，全球汇流，日本聚势
         </p>
       </div>
+      <div className="mt-[40px] pointer-events-auto">
+        <StarBorder as="button" className="custom-class" color="magenta" speed="5s">
+          获取一站式解决方案
+        </StarBorder>
+      </div>
     </div>
   );
 }
