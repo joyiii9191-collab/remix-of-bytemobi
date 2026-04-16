@@ -2760,14 +2760,6 @@ function Section7Values() {
         <div className="relative h-[196px] mt-2">
           {/* Card 1 */}
           <div className="absolute inset-[0_auto_0_0] w-[calc(33.33%-8px)] overflow-clip">
-            <div className="absolute left-[24px] top-[20px] size-[32px]">
-              <svg className="absolute block inset-0 size-full" fill="none" viewBox="0 0 40 40">
-                <path d="M20 5L35 23H5L20 5Z" fill="url(#g1)" fillOpacity="0.24" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M13 35V32H27V35H13Z" fill="white" opacity="0.32" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M20 28V18" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
-                <defs><linearGradient id="g1" x1="20" x2="20" y1="5" y2="23" gradientUnits="userSpaceOnUse"><stop stopColor="white" stopOpacity="0" /><stop offset="1" stopColor="white" /></linearGradient></defs>
-              </svg>
-            </div>
             <div className="absolute bg-[rgba(255,255,255,0.24)] h-[16px] left-0 top-[72px] w-px" />
           </div>
           {/* Card 2 */}
