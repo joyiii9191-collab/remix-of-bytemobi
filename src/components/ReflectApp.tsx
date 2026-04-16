@@ -2822,7 +2822,7 @@ function Section7Values() {
         </div>
         {/* VTA */}
         <div className="absolute inset-0 transition-opacity duration-1000" style={{ opacity: activeIndex === 1 ? 1 : 0 }}>
-          <RevealCard imageSrc={vtaVideoImg} left="30%" top="55%" isActive={activeIndex === 1} objectPosition="left center" />
+          <RevealCard imageSrc={vtaVideoImg} left="30%" top="65%" isActive={activeIndex === 1} objectPosition="left center" />
         </div>
         {/* CTV */}
         <div className="absolute inset-0 transition-opacity duration-1000" style={{ opacity: activeIndex === 2 ? 1 : 0 }}>
