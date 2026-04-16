@@ -2032,8 +2032,6 @@ function Section2() {
       </div>
     </div>
   );
-    </div>
-  );
 }
 
 function Q62492B69Png() {
