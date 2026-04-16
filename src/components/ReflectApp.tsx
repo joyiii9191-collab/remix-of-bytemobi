@@ -33,6 +33,8 @@ import logoPubmatic from "@/assets/logo-pubmatic.png";
 import logoAppsflyer from "@/assets/logo-appsflyer.png";
 import logoAdjust from "@/assets/logo-adjust.png";
 import adjustLogo from "@/assets/adjust-logo.png";
+import appsflyerLogo from "@/assets/appsflyer-logo.png";
+import singularLogo from "@/assets/singular-logo.png";
 import logoFirebase from "@/assets/logo-firebase.png";
 import logoTenjin from "@/assets/logo-tenjin.png";
 import logoAppstore from "@/assets/logo-appstore.png";
@@ -2777,16 +2779,22 @@ function Section7Values() {
         </div>
 
         {/* Three info containers */}
-        <div className="relative h-[72px] mt-3 flex">
+        <div className="relative h-[72px] mt-3 flex items-center">
           {/* Card 1 */}
           <div className="w-[calc(33.33%-8px)] flex items-center justify-center">
             <img src={adjustLogo} alt="Adjust" className="h-[40px] object-contain brightness-0 invert" />
           </div>
+          {/* Divider */}
+          <div className="w-px h-[16px] bg-[rgba(255,255,255,0.24)]" />
           {/* Card 2 */}
-          <div className="w-[calc(33.33%-8px)] ml-3 flex items-center justify-center">
+          <div className="w-[calc(33.33%-8px)] flex items-center justify-center">
+            <img src={appsflyerLogo} alt="AppsFlyer" className="h-[40px] object-contain brightness-0 invert" />
           </div>
+          {/* Divider */}
+          <div className="w-px h-[16px] bg-[rgba(255,255,255,0.24)]" />
           {/* Card 3 */}
-          <div className="w-[calc(33.33%-8px)] ml-3 flex items-center justify-center">
+          <div className="w-[calc(33.33%-8px)] flex items-center justify-center">
+            <img src={singularLogo} alt="Singular" className="h-[40px] object-contain brightness-0 invert" />
           </div>
         </div>
       </div>
