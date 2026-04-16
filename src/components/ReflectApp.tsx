@@ -2241,20 +2241,20 @@ function Section5Screen() {
         <div className="relative" style={{ width: 380, height: 380 }}>
           {/* TG - Center */}
           <div className="absolute group cursor-pointer" style={{ left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }}>
-            <img src={new URL('../assets/tg-glass.png', import.meta.url).href} alt="Gather" className="w-[180px] h-[180px] object-contain transition-all duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_12px_40px_rgba(255,140,50,0.45)]" style={{ filter: 'drop-shadow(0 8px 24px rgba(255,140,50,0.3))', animation: 'floatCenter 4s ease-in-out infinite' }} />
+            <img src={new URL('../assets/tg-glass.png', import.meta.url).href} alt="Gather" className="w-[210px] h-[210px] object-contain transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-3 group-hover:drop-shadow-[0_16px_50px_rgba(255,140,50,0.5)]" style={{ filter: 'drop-shadow(0 10px 30px rgba(255,140,50,0.3))', animation: 'floatCenter 4s ease-in-out infinite' }} />
             <span className="block text-center text-[11px] font-medium text-white/35 mt-2">核心媒体合作伙伴</span>
           </div>
           {/* Google - Top right */}
-          <div className="absolute group cursor-pointer" style={{ right: -20, top: 0, animation: 'floatOrbit1 5s ease-in-out infinite' }}>
-            <img src={new URL('../assets/google-glass.png', import.meta.url).href} alt="Google" className="w-[120px] h-[120px] object-contain transition-all duration-500 group-hover:scale-115 group-hover:drop-shadow-[0_10px_30px_rgba(66,133,244,0.4)]" style={{ filter: 'drop-shadow(0 5px 16px rgba(66,133,244,0.25))' }} />
+          <div className="absolute group cursor-pointer" style={{ right: -10, top: 15, animation: 'floatOrbit1 5s ease-in-out infinite' }}>
+            <img src={new URL('../assets/google-glass.png', import.meta.url).href} alt="Google" className="w-[70px] h-[70px] object-contain transition-all duration-500 group-hover:scale-125 group-hover:-translate-y-2 group-hover:drop-shadow-[0_10px_30px_rgba(66,133,244,0.5)]" style={{ filter: 'drop-shadow(0 5px 16px rgba(66,133,244,0.25))' }} />
           </div>
           {/* TikTok - Bottom right */}
-          <div className="absolute group cursor-pointer" style={{ right: -30, bottom: 10, animation: 'floatOrbit2 6s ease-in-out infinite' }}>
-            <img src={new URL('../assets/tiktok-glass.png', import.meta.url).href} alt="TikTok" className="w-[120px] h-[120px] object-contain transition-all duration-500 group-hover:scale-115 group-hover:drop-shadow-[0_8px_25px_rgba(255,0,80,0.4)]" style={{ filter: 'drop-shadow(0 4px 12px rgba(255,0,80,0.2))' }} />
+          <div className="absolute group cursor-pointer" style={{ right: -15, bottom: 30, animation: 'floatOrbit2 6s ease-in-out infinite' }}>
+            <img src={new URL('../assets/tiktok-glass.png', import.meta.url).href} alt="TikTok" className="w-[70px] h-[70px] object-contain transition-all duration-500 group-hover:scale-125 group-hover:-translate-y-2 group-hover:drop-shadow-[0_8px_25px_rgba(255,0,80,0.5)]" style={{ filter: 'drop-shadow(0 4px 12px rgba(255,0,80,0.2))' }} />
           </div>
           {/* Meta - Left */}
-          <div className="absolute group cursor-pointer" style={{ left: -30, top: '55%', transform: 'translateY(-50%)', animation: 'floatOrbit3 5.5s ease-in-out infinite' }}>
-            <img src={new URL('../assets/meta-glass.png', import.meta.url).href} alt="Meta" className="w-[120px] h-[120px] object-contain transition-all duration-500 group-hover:scale-115 group-hover:drop-shadow-[0_6px_20px_rgba(0,120,255,0.4)]" style={{ filter: 'drop-shadow(0 4px 12px rgba(0,120,255,0.2))' }} />
+          <div className="absolute group cursor-pointer" style={{ left: -15, top: '55%', transform: 'translateY(-50%)', animation: 'floatOrbit3 5.5s ease-in-out infinite' }}>
+            <img src={new URL('../assets/meta-glass.png', import.meta.url).href} alt="Meta" className="w-[70px] h-[70px] object-contain transition-all duration-500 group-hover:scale-125 group-hover:-translate-y-2 group-hover:drop-shadow-[0_6px_20px_rgba(0,120,255,0.5)]" style={{ filter: 'drop-shadow(0 4px 12px rgba(0,120,255,0.2))' }} />
           </div>
         </div>
         <style>{`
