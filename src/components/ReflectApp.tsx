@@ -2337,7 +2337,7 @@ function LogoCard({ label, index = 0, image }: { label: string; index?: number; 
   );
 }
 
-function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 'right'; logos: string[]; tag?: string }) {
+function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 'right'; logos: { label: string; image?: string }[]; tag?: string }) {
   const doubled = [...logos, ...logos];
   const wrapperRef = useRef<HTMLDivElement>(null);
   const tagRef = useRef<HTMLDivElement>(null);
@@ -2408,8 +2408,8 @@ function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 
             } : {}),
           }}
         >
-          {doubled.map((label, i) => (
-            <LogoCard key={i} label={label} index={i} />
+          {doubled.map((item, i) => (
+            <LogoCard key={i} label={item.label} index={i} image={item.image} />
           ))}
         </div>
       </div>
