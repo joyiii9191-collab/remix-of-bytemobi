@@ -2069,11 +2069,12 @@ function Section4Screen() {
           ].map((item, i) => (
             <div key={`left-${i}`} className="absolute" style={{ top: `${item.top}px`, left: `${item.left}px` }}>
               <div className="relative w-[60px] h-[60px]">
-                {/* Glow layers */}
-                <div className="absolute inset-0 rounded-[14px]" style={{ border: '2px solid #b638ff', filter: 'blur(6px)', mixBlendMode: 'plus-lighter', opacity: 0.4 }} />
-                <div className="absolute inset-0 rounded-[14px]" style={{ border: '2px solid #b638ff', filter: 'blur(3px)', mixBlendMode: 'plus-lighter', opacity: 0.3 }} />
-                <div className="absolute inset-0 rounded-[14px]" style={{ border: '1px solid rgba(255,255,255,0.1)' }} />
-                {/* Icon frame */}
+                <div className="absolute inset-0 rounded-[14px]" style={{ border: '3px solid #b638ff', filter: 'blur(8px)', mixBlendMode: 'plus-lighter' }} />
+                <div className="absolute inset-0 rounded-[14px]" style={{ border: '3px solid #b638ff', filter: 'blur(5px)', mixBlendMode: 'plus-lighter' }} />
+                <div className="absolute inset-0 rounded-[14px]" style={{ border: '2px solid #b638ff', filter: 'blur(3px)', mixBlendMode: 'plus-lighter' }} />
+                <div className="absolute inset-0 rounded-[14px]" style={{ border: '2px solid #b638ff', filter: 'blur(1px)', mixBlendMode: 'plus-lighter' }} />
+                <div className="absolute inset-0 rounded-[14px]" style={{ border: '2px solid white', filter: 'blur(3px)', mixBlendMode: 'plus-lighter' }} />
+                <div className="absolute inset-0 rounded-[14px]" style={{ border: '2px solid rgba(255,255,255,0.1)' }} />
                 <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: '#030014', border: '3px solid #030014' }}>
                   <div className="w-[32px] h-[32px] rounded-md" style={{ background: 'rgba(255,255,255,0.06)' }} />
                 </div>
@@ -2089,11 +2090,12 @@ function Section4Screen() {
           ].map((item, i) => (
             <div key={`right-${i}`} className="absolute" style={{ top: `${item.top}px`, right: `${item.right}px` }}>
               <div className="relative w-[60px] h-[60px]">
-                {/* Glow layers */}
-                <div className="absolute inset-0 rounded-[14px]" style={{ border: '2px solid #b638ff', filter: 'blur(6px)', mixBlendMode: 'plus-lighter', opacity: 0.4 }} />
-                <div className="absolute inset-0 rounded-[14px]" style={{ border: '2px solid #b638ff', filter: 'blur(3px)', mixBlendMode: 'plus-lighter', opacity: 0.3 }} />
-                <div className="absolute inset-0 rounded-[14px]" style={{ border: '1px solid rgba(255,255,255,0.1)' }} />
-                {/* Icon frame */}
+                <div className="absolute inset-0 rounded-[14px]" style={{ border: '3px solid #b638ff', filter: 'blur(8px)', mixBlendMode: 'plus-lighter' }} />
+                <div className="absolute inset-0 rounded-[14px]" style={{ border: '3px solid #b638ff', filter: 'blur(5px)', mixBlendMode: 'plus-lighter' }} />
+                <div className="absolute inset-0 rounded-[14px]" style={{ border: '2px solid #b638ff', filter: 'blur(3px)', mixBlendMode: 'plus-lighter' }} />
+                <div className="absolute inset-0 rounded-[14px]" style={{ border: '2px solid #b638ff', filter: 'blur(1px)', mixBlendMode: 'plus-lighter' }} />
+                <div className="absolute inset-0 rounded-[14px]" style={{ border: '2px solid white', filter: 'blur(3px)', mixBlendMode: 'plus-lighter' }} />
+                <div className="absolute inset-0 rounded-[14px]" style={{ border: '2px solid rgba(255,255,255,0.1)' }} />
                 <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: '#030014', border: '3px solid #030014' }}>
                   <div className="w-[32px] h-[32px] rounded-md" style={{ background: 'rgba(255,255,255,0.06)' }} />
                 </div>
