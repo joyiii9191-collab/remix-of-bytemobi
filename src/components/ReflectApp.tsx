@@ -2608,11 +2608,6 @@ function AttributionItem({ item, isActive, onClick }: {
           </p>
         </div>
       </div>
-      <div className="mt-3 h-[2px] w-full rounded-full overflow-hidden bg-white/5">
-        {isActive && (
-          <div className="h-full bg-gradient-to-r from-[#7c3aed] to-[#6366f1] rounded-full" style={{ animation: 'attributionProgress 5s linear forwards' }} />
-        )}
-      </div>
     </div>
   );
 }
@@ -2734,9 +2729,9 @@ function Section7Values() {
   }, [items.length]);
 
   return (
-    <div className="relative w-full h-full flex items-center justify-center px-[80px] gap-[100px]" data-name="Section7Values">
-      {/* Left content */}
-      <div className="flex flex-col gap-[40px] flex-1 justify-center">
+    <div className="relative w-full h-full flex items-center justify-center px-[80px] gap-[60px]" data-name="Section7Values">
+      {/* Left content - match right image height */}
+      <div className="flex flex-col gap-[24px] flex-1 h-[658px] justify-center">
         <div className="flex items-baseline gap-4">
           <h2 className="text-[44px] font-medium text-white leading-[1.1] tracking-[-2px]">多元化流量网络</h2>
           <div className="px-4 py-[5px] rounded-full border border-[rgba(255,255,255,0.2)] relative">
