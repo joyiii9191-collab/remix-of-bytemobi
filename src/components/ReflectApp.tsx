@@ -8725,15 +8725,6 @@ export default function ReflectApp() {
          </div>
        </SnapSection>
 
-       {/* Footer */}
-      <SnapSection>
-        <div className="relative w-full h-full flex items-center justify-center">
-          <div className="relative w-full h-full">
-            <Section11 />
-            <BackgroundHorizontalBorder />
-          </div>
-        </div>
-      </SnapSection>
     </div>
   );
 }
