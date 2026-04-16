@@ -1,6 +1,5 @@
 import React from "react";
-import iconGlobalJapan from "@/assets/icon-global-japan.png";
-import iconOneStop from "@/assets/icon-one-stop.png";
+import { Globe, Layers } from "lucide-react";
 import "../components/LiquidGlassCard.css";
 
 function FeatureCard({
@@ -9,7 +8,7 @@ function FeatureCard({
   hasPlaceholders,
 }: {
   label: string;
-  icon?: string;
+  icon?: React.ReactNode;
   hasPlaceholders?: boolean;
 }) {
   return (
@@ -31,8 +30,8 @@ function FeatureCard({
             ))}
           </div>
         ) : icon ? (
-          <div className="w-12 h-12 rounded-xl overflow-hidden">
-            <img src={icon} alt={label} loading="lazy" className="w-full h-full object-contain" />
+          <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: 'hsla(0, 0%, 100%, 0.06)' }}>
+            {icon}
           </div>
         ) : null}
 
@@ -51,8 +50,8 @@ export default function IntegrationsGrid() {
     <>
       <FeatureCard label="头部媒体及合作伙伴" hasPlaceholders />
       <FeatureCard label="自有程序化流量体系" hasPlaceholders />
-      <FeatureCard label="布局全球，深拓日本" icon={iconGlobalJapan} />
-      <FeatureCard label="一站式解决方案" icon={iconOneStop} />
+      <FeatureCard label="布局全球，深拓日本" icon={<Globe size={24} strokeWidth={1.5} style={{ color: 'hsla(0, 0%, 100%, 0.45)' }} />} />
+      <FeatureCard label="一站式解决方案" icon={<Layers size={24} strokeWidth={1.5} style={{ color: 'hsla(0, 0%, 100%, 0.45)' }} />} />
     </>
   );
 }
