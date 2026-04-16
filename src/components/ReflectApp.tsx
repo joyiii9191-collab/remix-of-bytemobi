@@ -2458,7 +2458,7 @@ function Section6LogoWall() {
 
 function Section8TrafficMap() {
   return (
-    <div className="relative w-full h-full flex flex-col items-center justify-center px-[80px] gap-[48px]" data-name="Section8TrafficMap">
+    <div className="relative w-full h-full flex flex-col items-center justify-center px-[80px] gap-[24px] pt-[80px]" data-name="Section8TrafficMap">
       {/* Ambient glow */}
       <div className="absolute inset-0 pointer-events-none" style={{
         background: 'radial-gradient(ellipse 60% 40% at 50% 50%, rgba(120,60,255,0.08) 0%, transparent 70%)'
