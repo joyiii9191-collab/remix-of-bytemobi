@@ -2608,11 +2608,11 @@ function AttributionItem({ item, isActive, onClick }: {
           </p>
         </div>
       </div>
-      {isActive && (
-        <div className="mt-3 h-[2px] w-full rounded-full overflow-hidden bg-white/5">
+      <div className="mt-3 h-[2px] w-full rounded-full overflow-hidden bg-white/5">
+        {isActive && (
           <div className="h-full bg-gradient-to-r from-[#7c3aed] to-[#6366f1] rounded-full" style={{ animation: 'attributionProgress 5s linear forwards' }} />
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }
