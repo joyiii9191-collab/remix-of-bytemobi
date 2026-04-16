@@ -71,6 +71,7 @@ import imgImage6 from "@/assets/4f5711a87317b3cbe2d759bd34d7d622b241c01d.png";
 import imgQ87026E2EPng from "@/assets/35c6759d07f4f158de3afe431f509a063b5abe0e.png";
 import imgQF23Fe959Png from "@/assets/6250114cf817974b149d15ffb431a9338126261a.png";
 import imgVerticalDivider11 from "@/assets/8c08ec7f5bfe7291638cbaf898bf26ada2734e3a.png";
+import ctaPhoneImg from "@/assets/cta-phone.png";
 import imgVerticalDivider12 from "@/assets/8be4521167f90e33c61585f2a1abbc398394f011.png";
 import imgQ97C536F9Png from "@/assets/c15512823ce337cb821c754588168969f9900517.png";
 import imgContainer9 from "@/assets/ae98c5539785aebf8bd0c344a161775eaa675ab9.png";
@@ -2311,6 +2312,15 @@ function Section5Screen() {
             0%, 100% { transform: translate(0, -50%); }
             33% { transform: translate(6px, calc(-50% + 10px)); }
             66% { transform: translate(-8px, calc(-50% - 6px)); }
+          }
+          @keyframes focusDotPulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0.6; }
+          }
+          @keyframes revealBoxExpand {
+            0% { width: 0px; height: 0px; opacity: 0; }
+            30% { width: 40px; height: 50px; opacity: 1; }
+            100% { width: 280px; height: 360px; opacity: 1; }
           }
           @keyframes attributionProgress {
             0% { width: 0%; }
