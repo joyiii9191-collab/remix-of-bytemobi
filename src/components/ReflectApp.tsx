@@ -9,6 +9,7 @@ import Prism from "./Prism";
 import LaserFlow from "./LaserFlow";
 import LightRays from "./LightRays";
 import MagicBento from "./MagicBento";
+import Iridescence from "./Iridescence";
 import "./LiquidGlassCard.css";
 import imgQCb311D1CPng from "@/assets/ca87b13c3dba5b82f5b55f7a1fbe96037f74413d.png";
 import imgQC3D7BecfWebm from "@/assets/8f7f3e78fa25f538b70e2685192395598c425a33.png";
@@ -1946,6 +1947,7 @@ function Section2() {
 
   return (
     <div className="relative w-full h-full flex flex-col items-center justify-center px-16" data-name="Section">
+      <Iridescence color={[0.3, 0.1, 0.8]} speed={0.6} amplitude={0.2} mouseReact={true} style={{ opacity: 0.3 }} />
       {/* Header */}
       <div className="flex flex-col items-center gap-4 mb-10">
         <div className="flex items-center px-[16px] py-[5px] rounded-full relative" style={{ border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.05)" }}>
