@@ -2713,14 +2713,60 @@ function Section7Values() {
         </div>
       </div>
 
-      {/* Right image placeholder */}
-      <div className="h-[658px] shrink-0 w-[590px] rounded-[24px] overflow-hidden" style={{
-        background: 'linear-gradient(135deg, rgba(99,102,241,0.15) 0%, rgba(120,60,255,0.1) 50%, rgba(59,130,246,0.08) 100%)',
-        border: '1px solid rgba(255,255,255,0.06)',
-      }}>
-        <div className="w-full h-full flex items-center justify-center">
-          <div className="text-white/10 text-[80px] font-bold">IMG</div>
-        </div>
+      {/* Right image with blur reveal animation */}
+      <div className="h-[658px] shrink-0 w-[590px] rounded-[24px] overflow-hidden relative">
+        {/* Base blurred image */}
+        <img
+          src={ctaPhoneImg}
+          alt="CTA demonstration"
+          className="w-full h-full object-cover transition-[filter] duration-1000"
+          style={{ filter: activeIndex === 0 ? 'blur(0px)' : 'blur(8px)' }}
+        />
+        {/* Focus point + expanding box overlay */}
+        {activeIndex === 0 && (
+          <>
+            {/* Pulsing dot on phone screen area */}
+            <div className="absolute" style={{
+              left: '52%', top: '42%',
+              width: '12px', height: '12px',
+              borderRadius: '50%',
+              background: 'rgba(124, 58, 237, 0.9)',
+              boxShadow: '0 0 20px rgba(124, 58, 237, 0.6), 0 0 40px rgba(124, 58, 237, 0.3)',
+              transform: 'translate(-50%, -50%)',
+              animation: 'focusDotPulse 1.5s ease-in-out infinite',
+              zIndex: 3,
+            }} />
+            {/* Expanding reveal box */}
+            <div className="absolute" style={{
+              left: '52%', top: '42%',
+              transform: 'translate(-50%, -50%)',
+              animation: 'revealBoxExpand 1.2s ease-out 0.3s forwards',
+              width: '0px', height: '0px',
+              border: '2px solid rgba(124, 58, 237, 0.7)',
+              borderRadius: '8px',
+              boxShadow: '0 0 15px rgba(124, 58, 237, 0.3)',
+              zIndex: 2,
+              overflow: 'hidden',
+            }}>
+              <img
+                src={ctaPhoneImg}
+                alt=""
+                className="absolute"
+                style={{
+                  width: '590px', height: '658px',
+                  left: '50%', top: '50%',
+                  transform: `translate(calc(-52% * 590px / 100), calc(-42% * 658px / 100))`,
+                  objectFit: 'cover',
+                  filter: 'blur(0px)',
+                }}
+              />
+            </div>
+          </>
+        )}
+        {/* Blur overlay for non-CTA states */}
+        {activeIndex !== 0 && (
+          <div className="absolute inset-0 bg-black/10 pointer-events-none" />
+        )}
       </div>
     </div>
   );
