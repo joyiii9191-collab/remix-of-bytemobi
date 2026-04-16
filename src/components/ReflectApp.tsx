@@ -2360,31 +2360,20 @@ function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 
       {/* Fade edges */}
       <div className="absolute left-0 top-0 bottom-0 w-[120px] z-10" style={{ background: 'linear-gradient(90deg, #030014 0%, transparent 100%)' }} />
       <div className="absolute right-0 top-0 bottom-0 w-[120px] z-10" style={{ background: 'linear-gradient(270deg, #030014 0%, transparent 100%)' }} />
-      <div className="flex flex-col gap-3">
-        {/* Tag label that scrolls with the row */}
+      <div
+        className="flex flex-col gap-3"
+        style={{
+          animation: `${direction === 'left' ? 'marqueeLeft' : 'marqueeRight'} 30s linear infinite`,
+          width: 'max-content',
+        }}
+      >
+        {/* Tag label */}
         {tag && (
-          <div className="overflow-hidden">
-            <div
-              style={{
-                animation: `${direction === 'left' ? 'marqueeLeft' : 'marqueeRight'} 30s linear infinite`,
-                width: 'max-content',
-              }}
-            >
-              {[tag, tag].map((t, i) => (
-                <span key={i} className="inline-block mr-6 text-[12px] px-3 py-1 rounded-full border border-[rgba(255,255,255,0.15)] text-white/50 tracking-[0.08em]">
-                  {t}
-                </span>
-              ))}
-            </div>
-          </div>
+          <span className="text-[12px] px-3 py-1 rounded-full border border-[rgba(255,255,255,0.15)] text-white/50 tracking-[0.08em] w-fit">
+            {tag}
+          </span>
         )}
-        <div
-          className="flex items-center gap-6"
-          style={{
-            animation: `${direction === 'left' ? 'marqueeLeft' : 'marqueeRight'} 30s linear infinite`,
-            width: 'max-content',
-          }}
-        >
+        <div className="flex items-center gap-6">
           {doubled.map((label, i) => (
             <LogoCard key={i} label={label} index={i} />
           ))}
