@@ -2777,44 +2777,16 @@ function Section7Values() {
         </div>
 
         {/* Three info containers */}
-        <div className="relative h-[196px] mt-3">
+        <div className="relative h-[72px] mt-3 flex">
           {/* Card 1 */}
-          <div className="absolute inset-[0_auto_0_0] w-[calc(33.33%-8px)] overflow-clip flex items-center justify-center">
+          <div className="w-[calc(33.33%-8px)] flex items-center justify-center">
             <img src={adjustLogo} alt="Adjust" className="h-[40px] object-contain brightness-0 invert" />
           </div>
           {/* Card 2 */}
-          <div className="absolute inset-[0_auto_0_calc(33.33%+4px)] w-[calc(33.33%-8px)] overflow-clip">
-            <div className="absolute left-[24px] top-[20px] size-[32px]">
-              <svg className="absolute block inset-0 size-full" fill="none" viewBox="0 0 40 40">
-                <rect x="8" y="8" width="24" height="24" rx="4" fill="url(#g2)" fillOpacity="0.24" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M16 20L19 23L25 17" stroke="white" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
-                <defs><linearGradient id="g2" x1="20" x2="20" y1="8" y2="32" gradientUnits="userSpaceOnUse"><stop stopColor="white" stopOpacity="0" /><stop offset="1" stopColor="white" /></linearGradient></defs>
-              </svg>
-            </div>
-            <div className="absolute left-[24px] right-[24px] top-[68px]">
-              <p className="font-['Inter',sans-serif] font-medium text-[14px] text-[#f4f0ff] leading-[22px]">端到端加密</p>
-            </div>
-            <div className="absolute left-[24px] right-[24px] top-[94px]">
-              <p className="font-['Inter',sans-serif] text-[14px] text-[rgba(239,237,253,0.6)] leading-[22px]">企业级数据安全保障</p>
-            </div>
-            <div className="absolute bg-[rgba(255,255,255,0.24)] h-[16px] left-0 top-[72px] w-px" />
+          <div className="w-[calc(33.33%-8px)] ml-3 flex items-center justify-center">
           </div>
           {/* Card 3 */}
-          <div className="absolute inset-[0_0_0_calc(66.66%+8px)] w-[calc(33.33%-8px)] overflow-clip">
-            <div className="absolute left-[24px] top-[20px] size-[32px]">
-              <svg className="absolute block inset-0 size-full" fill="none" viewBox="0 0 40 40">
-                <circle cx="20" cy="20" r="12" fill="url(#g3)" fillOpacity="0.24" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M14 20H26M20 14V26" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
-                <defs><linearGradient id="g3" x1="20" x2="20" y1="8" y2="32" gradientUnits="userSpaceOnUse"><stop stopColor="white" stopOpacity="0" /><stop offset="1" stopColor="white" /></linearGradient></defs>
-              </svg>
-            </div>
-            <div className="absolute left-[24px] right-[24px] top-[68px]">
-              <p className="font-['Inter',sans-serif] font-medium text-[14px] text-[#f4f0ff] leading-[22px]">全球节点</p>
-            </div>
-            <div className="absolute left-[24px] right-[24px] top-[94px]">
-              <p className="font-['Inter',sans-serif] text-[14px] text-[rgba(239,237,253,0.6)] leading-[22px]">覆盖全球低延迟网络</p>
-            </div>
-            <div className="absolute bg-[rgba(255,255,255,0.24)] h-[16px] left-0 top-[72px] w-px" />
+          <div className="w-[calc(33.33%-8px)] ml-3 flex items-center justify-center">
           </div>
         </div>
       </div>
