@@ -2671,77 +2671,88 @@ function AttributionItem({ item, isActive, onClick }: {
   );
 }
 
-function FocusReveal({ left, top }: { left: string; top: string }) {
-  return (
-    <>
-      {/* Pulsing dot */}
-      <div className="absolute" style={{
-        left, top,
-        width: '20px', height: '20px',
-        borderRadius: '50%',
-        background: 'rgba(255, 255, 255, 0.95)',
-        boxShadow: '0 0 20px rgba(255,255,255,0.6), 0 0 40px rgba(255,255,255,0.3)',
-        transform: 'translate(-50%, -50%)',
-        animation: 'focusDotPulse 1.5s ease-in-out infinite',
-        zIndex: 4,
-      }} />
-      {/* Outer pulse ring */}
-      <div className="absolute" style={{
-        left, top,
-        width: '20px', height: '20px',
-        borderRadius: '50%',
-        border: '2px solid rgba(255,255,255,0.6)',
-        transform: 'translate(-50%, -50%)',
-        animation: 'focusRingPulse 1.5s ease-out infinite',
-        zIndex: 4,
-      }} />
-      {/* Expanding border frame only */}
-      <div className="absolute pointer-events-none" style={{
-        left, top,
-        transform: 'translate(-50%, -50%)',
-        animation: 'revealBoxExpand 1.2s ease-out 0.3s forwards',
-        width: '0px', height: '0px',
-        border: '2px solid rgba(255, 255, 255, 0.8)',
-        borderRadius: '8px',
-        boxShadow: '0 0 15px rgba(255, 255, 255, 0.3)',
-        zIndex: 4,
-      }} />
-    </>
-  );
-}
-
-/* Clear image overlay that clips to the reveal box area */
-function ClearImageOverlay({ left, top, imageSrc, objectPosition }: { left: string; top: string; imageSrc: string; objectPosition?: string }) {
-  const [expanded, setExpanded] = useState(false);
+/* Single image card with blur + clear reveal box */
+function RevealCard({ imageSrc, left, top, isActive, objectPosition }: {
+  imageSrc: string; left: string; top: string; isActive: boolean; objectPosition?: string;
+}) {
   const lNum = parseFloat(left);
   const tNum = parseFloat(top);
 
-  useEffect(() => {
-    const timer = setTimeout(() => setExpanded(true), 300);
-    return () => clearTimeout(timer);
-  }, []);
+  // Small initial box: 60x80 in 590x658
+  const smallHalfW = (30 / 590) * 100;
+  const smallHalfH = (40 / 658) * 100;
+  // Large expanded box: 280x360 in 590x658
+  const bigHalfW = (140 / 590) * 100;
+  const bigHalfH = (180 / 658) * 100;
 
-  // Box final size: 280x360 in 590x658 container
-  const halfW = (140 / 590) * 100; // ~23.7%
-  const halfH = (180 / 658) * 100; // ~27.4%
-
-  const clipPath = expanded
-    ? `inset(${tNum - halfH}% ${100 - lNum - halfW}% ${100 - tNum - halfH}% ${lNum - halfW}% round 8px)`
-    : `inset(${tNum}% ${100 - lNum}% ${100 - tNum}% ${lNum}% round 8px)`;
+  const smallClip = `inset(${tNum - smallHalfH}% ${100 - lNum - smallHalfW}% ${100 - tNum - smallHalfH}% ${lNum - smallHalfW}% round 6px)`;
+  const bigClip = `inset(${tNum - bigHalfH}% ${100 - lNum - bigHalfW}% ${100 - tNum - bigHalfH}% ${lNum - bigHalfW}% round 8px)`;
 
   return (
-    <div className="absolute inset-0 pointer-events-none" style={{
-      zIndex: 3,
-      clipPath,
-      transition: 'clip-path 1.2s ease-out',
-    }}>
+    <>
+      {/* Blurred background image */}
       <img
         src={imageSrc}
         alt=""
-        className="w-full h-full object-cover"
-        style={{ objectPosition: objectPosition || 'center' }}
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{
+          filter: 'blur(6px)',
+          objectPosition: objectPosition || 'center',
+        }}
       />
-    </div>
+
+      {/* Clear image clipped to box area */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        zIndex: 2,
+        clipPath: isActive ? bigClip : smallClip,
+        transition: 'clip-path 1.2s ease-out',
+      }}>
+        <img
+          src={imageSrc}
+          alt=""
+          className="w-full h-full object-cover"
+          style={{ objectPosition: objectPosition || 'center' }}
+        />
+      </div>
+
+      {/* Small static border (always visible) */}
+      <div className="absolute pointer-events-none" style={{
+        left, top,
+        transform: 'translate(-50%, -50%)',
+        width: isActive ? '280px' : '60px',
+        height: isActive ? '360px' : '80px',
+        border: '2px solid rgba(255, 255, 255, 0.8)',
+        borderRadius: isActive ? '8px' : '6px',
+        boxShadow: '0 0 15px rgba(255, 255, 255, 0.3)',
+        zIndex: 3,
+        transition: 'width 1.2s ease-out, height 1.2s ease-out, border-radius 1.2s ease-out',
+      }} />
+
+      {/* Pulsing dot - only when active */}
+      {isActive && (
+        <>
+          <div className="absolute" style={{
+            left, top,
+            width: '20px', height: '20px',
+            borderRadius: '50%',
+            background: 'rgba(255, 255, 255, 0.95)',
+            boxShadow: '0 0 20px rgba(255,255,255,0.6), 0 0 40px rgba(255,255,255,0.3)',
+            transform: 'translate(-50%, -50%)',
+            animation: 'focusDotPulse 1.5s ease-in-out infinite',
+            zIndex: 4,
+          }} />
+          <div className="absolute" style={{
+            left, top,
+            width: '20px', height: '20px',
+            borderRadius: '50%',
+            border: '2px solid rgba(255,255,255,0.6)',
+            transform: 'translate(-50%, -50%)',
+            animation: 'focusRingPulse 1.5s ease-out infinite',
+            zIndex: 4,
+          }} />
+        </>
+      )}
+    </>
   );
 }
 
@@ -2805,60 +2816,18 @@ function Section7Values() {
 
       {/* Right image with blur reveal animation */}
       <div className="h-[658px] shrink-0 w-[590px] rounded-[24px] overflow-hidden relative">
-        {/* CTA image */}
-        <img
-          src={ctaPhoneImg}
-          alt="CTA demonstration"
-          className="absolute inset-0 w-full h-full object-cover transition-all duration-1000"
-          style={{
-            filter: activeIndex === 0 ? 'blur(6px)' : 'blur(12px)',
-            opacity: activeIndex === 0 ? 1 : 0,
-          }}
-        />
-        {/* VTA image - left half crop, focus on laptop */}
-        <img
-          src={vtaVideoImg}
-          alt="VTA demonstration"
-          className="absolute inset-0 w-full h-full transition-all duration-1000"
-          style={{
-            filter: activeIndex === 1 ? 'blur(6px)' : 'blur(12px)',
-            opacity: activeIndex === 1 ? 1 : 0,
-            objectFit: 'cover',
-            objectPosition: 'left center',
-          }}
-        />
-        {/* CTV image - TV scene */}
-        <img
-          src={ctvTvImg}
-          alt="CTV demonstration"
-          className="absolute inset-0 w-full h-full object-cover transition-all duration-1000"
-          style={{
-            filter: activeIndex === 2 ? 'blur(6px)' : 'blur(12px)',
-            opacity: activeIndex === 2 ? 1 : 0,
-          }}
-        />
-
-        {/* Focus point + expanding box - CTA: phone screen */}
-        {activeIndex === 0 && (
-          <>
-            <FocusReveal left="52%" top="42%" />
-            <ClearImageOverlay left="52%" top="42%" imageSrc={ctaPhoneImg} />
-          </>
-        )}
-        {/* Focus point + expanding box - VTA: laptop/tablet */}
-        {activeIndex === 1 && (
-          <>
-            <FocusReveal left="22%" top="62%" />
-            <ClearImageOverlay left="22%" top="62%" imageSrc={vtaVideoImg} objectPosition="left center" />
-          </>
-        )}
-        {/* Focus point + expanding box - CTV: TV screen */}
-        {activeIndex === 2 && (
-          <>
-            <FocusReveal left="48%" top="30%" />
-            <ClearImageOverlay left="48%" top="30%" imageSrc={ctvTvImg} />
-          </>
-        )}
+        {/* CTA */}
+        <div className="absolute inset-0 transition-opacity duration-1000" style={{ opacity: activeIndex === 0 ? 1 : 0 }}>
+          <RevealCard imageSrc={ctaPhoneImg} left="52%" top="42%" isActive={activeIndex === 0} />
+        </div>
+        {/* VTA */}
+        <div className="absolute inset-0 transition-opacity duration-1000" style={{ opacity: activeIndex === 1 ? 1 : 0 }}>
+          <RevealCard imageSrc={vtaVideoImg} left="22%" top="62%" isActive={activeIndex === 1} objectPosition="left center" />
+        </div>
+        {/* CTV */}
+        <div className="absolute inset-0 transition-opacity duration-1000" style={{ opacity: activeIndex === 2 ? 1 : 0 }}>
+          <RevealCard imageSrc={ctvTvImg} left="48%" top="30%" isActive={activeIndex === 2} />
+        </div>
       </div>
     </div>
   );
