@@ -8337,16 +8337,25 @@ function Section10Contact() {
               </div>
 
               {/* 提交按钮 */}
-              <button
-                type="submit"
-                className="w-full py-[14px] rounded-full text-[15px] font-medium text-white cursor-pointer transition-all hover:opacity-90 mt-[4px]"
-                style={{
-                  background: "linear-gradient(135deg, rgba(120,60,255,0.8) 0%, rgba(80,40,200,0.9) 100%)",
-                  boxShadow: "0 0 30px rgba(120,60,255,0.3)",
-                }}
-              >
-                提交信息
-              </button>
+              <div className="relative mt-[4px]">
+                <button
+                  type="submit"
+                  className="relative w-full py-[12px] rounded-[32px] text-[14px] font-medium text-white cursor-pointer transition-all hover:opacity-90 overflow-hidden"
+                  style={{
+                    background: "transparent",
+                  }}
+                >
+                  <div
+                    className="absolute inset-0 rounded-[32px] pointer-events-none"
+                    style={{
+                      backgroundImage: "linear-gradient(90deg, rgba(229,156,255,0.24) 0%, rgba(186,156,255,0.24) 50%, rgba(156,178,255,0.24) 100%)",
+                    }}
+                  />
+                  <div className="absolute inset-0 pointer-events-none rounded-[32px]" style={{ backdropFilter: "blur(3px)" }} />
+                  <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_-7px_11px_0px_rgba(164,143,255,0.12)]" />
+                  <span className="relative z-10">提交信息</span>
+                </button>
+              </div>
             </form>
           )}
         </div>
