@@ -2737,65 +2737,66 @@ function Section7Values() {
   return (
     <div className="relative w-full h-full flex items-center justify-center px-[80px] gap-[60px]" data-name="Section7Values">
       {/* Left content - match right image height */}
-      <div className="flex flex-col gap-[24px] flex-1 h-[658px] justify-center">
-        <div className="flex items-baseline gap-4">
-          <h2 className="text-[44px] font-medium text-white leading-[1.1] tracking-[-2px]">多元化流量网络</h2>
-          <div className="px-4 py-[5px] rounded-full border border-[rgba(255,255,255,0.2)] relative">
-            <div className="absolute inset-0 bg-[rgba(255,255,255,0.05)] rounded-full pointer-events-none" />
-            <div className="absolute inset-[-0.5px] rounded-full pointer-events-none" style={{ boxShadow: 'inset 0 0 21px rgba(115,80,255,0.2)' }} />
-            <span className="text-[14px] text-white leading-[1.6] tracking-[-0.21px] relative">多种归因方式</span>
-          </div>
-        </div>
-
-        <div className="flex flex-col gap-3">
-          {items.map((item, i) => (
-            <div key={i}>
-              <AttributionItem item={item} isActive={activeIndex === i} onClick={() => setActiveIndex(i)} />
-              {i < items.length - 1 && (
-                <div className="mt-3 h-px w-full" style={{
-                  background: 'linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0) 100%)',
-                }} />
-              )}
+      <div className="flex flex-col flex-1 h-[658px] relative">
+        {/* Top: title + items */}
+        <div className="flex flex-col gap-[24px] pt-[20px]">
+          <div className="flex items-baseline gap-4">
+            <h2 className="text-[44px] font-medium text-white leading-[1.1] tracking-[-2px]">多元化流量网络</h2>
+            <div className="px-4 py-[5px] rounded-full border border-[rgba(255,255,255,0.2)] relative">
+              <div className="absolute inset-0 bg-[rgba(255,255,255,0.05)] rounded-full pointer-events-none" />
+              <div className="absolute inset-[-0.5px] rounded-full pointer-events-none" style={{ boxShadow: 'inset 0 0 21px rgba(115,80,255,0.2)' }} />
+              <span className="text-[14px] text-white leading-[1.6] tracking-[-0.21px] relative">多种归因方式</span>
             </div>
-          ))}
-        </div>
-
-        {/* Tech support header */}
-        <div className="flex items-baseline gap-4">
-          <div className="flex flex-col gap-1">
-            <h3 className="text-[20px] font-medium text-white leading-[1.2]">技术支持</h3>
-            <p className="text-[13px] text-[rgba(239,237,253,0.5)]">高精度数据对接</p>
           </div>
-          <div className="flex gap-2">
-            {['S2S 对接', 'API 接入', 'MMP 接入'].map((label) => (
-              <div key={label} className="px-3 py-[4px] rounded-full relative" style={{
-                background: 'rgba(255,255,255,0.04)',
-                backdropFilter: 'blur(20px)',
-                border: '1px solid rgba(139,92,246,0.15)',
-              }}>
-                <span className="text-[12px] text-[rgba(239,237,253,0.7)] relative z-[1]">{label}</span>
+
+          <div className="flex flex-col gap-3">
+            {items.map((item, i) => (
+              <div key={i}>
+                <AttributionItem item={item} isActive={activeIndex === i} onClick={() => setActiveIndex(i)} />
+                {i < items.length - 1 && (
+                  <div className="mt-3 h-px w-full" style={{
+                    background: 'linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0) 100%)',
+                  }} />
+                )}
               </div>
             ))}
           </div>
         </div>
 
-        {/* Three info containers */}
-        <div className="relative h-[60px] flex items-center">
-          {/* Card 1 */}
-          <div className="w-[calc(33.33%-8px)] flex items-center justify-center">
-            <img src={adjustLogo} alt="Adjust" className="h-[40px] object-contain brightness-0 invert" />
+        {/* Bottom: pinned to bottom of 658px container */}
+        <div className="absolute bottom-0 left-0 right-0 flex flex-col gap-[20px]">
+          {/* Tech support header */}
+          <div className="flex items-baseline gap-4">
+            <div className="flex flex-col gap-1">
+              <h3 className="text-[20px] font-medium text-white leading-[1.2]">技术支持</h3>
+              <p className="text-[13px] text-[rgba(239,237,253,0.5)]">高精度数据对接</p>
+            </div>
+            <div className="flex gap-2">
+              {['S2S 对接', 'API 接入', 'MMP 接入'].map((label) => (
+                <div key={label} className="px-3 py-[4px] rounded-full relative" style={{
+                  background: 'rgba(255,255,255,0.04)',
+                  backdropFilter: 'blur(20px)',
+                  border: '1px solid rgba(139,92,246,0.15)',
+                }}>
+                  <span className="text-[12px] text-[rgba(239,237,253,0.7)] relative z-[1]">{label}</span>
+                </div>
+              ))}
+            </div>
           </div>
-          {/* Divider */}
-          <div className="w-px h-[16px] bg-[rgba(255,255,255,0.24)]" />
-          {/* Card 2 */}
-          <div className="w-[calc(33.33%-8px)] flex items-center justify-center">
-            <img src={appsflyerLogo} alt="AppsFlyer" className="h-[40px] object-contain brightness-0 invert" />
-          </div>
-          {/* Divider */}
-          <div className="w-px h-[16px] bg-[rgba(255,255,255,0.24)]" />
-          {/* Card 3 */}
-          <div className="w-[calc(33.33%-8px)] flex items-center justify-center">
-            <img src={singularLogo} alt="Singular" className="h-[40px] object-contain brightness-0 invert" />
+
+          {/* Three info containers */}
+          <div className="relative h-[60px] flex items-center">
+            <div className="w-[calc(33.33%-8px)] flex items-center justify-center">
+              <img src={adjustLogo} alt="Adjust" className="h-[40px] object-contain brightness-0 invert" />
+            </div>
+            <div className="w-px h-[16px] bg-[rgba(255,255,255,0.24)]" />
+            <div className="w-[calc(33.33%-8px)] flex items-center justify-center">
+              <img src={appsflyerLogo} alt="AppsFlyer" className="h-[40px] object-contain brightness-0 invert" />
+            </div>
+            <div className="w-px h-[16px] bg-[rgba(255,255,255,0.24)]" />
+            <div className="w-[calc(33.33%-8px)] flex items-center justify-center">
+              <img src={singularLogo} alt="Singular" className="h-[40px] object-contain brightness-0 invert" />
+            </div>
           </div>
         </div>
       </div>
