@@ -8064,6 +8064,15 @@ export default function ReflectApp() {
          </div>
        </SnapSection>
 
+       {/* 第9屏：一站式解决方案 */}
+       <SnapSection>
+         <div className="relative w-full h-full flex items-center justify-center">
+           <div className="relative w-full h-full">
+             <Section9Solution />
+           </div>
+         </div>
+       </SnapSection>
+
        {/* Footer */}
       <SnapSection>
         <div className="relative w-full h-full flex items-center justify-center">
