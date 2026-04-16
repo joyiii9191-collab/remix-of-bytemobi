@@ -79,7 +79,7 @@ export default function LightRays({
     if (followMouse) window.addEventListener('mousemove', handleMouseMove);
 
     const color = hexToRgb(raysColor);
-    const rayCount = 24;
+    const rayCount = 10;
     let time = 0;
 
     const draw = () => {
@@ -96,7 +96,7 @@ export default function LightRays({
         const noise = noiseAmount > 0 ? Math.sin(time * 3 + i * 1.3) * noiseAmount * 20 : 0;
         const len = (canvas.height * 0.6 * rayLength) + noise;
         const pulse = pulsating ? 0.5 + Math.sin(time * 3 + i * 0.5) * 0.5 : 1;
-        const alpha = (0.12 + Math.sin(time + i * 0.8) * 0.04) * pulse * saturation;
+        const alpha = (0.06 + Math.sin(time + i * 0.8) * 0.02) * pulse * saturation;
 
         const endX = ox + Math.cos(angle) * len;
         const endY = oy + Math.sin(angle) * len;
@@ -112,7 +112,7 @@ export default function LightRays({
         ctx.beginPath();
         ctx.moveTo(ox, oy);
 
-        const spread = 80 + i * 12;
+        const spread = 160 + i * 20;
         const midX = (ox + endX) / 2;
         const midY = (oy + endY) / 2;
         const perpX = -(endY - oy) / len * spread * 0.6;
