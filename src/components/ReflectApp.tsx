@@ -23,6 +23,10 @@ import logoTapjoy from "@/assets/logo-tapjoy.png";
 import logoAdmob from "@/assets/logo-admob.png";
 import logoApplovin from "@/assets/logo-applovin.png";
 import logoIronsource from "@/assets/logo-ironsource.png";
+import logoCrosspromo from "@/assets/logo-crosspromo.png";
+import logoUnityads from "@/assets/logo-unityads.png";
+import logoAdcolony from "@/assets/logo-adcolony.png";
+import logoMtg from "@/assets/logo-mtg.png";
 import imgQF6418F24Png from "@/assets/855bd636812be95fbb29b5f939c42167715a1bb3.png";
 import imgQ871C3758Png from "@/assets/c14f43844921a3b41d95b2af1ef5bd30d73a1b6d.png";
 import imgVerticalDivider2 from "@/assets/a73ed680cbd1094cce46fa47751b942b452322f4.png";
@@ -2435,13 +2439,10 @@ function Section6LogoWall() {
     { label: 'AdMob', image: logoAdmob },
     { label: 'AppLovin', image: logoApplovin },
     { label: 'ironSource', image: logoIronsource },
-    { label: 'Chartboost', image: logoChartboost },
-    { label: 'Audience Network', image: logoAudienceNetwork },
-    { label: 'Kiip', image: logoKiip },
-    { label: 'StartApp', image: logoStartapp },
-    { label: 'Tapjoy', image: logoTapjoy },
-    { label: 'AdMob', image: logoAdmob },
-    { label: 'AppLovin', image: logoApplovin },
+    { label: 'CrossPromo', image: logoCrosspromo },
+    { label: 'Unity Ads', image: logoUnityads },
+    { label: 'AdColony', image: logoAdcolony },
+    { label: 'Mtg', image: logoMtg },
   ];
   const row2 = [
     { label: 'AW' }, { label: 'AZ' }, { label: 'MS' }, { label: 'AP' }, { label: 'NV' },
