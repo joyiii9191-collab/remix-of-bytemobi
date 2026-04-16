@@ -13,6 +13,7 @@ import imgQ6C12DbaePng from "@/assets/5d3fc7562b3454b57dbfd13b639f4b550f37a55c.p
 import imgVerticalDivider from "@/assets/ac2eb037d77f8237ede48a3afc7330a2c1d2a95f.png";
 import imgVerticalDivider1 from "@/assets/1591e87697198101447f11664b328358928e0134.png";
 import imgQC92Fad10Png from "@/assets/0e0b93789f680040932a23db46863f95278916f9.png";
+import logo3d from "@/assets/logo-3d.png";
 import imgQF6418F24Png from "@/assets/855bd636812be95fbb29b5f939c42167715a1bb3.png";
 import imgQ871C3758Png from "@/assets/c14f43844921a3b41d95b2af1ef5bd30d73a1b6d.png";
 import imgVerticalDivider2 from "@/assets/a73ed680cbd1094cce46fa47751b942b452322f4.png";
