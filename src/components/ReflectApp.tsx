@@ -8090,8 +8090,10 @@ function Section9Solution() {
               <div
                 className="w-[56px] h-[56px] rounded-full flex items-center justify-center relative"
                 style={{
-                  background: "linear-gradient(135deg, rgba(120,60,255,0.15) 0%, rgba(60,120,255,0.1) 100%)",
-                  border: "1px solid rgba(120,60,255,0.3)",
+                  background: "rgba(255,255,255,0.08)",
+                  border: "1px solid rgba(255,255,255,0.15)",
+                  backdropFilter: "blur(20px)",
+                  boxShadow: "inset 0 1px 0 rgba(255,255,255,0.1), 0 0 20px rgba(120,60,255,0.08)",
                 }}
               >
                 {(() => {
