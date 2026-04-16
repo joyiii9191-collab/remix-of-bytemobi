@@ -2236,81 +2236,51 @@ function Section5Screen() {
         </div>
       </div>
 
-      {/* Right dashboard mockup */}
-      <div className="relative flex-1 max-w-[520px] z-[1]">
-        <div className="relative rounded-[20px] overflow-hidden" style={{
-          background: 'rgba(255,255,255,0.03)',
-          border: '1px solid rgba(255,255,255,0.08)',
-          boxShadow: '0 20px 80px -16px rgba(0,0,0,0.6)',
-        }}>
-          {/* Dashboard header */}
-          <div className="flex items-center gap-3 px-5 py-4 border-b border-[rgba(255,255,255,0.06)]">
-            <div className="size-[32px] rounded-[8px] bg-[#7c3aed] flex items-center justify-center">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4h12v2H2zM2 10h12v2H2z" fill="white"/></svg>
-            </div>
-            <div className="flex-1 flex justify-end">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-[8px]" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)' }}>
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="6" cy="6" r="5" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5"/><path d="M10 10l3 3" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" strokeLinecap="round"/></svg>
-                <span className="text-[12px] text-white/30">Search something...</span>
+      {/* Right - Logo showcase */}
+      <div className="relative flex-1 max-w-[480px] z-[1]">
+        <div className="flex flex-col gap-4">
+          {/* Main logo - large */}
+          <div className="liquid-glass liquid-glass--panel relative group">
+            <div className="flex items-center justify-center p-12 aspect-[16/9]">
+              {/* Top-left purple glow */}
+              <div className="absolute top-0 left-0 w-[60%] h-[60%] pointer-events-none rounded-[inherit]" style={{
+                background: 'radial-gradient(circle at 0% 0%, rgba(168,130,255,0.25) 0%, rgba(124,58,237,0.08) 40%, transparent 70%)',
+              }} />
+              {/* Logo placeholder */}
+              <div className="w-[120px] h-[120px] rounded-2xl flex items-center justify-center" style={{
+                background: 'rgba(255,255,255,0.04)',
+                border: '1px solid rgba(255,255,255,0.08)',
+                boxShadow: '0 0 30px rgba(124,58,237,0.1)',
+              }}>
+                <div className="w-14 h-14 rounded-xl" style={{ background: 'linear-gradient(135deg, rgba(168,130,255,0.3), rgba(124,58,237,0.15))' }} />
               </div>
+            </div>
+            <div className="absolute bottom-4 left-0 right-0 text-center">
+              <span className="text-[13px] font-medium text-white/40">核心媒体合作伙伴</span>
             </div>
           </div>
 
-          <div className="flex">
-            {/* Sidebar icons */}
-            <div className="flex flex-col items-center gap-4 px-3 py-5 border-r border-[rgba(255,255,255,0.06)]">
-              {['🔍','⊞','✏','⚙','♡','⊛'].map((icon, i) => (
-                <div key={i} className={`size-[32px] rounded-[8px] flex items-center justify-center text-[14px] ${i === 1 ? 'bg-[#7c3aed] text-white' : 'text-white/30'}`}>
-                  {icon}
-                </div>
-              ))}
-            </div>
-
-            {/* Main content */}
-            <div className="flex-1 p-5 flex flex-col gap-4">
-              {/* Metric cards */}
-              <div className="grid grid-cols-2 gap-3">
-                <div className="rounded-[12px] p-4" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-[12px] text-white/40">Leads Captured</span>
-                    <div className="size-[24px] rounded-[6px] bg-[rgba(124,58,237,0.2)] flex items-center justify-center">
-                      <span className="text-[10px] text-[#a855f7]">📊</span>
-                    </div>
+          {/* 3 secondary logos */}
+          <div className="grid grid-cols-3 gap-3">
+            {['战略合作媒体', '优质流量平台', '数据服务商'].map((label, i) => (
+              <div key={i} className="liquid-glass liquid-glass--inner liquid-glass--glow relative group">
+                <div className="flex flex-col items-center justify-center gap-3 p-5 aspect-square">
+                  {/* Top-left purple glow */}
+                  <div className="absolute top-0 left-0 w-[70%] h-[70%] pointer-events-none rounded-[inherit]" style={{
+                    background: 'radial-gradient(circle at 0% 0%, rgba(168,130,255,0.35) 0%, rgba(124,58,237,0.12) 35%, transparent 65%)',
+                  }} />
+                  {/* Logo placeholder */}
+                  <div className="w-11 h-11 rounded-xl flex items-center justify-center" style={{
+                    background: 'rgba(255,255,255,0.04)',
+                    border: '1px solid rgba(255,255,255,0.08)',
+                  }}>
+                    <div className="w-5 h-5 rounded-md" style={{ background: 'linear-gradient(135deg, rgba(168,130,255,0.25), rgba(124,58,237,0.12))' }} />
                   </div>
-                  <span className="text-[28px] font-bold text-white">1,248</span>
-                  <p className="text-[11px] text-green-400 mt-1">↑ +5% compared to last month</p>
-                </div>
-                <div className="rounded-[12px] p-4" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-[12px] text-white/40">Conversion Rate</span>
-                  </div>
-                  <span className="text-[28px] font-bold text-white">27%</span>
-                  <p className="text-[11px] text-green-400 mt-1">↑ +11% compared to last month</p>
+                  <span className="text-[11px] font-medium text-white/40 text-center leading-tight">{label}</span>
                 </div>
               </div>
-
-              {/* Chart area */}
-              <div className="rounded-[12px] p-4" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
-                <span className="text-[14px] font-medium text-white mb-3 block">Conversion Performance</span>
-                <div className="flex items-end gap-1 h-[100px]">
-                  {[40, 20, 55, 35, 70, 45, 80, 60, 90, 50, 75, 85].map((h, i) => (
-                    <div key={i} className="flex-1 rounded-t-[2px]" style={{
-                      height: `${h}%`,
-                      background: i >= 8 ? 'rgba(124,58,237,0.6)' : 'rgba(255,255,255,0.06)',
-                    }} />
-                  ))}
-                </div>
-                <div className="flex justify-between mt-2">
-                  {['Mon','Tue','Wed','Thu','Fri'].map(d => (
-                    <span key={d} className="text-[10px] text-white/20">{d}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
-
-          {/* Inner border overlay */}
-          <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_1px_0px_0px_rgba(255,255,255,0.1),inset_0px_0px_0px_1px_rgba(255,255,255,0.04)]" />
         </div>
       </div>
     </div>
