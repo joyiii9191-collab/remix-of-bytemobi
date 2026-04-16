@@ -2238,23 +2238,42 @@ function Section5Screen() {
 
       {/* Right - Glass Icons showcase */}
       <div className="relative flex-1 max-w-[520px] z-[1]">
-        <div className="flex items-end gap-5">
+        <div className="flex items-center gap-5">
           {[
-            { size: 200, iconSize: 80, radius: 40, label: '核心媒体合作伙伴' },
-            { size: 130, iconSize: 52, radius: 28, label: '战略合作媒体' },
-            { size: 90, iconSize: 36, radius: 20, label: '优质流量平台' },
-            { size: 65, iconSize: 26, radius: 15, label: '' },
+            { size: 200, iconSize: 80, radius: 40, label: '核心媒体合作伙伴', floatDuration: '4s', floatDelay: '0s', floatY: 10 },
+            { size: 130, iconSize: 52, radius: 28, label: '战略合作媒体', floatDuration: '3.5s', floatDelay: '-0.8s', floatY: 8 },
+            { size: 90, iconSize: 36, radius: 20, label: '优质流量平台', floatDuration: '3s', floatDelay: '-1.5s', floatY: 6 },
+            { size: 65, iconSize: 26, radius: 15, label: '', floatDuration: '2.8s', floatDelay: '-2s', floatY: 5 },
           ].map((card, i) => (
-            <div key={i} className="flex-shrink-0 group cursor-pointer" style={{ width: card.size, height: card.size }}>
-              <div className="relative w-full h-full flex flex-col items-center justify-center gap-2 transition-transform duration-300 group-hover:scale-105" style={{ borderRadius: card.radius }}>
-                {/* Glass background */}
-                <div className="absolute inset-0" style={{
+            <div
+              key={i}
+              className="flex-shrink-0 group cursor-pointer"
+              style={{
+                width: card.size,
+                height: card.size,
+                animation: `glassFloat${i} ${card.floatDuration} ease-in-out infinite ${card.floatDelay}`,
+              }}
+            >
+              <style>{`
+                @keyframes glassFloat${i} {
+                  0%, 100% { transform: translateY(0px); }
+                  50% { transform: translateY(-${card.floatY}px); }
+                }
+              `}</style>
+              <div className="relative w-full h-full flex flex-col items-center justify-center gap-2 transition-all duration-500" style={{ borderRadius: card.radius }}>
+                {/* Glass background with hover glow */}
+                <div className="absolute inset-0 transition-all duration-500 group-hover:border-[hsla(265,80%,65%,0.25)]" style={{
                   borderRadius: card.radius,
                   background: 'linear-gradient(135deg, hsla(0,0%,100%,0.12) 0%, hsla(0,0%,100%,0.04) 50%, hsla(0,0%,100%,0.06) 100%)',
                   backdropFilter: 'blur(40px) saturate(1.4)',
                   WebkitBackdropFilter: 'blur(40px) saturate(1.4)',
                   boxShadow: '0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 hsla(0,0%,100%,0.15), inset 0 -1px 0 hsla(0,0%,100%,0.05)',
                   border: '1px solid hsla(0,0%,100%,0.12)',
+                }} />
+                {/* Hover purple glow overlay */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{
+                  borderRadius: card.radius,
+                  boxShadow: '0 0 30px rgba(168,130,255,0.15), 0 0 60px rgba(124,58,237,0.08), inset 0 0 20px rgba(168,130,255,0.06)',
                 }} />
                 {/* Top highlight */}
                 <div className="absolute pointer-events-none" style={{
@@ -2263,7 +2282,7 @@ function Section5Screen() {
                   background: 'linear-gradient(90deg, transparent, hsla(0,0%,100%,0.2) 50%, transparent)',
                 }} />
                 {/* Inner glass icon */}
-                <div className="relative z-[1] flex items-center justify-center transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(168,130,255,0.2)]" style={{
+                <div className="relative z-[1] flex items-center justify-center transition-all duration-500 group-hover:shadow-[0_0_24px_rgba(168,130,255,0.25)] group-hover:border-[hsla(265,80%,65%,0.2)]" style={{
                   width: card.iconSize,
                   height: card.iconSize,
                   borderRadius: card.iconSize * 0.25,
@@ -2273,7 +2292,7 @@ function Section5Screen() {
                   border: '1px solid hsla(0,0%,100%,0.1)',
                   boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.12), 0 4px 12px rgba(0,0,0,0.2)',
                 }}>
-                  <div style={{
+                  <div className="transition-all duration-500 group-hover:shadow-[0_0_16px_rgba(168,130,255,0.3)]" style={{
                     width: card.iconSize * 0.45,
                     height: card.iconSize * 0.45,
                     borderRadius: card.iconSize * 0.12,
@@ -2282,7 +2301,7 @@ function Section5Screen() {
                   }} />
                 </div>
                 {card.label && (
-                  <span className="relative z-[1] font-medium text-center leading-tight" style={{
+                  <span className="relative z-[1] font-medium text-center leading-tight transition-colors duration-500 group-hover:text-white/50" style={{
                     fontSize: i === 0 ? 11 : i === 1 ? 10 : 9,
                     color: 'hsla(0,0%,100%,0.4)',
                   }}>{card.label}</span>
