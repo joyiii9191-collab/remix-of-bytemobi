@@ -2730,53 +2730,46 @@ function Section7Values() {
 
       {/* Right image with blur reveal animation */}
       <div className="h-[658px] shrink-0 w-[590px] rounded-[24px] overflow-hidden relative">
-        {/* Base blurred image */}
+        {/* CTA image */}
         <img
           src={ctaPhoneImg}
           alt="CTA demonstration"
-          className="w-full h-full object-cover transition-[filter] duration-1000"
-          style={{ filter: activeIndex === 0 ? 'blur(0px)' : 'blur(8px)' }}
+          className="absolute inset-0 w-full h-full object-cover transition-all duration-1000"
+          style={{
+            filter: activeIndex === 0 ? 'blur(0px)' : 'blur(8px)',
+            opacity: activeIndex === 0 ? 1 : 0,
+          }}
         />
-        {/* Focus point + expanding box overlay */}
+        {/* VTA image - left half crop, focus on laptop */}
+        <img
+          src={vtaVideoImg}
+          alt="VTA demonstration"
+          className="absolute inset-0 w-full h-full transition-all duration-1000"
+          style={{
+            filter: activeIndex === 1 ? 'blur(0px)' : 'blur(8px)',
+            opacity: activeIndex === 1 ? 1 : 0,
+            objectFit: 'cover',
+            objectPosition: 'left center',
+          }}
+        />
+        {/* CTV placeholder - reuse CTA for now */}
+        <img
+          src={ctaPhoneImg}
+          alt="CTV demonstration"
+          className="absolute inset-0 w-full h-full object-cover transition-all duration-1000"
+          style={{
+            filter: activeIndex === 2 ? 'blur(0px)' : 'blur(8px)',
+            opacity: activeIndex === 2 ? 1 : 0,
+          }}
+        />
+
+        {/* Focus point + expanding box - CTA: phone screen */}
         {activeIndex === 0 && (
-          <>
-            {/* Pulsing dot on phone screen area */}
-            <div className="absolute" style={{
-              left: '52%', top: '42%',
-              width: '20px', height: '20px',
-              borderRadius: '50%',
-              background: 'rgba(255, 255, 255, 0.95)',
-              boxShadow: '0 0 20px rgba(255,255,255,0.6), 0 0 40px rgba(255,255,255,0.3)',
-              transform: 'translate(-50%, -50%)',
-              animation: 'focusDotPulse 1.5s ease-in-out infinite',
-              zIndex: 3,
-            }} />
-            {/* Outer pulse ring */}
-            <div className="absolute" style={{
-              left: '52%', top: '42%',
-              width: '20px', height: '20px',
-              borderRadius: '50%',
-              border: '2px solid rgba(255,255,255,0.6)',
-              transform: 'translate(-50%, -50%)',
-              animation: 'focusRingPulse 1.5s ease-out infinite',
-              zIndex: 3,
-            }} />
-            {/* Expanding reveal box frame */}
-            <div className="absolute pointer-events-none" style={{
-              left: '52%', top: '42%',
-              transform: 'translate(-50%, -50%)',
-              animation: 'revealBoxExpand 1.2s ease-out 0.3s forwards',
-              width: '0px', height: '0px',
-              border: '2px solid rgba(255, 255, 255, 0.8)',
-              borderRadius: '8px',
-              boxShadow: '0 0 15px rgba(255, 255, 255, 0.3), inset 0 0 20px rgba(255,255,255,0.05)',
-              zIndex: 2,
-            }} />
-          </>
+          <FocusReveal left="52%" top="42%" />
         )}
-        {/* Blur overlay for non-CTA states */}
-        {activeIndex !== 0 && (
-          <div className="absolute inset-0 bg-black/10 pointer-events-none" />
+        {/* Focus point + expanding box - VTA: laptop/tablet */}
+        {activeIndex === 1 && (
+          <FocusReveal left="28%" top="55%" />
         )}
       </div>
     </div>
