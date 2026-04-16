@@ -2319,10 +2319,11 @@ function Section5Screen() {
   );
 }
 
-function LogoCard({ label }: { label: string }) {
+function LogoCard({ label, index = 0 }: { label: string; index?: number }) {
+  const duration = 3 + (index % 5) * 0.8;
+  const delay = -(index * 0.7);
   return (
     <div className="relative shrink-0 size-[72px] rounded-[16px] overflow-visible">
-      {/* Flowing light border - same as raycast-btn */}
       <span className="absolute inset-0 rounded-[16px] z-0" style={{
         padding: '1px',
         background: 'conic-gradient(from var(--ray-angle, 0deg), transparent 0%, transparent 25%, rgba(168,130,255,0.5) 30%, rgba(124,58,237,0.7) 35%, rgba(168,130,255,0.5) 40%, transparent 45%, transparent 100%)',
@@ -2330,9 +2331,8 @@ function LogoCard({ label }: { label: string }) {
         mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
         WebkitMaskComposite: 'xor',
         maskComposite: 'exclude',
-        animation: 'raycast-rotate 4s linear infinite',
+        animation: `raycast-rotate ${duration}s linear ${delay}s infinite`,
       }} />
-      {/* Glass background */}
       <div className="absolute inset-[1px] rounded-[15px] z-0" style={{
         background: 'linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(10,5,20,0.85) 40%, rgba(10,5,20,0.9) 100%)',
         border: '1px solid rgba(168,130,255,0.1)',
@@ -2340,16 +2340,12 @@ function LogoCard({ label }: { label: string }) {
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
       }}>
-        {/* Top highlight reflection */}
         <div className="absolute top-0 left-[15%] right-[15%] h-[1px]" style={{
           background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.12) 30%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.12) 70%, transparent 100%)',
         }} />
       </div>
-      {/* Placeholder icon area */}
       <div className="relative z-[1] size-full flex items-center justify-center">
-        <div className="size-[36px] rounded-[8px] flex items-center justify-center" style={{
-          background: 'rgba(255,255,255,0.05)',
-        }}>
+        <div className="size-[36px] rounded-[8px] flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.05)' }}>
           <div className="size-[20px] rounded-[4px]" style={{ background: 'rgba(255,255,255,0.08)' }} />
         </div>
       </div>
@@ -2372,7 +2368,7 @@ function LogoMarquee({ direction = 'left', logos }: { direction?: 'left' | 'righ
         }}
       >
         {doubled.map((label, i) => (
-          <LogoCard key={i} label={label} />
+          <LogoCard key={i} label={label} index={i} />
         ))}
       </div>
     </div>
