@@ -2145,13 +2145,13 @@ function Section4Screen() {
             {/* Layer 1 - base border */}
             <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid rgba(255,255,255,0.1)' }} />
             {/* Layer 2 - purple blur 8px */}
-            <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid #b638ff', filter: 'blur(8px)', mixBlendMode: 'plus-lighter' }} />
+            <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid rgba(168,130,255,0.7)', filter: 'blur(8px)', mixBlendMode: 'plus-lighter' }} />
             {/* Layer 3 - purple blur 6px */}
-            <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid #b638ff', filter: 'blur(6px)', mixBlendMode: 'plus-lighter' }} />
+            <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid rgba(124,58,237,0.8)', filter: 'blur(6px)', mixBlendMode: 'plus-lighter' }} />
             {/* Layer 4 - purple blur 4px */}
-            <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid #b638ff', filter: 'blur(4px)', mixBlendMode: 'plus-lighter' }} />
+            <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid rgba(168,130,255,0.8)', filter: 'blur(4px)', mixBlendMode: 'plus-lighter' }} />
             {/* Layer 5 - purple blur 2px */}
-            <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid #b638ff', filter: 'blur(2px)', mixBlendMode: 'plus-lighter' }} />
+            <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid rgba(124,58,237,0.9)', filter: 'blur(2px)', mixBlendMode: 'plus-lighter' }} />
             {/* Layer 6 - white blur 4px */}
             <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid white', filter: 'blur(4px)', mixBlendMode: 'plus-lighter' }} />
             {/* Logo - no animation */}
