@@ -8224,12 +8224,7 @@ function Section10Contact() {
 
         {/* Right: Form */}
         <div
-          className="flex-1 rounded-[24px] p-[40px]"
-          style={{
-            background: "linear-gradient(135deg, rgba(120,60,255,0.06) 0%, rgba(30,30,60,0.4) 100%)",
-            border: "1px solid rgba(255,255,255,0.06)",
-            backdropFilter: "blur(20px)",
-          }}
+          className="flex-1 rounded-[24px] p-[40px] backdrop-blur-xl bg-white/[0.08] border border-white/[0.12] shadow-2xl"
         >
           {submitted ? (
             <div className="flex flex-col items-center justify-center gap-[16px] py-[60px]">
