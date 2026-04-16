@@ -1955,7 +1955,7 @@ function Section2() {
   ];
 
   return (
-    <div className="relative w-full h-full flex flex-col items-center justify-center px-16" data-name="Section">
+    <div className="relative w-full h-full flex flex-col items-center justify-center px-16" data-name="Section" style={{ backgroundImage: `url(${coreBusinessBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       {/* Header */}
       <div className="flex flex-col items-center gap-4 mb-10">
         <div className="flex items-center px-[16px] py-[5px] rounded-full relative" style={{ border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.05)" }}>
