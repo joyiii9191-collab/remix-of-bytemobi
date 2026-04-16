@@ -2671,7 +2671,7 @@ function AttributionItem({ item, isActive, onClick }: {
   );
 }
 
-function FocusReveal({ left, top }: { left: string; top: string }) {
+function FocusReveal({ left, top, imageSrc, objectPosition }: { left: string; top: string; imageSrc: string; objectPosition?: string }) {
   return (
     <>
       {/* Pulsing dot */}
@@ -2683,7 +2683,7 @@ function FocusReveal({ left, top }: { left: string; top: string }) {
         boxShadow: '0 0 20px rgba(255,255,255,0.6), 0 0 40px rgba(255,255,255,0.3)',
         transform: 'translate(-50%, -50%)',
         animation: 'focusDotPulse 1.5s ease-in-out infinite',
-        zIndex: 3,
+        zIndex: 4,
       }} />
       {/* Outer pulse ring */}
       <div className="absolute" style={{
@@ -2693,19 +2693,37 @@ function FocusReveal({ left, top }: { left: string; top: string }) {
         border: '2px solid rgba(255,255,255,0.6)',
         transform: 'translate(-50%, -50%)',
         animation: 'focusRingPulse 1.5s ease-out infinite',
-        zIndex: 3,
+        zIndex: 4,
       }} />
-      {/* Expanding reveal box frame */}
-      <div className="absolute pointer-events-none" style={{
+      {/* Expanding reveal box with clear image inside */}
+      <div className="absolute pointer-events-none overflow-hidden" style={{
         left, top,
         transform: 'translate(-50%, -50%)',
         animation: 'revealBoxExpand 1.2s ease-out 0.3s forwards',
         width: '0px', height: '0px',
         border: '2px solid rgba(255, 255, 255, 0.8)',
         borderRadius: '8px',
-        boxShadow: '0 0 15px rgba(255, 255, 255, 0.3), inset 0 0 20px rgba(255,255,255,0.05)',
-        zIndex: 2,
-      }} />
+        boxShadow: '0 0 15px rgba(255, 255, 255, 0.3)',
+        zIndex: 3,
+      }}>
+        {/* Clear image aligned to match background position */}
+        <div className="absolute" style={{
+          width: '590px', height: '658px',
+          left: '50%', top: '50%',
+          transform: `translate(-${left}, -${top})`,
+          overflow: 'hidden',
+        }}>
+          <img
+            src={imageSrc}
+            alt=""
+            className="w-full h-full"
+            style={{
+              objectFit: 'cover',
+              objectPosition: objectPosition || 'center',
+            }}
+          />
+        </div>
+      </div>
     </>
   );
 }
@@ -2776,7 +2794,7 @@ function Section7Values() {
           alt="CTA demonstration"
           className="absolute inset-0 w-full h-full object-cover transition-all duration-1000"
           style={{
-            filter: activeIndex === 0 ? 'blur(0px)' : 'blur(8px)',
+            filter: activeIndex === 0 ? 'blur(6px)' : 'blur(12px)',
             opacity: activeIndex === 0 ? 1 : 0,
           }}
         />
@@ -2786,7 +2804,7 @@ function Section7Values() {
           alt="VTA demonstration"
           className="absolute inset-0 w-full h-full transition-all duration-1000"
           style={{
-            filter: activeIndex === 1 ? 'blur(0px)' : 'blur(8px)',
+            filter: activeIndex === 1 ? 'blur(6px)' : 'blur(12px)',
             opacity: activeIndex === 1 ? 1 : 0,
             objectFit: 'cover',
             objectPosition: 'left center',
@@ -2798,22 +2816,22 @@ function Section7Values() {
           alt="CTV demonstration"
           className="absolute inset-0 w-full h-full object-cover transition-all duration-1000"
           style={{
-            filter: activeIndex === 2 ? 'blur(0px)' : 'blur(8px)',
+            filter: activeIndex === 2 ? 'blur(6px)' : 'blur(12px)',
             opacity: activeIndex === 2 ? 1 : 0,
           }}
         />
 
         {/* Focus point + expanding box - CTA: phone screen */}
         {activeIndex === 0 && (
-          <FocusReveal left="52%" top="42%" />
+          <FocusReveal left="52%" top="42%" imageSrc={ctaPhoneImg} />
         )}
         {/* Focus point + expanding box - VTA: laptop/tablet */}
         {activeIndex === 1 && (
-          <FocusReveal left="28%" top="55%" />
+          <FocusReveal left="22%" top="62%" imageSrc={vtaVideoImg} objectPosition="left center" />
         )}
         {/* Focus point + expanding box - CTV: TV screen */}
         {activeIndex === 2 && (
-          <FocusReveal left="48%" top="30%" />
+          <FocusReveal left="48%" top="30%" imageSrc={ctvTvImg} />
         )}
       </div>
     </div>
