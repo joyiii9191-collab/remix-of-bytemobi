@@ -1945,16 +1945,7 @@ function Section2() {
   ];
 
   return (
-    <div className="relative w-full h-full flex flex-col items-center justify-center px-16 overflow-hidden" data-name="Section">
-      {/* Aurora background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <Aurora
-          colorStops={["#7cff67","#B497CF","#5227FF"]}
-          blend={0.5}
-          amplitude={1.0}
-          speed={1}
-        />
-      </div>
+    <div className="relative w-full h-full flex flex-col items-center justify-center px-16" data-name="Section">
       {/* Header */}
       <div className="flex flex-col items-center gap-4 mb-10">
         <div className="flex items-center px-[16px] py-[5px] rounded-full relative" style={{ border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.05)" }}>
