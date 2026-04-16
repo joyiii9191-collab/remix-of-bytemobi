@@ -1256,12 +1256,12 @@ function Section1() {
         }} />
 
         {/* LaserFlow animation above the card — seamless connection */}
-        <div className="relative w-full h-[200px] mb-[-140px] z-[2]" style={{ pointerEvents: 'none' }}>
+        <div className="relative w-full h-[160px] mb-[-80px] z-[2]" style={{ pointerEvents: 'none' }}>
           <LaserFlow
             horizontalBeamOffset={0.1}
             verticalBeamOffset={0.0}
             color="#CF9EFF"
-            horizontalSizing={1.5}
+            horizontalSizing={0.5}
             verticalSizing={2}
             wispDensity={1}
             wispSpeed={15}
@@ -1277,13 +1277,14 @@ function Section1() {
         </div>
 
         {/* Glass shell */}
-        <div className="relative rounded-[24px] w-full" style={{ border: '2px solid rgba(168,130,255,0.6)', boxShadow: '0 0 30px rgba(168,130,255,0.4), 0 0 80px rgba(168,130,255,0.2), 0 0 120px rgba(168,130,255,0.1), inset 0 0 40px rgba(168,130,255,0.12)' }}>
+        <div className="relative rounded-[24px] w-full" style={{ border: '1px solid rgba(168,130,255,0.3)' }}>
           {/* Background fill */}
           <div className="absolute inset-0 pointer-events-none rounded-[24px]" style={{ background: 'rgba(18,15,23,0.85)' }} />
           {/* Top glow where laser meets the card */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[200px] h-[60px] pointer-events-none rounded-t-[24px] z-[1]" style={{
-            background: 'radial-gradient(ellipse 100% 100% at 50% 0%, rgba(255,255,255,0.15) 0%, rgba(207,158,255,0.2) 30%, transparent 70%)'
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] h-[80px] pointer-events-none rounded-t-[24px] z-[1]" style={{
+            background: 'radial-gradient(ellipse 100% 100% at 50% 0%, rgba(207,158,255,0.25) 0%, rgba(207,158,255,0.08) 40%, transparent 70%)'
           }} />
+          {/* Content */}
           <div className="overflow-clip rounded-[inherit] size-full relative z-[1]">
             <div className="flex items-center gap-12 p-10 relative">
               {/* Left side — brand text */}
