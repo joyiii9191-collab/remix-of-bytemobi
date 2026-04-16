@@ -2671,7 +2671,7 @@ function AttributionItem({ item, isActive, onClick }: {
   );
 }
 
-function FocusReveal({ left, top, imageSrc, objectPosition }: { left: string; top: string; imageSrc: string; objectPosition?: string }) {
+function FocusReveal({ left, top }: { left: string; top: string }) {
   return (
     <>
       {/* Pulsing dot */}
@@ -2695,8 +2695,8 @@ function FocusReveal({ left, top, imageSrc, objectPosition }: { left: string; to
         animation: 'focusRingPulse 1.5s ease-out infinite',
         zIndex: 4,
       }} />
-      {/* Expanding reveal box with clear image inside */}
-      <div className="absolute pointer-events-none overflow-hidden" style={{
+      {/* Expanding border frame only */}
+      <div className="absolute pointer-events-none" style={{
         left, top,
         transform: 'translate(-50%, -50%)',
         animation: 'revealBoxExpand 1.2s ease-out 0.3s forwards',
@@ -2704,23 +2704,32 @@ function FocusReveal({ left, top, imageSrc, objectPosition }: { left: string; to
         border: '2px solid rgba(255, 255, 255, 0.8)',
         borderRadius: '8px',
         boxShadow: '0 0 15px rgba(255, 255, 255, 0.3)',
-        zIndex: 3,
-      }}>
-        <img
-          src={imageSrc}
-          alt=""
-          className="absolute"
-          style={{
-            width: '590px', height: '658px',
-            left: '50%', top: '50%',
-            marginLeft: `-${parseFloat(left) / 100 * 590}px`,
-            marginTop: `-${parseFloat(top) / 100 * 658}px`,
-            objectFit: 'cover',
-            objectPosition: objectPosition || 'center',
-          }}
-        />
-      </div>
+        zIndex: 4,
+      }} />
     </>
+  );
+}
+
+/* Clear image overlay that clips to the reveal box area */
+function ClearImageOverlay({ left, top, imageSrc, objectPosition }: { left: string; top: string; imageSrc: string; objectPosition?: string }) {
+  const lNum = parseFloat(left);
+  const tNum = parseFloat(top);
+  // revealBoxExpand: 0->30%: 40x50, 30%->100%: 280x360
+  // We animate clip-path via CSS animation on a wrapper
+  return (
+    <div className="absolute inset-0 pointer-events-none" style={{
+      zIndex: 3,
+      animation: 'clipReveal 1.2s ease-out 0.3s forwards',
+      clipPath: `inset(${tNum}% 0% 0% ${lNum}% round 8px)`,
+      // initial clip = collapsed to the focal point
+    }}>
+      <img
+        src={imageSrc}
+        alt=""
+        className="w-full h-full object-cover"
+        style={{ objectPosition: objectPosition || 'center' }}
+      />
+    </div>
   );
 }
 
