@@ -2671,7 +2671,7 @@ function AttributionItem({ item, isActive, onClick }: {
   );
 }
 
-function FocusReveal({ left, top }: { left: string; top: string }) {
+function FocusReveal({ left, top, imageSrc, objectPosition }: { left: string; top: string; imageSrc: string; objectPosition?: string }) {
   return (
     <>
       {/* Pulsing dot */}
@@ -2683,7 +2683,7 @@ function FocusReveal({ left, top }: { left: string; top: string }) {
         boxShadow: '0 0 20px rgba(255,255,255,0.6), 0 0 40px rgba(255,255,255,0.3)',
         transform: 'translate(-50%, -50%)',
         animation: 'focusDotPulse 1.5s ease-in-out infinite',
-        zIndex: 3,
+        zIndex: 4,
       }} />
       {/* Outer pulse ring */}
       <div className="absolute" style={{
@@ -2693,19 +2693,33 @@ function FocusReveal({ left, top }: { left: string; top: string }) {
         border: '2px solid rgba(255,255,255,0.6)',
         transform: 'translate(-50%, -50%)',
         animation: 'focusRingPulse 1.5s ease-out infinite',
-        zIndex: 3,
+        zIndex: 4,
       }} />
-      {/* Expanding reveal box frame */}
-      <div className="absolute pointer-events-none" style={{
+      {/* Expanding reveal box with clear image inside */}
+      <div className="absolute pointer-events-none overflow-hidden" style={{
         left, top,
         transform: 'translate(-50%, -50%)',
         animation: 'revealBoxExpand 1.2s ease-out 0.3s forwards',
         width: '0px', height: '0px',
         border: '2px solid rgba(255, 255, 255, 0.8)',
         borderRadius: '8px',
-        boxShadow: '0 0 15px rgba(255, 255, 255, 0.3), inset 0 0 20px rgba(255,255,255,0.05)',
-        zIndex: 2,
-      }} />
+        boxShadow: '0 0 15px rgba(255, 255, 255, 0.3)',
+        zIndex: 3,
+      }}>
+        <img
+          src={imageSrc}
+          alt=""
+          className="absolute"
+          style={{
+            width: '590px', height: '658px',
+            left: `calc(50% - ${left} * 590 / 100)`,
+            top: `calc(50% - ${top} * 658 / 100)`,
+            objectFit: 'cover',
+            objectPosition: objectPosition || 'center',
+            filter: 'blur(0px)',
+          }}
+        />
+      </div>
     </>
   );
 }
