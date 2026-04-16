@@ -2439,13 +2439,10 @@ function Section6LogoWall() {
     { label: 'AdMob', image: logoAdmob },
     { label: 'AppLovin', image: logoApplovin },
     { label: 'ironSource', image: logoIronsource },
-    { label: 'Chartboost', image: logoChartboost },
-    { label: 'Audience Network', image: logoAudienceNetwork },
-    { label: 'Kiip', image: logoKiip },
-    { label: 'StartApp', image: logoStartapp },
-    { label: 'Tapjoy', image: logoTapjoy },
-    { label: 'AdMob', image: logoAdmob },
-    { label: 'AppLovin', image: logoApplovin },
+    { label: 'CrossPromo', image: logoCrosspromo },
+    { label: 'Unity Ads', image: logoUnityads },
+    { label: 'AdColony', image: logoAdcolony },
+    { label: 'Mtg', image: logoMtg },
   ];
   const row2 = [
     { label: 'AW' }, { label: 'AZ' }, { label: 'MS' }, { label: 'AP' }, { label: 'NV' },
