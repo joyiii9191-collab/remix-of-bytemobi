@@ -2737,9 +2737,9 @@ function Section7Values() {
   return (
     <div className="relative w-full h-full flex items-center justify-center px-[80px] gap-[60px]" data-name="Section7Values">
       {/* Left content - match right image height */}
-      <div className="flex flex-col flex-1 h-[658px] justify-between">
+      <div className="flex flex-col flex-1 gap-[24px]">
         {/* Top: title + items */}
-        <div className="flex flex-col gap-[24px] pt-[20px]">
+        <div className="flex flex-col gap-[24px]">
           <div className="flex items-baseline gap-4">
             <h2 className="text-[44px] font-medium text-white leading-[1.1] tracking-[-2px]">多元化流量网络</h2>
             <div className="px-4 py-[5px] rounded-full border border-[rgba(255,255,255,0.2)] relative">
