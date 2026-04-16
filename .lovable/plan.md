@@ -1,46 +1,63 @@
 
 
-# 统一增强所有屏幕的背景光效（纯 CSS 方案）
+# 评审：Grainient 着色器替换全站背景
 
-## 方案
-不添加任何动画组件，所有非首屏的 Section 统一使用**多层彩色径向渐变**作为背景光效，模拟棱镜散射出的光感，让白透明玻璃卡片更明显。
+## 视觉效果评估
 
-## 具体处理
+### 能否达到首屏质感？— **可以，但需要注意参数调节**
 
-每个 SnapSection 的包裹 div 内添加一个 `absolute inset-0` 的光效层，包含 2-3 个不同颜色、不同位置的 `radial-gradient`，颜色使用紫色、蓝色、粉色系：
+首屏通透的核心原因：Prism 在 `#0a0a12` 背景上渲染了**大面积、高对比度**的彩色光（紫/蓝/粉），玻璃卡片的 `backdrop-filter: blur()` 对这些颜色进行模糊折射，产生通透感。
 
-| 屏幕 | 现有光效 | 调整 |
-|------|---------|------|
-| Section1（品牌介绍） | 有微弱红/蓝渐变 | 增强亮度到 0.15-0.2，增加第二层紫色光晕 |
-| Section2（核心业务） | 无 | 添加中心紫色 + 右下蓝色双层光晕 |
-| Section4Screen（Dashboard左） | 单层紫色 0.15 | 增强到 0.2，添加右侧蓝色光晕 |
-| Section5Screen（Dashboard右） | 单层紫色 0.15 | 增强到 0.2，添加左侧粉色光晕 |
-| Section6LogoWall（合作伙伴） | 单层蓝色 0.08 | 增强到 0.15，添加顶部紫色 + 底部粉色 |
-| Section7Values（多元化流量） | 无 | 添加左侧紫色 + 右侧蓝色光晕 |
-| Section8TrafficMap（流量分布） | 单层紫色 0.08 | 增强到 0.18，添加左下蓝色 + 右上粉色 |
-| Section9Solution（解决方案） | 无 | 添加中心紫色 + 左下蓝色光晕 |
-| Section10Contact（联系表单） | 无 | 添加右侧紫色 + 左侧蓝色光晕 |
+Grainient 着色器能生成类似的多色渐变效果，且质量更高（噪声纹理 + 颜色扭曲），作为全屏背景后：
+- 玻璃卡片有**丰富的彩色内容**可以折射 → 通透感成立
+- 颜色过渡比 CSS `radial-gradient` 自然得多
+- 静态一帧，性能零开销
 
-## 光效模板
+### 可读性风险 — **中等，需要控制**
 
-每个屏幕的光效层大致结构：
+**潜在问题：**
+1. Grainient 默认参数（`contrast=1.5`, `saturation=1.0`）颜色偏亮偏饱和，白色文字在浅色区域可能丢失对比度
+2. 每个 Section 共享同一个全局背景，但不同 Section 的内容密度不同——密集文字区（Section1 品牌介绍、Section10 联系表单）对背景亮度更敏感
+3. 当前玻璃卡片的 `backdrop-filter: blur(30-60px)` 会模糊背景，但如果背景太亮，模糊后仍然偏白，文字会不可读
+
+**解决方案：**
+- `color3`（暗色）使用足够深的颜色（`#0a0520` 或更深），确保背景整体偏暗
+- `contrast` 降到 `1.0-1.2`，`saturation` 降到 `0.7-0.8`，压制过亮区域
+- 在 Grainient 上叠加一层 `rgba(0,0,0,0.3)` 的半透明遮罩，进一步压暗
+- 玻璃卡片保留现有的 `background: rgba(255,255,255,0.06-0.08)` 填充，在模糊背景上叠加一层淡白确保卡片边界清晰
+
+## 建议方案（调整版）
+
+不是"裸"用 Grainient，而是：
+
+```text
+┌─────────────────────────────────────┐
+│ z-0: Grainient (fixed, 静态一帧)     │  ← 彩色渐变底色
+│ z-1: 半透明暗色遮罩 rgba(0,0,0,0.25) │  ← 压暗保可读性
+│ z-2: Starfield (可选保留)            │  ← 星空点缀
+│ z-10: 各 Section 内容               │  ← 玻璃卡片 + 文字
+└─────────────────────────────────────┘
 ```
-<div className="absolute inset-0 pointer-events-none" style={{
-  background: `
-    radial-gradient(ellipse 50% 40% at 30% 40%, rgba(139,92,246,0.18) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 50% at 70% 60%, rgba(59,130,246,0.12) 0%, transparent 70%),
-    radial-gradient(ellipse 35% 30% at 50% 80%, rgba(236,72,153,0.08) 0%, transparent 70%)
-  `
-}} />
-```
 
-各屏幕的光晕位置、大小、颜色会有差异，避免视觉重复。
+### 参数建议
+| 参数 | 值 | 原因 |
+|------|-----|------|
+| `timeSpeed` | `0` | 静态，无动画 |
+| `color1` | `#B497CF` | 淡紫，不刺眼 |
+| `color2` | `#5227FF` | 主色紫蓝 |
+| `color3` | `#060318` | 深暗底色，保证暗区足够深 |
+| `contrast` | `1.1` | 略低，避免过亮 |
+| `saturation` | `0.75` | 降饱和，柔和 |
+| `zoom` | `0.7` | 缩小让渐变铺满更大面积 |
+| `warpFrequency` | `3.0` | 降低频率，渐变更大块更柔和 |
 
-## 同时添加 CSS 呼吸动画（可选增强）
+## 实现步骤
 
-在 `src/index.css` 添加一个 `glowDrift` 动画，让光晕微弱漂移呼吸，增加活力感。
+1. **新建** `src/components/Grainient.tsx` + `src/components/Grainient.css` — 静态 WebGL 着色器（只渲染一帧）
+2. **修改** `src/pages/Index.tsx` — 移除 `bg-[#030014]`，添加 `fixed inset-0 z-0` 的 Grainient + 暗色遮罩层
+3. **修改** `src/components/ReflectApp.tsx` — 移除所有 Section 的 `backgroundColor` 和 `radial-gradient` 光晕 div，让全局背景透出
 
-## 修改文件
-- **`src/components/ReflectApp.tsx`** — 9 个 Section 函数内添加/增强背景光效层
-- **`src/index.css`** — 添加 `@keyframes glowDrift` 动画
+## 结论
+
+方案可行，关键是**压暗参数 + 遮罩层**双重保障可读性。建议实施后再根据实际效果微调 `color3` 深度和遮罩透明度。
 
