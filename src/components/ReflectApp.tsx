@@ -2768,12 +2768,6 @@ function Section7Values() {
                 <defs><linearGradient id="g1" x1="20" x2="20" y1="5" y2="23" gradientUnits="userSpaceOnUse"><stop stopColor="white" stopOpacity="0" /><stop offset="1" stopColor="white" /></linearGradient></defs>
               </svg>
             </div>
-            <div className="absolute left-[24px] right-[24px] top-[68px]">
-              <p className="font-['Inter',sans-serif] font-medium text-[14px] text-[#f4f0ff] leading-[22px]">高速同步</p>
-            </div>
-            <div className="absolute left-[24px] right-[24px] top-[94px]">
-              <p className="font-['Inter',sans-serif] text-[14px] text-[rgba(239,237,253,0.6)] leading-[22px]">跨设备实时数据同步</p>
-            </div>
             <div className="absolute bg-[rgba(255,255,255,0.24)] h-[16px] left-0 top-[72px] w-px" />
           </div>
           {/* Card 2 */}
