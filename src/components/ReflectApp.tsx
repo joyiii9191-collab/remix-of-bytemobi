@@ -5,6 +5,7 @@ import IntegrationsGrid from "./IntegrationsGrid";
 import BentoBusinessCards from "./BentoBusinessCards";
 import Aurora from "./Aurora";
 import ColorBends from "./ColorBends";
+import Prism from "./Prism";
 import LaserFlow from "./LaserFlow";
 import LightRays from "./LightRays";
 import "./LiquidGlassCard.css";
