@@ -2132,19 +2132,25 @@ function Section4Screen() {
 
           {/* Center - neon glow logo frame (layered blur borders from Figma) */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[160px] h-[160px]">
-            <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid #b638ff', filter: 'blur(8px)', mixBlendMode: 'plus-lighter' }} />
-            <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid #b638ff', filter: 'blur(6px)', mixBlendMode: 'plus-lighter' }} />
-            <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid #b638ff', filter: 'blur(4px)', mixBlendMode: 'plus-lighter' }} />
-            <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid #b638ff', filter: 'blur(2px)', mixBlendMode: 'plus-lighter' }} />
-            <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid white', filter: 'blur(4px)', mixBlendMode: 'plus-lighter' }} />
+            {/* Layer 1 - base border */}
             <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid rgba(255,255,255,0.1)' }} />
+            {/* Layer 2 - purple blur 8px */}
+            <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid #b638ff', filter: 'blur(8px)', mixBlendMode: 'plus-lighter' }} />
+            {/* Layer 3 - purple blur 6px */}
+            <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid #b638ff', filter: 'blur(6px)', mixBlendMode: 'plus-lighter' }} />
+            {/* Layer 4 - purple blur 4px */}
+            <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid #b638ff', filter: 'blur(4px)', mixBlendMode: 'plus-lighter' }} />
+            {/* Layer 5 - purple blur 2px */}
+            <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid #b638ff', filter: 'blur(2px)', mixBlendMode: 'plus-lighter' }} />
+            {/* Layer 6 - white blur 4px */}
+            <div className="absolute inset-0 rounded-[26px]" style={{ border: '4px solid white', filter: 'blur(4px)', mixBlendMode: 'plus-lighter' }} />
+            {/* Logo - no animation */}
             <div className="relative w-full h-full rounded-[22px] flex items-center justify-center z-[1]">
               <img
                 src={logo3d}
                 alt="Logo"
                 className="w-[110px] h-[110px] object-contain"
                 style={{
-                  animation: 'logo-float 6s ease-in-out infinite',
                   filter: 'drop-shadow(0 4px 20px rgba(180,120,255,0.3))',
                 }}
               />
