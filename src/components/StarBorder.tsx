@@ -36,7 +36,7 @@ const StarBorder: React.FC<StarBorderProps> = ({
           animationDuration: speed,
         }}
       />
-      <div className="relative z-[1] bg-gradient-to-b from-[rgba(20,15,35,0.9)] to-[rgba(10,8,20,0.95)] text-white text-center text-[14px] font-medium py-[12px] px-[32px] rounded-full border border-white/[0.08]">
+      <div className="relative z-[1] backdrop-blur-xl bg-white/[0.08] text-white text-center text-[14px] font-medium py-[12px] px-[32px] rounded-full border border-white/[0.12]">
         {children}
       </div>
     </Component>
