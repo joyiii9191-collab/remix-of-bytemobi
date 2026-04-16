@@ -71,6 +71,7 @@ import imgImage6 from "@/assets/4f5711a87317b3cbe2d759bd34d7d622b241c01d.png";
 import imgQ87026E2EPng from "@/assets/35c6759d07f4f158de3afe431f509a063b5abe0e.png";
 import imgQF23Fe959Png from "@/assets/6250114cf817974b149d15ffb431a9338126261a.png";
 import imgVerticalDivider11 from "@/assets/8c08ec7f5bfe7291638cbaf898bf26ada2734e3a.png";
+import ctaPhoneImg from "@/assets/cta-phone.png";
 import imgVerticalDivider12 from "@/assets/8be4521167f90e33c61585f2a1abbc398394f011.png";
 import imgQ97C536F9Png from "@/assets/c15512823ce337cb821c754588168969f9900517.png";
 import imgContainer9 from "@/assets/ae98c5539785aebf8bd0c344a161775eaa675ab9.png";
@@ -2312,6 +2313,15 @@ function Section5Screen() {
             33% { transform: translate(6px, calc(-50% + 10px)); }
             66% { transform: translate(-8px, calc(-50% - 6px)); }
           }
+          @keyframes focusDotPulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0.6; }
+          }
+          @keyframes revealBoxExpand {
+            0% { width: 0px; height: 0px; opacity: 0; }
+            30% { width: 40px; height: 50px; opacity: 1; }
+            100% { width: 280px; height: 360px; opacity: 1; }
+          }
           @keyframes attributionProgress {
             0% { width: 0%; }
             100% { width: 100%; }
@@ -2713,14 +2723,59 @@ function Section7Values() {
         </div>
       </div>
 
-      {/* Right image placeholder */}
-      <div className="h-[658px] shrink-0 w-[590px] rounded-[24px] overflow-hidden" style={{
-        background: 'linear-gradient(135deg, rgba(99,102,241,0.15) 0%, rgba(120,60,255,0.1) 50%, rgba(59,130,246,0.08) 100%)',
-        border: '1px solid rgba(255,255,255,0.06)',
-      }}>
-        <div className="w-full h-full flex items-center justify-center">
-          <div className="text-white/10 text-[80px] font-bold">IMG</div>
-        </div>
+      {/* Right image with blur reveal animation */}
+      <div className="h-[658px] shrink-0 w-[590px] rounded-[24px] overflow-hidden relative">
+        {/* Base blurred image */}
+        <img
+          src={ctaPhoneImg}
+          alt="CTA demonstration"
+          className="w-full h-full object-cover transition-[filter] duration-1000"
+          style={{ filter: activeIndex === 0 ? 'blur(0px)' : 'blur(8px)' }}
+        />
+        {/* Focus point + expanding box overlay */}
+        {activeIndex === 0 && (
+          <>
+            {/* Pulsing dot on phone screen area */}
+            <div className="absolute" style={{
+              left: '52%', top: '42%',
+              width: '12px', height: '12px',
+              borderRadius: '50%',
+              background: 'rgba(124, 58, 237, 0.9)',
+              boxShadow: '0 0 20px rgba(124, 58, 237, 0.6), 0 0 40px rgba(124, 58, 237, 0.3)',
+              transform: 'translate(-50%, -50%)',
+              animation: 'focusDotPulse 1.5s ease-in-out infinite',
+              zIndex: 3,
+            }} />
+            {/* Expanding reveal box */}
+            <div className="absolute" style={{
+              left: '52%', top: '42%',
+              transform: 'translate(-50%, -50%)',
+              animation: 'revealBoxExpand 1.2s ease-out 0.3s forwards',
+              width: '0px', height: '0px',
+              border: '2px solid rgba(124, 58, 237, 0.7)',
+              borderRadius: '8px',
+              boxShadow: '0 0 15px rgba(124, 58, 237, 0.3)',
+              zIndex: 2,
+              overflow: 'hidden',
+            }}>
+              <img
+                src={ctaPhoneImg}
+                alt=""
+                className="absolute"
+                style={{
+                  width: '590px', height: '658px',
+                  left: '50%', top: '50%',
+                  transform: 'translate(-307px, -276px)',
+                  objectFit: 'cover',
+                }}
+              />
+            </div>
+          </>
+        )}
+        {/* Blur overlay for non-CTA states */}
+        {activeIndex !== 0 && (
+          <div className="absolute inset-0 bg-black/10 pointer-events-none" />
+        )}
       </div>
     </div>
   );
