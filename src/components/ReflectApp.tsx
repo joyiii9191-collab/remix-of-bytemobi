@@ -8210,25 +8210,6 @@ function Section10Contact() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-[16px]">
-            {[
-              { icon: "📧", label: "邮箱", value: "contact@reflect.com" },
-              { icon: "📍", label: "地址", value: "深圳市南山区科技园" },
-            ].map((item, i) => (
-              <div key={i} className="flex items-center gap-[12px]">
-                <div
-                  className="w-[40px] h-[40px] rounded-[10px] flex items-center justify-center text-[18px]"
-                  style={{ background: "rgba(120,60,255,0.1)", border: "1px solid rgba(120,60,255,0.2)" }}
-                >
-                  {item.icon}
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-[12px]" style={{ color: "rgba(255,255,255,0.4)" }}>{item.label}</span>
-                  <span className="text-[14px] text-white">{item.value}</span>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* Right: Form */}
