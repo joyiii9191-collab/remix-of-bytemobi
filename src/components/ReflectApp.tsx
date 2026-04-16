@@ -2312,6 +2312,10 @@ function Section5Screen() {
             33% { transform: translate(6px, calc(-50% + 10px)); }
             66% { transform: translate(-8px, calc(-50% - 6px)); }
           }
+          @keyframes attributionProgress {
+            0% { width: 0%; }
+            100% { width: 100%; }
+          }
         `}</style>
       </div>
     </div>
@@ -2620,62 +2624,102 @@ function GlowIcon({ icon }: { icon: string }) {
   );
 }
 
-function ValueItem({ icon, title, description }: { icon: string; title: string; description: string }) {
+function AttributionItem({ item, isActive, onClick }: { 
+  item: { title: string; titleFull: string; description: string; scenes: string };
+  isActive: boolean;
+  onClick: () => void;
+}) {
   return (
-    <div className="flex gap-6 items-center">
-      <GlowIcon icon={icon} />
+    <div className="cursor-pointer transition-all duration-500" onClick={onClick}>
       <div className="flex flex-col gap-2">
-        <p className="font-medium text-[24px] text-white tracking-[-1px] leading-[1.2]">{title}</p>
-        <p className="text-[16px] text-[#818089] leading-[1.6] tracking-[-0.24px]">{description}</p>
+        <p className="font-medium text-[22px] text-white tracking-[-0.5px] leading-[1.3]">
+          {item.title}
+          <span className="text-[15px] text-white/50 ml-1">({item.titleFull})</span>
+        </p>
+        <p className="text-[15px] text-[#818089] leading-[1.6] tracking-[-0.24px]">{item.description}</p>
+        <div
+          className="overflow-hidden transition-all duration-500"
+          style={{ maxHeight: isActive ? '80px' : '0', opacity: isActive ? 1 : 0 }}
+        >
+          <p className="text-[14px] text-[#a78bfa] leading-[1.6] mt-1">
+            <span className="text-white/40 mr-1">适用场景：</span>{item.scenes}
+          </p>
+        </div>
       </div>
+      {isActive && (
+        <div className="mt-3 h-[2px] w-full rounded-full overflow-hidden bg-white/5">
+          <div className="h-full bg-gradient-to-r from-[#7c3aed] to-[#6366f1] rounded-full" style={{ animation: 'attributionProgress 5s linear forwards' }} />
+        </div>
+      )}
     </div>
   );
 }
 
 function Section7Values() {
-  const values = [
-    { icon: '👍', title: 'Simplicity', description: 'We make complexity effortless.' },
-    { icon: '💡', title: 'Innovation', description: 'Always push boundaries with purpose.' },
-    { icon: '🔍', title: 'Transparency', description: 'Growth built on trust.' },
-    { icon: '✅', title: 'Empowerment', description: 'Give users control, not confusion.' },
+  const items = [
+    {
+      title: 'CTA',
+      titleFull: 'Call to Action',
+      description: '行动号召，广告 / 页面中引导用户完成下一步行为的指令或按钮',
+      scenes: '广告素材、落地页、APP 内弹窗、电商按钮、短视频引导语',
+    },
+    {
+      title: 'VTA',
+      titleFull: 'Video Tracking Ad',
+      description: '视频定向广告 / 视频行为追踪广告，基于视频内容、用户观看行为做精准投放',
+      scenes: '长短视频广告、OTT 广告、信息流视频、激励视频、品牌视频投放',
+    },
+    {
+      title: 'CTV',
+      titleFull: 'Connected TV',
+      description: '联网电视，可连接互联网的智能电视 / 电视盒子等大屏终端广告',
+      scenes: '家庭大屏广告、品牌曝光、OTT 投放、智能电视开屏 / 贴片广告',
+    },
   ];
+
+  const [activeIndex, setActiveIndex] = React.useState(0);
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % items.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [items.length]);
 
   return (
     <div className="relative w-full h-full flex items-center justify-center px-[80px] gap-[100px]" data-name="Section7Values">
-      {/* Left image placeholder */}
+      {/* Left content */}
+      <div className="flex flex-col gap-[40px] flex-1 justify-center">
+        <div className="flex flex-col gap-5">
+          <div className="self-start px-4 py-[5px] rounded-full border border-[rgba(255,255,255,0.2)] relative">
+            <div className="absolute inset-0 bg-[rgba(255,255,255,0.05)] rounded-full pointer-events-none" />
+            <div className="absolute inset-[-0.5px] rounded-full pointer-events-none" style={{ boxShadow: 'inset 0 0 21px rgba(115,80,255,0.2)' }} />
+            <span className="text-[14px] text-white leading-[1.6] tracking-[-0.21px] relative">支持多种归因方式</span>
+          </div>
+          <h2 className="text-[44px] font-medium text-white leading-[1.1] tracking-[-2px]">多元化流量网络</h2>
+        </div>
+
+        <div className="flex flex-col gap-5">
+          {items.map((item, i) => (
+            <div key={i}>
+              <AttributionItem item={item} isActive={activeIndex === i} onClick={() => setActiveIndex(i)} />
+              {i < items.length - 1 && (
+                <div className="mt-5 h-px w-full" style={{
+                  background: 'linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0) 100%)',
+                }} />
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Right image placeholder */}
       <div className="h-[658px] shrink-0 w-[590px] rounded-[24px] overflow-hidden" style={{
         background: 'linear-gradient(135deg, rgba(99,102,241,0.15) 0%, rgba(120,60,255,0.1) 50%, rgba(59,130,246,0.08) 100%)',
         border: '1px solid rgba(255,255,255,0.06)',
       }}>
         <div className="w-full h-full flex items-center justify-center">
           <div className="text-white/10 text-[80px] font-bold">IMG</div>
-        </div>
-      </div>
-
-      {/* Right content */}
-      <div className="flex flex-col gap-[48px] flex-1 justify-center">
-        {/* Header */}
-        <div className="flex flex-col gap-6">
-          <div className="self-start px-4 py-[5px] rounded-full border border-[rgba(255,255,255,0.2)] relative">
-            <div className="absolute inset-0 bg-[rgba(255,255,255,0.05)] rounded-full pointer-events-none" />
-            <div className="absolute inset-[-0.5px] rounded-full pointer-events-none" style={{ boxShadow: 'inset 0 0 21px rgba(115,80,255,0.2)' }} />
-            <span className="text-[14px] text-white leading-[1.6] tracking-[-0.21px] relative">Product Impact</span>
-          </div>
-          <h2 className="text-[48px] font-medium text-white leading-[1.1] tracking-[-2px]">Our Values</h2>
-        </div>
-
-        {/* Value items */}
-        <div className="flex flex-col gap-6">
-          {values.map((v, i) => (
-            <div key={i}>
-              <ValueItem icon={v.icon} title={v.title} description={v.description} />
-              {i < values.length - 1 && (
-                <div className="mt-6 h-px w-full" style={{
-                  background: 'linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0) 100%)',
-                }} />
-              )}
-            </div>
-          ))}
         </div>
       </div>
     </div>
