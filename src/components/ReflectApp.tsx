@@ -2128,26 +2128,28 @@ function Section4Screen() {
             <div className="w-[60px] h-[60px] rounded-[12px]" style={{ background: '#030014', border: '3px solid #030014' }} />
           </div>
 
-          {/* Center - static purple glow logo frame with breathing */}
+          {/* Center - subtle purple glow logo frame with breathing */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[160px] h-[160px]">
-            {/* Static purple border glow - thicker */}
-            <div className="absolute -inset-[5px] rounded-[30px]" style={{
-              background: 'linear-gradient(135deg, rgba(168,130,255,0.7), rgba(124,58,237,0.5), rgba(168,130,255,0.7))',
-              animation: 'centerBreath 3s ease-in-out infinite',
+            {/* Soft outer glow */}
+            <div className="absolute -inset-[6px] rounded-[32px]" style={{
+              background: 'radial-gradient(ellipse at center, rgba(124,58,237,0.15) 0%, transparent 70%)',
+              filter: 'blur(12px)',
+              animation: 'centerBreath 4s ease-in-out infinite',
             }} />
-            {/* Blur glow - breathing */}
-            <div className="absolute -inset-[5px] rounded-[30px]" style={{
-              background: 'linear-gradient(135deg, rgba(168,130,255,0.5), rgba(124,58,237,0.4), rgba(168,130,255,0.5))',
-              filter: 'blur(10px)',
-              animation: 'centerBreath 3s ease-in-out infinite',
+            {/* Thin border glow */}
+            <div className="absolute -inset-[2px] rounded-[28px]" style={{
+              background: 'linear-gradient(135deg, rgba(168,130,255,0.25), rgba(124,58,237,0.15), rgba(168,130,255,0.25))',
+              animation: 'centerBreath 4s ease-in-out infinite',
             }} />
-            {/* Inner background */}
+            {/* Inner background - glass effect */}
             <div
               className="absolute inset-0 rounded-[26px]"
               style={{
-                background: 'rgba(10, 5, 20, 0.9)',
-                border: '1px solid rgba(168, 130, 255, 0.2)',
-                boxShadow: 'inset 0 0 20px rgba(168, 130, 255, 0.08), 0 0 25px rgba(124, 58, 237, 0.12)',
+                background: 'rgba(10, 5, 20, 0.6)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                border: '1px solid rgba(168, 130, 255, 0.12)',
+                boxShadow: 'inset 0 0 30px rgba(124, 58, 237, 0.05), 0 0 40px rgba(124, 58, 237, 0.06)',
               }}
             />
             {/* Logo */}
