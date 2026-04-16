@@ -641,7 +641,17 @@ function Section({ className }: { className?: string }) {
     <div className={className || "relative w-full h-full flex flex-col isolate items-center"} data-name="Section" style={{ backgroundColor: '#0a0a12' }}>
       {/* Prism Background */}
       <div className="absolute inset-0 z-[0] overflow-hidden">
-        <Prism noise={0.05} glow={1.2} bloom={1.2} colorFrequency={1.2} />
+        <Prism
+          animationType="rotate"
+          timeScale={0.5}
+          height={3.5}
+          baseWidth={5.5}
+          scale={3.6}
+          hueShift={0}
+          colorFrequency={1}
+          noise={0}
+          glow={1}
+        />
       </div>
       {/* Subtle top/bottom fade */}
       <div className="absolute inset-0 z-[1] pointer-events-none from-[rgba(10,10,18,0.15)] via-transparent to-[rgba(10,10,18,0.4)]" />
@@ -1263,7 +1273,7 @@ function Section1() {
     <div className="relative w-full h-full flex items-center justify-center px-16 pt-[100px]" data-name="Section">
 
       {/* Main Figma-style glass container with LaserFlow */}
-      <div className="w-full relative z-[1]">
+      <div className="w-full max-w-[1100px] relative z-[1]">
         {/* Background glow */}
         <div className="absolute inset-[-60px] blur-[10px] pointer-events-none" style={{
           background: 'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(255,117,117,0.12) 5%, rgba(154,170,255,0.07) 60%, transparent 100%)'
