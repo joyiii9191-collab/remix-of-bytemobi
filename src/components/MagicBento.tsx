@@ -323,12 +323,18 @@ const MagicBento = ({
 
           const content = (
             <>
-              <div className="magic-bento-card__header">
-                <div className="magic-bento-card__label">{card.label}</div>
+              {/* Default state: abbreviation + scene */}
+              <div className="magic-bento-card__default">
+                <span className="magic-bento-card__abbr">{card.label}</span>
+                <span className="magic-bento-card__scene">{card.description}</span>
               </div>
-              <div className="magic-bento-card__content">
-                <h3 className="magic-bento-card__title">{card.title}</h3>
-                <p className="magic-bento-card__description">{card.description}</p>
+              {/* Hover state: full details */}
+              <div className="magic-bento-card__expanded">
+                <div className="magic-bento-card__expanded-header">
+                  <span className="magic-bento-card__abbr-sm">{card.label}</span>
+                  <span className="magic-bento-card__full-name">{card.title}</span>
+                </div>
+                <p className="magic-bento-card__scene-hover">{card.description}</p>
                 {card.detail && <p className="magic-bento-card__detail">{card.detail}</p>}
               </div>
             </>
