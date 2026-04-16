@@ -178,7 +178,7 @@ const ParticleCard = ({
   }, [animateParticles, clearAllParticles, disableAnimations, enableTilt, enableMagnetism, clickEffect, glowColor]);
 
   return (
-    <div ref={cardRef} className={`${className} particle-container`} style={{ ...style, position: 'relative', overflow: 'hidden' }}>
+    <div ref={cardRef} className={`${className} particle-container`} style={{ ...style, position: 'relative' }}>
       {children}
     </div>
   );

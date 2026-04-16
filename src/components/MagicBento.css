@@ -7,7 +7,7 @@
 
 .magic-bento-card {
   position: relative;
-  overflow: hidden;
+  overflow: clip;
   border-radius: 16px;
   padding: 20px;
   display: flex;
