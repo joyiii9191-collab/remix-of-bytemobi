@@ -2355,10 +2355,10 @@ function LogoCard({ label, index = 0 }: { label: string; index?: number }) {
 
 function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 'right'; logos: string[]; tag?: string }) {
   const doubled = [...logos, ...logos];
-  const containerRef = React.useRef<HTMLDivElement>(null);
-  const [started, setStarted] = React.useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [started, setStarted] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const timer = setTimeout(() => setStarted(true), 1500);
     return () => clearTimeout(timer);
   }, []);
