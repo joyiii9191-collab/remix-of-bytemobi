@@ -1933,72 +1933,14 @@ function Q44E26A19Png() {
   );
 }
 
-function SpotlightBizCard({ card }: { card: { abbr: string; full: string; scene: string; desc: string } }) {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
-  return (
-    <div className="group relative flex flex-col overflow-hidden rounded-[16px] cursor-pointer transition-all duration-500 ease-out"
-      style={{
-        background: isHovered ? 'rgba(255,255,255,0.05)' : 'rgba(255,255,255,0.03)',
-        border: `1px solid rgba(255,255,255,${isHovered ? '0.15' : '0.08'})`,
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
-      }}
-      onMouseMove={(e) => {
-        const rect = e.currentTarget.getBoundingClientRect();
-        setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-      }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {/* Mouse glow */}
-      <div className="absolute inset-0 pointer-events-none rounded-[16px] transition-opacity duration-300" style={{
-        opacity: isHovered ? 1 : 0,
-        background: `radial-gradient(300px circle at ${mousePos.x}px ${mousePos.y}px, rgba(255,255,255,0.08) 0%, transparent 60%)`,
-      }} />
-      {/* Top border highlight */}
-      <div className="absolute inset-0 pointer-events-none rounded-[inherit] transition-shadow duration-500" style={{
-        boxShadow: isHovered
-          ? 'inset 0px 1px 0px 0px rgba(255,255,255,0.15), 0 0 30px rgba(120,80,255,0.08)'
-          : 'inset 0px 1px 0px 0px rgba(255,255,255,0.06)',
-      }} />
-
-      <div className="relative flex flex-col p-5 h-full">
-        {/* Header row - always visible */}
-        <div className="flex items-center gap-3">
-          <div className="flex items-center justify-center size-[44px] rounded-[10px] shrink-0 transition-all duration-400" style={{
-            background: isHovered ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.06)',
-            border: `1px solid rgba(255,255,255,${isHovered ? '0.15' : '0.08'})`,
-          }}>
-            <span className="text-[16px] font-bold text-white">{card.abbr}</span>
-          </div>
-          <div className="flex-1 min-w-0 transition-opacity duration-400" style={{
-            opacity: isHovered ? 1 : 0,
-          }}>
-            <p className="text-[14px] font-normal text-white/60 leading-tight">{card.full}</p>
-          </div>
-        </div>
-
-        {/* Content - always takes space, fades in/out */}
-        <div className="mt-3 transition-opacity duration-500 ease-out" style={{
-          opacity: isHovered ? 1 : 0,
-        }}>
-          <p className="text-[14px] font-medium text-white leading-[20px]">{card.scene}</p>
-          <p className="text-[12px] text-white/40 leading-[18px] mt-1">{card.desc}</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function Section2() {
-  const bizCards = [
-    { abbr: "CPM", full: "Cost Per Mille", scene: "品牌曝光与流量触达", desc: "按千次广告展示计费，帮助广告主高效提升品牌知名度、产品曝光度与市场影响力，广泛适用于品牌推广、活动宣发等场景。" },
-    { abbr: "CPC", full: "Cost Per Click", scene: "精准点击引流", desc: "按用户实际广告点击计费，能够有效控制获客成本，精准触达高意向用户，助力广告主提升流量质量与页面访问转化效率。" },
-    { abbr: "CPA", full: "Cost Per Action", scene: "深度转化行为获取", desc: "针对APP深度转化行为的用户获取，例如注册、充值、交易等关键转化事件，帮助广告主实现更高质量的用户增长。" },
-    { abbr: "CPI", full: "Cost Per Install", scene: "APP新用户获取", desc: "面向APP新用户获取，同时支持老用户召回与二次激活，帮助应用快速扩大用户规模。" },
-    { abbr: "CPS", full: "Cost Per Sale", scene: "电商与Revenue Share", desc: "针对电商、博彩及其他Revenue Share模式的客户，通过高质量流量获取真实付费用户，并按照实际成交或收益进行合作。" },
-    { abbr: "CPL", full: "Cost Per Lead", scene: "用户线索获取", desc: "面向WAP端用户线索获取，通过表单提交、注册等方式帮助广告主收集潜在客户信息，广泛应用于金融、电商及服务类行业。" },
+  const bizCards: import('./MagicBento').BentoCardData[] = [
+    { color: '#120F17', label: "CPM", title: "Cost Per Mille", description: "品牌曝光与流量触达", detail: "按千次广告展示计费，帮助广告主高效提升品牌知名度、产品曝光度与市场影响力，广泛适用于品牌推广、活动宣发等场景。" },
+    { color: '#120F17', label: "CPC", title: "Cost Per Click", description: "精准点击引流", detail: "按用户实际广告点击计费，能够有效控制获客成本，精准触达高意向用户，助力广告主提升流量质量与页面访问转化效率。" },
+    { color: '#120F17', label: "CPA", title: "Cost Per Action", description: "深度转化行为获取", detail: "针对APP深度转化行为的用户获取，例如注册、充值、交易等关键转化事件，帮助广告主实现更高质量的用户增长。" },
+    { color: '#120F17', label: "CPI", title: "Cost Per Install", description: "APP新用户获取", detail: "面向APP新用户获取，同时支持老用户召回与二次激活，帮助应用快速扩大用户规模。" },
+    { color: '#120F17', label: "CPS", title: "Cost Per Sale", description: "电商与Revenue Share", detail: "针对电商、博彩及其他Revenue Share模式的客户，通过高质量流量获取真实付费用户，并按照实际成交或收益进行合作。" },
+    { color: '#120F17', label: "CPL", title: "Cost Per Lead", description: "用户线索获取", detail: "面向WAP端用户线索获取，通过表单提交、注册等方式帮助广告主收集潜在客户信息，广泛应用于金融、电商及服务类行业。" },
   ];
 
   return (
@@ -2020,11 +1962,22 @@ function Section2() {
         </p>
       </div>
 
-      {/* 2x3 Grid */}
-      <div className="w-full max-w-[1200px] grid grid-cols-3 gap-4">
-        {bizCards.map((card) => (
-          <SpotlightBizCard key={card.abbr} card={card} />
-        ))}
+      {/* MagicBento Grid */}
+      <div className="w-full max-w-[1200px]">
+        <MagicBento
+          cards={bizCards}
+          textAutoHide={true}
+          enableStars
+          enableSpotlight
+          enableBorderGlow={true}
+          enableTilt={false}
+          enableMagnetism={false}
+          clickEffect={false}
+          spotlightRadius={400}
+          particleCount={12}
+          glowColor="132, 0, 255"
+          disableAnimations={false}
+        />
       </div>
     </div>
   );
