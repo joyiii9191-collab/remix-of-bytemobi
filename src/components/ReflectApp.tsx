@@ -2356,20 +2356,8 @@ function LogoCard({ label, index = 0 }: { label: string; index?: number }) {
 function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 'right'; logos: string[]; tag?: string }) {
   const doubled = [...logos, ...logos];
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [phase, setPhase] = useState<'idle' | 'centered' | 'flowing'>('idle');
-  const [centerOffset, setCenterOffset] = useState(0);
-
-  // Calculate center offset once container is rendered
-  useEffect(() => {
-    const wrapper = wrapperRef.current;
-    const container = containerRef.current;
-    if (!wrapper || !container) return;
-    const wrapperW = wrapper.offsetWidth;
-    const containerW = container.scrollWidth;
-    // Center the tag (which is at the start of the container) in the viewport
-    setCenterOffset((wrapperW / 2) - 60); // offset so tag appears near center
-  }, []);
+  const tagRef = useRef<HTMLDivElement>(null);
+  const [tagPhase, setTagPhase] = useState<'idle' | 'centered' | 'flowing'>('idle');
 
   useEffect(() => {
     const el = wrapperRef.current;
@@ -2377,8 +2365,8 @@ function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setPhase('centered');
-          const timer = setTimeout(() => setPhase('flowing'), 1800);
+          setTagPhase('centered');
+          const timer = setTimeout(() => setTagPhase('flowing'), 1800);
           observer.disconnect();
           return () => clearTimeout(timer);
         }
@@ -2389,36 +2377,45 @@ function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 
     return () => observer.disconnect();
   }, []);
 
-  const getTransform = () => {
-    if (phase === 'idle' || phase === 'centered') {
-      return `translateX(${centerOffset}px)`;
-    }
-    return undefined;
-  };
+  const animName = direction === 'left' ? 'marqueeLeft' : 'marqueeRight';
+  const tagAnimName = direction === 'left' ? 'tagMarqueeLeft' : 'tagMarqueeRight';
 
   return (
     <div ref={wrapperRef} className="relative w-full overflow-hidden">
       {/* Fade edges */}
       <div className="absolute left-0 top-0 bottom-0 w-[120px] z-10" style={{ background: 'linear-gradient(90deg, #030014 0%, transparent 100%)' }} />
       <div className="absolute right-0 top-0 bottom-0 w-[120px] z-10" style={{ background: 'linear-gradient(270deg, #030014 0%, transparent 100%)' }} />
-      <div
-        ref={containerRef}
-        className="flex flex-col gap-3"
-        style={{
-          width: 'max-content',
-          transform: getTransform(),
-          animation: phase === 'flowing' ? `${direction === 'left' ? 'marqueeLeft' : 'marqueeRight'} 30s linear infinite` : 'none',
-          transition: phase === 'centered' ? 'opacity 0.6s ease-out' : 'none',
-          opacity: phase === 'idle' ? 0 : 1,
-        }}
-      >
-        {/* Tag label */}
+      
+      <div className="flex flex-col gap-3">
+        {/* Tag - independent animation: starts centered, then scrolls */}
         {tag && (
-          <span className="text-[12px] px-3 py-1 rounded-full border border-[rgba(255,255,255,0.15)] text-white/50 tracking-[0.08em] w-fit">
-            {tag}
-          </span>
+          <div
+            ref={tagRef}
+            className="w-max"
+            style={{
+              opacity: tagPhase === 'idle' ? 0 : 1,
+              transition: 'opacity 0.6s ease-out',
+              ...(tagPhase === 'centered' ? {
+                transform: 'translateX(calc(50vw - 50%))',
+              } : tagPhase === 'flowing' ? {
+                animation: `${tagAnimName} 30s linear infinite`,
+              } : {}),
+            }}
+          >
+            <span className="text-[12px] px-3 py-1 rounded-full border border-[rgba(255,255,255,0.15)] text-white/50 tracking-[0.08em] whitespace-nowrap">
+              {tag}
+            </span>
+          </div>
         )}
-        <div className="flex items-center gap-6">
+
+        {/* Logos - always flowing */}
+        <div
+          className="flex items-center gap-6"
+          style={{
+            width: 'max-content',
+            animation: `${animName} 30s linear infinite`,
+          }}
+        >
           {doubled.map((label, i) => (
             <LogoCard key={i} label={label} index={i} />
           ))}
