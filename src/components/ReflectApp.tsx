@@ -2079,17 +2079,12 @@ function Section4Screen() {
           ].map((item, i) => (
             <div key={`left-${i}`} className="absolute" style={{ top: `${item.top}px`, left: `${item.left}px` }}>
               <div className="relative w-[60px] h-[60px]">
-                {/* Conic gradient border glow fixed at top-left */}
-                <div className="absolute -inset-[1px] rounded-[13px]" style={{
-                  background: 'conic-gradient(from 180deg at 15% 15%, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.2) 8%, transparent 20%, transparent 100%)',
-                }} />
-                {/* Blur glow at top-left */}
-                <div className="absolute -inset-[1px] rounded-[13px]" style={{
-                  background: 'conic-gradient(from 180deg at 15% 15%, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 10%, transparent 25%, transparent 100%)',
-                  filter: 'blur(4px)',
+                {/* Top-left corner glow */}
+                <div className="absolute -inset-[2px] rounded-[14px]" style={{
+                  background: 'radial-gradient(circle at 0% 0%, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 30%, transparent 60%)',
                 }} />
                 {/* Card content */}
-                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: '#030014' }}>
+                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: '#030014', border: '1px solid rgba(255,255,255,0.05)' }}>
                   <div className="w-[32px] h-[32px] rounded-md" style={{ background: 'rgba(255,255,255,0.06)' }} />
                 </div>
               </div>
