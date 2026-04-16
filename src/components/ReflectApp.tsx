@@ -641,7 +641,23 @@ function Section({ className }: { className?: string }) {
     <div className={className || "relative w-full h-full flex flex-col isolate items-center"} data-name="Section" style={{ backgroundColor: '#0a0a12' }}>
       {/* ColorBends Background */}
       <div className="absolute inset-0 z-[0] overflow-hidden">
-        <ColorBends />
+        <ColorBends
+          colors={["#ff5c7a", "#8a5cff", "#00ffd1"]}
+          rotation={90}
+          speed={0.2}
+          scale={1}
+          frequency={1}
+          warpStrength={1}
+          mouseInfluence={1}
+          noise={0.15}
+          parallax={0.5}
+          iterations={1}
+          intensity={1.5}
+          bandWidth={6}
+          transparent
+          autoRotate={0}
+          color="#A855F7"
+        />
       </div>
       {/* Subtle top/bottom fade */}
       <div className="absolute inset-0 z-[1] pointer-events-none from-[rgba(10,10,18,0.15)] via-transparent to-[rgba(10,10,18,0.4)]" />
