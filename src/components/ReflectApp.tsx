@@ -2353,23 +2353,42 @@ function LogoCard({ label, index = 0 }: { label: string; index?: number }) {
   );
 }
 
-function LogoMarquee({ direction = 'left', logos }: { direction?: 'left' | 'right'; logos: string[] }) {
+function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 'right'; logos: string[]; tag?: string }) {
   const doubled = [...logos, ...logos];
   return (
     <div className="relative w-full overflow-hidden">
       {/* Fade edges */}
       <div className="absolute left-0 top-0 bottom-0 w-[120px] z-10" style={{ background: 'linear-gradient(90deg, #030014 0%, transparent 100%)' }} />
       <div className="absolute right-0 top-0 bottom-0 w-[120px] z-10" style={{ background: 'linear-gradient(270deg, #030014 0%, transparent 100%)' }} />
-      <div
-        className="flex items-center gap-6"
-        style={{
-          animation: `${direction === 'left' ? 'marqueeLeft' : 'marqueeRight'} 30s linear infinite`,
-          width: 'max-content',
-        }}
-      >
-        {doubled.map((label, i) => (
-          <LogoCard key={i} label={label} index={i} />
-        ))}
+      <div className="flex flex-col gap-3">
+        {/* Tag label that scrolls with the row */}
+        {tag && (
+          <div className="overflow-hidden">
+            <div
+              style={{
+                animation: `${direction === 'left' ? 'marqueeLeft' : 'marqueeRight'} 30s linear infinite`,
+                width: 'max-content',
+              }}
+            >
+              {[tag, tag].map((t, i) => (
+                <span key={i} className="inline-block mr-6 text-[12px] px-3 py-1 rounded-full border border-[rgba(255,255,255,0.15)] text-white/50 tracking-[0.08em]">
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+        <div
+          className="flex items-center gap-6"
+          style={{
+            animation: `${direction === 'left' ? 'marqueeLeft' : 'marqueeRight'} 30s linear infinite`,
+            width: 'max-content',
+          }}
+        >
+          {doubled.map((label, i) => (
+            <LogoCard key={i} label={label} index={i} />
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -2388,7 +2407,7 @@ function Section6LogoWall() {
 
       {/* Title */}
       <div className="flex flex-col items-center gap-4 z-[1] mb-4">
-        <span className="text-[12px] px-3 py-1 rounded-full border border-[rgba(255,255,255,0.15)] text-white/60 tracking-[0.12em] uppercase">Integrations</span>
+        
         <h2 className="text-[48px] leading-[1.15] font-bold tracking-tight text-white text-center">
           <span className="bg-clip-text text-[transparent]" style={{ backgroundImage: 'linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0.7) 100%)' }}>
             合作伙伴生态资源
@@ -2401,8 +2420,8 @@ function Section6LogoWall() {
 
       {/* Logo rows */}
       <div className="flex flex-col gap-6 w-full z-[1]">
-        <LogoMarquee direction="left" logos={row1} />
-        <LogoMarquee direction="right" logos={row2} />
+        <LogoMarquee direction="left" logos={row1} tag="互动广告平台 & 激励广告平台" />
+        <LogoMarquee direction="right" logos={row2} tag="APP开发者 & 厂商" />
       </div>
 
       {/* Keyframes style */}
