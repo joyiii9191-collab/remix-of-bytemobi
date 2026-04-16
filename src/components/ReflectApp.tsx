@@ -2355,16 +2355,30 @@ function LogoCard({ label, index = 0 }: { label: string; index?: number }) {
 
 function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 'right'; logos: string[]; tag?: string }) {
   const doubled = [...logos, ...logos];
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [started, setStarted] = useState(false);
+  const [phase, setPhase] = useState<'idle' | 'centered' | 'flowing'>('idle');
 
   useEffect(() => {
-    const timer = setTimeout(() => setStarted(true), 1500);
-    return () => clearTimeout(timer);
+    const el = wrapperRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setPhase('centered');
+          const timer = setTimeout(() => setPhase('flowing'), 1800);
+          observer.disconnect();
+          return () => clearTimeout(timer);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <div className="relative w-full overflow-hidden">
+    <div ref={wrapperRef} className="relative w-full overflow-hidden">
       {/* Fade edges */}
       <div className="absolute left-0 top-0 bottom-0 w-[120px] z-10" style={{ background: 'linear-gradient(90deg, #030014 0%, transparent 100%)' }} />
       <div className="absolute right-0 top-0 bottom-0 w-[120px] z-10" style={{ background: 'linear-gradient(270deg, #030014 0%, transparent 100%)' }} />
@@ -2373,9 +2387,10 @@ function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 
         className="flex flex-col gap-3"
         style={{
           width: 'max-content',
-          transform: started ? undefined : 'translateX(calc(50vw - 25%))',
-          animation: started ? `${direction === 'left' ? 'marqueeLeft' : 'marqueeRight'} 30s linear infinite` : 'none',
-          transition: started ? 'none' : 'transform 0.8s ease-out',
+          transform: phase === 'flowing' ? undefined : 'translateX(calc(50vw - 25%))',
+          animation: phase === 'flowing' ? `${direction === 'left' ? 'marqueeLeft' : 'marqueeRight'} 30s linear infinite` : 'none',
+          transition: phase === 'centered' ? 'transform 0.8s ease-out' : 'none',
+          opacity: phase === 'idle' ? 0 : 1,
         }}
       >
         {/* Tag label */}
