@@ -2321,18 +2321,31 @@ function Section5Screen() {
 
 function LogoCard({ label }: { label: string }) {
   return (
-    <div className="relative shrink-0 size-[64px]">
-      {/* Glow layers */}
-      <div className="absolute inset-0 mix-blend-plus-lighter rounded-[15px]" style={{
-        background: 'radial-gradient(ellipse at center, rgba(99,102,241,0.15) 0%, transparent 70%)',
-      }} />
-      <div className="absolute inset-0 mix-blend-plus-lighter rounded-[15px]" style={{
-        background: 'radial-gradient(ellipse at center, rgba(186,156,255,0.1) 0%, transparent 60%)',
-      }} />
-      <div className="backdrop-blur-[26px] bg-[#030014] flex items-center justify-center overflow-hidden p-[15px] rounded-[15px] size-full border border-[rgba(255,255,255,0.08)]" style={{
-        boxShadow: 'inset 0 0 20px rgba(99,102,241,0.08), 0 0 30px rgba(99,102,241,0.05)',
+    <div className="relative shrink-0 size-[72px] group">
+      {/* Liquid glass card */}
+      <div className="relative size-full rounded-[16px] overflow-hidden" style={{
+        background: 'linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 50%, rgba(255,255,255,0.04) 100%)',
+        boxShadow: 'inset 0 1px 0 0 rgba(255,255,255,0.1), inset 0 -1px 0 0 rgba(255,255,255,0.03), 0 2px 8px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.2)',
+        border: '1px solid rgba(255,255,255,0.08)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
       }}>
-        <span className="text-[16px] font-bold text-white/30">{label}</span>
+        {/* Top highlight reflection */}
+        <div className="absolute top-0 left-[10%] right-[10%] h-[1px]" style={{
+          background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.15) 30%, rgba(255,255,255,0.25) 50%, rgba(255,255,255,0.15) 70%, transparent 100%)',
+        }} />
+        {/* Inner glass reflection */}
+        <div className="absolute inset-0" style={{
+          background: 'linear-gradient(180deg, rgba(255,255,255,0.06) 0%, transparent 40%, transparent 80%, rgba(255,255,255,0.02) 100%)',
+        }} />
+        {/* Placeholder icon area */}
+        <div className="relative size-full flex items-center justify-center">
+          <div className="size-[36px] rounded-[8px] flex items-center justify-center" style={{
+            background: 'rgba(255,255,255,0.05)',
+          }}>
+            <div className="size-[20px] rounded-[4px]" style={{ background: 'rgba(255,255,255,0.08)' }} />
+          </div>
+        </div>
       </div>
     </div>
   );
