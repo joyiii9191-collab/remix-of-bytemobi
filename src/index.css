@@ -113,3 +113,55 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+/* Raycast-style button with flowing light border */
+.raycast-btn {
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.raycast-btn:hover {
+  background: rgba(255,255,255,0.06) !important;
+}
+
+.raycast-btn-border {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--ray-angle, 0deg),
+    transparent 0%,
+    transparent 25%,
+    rgba(168,130,255,0.6) 30%,
+    rgba(124,58,237,0.8) 35%,
+    rgba(168,130,255,0.6) 40%,
+    transparent 45%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: raycast-rotate 3s linear infinite;
+}
+
+.raycast-btn-bg {
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background: rgba(10, 5, 20, 0.85);
+  z-index: 0;
+}
+
+@keyframes raycast-rotate {
+  0% { --ray-angle: 0deg; }
+  100% { --ray-angle: 360deg; }
+}
+
+@property --ray-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}

@@ -2121,13 +2121,19 @@ function Section4Screen() {
           依托自有流量体系，实现广告投放的高效精细化管理和优化
         </p>
 
-        {/* CTA button */}
+        {/* CTA button - Raycast style with flowing light border */}
         <div className="flex items-center gap-4 mt-2">
-          <a href="/programmatic-ads" className="px-6 py-3 rounded-[10px] text-[14px] font-medium text-white inline-block" style={{
-            background: 'linear-gradient(135deg, #7c3aed 0%, #a855f7 100%)',
-            boxShadow: '0 4px 20px -4px rgba(124,58,237,0.5)',
+          <a href="/programmatic-ads" className="raycast-btn relative inline-flex items-center gap-2 px-7 py-3 rounded-full text-[14px] font-medium text-white/90 overflow-hidden" style={{
+            background: 'rgba(255,255,255,0.04)',
           }}>
-            了解程序化广告
+            {/* Animated border glow */}
+            <span className="raycast-btn-border" />
+            <span className="raycast-btn-bg" />
+            <span className="relative z-[1]">釉面介绍</span>
+            <span className="relative z-[1] w-[1px] h-[16px] bg-white/20" />
+            <span className="relative z-[1] flex items-center gap-1">
+              加入候补名单 <span className="ml-0.5">→</span>
+            </span>
           </a>
         </div>
       </div>
