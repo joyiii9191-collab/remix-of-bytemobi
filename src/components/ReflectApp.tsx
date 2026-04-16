@@ -8725,7 +8725,8 @@ export default function ReflectApp() {
          </div>
        </SnapSection>
 
-       {/* Footer */}
+       {/* Footer - 不使用吸附式滚动 */}
+       <div style={{ scrollSnapAlign: 'none' }}>
        <footer className="w-full py-12 px-6" style={{ background: 'rgba(10, 5, 20, 0.95)', borderTop: '1px solid rgba(168, 130, 255, 0.1)' }}>
          <div className="max-w-[1200px] mx-auto">
            <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
