@@ -8077,43 +8077,50 @@ function Section9Solution() {
         </p>
       </div>
 
-      {/* Steps Flow - 2 rows x 3 columns */}
-      <div className="grid grid-cols-3 gap-[16px] w-full max-w-[1100px] z-10">
-        {steps.map((step) => (
-          <div
-            key={step.title}
-            className="relative overflow-hidden rounded-[16px] p-[32px] flex flex-col items-start gap-[20px]"
-            style={{
-              background: "rgba(255,255,255,0.04)",
-              border: "1px solid rgba(255,255,255,0.08)",
-            }}
-          >
-            {/* Icon */}
-            <div
-              className="w-[40px] h-[40px] rounded-[10px] flex items-center justify-center"
-              style={{
-                background: "linear-gradient(135deg, rgba(120,60,255,0.18) 0%, rgba(60,120,255,0.12) 100%)",
-                border: "1px solid rgba(120,60,255,0.25)",
-              }}
-            >
-              {(() => {
-                const IconComp = LucideIcons[step.icon as keyof typeof LucideIcons] as React.ComponentType<any>;
-                return IconComp ? <IconComp size={20} style={{ color: "rgba(180,150,255,0.9)" }} /> : null;
-              })()}
+      {/* Steps Flow */}
+      <div className="flex items-start gap-0 w-full max-w-[1100px] z-10">
+        {steps.map((step, i) => (
+          <div key={step.num} className="flex items-start flex-1">
+            {/* Step Card */}
+            <div className="flex flex-col items-center gap-[16px] flex-1">
+              {/* Icon circle */}
+              <div
+                className="w-[56px] h-[56px] rounded-full flex items-center justify-center relative"
+                style={{
+                  background: "linear-gradient(135deg, rgba(120,60,255,0.15) 0%, rgba(60,120,255,0.1) 100%)",
+                  border: "1px solid rgba(120,60,255,0.3)",
+                }}
+              >
+                {(() => {
+                  const IconComp = LucideIcons[step.icon as keyof typeof LucideIcons] as React.ComponentType<any>;
+                  return IconComp ? <IconComp size={24} style={{ color: "rgba(160,120,255,0.9)" }} /> : null;
+                })()}
+                <div
+                  className="absolute inset-[-0.5px] rounded-full pointer-events-none"
+                  style={{ boxShadow: "inset 0 0 21px rgba(115,80,255,0.25)" }}
+                />
+              </div>
+
+              {/* Title + Desc */}
+              <div className="flex flex-col items-center gap-[6px] text-center px-[4px]">
+                <p className="text-[16px] font-medium text-white leading-[1.2]">{step.title}</p>
+                <p className="text-[12px] leading-[1.6]" style={{ color: "rgba(255,255,255,0.45)" }}>
+                  {step.desc}
+                </p>
+              </div>
             </div>
 
-            {/* Divider */}
-            <div className="w-[16px] h-px" style={{ background: "rgba(255,255,255,0.24)" }} />
-
-            {/* Title */}
-            <p className="text-[16px] font-medium leading-[1.4]" style={{ color: "rgba(244,240,255,1)" }}>
-              {step.title}
-            </p>
-
-            {/* Description */}
-            <p className="text-[14px] font-normal leading-[1.6]" style={{ color: "rgba(239,237,253,0.5)" }}>
-              {step.desc}
-            </p>
+            {/* Connector line */}
+            {i < steps.length - 1 && (
+              <div className="flex items-center pt-[30px]">
+                <div
+                  className="w-[40px] h-[1px]"
+                  style={{
+                    background: "linear-gradient(90deg, rgba(120,60,255,0.4) 0%, rgba(60,120,255,0.2) 100%)",
+                  }}
+                />
+              </div>
+            )}
           </div>
         ))}
       </div>
