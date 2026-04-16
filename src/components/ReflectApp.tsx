@@ -10,6 +10,7 @@ import Prism from "./Prism";
 import LaserFlow from "./LaserFlow";
 import LightRays from "./LightRays";
 import MagicBento from "./MagicBento";
+import StarBorder from "./StarBorder";
 import "./LiquidGlassCard.css";
 import imgQCb311D1CPng from "@/assets/ca87b13c3dba5b82f5b55f7a1fbe96037f74413d.png";
 import imgQC3D7BecfWebm from "@/assets/8f7f3e78fa25f538b70e2685192395598c425a33.png";
