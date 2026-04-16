@@ -2595,17 +2595,22 @@ function AttributionItem({ item, isActive, onClick }: {
   return (
     <div className="cursor-pointer transition-all duration-500" onClick={onClick}>
       <div className="flex flex-col gap-2">
-        <p className="font-medium text-[22px] text-white tracking-[-0.5px] leading-[1.3]">
+        <p className="font-medium tracking-[-0.5px] leading-[1.3] transition-all duration-500" style={{
+          fontSize: isActive ? '26px' : '22px',
+          color: isActive ? '#a78bfa' : 'white',
+        }}>
           {item.title}
-          <span className="text-[15px] text-white/50 ml-1">({item.titleFull})</span>
+          <span className="text-[15px] ml-1 transition-colors duration-500" style={{
+            color: isActive ? 'rgba(167,139,250,0.5)' : 'rgba(255,255,255,0.5)',
+          }}>({item.titleFull})</span>
         </p>
         <p className="text-[15px] text-[#818089] leading-[1.6] tracking-[-0.24px]">{item.description}</p>
         <div
-          className="transition-opacity duration-500"
-          style={{ height: '30px', opacity: isActive ? 1 : 0 }}
+          className="transition-all duration-500 overflow-hidden"
+          style={{ maxHeight: isActive ? '40px' : '0px', opacity: isActive ? 1 : 0 }}
         >
-          <p className="text-[14px] text-[#a78bfa] leading-[1.6] mt-1">
-            <span className="text-white/40 mr-1">适用场景：</span>{item.scenes}
+          <p className="text-[14px] text-[rgba(239,237,253,0.5)] leading-[1.6] mt-1">
+            <span className="text-[rgba(239,237,253,0.4)] mr-1">适用场景：</span>{item.scenes}
           </p>
         </div>
       </div>
