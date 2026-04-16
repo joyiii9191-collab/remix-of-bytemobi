@@ -50,8 +50,8 @@ export default function IntegrationsGrid() {
     <>
       <FeatureCard label="头部媒体及合作伙伴" hasPlaceholders />
       <FeatureCard label="自有程序化流量体系" hasPlaceholders />
-      <FeatureCard label="布局全球，深拓日本" icon={iconGlobalJapan} />
-      <FeatureCard label="一站式解决方案" icon={iconOneStop} />
+      <FeatureCard label="布局全球，深拓日本" icon={<Globe size={24} strokeWidth={1.5} style={{ color: 'hsla(0, 0%, 100%, 0.45)' }} />} />
+      <FeatureCard label="一站式解决方案" icon={<Layers size={24} strokeWidth={1.5} style={{ color: 'hsla(0, 0%, 100%, 0.45)' }} />} />
     </>
   );
 }
