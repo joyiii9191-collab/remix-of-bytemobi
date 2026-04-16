@@ -2103,51 +2103,32 @@ function Section4Screen() {
       <div className="flex flex-col gap-6 max-w-[480px] shrink-0 z-[1]">
         {/* Tag */}
         <div className="flex items-center gap-2 self-start">
-          <span className="text-[12px] px-3 py-1 rounded-full border border-[rgba(255,255,255,0.15)] text-white/60">Latest release</span>
-          <span className="text-[12px] text-white/40">Introducing ScaleX ChatGPT Plugin</span>
+          <span className="text-[12px] px-3 py-1 rounded-full border border-[rgba(255,255,255,0.15)] text-white/60">自有流量</span>
         </div>
 
         {/* Heading */}
-        <h2 className="text-[52px] leading-[1.1] font-bold tracking-tight text-white">
-          Turn visitors into loyal customers – <span className="bg-clip-text text-[transparent]" style={{ backgroundImage: 'linear-gradient(90deg, #a855f7, #7c3aed)' }}>10x</span> faster.
+        <h2 className="text-[42px] leading-[1.1] font-bold tracking-tight text-white">
+          自有程序化流量体系
         </h2>
+
+        {/* Subtitle */}
+        <p className="text-[18px] leading-[28px] text-white/70 font-medium">
+          自有DPS流量品牌，独家SSP流量池
+        </p>
 
         {/* Description */}
         <p className="text-[16px] leading-[26px] text-white/50 max-w-[420px]">
-          Capture, engage, and convert more leads with a platform built to drive real growth – no complicated setups, no wasted time.
+          依托自有流量体系，实现广告投放的高效精细化管理和优化
         </p>
 
-        {/* Social proof */}
-        <div className="relative rounded-[16px] p-4 flex items-center gap-3 mt-2" style={{
-          background: 'rgba(255,255,255,0.04)',
-          border: '1px solid rgba(255,255,255,0.08)',
-        }}>
-          <div className="flex -space-x-2">
-            {[0,1,2].map(i => (
-              <div key={i} className="size-[36px] rounded-full border-2 border-[rgb(3,0,20)]" style={{
-                background: `linear-gradient(135deg, ${['#a855f7','#6366f1','#3b82f6'][i]} 0%, ${['#7c3aed','#4f46e5','#2563eb'][i]} 100%)`,
-              }} />
-            ))}
-          </div>
-          <div className="flex flex-col">
-            <span className="text-[13px] text-white/80 font-medium">Join 100k+ entrepreneurs and elevate your business today!</span>
-            <span className="text-[12px] text-white/40">Don't miss out on this opportunity to grow your network.</span>
-          </div>
-        </div>
-
-        {/* CTA buttons */}
+        {/* CTA button */}
         <div className="flex items-center gap-4 mt-2">
-          <button className="px-6 py-3 rounded-[10px] text-[14px] font-medium text-white" style={{
+          <a href="/programmatic-ads" className="px-6 py-3 rounded-[10px] text-[14px] font-medium text-white inline-block" style={{
             background: 'linear-gradient(135deg, #7c3aed 0%, #a855f7 100%)',
             boxShadow: '0 4px 20px -4px rgba(124,58,237,0.5)',
           }}>
-            Start Free Today
-          </button>
-          <button className="px-6 py-3 rounded-[10px] text-[14px] font-medium text-white border border-[rgba(255,255,255,0.15)]" style={{
-            background: 'rgba(255,255,255,0.04)',
-          }}>
-            Watch Demo
-          </button>
+            了解程序化广告
+          </a>
         </div>
       </div>
     </div>
