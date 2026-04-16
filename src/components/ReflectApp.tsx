@@ -2372,10 +2372,21 @@ function Section8TrafficMap() {
 
       {/* Header */}
       <div className="flex flex-col items-center gap-4 z-10">
-        <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/[0.03] text-[13px] text-[#818089] tracking-wide">
-          <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
-          Global Coverage
-        </span>
+        <div
+          className="flex items-center px-[16px] py-[5px] rounded-full relative"
+          style={{
+            border: "1px solid rgba(255,255,255,0.2)",
+            background: "rgba(255,255,255,0.05)",
+          }}
+        >
+          <span className="text-[14px] text-white font-normal tracking-[-0.21px] leading-[1.6]">
+            Global Coverage
+          </span>
+          <div
+            className="absolute inset-[-0.5px] rounded-full pointer-events-none"
+            style={{ boxShadow: "inset 0 0 21px rgba(115,80,255,0.2)" }}
+          />
+        </div>
         <h2 className="text-[44px] font-semibold text-white leading-[1.15] tracking-tight text-center">
           我们的<span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">流量分布</span>区域
         </h2>
