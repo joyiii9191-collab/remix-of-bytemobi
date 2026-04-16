@@ -1,5 +1,6 @@
 import React from "react";
 
+
 interface StarBorderProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   as?: React.ElementType;
   className?: string;
