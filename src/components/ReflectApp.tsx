@@ -2670,6 +2670,45 @@ function AttributionItem({ item, isActive, onClick }: {
   );
 }
 
+function FocusReveal({ left, top }: { left: string; top: string }) {
+  return (
+    <>
+      {/* Pulsing dot */}
+      <div className="absolute" style={{
+        left, top,
+        width: '20px', height: '20px',
+        borderRadius: '50%',
+        background: 'rgba(255, 255, 255, 0.95)',
+        boxShadow: '0 0 20px rgba(255,255,255,0.6), 0 0 40px rgba(255,255,255,0.3)',
+        transform: 'translate(-50%, -50%)',
+        animation: 'focusDotPulse 1.5s ease-in-out infinite',
+        zIndex: 3,
+      }} />
+      {/* Outer pulse ring */}
+      <div className="absolute" style={{
+        left, top,
+        width: '20px', height: '20px',
+        borderRadius: '50%',
+        border: '2px solid rgba(255,255,255,0.6)',
+        transform: 'translate(-50%, -50%)',
+        animation: 'focusRingPulse 1.5s ease-out infinite',
+        zIndex: 3,
+      }} />
+      {/* Expanding reveal box frame */}
+      <div className="absolute pointer-events-none" style={{
+        left, top,
+        transform: 'translate(-50%, -50%)',
+        animation: 'revealBoxExpand 1.2s ease-out 0.3s forwards',
+        width: '0px', height: '0px',
+        border: '2px solid rgba(255, 255, 255, 0.8)',
+        borderRadius: '8px',
+        boxShadow: '0 0 15px rgba(255, 255, 255, 0.3), inset 0 0 20px rgba(255,255,255,0.05)',
+        zIndex: 2,
+      }} />
+    </>
+  );
+}
+
 function Section7Values() {
   const items = [
     {
