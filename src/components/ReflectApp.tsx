@@ -2258,9 +2258,9 @@ function Section5Screen() {
           </div>
         </div>
       </div>
-      </div>
     </div>
   );
+}
 }
 
 function LogoCard({ label, index = 0 }: { label: string; index?: number }) {
