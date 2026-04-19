@@ -8549,6 +8549,13 @@ function SnapSection({ children, className = "" }: { children: React.ReactNode; 
 }
 
 export default function ReflectApp() {
+  useEffect(() => {
+    document.body.classList.add("lock-scroll");
+    return () => {
+      document.body.classList.remove("lock-scroll");
+    };
+  }, []);
+
   return (
     <div className="w-full" style={{ backgroundImage: "linear-gradient(90deg, rgb(3, 0, 20) 0%, rgb(3, 0, 20) 100%), linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%)" }} data-name="Reflect App">
 
