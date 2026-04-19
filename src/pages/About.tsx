@@ -24,6 +24,7 @@ import {
   Rocket,
   Star,
   TrendingUp,
+  type LucideIcon,
 } from "lucide-react";
 
 type Office = {
