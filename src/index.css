@@ -470,3 +470,28 @@ All colors MUST be HSL.
   backdrop-filter: blur(20px) saturate(1.5);
   -webkit-backdrop-filter: blur(20px) saturate(1.5);
 }
+
+/* === Strip purple/violet box-shadows on cards & wrappers (preserve raycast btn) === */
+.app-light-theme [style*="boxShadow"][style*="124, 58, 237"]:not(.raycast-btn-bg):not(.raycast-btn),
+.app-light-theme [style*="box-shadow"][style*="124, 58, 237"]:not(.raycast-btn-bg):not(.raycast-btn),
+.app-light-theme [style*="boxShadow"][style*="124,58,237"]:not(.raycast-btn-bg):not(.raycast-btn),
+.app-light-theme [style*="box-shadow"][style*="124,58,237"]:not(.raycast-btn-bg):not(.raycast-btn),
+.app-light-theme [style*="boxShadow"][style*="168, 130, 255"]:not(.raycast-btn-bg):not(.raycast-btn),
+.app-light-theme [style*="box-shadow"][style*="168, 130, 255"]:not(.raycast-btn-bg):not(.raycast-btn),
+.app-light-theme [style*="boxShadow"][style*="168,130,255"]:not(.raycast-btn-bg):not(.raycast-btn),
+.app-light-theme [style*="boxShadow"][style*="139, 92, 246"]:not(.raycast-btn-bg):not(.raycast-btn),
+.app-light-theme [style*="boxShadow"][style*="139,92,246"]:not(.raycast-btn-bg):not(.raycast-btn),
+.app-light-theme [style*="boxShadow"][style*="120, 60, 255"]:not(.raycast-btn-bg):not(.raycast-btn),
+.app-light-theme [style*="boxShadow"][style*="120,60,255"]:not(.raycast-btn-bg):not(.raycast-btn),
+.app-light-theme [style*="boxShadow"][style*="99, 102, 241"]:not(.raycast-btn-bg):not(.raycast-btn),
+.app-light-theme [style*="boxShadow"][style*="99,102,241"]:not(.raycast-btn-bg):not(.raycast-btn) {
+  box-shadow: 0 8px 28px -10px rgba(15, 20, 40, 0.12), inset 0 1px 0 rgba(255,255,255,0.6) !important;
+}
+
+/* Tailwind purple/violet/indigo shadow utilities → neutralize */
+.app-light-theme [class*="shadow-purple"],
+.app-light-theme [class*="shadow-violet"],
+.app-light-theme [class*="shadow-indigo"] {
+  box-shadow: 0 8px 28px -10px rgba(15, 20, 40, 0.12) !important;
+}
+
