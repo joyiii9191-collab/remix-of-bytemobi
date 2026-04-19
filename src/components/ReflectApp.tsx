@@ -325,11 +325,7 @@ function QC3D7BecfWebm() {
 }
 
 function MaskGroup2() {
-  return (
-    <div className="absolute left-[370px] size-[700px] top-[55px] opacity-20 pointer-events-none" data-name="Mask Group">
-      <div className="size-full rounded-full bg-radial from-purple-500/30 to-transparent blur-[100px]" />
-    </div>
-  );
+  return null;
 }
 
 function Container8() {
@@ -650,42 +646,6 @@ function MaskGroup1() {
 function Section({ className }: { className?: string }) {
   return (
     <div className={className || "relative w-full h-full flex flex-col isolate items-center"} data-name="Section" style={{ backgroundColor: 'transparent' }}>
-      {/* Light blue-purple ray hero background — pure CSS, no Three.js */}
-      <div className="absolute inset-0 z-[0] overflow-hidden pointer-events-none">
-        {/* Central conic light rays */}
-        <div
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-          style={{
-            width: '140%',
-            height: '140%',
-            background: 'conic-gradient(from 90deg at 50% 50%, transparent 0deg, rgba(99,102,241,0.18) 40deg, rgba(124,58,237,0.22) 90deg, rgba(168,85,247,0.18) 140deg, transparent 180deg, transparent 360deg)',
-            filter: 'blur(40px)',
-            opacity: 0.7,
-            animation: 'hero-ray-rotate 30s linear infinite',
-          }}
-        />
-        {/* Soft top glow */}
-        <div
-          className="absolute left-1/2 -translate-x-1/2 top-0"
-          style={{
-            width: '900px',
-            height: '600px',
-            background: 'radial-gradient(ellipse at top, rgba(99,102,241,0.35) 0%, rgba(124,58,237,0.18) 40%, transparent 75%)',
-            filter: 'blur(60px)',
-          }}
-        />
-        {/* Bottom shimmer line */}
-        <div
-          className="absolute left-1/2 -translate-x-1/2 bottom-[15%]"
-          style={{
-            width: '80%',
-            height: '2px',
-            background: 'linear-gradient(90deg, transparent, rgba(99,102,241,0.6) 30%, rgba(168,85,247,0.7) 50%, rgba(99,102,241,0.6) 70%, transparent)',
-            filter: 'blur(2px)',
-            boxShadow: '0 0 40px rgba(124,58,237,0.5)',
-          }}
-        />
-      </div>
       {/* Content */}
       <div className="relative z-[4] pt-[173px] w-full flex flex-col items-center pointer-events-none">
         <Container />
@@ -2007,11 +1967,6 @@ function Q62492B69Png() {
 function Section4Screen() {
   return (
     <div className="relative w-full h-full flex items-center justify-center px-16 gap-16 overflow-hidden" data-name="Section4Screen">
-      {/* Purple glow behind dashboard */}
-      <div className="absolute left-[10%] top-1/2 -translate-y-1/2 w-[500px] h-[400px] pointer-events-none" style={{
-        background: 'radial-gradient(ellipse at center, rgba(120,60,255,0.15) 0%, transparent 70%)',
-        filter: 'blur(60px)',
-      }} />
 
       {/* Left integrations grid - Figma reference style */}
       <div className="relative flex-1 max-w-[560px] z-[1] flex items-center justify-center">
@@ -2196,11 +2151,7 @@ function Section4Screen() {
 function Section5Screen() {
   return (
     <div className="relative w-full h-full flex items-center justify-center px-16 gap-16" data-name="Section5Screen">
-      {/* Purple glow behind dashboard */}
-      <div className="absolute right-[15%] top-1/2 -translate-y-1/2 w-[500px] h-[400px] pointer-events-none" style={{
-        background: 'radial-gradient(ellipse at center, rgba(120,60,255,0.15) 0%, transparent 70%)',
-        filter: 'blur(60px)',
-      }} />
+      {/* Purple glow removed */}
 
       {/* Left content */}
       <div className="flex flex-col gap-6 max-w-[480px] shrink-0 z-[1]">
@@ -2424,10 +2375,7 @@ function Section6LogoWall() {
 
   return (
     <div className="relative w-full h-full flex flex-col items-center justify-center gap-10" data-name="Section6LogoWall">
-      {/* Background glow */}
-      <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'radial-gradient(ellipse at 50% 50%, rgba(99,102,241,0.08) 0%, transparent 60%)',
-      }} />
+      {/* Background glow removed */}
 
       {/* Title */}
       <div className="flex flex-col items-center gap-4 z-[1] mb-4">
@@ -2466,10 +2414,7 @@ function Section6LogoWall() {
 function Section8TrafficMap() {
   return (
     <div className="relative w-full h-full flex flex-col items-center justify-center px-[80px] gap-[24px] pt-[80px]" data-name="Section8TrafficMap">
-      {/* Ambient glow */}
-      <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'radial-gradient(ellipse 60% 40% at 50% 50%, rgba(120,60,255,0.08) 0%, transparent 70%)'
-      }} />
+      {/* Ambient glow removed */}
 
       {/* Header */}
       <div className="flex flex-col items-center gap-3 z-10">
@@ -8126,13 +8071,7 @@ function Section9Solution() {
       </div>
 
 
-      {/* Background glow */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
-        style={{
-          background: "radial-gradient(circle, rgba(120,60,255,0.08) 0%, transparent 70%)",
-        }}
-      />
+      {/* Background glow removed */}
     </div>
   );
 }
@@ -8337,11 +8276,7 @@ function Section10Contact() {
         </div>
       </div>
 
-      {/* Background glow */}
-      <div
-        className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(circle, rgba(120,60,255,0.06) 0%, transparent 70%)" }}
-      />
+      {/* Background glow removed */}
     </div>
   );
 }
