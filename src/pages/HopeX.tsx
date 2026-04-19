@@ -1,10 +1,10 @@
 import React from "react";
+import { motion } from "motion/react";
 import {
-  SubPageLayout,
-  PageSection,
-  FeatureCard,
-  CountUp,
-} from "@/components/SubPageLayout";
+  SnapPage, SnapScreen, ScreenInner,
+  ScreenEyebrow, ScreenTitle, ScreenLead,
+} from "@/components/SnapPage";
+import { CountUp } from "@/components/SubPageLayout";
 import { ParticleWorldMap } from "@/components/ParticleWorldMap";
 
 const HOPEX_MARKERS = [
@@ -17,206 +17,226 @@ const HOPEX_MARKERS = [
   { x: 50, y: 30, highlight: true, label: "EMEA" },
 ];
 const HOPEX_LINES: Array<[number, number]> = [
-  [0, 6],
-  [0, 5],
-  [6, 1],
-  [6, 4],
-  [1, 2],
-  [1, 3],
+  [0, 6], [0, 5], [6, 1], [6, 4], [1, 2], [1, 3],
+];
+
+const CARD: React.CSSProperties = {
+  background: "#FFFFFF",
+  border: "1px solid rgba(15,20,40,0.06)",
+  boxShadow: "0 4px 14px -8px rgba(15,20,40,0.08)",
+};
+const TEXT_DARK = "hsl(230 30% 18%)";
+const TEXT_MID = "hsl(230 20% 40%)";
+const ACCENT = "hsl(245 60% 45%)";
+
+const SCALE = [
+  { v: 36, s: " 亿+", l: "每日广告请求量" },
+  { v: 133, s: " 百万+", l: "覆盖独立用户" },
+  { v: 1000, s: "+", l: "对接移动应用" },
+  { v: 300, s: "+", l: "广告主合作伙伴" },
 ];
 
 export default function HopeX() {
   return (
-    <SubPageLayout
-      title="程序化广告"
-      eyebrow="HOPEX · PROGRAMMATIC"
-      heroTitle="关于 HopeX"
-      heroSubtitle="HopeX 是 HopeMobi 旗下的程序化广告平台，致力于为广告主与流量方提供可预测增长的商业化解决方案 — 在不确定的市场中，提供确定性。"
-      heroVisual={<ParticleWorldMap markers={HOPEX_MARKERS} lines={HOPEX_LINES} />}
-    >
-      {/* 1. 平台规模 */}
-      <PageSection
-        id="scale"
-        eyebrow="01 · 平台规模"
-        title="规模与基础能力"
-        description="规模是程序化的前提，HopeX 的请求量与连接数支持稳定可预测的增长。"
-      >
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
-          {[
-            { v: 36, s: " 亿+", l: "每日广告请求量" },
-            { v: 133, s: " 百万+", l: "覆盖独立用户" },
-            { v: 1000, s: "+", l: "对接移动应用" },
-            { v: 300, s: "+", l: "广告主合作伙伴" },
-          ].map((s) => (
-            <div
-              key={s.l}
-              className="rounded-2xl p-6"
-              style={{
-                background: "#FFFFFF",
-                border: "1px solid rgba(15,20,40,0.06)",
-                boxShadow: "0 4px 14px -8px rgba(15,20,40,0.08)",
-              }}
-            >
-              <div
-                className="text-4xl md:text-5xl font-bold mb-2"
-                style={{
-                  background:
-                    "linear-gradient(180deg, hsl(245 70% 30%) 0%, hsl(245 60% 50%) 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  lineHeight: 1.1,
-                }}
+    <SnapPage title="程序化广告">
+      {/* === Screen 1 — Hero === */}
+      <SnapScreen id="hero">
+        <div className="absolute inset-0 pointer-events-none opacity-70">
+          <ParticleWorldMap markers={HOPEX_MARKERS} lines={HOPEX_LINES} />
+        </div>
+        <div className="absolute inset-0 pointer-events-none"
+          style={{ background: "linear-gradient(180deg, rgba(245,245,247,0) 0%, rgba(245,245,247,0.6) 80%, #F5F5F7 100%)" }} />
+        <ScreenInner>
+          <motion.div
+            initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium mb-5 self-start"
+            style={{ background: "rgba(99,102,241,0.1)", color: "hsl(245 60% 35%)", border: "1px solid rgba(124,58,237,0.18)" }}
+          >HOPEX · PROGRAMMATIC</motion.div>
+          <ScreenTitle size="xl">
+            程序化广告
+            <br />
+            在不确定中提供确定性
+          </ScreenTitle>
+          <ScreenLead>
+            HopeX 是 HopeMobi 旗下的程序化广告平台,致力于为广告主与流量方提供可预测增长的商业化解决方案。
+          </ScreenLead>
+          <div className="mt-10 text-xs uppercase tracking-[0.3em]" style={{ color: TEXT_MID }}>↓ 滑动查看平台规模</div>
+        </ScreenInner>
+      </SnapScreen>
+
+      {/* === Screen 2 — 平台规模 === */}
+      <SnapScreen id="scale" bg="tint">
+        <ScreenInner>
+          <ScreenEyebrow>01 · 平台规模</ScreenEyebrow>
+          <ScreenTitle>规模与基础能力</ScreenTitle>
+          <ScreenLead>规模是程序化的前提,HopeX 的请求量与连接数支持稳定可预测的增长。</ScreenLead>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-10">
+            {SCALE.map((s, i) => (
+              <motion.div
+                key={s.l}
+                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="rounded-2xl p-6"
+                style={CARD}
               >
-                <CountUp value={s.v} suffix={s.s} />
-              </div>
-              <div className="text-sm" style={{ color: "hsl(230 20% 38%)" }}>
-                {s.l}
-              </div>
-            </div>
-          ))}
-        </div>
-      </PageSection>
-
-      {/* 2. 全球流量网络 */}
-      <PageSection
-        id="network"
-        bg="tint"
-        eyebrow="02 · 全球流量网络"
-        title="覆盖全球四大区域"
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          <FeatureCard title="北美 NA" desc="US / CA，成熟广告市场，适合高预算、强转化投放。" />
-          <FeatureCard title="亚太 APAC" desc="SEA / JP / KR / IN，多语言多市场并行，适合区域化增长。" />
-          <FeatureCard title="拉美 LATAM" desc="BR / MX 等，高增长市场，适合规模化获取新用户。" />
-          <FeatureCard title="欧洲及中东非 EMEA" desc="覆盖更广的国际化商业投放区域。" />
-        </div>
-      </PageSection>
-
-      {/* 3. DSP */}
-      <PageSection
-        id="dsp"
-        eyebrow="03 · DSP 能力"
-        title="广告主一站式买量"
-        description="从 RTB 到联盟、从主流媒体到 OEM，多种买量方式按需组合。"
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-          <FeatureCard title="全渠道" desc="RTB、联盟 CPA/CPL/CPS、主流媒体采购、OEM 等。" />
-          <FeatureCard title="智能受众分群" desc="精准定向，覆盖核心人群与潜客。" />
-          <FeatureCard title="实时策略调整" desc="秒级响应，预算自适应、智能限流。" />
-          <FeatureCard title="人机协同优化" desc="算法 + 投手共同迭代，避免单点失败。" />
-        </div>
-
-        <div className="rounded-2xl p-6" style={{ background: "#FFFFFF", border: "1px solid rgba(15,20,40,0.06)" }}>
-          <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: "hsl(245 60% 45%)" }}>
-            全球行业覆盖
-          </div>
-          <div className="flex flex-wrap gap-3">
-            {["电商", "游戏", "工具", "短剧", "娱乐内容", "金融科技"].map((t) => (
-              <div
-                key={t}
-                className="px-4 py-2 rounded-lg text-sm"
-                style={{
-                  background: "rgba(99,102,241,0.08)",
-                  color: "hsl(245 60% 35%)",
-                  border: "1px solid rgba(124,58,237,0.12)",
-                }}
-              >
-                {t}
-              </div>
+                <div className="text-4xl md:text-5xl font-bold mb-2"
+                  style={{
+                    background: "linear-gradient(180deg, hsl(245 70% 30%) 0%, hsl(245 60% 50%) 100%)",
+                    WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", lineHeight: 1.1,
+                  }}><CountUp value={s.v} suffix={s.s} /></div>
+                <div className="text-sm" style={{ color: TEXT_MID }}>{s.l}</div>
+              </motion.div>
             ))}
           </div>
-          <div className="text-xs mt-4" style={{ color: "hsl(230 20% 50%)" }}>
-            合作品牌 Logo 墙占位 · 上线前接入官方 logo
-          </div>
-        </div>
-      </PageSection>
+        </ScreenInner>
+      </SnapScreen>
 
-      {/* 4. SSP */}
-      <PageSection
-        id="ssp"
-        bg="tint"
-        eyebrow="04 · SSP 能力"
-        title="多形式 · 多预算入口"
-      >
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-6">
-          {["Banner", "Video", "Native", "App", "Web", "CTV"].map((t) => (
-            <div
-              key={t}
-              className="rounded-xl px-4 py-3 text-center text-sm font-medium"
-              style={{
-                background: "#FFFFFF",
-                border: "1px solid rgba(15,20,40,0.06)",
-                color: "hsl(230 30% 25%)",
-              }}
-            >
-              {t}
+      {/* === Screen 3 — 全球流量网络 === */}
+      <SnapScreen id="network">
+        <ScreenInner>
+          <ScreenEyebrow>02 · 全球流量网络</ScreenEyebrow>
+          <ScreenTitle>覆盖全球四大区域</ScreenTitle>
+          <ScreenLead>从北美到东南亚,从欧洲到拉美,多区域并行支持业务扩张。</ScreenLead>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
+            {[
+              { t: "北美 NA", d: "US / CA,成熟广告市场,适合高预算、强转化投放。" },
+              { t: "亚太 APAC", d: "SEA / JP / KR / IN,多语言多市场并行。" },
+              { t: "拉美 LATAM", d: "BR / MX 等,高增长市场,适合规模化获取新用户。" },
+              { t: "欧洲及中东非 EMEA", d: "覆盖更广的国际化商业投放区域。" },
+            ].map((c, i) => (
+              <motion.div
+                key={c.t}
+                initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="rounded-2xl p-6" style={CARD}
+              >
+                <h3 className="text-base font-semibold mb-1.5" style={{ color: TEXT_DARK }}>{c.t}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>{c.d}</p>
+              </motion.div>
+            ))}
+          </div>
+        </ScreenInner>
+      </SnapScreen>
+
+      {/* === Screen 4 — DSP 能力 === */}
+      <SnapScreen id="dsp" bg="tint">
+        <ScreenInner>
+          <ScreenEyebrow>03 · DSP 能力</ScreenEyebrow>
+          <ScreenTitle>广告主一站式买量</ScreenTitle>
+          <ScreenLead>从 RTB 到联盟、从主流媒体到 OEM,多种买量方式按需组合。</ScreenLead>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+            {[
+              { t: "全渠道", d: "RTB、联盟 CPA/CPL/CPS、主流媒体采购、OEM 等。" },
+              { t: "智能受众分群", d: "精准定向,覆盖核心人群与潜客。" },
+              { t: "实时策略调整", d: "秒级响应,预算自适应、智能限流。" },
+              { t: "人机协同优化", d: "算法 + 投手共同迭代,避免单点失败。" },
+            ].map((c, i) => (
+              <motion.div key={c.t}
+                initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="rounded-2xl p-5" style={CARD}
+              >
+                <h3 className="text-base font-semibold mb-1.5" style={{ color: TEXT_DARK }}>{c.t}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>{c.d}</p>
+              </motion.div>
+            ))}
+          </div>
+          <div className="rounded-2xl p-6 mt-5" style={CARD}>
+            <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>全球行业覆盖</div>
+            <div className="flex flex-wrap gap-2">
+              {["电商", "游戏", "工具", "短剧", "娱乐内容", "金融科技"].map((t) => (
+                <div key={t} className="px-3 py-1.5 rounded-lg text-sm"
+                  style={{ background: "rgba(99,102,241,0.08)", color: "hsl(245 60% 35%)" }}>{t}</div>
+              ))}
             </div>
-          ))}
-        </div>
-        <div className="rounded-2xl p-6" style={{ background: "#FFFFFF", border: "1px solid rgba(15,20,40,0.06)" }}>
-          <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: "hsl(245 60% 45%)" }}>
-            多元预算接入
           </div>
-          <div className="flex flex-wrap gap-3 text-sm" style={{ color: "hsl(230 25% 30%)" }}>
-            <span>ShareThrough</span>
-            <span>·</span>
-            <span>RTB House</span>
-            <span>·</span>
-            <span>品牌直客 Shopee / Shein</span>
-          </div>
-          <div className="text-xs mt-4" style={{ color: "hsl(230 20% 50%)" }}>
-            官方 logo 墙占位
-          </div>
-        </div>
-      </PageSection>
+        </ScreenInner>
+      </SnapScreen>
 
-      {/* 5. 自有 + 外部流量 */}
-      <PageSection
-        id="traffic"
-        eyebrow="05 · 流量来源"
-        title="自有 + 外部流量"
-        description="自有矩阵保证基本盘，外部对接保证规模与多样性。"
-      >
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          <FeatureCard title="自有 App 矩阵" desc="短剧 / 工具 / 娱乐等自营 App。" />
-          <FeatureCard title="OEM SDK" desc="深度集成主流安卓 OEM 渠道。" />
-          <FeatureCard title="外部开发者体系" desc="持续扩张第三方开发者生态。" />
-        </div>
-      </PageSection>
+      {/* === Screen 5 — SSP 能力 === */}
+      <SnapScreen id="ssp">
+        <ScreenInner>
+          <ScreenEyebrow>04 · SSP 能力</ScreenEyebrow>
+          <ScreenTitle>多形式 · 多预算入口</ScreenTitle>
+          <ScreenLead>从 Banner 到 CTV,所有主流广告位 + 多元预算源。</ScreenLead>
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-3 mt-8">
+            {["Banner", "Video", "Native", "App", "Web", "CTV"].map((t, i) => (
+              <motion.div key={t}
+                initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: i * 0.06 }}
+                className="rounded-xl px-4 py-4 text-center text-sm font-semibold"
+                style={{ ...CARD, color: TEXT_DARK }}>{t}</motion.div>
+            ))}
+          </div>
+          <div className="rounded-2xl p-6 mt-6" style={CARD}>
+            <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>多元预算接入</div>
+            <div className="flex flex-wrap gap-3 text-sm" style={{ color: TEXT_DARK }}>
+              <span>ShareThrough</span><span>·</span>
+              <span>RTB House</span><span>·</span>
+              <span>品牌直客 Shopee / Shein</span>
+            </div>
+          </div>
+        </ScreenInner>
+      </SnapScreen>
 
-      {/* 6. 合作价值 */}
-      <PageSection
-        id="value"
-        bg="tint"
-        eyebrow="06 · 合作价值"
-        title="一端服务广告主，一端服务流量方"
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <FeatureCard
-            title="广告主"
-            desc={
-              <ul className="list-disc pl-4 space-y-1">
-                <li>稳定规模化增长</li>
-                <li>高 ROI</li>
-                <li>全球覆盖</li>
+      {/* === Screen 6 — 流量来源 === */}
+      <SnapScreen id="traffic" bg="tint">
+        <ScreenInner>
+          <ScreenEyebrow>05 · 流量来源</ScreenEyebrow>
+          <ScreenTitle>自有 + 外部流量</ScreenTitle>
+          <ScreenLead>自有矩阵保证基本盘,外部对接保证规模与多样性。</ScreenLead>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
+            {[
+              { t: "自有 App 矩阵", d: "短剧 / 工具 / 娱乐等自营 App。" },
+              { t: "OEM SDK", d: "深度集成主流安卓 OEM 渠道。" },
+              { t: "外部开发者体系", d: "持续扩张第三方开发者生态。" },
+            ].map((c, i) => (
+              <motion.div key={c.t}
+                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="rounded-2xl p-6" style={CARD}
+              >
+                <h3 className="text-lg font-semibold mb-2" style={{ color: TEXT_DARK }}>{c.t}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>{c.d}</p>
+              </motion.div>
+            ))}
+          </div>
+        </ScreenInner>
+      </SnapScreen>
+
+      {/* === Screen 7 — 合作价值 === */}
+      <SnapScreen id="value">
+        <ScreenInner>
+          <ScreenEyebrow>06 · 合作价值</ScreenEyebrow>
+          <ScreenTitle>一端服务广告主,一端服务流量方</ScreenTitle>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-10">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5 }}
+              className="rounded-2xl p-7" style={CARD}>
+              <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>For Advertisers</div>
+              <h3 className="text-2xl font-bold mb-4" style={{ color: TEXT_DARK }}>广告主</h3>
+              <ul className="space-y-2.5 text-sm" style={{ color: TEXT_DARK }}>
+                <li className="flex gap-2"><span className="mt-1.5 w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />稳定规模化增长</li>
+                <li className="flex gap-2"><span className="mt-1.5 w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />高 ROI</li>
+                <li className="flex gap-2"><span className="mt-1.5 w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />全球覆盖</li>
               </ul>
-            }
-          />
-          <FeatureCard
-            title="流量方"
-            desc={
-              <ul className="list-disc pl-4 space-y-1">
-                <li>多元预算</li>
-                <li>收益最大化</li>
-                <li>技术驱动</li>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5 }}
+              className="rounded-2xl p-7" style={CARD}>
+              <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>For Publishers</div>
+              <h3 className="text-2xl font-bold mb-4" style={{ color: TEXT_DARK }}>流量方</h3>
+              <ul className="space-y-2.5 text-sm" style={{ color: TEXT_DARK }}>
+                <li className="flex gap-2"><span className="mt-1.5 w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />多元预算</li>
+                <li className="flex gap-2"><span className="mt-1.5 w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />收益最大化</li>
+                <li className="flex gap-2"><span className="mt-1.5 w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />技术驱动</li>
               </ul>
-            }
-          />
-        </div>
-        <p className="mt-8 text-base md:text-lg" style={{ color: "hsl(230 25% 28%)", lineHeight: 1.8 }}>
-          HopeX 致力于打通广告主与流量方之间的高效连接，通过技术驱动与全球化资源整合，实现规模、效率与收益的持续增长。
-        </p>
-      </PageSection>
-    </SubPageLayout>
+            </motion.div>
+          </div>
+        </ScreenInner>
+      </SnapScreen>
+    </SnapPage>
   );
 }
