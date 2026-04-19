@@ -338,19 +338,30 @@ All colors MUST be HSL.
   /* leave alone — but lighten if dark */
 }
 
-/* Borders: convert white-on-dark to soft blue-purple */
+/* Borders: convert white-on-dark and purple borders to soft neutral */
 .app-light-theme [style*="border: 1px solid rgba(255,255,255"],
-.app-light-theme [style*="border: 1px solid rgba(255, 255, 255"] {
-  border-color: rgba(124, 58, 237, 0.18) !important;
-}
+.app-light-theme [style*="border: 1px solid rgba(255, 255, 255"],
 .app-light-theme [style*="border: 1px solid rgba(168,130,255"],
-.app-light-theme [style*="border: 1px solid rgba(168, 130, 255"] {
-  border-color: rgba(99, 102, 241, 0.25) !important;
+.app-light-theme [style*="border: 1px solid rgba(168, 130, 255"],
+.app-light-theme [style*="border: 1px solid rgba(124,58,237"],
+.app-light-theme [style*="border: 1px solid rgba(124, 58, 237"],
+.app-light-theme [style*="border: 1px solid rgba(99,102,241"],
+.app-light-theme [style*="border: 1px solid rgba(99, 102, 241"],
+.app-light-theme [style*="border: 1px solid rgba(139,92,246"],
+.app-light-theme [style*="border: 1px solid rgba(139, 92, 246"],
+.app-light-theme [style*="border: 1px solid rgba(120,60,255"],
+.app-light-theme [style*="border: 1px solid rgba(120, 60, 255"],
+.app-light-theme [style*="border: 1px solid rgba(186,156,255"],
+.app-light-theme [style*="border: 1px solid rgba(186, 156, 255"] {
+  border-color: rgba(15, 20, 40, 0.08) !important;
 }
 
 /* Borders via tailwind */
-.app-light-theme [class*="border-white"] {
-  border-color: rgba(124, 58, 237, 0.2) !important;
+.app-light-theme [class*="border-white"],
+.app-light-theme [class*="border-purple"],
+.app-light-theme [class*="border-violet"],
+.app-light-theme [class*="border-indigo"] {
+  border-color: rgba(15, 20, 40, 0.08) !important;
 }
 
 /* === Raycast button → blue-purple flowing variant === */
@@ -459,3 +470,28 @@ All colors MUST be HSL.
   backdrop-filter: blur(20px) saturate(1.5);
   -webkit-backdrop-filter: blur(20px) saturate(1.5);
 }
+
+/* === Strip purple/violet box-shadows on cards & wrappers (preserve raycast btn) === */
+.app-light-theme [style*="boxShadow"][style*="124, 58, 237"]:not(.raycast-btn-bg):not(.raycast-btn),
+.app-light-theme [style*="box-shadow"][style*="124, 58, 237"]:not(.raycast-btn-bg):not(.raycast-btn),
+.app-light-theme [style*="boxShadow"][style*="124,58,237"]:not(.raycast-btn-bg):not(.raycast-btn),
+.app-light-theme [style*="box-shadow"][style*="124,58,237"]:not(.raycast-btn-bg):not(.raycast-btn),
+.app-light-theme [style*="boxShadow"][style*="168, 130, 255"]:not(.raycast-btn-bg):not(.raycast-btn),
+.app-light-theme [style*="box-shadow"][style*="168, 130, 255"]:not(.raycast-btn-bg):not(.raycast-btn),
+.app-light-theme [style*="boxShadow"][style*="168,130,255"]:not(.raycast-btn-bg):not(.raycast-btn),
+.app-light-theme [style*="boxShadow"][style*="139, 92, 246"]:not(.raycast-btn-bg):not(.raycast-btn),
+.app-light-theme [style*="boxShadow"][style*="139,92,246"]:not(.raycast-btn-bg):not(.raycast-btn),
+.app-light-theme [style*="boxShadow"][style*="120, 60, 255"]:not(.raycast-btn-bg):not(.raycast-btn),
+.app-light-theme [style*="boxShadow"][style*="120,60,255"]:not(.raycast-btn-bg):not(.raycast-btn),
+.app-light-theme [style*="boxShadow"][style*="99, 102, 241"]:not(.raycast-btn-bg):not(.raycast-btn),
+.app-light-theme [style*="boxShadow"][style*="99,102,241"]:not(.raycast-btn-bg):not(.raycast-btn) {
+  box-shadow: 0 8px 28px -10px rgba(15, 20, 40, 0.12), inset 0 1px 0 rgba(255,255,255,0.6) !important;
+}
+
+/* Tailwind purple/violet/indigo shadow utilities → neutralize */
+.app-light-theme [class*="shadow-purple"],
+.app-light-theme [class*="shadow-violet"],
+.app-light-theme [class*="shadow-indigo"] {
+  box-shadow: 0 8px 28px -10px rgba(15, 20, 40, 0.12) !important;
+}
+
