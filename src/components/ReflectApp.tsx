@@ -7,7 +7,6 @@ import BentoBusinessCards from "./BentoBusinessCards";
 import Aurora from "./Aurora";
 import ColorBends from "./ColorBends";
 import Prism from "./Prism";
-import LaserFlow from "./LaserFlow";
 import LightRays from "./LightRays";
 import MagicBento from "./MagicBento";
 import StarBorder from "./StarBorder";
@@ -1310,27 +1309,6 @@ function Section1() {
         <div className="absolute inset-[-60px] blur-[10px] pointer-events-none" style={{
           background: 'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(255,117,117,0.12) 5%, rgba(154,170,255,0.07) 60%, transparent 100%)'
         }} />
-
-        {/* LaserFlow animation above the card — seamless connection */}
-        <div className="relative w-full h-[160px] mb-[-80px] z-[2]" style={{ pointerEvents: 'none' }}>
-          <LaserFlow
-            horizontalBeamOffset={0.1}
-            verticalBeamOffset={0.0}
-            color="#CF9EFF"
-            horizontalSizing={1.2}
-            verticalSizing={2}
-            wispDensity={1}
-            wispSpeed={15}
-            wispIntensity={5}
-            flowSpeed={0.35}
-            flowStrength={0.25}
-            fogIntensity={0.45}
-            fogScale={0.3}
-            fogFallSpeed={0.6}
-            decay={1.1}
-            falloffStart={1.2}
-          />
-        </div>
 
         {/* Glass shell */}
         <div className="relative rounded-[24px] w-full" style={{ border: '1px solid rgba(124,58,237,0.25)', boxShadow: '0 0 40px rgba(124,58,237,0.12), 0 20px 60px -16px rgba(99,102,241,0.2), inset 0 1px 0 rgba(255,255,255,0.7)' }}>
