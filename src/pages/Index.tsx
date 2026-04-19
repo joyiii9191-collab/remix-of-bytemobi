@@ -1,7 +1,6 @@
 import React from "react";
 import ReflectApp from "../components/ReflectApp";
 import { OptimizedHeader } from "../components/OptimizedHeader";
-import { MouseGlow } from "../components/MouseGlow";
 
 export default function Index() {
   return (
@@ -17,9 +16,8 @@ export default function Index() {
         }}
       >
         <OptimizedHeader />
-        <MouseGlow />
 
-        {/* Pure flat background — no gradient, no orbs */}
+        {/* Pure solid background */}
         <div
           className="fixed inset-0 pointer-events-none z-0"
           style={{ background: "#F5F5F7" }}
@@ -28,8 +26,6 @@ export default function Index() {
         <div className="relative z-10 w-full">
           <ReflectApp />
         </div>
-
-        <div className="fixed bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-indigo-500/40 to-transparent blur-sm pointer-events-none z-50" />
       </div>
     </>
   );
