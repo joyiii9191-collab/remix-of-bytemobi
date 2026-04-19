@@ -650,23 +650,43 @@ function MaskGroup1() {
 
 function Section({ className }: { className?: string }) {
   return (
-    <div className={className || "relative w-full h-full flex flex-col isolate items-center"} data-name="Section" style={{ backgroundColor: '#0a0a12' }}>
-      {/* Prism Background */}
-      <div className="absolute inset-0 z-[0] overflow-hidden">
-        <Prism
-          animationType="rotate"
-          timeScale={0.5}
-          height={3.5}
-          baseWidth={5.5}
-          scale={3.6}
-          hueShift={0}
-          colorFrequency={1}
-          noise={0}
-          glow={1}
+    <div className={className || "relative w-full h-full flex flex-col isolate items-center"} data-name="Section" style={{ backgroundColor: 'transparent' }}>
+      {/* Light blue-purple ray hero background — pure CSS, no Three.js */}
+      <div className="absolute inset-0 z-[0] overflow-hidden pointer-events-none">
+        {/* Central conic light rays */}
+        <div
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+          style={{
+            width: '140%',
+            height: '140%',
+            background: 'conic-gradient(from 90deg at 50% 50%, transparent 0deg, rgba(99,102,241,0.18) 40deg, rgba(124,58,237,0.22) 90deg, rgba(168,85,247,0.18) 140deg, transparent 180deg, transparent 360deg)',
+            filter: 'blur(40px)',
+            opacity: 0.7,
+            animation: 'hero-ray-rotate 30s linear infinite',
+          }}
+        />
+        {/* Soft top glow */}
+        <div
+          className="absolute left-1/2 -translate-x-1/2 top-0"
+          style={{
+            width: '900px',
+            height: '600px',
+            background: 'radial-gradient(ellipse at top, rgba(99,102,241,0.35) 0%, rgba(124,58,237,0.18) 40%, transparent 75%)',
+            filter: 'blur(60px)',
+          }}
+        />
+        {/* Bottom shimmer line */}
+        <div
+          className="absolute left-1/2 -translate-x-1/2 bottom-[15%]"
+          style={{
+            width: '80%',
+            height: '2px',
+            background: 'linear-gradient(90deg, transparent, rgba(99,102,241,0.6) 30%, rgba(168,85,247,0.7) 50%, rgba(99,102,241,0.6) 70%, transparent)',
+            filter: 'blur(2px)',
+            boxShadow: '0 0 40px rgba(124,58,237,0.5)',
+          }}
         />
       </div>
-      {/* Subtle top/bottom fade */}
-      <div className="absolute inset-0 z-[1] pointer-events-none from-[rgba(10,10,18,0.15)] via-transparent to-[rgba(10,10,18,0.4)]" />
       {/* Content */}
       <div className="relative z-[4] pt-[173px] w-full flex flex-col items-center pointer-events-none">
         <Container />
@@ -1313,9 +1333,9 @@ function Section1() {
         </div>
 
         {/* Glass shell */}
-        <div className="relative rounded-[24px] w-full" style={{ border: '1px solid rgba(168,130,255,0.35)', boxShadow: '0 0 40px rgba(168,130,255,0.15), 0 0 80px rgba(168,130,255,0.08), inset 0 0 30px rgba(168,130,255,0.05)' }}>
-          {/* Background fill */}
-          <div className="absolute inset-0 pointer-events-none rounded-[24px]" style={{ background: 'rgba(18,15,23,0.85)' }} />
+        <div className="relative rounded-[24px] w-full" style={{ border: '1px solid rgba(124,58,237,0.25)', boxShadow: '0 0 40px rgba(124,58,237,0.12), 0 20px 60px -16px rgba(99,102,241,0.2), inset 0 1px 0 rgba(255,255,255,0.7)' }}>
+          {/* Background fill — light glass */}
+          <div className="absolute inset-0 pointer-events-none rounded-[24px]" style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(238,235,251,0.6) 50%, rgba(245,240,253,0.7) 100%)', backdropFilter: 'blur(40px) saturate(1.6)', WebkitBackdropFilter: 'blur(40px) saturate(1.6)' }} />
           {/* Content */}
           <div className="overflow-clip rounded-[inherit] size-full relative z-[1]">
             <div className="flex items-center gap-12 p-10 relative">
