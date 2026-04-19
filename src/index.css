@@ -338,19 +338,30 @@ All colors MUST be HSL.
   /* leave alone — but lighten if dark */
 }
 
-/* Borders: convert white-on-dark to soft blue-purple */
+/* Borders: convert white-on-dark and purple borders to soft neutral */
 .app-light-theme [style*="border: 1px solid rgba(255,255,255"],
-.app-light-theme [style*="border: 1px solid rgba(255, 255, 255"] {
-  border-color: rgba(124, 58, 237, 0.18) !important;
-}
+.app-light-theme [style*="border: 1px solid rgba(255, 255, 255"],
 .app-light-theme [style*="border: 1px solid rgba(168,130,255"],
-.app-light-theme [style*="border: 1px solid rgba(168, 130, 255"] {
-  border-color: rgba(99, 102, 241, 0.25) !important;
+.app-light-theme [style*="border: 1px solid rgba(168, 130, 255"],
+.app-light-theme [style*="border: 1px solid rgba(124,58,237"],
+.app-light-theme [style*="border: 1px solid rgba(124, 58, 237"],
+.app-light-theme [style*="border: 1px solid rgba(99,102,241"],
+.app-light-theme [style*="border: 1px solid rgba(99, 102, 241"],
+.app-light-theme [style*="border: 1px solid rgba(139,92,246"],
+.app-light-theme [style*="border: 1px solid rgba(139, 92, 246"],
+.app-light-theme [style*="border: 1px solid rgba(120,60,255"],
+.app-light-theme [style*="border: 1px solid rgba(120, 60, 255"],
+.app-light-theme [style*="border: 1px solid rgba(186,156,255"],
+.app-light-theme [style*="border: 1px solid rgba(186, 156, 255"] {
+  border-color: rgba(15, 20, 40, 0.08) !important;
 }
 
 /* Borders via tailwind */
-.app-light-theme [class*="border-white"] {
-  border-color: rgba(124, 58, 237, 0.2) !important;
+.app-light-theme [class*="border-white"],
+.app-light-theme [class*="border-purple"],
+.app-light-theme [class*="border-violet"],
+.app-light-theme [class*="border-indigo"] {
+  border-color: rgba(15, 20, 40, 0.08) !important;
 }
 
 /* === Raycast button → blue-purple flowing variant === */
