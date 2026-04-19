@@ -1,21 +1,23 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { Link, useLocation } from 'react-router-dom';
 import imgLogo from "@/assets/logo-new.png";
 import { useLanguage, type Language } from '@/contexts/LanguageContext';
 
-const navKeys = [
-  'nav.home',
-  'nav.globalFlow',
-  'nav.japanFocus',
-  'nav.programmaticAds',
-  'nav.mediaResources',
-  'nav.aboutUs',
+const navItems: Array<{ key: string; to: string }> = [
+  { key: 'nav.home', to: '/' },
+  { key: 'nav.globalFlow', to: '/global' },
+  { key: 'nav.japanFocus', to: '/japan' },
+  { key: 'nav.programmaticAds', to: '/hopex' },
+  { key: 'nav.mediaResources', to: '/media' },
+  { key: 'nav.aboutUs', to: '/about' },
 ];
 
 const languages: Language[] = ['CN', 'EN', 'JP'];
 
 export function OptimizedHeader() {
   const { language, setLanguage, t } = useLanguage();
+  const location = useLocation();
 
   return (
     <motion.header 
@@ -36,33 +38,39 @@ export function OptimizedHeader() {
         }}
       >
         {/* Logo */}
-        <a href="/" className="flex items-center shrink-0">
+        <Link to="/" className="flex items-center shrink-0">
           <img src={imgLogo} alt="ByteMobi" className="w-9 h-9 object-contain" />
-        </a>
+        </Link>
         
         {/* Nav Links */}
         <nav className="hidden lg:flex items-center gap-1">
-          {navKeys.map((key) => (
-            <a 
-              key={key} 
-              href={`#${key.split('.')[1]}`} 
-              className="text-sm transition-all px-3 py-1.5 rounded-full whitespace-nowrap"
-              style={{
-                color: 'hsl(230 30% 25%)',
-                fontWeight: 500,
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'rgba(99,102,241,0.1)';
-                e.currentTarget.style.color = 'hsl(245 60% 35%)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'transparent';
-                e.currentTarget.style.color = 'hsl(230 30% 25%)';
-              }}
-            >
-              {t(key)}
-            </a>
-          ))}
+          {navItems.map((item) => {
+            const active = location.pathname === item.to;
+            return (
+              <Link
+                key={item.key}
+                to={item.to}
+                className="text-sm transition-all px-3 py-1.5 rounded-full whitespace-nowrap"
+                style={{
+                  color: active ? 'hsl(245 60% 35%)' : 'hsl(230 30% 25%)',
+                  background: active ? 'rgba(99,102,241,0.12)' : 'transparent',
+                  fontWeight: active ? 600 : 500,
+                }}
+                onMouseEnter={(e) => {
+                  if (active) return;
+                  e.currentTarget.style.background = 'rgba(99,102,241,0.1)';
+                  e.currentTarget.style.color = 'hsl(245 60% 35%)';
+                }}
+                onMouseLeave={(e) => {
+                  if (active) return;
+                  e.currentTarget.style.background = 'transparent';
+                  e.currentTarget.style.color = 'hsl(230 30% 25%)';
+                }}
+              >
+                {t(item.key)}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Language Switcher */}
