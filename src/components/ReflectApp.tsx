@@ -2151,11 +2151,7 @@ function Section4Screen() {
 function Section5Screen() {
   return (
     <div className="relative w-full h-full flex items-center justify-center px-16 gap-16" data-name="Section5Screen">
-      {/* Purple glow behind dashboard */}
-      <div className="absolute right-[15%] top-1/2 -translate-y-1/2 w-[500px] h-[400px] pointer-events-none" style={{
-        background: 'radial-gradient(ellipse at center, rgba(120,60,255,0.15) 0%, transparent 70%)',
-        filter: 'blur(60px)',
-      }} />
+      {/* Purple glow removed */}
 
       {/* Left content */}
       <div className="flex flex-col gap-6 max-w-[480px] shrink-0 z-[1]">
@@ -2379,10 +2375,7 @@ function Section6LogoWall() {
 
   return (
     <div className="relative w-full h-full flex flex-col items-center justify-center gap-10" data-name="Section6LogoWall">
-      {/* Background glow */}
-      <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'radial-gradient(ellipse at 50% 50%, rgba(99,102,241,0.08) 0%, transparent 60%)',
-      }} />
+      {/* Background glow removed */}
 
       {/* Title */}
       <div className="flex flex-col items-center gap-4 z-[1] mb-4">
@@ -2421,10 +2414,7 @@ function Section6LogoWall() {
 function Section8TrafficMap() {
   return (
     <div className="relative w-full h-full flex flex-col items-center justify-center px-[80px] gap-[24px] pt-[80px]" data-name="Section8TrafficMap">
-      {/* Ambient glow */}
-      <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'radial-gradient(ellipse 60% 40% at 50% 50%, rgba(120,60,255,0.08) 0%, transparent 70%)'
-      }} />
+      {/* Ambient glow removed */}
 
       {/* Header */}
       <div className="flex flex-col items-center gap-3 z-10">
@@ -8081,13 +8071,7 @@ function Section9Solution() {
       </div>
 
 
-      {/* Background glow */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
-        style={{
-          background: "radial-gradient(circle, rgba(120,60,255,0.08) 0%, transparent 70%)",
-        }}
-      />
+      {/* Background glow removed */}
     </div>
   );
 }
@@ -8292,11 +8276,7 @@ function Section10Contact() {
         </div>
       </div>
 
-      {/* Background glow */}
-      <div
-        className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(circle, rgba(120,60,255,0.06) 0%, transparent 70%)" }}
-      />
+      {/* Background glow removed */}
     </div>
   );
 }
