@@ -104,8 +104,14 @@ All colors MUST be HSL.
   }
 
   html, body, #root {
-    height: 100%;
     margin: 0;
+  }
+
+  /* 首页 ReflectApp 使用全屏滚动捕捉,需要锁定 body 滚动 */
+  body.lock-scroll,
+  body.lock-scroll #root,
+  html:has(body.lock-scroll) {
+    height: 100%;
     overflow: hidden;
   }
 
