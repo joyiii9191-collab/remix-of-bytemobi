@@ -1271,7 +1271,7 @@ function Section1() {
         }} />
 
         {/* Glass shell */}
-        <div className="relative rounded-[24px] w-full" style={{ border: '1px solid rgba(15,20,40,0.08)', boxShadow: '0 12px 40px -12px rgba(15,20,40,0.1), inset 0 1px 0 rgba(255,255,255,0.7)' }}>
+        <div className="relative rounded-[24px] w-full" style={{ border: '1px solid rgba(124,58,237,0.25)', boxShadow: '0 0 40px rgba(124,58,237,0.12), 0 20px 60px -16px rgba(99,102,241,0.2), inset 0 1px 0 rgba(255,255,255,0.7)' }}>
           {/* Background fill — light glass */}
           <div className="absolute inset-0 pointer-events-none rounded-[24px]" style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(238,235,251,0.6) 50%, rgba(245,240,253,0.7) 100%)', backdropFilter: 'blur(40px) saturate(1.6)', WebkitBackdropFilter: 'blur(40px) saturate(1.6)' }} />
           {/* Content */}
@@ -8010,14 +8010,14 @@ function Section9Solution() {
         <h2
           className="text-[48px] font-medium leading-[1.1] tracking-[-2px] text-center"
           style={{
-            background: "linear-gradient(180deg, hsl(245 60% 12%) 0%, hsl(245 45% 28%) 100%)",
+            background: "linear-gradient(180deg, hsl(245 60% 12%) 0%, hsl(245 45% 30%) 100%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
           }}
         >
           一站式解决方案
         </h2>
-        <p className="text-[16px] leading-[1.6] text-center max-w-[600px]" style={{ color: "rgba(255,255,255,0.5)" }}>
+        <p className="text-[16px] leading-[1.6] text-center max-w-[600px]" style={{ color: "hsl(230 30% 30%)" }}>
           从需求沟通到效果复盘，全流程专业服务，让出海推广更简单高效
         </p>
       </div>
