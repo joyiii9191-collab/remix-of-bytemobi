@@ -217,6 +217,34 @@ All colors MUST be HSL.
   100% { background-position: 0% 50%; }
 }
 
+/* Hero ray slow rotation */
+@keyframes hero-ray-rotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* === Hard backgrounds: catch all remaining dark section/card backgrounds === */
+.app-light-theme .bg-\[\#0a0a12\],
+.app-light-theme .bg-\[\#030014\],
+.app-light-theme [class*="bg-\[\#0a"],
+.app-light-theme [class*="bg-\[\#03"] {
+  background-color: transparent !important;
+}
+
+/* Catch dark inline rgb backgrounds (Section, brand cards, etc.) */
+.app-light-theme [style*="rgb(10, 10, 18)"],
+.app-light-theme [style*="rgb(10,10,18)"],
+.app-light-theme [style*="rgb(3, 0, 20)"],
+.app-light-theme [style*="rgb(3,0,20)"],
+.app-light-theme [style*="rgb(18, 15, 23)"],
+.app-light-theme [style*="rgb(18,15,23)"],
+.app-light-theme [style*="rgba(18, 15, 23"],
+.app-light-theme [style*="rgba(18,15,23"] {
+  background: linear-gradient(135deg, rgba(255,255,255,0.55) 0%, rgba(238,235,251,0.5) 100%) !important;
+  backdrop-filter: blur(28px) saturate(1.6);
+  -webkit-backdrop-filter: blur(28px) saturate(1.6);
+}
+
 /* === Text color remapping === */
 .app-light-theme .text-white,
 .app-light-theme [class*="text-white"] {
