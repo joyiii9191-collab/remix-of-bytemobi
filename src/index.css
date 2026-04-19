@@ -192,3 +192,211 @@ All colors MUST be HSL.
   0%, 100% { opacity: 0.7; transform: scale(1); }
   50% { opacity: 1; transform: scale(1.03); }
 }
+
+/* ========================================================================
+   LIGHT THEME GLOBAL OVERRIDES
+   Scope: .app-light-theme remaps ReflectApp's hardcoded dark surfaces
+   and white text into a light glassmorphic blue-purple aesthetic.
+   ======================================================================== */
+
+@keyframes float-slow {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -30px) scale(1.05); }
+}
+@keyframes float-slower {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-50px, 40px) scale(1.08); }
+}
+.animate-float-slow { animation: float-slow 18s ease-in-out infinite; }
+.animate-float-slower { animation: float-slower 24s ease-in-out infinite; }
+
+/* Flowing blue-purple shimmer keyframes */
+@keyframes flow-shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* === Text color remapping === */
+.app-light-theme .text-white,
+.app-light-theme [class*="text-white"] {
+  color: hsl(230 35% 18%) !important;
+}
+.app-light-theme .text-white\/90 { color: hsl(230 35% 22%) !important; }
+.app-light-theme .text-white\/80 { color: hsl(230 30% 28%) !important; }
+.app-light-theme .text-white\/70 { color: hsl(230 25% 35%) !important; }
+.app-light-theme .text-white\/60 { color: hsl(230 22% 42%) !important; }
+.app-light-theme .text-white\/50 { color: hsl(230 18% 48%) !important; }
+.app-light-theme .text-white\/40 { color: hsl(230 15% 55%) !important; }
+.app-light-theme .text-white\/30 { color: hsl(230 12% 60%) !important; }
+.app-light-theme .text-white\/20 { color: hsl(230 10% 70%) !important; }
+
+.app-light-theme [style*="color: white"],
+.app-light-theme [style*="color:#fff"],
+.app-light-theme [style*="color: #fff"],
+.app-light-theme [style*="color:#FFFFFF"],
+.app-light-theme [style*="color: #FFFFFF"] {
+  color: hsl(230 35% 18%) !important;
+}
+
+/* Headings & emphasis remain darker for hierarchy */
+.app-light-theme h1, .app-light-theme h2, .app-light-theme h3 {
+  color: hsl(245 50% 18%);
+}
+
+/* === Background remapping (the dark backgrounds → light glass) === */
+.app-light-theme [style*="#030014"],
+.app-light-theme [style*="#0a0a12"],
+.app-light-theme [style*="rgba(10, 5, 20"],
+.app-light-theme [style*="rgba(10,5,20"],
+.app-light-theme [style*="rgba(3, 0, 20"],
+.app-light-theme [style*="rgba(3,0,20"],
+.app-light-theme [style*="rgba(4, 1, 21"],
+.app-light-theme [style*="rgba(4,1,21"] {
+  background-color: transparent !important;
+}
+
+/* Make all major dark sections see-through to show the gradient bg */
+.app-light-theme [style*="background-color: #030014"],
+.app-light-theme [style*="background-color:#030014"],
+.app-light-theme [style*="background: #030014"],
+.app-light-theme [style*="background:#030014"],
+.app-light-theme [style*="background-color: #0a0a12"],
+.app-light-theme [style*="background-color:#0a0a12"] {
+  background: rgba(255,255,255,0.4) !important;
+  backdrop-filter: blur(24px) saturate(1.6);
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+}
+
+/* Section bg-[#030014] tailwind class */
+.app-light-theme .bg-\[\#030014\] {
+  background-color: transparent !important;
+}
+
+/* === Glassmorphic card overrides for common dark card patterns === */
+.app-light-theme [class*="backdrop-blur"][style*="background"],
+.app-light-theme [class*="bg-\["][class*="backdrop-blur"] {
+  /* leave alone — but lighten if dark */
+}
+
+/* Borders: convert white-on-dark to soft blue-purple */
+.app-light-theme [style*="border: 1px solid rgba(255,255,255"],
+.app-light-theme [style*="border: 1px solid rgba(255, 255, 255"] {
+  border-color: rgba(124, 58, 237, 0.18) !important;
+}
+.app-light-theme [style*="border: 1px solid rgba(168,130,255"],
+.app-light-theme [style*="border: 1px solid rgba(168, 130, 255"] {
+  border-color: rgba(99, 102, 241, 0.25) !important;
+}
+
+/* Borders via tailwind */
+.app-light-theme [class*="border-white"] {
+  border-color: rgba(124, 58, 237, 0.2) !important;
+}
+
+/* === Raycast button → blue-purple flowing variant === */
+.app-light-theme .raycast-btn-bg {
+  background: linear-gradient(
+    100deg,
+    hsl(220 90% 58%) 0%,
+    hsl(230 85% 60%) 25%,
+    hsl(245 80% 60%) 50%,
+    hsl(260 75% 62%) 75%,
+    hsl(270 70% 60%) 100%
+  ) !important;
+  background-size: 200% 100% !important;
+  animation: flow-shimmer 4s ease-in-out infinite !important;
+  border: 1px solid rgba(255,255,255,0.5) !important;
+  box-shadow:
+    inset 0 1px 0 0 rgba(255,255,255,0.4),
+    0 4px 20px -2px rgba(99,102,241,0.45),
+    0 0 24px -4px rgba(124,58,237,0.35) !important;
+}
+.app-light-theme .raycast-btn { color: #fff !important; }
+.app-light-theme .raycast-btn * { color: #fff !important; }
+.app-light-theme .raycast-btn-border {
+  /* hide the conic ray border in light mode — the flow gradient is the spectacle */
+  opacity: 0 !important;
+}
+.app-light-theme .raycast-btn:hover {
+  background: transparent !important;
+  transform: translateY(-1px);
+}
+.app-light-theme .raycast-btn:hover .raycast-btn-bg {
+  box-shadow:
+    inset 0 1px 0 0 rgba(255,255,255,0.5),
+    0 8px 30px -2px rgba(99,102,241,0.55),
+    0 0 32px -4px rgba(124,58,237,0.5) !important;
+}
+
+/* === Generic primary button: any element with purple/dark bg → flow gradient === */
+.app-light-theme button[style*="background: linear-gradient"][style*="rgb(124"],
+.app-light-theme button[style*="background:linear-gradient"][style*="rgb(124"],
+.app-light-theme [class*="bg-purple"],
+.app-light-theme [class*="bg-violet"],
+.app-light-theme [class*="bg-indigo-6"],
+.app-light-theme [class*="bg-indigo-7"] {
+  background: linear-gradient(
+    100deg,
+    hsl(220 90% 58%) 0%,
+    hsl(245 80% 60%) 50%,
+    hsl(270 70% 60%) 100%
+  ) !important;
+  background-size: 200% 100% !important;
+  animation: flow-shimmer 4s ease-in-out infinite !important;
+  color: #fff !important;
+  box-shadow: 0 4px 18px -2px rgba(99,102,241,0.4) !important;
+}
+
+/* Inputs in light theme */
+.app-light-theme input,
+.app-light-theme textarea,
+.app-light-theme select {
+  background: rgba(255,255,255,0.65) !important;
+  border: 1px solid rgba(124,58,237,0.18) !important;
+  color: hsl(230 35% 18%) !important;
+  backdrop-filter: blur(12px);
+}
+.app-light-theme input::placeholder,
+.app-light-theme textarea::placeholder {
+  color: hsl(230 15% 55%) !important;
+}
+.app-light-theme input:focus,
+.app-light-theme textarea:focus {
+  border-color: rgba(99,102,241,0.5) !important;
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.15) !important;
+  outline: none;
+}
+
+/* Footer: lighten dark footer */
+.app-light-theme footer[style*="rgba(10, 5, 20"],
+.app-light-theme footer[style*="rgba(10,5,20"] {
+  background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(238,235,251,0.7) 100%) !important;
+  backdrop-filter: blur(40px) saturate(1.5) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(1.5) !important;
+  border-top: 1px solid rgba(124,58,237,0.15) !important;
+}
+
+/* SVG strokes that were white → adapt to dark */
+.app-light-theme svg [stroke="white"],
+.app-light-theme svg [stroke="#fff"],
+.app-light-theme svg [stroke="#FFFFFF"] {
+  stroke: hsl(230 35% 25%);
+}
+
+/* Remove any dark gradient overlays inside sections (they were creating dark fades) */
+.app-light-theme [class*="from-\[rgba\(3"],
+.app-light-theme [class*="to-\[\#030014\]"],
+.app-light-theme [class*="via-\[rgba\(3"],
+.app-light-theme [class*="from-\[rgba\(4"],
+.app-light-theme [class*="via-\[rgba\(4"] {
+  display: none !important;
+}
+
+/* Subtle universal glass for elements with explicit dark inline backgrounds we missed */
+.app-light-theme [style*="background: rgba(0,0,0"],
+.app-light-theme [style*="background: rgba(0, 0, 0"] {
+  background: rgba(255,255,255,0.45) !important;
+  backdrop-filter: blur(20px) saturate(1.5);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+}
