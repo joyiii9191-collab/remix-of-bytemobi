@@ -26,38 +26,38 @@ export default function Index() {
             className="absolute inset-0"
             style={{
               background:
-                "radial-gradient(ellipse 80% 60% at 20% 0%, rgba(99,102,241,0.28) 0%, transparent 60%), radial-gradient(ellipse 70% 50% at 100% 30%, rgba(139,92,246,0.22) 0%, transparent 65%), radial-gradient(ellipse 90% 60% at 50% 100%, rgba(124,58,237,0.18) 0%, transparent 60%), linear-gradient(180deg, #F5F5F7 0%, #EEF0FB 50%, #F0EBFB 100%)",
+                "radial-gradient(ellipse 80% 60% at 20% 0%, rgba(99,102,241,0.10) 0%, transparent 60%), radial-gradient(ellipse 70% 50% at 100% 30%, rgba(139,92,246,0.08) 0%, transparent 65%), radial-gradient(ellipse 90% 60% at 50% 100%, rgba(124,58,237,0.07) 0%, transparent 60%), linear-gradient(180deg, #F5F5F7 0%, #F3F2FA 50%, #F5F2FB 100%)",
             }}
           />
           {/* Floating orbs */}
           <div
-            className="absolute rounded-full blur-3xl opacity-40 animate-float-slow"
+            className="absolute rounded-full blur-3xl opacity-20 animate-float-slow"
             style={{
               width: 520,
               height: 520,
               left: "-10%",
               top: "10%",
-              background: "radial-gradient(circle, rgba(79,70,229,0.45), transparent 70%)",
+              background: "radial-gradient(circle, rgba(79,70,229,0.25), transparent 70%)",
             }}
           />
           <div
-            className="absolute rounded-full blur-3xl opacity-35 animate-float-slower"
+            className="absolute rounded-full blur-3xl opacity-18 animate-float-slower"
             style={{
               width: 600,
               height: 600,
               right: "-12%",
               top: "40%",
-              background: "radial-gradient(circle, rgba(168,85,247,0.45), transparent 70%)",
+              background: "radial-gradient(circle, rgba(168,85,247,0.22), transparent 70%)",
             }}
           />
           <div
-            className="absolute rounded-full blur-3xl opacity-30 animate-float-slow"
+            className="absolute rounded-full blur-3xl opacity-15 animate-float-slow"
             style={{
               width: 480,
               height: 480,
               left: "30%",
               bottom: "-15%",
-              background: "radial-gradient(circle, rgba(99,102,241,0.4), transparent 70%)",
+              background: "radial-gradient(circle, rgba(99,102,241,0.2), transparent 70%)",
             }}
           />
           {/* Grain / shimmer overlay */}
