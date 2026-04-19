@@ -8010,7 +8010,7 @@ function Section9Solution() {
         <h2
           className="text-[48px] font-medium leading-[1.1] tracking-[-2px] text-center"
           style={{
-            background: "linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0.45) 100%)",
+            background: "linear-gradient(180deg, hsl(245 60% 12%) 0%, hsl(245 45% 28%) 100%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
           }}
