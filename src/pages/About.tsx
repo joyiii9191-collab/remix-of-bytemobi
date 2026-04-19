@@ -81,7 +81,7 @@ type Milestone = {
   year: string;
   title: string;
   desc: string;
-  icon: React.ComponentType<{ size?: number }>;
+  icon: LucideIcon;
 };
 const TIMELINE: Milestone[] = [
   { year: "2016", title: "深圳总部成立", desc: "公司诞生,迈出全球数字连接第一步", icon: Rocket },
