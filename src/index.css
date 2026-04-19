@@ -247,29 +247,60 @@ All colors MUST be HSL.
 
 /* === Text color remapping === */
 .app-light-theme .text-white,
+/* === Text color remapping — deeper for readability on light bg === */
+.app-light-theme .text-white,
 .app-light-theme [class*="text-white"] {
-  color: hsl(230 35% 18%) !important;
+  color: hsl(230 45% 12%) !important;
 }
-.app-light-theme .text-white\/90 { color: hsl(230 35% 22%) !important; }
-.app-light-theme .text-white\/80 { color: hsl(230 30% 28%) !important; }
-.app-light-theme .text-white\/70 { color: hsl(230 25% 35%) !important; }
-.app-light-theme .text-white\/60 { color: hsl(230 22% 42%) !important; }
-.app-light-theme .text-white\/50 { color: hsl(230 18% 48%) !important; }
-.app-light-theme .text-white\/40 { color: hsl(230 15% 55%) !important; }
-.app-light-theme .text-white\/30 { color: hsl(230 12% 60%) !important; }
-.app-light-theme .text-white\/20 { color: hsl(230 10% 70%) !important; }
+.app-light-theme .text-white\/90 { color: hsl(230 42% 14%) !important; }
+.app-light-theme .text-white\/80 { color: hsl(230 40% 18%) !important; }
+.app-light-theme .text-white\/70 { color: hsl(230 38% 22%) !important; }
+.app-light-theme .text-white\/60 { color: hsl(230 35% 28%) !important; }
+.app-light-theme .text-white\/50 { color: hsl(230 32% 32%) !important; }
+.app-light-theme .text-white\/40 { color: hsl(230 28% 38%) !important; }
+.app-light-theme .text-white\/30 { color: hsl(230 25% 44%) !important; }
+.app-light-theme .text-white\/20 { color: hsl(230 22% 50%) !important; }
 
+/* Tailwind arbitrary near-white text colors used in ReflectApp */
+.app-light-theme [class*="text-\[\#f4f0ff\]"],
+.app-light-theme [class*="text-\[\#efedfd\]"],
+.app-light-theme [class*="text-\[\#fff"],
+.app-light-theme [class*="text-\[white\]"] {
+  color: hsl(230 45% 14%) !important;
+}
+
+/* Inline white / near-white styles */
 .app-light-theme [style*="color: white"],
+.app-light-theme [style*="color:white"],
 .app-light-theme [style*="color:#fff"],
 .app-light-theme [style*="color: #fff"],
 .app-light-theme [style*="color:#FFFFFF"],
-.app-light-theme [style*="color: #FFFFFF"] {
-  color: hsl(230 35% 18%) !important;
+.app-light-theme [style*="color: #FFFFFF"],
+.app-light-theme [style*="color: rgb(255, 255, 255)"],
+.app-light-theme [style*="color:rgb(255,255,255)"],
+.app-light-theme [style*="color: rgba(255, 255, 255"],
+.app-light-theme [style*="color:rgba(255,255,255"],
+.app-light-theme [style*="color: hsla(0, 0%, 100%"],
+.app-light-theme [style*="color:hsla(0,0%,100%"],
+.app-light-theme [style*="color: rgba(239, 237, 253"],
+.app-light-theme [style*="color: rgba(239,237,253"],
+.app-light-theme [style*="color: rgb(244, 240, 255)"],
+.app-light-theme [style*="color: rgb(239, 237, 253)"] {
+  color: hsl(230 42% 16%) !important;
 }
 
-/* Headings & emphasis remain darker for hierarchy */
-.app-light-theme h1, .app-light-theme h2, .app-light-theme h3 {
-  color: hsl(245 50% 18%);
+/* Headings stronger contrast */
+.app-light-theme h1,
+.app-light-theme h2 {
+  color: hsl(245 60% 12%) !important;
+}
+.app-light-theme h3, .app-light-theme h4 {
+  color: hsl(245 55% 15%) !important;
+}
+
+/* Paragraphs default */
+.app-light-theme p {
+  color: hsl(230 35% 22%);
 }
 
 /* === Background remapping (the dark backgrounds → light glass) === */
