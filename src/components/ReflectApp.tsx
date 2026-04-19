@@ -8017,7 +8017,7 @@ function Section9Solution() {
         >
           一站式解决方案
         </h2>
-        <p className="text-[16px] leading-[1.6] text-center max-w-[600px]" style={{ color: "rgba(255,255,255,0.5)" }}>
+        <p className="text-[16px] leading-[1.6] text-center max-w-[600px]" style={{ color: "hsl(230 30% 30%)" }}>
           从需求沟通到效果复盘，全流程专业服务，让出海推广更简单高效
         </p>
       </div>
