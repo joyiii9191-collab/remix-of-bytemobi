@@ -24,7 +24,17 @@ export function OptimizedHeader() {
       transition={{ duration: 0.8, ease: "circOut" }}
       className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4"
     >
-      <div className="backdrop-blur-xl bg-white/[0.08] border border-white/[0.12] rounded-full px-8 py-3 flex items-center justify-between shadow-2xl w-full max-w-6xl">
+      <div
+        className="rounded-full px-8 py-3 flex items-center justify-between w-full max-w-6xl"
+        style={{
+          background: 'rgba(255,255,255,0.55)',
+          backdropFilter: 'blur(28px) saturate(1.6)',
+          WebkitBackdropFilter: 'blur(28px) saturate(1.6)',
+          border: '1px solid rgba(255,255,255,0.7)',
+          boxShadow:
+            '0 8px 32px -4px rgba(79,70,229,0.18), inset 0 1px 0 0 rgba(255,255,255,0.9), 0 0 0 1px rgba(124,58,237,0.05)',
+        }}
+      >
         {/* Logo */}
         <a href="/" className="flex items-center shrink-0">
           <img src={imgLogo} alt="ByteMobi" className="w-9 h-9 object-contain" />
@@ -36,7 +46,19 @@ export function OptimizedHeader() {
             <a 
               key={key} 
               href={`#${key.split('.')[1]}`} 
-              className="text-sm text-white/70 hover:text-white transition-colors px-3 py-1 rounded-full hover:bg-white/[0.08] whitespace-nowrap"
+              className="text-sm transition-all px-3 py-1.5 rounded-full whitespace-nowrap"
+              style={{
+                color: 'hsl(230 30% 25%)',
+                fontWeight: 500,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'rgba(99,102,241,0.1)';
+                e.currentTarget.style.color = 'hsl(245 60% 35%)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'transparent';
+                e.currentTarget.style.color = 'hsl(230 30% 25%)';
+              }}
             >
               {t(key)}
             </a>
@@ -44,16 +66,28 @@ export function OptimizedHeader() {
         </nav>
 
         {/* Language Switcher */}
-        <div className="flex items-center gap-0.5 shrink-0 bg-white/[0.06] border border-white/[0.08] rounded-full p-1">
+        <div
+          className="flex items-center gap-0.5 shrink-0 rounded-full p-1"
+          style={{
+            background: 'rgba(99,102,241,0.08)',
+            border: '1px solid rgba(124,58,237,0.12)',
+          }}
+        >
           {languages.map((lang) => (
             <button
               key={lang}
               onClick={() => setLanguage(lang)}
-              className={`text-xs font-medium px-3 py-1.5 rounded-full transition-all ${
+              className="text-xs font-semibold px-3 py-1.5 rounded-full transition-all"
+              style={
                 language === lang
-                  ? 'bg-white/[0.15] text-white shadow-sm'
-                  : 'text-white/50 hover:text-white/80'
-              }`}
+                  ? {
+                      background:
+                        'linear-gradient(135deg, hsl(230 80% 60%) 0%, hsl(245 75% 58%) 50%, hsl(265 70% 60%) 100%)',
+                      color: '#fff',
+                      boxShadow: '0 2px 8px -1px rgba(99,102,241,0.5)',
+                    }
+                  : { color: 'hsl(230 25% 35%)' }
+              }
             >
               {lang}
             </button>
