@@ -180,7 +180,7 @@ export default function JapanFocus() {
             >
               查看本地能力
             </StarBorder>
-            <span className="text-xs uppercase tracking-[0.3em]" style={{ color: TEXT_MID }}>↓ 滑动查看</span>
+            
           </div>
         </ScreenInner>
       </SnapScreen>
