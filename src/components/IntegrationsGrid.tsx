@@ -1,6 +1,15 @@
 import React from "react";
 import { Globe, Layers } from "lucide-react";
 import "../components/LiquidGlassCard.css";
+import partnerApp1 from "@/assets/partner-app-1.png";
+import partnerApp2 from "@/assets/partner-app-2.png";
+import partnerApp3 from "@/assets/partner-app-3.png";
+
+const PARTNER_APP_LOGOS: { key: string; src: string; alt: string }[] = [
+  { key: "app1", src: partnerApp1, alt: "合作 App 1" },
+  { key: "app2", src: partnerApp2, alt: "DramaStar" },
+  { key: "app3", src: partnerApp3, alt: "合作 App 3" },
+];
 
 /* ---------- Brand logos (inline SVG) ---------- */
 const TikTokLogo = ({ size = 22 }: { size?: number }) => (
@@ -56,11 +65,13 @@ function FeatureCard({
   icon,
   hasPlaceholders,
   brandLogos,
+  imageLogos,
 }: {
   label: string;
   icon?: React.ReactNode;
   hasPlaceholders?: boolean;
   brandLogos?: { key: string; node: React.ReactNode }[];
+  imageLogos?: { key: string; src: string; alt: string }[];
 }) {
   return (
     <div
@@ -96,6 +107,27 @@ function FeatureCard({
                 }}
               >
                 {b.node}
+              </div>
+            ))}
+          </div>
+        ) : imageLogos ? (
+          <div className="flex gap-2.5">
+            {imageLogos.map((logo) => (
+              <div
+                key={logo.key}
+                className="w-11 h-11 rounded-lg overflow-hidden flex items-center justify-center"
+                style={{
+                  background: 'hsla(0, 0%, 100%, 0.7)',
+                  border: '1px solid hsla(0, 0%, 100%, 0.85)',
+                  boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.9)',
+                }}
+              >
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
               </div>
             ))}
           </div>
@@ -146,7 +178,7 @@ export default function IntegrationsGrid() {
   return (
     <>
       <FeatureCard label="头部媒体及合作伙伴" brandLogos={BRAND_LOGOS} />
-      <FeatureCard label="自有程序化流量体系" hasPlaceholders />
+      <FeatureCard label="自有程序化流量体系" imageLogos={PARTNER_APP_LOGOS} />
       <FeatureCard
         label="布局全球，深拓日本"
         icon={<Globe size={24} strokeWidth={1.5} style={{ color: 'hsl(260, 60%, 50%)' }} />}
