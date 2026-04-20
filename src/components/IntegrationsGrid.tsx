@@ -1,75 +1,80 @@
 import React from "react";
 import "../components/LiquidGlassCard.css";
 
-/* ---------- Rich illustrative icons (fill the card) ---------- */
+/* ---------- Liquid Glass (WWDC25 style) icons ---------- */
 const GlobeIllustration = () => (
-  <svg width="76" height="76" viewBox="0 0 100 100" aria-label="Global Japan">
+  <svg width="84" height="84" viewBox="0 0 100 100" aria-label="Global Japan">
     <defs>
-      <radialGradient id="globeFill" cx="35%" cy="30%" r="80%">
-        <stop offset="0%" stopColor="hsl(220, 95%, 75%)" />
-        <stop offset="50%" stopColor="hsl(245, 80%, 60%)" />
-        <stop offset="100%" stopColor="hsl(265, 70%, 38%)" />
-      </radialGradient>
-      <radialGradient id="globeGlow" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stopColor="hsla(245, 90%, 65%, 0.45)" />
-        <stop offset="100%" stopColor="hsla(245, 90%, 65%, 0)" />
-      </radialGradient>
-      <linearGradient id="orbitGrad" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stopColor="hsla(265, 80%, 70%, 0.9)" />
-        <stop offset="100%" stopColor="hsla(220, 90%, 70%, 0.2)" />
+      <linearGradient id="lgGlobeBody" x1="0.2" y1="0.1" x2="0.8" y2="0.95">
+        <stop offset="0%" stopColor="hsla(0, 0%, 100%, 0.95)" />
+        <stop offset="55%" stopColor="hsla(210, 60%, 96%, 0.78)" />
+        <stop offset="100%" stopColor="hsla(215, 55%, 88%, 0.55)" />
       </linearGradient>
+      <radialGradient id="lgGlobeAccent" cx="35%" cy="35%" r="75%">
+        <stop offset="0%" stopColor="hsla(0, 95%, 88%, 0.95)" />
+        <stop offset="60%" stopColor="hsla(0, 80%, 68%, 0.85)" />
+        <stop offset="100%" stopColor="hsla(0, 75%, 55%, 0.75)" />
+      </radialGradient>
+      <linearGradient id="lgGlobeSpec" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stopColor="hsla(0, 0%, 100%, 0.85)" />
+        <stop offset="60%" stopColor="hsla(0, 0%, 100%, 0)" />
+      </linearGradient>
+      <radialGradient id="lgGlobeHalo" cx="50%" cy="55%" r="55%">
+        <stop offset="0%" stopColor="hsla(210, 80%, 75%, 0.25)" />
+        <stop offset="100%" stopColor="hsla(210, 80%, 75%, 0)" />
+      </radialGradient>
     </defs>
-    <circle cx="50" cy="50" r="46" fill="url(#globeGlow)" />
-    <ellipse cx="50" cy="50" rx="44" ry="14" fill="none" stroke="url(#orbitGrad)" strokeWidth="1.2" transform="rotate(-20 50 50)" />
-    <ellipse cx="50" cy="50" rx="42" ry="10" fill="none" stroke="url(#orbitGrad)" strokeWidth="0.9" opacity="0.7" transform="rotate(25 50 50)" />
-    <circle cx="50" cy="50" r="28" fill="url(#globeFill)" />
-    <ellipse cx="50" cy="50" rx="28" ry="10" fill="none" stroke="hsla(0,0%,100%,0.35)" strokeWidth="0.8" />
-    <ellipse cx="50" cy="50" rx="10" ry="28" fill="none" stroke="hsla(0,0%,100%,0.3)" strokeWidth="0.8" />
-    <ellipse cx="50" cy="50" rx="20" ry="28" fill="none" stroke="hsla(0,0%,100%,0.22)" strokeWidth="0.7" />
-    <line x1="22" y1="50" x2="78" y2="50" stroke="hsla(0,0%,100%,0.35)" strokeWidth="0.8" />
-    <path d="M36 42 Q42 38 48 42 T58 44 Q60 48 56 50 T48 52 Q42 54 38 50 Z" fill="hsla(0,0%,100%,0.28)" />
-    <path d="M40 60 Q46 58 52 62 Q54 66 50 68 Q44 68 40 64 Z" fill="hsla(0,0%,100%,0.22)" />
-    <circle cx="64" cy="46" r="3.2" fill="hsl(0, 85%, 60%)" />
-    <circle cx="64" cy="46" r="6" fill="none" stroke="hsl(0, 85%, 60%)" strokeWidth="1" opacity="0.55" />
-    <circle cx="64" cy="46" r="9.5" fill="none" stroke="hsl(0, 85%, 60%)" strokeWidth="0.7" opacity="0.3" />
-    <circle cx="22" cy="34" r="1.8" fill="hsl(220, 95%, 80%)" />
-    <circle cx="78" cy="68" r="1.8" fill="hsl(265, 90%, 80%)" />
-    <circle cx="30" cy="72" r="1.4" fill="hsl(220, 95%, 80%)" opacity="0.8" />
+    <circle cx="50" cy="52" r="46" fill="url(#lgGlobeHalo)" />
+    <circle cx="50" cy="50" r="34" fill="url(#lgGlobeBody)" stroke="hsla(0,0%,100%,0.9)" strokeWidth="0.8" />
+    <circle cx="50" cy="50" r="29" fill="none" stroke="hsla(210, 50%, 80%, 0.35)" strokeWidth="0.6" />
+    <ellipse cx="50" cy="50" rx="28" ry="9" fill="none" stroke="hsla(210, 40%, 70%, 0.35)" strokeWidth="0.7" />
+    <ellipse cx="50" cy="50" rx="9" ry="28" fill="none" stroke="hsla(210, 40%, 70%, 0.3)" strokeWidth="0.7" />
+    <ellipse cx="50" cy="50" rx="20" ry="28" fill="none" stroke="hsla(210, 40%, 70%, 0.22)" strokeWidth="0.6" />
+    <circle cx="64" cy="46" r="7" fill="url(#lgGlobeAccent)" />
+    <circle cx="62" cy="44" r="2" fill="hsla(0,0%,100%,0.7)" />
+    <ellipse cx="50" cy="34" rx="22" ry="8" fill="url(#lgGlobeSpec)" opacity="0.85" />
+    <circle cx="78" cy="72" r="4.5" fill="hsla(0,0%,100%,0.85)" stroke="hsla(210,40%,80%,0.5)" strokeWidth="0.5" />
+    <circle cx="76.5" cy="70.5" r="1.2" fill="hsla(0,0%,100%,0.95)" />
   </svg>
 );
 
 const SolutionIllustration = () => (
-  <svg width="76" height="76" viewBox="0 0 100 100" aria-label="One-stop solution">
+  <svg width="84" height="84" viewBox="0 0 100 100" aria-label="One-stop solution">
     <defs>
-      <linearGradient id="cardA" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stopColor="hsl(220, 95%, 70%)" />
-        <stop offset="100%" stopColor="hsl(245, 85%, 55%)" />
+      <linearGradient id="lgPetalA" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stopColor="hsla(0, 0%, 100%, 0.95)" />
+        <stop offset="100%" stopColor="hsla(210, 70%, 88%, 0.6)" />
       </linearGradient>
-      <linearGradient id="cardB" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stopColor="hsl(265, 85%, 70%)" />
-        <stop offset="100%" stopColor="hsl(285, 75%, 55%)" />
+      <linearGradient id="lgPetalB" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stopColor="hsla(0, 0%, 100%, 0.95)" />
+        <stop offset="100%" stopColor="hsla(265, 60%, 90%, 0.6)" />
       </linearGradient>
-      <linearGradient id="cardC" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stopColor="hsl(195, 95%, 70%)" />
-        <stop offset="100%" stopColor="hsl(220, 90%, 60%)" />
+      <linearGradient id="lgPetalC" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stopColor="hsla(0, 0%, 100%, 0.95)" />
+        <stop offset="100%" stopColor="hsla(195, 70%, 88%, 0.6)" />
       </linearGradient>
-      <radialGradient id="solGlow" cx="50%" cy="55%" r="55%">
-        <stop offset="0%" stopColor="hsla(260, 90%, 65%, 0.4)" />
-        <stop offset="100%" stopColor="hsla(260, 90%, 65%, 0)" />
+      <radialGradient id="lgCenter" cx="35%" cy="35%" r="75%">
+        <stop offset="0%" stopColor="hsla(195, 90%, 92%, 0.95)" />
+        <stop offset="100%" stopColor="hsla(220, 80%, 70%, 0.75)" />
+      </radialGradient>
+      <radialGradient id="lgSolHalo" cx="50%" cy="55%" r="55%">
+        <stop offset="0%" stopColor="hsla(220, 80%, 80%, 0.22)" />
+        <stop offset="100%" stopColor="hsla(220, 80%, 80%, 0)" />
       </radialGradient>
     </defs>
-    <circle cx="50" cy="52" r="46" fill="url(#solGlow)" />
-    <rect x="18" y="22" width="54" height="38" rx="8" fill="url(#cardC)" opacity="0.85" transform="rotate(-10 45 41)" />
-    <rect x="24" y="30" width="54" height="38" rx="8" fill="url(#cardB)" transform="rotate(-2 51 49)" />
-    <rect x="22" y="40" width="56" height="40" rx="9" fill="url(#cardA)" />
-    <rect x="30" y="50" width="24" height="3.5" rx="1.75" fill="hsla(0,0%,100%,0.85)" />
-    <rect x="30" y="58" width="38" height="2.5" rx="1.25" fill="hsla(0,0%,100%,0.55)" />
-    <rect x="30" y="64" width="30" height="2.5" rx="1.25" fill="hsla(0,0%,100%,0.45)" />
-    <circle cx="68" cy="52" r="6.5" fill="hsla(0,0%,100%,0.95)" />
-    <path d="M65 52 L67.5 54.5 L71.5 50" fill="none" stroke="hsl(245, 85%, 55%)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-    <circle cx="84" cy="28" r="1.6" fill="hsl(265, 90%, 75%)" />
-    <circle cx="14" cy="70" r="1.4" fill="hsl(220, 95%, 75%)" />
-    <circle cx="80" cy="78" r="1.2" fill="hsl(245, 90%, 75%)" opacity="0.8" />
+    <circle cx="50" cy="52" r="46" fill="url(#lgSolHalo)" />
+    <g stroke="hsla(0,0%,100%,0.9)" strokeWidth="0.8">
+      <rect x="38" y="14" width="24" height="38" rx="12" fill="url(#lgPetalA)" transform="rotate(-30 50 33)" />
+      <rect x="38" y="14" width="24" height="38" rx="12" fill="url(#lgPetalB)" transform="rotate(90 50 33)" />
+      <rect x="38" y="14" width="24" height="38" rx="12" fill="url(#lgPetalC)" transform="rotate(210 50 33)" />
+    </g>
+    <g fill="hsla(0,0%,100%,0.55)">
+      <ellipse cx="36" cy="40" rx="5" ry="1.6" transform="rotate(-30 36 40)" />
+      <ellipse cx="68" cy="44" rx="5" ry="1.6" transform="rotate(60 68 44)" />
+      <ellipse cx="50" cy="72" rx="5" ry="1.6" />
+    </g>
+    <circle cx="50" cy="50" r="8" fill="url(#lgCenter)" stroke="hsla(0,0%,100%,0.9)" strokeWidth="0.7" />
+    <circle cx="48" cy="48" r="2.2" fill="hsla(0,0%,100%,0.85)" />
   </svg>
 );
 import partnerApp1 from "@/assets/partner-app-1.png";
