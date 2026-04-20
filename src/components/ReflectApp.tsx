@@ -8957,8 +8957,7 @@ export default function ReflectApp() {
         aria-hidden
         className="fixed inset-0 pointer-events-none z-0"
         style={{
-          background:
-            "linear-gradient(180deg, hsla(245, 40%, 96%, 0.55) 0%, hsla(245, 30%, 92%, 0.45) 100%)",
+          background: "hsla(0, 0%, 100%, 0.5)",
         }}
       />
 
