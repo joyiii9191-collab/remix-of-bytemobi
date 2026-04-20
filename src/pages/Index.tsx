@@ -17,16 +17,29 @@ export default function Index() {
       >
         <OptimizedHeader />
 
-        {/* 灰白底 + 蓝紫渐变光斑 */}
+        {/* 科技弥散风：蓝紫主调 + 青/粉点缀，多层柔和光斑 */}
+        <div
+          className="fixed inset-0 pointer-events-none z-0 overflow-hidden"
+          style={{
+            background: `
+              radial-gradient(ellipse 65% 55% at 12% 18%, hsla(225, 100%, 72%, 0.45) 0%, transparent 62%),
+              radial-gradient(ellipse 55% 50% at 88% 78%, hsla(275, 90%, 74%, 0.42) 0%, transparent 62%),
+              radial-gradient(ellipse 50% 45% at 78% 10%, hsla(195, 95%, 78%, 0.30) 0%, transparent 60%),
+              radial-gradient(ellipse 45% 40% at 8% 88%, hsla(320, 85%, 82%, 0.28) 0%, transparent 60%),
+              radial-gradient(ellipse 70% 60% at 50% 50%, hsla(245, 80%, 80%, 0.18) 0%, transparent 70%),
+              linear-gradient(180deg, #F8F9FC 0%, #EFF0F8 50%, #F4EEFA 100%)
+            `,
+          }}
+        />
+        {/* 顶层柔光层 - 增加弥散质感 */}
         <div
           className="fixed inset-0 pointer-events-none z-0"
           style={{
             background: `
-              radial-gradient(ellipse 80% 60% at 15% 20%, hsla(225, 95%, 70%, 0.35) 0%, transparent 60%),
-              radial-gradient(ellipse 70% 55% at 85% 80%, hsla(270, 85%, 72%, 0.32) 0%, transparent 60%),
-              radial-gradient(ellipse 60% 50% at 70% 15%, hsla(250, 90%, 75%, 0.22) 0%, transparent 55%),
-              linear-gradient(180deg, #F5F5F7 0%, #EEEEF2 100%)
+              radial-gradient(ellipse 35% 30% at 32% 65%, hsla(260, 95%, 76%, 0.22) 0%, transparent 70%),
+              radial-gradient(ellipse 30% 28% at 68% 35%, hsla(220, 95%, 78%, 0.24) 0%, transparent 70%)
             `,
+            filter: 'blur(30px)',
           }}
         />
 
