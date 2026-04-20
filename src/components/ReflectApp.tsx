@@ -2312,7 +2312,6 @@ function LogoCard({ label, index = 0, image }: { label: string; index?: number; 
 function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 'right'; logos: { label: string; image?: string }[]; tag?: string }) {
   const doubled = [...logos, ...logos];
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const tagRef = useRef<HTMLDivElement>(null);
   const [phase, setPhase] = useState<'idle' | 'centered' | 'flowing'>('idle');
 
   useEffect(() => {
@@ -2322,7 +2321,7 @@ function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 
       ([entry]) => {
         if (entry.isIntersecting) {
           setPhase('centered');
-          const timer = setTimeout(() => setPhase('flowing'), 2200);
+          const timer = setTimeout(() => setPhase('flowing'), 1400);
           observer.disconnect();
           return () => clearTimeout(timer);
         }
@@ -2333,62 +2332,72 @@ function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 
     return () => observer.disconnect();
   }, []);
 
-  const animName = direction === 'left' ? 'marqueeLeft' : 'marqueeRight';
+  // Inner marquee animation: always travels 0 -> -50% (left direction).
+  // For "right" direction we reverse the animation playback.
+  // Outer wrapper holds the static centered offset so there is no visual jump
+  // when switching from centered -> flowing — the inner just begins looping
+  // in place from its 0% keyframe (which equals the current resting position).
+  const animationDirection = direction === 'left' ? 'normal' : 'reverse';
 
   return (
     <div ref={wrapperRef} className="relative w-full overflow-hidden">
-      {/* Fade edges */}
-      {/* Fade edges removed */}
-      
       <div className="flex flex-col gap-3">
-        {/* Tag */}
+        {/* Tag row */}
         {tag && (
           <div
-            ref={tagRef}
             className="flex items-center"
             style={{
               width: 'max-content',
               opacity: phase === 'idle' ? 0 : 1,
-              transition: phase === 'centered' ? 'opacity 0.6s ease-out' : 'none',
-              ...(phase === 'centered' ? {
-                transform: 'translateX(calc(50vw - 50%))',
-              } : phase === 'flowing' ? {
-                animation: `${animName} 30s linear infinite`,
-              } : {}),
+              transform: 'translateX(calc(50vw - 50%))',
+              transition: 'opacity 0.6s ease-out',
             }}
           >
-            {[0, 1].map((copy) => (
-              <span
-                key={copy}
-                className="inline-flex items-center px-[16px] py-[5px] rounded-full text-[14px] text-white font-normal tracking-[-0.21px] leading-[1.6] whitespace-nowrap mx-[calc(50vw)]"
-                style={{
-                  border: "1px solid rgba(255,255,255,0.2)",
-                  background: "rgba(255,255,255,0.05)",
-                }}
-              >
-                {tag}
-              </span>
-            ))}
+            <div
+              style={{
+                animation: phase === 'flowing' ? `marqueeLoop 30s linear infinite` : 'none',
+                animationDirection,
+                display: 'flex',
+                width: 'max-content',
+              }}
+            >
+              {[0, 1].map((copy) => (
+                <span
+                  key={copy}
+                  className="inline-flex items-center px-[16px] py-[5px] rounded-full text-[14px] text-white font-normal tracking-[-0.21px] leading-[1.6] whitespace-nowrap mx-[calc(50vw)]"
+                  style={{
+                    border: "1px solid rgba(255,255,255,0.2)",
+                    background: "rgba(255,255,255,0.05)",
+                  }}
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
           </div>
         )}
 
-        {/* Logos - start centered, then flow */}
+        {/* Logos row */}
         <div
-          className="flex items-center gap-6"
           style={{
             width: 'max-content',
             opacity: phase === 'idle' ? 0 : 1,
-            transition: phase === 'centered' ? 'opacity 0.8s ease-out, transform 0.8s ease-out' : 'none',
-            ...(phase === 'centered' ? {
-              transform: `translateX(calc(50vw - ${logos.length * 39}px))`,
-            } : phase === 'flowing' ? {
-              animation: `${animName} 30s linear infinite`,
-            } : {}),
+            transform: `translateX(calc(50vw - ${logos.length * 39}px))`,
+            transition: 'opacity 0.8s ease-out',
           }}
         >
-          {doubled.map((item, i) => (
-            <LogoCard key={i} label={item.label} index={i} image={item.image} />
-          ))}
+          <div
+            className="flex items-center gap-6"
+            style={{
+              animation: phase === 'flowing' ? `marqueeLoop 30s linear infinite` : 'none',
+              animationDirection,
+              width: 'max-content',
+            }}
+          >
+            {doubled.map((item, i) => (
+              <LogoCard key={i} label={item.label} index={i} image={item.image} />
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -2450,13 +2459,9 @@ function Section6LogoWall() {
 
       {/* Keyframes style */}
       <style>{`
-        @keyframes marqueeLeft {
+        @keyframes marqueeLoop {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
-        }
-        @keyframes marqueeRight {
-          0% { transform: translateX(-50%); }
-          100% { transform: translateX(0); }
         }
       `}</style>
     </div>
