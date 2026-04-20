@@ -509,14 +509,9 @@ export default function GlobalFlow() {
 
           {/* 业务类型 */}
           <div className="w-full mt-8">
-            <div className="flex items-end justify-between mb-4">
-              <h2 className="text-2xl md:text-3xl font-bold" style={{ color: TEXT_DARK }}>
-                业务类型
-              </h2>
-              <div className="text-[11px]" style={{ color: TEXT_MID }}>
-                鼠标悬停查看示例 · 完整资料以压缩档传送
-              </div>
-            </div>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4" style={{ color: TEXT_DARK }}>
+              业务类型
+            </h2>
             <div className="grid grid-cols-2 gap-3">
               {[
                 { name: "Fintech", cn: "金融科技", color: "hsl(160 70% 42%)" },
