@@ -1267,10 +1267,23 @@ function Section1() {
       <div className="w-full max-w-[1100px] relative z-[1]">
         {/* Background glow removed for minimal style */}
 
-        {/* Glass shell */}
-        <div className="relative rounded-[24px] w-full" style={{ border: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 20px 60px -16px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05)' }}>
-          {/* Background fill — neutral glass */}
-          <div className="absolute inset-0 pointer-events-none rounded-[24px]" style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.03) 50%, rgba(255,255,255,0.05) 100%)', backdropFilter: 'blur(40px) saturate(1.4)', WebkitBackdropFilter: 'blur(40px) saturate(1.4)' }} />
+        {/* Glass shell — light frosted glass */}
+        <div className="relative rounded-[24px] w-full" style={{
+          border: '1px solid hsla(0, 0%, 100%, 0.55)',
+          boxShadow: 'inset 0 1.5px 0 0 hsla(0,0%,100%,0.9), inset 1px 0 0 0 hsla(0,0%,100%,0.4), inset 0 -1px 0 0 hsla(230,30%,50%,0.10), inset 0 -12px 28px -12px hsla(0,0%,100%,0.35), 0 24px 60px -18px hsla(230,40%,25%,0.25), 0 4px 12px -3px hsla(230,40%,25%,0.15)'
+        }}>
+          {/* Background fill — light glass */}
+          <div className="absolute inset-0 pointer-events-none rounded-[24px]" style={{
+            background: 'linear-gradient(155deg, hsla(0,0%,100%,0.55) 0%, hsla(0,0%,100%,0.28) 45%, hsla(0,0%,100%,0.18) 100%)',
+            backdropFilter: 'blur(28px) saturate(1.7)',
+            WebkitBackdropFilter: 'blur(28px) saturate(1.7)'
+          }} />
+          {/* Top specular highlight */}
+          <div className="absolute inset-0 pointer-events-none rounded-[24px] overflow-hidden" style={{ mixBlendMode: 'screen' }}>
+            <div className="absolute inset-0" style={{
+              background: 'radial-gradient(ellipse 110% 45% at 50% -8%, hsla(0,0%,100%,0.55) 0%, hsla(0,0%,100%,0.15) 35%, transparent 65%), linear-gradient(135deg, transparent 30%, hsla(0,0%,100%,0.20) 45%, hsla(0,0%,100%,0.04) 55%, transparent 70%)'
+            }} />
+          </div>
           {/* Content */}
           <div className="overflow-clip rounded-[inherit] size-full relative z-[1]">
             <div className="flex items-center gap-12 p-10 relative">

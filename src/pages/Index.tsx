@@ -22,11 +22,11 @@ export default function Index() {
           className="fixed inset-0 pointer-events-none z-0 overflow-hidden"
           style={{
             background: `
-              radial-gradient(ellipse 65% 55% at 12% 18%, hsla(225, 100%, 72%, 0.45) 0%, transparent 62%),
-              radial-gradient(ellipse 55% 50% at 88% 78%, hsla(275, 90%, 74%, 0.42) 0%, transparent 62%),
-              radial-gradient(ellipse 50% 45% at 78% 10%, hsla(195, 95%, 78%, 0.30) 0%, transparent 60%),
-              radial-gradient(ellipse 45% 40% at 8% 88%, hsla(320, 85%, 82%, 0.28) 0%, transparent 60%),
-              radial-gradient(ellipse 70% 60% at 50% 50%, hsla(245, 80%, 80%, 0.18) 0%, transparent 70%),
+              radial-gradient(ellipse 65% 55% at 12% 18%, hsla(225, 100%, 72%, 0.55) 0%, transparent 62%),
+              radial-gradient(ellipse 55% 50% at 88% 78%, hsla(275, 90%, 74%, 0.50) 0%, transparent 62%),
+              radial-gradient(ellipse 50% 45% at 78% 10%, hsla(195, 95%, 78%, 0.38) 0%, transparent 60%),
+              radial-gradient(ellipse 45% 40% at 8% 88%, hsla(320, 85%, 82%, 0.34) 0%, transparent 60%),
+              radial-gradient(ellipse 70% 60% at 50% 50%, hsla(245, 80%, 80%, 0.22) 0%, transparent 70%),
               linear-gradient(180deg, #F8F9FC 0%, #EFF0F8 50%, #F4EEFA 100%)
             `,
           }}
@@ -36,10 +36,17 @@ export default function Index() {
           className="fixed inset-0 pointer-events-none z-0"
           style={{
             background: `
-              radial-gradient(ellipse 35% 30% at 32% 65%, hsla(260, 95%, 76%, 0.22) 0%, transparent 70%),
-              radial-gradient(ellipse 30% 28% at 68% 35%, hsla(220, 95%, 78%, 0.24) 0%, transparent 70%)
+              radial-gradient(ellipse 35% 30% at 32% 65%, hsla(260, 95%, 76%, 0.28) 0%, transparent 70%),
+              radial-gradient(ellipse 30% 28% at 68% 35%, hsla(220, 95%, 78%, 0.30) 0%, transparent 70%)
             `,
             filter: 'blur(30px)',
+          }}
+        />
+        {/* 细颗粒噪点纹理 - 增强玻璃质感 */}
+        <div
+          className="fixed inset-0 pointer-events-none z-0 opacity-[0.35] mix-blend-overlay"
+          style={{
+            backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")`,
           }}
         />
 
