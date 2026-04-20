@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { motion } from "motion/react";
 import { OptimizedHeader } from "./OptimizedHeader";
 import { SiteFooter } from "./SiteFooter";
+import { HomeBackground } from "./HomeBackground";
 
 interface SubPageLayoutProps {
   /** 浏览器标题 */
