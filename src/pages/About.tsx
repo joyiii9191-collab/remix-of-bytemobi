@@ -54,10 +54,15 @@ const TIMELINE: Milestone[] = [
 
 const EVENTS = ["IAB", "GDC", "Japan IT Week", "ChinaJoy", "TGS", "中东峰会", "IVS Kyoto"];
 
+// 蓝紫磨砂玻璃卡片 (logo 蓝 70% / 紫 30%)
 const CARD: React.CSSProperties = {
-  background: "#FFFFFF",
-  border: "1px solid rgba(15,20,40,0.06)",
-  boxShadow: "0 4px 14px -8px rgba(15,20,40,0.08)",
+  background:
+    "linear-gradient(135deg, hsla(220,95%,75%,0.18) 0%, hsla(232,85%,72%,0.14) 35%, hsla(250,75%,72%,0.12) 70%, hsla(270,75%,75%,0.16) 100%), linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.35) 100%)",
+  backdropFilter: "blur(26px) saturate(1.6)",
+  WebkitBackdropFilter: "blur(26px) saturate(1.6)",
+  border: "1px solid hsla(232, 80%, 70%, 0.22)",
+  boxShadow:
+    "inset 0 1px 0 0 rgba(255,255,255,0.55), 0 8px 28px -10px hsla(232,85%,55%,0.22), 0 16px 40px -16px hsla(265,75%,58%,0.18)",
 };
 const TEXT_DARK = "hsl(230 30% 18%)";
 const TEXT_MID = "hsl(230 20% 40%)";
