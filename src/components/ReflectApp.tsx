@@ -215,7 +215,15 @@ function Heading() {
         </p>
       </div>
       <div className="mt-[180px] pointer-events-auto">
-        <StarBorder as="button" className="custom-class" color="magenta" speed="5s">
+        <StarBorder
+          as="button"
+          className="custom-class"
+          color="magenta"
+          speed="5s"
+          onClick={() => {
+            document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
+          }}
+        >
           获取一站式解决方案
         </StarBorder>
       </div>
@@ -8120,7 +8128,7 @@ function Section10Contact() {
   const showTrafficSource = form.partnerType === "发行商";
 
   return (
-    <div className="relative w-full h-full flex items-center justify-center px-[80px]">
+    <div id="contact" className="relative w-full h-full flex items-center justify-center px-[80px]">
       <div className="flex gap-[80px] w-full max-w-[1100px] items-center z-10">
         {/* Left: Text */}
         <div className="flex flex-col gap-[32px] flex-1">
