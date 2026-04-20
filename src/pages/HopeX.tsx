@@ -20,7 +20,7 @@ const HOPEX_LINES: Array<[number, number]> = [
   [0, 6], [0, 5], [6, 1], [6, 4], [1, 2], [1, 3],
 ];
 
-// 蓝紫磨砂玻璃卡片 (logo 蓝 70% / 紫 30%)
+// 蓝紫磨砂玻璃卡片 (logo 蓝 70% / 紫 30%) - 使用 glass-card 类提供完整玻璃质感
 const CARD: React.CSSProperties = {
   background:
     "linear-gradient(135deg, hsla(220,95%,75%,0.18) 0%, hsla(232,85%,72%,0.14) 35%, hsla(250,75%,72%,0.12) 70%, hsla(270,75%,75%,0.16) 100%), linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.35) 100%)",
@@ -28,8 +28,9 @@ const CARD: React.CSSProperties = {
   WebkitBackdropFilter: "blur(26px) saturate(1.6)",
   border: "1px solid hsla(232, 80%, 70%, 0.22)",
   boxShadow:
-    "inset 0 1px 0 0 rgba(255,255,255,0.55), 0 8px 28px -10px hsla(232,85%,55%,0.22), 0 16px 40px -16px hsla(265,75%,58%,0.18)",
+    "inset 0 1.5px 0 0 rgba(255,255,255,0.85), inset 1px 0 0 0 rgba(255,255,255,0.4), inset 0 -1px 0 0 hsla(230,30%,50%,0.12), inset 0 -10px 24px -12px rgba(255,255,255,0.4), 0 10px 30px -10px hsla(232,85%,40%,0.25), 0 2px 6px -2px hsla(232,85%,40%,0.15)",
 };
+const CARD_CLASS = "glass-card";
 const TEXT_DARK = "hsl(230 30% 18%)";
 const TEXT_MID = "hsl(230 20% 40%)";
 const ACCENT = "hsl(245 60% 45%)";
