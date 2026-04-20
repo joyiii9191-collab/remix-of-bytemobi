@@ -8396,7 +8396,7 @@ function Section9Solution() {
           return (
             <div
               key={step.title}
-              className="absolute group"
+              className="absolute group cursor-pointer"
               style={{
                 left: x,
                 top: y,
@@ -8405,7 +8405,7 @@ function Section9Solution() {
             >
               {/* 节点圆 */}
               <div
-                className="relative w-[64px] h-[64px] rounded-full flex items-center justify-center transition-all duration-500 group-hover:scale-110"
+                className="relative w-[64px] h-[64px] rounded-full flex items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.18] group-hover:-translate-y-1 group-hover:border-[hsla(260,75%,65%,0.65)] group-hover:shadow-[inset_0_1px_0_hsla(0,0%,100%,0.7),inset_0_-3px_10px_hsla(260,60%,55%,0.18),0_18px_40px_-10px_hsla(260,75%,45%,0.55),0_0_0_6px_hsla(260,75%,65%,0.14)]"
                 style={{
                   background:
                     "radial-gradient(circle at 30% 30%, hsla(0,0%,100%,0.22) 0%, hsla(260,70%,94%,0.08) 100%)",
@@ -8416,12 +8416,22 @@ function Section9Solution() {
                   WebkitBackdropFilter: "blur(10px)",
                 }}
               >
+                {/* hover 时的脉冲光环 */}
+                <span
+                  className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping pointer-events-none"
+                  style={{ background: "hsla(260, 75%, 60%, 0.25)", animationDuration: "1.4s" }}
+                />
                 {IconComp && (
-                  <IconComp size={26} style={{ color: "hsl(260, 65%, 48%)" }} strokeWidth={2} />
+                  <IconComp
+                    size={26}
+                    style={{ color: "hsl(260, 65%, 48%)" }}
+                    strokeWidth={2}
+                    className="transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110 group-hover:[color:hsl(260,75%,42%)] relative z-10"
+                  />
                 )}
                 {/* 序号徽标 */}
                 <div
-                  className="absolute -top-1 -right-1 w-[22px] h-[22px] rounded-full flex items-center justify-center text-[11px] font-bold text-white"
+                  className="absolute -top-1 -right-1 w-[22px] h-[22px] rounded-full flex items-center justify-center text-[11px] font-bold text-white transition-all duration-500 group-hover:scale-110 group-hover:rotate-[10deg] group-hover:shadow-[0_6px_14px_-2px_hsla(260,75%,40%,0.7)]"
                   style={{
                     background: "linear-gradient(135deg, hsl(260, 75%, 55%) 0%, hsl(220, 80%, 55%) 100%)",
                     boxShadow: "0 4px 10px -2px hsla(260,70%,40%,0.5)",
@@ -8433,7 +8443,7 @@ function Section9Solution() {
 
               {/* 卡片标签 */}
               <div
-                className="absolute w-[180px] pointer-events-none"
+                className="absolute w-[180px] pointer-events-none transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0"
                 style={{
                   left: isRight ? 76 : -180 - 12,
                   top: isTop ? -4 : isBottom ? "auto" : "50%",
@@ -8442,10 +8452,10 @@ function Section9Solution() {
                   textAlign: isRight ? "left" : "right",
                 }}
               >
-                <p className="text-[14px] font-semibold leading-tight mb-[4px]" style={{ color: "hsl(245, 55%, 15%)" }}>
+                <p className="text-[14px] font-semibold leading-tight mb-[4px] transition-colors duration-300 group-hover:[color:hsl(260,75%,35%)]" style={{ color: "hsl(245, 55%, 15%)" }}>
                   {step.title}
                 </p>
-                <p className="text-[11px] leading-[1.55]" style={{ color: "hsl(245, 25%, 40%)" }}>
+                <p className="text-[11px] leading-[1.55] transition-opacity duration-300 opacity-80 group-hover:opacity-100" style={{ color: "hsl(245, 25%, 40%)" }}>
                   {step.desc}
                 </p>
               </div>
