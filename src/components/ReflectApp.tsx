@@ -2039,7 +2039,7 @@ function Section4Screen() {
                 }} />
                 {/* Card content */}
                 <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: 'linear-gradient(155deg, hsla(0,0%,100%,0.6) 0%, hsla(0,0%,100%,0.3) 100%)', backdropFilter: 'blur(16px) saturate(1.5)', WebkitBackdropFilter: 'blur(16px) saturate(1.5)', border: '1px solid hsla(0,0%,100%,0.6)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
-                  <div className="w-[32px] h-[32px] rounded-md" style={{ background: 'rgba(255,255,255,0.06)' }} />
+                  <div className="w-[32px] h-[32px] rounded-md" style={{ background: 'hsla(260,60%,55%,0.25)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.6)' }} />
                 </div>
               </div>
             </div>
@@ -2059,7 +2059,7 @@ function Section4Screen() {
                 }} />
                 {/* Card content */}
                 <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: 'linear-gradient(155deg, hsla(0,0%,100%,0.6) 0%, hsla(0,0%,100%,0.3) 100%)', backdropFilter: 'blur(16px) saturate(1.5)', WebkitBackdropFilter: 'blur(16px) saturate(1.5)', border: '1px solid hsla(0,0%,100%,0.6)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
-                  <div className="w-[32px] h-[32px] rounded-md" style={{ background: 'rgba(255,255,255,0.06)' }} />
+                  <div className="w-[32px] h-[32px] rounded-md" style={{ background: 'hsla(260,60%,55%,0.25)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.6)' }} />
                 </div>
               </div>
             </div>
