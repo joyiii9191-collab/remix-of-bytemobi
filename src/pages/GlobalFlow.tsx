@@ -21,6 +21,8 @@ import {
 import {
   Radio, Target, Sparkles, LineChart, Users, Repeat,
   ShieldCheck, Layers, Globe2, Gauge, Network, Zap, ArrowRight,
+  ShoppingBag, Landmark, Dice5, Gamepad2, Video, Cloud,
+  type LucideIcon,
 } from "lucide-react";
 
 const HUB_MARKERS = [
@@ -62,26 +64,34 @@ const RT_FUNNEL = [
 type Case = {
   tag: string; title: string; metric: string; region: string;
   summary: string; highlights: string[];
+  icon: LucideIcon;
+  color: string;
 };
 const CASES: Case[] = [
-  { tag: "电商", title: "东南亚跨境快消", metric: "ROAS +186%", region: "SEA",
+  { tag: "电商", title: "电商类", metric: "ROAS +186%", region: "SEA",
     summary: "针对东南亚六国快消品牌,完成从冷启动到规模化的全链路加速。",
-    highlights: ["6 国并行投放", "ROAS 60 天提升 186%", "首单 CPA 下降 38%"] },
-  { tag: "金融", title: "拉美信贷 App", metric: "CPA -42%", region: "LATAM",
+    highlights: ["6 国并行投放", "ROAS 60 天提升 186%", "首单 CPA 下降 38%"],
+    icon: ShoppingBag, color: "hsl(14 90% 58%)" },
+  { tag: "金融", title: "金融类", metric: "CPA -42%", region: "LATAM",
     summary: "聚焦巴西、墨西哥信贷场景,基于人群分层与风控信号优化获客。",
-    highlights: ["授信通过率 +21%", "CPA -42%", "次月留存 +16%"] },
-  { tag: "博彩", title: "欧洲娱乐平台", metric: "FTD +73%", region: "EU",
+    highlights: ["授信通过率 +21%", "CPA -42%", "次月留存 +16%"],
+    icon: Landmark, color: "hsl(160 70% 42%)" },
+  { tag: "博彩", title: "博彩类", metric: "FTD +73%", region: "EU",
     summary: "服务欧盟合规娱乐平台,完成从激活到首充的转化深度优化。",
-    highlights: ["FTD +73%", "活跃用户 +41%", "合规媒体 100% 直签"] },
-  { tag: "游戏", title: "中重度 SLG 出海", metric: "D7 留存 +28%", region: "Global",
+    highlights: ["FTD +73%", "活跃用户 +41%", "合规媒体 100% 直签"],
+    icon: Dice5, color: "hsl(340 75% 55%)" },
+  { tag: "游戏", title: "游戏类", metric: "D7 留存 +28%", region: "Global",
     summary: "面向 SLG 品类设计长周期投放策略,平衡 ROI 与生命周期价值。",
-    highlights: ["D7 留存 +28%", "付费 LTV +35%", "买量 ROI 提升 22%"] },
-  { tag: "短视频", title: "中东内容平台", metric: "CPI -35%", region: "MEA",
+    highlights: ["D7 留存 +28%", "付费 LTV +35%", "买量 ROI 提升 22%"],
+    icon: Gamepad2, color: "hsl(255 75% 62%)" },
+  { tag: "短视频", title: "短视频类", metric: "CPI -35%", region: "MEA",
     summary: "面向中东本地化短视频内容,基于阿语创意优化降低 CPI。",
-    highlights: ["CPI -35%", "活跃 DAU +210%", "本地化创意 12 套"] },
-  { tag: "数字服务", title: "全球工具应用", metric: "新增 +220%", region: "Global",
+    highlights: ["CPI -35%", "活跃 DAU +210%", "本地化创意 12 套"],
+    icon: Video, color: "hsl(195 85% 50%)" },
+  { tag: "数字服务", title: "数字服务", metric: "新增 +220%", region: "Global",
     summary: "面向工具类 App 的全球化扩张,完成 50+ 国家市场快速进入。",
-    highlights: ["50+ 国家上线", "新增 +220%", "买量结构多元化"] },
+    highlights: ["50+ 国家上线", "新增 +220%", "买量结构多元化"],
+    icon: Cloud, color: "hsl(40 90% 55%)" },
 ];
 
 const MEDIA_BLOCKS = [
@@ -312,27 +322,34 @@ export default function GlobalFlow() {
             <div className="col-span-12 md:col-span-3 flex md:flex-col gap-1 overflow-x-auto md:overflow-visible">
               {CASES.map((c, i) => {
                 const active = activeCase === i;
+                const Icon = c.icon;
                 return (
                   <button
                     key={c.title}
                     type="button"
                     onClick={() => setActiveCase(i)}
-                    className="relative text-left px-4 py-4 transition-all shrink-0 md:shrink"
+                    className="relative text-left px-4 py-4 transition-all shrink-0 md:shrink flex items-center gap-3"
                     style={{
                       borderLeft: active
-                        ? `3px solid ${ACCENT}`
+                        ? `3px solid ${c.color}`
                         : "3px solid transparent",
                       background: active ? "hsla(0,0%,100%,0.55)" : "transparent",
                     }}
                   >
+                    <span
+                      className="inline-flex items-center justify-center w-9 h-9 rounded-lg shrink-0"
+                      style={{
+                        background: active ? c.color : `${c.color.replace("hsl(", "hsla(").replace(")", " / 0.12)")}`,
+                        color: active ? "#fff" : c.color,
+                      }}
+                    >
+                      <Icon size={18} />
+                    </span>
                     <div
                       className="text-base md:text-lg font-bold leading-tight"
-                      style={{ color: active ? ACCENT : TEXT_DARK }}
+                      style={{ color: active ? c.color : TEXT_DARK }}
                     >
                       {c.title}
-                    </div>
-                    <div className="text-[11px] mt-1 tracking-wider" style={{ color: TEXT_MID }}>
-                      {c.tag} · {c.region}
                     </div>
                   </button>
                 );
@@ -365,22 +382,19 @@ export default function GlobalFlow() {
                   style={CARD}
                 >
                   <div
-                    className="text-[10px] font-bold tracking-[0.25em] mb-3 px-3 py-1 rounded-full"
-                    style={{ background: "rgba(99,102,241,0.1)", color: ACCENT }}
+                    className="inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-4"
+                    style={{ background: CASES[activeCase].color, color: "#fff" }}
                   >
-                    {CASES[activeCase].tag.toUpperCase()}
+                    {React.createElement(CASES[activeCase].icon, { size: 28 })}
                   </div>
                   <div
                     className="text-3xl md:text-4xl font-extrabold mb-3"
-                    style={{ color: ACCENT, lineHeight: 1.1 }}
+                    style={{ color: CASES[activeCase].color, lineHeight: 1.1 }}
                   >
                     {CASES[activeCase].metric}
                   </div>
                   <div className="text-sm font-semibold" style={{ color: TEXT_DARK }}>
                     {CASES[activeCase].title}
-                  </div>
-                  <div className="text-xs mt-1" style={{ color: TEXT_MID }}>
-                    {CASES[activeCase].region}
                   </div>
                 </motion.div>
               </div>
