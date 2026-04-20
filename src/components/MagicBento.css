@@ -14,7 +14,7 @@
    =========================================================== */
 .magic-bento-card {
   position: relative;
-  border-radius: 18px;
+  border-radius: 22px;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -25,12 +25,12 @@
   background: linear-gradient(
     155deg,
     hsla(0, 0%, 100%, 0.55) 0%,
-    hsla(0, 0%, 100%, 0.28) 45%,
-    hsla(0, 0%, 100%, 0.18) 100%
+    hsla(0, 0%, 100%, 0.30) 45%,
+    hsla(0, 0%, 100%, 0.20) 100%
   );
-  
-  
-  border: 1px solid hsla(0, 0%, 100%, 0.55);
+  backdrop-filter: blur(20px) saturate(170%);
+  -webkit-backdrop-filter: blur(20px) saturate(170%);
+  border: 1px solid hsla(0, 0%, 100%, 0.6);
   box-shadow:
     /* 内部顶部高光 */
     inset 0 1.5px 0 0 hsla(0, 0%, 100%, 0.9),
