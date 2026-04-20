@@ -8245,12 +8245,12 @@ function Container279() {
 
 function Section9Solution() {
   const steps = [
-    { icon: "ClipboardList", title: "投放策略制定", desc: "深入了解客户推广目标、预算与目标市场，量身定制投放策略。" },
-    { icon: "Building2", title: "媒体开户与资源整合", desc: "快速完成主流媒体平台开户，整合优质流量资源与渠道。" },
-    { icon: "Palette", title: "素材制作与创意支持", desc: "多语言素材制作与 A/B 测试，持续提升广告创意效果。" },
-    { icon: "Rocket", title: "投手投放与执行管理", desc: "全渠道精准投放，实时监控数据，灵活调整优化策略。" },
-    { icon: "BrainCircuit", title: "智能优化与效果提升", desc: "AI 驱动智能出价与人群定向，持续提升 ROI 与转化率。" },
-    { icon: "BarChart3", title: "流量变现与报告分析", desc: "数据报告与 ROI 复盘反哺策略，驱动持续增长闭环。" },
+    { icon: "ClipboardList", title: "投放策略制定", desc: "深入了解客户推广目标、预算与目标市场，量身定制投放策略。", hue: 260 }, // 紫
+    { icon: "Building2", title: "媒体开户与资源整合", desc: "快速完成主流媒体平台开户，整合优质流量资源与渠道。", hue: 215 }, // 蓝
+    { icon: "Palette", title: "素材制作与创意支持", desc: "多语言素材制作与 A/B 测试，持续提升广告创意效果。", hue: 330 }, // 粉
+    { icon: "Rocket", title: "投手投放与执行管理", desc: "全渠道精准投放，实时监控数据，灵活调整优化策略。", hue: 25 },  // 橙
+    { icon: "BrainCircuit", title: "智能优化与效果提升", desc: "AI 驱动智能出价与人群定向，持续提升 ROI 与转化率。", hue: 165 }, // 青绿
+    { icon: "BarChart3", title: "流量变现与报告分析", desc: "数据报告与 ROI 复盘反哺策略，驱动持续增长闭环。", hue: 45 },  // 金黄
   ];
 
   // 圆形布局参数
@@ -8425,17 +8425,19 @@ function Section9Solution() {
                 {IconComp && (
                   <IconComp
                     size={26}
-                    style={{ color: "hsl(260, 65%, 48%)" }}
+                    style={{ color: `hsl(${step.hue}, 70%, 55%)` }}
                     strokeWidth={2}
-                    className="transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110 group-hover:[color:hsl(260,75%,42%)] relative z-10"
+                    className="transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110 relative z-10"
                   />
                 )}
                 {/* 序号徽标 */}
                 <div
-                  className="absolute -top-1 -right-1 w-[22px] h-[22px] rounded-full flex items-center justify-center text-[11px] font-bold text-white transition-all duration-500 group-hover:scale-110 group-hover:rotate-[10deg] group-hover:shadow-[0_6px_14px_-2px_hsla(260,75%,40%,0.7)]"
+                  className="absolute -top-1 -right-1 w-[22px] h-[22px] rounded-full flex items-center justify-center text-[11px] font-semibold transition-all duration-500 group-hover:scale-110"
                   style={{
-                    background: "linear-gradient(135deg, hsl(260, 75%, 55%) 0%, hsl(220, 80%, 55%) 100%)",
-                    boxShadow: "0 4px 10px -2px hsla(260,70%,40%,0.5)",
+                    background: `hsla(${step.hue}, 70%, 96%, 0.95)`,
+                    color: `hsl(${step.hue}, 55%, 55%)`,
+                    border: `1px solid hsla(${step.hue}, 60%, 75%, 0.6)`,
+                    boxShadow: `0 2px 6px -2px hsla(${step.hue}, 50%, 60%, 0.25)`,
                   }}
                 >
                   {i + 1}
