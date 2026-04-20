@@ -6,12 +6,15 @@
 }
 
 /* ===========================================================
-   浅色磨砂玻璃卡片：光晕仅在卡片内部 (overflow: hidden 裁剪)
-   蓝 hsl(225 95% 65%)  紫 hsl(270 80% 68%)  比例 70/30
+   浅色磨砂玻璃卡片 - 真实玻璃质感
+   - 顶部斜向高光 (specular highlight)
+   - 边缘反射 (rim light)
+   - 缓慢游动的流光
+   - 底部投影 + 反光
    =========================================================== */
 .magic-bento-card {
   position: relative;
-  border-radius: 16px;
+  border-radius: 18px;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -19,19 +22,28 @@
   min-height: 200px;
   overflow: hidden;
   isolation: isolate;
-  /* 纯透明磨砂玻璃 - 无光晕 */
   background: linear-gradient(
-    160deg,
-    hsla(0, 0%, 100%, 0.45) 0%,
-    hsla(0, 0%, 100%, 0.25) 100%
+    155deg,
+    hsla(0, 0%, 100%, 0.55) 0%,
+    hsla(0, 0%, 100%, 0.28) 45%,
+    hsla(0, 0%, 100%, 0.18) 100%
   );
-  backdrop-filter: blur(20px) saturate(1.4);
-  -webkit-backdrop-filter: blur(20px) saturate(1.4);
-  border: 1px solid hsla(0, 0%, 100%, 0.5);
+  backdrop-filter: blur(22px) saturate(1.6);
+  -webkit-backdrop-filter: blur(22px) saturate(1.6);
+  border: 1px solid hsla(0, 0%, 100%, 0.55);
   box-shadow:
-    inset 0 1px 0 0 hsla(0, 0%, 100%, 0.6),
-    inset 0 -1px 0 0 hsla(0, 0%, 100%, 0.1),
-    0 8px 24px -10px hsla(230, 30%, 20%, 0.18);
+    /* 内部顶部高光 */
+    inset 0 1.5px 0 0 hsla(0, 0%, 100%, 0.9),
+    /* 内部左侧细高光 */
+    inset 1px 0 0 0 hsla(0, 0%, 100%, 0.4),
+    /* 内部底部暗反射 */
+    inset 0 -1px 0 0 hsla(230, 30%, 50%, 0.12),
+    /* 内部底部反光 */
+    inset 0 -10px 24px -12px hsla(0, 0%, 100%, 0.35),
+    /* 外部主阴影 */
+    0 10px 30px -10px hsla(230, 40%, 25%, 0.22),
+    /* 外部底部贴近阴影 */
+    0 2px 6px -2px hsla(230, 40%, 25%, 0.15);
   transition:
     transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
     border-color 0.4s ease,
@@ -43,17 +55,85 @@
   --glow-color: 139, 92, 246;
 }
 
+/* 顶部斜向 specular 高光带 - 模拟环境光在玻璃表面的反射 */
+.magic-bento-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    /* 顶部弧形高光 */
+    radial-gradient(
+      ellipse 120% 50% at 50% -10%,
+      hsla(0, 0%, 100%, 0.55) 0%,
+      hsla(0, 0%, 100%, 0.18) 35%,
+      transparent 65%
+    ),
+    /* 左上斜向流光带 */
+    linear-gradient(
+      135deg,
+      transparent 30%,
+      hsla(0, 0%, 100%, 0.22) 45%,
+      hsla(0, 0%, 100%, 0.05) 55%,
+      transparent 70%
+    );
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: screen;
+}
+
+/* 缓慢游走的流光 - 一道斜向光带循环掠过 */
+.magic-bento-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    115deg,
+    transparent 40%,
+    hsla(0, 0%, 100%, 0.0) 45%,
+    hsla(0, 0%, 100%, 0.18) 50%,
+    hsla(0, 0%, 100%, 0.0) 55%,
+    transparent 60%
+  );
+  pointer-events: none;
+  z-index: 2;
+  transform: translateX(-60%) translateY(-60%) rotate(0deg);
+  animation: glassShimmer 7s ease-in-out infinite;
+  mix-blend-mode: screen;
+  opacity: 0.85;
+}
+
+@keyframes glassShimmer {
+  0%, 100% {
+    transform: translateX(-60%) translateY(-60%);
+  }
+  50% {
+    transform: translateX(20%) translateY(20%);
+  }
+}
+
 .magic-bento-card--border-glow {
-  border-color: hsla(0, 0%, 100%, 0.5);
+  border-color: hsla(0, 0%, 100%, 0.55);
 }
 
 .magic-bento-card:hover {
-  transform: translateY(-3px);
-  border-color: hsla(0, 0%, 100%, 0.7);
+  transform: translateY(-4px);
+  border-color: hsla(0, 0%, 100%, 0.8);
   box-shadow:
-    inset 0 1px 0 0 hsla(0, 0%, 100%, 0.75),
-    inset 0 -1px 0 0 hsla(0, 0%, 100%, 0.12),
-    0 14px 36px -12px hsla(230, 30%, 20%, 0.25);
+    inset 0 1.5px 0 0 hsla(0, 0%, 100%, 1),
+    inset 1px 0 0 0 hsla(0, 0%, 100%, 0.5),
+    inset 0 -1px 0 0 hsla(230, 30%, 50%, 0.15),
+    inset 0 -12px 28px -12px hsla(0, 0%, 100%, 0.5),
+    0 18px 42px -14px hsla(230, 40%, 25%, 0.32),
+    0 4px 10px -3px hsla(230, 40%, 25%, 0.18);
+}
+
+.magic-bento-card:hover::after {
+  animation-duration: 3.5s;
+  opacity: 1;
 }
 
 /* Default state */
@@ -75,6 +155,7 @@
   font-weight: 700;
   letter-spacing: 0.05em;
   color: hsl(230, 30%, 18%);
+  text-shadow: 0 1px 0 hsla(0, 0%, 100%, 0.6);
 }
 
 .magic-bento-card__scene {
@@ -110,6 +191,7 @@
   font-size: 18px;
   font-weight: 700;
   color: hsl(230, 30%, 18%);
+  text-shadow: 0 1px 0 hsla(0, 0%, 100%, 0.6);
 }
 
 .magic-bento-card__full-name {
