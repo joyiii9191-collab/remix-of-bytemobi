@@ -1,21 +1,20 @@
 import type React from "react";
 
 /**
- * 全站统一的玻璃卡片样式（蓝紫磨砂玻璃，logo 蓝 70% / 紫 30%）
- * 与首页 ReflectApp 的卡片质感保持一致。
+ * 全站统一的玻璃卡片 style 兜底（与首页"核心业务板块" MagicBento 一致）。
+ * 真实的玻璃质感（背景、shimmer、hover）都在 `.glass-card` 类里（src/index.css），
+ * 这里仅保留 inline border-radius 作为兜底，便于不知情的旧代码直接 `style={CARD}` 不出错。
  *
- * 使用方式：
- *   <div className="rounded-2xl p-6 glass-card" style={GLASS_CARD}>
+ * 推荐写法：
+ *   <div className="rounded-2xl p-6 glass-card">…</div>
  *
- * `glass-card` class 提供动态高光、shimmer 和 hover 抬升效果，
- * 已在 src/index.css 中全局定义。
+ * 兼容旧写法：
+ *   <div className="rounded-2xl p-6 glass-card" style={GLASS_CARD}>…</div>
  */
 export const GLASS_CARD: React.CSSProperties = {
-  background:
-    "linear-gradient(135deg, hsla(220,95%,75%,0.18) 0%, hsla(232,85%,72%,0.14) 35%, hsla(250,75%,72%,0.12) 70%, hsla(270,75%,75%,0.16) 100%), linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.35) 100%)",
-  border: "1px solid hsla(232, 80%, 70%, 0.22)",
-  boxShadow:
-    "inset 0 1.5px 0 0 rgba(255,255,255,0.85), inset 1px 0 0 0 rgba(255,255,255,0.4), inset 0 -1px 0 0 hsla(230,30%,50%,0.12), inset 0 -10px 24px -12px rgba(255,255,255,0.4), 0 10px 30px -10px hsla(232,85%,40%,0.25), 0 2px 6px -2px hsla(232,85%,40%,0.15)",
+  // 让旧的 style={CARD} 不再覆盖 .glass-card 的关键属性，
+  // 仅保留 borderRadius 作为视觉兜底。
+  borderRadius: 22,
 };
 
 /** 页面统一文字色 */
@@ -25,7 +24,8 @@ export const ACCENT = "hsl(245 60% 45%)";
 
 /** 顶部小徽章统一样式 */
 export const EYEBROW_PILL: React.CSSProperties = {
-  background: "rgba(99,102,241,0.1)",
-  color: "hsl(245 60% 35%)",
-  border: "1px solid rgba(124,58,237,0.18)",
+  background: "hsla(0, 0%, 100%, 0.45)",
+  color: "hsl(260 60% 40%)",
+  border: "1px solid hsla(0, 0%, 100%, 0.7)",
+  boxShadow: "inset 0 1px 0 hsla(0, 0%, 100%, 0.8)",
 };
