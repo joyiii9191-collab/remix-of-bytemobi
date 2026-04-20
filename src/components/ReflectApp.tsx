@@ -8299,16 +8299,14 @@ function Section10Contact() {
 
               {/* 提交按钮 */}
               <div className="flex items-center mt-[4px]">
-                <button
+                <StarBorder
+                  as="button"
                   type="submit"
-                  className="raycast-btn relative inline-flex items-center justify-center gap-2 w-full py-3 rounded-full text-[14px] font-medium text-white/90 overflow-hidden cursor-pointer"
-                  style={{ background: 'rgba(255,255,255,0.04)' }}
+                  className="!block w-full"
+                  speed="5s"
                 >
-                  <span className="raycast-btn-border" />
-                  <span className="raycast-btn-bg" />
-                  <span className="relative z-[1]">提交信息</span>
-                  <span className="relative z-[1] ml-1">→</span>
-                </button>
+                  提交信息
+                </StarBorder>
               </div>
             </form>
           )}
