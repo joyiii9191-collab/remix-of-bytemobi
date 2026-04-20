@@ -2339,54 +2339,48 @@ function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 
 
   return (
     <div ref={wrapperRef} className="relative w-full overflow-hidden">
-      <div className="flex flex-col gap-3">
-        {/* Tag — single, centered, static (no flow) */}
-        {tag && (
-          <div
-            className="flex justify-center w-full"
-            style={{
-              opacity: phase === 'idle' ? 0 : 1,
-              transition: 'opacity 0.6s ease-out',
-            }}
-          >
-            <span
-              className="inline-flex items-center px-[16px] py-[5px] rounded-full text-[14px] text-white font-normal tracking-[-0.21px] leading-[1.6] whitespace-nowrap"
-              style={{
-                border: "1px solid rgba(255,255,255,0.2)",
-                background: "rgba(255,255,255,0.05)",
-              }}
-            >
-              {tag}
-            </span>
-          </div>
-        )}
-
-        {/* Logos row */}
+      {/* Logos + tag flowing together as one row */}
+      <div
+        style={{
+          width: 'max-content',
+          paddingLeft: isLeft ? '50vw' : 0,
+          paddingRight: isLeft ? 0 : '50vw',
+          opacity: phase === 'idle' ? 0 : 1,
+          transition: 'opacity 0.8s ease-out',
+        }}
+      >
         <div
+          className="flex items-center gap-6"
           style={{
             width: 'max-content',
-            paddingLeft: isLeft ? '50vw' : 0,
-            paddingRight: isLeft ? 0 : '50vw',
-            opacity: phase === 'idle' ? 0 : 1,
-            transition: 'opacity 0.8s ease-out',
+            animation: phase === 'flowing'
+              ? `${isLeft ? 'marqueeLeft' : 'marqueeRight'} 40s linear infinite`
+              : 'none',
+            transform: phase === 'flowing'
+              ? undefined
+              : (isLeft ? 'translateX(0)' : 'translateX(-50%)'),
           }}
         >
-          <div
-            className="flex items-center gap-6"
-            style={{
-              width: 'max-content',
-              animation: phase === 'flowing'
-                ? `${isLeft ? 'marqueeLeft' : 'marqueeRight'} 40s linear infinite`
-                : 'none',
-              transform: phase === 'flowing'
-                ? undefined
-                : (isLeft ? 'translateX(0)' : 'translateX(-50%)'),
-            }}
-          >
-            {doubled.map((item, i) => (
-              <LogoCard key={i} label={item.label} index={i} image={item.image} />
-            ))}
-          </div>
+          {doubled.map((item, i) => {
+            // Insert tag at the start of each logos copy (positions 0 and logos.length)
+            const showTag = tag && (i === 0 || i === logos.length);
+            return (
+              <div key={i} className="flex items-center gap-6">
+                {showTag && (
+                  <span
+                    className="inline-flex items-center px-[16px] py-[5px] rounded-full text-[14px] text-white font-normal tracking-[-0.21px] leading-[1.6] whitespace-nowrap shrink-0"
+                    style={{
+                      border: "1px solid rgba(255,255,255,0.2)",
+                      background: "rgba(255,255,255,0.05)",
+                    }}
+                  >
+                    {tag}
+                  </span>
+                )}
+                <LogoCard label={item.label} index={i} image={item.image} />
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
