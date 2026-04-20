@@ -52,19 +52,19 @@ export function OptimizedHeader() {
                 to={item.to}
                 className="text-sm transition-all px-3 py-1.5 rounded-full whitespace-nowrap"
                 style={{
-                  color: active ? 'hsl(25 60% 30%)' : 'hsl(25 30% 25%)',
-                  background: active ? 'hsla(30, 80%, 70%, 0.18)' : 'transparent',
+                  color: active ? 'hsl(265 70% 45%)' : 'hsl(250 25% 25%)',
+                  background: active ? 'hsla(270, 80%, 75%, 0.18)' : 'transparent',
                   fontWeight: active ? 600 : 500,
                 }}
                 onMouseEnter={(e) => {
                   if (active) return;
-                  e.currentTarget.style.background = 'hsla(30, 80%, 70%, 0.14)';
-                  e.currentTarget.style.color = 'hsl(25 60% 30%)';
+                  e.currentTarget.style.background = 'hsla(270, 80%, 75%, 0.14)';
+                  e.currentTarget.style.color = 'hsl(265 70% 45%)';
                 }}
                 onMouseLeave={(e) => {
                   if (active) return;
                   e.currentTarget.style.background = 'transparent';
-                  e.currentTarget.style.color = 'hsl(25 30% 25%)';
+                  e.currentTarget.style.color = 'hsl(250 25% 25%)';
                 }}
               >
                 {t(item.key)}
