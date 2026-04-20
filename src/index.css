@@ -216,6 +216,23 @@ All colors MUST be HSL.
 .animate-float-slow { animation: float-slow 18s ease-in-out infinite; }
 .animate-float-slower { animation: float-slower 24s ease-in-out infinite; }
 
+/* Hero 背景图 ken-burns 流动效果 — 缓慢缩放 + 位移 */
+.hero-bg-kenburns {
+  will-change: transform;
+  transform-origin: center center;
+  animation: hero-kenburns 40s ease-in-out infinite alternate;
+}
+
+@keyframes hero-kenburns {
+  0%   { transform: scale(1.08) translate(-1.5%, -1%); }
+  50%  { transform: scale(1.15) translate(1.5%, 1.2%); }
+  100% { transform: scale(1.1)  translate(-1%, 1.5%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-kenburns { animation: none; transform: scale(1.05); }
+}
+
 /* ========================================================================
    动画 MESH GRADIENT — 多个独立漂浮色块,体现高级玻璃磨砂质感
    每个 blob 一种颜色 + 独立动画轨迹 + 大模糊
