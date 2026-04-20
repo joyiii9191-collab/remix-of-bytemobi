@@ -2505,38 +2505,101 @@ function Section8TrafficMap() {
   // 浅色 hex 风格世界地图 — 用六边形点阵填充近似大陆形状
   // 在 1000x500 viewBox 上生成
   const mapDots = (() => {
+    // 每个 blob 用椭圆近似一块陆地。用更细密的 blob 拼接出更完整的世界轮廓。
+    // viewBox: 1000 x 500
     const blobs: Array<{ cx: number; cy: number; w: number; h: number }> = [
-      // North America
-      { cx: 200, cy: 170, w: 170, h: 130 },
-      { cx: 240, cy: 250, w: 70, h: 50 },
-      // South America
-      { cx: 300, cy: 360, w: 90, h: 120 },
-      // Europe
-      { cx: 510, cy: 150, w: 90, h: 70 },
-      // Africa
-      { cx: 540, cy: 290, w: 100, h: 140 },
-      // Middle East
-      { cx: 600, cy: 215, w: 70, h: 55 },
-      // Russia / North Asia
-      { cx: 720, cy: 130, w: 240, h: 70 },
-      // South Asia / India
-      { cx: 690, cy: 250, w: 80, h: 70 },
-      // East Asia / China
-      { cx: 790, cy: 200, w: 100, h: 80 },
-      // Japan
-      { cx: 875, cy: 195, w: 28, h: 55 },
-      // SE Asia
-      { cx: 800, cy: 290, w: 80, h: 55 },
-      // Oceania
-      { cx: 850, cy: 380, w: 100, h: 55 },
+      // ====== North America ======
+      // Alaska
+      { cx: 130, cy: 110, w: 80, h: 50 },
+      // Canada main
+      { cx: 230, cy: 130, w: 200, h: 80 },
+      // Greenland
+      { cx: 380, cy: 90,  w: 70, h: 70 },
+      // USA mainland
+      { cx: 220, cy: 200, w: 180, h: 70 },
+      // Mexico
+      { cx: 220, cy: 260, w: 80, h: 40 },
+      // Central America
+      { cx: 260, cy: 290, w: 60, h: 30 },
+      // Caribbean (sparse)
+      { cx: 295, cy: 275, w: 50, h: 20 },
+
+      // ====== South America ======
+      { cx: 305, cy: 330, w: 70, h: 40 },   // North (Colombia/Venezuela)
+      { cx: 320, cy: 380, w: 90, h: 60 },   // Brazil
+      { cx: 305, cy: 440, w: 60, h: 50 },   // South cone
+
+      // ====== Europe ======
+      // British Isles
+      { cx: 480, cy: 150, w: 30, h: 30 },
+      // Scandinavia
+      { cx: 520, cy: 120, w: 60, h: 50 },
+      // Western Europe
+      { cx: 510, cy: 170, w: 70, h: 40 },
+      // Eastern Europe
+      { cx: 560, cy: 165, w: 60, h: 50 },
+      // Mediterranean / Iberia
+      { cx: 490, cy: 195, w: 50, h: 25 },
+      // Italy / Balkans
+      { cx: 530, cy: 200, w: 50, h: 30 },
+
+      // ====== Africa ======
+      // North Africa (Sahara)
+      { cx: 530, cy: 240, w: 130, h: 50 },
+      // West Africa
+      { cx: 500, cy: 280, w: 70, h: 50 },
+      // Central Africa
+      { cx: 550, cy: 310, w: 80, h: 60 },
+      // East Africa
+      { cx: 590, cy: 330, w: 50, h: 70 },
+      // Southern Africa
+      { cx: 555, cy: 390, w: 70, h: 60 },
+      // Madagascar
+      { cx: 620, cy: 380, w: 18, h: 40 },
+
+      // ====== Middle East ======
+      { cx: 605, cy: 230, w: 80, h: 50 },
+
+      // ====== Asia ======
+      // Russia / Siberia (huge band)
+      { cx: 700, cy: 110, w: 280, h: 60 },
+      { cx: 760, cy: 150, w: 200, h: 40 },
+      // Central Asia
+      { cx: 670, cy: 195, w: 100, h: 35 },
+      // China
+      { cx: 780, cy: 215, w: 110, h: 60 },
+      // Mongolia
+      { cx: 780, cy: 175, w: 80, h: 25 },
+      // Korea
+      { cx: 845, cy: 215, w: 18, h: 30 },
+      // Japan (3 blobs for arc)
+      { cx: 875, cy: 195, w: 22, h: 30 },
+      { cx: 880, cy: 220, w: 20, h: 28 },
+      { cx: 885, cy: 245, w: 18, h: 25 },
+      // India
+      { cx: 705, cy: 250, w: 70, h: 70 },
+      // Indochina
+      { cx: 790, cy: 270, w: 50, h: 50 },
+      // SE Asia islands (Indonesia/Philippines)
+      { cx: 800, cy: 320, w: 110, h: 30 },
+      { cx: 850, cy: 295, w: 35, h: 25 },
+
+      // ====== Oceania ======
+      // Australia
+      { cx: 850, cy: 380, w: 110, h: 60 },
+      // New Zealand
+      { cx: 935, cy: 425, w: 22, h: 35 },
+      // PNG
+      { cx: 880, cy: 345, w: 35, h: 18 },
     ];
+
     const dots: JSX.Element[] = [];
     let key = 0;
-    const step = 11;          // hex grid spacing
-    const hexR = 3.6;         // hex radius
+    const step = 9;        // dot grid spacing — denser
+    const dotR = 2.0;      // dot radius (round)
     blobs.forEach((b, bi) => {
-      const cols = Math.max(4, Math.round(b.w / step));
-      const rows = Math.max(3, Math.round(b.h / step));
+      const cols = Math.max(3, Math.round(b.w / step));
+      const rows = Math.max(2, Math.round(b.h / step));
       for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
           const offset = r % 2 === 0 ? 0 : step / 2;
@@ -2546,24 +2609,15 @@ function Section8TrafficMap() {
           const nx = (px - b.cx) / (b.w / 2);
           const ny = (py - b.cy) / (b.h / 2);
           if (nx * nx + ny * ny > 1) continue;
-          // 跳点制造海岸不规则
+          // 跳点制造不规则海岸
           const seed = (bi * 131 + r * 17 + c * 7 + Math.round((nx + ny) * 9)) % 100;
-          if (seed < 14) continue;
+          if (seed < 8) continue;
           const tone = seed % 3;
           const fill =
-            tone === 0 ? 'rgba(99, 102, 241, 0.45)'
-            : tone === 1 ? 'rgba(139, 92, 246, 0.40)'
-            : 'rgba(168, 85, 247, 0.35)';
-          // 用六边形 polygon
-          const points = [
-            [px + hexR, py],
-            [px + hexR / 2, py + hexR * 0.866],
-            [px - hexR / 2, py + hexR * 0.866],
-            [px - hexR, py],
-            [px - hexR / 2, py - hexR * 0.866],
-            [px + hexR / 2, py - hexR * 0.866],
-          ].map(p => p.join(',')).join(' ');
-          dots.push(<polygon key={key++} points={points} fill={fill} />);
+            tone === 0 ? 'rgba(99, 102, 241, 0.55)'
+            : tone === 1 ? 'rgba(129, 110, 240, 0.50)'
+            : 'rgba(139, 92, 246, 0.45)';
+          dots.push(<circle key={key++} cx={px} cy={py} r={dotR} fill={fill} />);
         }
       }
     });
