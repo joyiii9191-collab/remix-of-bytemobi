@@ -8948,16 +8948,16 @@ export default function ReflectApp() {
           backgroundImage: `url(${homeBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          filter: "blur(40px) saturate(0.85) brightness(0.92)",
-          transform: "scale(1.2)",
-          opacity: 0.3,
+          filter: "blur(80px) saturate(0.6) brightness(1.05)",
+          transform: "scale(1.3)",
+          opacity: 0.18,
         }}
       />
       <div
         aria-hidden
         className="fixed inset-0 pointer-events-none z-0"
         style={{
-          background: "hsla(0, 0%, 100%, 0.5)",
+          background: "hsla(0, 0%, 100%, 0.78)",
         }}
       />
 
