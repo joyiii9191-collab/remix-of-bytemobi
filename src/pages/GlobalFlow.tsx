@@ -300,7 +300,7 @@ export default function GlobalFlow() {
       {/* === Screen 6 — 案例(参考 efunad works 三栏布局) === */}
       <SnapScreen id="cases" bg="tint">
         <ScreenInner className="!justify-start">
-          <ScreenTitle>六大行业代表案例</ScreenTitle>
+          <ScreenTitle>增长成果精选</ScreenTitle>
           <ScreenLead>切换左侧行业,查看代表项目与核心成果。</ScreenLead>
 
           <div
