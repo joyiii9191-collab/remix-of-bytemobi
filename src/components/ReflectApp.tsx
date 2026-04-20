@@ -2481,24 +2481,60 @@ function Section6LogoWall() {
 }
 
 function Section8TrafficMap() {
-  // 区域卡片（x/y 为地图百分比定位）
-  const regions: Array<{
-    code: string;
-    name: string;
-    share: string;
-    x: number; // 0-100 (left%)
-    y: number; // 0-100 (top%)
-    align?: 'left' | 'right';
-  }> = [
-    { code: 'NA',    name: '北美',    share: '33%', x: 14, y: 22, align: 'left' },
-    { code: 'EU',    name: '欧洲',    share: '7%',  x: 46, y: 16, align: 'left' },
-    { code: 'ME',    name: '中东',    share: '4%',  x: 54, y: 40, align: 'left' },
-    { code: 'JP',    name: '日本',    share: '28%', x: 82, y: 24, align: 'right' },
-    { code: 'IN',    name: '印度',    share: '10%', x: 64, y: 46, align: 'left' },
-    { code: 'SEA',   name: '东南亚',  share: '8%',  x: 78, y: 56, align: 'right' },
-    { code: 'LATAM', name: '拉美',    share: '7%',  x: 24, y: 66, align: 'left' },
-    { code: 'AF',    name: '非洲',    share: '3%',  x: 48, y: 62, align: 'right' },
+  const regions: Array<{ code: string; name: string; share: number; color: string }> = [
+    { code: 'NA',    name: '北美',    share: 33, color: 'hsl(245, 75%, 58%)' },
+    { code: 'JP',    name: '日本',    share: 28, color: 'hsl(265, 75%, 60%)' },
+    { code: 'IN',    name: '印度',    share: 10, color: 'hsl(280, 70%, 62%)' },
+    { code: 'SEA',   name: '东南亚',  share: 8,  color: 'hsl(225, 75%, 60%)' },
+    { code: 'LATAM', name: '拉美',    share: 7,  color: 'hsl(255, 70%, 65%)' },
+    { code: 'EU',    name: '欧洲',    share: 7,  color: 'hsl(235, 70%, 60%)' },
+    { code: 'ME',    name: '中东',    share: 4,  color: 'hsl(270, 65%, 65%)' },
+    { code: 'AF',    name: '非洲',    share: 3,  color: 'hsl(290, 60%, 65%)' },
   ];
+
+  // Globe (hex-dot sphere) — generated procedurally
+  // We approximate a sphere using a polar grid; each "land" cell is filled with a hex dot
+  const globeDots = (() => {
+    const cx = 250;
+    const cy = 250;
+    const R = 230;
+    const dots: JSX.Element[] = [];
+    let key = 0;
+    const rows = 44;
+    for (let i = 0; i < rows; i++) {
+      // latitude from -PI/2 .. PI/2
+      const lat = -Math.PI / 2 + (i / (rows - 1)) * Math.PI;
+      const ringR = Math.cos(lat) * R;
+      const yy = cy + Math.sin(lat) * R;
+      const cols = Math.max(6, Math.round((2 * Math.PI * ringR) / 11));
+      for (let j = 0; j < cols; j++) {
+        const lon = (j / cols) * Math.PI * 2;
+        const xx = cx + Math.cos(lon) * ringR;
+        // pseudo-random "land" mask — clusters that resemble continents
+        const seed = Math.sin(i * 12.9898 + j * 78.233) * 43758.5453;
+        const rnd = seed - Math.floor(seed);
+        // Bias toward equator + some longitudinal clusters
+        const landBias =
+          0.55 +
+          0.25 * Math.cos(lat * 1.4) +
+          0.18 * Math.sin(lon * 2.1 + Math.cos(lat) * 1.2) +
+          0.14 * Math.cos(lon * 3.3 - lat * 2.0);
+        if (rnd > landBias) continue;
+        // Depth shading from sphere normal (left-top light)
+        const nx = (xx - cx) / R;
+        const ny = (yy - cy) / R;
+        const nz = Math.sqrt(Math.max(0, 1 - nx * nx - ny * ny));
+        const light = Math.max(0, 0.35 * -nx + 0.45 * -ny + 0.6 * nz);
+        const alpha = 0.25 + light * 0.55;
+        // Mix of indigo/purple
+        const fill = (i + j) % 5 === 0
+          ? `rgba(168, 85, 247, ${alpha.toFixed(3)})`
+          : `rgba(99, 102, 241, ${alpha.toFixed(3)})`;
+        dots.push(<circle key={key++} cx={xx} cy={yy} r={2} fill={fill} />);
+      }
+    }
+    return dots;
+  })();
 
   return (
     <div className="relative w-full h-full flex flex-col items-center justify-center px-[80px] gap-[24px] pt-[80px]" data-name="Section8TrafficMap">
@@ -2515,140 +2551,90 @@ function Section8TrafficMap() {
         </p>
       </div>
 
-      {/* World map (light theme) */}
-      <div className="relative w-full max-w-[1100px] z-10 flex-1 min-h-0">
-        <div
-          className="relative w-full h-full rounded-[24px] overflow-hidden"
-          style={{
-            background: 'linear-gradient(135deg, rgba(245,242,255,0.95) 0%, rgba(232,228,250,0.92) 50%, rgba(240,235,255,0.95) 100%)',
-            border: '1px solid rgba(139,92,246,0.18)',
-            boxShadow: '0 20px 60px rgba(99,102,241,0.10), inset 0 1px 0 rgba(255,255,255,0.6)',
-          }}
-        >
-          {/* Subtle grid */}
-          <div className="absolute inset-0 opacity-[0.06]" style={{
-            backgroundImage: 'linear-gradient(rgba(99,102,241,1) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,1) 1px, transparent 1px)',
-            backgroundSize: '60px 60px',
+      {/* Body: globe + cards */}
+      <div className="relative w-full max-w-[1200px] z-10 flex-1 min-h-0 flex items-center gap-[40px]">
+        {/* Left: globe */}
+        <div className="relative shrink-0" style={{ width: 520, height: 520 }}>
+          {/* Soft halo */}
+          <div className="absolute inset-0 rounded-full" style={{
+            background: 'radial-gradient(circle at 38% 38%, rgba(180,160,255,0.45) 0%, rgba(150,130,240,0.18) 45%, transparent 70%)',
+            filter: 'blur(12px)',
           }} />
-
-          {/* Dotted continents (light) */}
-          <svg viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid meet" className="absolute inset-0 w-full h-full">
+          {/* Outer ring */}
+          <div className="absolute inset-[28px] rounded-full" style={{
+            border: '1px solid rgba(139,92,246,0.18)',
+          }} />
+          <div className="absolute inset-[60px] rounded-full" style={{
+            border: '1px dashed rgba(139,92,246,0.15)',
+          }} />
+          {/* Sphere base */}
+          <svg viewBox="0 0 500 500" className="absolute inset-0 w-full h-full">
             <defs>
-              <radialGradient id="lightDot">
-                <stop offset="0%" stopColor="rgba(99,102,241,0.85)" />
-                <stop offset="100%" stopColor="rgba(139,92,246,0.15)" />
+              <radialGradient id="sphereGrad" cx="38%" cy="35%" r="65%">
+                <stop offset="0%" stopColor="rgba(255,255,255,0.85)" />
+                <stop offset="55%" stopColor="rgba(220,215,255,0.55)" />
+                <stop offset="100%" stopColor="rgba(140,120,230,0.18)" />
               </radialGradient>
-              <radialGradient id="lightDotPurple">
-                <stop offset="0%" stopColor="rgba(168,85,247,0.85)" />
-                <stop offset="100%" stopColor="rgba(168,85,247,0.10)" />
+              <radialGradient id="sphereShade" cx="70%" cy="80%" r="70%">
+                <stop offset="0%" stopColor="rgba(60,40,140,0.20)" />
+                <stop offset="100%" stopColor="rgba(60,40,140,0)" />
               </radialGradient>
             </defs>
-            {/* Generated continent dot field (北美/南美/欧洲/非洲/亚洲/大洋洲) */}
-            {(() => {
-              // 经手工调整的稀疏大陆点阵（x,y 基于 1000x500 viewBox）
-              const blobs: Array<{ cx: number; cy: number; w: number; h: number }> = [
-                // North America
-                { cx: 200, cy: 150, w: 150, h: 110 },
-                // Central America
-                { cx: 230, cy: 250, w: 60, h: 40 },
-                // South America
-                { cx: 290, cy: 360, w: 80, h: 110 },
-                // Europe
-                { cx: 500, cy: 140, w: 80, h: 60 },
-                // Africa
-                { cx: 530, cy: 290, w: 90, h: 130 },
-                // Middle East
-                { cx: 590, cy: 220, w: 60, h: 50 },
-                // Russia / North Asia
-                { cx: 700, cy: 130, w: 200, h: 60 },
-                // South Asia / India
-                { cx: 680, cy: 260, w: 70, h: 60 },
-                // East Asia / China
-                { cx: 770, cy: 200, w: 90, h: 70 },
-                // Japan
-                { cx: 855, cy: 200, w: 25, h: 45 },
-                // SE Asia
-                { cx: 790, cy: 290, w: 70, h: 50 },
-                // Oceania
-                { cx: 830, cy: 380, w: 90, h: 50 },
-              ];
-              const dots: JSX.Element[] = [];
-              let key = 0;
-              blobs.forEach((b, bi) => {
-                const cols = Math.max(4, Math.round(b.w / 14));
-                const rows = Math.max(3, Math.round(b.h / 14));
-                for (let r = 0; r < rows; r++) {
-                  for (let c = 0; c < cols; c++) {
-                    const px = b.cx - b.w / 2 + (c + 0.5) * (b.w / cols);
-                    const py = b.cy - b.h / 2 + (r + 0.5) * (b.h / rows);
-                    // 椭圆裁剪
-                    const nx = (px - b.cx) / (b.w / 2);
-                    const ny = (py - b.cy) / (b.h / 2);
-                    if (nx * nx + ny * ny > 1) continue;
-                    // 随机化大小、跳点
-                    const seed = (bi * 131 + r * 17 + c * 7) % 100;
-                    if (seed < 18) continue;
-                    const radius = 1.3 + (seed % 5) * 0.25;
-                    const useFill = seed % 3 === 0 ? 'url(#lightDotPurple)' : 'url(#lightDot)';
-                    dots.push(
-                      <circle key={key++} cx={px} cy={py} r={radius} fill={useFill} />
-                    );
-                  }
-                }
-              });
-              return dots;
-            })()}
+            {/* Sphere body */}
+            <circle cx="250" cy="250" r="230" fill="url(#sphereGrad)" />
+            <circle cx="250" cy="250" r="230" fill="url(#sphereShade)" />
+            {/* Specular highlight */}
+            <ellipse cx="180" cy="170" rx="70" ry="40" fill="rgba(255,255,255,0.35)" opacity="0.8" />
+            {/* Continent dots */}
+            <g>{globeDots}</g>
+            {/* Rim */}
+            <circle cx="250" cy="250" r="230" fill="none" stroke="rgba(139,92,246,0.25)" strokeWidth="1" />
           </svg>
+        </div>
 
-          {/* Region info cards */}
+        {/* Right: region cards grid */}
+        <div className="flex-1 grid grid-cols-2 gap-3">
           {regions.map((r) => (
             <div
               key={r.code}
-              className="absolute"
+              className="group relative rounded-[14px] p-4 transition-all duration-300 hover:-translate-y-0.5"
               style={{
-                left: `${r.x}%`,
-                top: `${r.y}%`,
-                transform: r.align === 'right' ? 'translate(-100%, -50%)' : 'translate(0, -50%)',
+                background: 'rgba(255,255,255,0.7)',
+                border: '1px solid rgba(139,92,246,0.18)',
+                boxShadow: '0 6px 18px rgba(60,40,140,0.06), inset 0 1px 0 rgba(255,255,255,0.9)',
+                backdropFilter: 'blur(8px)',
               }}
             >
-              {/* Anchor dot */}
-              <div
-                className="absolute"
-                style={{
-                  left: r.align === 'right' ? 'auto' : '-10px',
-                  right: r.align === 'right' ? '-10px' : 'auto',
-                  top: '50%',
-                  transform: 'translateY(-50%)',
-                  width: '10px',
-                  height: '10px',
-                  borderRadius: '999px',
-                  background: 'rgba(139,92,246,0.95)',
-                  boxShadow: '0 0 0 4px rgba(139,92,246,0.18), 0 0 16px rgba(139,92,246,0.6)',
-                }}
-              />
-              <div
-                className="px-3 py-2 rounded-[10px] backdrop-blur-md whitespace-nowrap"
-                style={{
-                  background: 'rgba(255,255,255,0.75)',
-                  border: '1px solid rgba(139,92,246,0.25)',
-                  boxShadow: '0 6px 20px rgba(60,40,140,0.10), inset 0 1px 0 rgba(255,255,255,0.9)',
-                }}
-              >
-                <div className="flex items-baseline gap-2">
-                  <span className="text-[11px] font-semibold tracking-[0.08em]" style={{ color: 'rgba(99,102,241,0.95)' }}>{r.code}</span>
-                  <span className="text-[12px]" style={{ color: 'rgba(20,18,45,0.85)' }}>{r.name}</span>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span
+                    className="inline-block rounded-full"
+                    style={{ width: 8, height: 8, background: r.color, boxShadow: `0 0 0 3px ${r.color.replace(')', ', 0.18)').replace('hsl', 'hsla')}` }}
+                  />
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="text-[12px] font-semibold tracking-[0.08em]" style={{ color: 'rgba(20,18,45,0.85)' }}>{r.code}</span>
+                    <span className="text-[12px]" style={{ color: 'rgba(30,27,60,0.55)' }}>{r.name}</span>
+                  </div>
                 </div>
-                <div className="mt-0.5 flex items-baseline gap-1">
-                  <span className="text-[10px]" style={{ color: 'rgba(30,27,60,0.55)' }}>收益占比</span>
-                  <span className="text-[15px] font-semibold tracking-[-0.3px]" style={{ color: 'hsl(260, 70%, 50%)' }}>{r.share}</span>
-                </div>
+                <span className="text-[20px] font-semibold tracking-[-0.5px]" style={{ color: r.color }}>{r.share}%</span>
+              </div>
+              {/* Progress bar */}
+              <div className="mt-2 h-[4px] rounded-full overflow-hidden" style={{ background: 'rgba(99,102,241,0.10)' }}>
+                <div
+                  className="h-full rounded-full"
+                  style={{
+                    width: `${r.share * 2.4}%`,
+                    background: `linear-gradient(90deg, ${r.color}, ${r.color.replace(/(\d+)%\)/, (m, p1) => `${Math.min(75, parseInt(p1) + 10)}%)`)})`,
+                  }}
+                />
               </div>
             </div>
           ))}
 
-          {/* Center watermark */}
-          <div className="absolute bottom-3 right-4 pointer-events-none">
-            <span className="text-[10px] tracking-[0.25em] uppercase" style={{ color: 'rgba(99,102,241,0.45)' }}>Traffic Distribution Map</span>
+          {/* Footer note */}
+          <div className="col-span-2 mt-1 flex items-center justify-between">
+            <span className="text-[11px] tracking-[0.2em] uppercase" style={{ color: 'rgba(99,102,241,0.55)' }}>Traffic Distribution</span>
+            <span className="text-[11px]" style={{ color: 'rgba(30,27,60,0.45)' }}>实时占比 · Updated continuously</span>
           </div>
         </div>
       </div>
