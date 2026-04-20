@@ -465,3 +465,120 @@ All colors MUST be HSL.
   backdrop-filter: blur(20px) saturate(1.5);
   -webkit-backdrop-filter: blur(20px) saturate(1.5);
 }
+
+/* ========================================================================
+   GLASS CARD — 蓝紫磨砂玻璃统一卡片样式
+   logo 蓝紫渐变(70% 蓝 / 30% 紫)+ 半透明磨砂 + 柔和光晕
+   蓝: hsl(220 90% 60%)  紫: hsl(270 75% 62%)
+   ======================================================================== */
+.glass-card {
+  position: relative;
+  isolation: isolate;
+  border-radius: 18px;
+  background:
+    linear-gradient(
+      135deg,
+      hsla(220, 95%, 75%, 0.18) 0%,
+      hsla(232, 85%, 72%, 0.14) 35%,
+      hsla(250, 75%, 72%, 0.12) 70%,
+      hsla(270, 75%, 75%, 0.16) 100%
+    ),
+    linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.35) 100%);
+  backdrop-filter: blur(26px) saturate(1.6);
+  -webkit-backdrop-filter: blur(26px) saturate(1.6);
+  border: 1px solid hsla(232, 80%, 70%, 0.22);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.55),
+    inset 0 -1px 0 0 hsla(250, 60%, 70%, 0.12),
+    0 1px 2px -1px hsla(245, 60%, 30%, 0.08),
+    0 8px 28px -10px hsla(232, 85%, 55%, 0.22),
+    0 16px 40px -16px hsla(265, 75%, 58%, 0.18);
+  transition:
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s ease,
+    background 0.4s ease;
+}
+
+/* 外层蓝紫光晕(70% 蓝偏左上, 30% 紫偏右下)*/
+.glass-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    hsla(220, 95%, 65%, 0.55) 0%,
+    hsla(235, 85%, 68%, 0.35) 45%,
+    hsla(255, 70%, 70%, 0.28) 75%,
+    hsla(275, 80%, 70%, 0.45) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.85;
+  z-index: 1;
+  transition: opacity 0.4s ease;
+}
+
+/* 顶部高光带 */
+.glass-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.85) 50%,
+    transparent
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+.glass-card:hover {
+  transform: translateY(-3px);
+  border-color: hsla(232, 85%, 65%, 0.35);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.7),
+    inset 0 -1px 0 0 hsla(250, 60%, 70%, 0.18),
+    0 2px 4px -1px hsla(245, 60%, 30%, 0.1),
+    0 16px 40px -10px hsla(225, 90%, 55%, 0.32),
+    0 24px 60px -16px hsla(270, 80%, 58%, 0.28);
+}
+.glass-card:hover::before { opacity: 1; }
+
+/* 子内容相对定位,确保覆盖在伪元素之上 */
+.glass-card > * {
+  position: relative;
+  z-index: 3;
+}
+
+/* 暗主题(首页 / .dark)下的版本:依旧蓝紫,但底色透明深色 */
+.dark .glass-card,
+.app-dark .glass-card {
+  background:
+    linear-gradient(
+      135deg,
+      hsla(220, 95%, 65%, 0.14) 0%,
+      hsla(235, 85%, 68%, 0.10) 35%,
+      hsla(255, 75%, 70%, 0.08) 70%,
+      hsla(275, 80%, 70%, 0.12) 100%
+    ),
+    linear-gradient(180deg, hsla(245, 40%, 12%, 0.55) 0%, hsla(250, 35%, 10%, 0.35) 100%);
+  border-color: hsla(232, 80%, 70%, 0.18);
+  box-shadow:
+    inset 0 1px 0 0 hsla(0, 0%, 100%, 0.08),
+    0 8px 28px -10px hsla(232, 90%, 30%, 0.5),
+    0 16px 40px -16px hsla(270, 80%, 30%, 0.4);
+}
