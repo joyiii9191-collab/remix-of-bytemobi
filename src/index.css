@@ -787,18 +787,20 @@ select:-webkit-autofill {
   border-color: rgba(168, 130, 255, 0.4) !important;
 }
 
-/* Focus state for the contact form inputs */
+/* Focus state for the contact form inputs — 蓝紫流光 */
 #contact input:focus,
 #contact textarea:focus,
 #contact select:focus {
-  border-color: rgba(168, 130, 255, 0.55) !important;
-  background: rgba(168, 130, 255, 0.08) !important;
-  box-shadow: 0 0 0 3px rgba(120, 60, 255, 0.15) !important;
+  border-color: hsl(245, 88%, 64%) !important;
+  background: rgba(110, 90, 240, 0.10) !important;
+  box-shadow:
+    0 0 0 3px hsla(245, 88%, 64%, 0.22),
+    0 0 18px -4px hsla(265, 85%, 60%, 0.45) !important;
 }
 
-/* Placeholder text — 统一为淡紫白，去除暖色调 */
+/* Placeholder text — 改为黑色，提升可读性 */
 #contact input::placeholder,
 #contact textarea::placeholder {
-  color: rgba(220, 210, 255, 0.35) !important;
+  color: rgba(0, 0, 0, 0.55) !important;
   opacity: 1;
 }
