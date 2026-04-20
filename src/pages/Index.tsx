@@ -53,8 +53,8 @@ export default function Index() {
           <div
             className="absolute rounded-full glass-orb-float-3"
             style={{
-              width: "380px",
-              height: "380px",
+              width: "285px",
+              height: "285px",
               bottom: "6%",
               left: "12%",
               background:
