@@ -94,6 +94,15 @@ const MEDIA_BLOCKS = [
 export default function GlobalFlow() {
   const [openCase, setOpenCase] = React.useState<Case | null>(null);
   const [activeCase, setActiveCase] = React.useState(0);
+  const [pauseCases, setPauseCases] = React.useState(false);
+
+  React.useEffect(() => {
+    if (pauseCases) return;
+    const id = setInterval(() => {
+      setActiveCase((p) => (p + 1) % CASES.length);
+    }, 4500);
+    return () => clearInterval(id);
+  }, [pauseCases]);
 
   return (
     <SnapPage title="全球汇流">
@@ -294,7 +303,11 @@ export default function GlobalFlow() {
           <ScreenTitle>六大行业代表案例</ScreenTitle>
           <ScreenLead>切换左侧行业,查看代表项目与核心成果。</ScreenLead>
 
-          <div className="w-full grid grid-cols-12 gap-8 mt-10 items-center">
+          <div
+            className="w-full grid grid-cols-12 gap-8 mt-10 items-center"
+            onMouseEnter={() => setPauseCases(true)}
+            onMouseLeave={() => setPauseCases(false)}
+          >
             {/* 左:Tab 列表 */}
             <div className="col-span-12 md:col-span-3 flex md:flex-col gap-1 overflow-x-auto md:overflow-visible">
               {CASES.map((c, i) => {
@@ -307,15 +320,14 @@ export default function GlobalFlow() {
                     className="relative text-left px-4 py-4 transition-all shrink-0 md:shrink"
                     style={{
                       borderLeft: active
-                        ? "3px solid #F59E0B"
+                        ? `3px solid ${ACCENT}`
                         : "3px solid transparent",
                       background: active ? "hsla(0,0%,100%,0.55)" : "transparent",
-                      color: active ? TEXT_DARK : TEXT_MID,
                     }}
                   >
                     <div
                       className="text-base md:text-lg font-bold leading-tight"
-                      style={{ color: active ? "#F59E0B" : TEXT_DARK }}
+                      style={{ color: active ? ACCENT : TEXT_DARK }}
                     >
                       {c.title}
                     </div>
@@ -327,10 +339,10 @@ export default function GlobalFlow() {
               })}
             </div>
 
-            {/* 中:海报卡片 + 错位条纹卡 */}
+            {/* 中:海报卡片 + 错位灰色占位卡 */}
             <div className="col-span-12 md:col-span-5 flex justify-center items-center">
               <div className="relative w-full max-w-[360px] aspect-square">
-                {/* 背后斜条纹卡 */}
+                {/* 背后灰色占位卡 */}
                 <motion.div
                   key={`bg-${activeCase}`}
                   initial={{ opacity: 0, x: -20, y: -20, rotate: -8 }}
@@ -339,8 +351,8 @@ export default function GlobalFlow() {
                   className="absolute inset-0 rounded-2xl"
                   style={{
                     background:
-                      "repeating-linear-gradient(135deg, #1E40AF 0 8px, #2563EB 8px 16px)",
-                    boxShadow: "0 20px 50px -20px rgba(30,64,175,0.45)",
+                      "repeating-linear-gradient(135deg, hsl(220 10% 75%) 0 8px, hsl(220 10% 82%) 8px 16px)",
+                    boxShadow: "0 20px 50px -20px hsla(220, 10%, 40%, 0.35)",
                   }}
                 />
                 {/* 前置主卡 */}
@@ -350,10 +362,7 @@ export default function GlobalFlow() {
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
                   className="absolute inset-0 rounded-2xl glass-card flex flex-col items-center justify-center p-6 text-center"
-                  style={{
-                    ...CARD,
-                    border: "2px solid hsla(210, 80%, 70%, 0.6)",
-                  }}
+                  style={CARD}
                 >
                   <div
                     className="text-[10px] font-bold tracking-[0.25em] mb-3 px-3 py-1 rounded-full"
@@ -404,19 +413,9 @@ export default function GlobalFlow() {
                 >
                   {CASES[activeCase].summary}
                 </p>
-                <button
-                  type="button"
-                  onClick={() => setOpenCase(CASES[activeCase])}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm transition-all hover:scale-[1.03]"
-                  style={{
-                    background: "#FCD34D",
-                    color: "#1E293B",
-                    border: "2px solid #1E40AF",
-                    boxShadow: "4px 4px 0 0 #1E40AF",
-                  }}
-                >
-                  了解更多 <ArrowRight size={16} />
-                </button>
+                <StarBorder speed="5s" onClick={() => setOpenCase(CASES[activeCase])}>
+                  了解更多
+                </StarBorder>
               </motion.div>
             </div>
           </div>
