@@ -2481,85 +2481,174 @@ function Section6LogoWall() {
 }
 
 function Section8TrafficMap() {
+  // 区域卡片（x/y 为地图百分比定位）
+  const regions: Array<{
+    code: string;
+    name: string;
+    share: string;
+    x: number; // 0-100 (left%)
+    y: number; // 0-100 (top%)
+    align?: 'left' | 'right';
+  }> = [
+    { code: 'NA',    name: '北美',    share: '33%', x: 14, y: 22, align: 'left' },
+    { code: 'EU',    name: '欧洲',    share: '7%',  x: 46, y: 16, align: 'left' },
+    { code: 'ME',    name: '中东',    share: '4%',  x: 54, y: 40, align: 'left' },
+    { code: 'JP',    name: '日本',    share: '28%', x: 82, y: 24, align: 'right' },
+    { code: 'IN',    name: '印度',    share: '10%', x: 64, y: 46, align: 'left' },
+    { code: 'SEA',   name: '东南亚',  share: '8%',  x: 78, y: 56, align: 'right' },
+    { code: 'LATAM', name: '拉美',    share: '7%',  x: 24, y: 66, align: 'left' },
+    { code: 'AF',    name: '非洲',    share: '3%',  x: 48, y: 62, align: 'right' },
+  ];
+
   return (
     <div className="relative w-full h-full flex flex-col items-center justify-center px-[80px] gap-[24px] pt-[80px]" data-name="Section8TrafficMap">
-      {/* Ambient glow removed */}
-
       {/* Header */}
       <div className="flex flex-col items-center gap-3 z-10">
         <div className="flex items-center px-[16px] py-[5px] rounded-full relative" style={{ border: "1px solid hsla(0,0%,100%,0.7)", background: "hsla(0,0%,100%,0.45)", boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
           <span className="text-[14px] font-normal tracking-[-0.21px] leading-[1.6]" style={{ color: 'hsl(260, 60%, 40%)' }}>Global Coverage</span>
         </div>
-        <h2 className="text-[36px] font-semibold text-white leading-[1.15] tracking-tight text-center">
+        <h2 className="text-[36px] font-semibold leading-[1.15] tracking-tight text-center" style={{ color: 'rgba(20,18,45,0.95)' }}>
           我们的流量分布区域
         </h2>
-        <p className="text-[17px] text-[#818089] leading-[1.6] text-center max-w-[600px]">
+        <p className="text-[17px] leading-[1.6] text-center max-w-[600px]" style={{ color: 'rgba(30,27,60,0.6)' }}>
           覆盖全球主要市场，为您的业务提供精准的流量支持
         </p>
       </div>
 
-      {/* Large placeholder map */}
+      {/* World map (light theme) */}
       <div className="relative w-full max-w-[1100px] z-10 flex-1 min-h-0">
         <div
-          className="w-full h-full rounded-[24px] overflow-hidden"
+          className="relative w-full h-full rounded-[24px] overflow-hidden"
           style={{
-            background: 'linear-gradient(135deg, rgba(30,20,60,0.9) 0%, rgba(10,8,30,0.95) 50%, rgba(20,15,50,0.9) 100%)',
-            border: '1px solid rgba(255,255,255,0.06)',
-            boxShadow: '0 0 80px rgba(100,60,255,0.08), inset 0 1px 0 rgba(255,255,255,0.04)',
+            background: 'linear-gradient(135deg, rgba(245,242,255,0.95) 0%, rgba(232,228,250,0.92) 50%, rgba(240,235,255,0.95) 100%)',
+            border: '1px solid rgba(139,92,246,0.18)',
+            boxShadow: '0 20px 60px rgba(99,102,241,0.10), inset 0 1px 0 rgba(255,255,255,0.6)',
           }}
         >
-          {/* Grid overlay */}
-          <div className="absolute inset-0 opacity-[0.03]" style={{
-            backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
+          {/* Subtle grid */}
+          <div className="absolute inset-0 opacity-[0.06]" style={{
+            backgroundImage: 'linear-gradient(rgba(99,102,241,1) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,1) 1px, transparent 1px)',
             backgroundSize: '60px 60px',
           }} />
 
-          {/* Decorative dots representing traffic nodes */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <svg viewBox="0 0 800 450" className="w-full h-full opacity-30">
-              {/* Simplified world map dots */}
-              {[
+          {/* Dotted continents (light) */}
+          <svg viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid meet" className="absolute inset-0 w-full h-full">
+            <defs>
+              <radialGradient id="lightDot">
+                <stop offset="0%" stopColor="rgba(99,102,241,0.85)" />
+                <stop offset="100%" stopColor="rgba(139,92,246,0.15)" />
+              </radialGradient>
+              <radialGradient id="lightDotPurple">
+                <stop offset="0%" stopColor="rgba(168,85,247,0.85)" />
+                <stop offset="100%" stopColor="rgba(168,85,247,0.10)" />
+              </radialGradient>
+            </defs>
+            {/* Generated continent dot field (北美/南美/欧洲/非洲/亚洲/大洋洲) */}
+            {(() => {
+              // 经手工调整的稀疏大陆点阵（x,y 基于 1000x500 viewBox）
+              const blobs: Array<{ cx: number; cy: number; w: number; h: number }> = [
                 // North America
-                { cx: 180, cy: 140, r: 6 }, { cx: 200, cy: 160, r: 4 }, { cx: 160, cy: 170, r: 5 },
-                { cx: 220, cy: 150, r: 3 }, { cx: 190, cy: 180, r: 4 },
-                // Europe
-                { cx: 400, cy: 120, r: 6 }, { cx: 420, cy: 130, r: 5 }, { cx: 380, cy: 140, r: 4 },
-                { cx: 410, cy: 150, r: 3 }, { cx: 430, cy: 110, r: 4 },
-                // Asia
-                { cx: 600, cy: 150, r: 7 }, { cx: 620, cy: 170, r: 5 }, { cx: 580, cy: 160, r: 4 },
-                { cx: 640, cy: 140, r: 4 }, { cx: 610, cy: 190, r: 6 }, { cx: 650, cy: 180, r: 3 },
+                { cx: 200, cy: 150, w: 150, h: 110 },
+                // Central America
+                { cx: 230, cy: 250, w: 60, h: 40 },
                 // South America
-                { cx: 250, cy: 300, r: 4 }, { cx: 270, cy: 280, r: 3 }, { cx: 260, cy: 320, r: 5 },
+                { cx: 290, cy: 360, w: 80, h: 110 },
+                // Europe
+                { cx: 500, cy: 140, w: 80, h: 60 },
                 // Africa
-                { cx: 420, cy: 250, r: 4 }, { cx: 440, cy: 230, r: 3 },
+                { cx: 530, cy: 290, w: 90, h: 130 },
+                // Middle East
+                { cx: 590, cy: 220, w: 60, h: 50 },
+                // Russia / North Asia
+                { cx: 700, cy: 130, w: 200, h: 60 },
+                // South Asia / India
+                { cx: 680, cy: 260, w: 70, h: 60 },
+                // East Asia / China
+                { cx: 770, cy: 200, w: 90, h: 70 },
+                // Japan
+                { cx: 855, cy: 200, w: 25, h: 45 },
+                // SE Asia
+                { cx: 790, cy: 290, w: 70, h: 50 },
                 // Oceania
-                { cx: 680, cy: 320, r: 4 }, { cx: 700, cy: 310, r: 3 },
-              ].map((dot, i) => (
-                <circle key={i} cx={dot.cx} cy={dot.cy} r={dot.r} fill="url(#dotGlow)" />
-              ))}
-              {/* Connection lines */}
-              {[
-                { x1: 200, y1: 160, x2: 400, y2: 120 },
-                { x1: 400, y1: 130, x2: 600, y2: 150 },
-                { x1: 200, y1: 160, x2: 600, y2: 150 },
-                { x1: 250, y1: 300, x2: 420, y2: 250 },
-                { x1: 600, y1: 150, x2: 680, y2: 320 },
-              ].map((line, i) => (
-                <line key={i} x1={line.x1} y1={line.y1} x2={line.x2} y2={line.y2}
-                  stroke="rgba(139,92,246,0.3)" strokeWidth="0.5" strokeDasharray="4 4" />
-              ))}
-              <defs>
-                <radialGradient id="dotGlow">
-                  <stop offset="0%" stopColor="rgba(139,92,246,1)" />
-                  <stop offset="100%" stopColor="rgba(139,92,246,0)" />
-                </radialGradient>
-              </defs>
-            </svg>
-          </div>
+                { cx: 830, cy: 380, w: 90, h: 50 },
+              ];
+              const dots: JSX.Element[] = [];
+              let key = 0;
+              blobs.forEach((b, bi) => {
+                const cols = Math.max(4, Math.round(b.w / 14));
+                const rows = Math.max(3, Math.round(b.h / 14));
+                for (let r = 0; r < rows; r++) {
+                  for (let c = 0; c < cols; c++) {
+                    const px = b.cx - b.w / 2 + (c + 0.5) * (b.w / cols);
+                    const py = b.cy - b.h / 2 + (r + 0.5) * (b.h / rows);
+                    // 椭圆裁剪
+                    const nx = (px - b.cx) / (b.w / 2);
+                    const ny = (py - b.cy) / (b.h / 2);
+                    if (nx * nx + ny * ny > 1) continue;
+                    // 随机化大小、跳点
+                    const seed = (bi * 131 + r * 17 + c * 7) % 100;
+                    if (seed < 18) continue;
+                    const radius = 1.3 + (seed % 5) * 0.25;
+                    const useFill = seed % 3 === 0 ? 'url(#lightDotPurple)' : 'url(#lightDot)';
+                    dots.push(
+                      <circle key={key++} cx={px} cy={py} r={radius} fill={useFill} />
+                    );
+                  }
+                }
+              });
+              return dots;
+            })()}
+          </svg>
 
-          {/* Center label */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-[#818089]/40 text-[18px] tracking-widest uppercase">Traffic Distribution Map</span>
+          {/* Region info cards */}
+          {regions.map((r) => (
+            <div
+              key={r.code}
+              className="absolute"
+              style={{
+                left: `${r.x}%`,
+                top: `${r.y}%`,
+                transform: r.align === 'right' ? 'translate(-100%, -50%)' : 'translate(0, -50%)',
+              }}
+            >
+              {/* Anchor dot */}
+              <div
+                className="absolute"
+                style={{
+                  left: r.align === 'right' ? 'auto' : '-10px',
+                  right: r.align === 'right' ? '-10px' : 'auto',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  width: '10px',
+                  height: '10px',
+                  borderRadius: '999px',
+                  background: 'rgba(139,92,246,0.95)',
+                  boxShadow: '0 0 0 4px rgba(139,92,246,0.18), 0 0 16px rgba(139,92,246,0.6)',
+                }}
+              />
+              <div
+                className="px-3 py-2 rounded-[10px] backdrop-blur-md whitespace-nowrap"
+                style={{
+                  background: 'rgba(255,255,255,0.75)',
+                  border: '1px solid rgba(139,92,246,0.25)',
+                  boxShadow: '0 6px 20px rgba(60,40,140,0.10), inset 0 1px 0 rgba(255,255,255,0.9)',
+                }}
+              >
+                <div className="flex items-baseline gap-2">
+                  <span className="text-[11px] font-semibold tracking-[0.08em]" style={{ color: 'rgba(99,102,241,0.95)' }}>{r.code}</span>
+                  <span className="text-[12px]" style={{ color: 'rgba(20,18,45,0.85)' }}>{r.name}</span>
+                </div>
+                <div className="mt-0.5 flex items-baseline gap-1">
+                  <span className="text-[10px]" style={{ color: 'rgba(30,27,60,0.55)' }}>收益占比</span>
+                  <span className="text-[15px] font-semibold tracking-[-0.3px]" style={{ color: 'hsl(260, 70%, 50%)' }}>{r.share}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+
+          {/* Center watermark */}
+          <div className="absolute bottom-3 right-4 pointer-events-none">
+            <span className="text-[10px] tracking-[0.25em] uppercase" style={{ color: 'rgba(99,102,241,0.45)' }}>Traffic Distribution Map</span>
           </div>
         </div>
       </div>
