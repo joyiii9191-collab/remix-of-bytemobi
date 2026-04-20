@@ -17,8 +17,8 @@ function FeatureCard({
       style={{
         background:
           'linear-gradient(155deg, hsla(0,0%,100%,0.55) 0%, hsla(0,0%,100%,0.28) 45%, hsla(0,0%,100%,0.18) 100%)',
-        backdropFilter: 'blur(8px) saturate(1.6)',
-        WebkitBackdropFilter: 'blur(8px) saturate(1.6)',
+        
+        
         border: '1px solid hsla(0, 0%, 100%, 0.55)',
         boxShadow:
           'inset 0 1.5px 0 0 hsla(0,0%,100%,0.9), inset 1px 0 0 0 hsla(0,0%,100%,0.4), inset 0 -1px 0 0 hsla(230,30%,50%,0.10), inset 0 -10px 24px -12px hsla(0,0%,100%,0.35), 0 10px 30px -10px hsla(230,40%,25%,0.20), 0 2px 6px -2px hsla(230,40%,25%,0.12)',

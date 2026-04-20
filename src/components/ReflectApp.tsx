@@ -1275,8 +1275,8 @@ function Section1() {
           {/* Background fill — translucent glass: 让背景色清晰透出 */}
           <div className="absolute inset-0 pointer-events-none rounded-[24px]" style={{
             background: 'linear-gradient(155deg, hsla(0,0%,100%,0.30) 0%, hsla(0,0%,100%,0.15) 45%, hsla(0,0%,100%,0.08) 100%)',
-            backdropFilter: 'blur(8px) saturate(1.8)',
-            WebkitBackdropFilter: 'blur(8px) saturate(1.8)'
+            
+            
           }} />
           {/* Top specular highlight */}
           <div className="absolute inset-0 pointer-events-none rounded-[24px] overflow-hidden" style={{ mixBlendMode: 'screen' }}>
@@ -1290,7 +1290,7 @@ function Section1() {
               {/* Left side — brand text */}
               <div className="w-[380px] shrink-0 flex flex-col gap-6">
                 {/* Tag pill */}
-                <div className="flex items-center px-[16px] py-[5px] rounded-full relative self-start" style={{ border: "1px solid hsla(0,0%,100%,0.7)", background: "hsla(0,0%,100%,0.45)", backdropFilter: 'blur(12px)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
+                <div className="flex items-center px-[16px] py-[5px] rounded-full relative self-start" style={{ border: "1px solid hsla(0,0%,100%,0.7)", background: "hsla(0,0%,100%,0.45)",  boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
                   <span className="text-[14px] font-normal tracking-[-0.21px] leading-[1.6]" style={{ color: 'hsl(260, 60%, 40%)' }}>About ByteMobi</span>
                 </div>
 
@@ -1927,7 +1927,7 @@ function Section2() {
       {/* Background image removed for clean light theme */}
       {/* Header */}
       <div className="relative z-10 flex flex-col items-center gap-4 mb-10">
-        <div className="flex items-center px-[16px] py-[5px] rounded-full relative" style={{ border: "1px solid hsla(0,0%,100%,0.7)", background: "hsla(0,0%,100%,0.45)", backdropFilter: 'blur(12px)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
+        <div className="flex items-center px-[16px] py-[5px] rounded-full relative" style={{ border: "1px solid hsla(0,0%,100%,0.7)", background: "hsla(0,0%,100%,0.45)",  boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
           <span className="text-[14px] font-normal tracking-[-0.21px] leading-[1.6]" style={{ color: 'hsl(260, 60%, 40%)' }}>Core Business</span>
         </div>
         <h2 className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[44px] leading-[1.1] font-semibold tracking-tight" style={{ color: 'hsl(230, 30%, 18%)' }}>
@@ -2038,7 +2038,7 @@ function Section4Screen() {
                   background: 'radial-gradient(circle at 0% 0%, rgba(168,130,255,0.5) 0%, rgba(124,58,237,0.2) 30%, transparent 60%)',
                 }} />
                 {/* Card content */}
-                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: 'linear-gradient(155deg, hsla(0,0%,100%,0.6) 0%, hsla(0,0%,100%,0.3) 100%)', backdropFilter: 'blur(6px) saturate(1.5)', WebkitBackdropFilter: 'blur(6px) saturate(1.5)', border: '1px solid hsla(0,0%,100%,0.6)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
+                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: 'linear-gradient(155deg, hsla(0,0%,100%,0.6) 0%, hsla(0,0%,100%,0.3) 100%)',   border: '1px solid hsla(0,0%,100%,0.6)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
                   <div className="w-[32px] h-[32px] rounded-md" style={{ background: 'hsla(260,60%,55%,0.25)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.6)' }} />
                 </div>
               </div>
@@ -2058,7 +2058,7 @@ function Section4Screen() {
                   background: 'radial-gradient(circle at 0% 0%, rgba(168,130,255,0.5) 0%, rgba(124,58,237,0.2) 30%, transparent 60%)',
                 }} />
                 {/* Card content */}
-                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: 'linear-gradient(155deg, hsla(0,0%,100%,0.6) 0%, hsla(0,0%,100%,0.3) 100%)', backdropFilter: 'blur(6px) saturate(1.5)', WebkitBackdropFilter: 'blur(6px) saturate(1.5)', border: '1px solid hsla(0,0%,100%,0.6)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
+                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: 'linear-gradient(155deg, hsla(0,0%,100%,0.6) 0%, hsla(0,0%,100%,0.3) 100%)',   border: '1px solid hsla(0,0%,100%,0.6)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
                   <div className="w-[32px] h-[32px] rounded-md" style={{ background: 'hsla(260,60%,55%,0.25)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.6)' }} />
                 </div>
               </div>
@@ -2100,8 +2100,8 @@ function Section4Screen() {
               className="absolute inset-0 rounded-[26px]"
               style={{
                 background: 'rgba(10, 5, 20, 0.6)',
-                backdropFilter: 'blur(12px)',
-                WebkitBackdropFilter: 'blur(12px)',
+                
+                
                 border: '1px solid rgba(168, 130, 255, 0.12)',
                 boxShadow: 'inset 0 0 30px rgba(124, 58, 237, 0.05), 0 0 40px rgba(124, 58, 237, 0.06)',
               }}
@@ -2734,7 +2734,7 @@ function Section7Values() {
               {['S2S 对接', 'API 接入', 'MMP 接入'].map((label) => (
                 <div key={label} className="px-3 py-[4px] rounded-full relative" style={{
                   background: 'rgba(255,255,255,0.04)',
-                  backdropFilter: 'blur(8px)',
+                  
                   border: '1px solid rgba(139,92,246,0.15)',
                 }}>
                   <span className="text-[12px] text-[rgba(239,237,253,0.7)] relative z-[1]">{label}</span>
