@@ -8259,6 +8259,8 @@ function Section9Solution() {
   const radius = 230;   // 步骤圆心到大圆中心的距离
   const cx = ringSize / 2;
   const cy = ringSize / 2;
+  const [hubSpinKey, setHubSpinKey] = useState(0);
+  const [isHubHover, setIsHubHover] = useState(false);
 
   return (
     <div className="relative w-full h-full flex flex-col items-center justify-center px-[80px] gap-[40px]">
@@ -8286,7 +8288,8 @@ function Section9Solution() {
       <div className="relative z-10" style={{ width: ringSize, height: ringSize }}>
         {/* 旋转的虚线环 */}
         <svg
-          className="absolute inset-0 animate-[spin_60s_linear_infinite]"
+          key={hubSpinKey}
+          className={isHubHover ? "absolute inset-0 animate-[spin_1.2s_cubic-bezier(0.22,1,0.36,1)_1]" : "absolute inset-0 animate-[spin_60s_linear_infinite]"}
           viewBox={`0 0 ${ringSize} ${ringSize}`}
           width={ringSize}
           height={ringSize}
