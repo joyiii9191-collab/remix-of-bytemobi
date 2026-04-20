@@ -1269,14 +1269,14 @@ function Section1() {
 
         {/* Glass shell — light frosted glass */}
         <div className="relative rounded-[24px] w-full" style={{
-          border: '1px solid hsla(0, 0%, 100%, 0.55)',
-          boxShadow: 'inset 0 1.5px 0 0 hsla(0,0%,100%,0.9), inset 1px 0 0 0 hsla(0,0%,100%,0.4), inset 0 -1px 0 0 hsla(230,30%,50%,0.10), inset 0 -12px 28px -12px hsla(0,0%,100%,0.35), 0 24px 60px -18px hsla(230,40%,25%,0.25), 0 4px 12px -3px hsla(230,40%,25%,0.15)'
+          border: '1px solid hsla(0, 0%, 100%, 0.6)',
+          boxShadow: 'inset 0 1.5px 0 0 hsla(0,0%,100%,0.95), inset 1px 0 0 0 hsla(0,0%,100%,0.5), inset 0 -1px 0 0 hsla(230,30%,50%,0.10), inset 0 -12px 28px -12px hsla(0,0%,100%,0.4), 0 24px 60px -18px hsla(230,40%,25%,0.22), 0 4px 12px -3px hsla(230,40%,25%,0.12)'
         }}>
-          {/* Background fill — light glass */}
+          {/* Background fill — translucent glass: 让背景色清晰透出 */}
           <div className="absolute inset-0 pointer-events-none rounded-[24px]" style={{
-            background: 'linear-gradient(155deg, hsla(0,0%,100%,0.55) 0%, hsla(0,0%,100%,0.28) 45%, hsla(0,0%,100%,0.18) 100%)',
-            backdropFilter: 'blur(28px) saturate(1.7)',
-            WebkitBackdropFilter: 'blur(28px) saturate(1.7)'
+            background: 'linear-gradient(155deg, hsla(0,0%,100%,0.30) 0%, hsla(0,0%,100%,0.15) 45%, hsla(0,0%,100%,0.08) 100%)',
+            backdropFilter: 'blur(40px) saturate(1.8)',
+            WebkitBackdropFilter: 'blur(40px) saturate(1.8)'
           }} />
           {/* Top specular highlight */}
           <div className="absolute inset-0 pointer-events-none rounded-[24px] overflow-hidden" style={{ mixBlendMode: 'screen' }}>
