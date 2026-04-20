@@ -1272,8 +1272,8 @@ function Section1() {
 
         {/* Glass shell */}
         <div className="relative rounded-[24px] w-full" style={{ border: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 20px 60px -16px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05)' }}>
-          {/* Background fill — light glass */}
-          <div className="absolute inset-0 pointer-events-none rounded-[24px]" style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(238,235,251,0.6) 50%, rgba(245,240,253,0.7) 100%)', backdropFilter: 'blur(40px) saturate(1.6)', WebkitBackdropFilter: 'blur(40px) saturate(1.6)' }} />
+          {/* Background fill — neutral glass */}
+          <div className="absolute inset-0 pointer-events-none rounded-[24px]" style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.03) 50%, rgba(255,255,255,0.05) 100%)', backdropFilter: 'blur(40px) saturate(1.4)', WebkitBackdropFilter: 'blur(40px) saturate(1.4)' }} />
           {/* Content */}
           <div className="overflow-clip rounded-[inherit] size-full relative z-[1]">
             <div className="flex items-center gap-12 p-10 relative">
@@ -1282,7 +1282,7 @@ function Section1() {
                 {/* Tag pill */}
                 <div className="flex items-center px-[16px] py-[5px] rounded-full relative self-start" style={{ border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.05)" }}>
                   <span className="text-[14px] text-white font-normal tracking-[-0.21px] leading-[1.6]">About ByteMobi</span>
-                  <div className="absolute inset-[-0.5px] rounded-full pointer-events-none" style={{ boxShadow: "inset 0 0 21px rgba(115,80,255,0.2)" }} />
+                  <div className="absolute inset-[-0.5px] rounded-full pointer-events-none" style={{ boxShadow: "inset 0 0 21px rgba(255,255,255,0.12)" }} />
                 </div>
 
                 {/* Title */}
@@ -1295,8 +1295,8 @@ function Section1() {
                   聚焦全球品牌与效果广告营销
                 </p>
 
-                {/* Divider — glass style */}
-                <div className="w-12 h-px" style={{ background: 'linear-gradient(to right, hsla(277, 100%, 61%, 0.4), hsla(220, 100%, 60%, 0.4))' }} />
+                {/* Divider — neutral */}
+                <div className="w-12 h-px" style={{ background: 'hsla(0, 0%, 100%, 0.2)' }} />
 
                 {/* Description */}
                 <p className="text-[13px] leading-[22px] text-justify max-w-[360px]" style={{ color: 'hsla(0, 0%, 100%, 0.4)' }}>
