@@ -8948,14 +8948,18 @@ export default function ReflectApp() {
           backgroundImage: `url(${homeBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          filter: "blur(28px) saturate(1.1)",
-          transform: "scale(1.15)",
+          filter: "blur(40px) saturate(0.85) brightness(0.92)",
+          transform: "scale(1.2)",
+          opacity: 0.55,
         }}
       />
       <div
         aria-hidden
         className="fixed inset-0 pointer-events-none z-0"
-        style={{ background: "hsla(0, 0%, 100%, 0.18)" }}
+        style={{
+          background:
+            "linear-gradient(180deg, hsla(245, 40%, 96%, 0.55) 0%, hsla(245, 30%, 92%, 0.45) 100%)",
+        }}
       />
 
       {/* 第1屏：Hero */}
