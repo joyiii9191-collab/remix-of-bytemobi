@@ -2746,11 +2746,13 @@ function Section7Values() {
         {/* Top: title + items */}
         <div className="flex flex-col gap-[24px]">
           <div className="flex items-baseline gap-4">
-            <h2 className="text-[44px] font-medium text-white leading-[1.1] tracking-[-2px]">多元化流量网络</h2>
-            <div className="px-4 py-[5px] rounded-full border border-[rgba(255,255,255,0.2)] relative">
-              <div className="absolute inset-0 bg-[rgba(255,255,255,0.05)] rounded-full pointer-events-none" />
-              <div className="absolute inset-[-0.5px] rounded-full pointer-events-none" style={{ boxShadow: 'inset 0 0 21px rgba(115,80,255,0.2)' }} />
-              <span className="text-[14px] text-white leading-[1.6] tracking-[-0.21px] relative">多种归因方式</span>
+            <h2 className="text-[44px] font-medium leading-[1.1] tracking-[-2px]" style={{ color: 'rgba(20,18,45,0.95)' }}>多元化流量网络</h2>
+            <div className="px-3 py-[4px] rounded-full" style={{
+              background: 'rgba(255,255,255,0.45)',
+              border: '1px solid rgba(139,92,246,0.25)',
+              backdropFilter: 'blur(8px)',
+            }}>
+              <span className="text-[12px] leading-[1.4]" style={{ color: 'rgba(30,27,60,0.75)' }}>多种归因方式</span>
             </div>
           </div>
 
@@ -2760,7 +2762,7 @@ function Section7Values() {
                 <AttributionItem item={item} isActive={activeIndex === i} onClick={() => setActiveIndex(i)} />
                 {i < items.length - 1 && (
                   <div className="mt-3 h-px w-full" style={{
-                    background: 'linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0) 100%)',
+                    background: 'linear-gradient(90deg, rgba(20,18,45,0) 0%, rgba(20,18,45,0.12) 50%, rgba(20,18,45,0) 100%)',
                   }} />
                 )}
               </div>
@@ -2773,17 +2775,17 @@ function Section7Values() {
           {/* Tech support header */}
           <div className="flex items-baseline gap-4">
             <div className="flex flex-col gap-1">
-              <h3 className="text-[20px] font-medium text-white leading-[1.2]">技术支持</h3>
-              <p className="text-[13px] text-[rgba(239,237,253,0.5)]">高精度数据对接</p>
+              <h3 className="text-[20px] font-medium leading-[1.2]" style={{ color: 'rgba(20,18,45,0.92)' }}>技术支持</h3>
+              <p className="text-[13px]" style={{ color: 'rgba(30,27,60,0.55)' }}>高精度数据对接</p>
             </div>
             <div className="flex gap-2">
               {['S2S 对接', 'API 接入', 'MMP 接入'].map((label) => (
-                <div key={label} className="px-3 py-[4px] rounded-full relative" style={{
-                  background: 'rgba(255,255,255,0.04)',
-                  
-                  border: '1px solid rgba(139,92,246,0.15)',
+                <div key={label} className="px-3 py-[4px] rounded-full" style={{
+                  background: 'rgba(255,255,255,0.45)',
+                  border: '1px solid rgba(139,92,246,0.25)',
+                  backdropFilter: 'blur(8px)',
                 }}>
-                  <span className="text-[12px] text-[rgba(239,237,253,0.7)] relative z-[1]">{label}</span>
+                  <span className="text-[12px] leading-[1.4]" style={{ color: 'rgba(30,27,60,0.75)' }}>{label}</span>
                 </div>
               ))}
             </div>
@@ -2792,15 +2794,15 @@ function Section7Values() {
           {/* Three info containers */}
           <div className="relative h-[60px] flex items-center">
             <div className="w-[calc(33.33%-8px)] flex items-center justify-center">
-              <img src={adjustLogo} alt="Adjust" className="h-[40px] object-contain brightness-0 invert" />
+              <img src={adjustLogo} alt="Adjust" className="h-[52px] object-contain" style={{ filter: 'brightness(0) saturate(100%) invert(10%) sepia(20%) saturate(2000%) hue-rotate(230deg)' }} />
             </div>
-            <div className="w-px h-[16px] bg-[rgba(255,255,255,0.24)]" />
+            <div className="w-px h-[16px]" style={{ background: 'rgba(20,18,45,0.18)' }} />
             <div className="w-[calc(33.33%-8px)] flex items-center justify-center">
-              <img src={appsflyerLogo} alt="AppsFlyer" className="h-[40px] object-contain brightness-0 invert" />
+              <img src={appsflyerLogo} alt="AppsFlyer" className="h-[40px] object-contain" style={{ filter: 'brightness(0) saturate(100%) invert(10%) sepia(20%) saturate(2000%) hue-rotate(230deg)' }} />
             </div>
-            <div className="w-px h-[16px] bg-[rgba(255,255,255,0.24)]" />
+            <div className="w-px h-[16px]" style={{ background: 'rgba(20,18,45,0.18)' }} />
             <div className="w-[calc(33.33%-8px)] flex items-center justify-center">
-              <img src={singularLogo} alt="Singular" className="h-[40px] object-contain brightness-0 invert" />
+              <img src={singularLogo} alt="Singular" className="h-[40px] object-contain" style={{ filter: 'brightness(0) saturate(100%) invert(10%) sepia(20%) saturate(2000%) hue-rotate(230deg)' }} />
             </div>
           </div>
         </div>
