@@ -154,62 +154,23 @@ export default function GlobalFlow() {
                 viewport={{ once: false, amount: 0.3 }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
                 whileHover={{ y: -6, scale: 1.02 }}
-                className="group relative rounded-2xl p-6 overflow-hidden cursor-default transition-all duration-500"
-                style={{
-                  background:
-                    "linear-gradient(135deg, hsla(220,100%,98%,0.55) 0%, hsla(232,90%,92%,0.35) 50%, hsla(265,80%,94%,0.4) 100%)",
-                  
-                  
-                  border: "1px solid hsla(0,0%,100%,0.6)",
-                  boxShadow:
-                    "inset 0 1px 0 0 hsla(0,0%,100%,0.9), inset 0 -1px 0 0 hsla(232,60%,80%,0.3), 0 12px 40px -12px hsla(232,85%,55%,0.28), 0 24px 60px -20px hsla(265,75%,58%,0.22)",
-                }}
+                className="rounded-2xl p-6 glass-card transition-all duration-500"
+                style={CARD}
               >
-                {/* 顶部高光描边 */}
                 <div
-                  className="pointer-events-none absolute inset-x-6 top-0 h-px"
+                  className="text-4xl md:text-5xl font-bold mb-2"
                   style={{
                     background:
-                      "linear-gradient(90deg, transparent, hsla(0,0%,100%,0.95), transparent)",
+                      "linear-gradient(135deg, hsl(232 90% 45%) 0%, hsl(250 80% 55%) 50%, hsl(270 75% 60%) 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    lineHeight: 1.1,
                   }}
-                />
-                {/* 角部光晕 */}
-                <div
-                  className="pointer-events-none absolute -top-16 -right-16 w-40 h-40 rounded-full opacity-60 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
-                  style={{ background: "radial-gradient(circle, hsla(232,95%,70%,0.55), transparent 70%)" }}
-                />
-                <div
-                  className="pointer-events-none absolute -bottom-16 -left-16 w-40 h-40 rounded-full opacity-50 blur-3xl transition-opacity duration-500 group-hover:opacity-90"
-                  style={{ background: "radial-gradient(circle, hsla(265,90%,72%,0.45), transparent 70%)" }}
-                />
-                {/* hover 时移动的扫光 */}
-                <div
-                  className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{
-                    background:
-                      "linear-gradient(115deg, transparent 30%, hsla(0,0%,100%,0.35) 50%, transparent 70%)",
-                  }}
-                />
-                <div className="relative">
-                  <div
-                    className="text-4xl md:text-5xl font-bold mb-2 transition-all duration-500 group-hover:scale-105 origin-left"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, hsl(232 90% 45%) 0%, hsl(250 80% 55%) 50%, hsl(270 75% 60%) 100%)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      lineHeight: 1.1,
-                      filter: "drop-shadow(0 2px 8px hsla(245,80%,60%,0.25))",
-                    }}
-                  >
-                    <CountUp value={s.value} suffix={s.suffix} />
-                  </div>
-                  <div
-                    className="text-sm font-medium transition-colors duration-300"
-                    style={{ color: "hsl(232 35% 30%)" }}
-                  >
-                    {s.label}
-                  </div>
+                >
+                  <CountUp value={s.value} suffix={s.suffix} />
+                </div>
+                <div className="text-sm font-medium" style={{ color: TEXT_MID }}>
+                  {s.label}
                 </div>
               </motion.div>
             ))}
