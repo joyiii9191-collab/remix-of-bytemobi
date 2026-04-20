@@ -1290,13 +1290,12 @@ function Section1() {
               {/* Left side — brand text */}
               <div className="w-[380px] shrink-0 flex flex-col gap-6">
                 {/* Tag pill */}
-                <div className="flex items-center px-[16px] py-[5px] rounded-full relative self-start" style={{ border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.05)" }}>
-                  <span className="text-[14px] text-white font-normal tracking-[-0.21px] leading-[1.6]">About ByteMobi</span>
-                  <div className="absolute inset-[-0.5px] rounded-full pointer-events-none" style={{ boxShadow: "inset 0 0 21px rgba(255,255,255,0.12)" }} />
+                <div className="flex items-center px-[16px] py-[5px] rounded-full relative self-start" style={{ border: "1px solid hsla(0,0%,100%,0.7)", background: "hsla(0,0%,100%,0.45)", backdropFilter: 'blur(12px)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
+                  <span className="text-[14px] font-normal tracking-[-0.21px] leading-[1.6]" style={{ color: 'hsl(260, 60%, 40%)' }}>About ByteMobi</span>
                 </div>
 
                 {/* Title */}
-                <h2 className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[44px] leading-[1.1] font-semibold tracking-tight">
+                <h2 className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[44px] leading-[1.1] font-semibold tracking-tight" style={{ color: 'hsl(230, 30%, 18%)' }}>
                   品牌简介
                 </h2>
 
