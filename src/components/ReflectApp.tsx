@@ -2738,7 +2738,8 @@ function Section7Values() {
   }, [items.length]);
 
   return (
-    <div className="relative w-full h-full flex items-center justify-center px-[80px] gap-[60px]" data-name="Section7Values">
+    <div className="relative w-full h-full flex items-center justify-center px-[80px]" data-name="Section7Values">
+      <div className="w-full max-w-[1200px] flex items-center gap-[60px]">
       {/* Left content - match right image height */}
       <div className="flex flex-col flex-1 gap-[24px]">
         {/* Top: title + items */}
