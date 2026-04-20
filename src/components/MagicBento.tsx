@@ -302,6 +302,25 @@ const MagicBento = ({
   const isMobile = useMobileDetection();
   const shouldDisableAnimations = disableAnimations || isMobile;
 
+  // 入场动效:卡片进入视口时触发 stagger 动画
+  useEffect(() => {
+    const grid = gridRef.current;
+    if (!grid) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            (entry.target as HTMLElement).classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(grid);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       {enableSpotlight && (
@@ -318,6 +337,7 @@ const MagicBento = ({
           const baseClassName = `magic-bento-card ${textAutoHide ? 'magic-bento-card--text-autohide' : ''} ${enableBorderGlow ? 'magic-bento-card--border-glow' : ''}`;
           const cardStyle: React.CSSProperties = {
             '--glow-color': glowColor,
+            '--enter-index': index,
           } as React.CSSProperties;
 
           const content = (
