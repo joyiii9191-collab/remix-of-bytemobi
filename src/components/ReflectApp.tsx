@@ -2283,10 +2283,11 @@ function Section5Screen() {
 
 function LogoCard({ label, index = 0, image }: { label: string; index?: number; image?: string }) {
   return (
-    <div className="relative shrink-0 h-[64px] min-w-[120px] px-5 rounded-[14px] overflow-hidden"
+    <div className="relative shrink-0 h-[64px] min-w-[120px] px-5 rounded-[14px] overflow-hidden backdrop-blur-xl"
       style={{
-        background: 'linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(10,5,20,0.85) 40%, rgba(10,5,20,0.9) 100%)',
-        border: '1px solid rgba(255,255,255,0.08)',
+        background: 'linear-gradient(145deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.04) 50%, rgba(255,255,255,0.02) 100%)',
+        border: '1px solid rgba(255,255,255,0.12)',
+        boxShadow: 'inset 0 1px 0 0 rgba(255,255,255,0.08)',
       }}
     >
       <div className="relative z-[1] size-full flex items-center justify-center py-3">
