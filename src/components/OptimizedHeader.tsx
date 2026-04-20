@@ -29,12 +29,12 @@ export function OptimizedHeader() {
       <div
         className="rounded-full px-8 py-3 flex items-center justify-between w-full max-w-6xl"
         style={{
-          background: 'rgba(255,255,255,0.55)',
-          backdropFilter: 'blur(24px) saturate(180%)',
-          WebkitBackdropFilter: 'blur(24px) saturate(180%)',
-          border: '1px solid rgba(255,255,255,0.7)',
+          background: 'hsla(0, 0%, 100%, 0.45)',
+          backdropFilter: 'blur(24px) saturate(160%)',
+          WebkitBackdropFilter: 'blur(24px) saturate(160%)',
+          border: '1px solid hsla(0, 0%, 100%, 0.65)',
           boxShadow:
-            '0 8px 32px -4px rgba(79,70,229,0.18), inset 0 1px 0 0 rgba(255,255,255,0.9), 0 0 0 1px rgba(124,58,237,0.05)',
+            '0 8px 32px -4px hsla(25, 50%, 30%, 0.18), inset 0 1px 0 0 hsla(0, 0%, 100%, 0.9)',
         }}
       >
         {/* Logo */}
@@ -52,19 +52,19 @@ export function OptimizedHeader() {
                 to={item.to}
                 className="text-sm transition-all px-3 py-1.5 rounded-full whitespace-nowrap"
                 style={{
-                  color: active ? 'hsl(245 60% 35%)' : 'hsl(230 30% 25%)',
-                  background: active ? 'rgba(99,102,241,0.12)' : 'transparent',
+                  color: active ? 'hsl(25 60% 30%)' : 'hsl(25 30% 25%)',
+                  background: active ? 'hsla(30, 80%, 70%, 0.18)' : 'transparent',
                   fontWeight: active ? 600 : 500,
                 }}
                 onMouseEnter={(e) => {
                   if (active) return;
-                  e.currentTarget.style.background = 'rgba(99,102,241,0.1)';
-                  e.currentTarget.style.color = 'hsl(245 60% 35%)';
+                  e.currentTarget.style.background = 'hsla(30, 80%, 70%, 0.14)';
+                  e.currentTarget.style.color = 'hsl(25 60% 30%)';
                 }}
                 onMouseLeave={(e) => {
                   if (active) return;
                   e.currentTarget.style.background = 'transparent';
-                  e.currentTarget.style.color = 'hsl(230 30% 25%)';
+                  e.currentTarget.style.color = 'hsl(25 30% 25%)';
                 }}
               >
                 {t(item.key)}
