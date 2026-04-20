@@ -6,8 +6,8 @@
 }
 
 /* ===========================================================
-   玻璃卡片：光从卡片背后透出 (blob 在卡片下层 + 卡片为半透明磨砂)
-   蓝 hsl(225 95% 65%)  紫 hsl(270 80% 68%)  比例 70/30
+   按钮式玻璃卡片：halo 光晕从卡片背后向外溢出
+   卡片本身较实，光只在卡片边缘外围透出来 (类似 pill 按钮的辉光)
    =========================================================== */
 .magic-bento-card {
   position: relative;
@@ -17,21 +17,22 @@
   flex-direction: column;
   cursor: pointer;
   min-height: 200px;
-  /* 不裁剪，让背后光晕可以略微外溢 */
+  /* 不裁剪，让 halo 自然外溢 */
   overflow: visible;
   isolation: isolate;
-  /* 磨砂玻璃：让背后的光透过来 */
+  /* 较实的磨砂玻璃，让光主要在边缘外围出现，而不是穿透到正面 */
   background: linear-gradient(
     160deg,
-    hsla(0, 0%, 100%, 0.06) 0%,
-    hsla(0, 0%, 100%, 0.02) 100%
+    hsla(230, 25%, 14%, 0.55) 0%,
+    hsla(235, 30%, 10%, 0.65) 100%
   );
-  backdrop-filter: blur(22px) saturate(1.3);
-  -webkit-backdrop-filter: blur(22px) saturate(1.3);
-  border: 1px solid hsla(0, 0%, 100%, 0.1);
+  backdrop-filter: blur(28px) saturate(1.5);
+  -webkit-backdrop-filter: blur(28px) saturate(1.5);
+  border: 1px solid hsla(0, 0%, 100%, 0.12);
   box-shadow:
     inset 0 1px 0 0 hsla(0, 0%, 100%, 0.1),
-    0 4px 20px -8px hsla(0, 0%, 0%, 0.4);
+    inset 0 0 0 1px hsla(0, 0%, 100%, 0.04),
+    0 8px 32px -10px hsla(0, 0%, 0%, 0.5);
   transition:
     transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
     border-color 0.4s ease,
@@ -43,26 +44,23 @@
   --glow-color: 139, 92, 246;
 }
 
-/* 主光：左下大紫 blob —— 放在卡片后方 (z:-2) 通过磨砂玻璃透出 */
+/* 主 halo：紫色光从卡片左下背后大幅外溢 */
 .magic-bento-card::before {
   content: '';
   position: absolute;
-  bottom: -25%;
-  left: -15%;
-  width: 80%;
-  height: 90%;
+  inset: -40% -20% -50% -25%;
   border-radius: 50%;
   pointer-events: none;
   background: radial-gradient(
-    circle at 50% 50%,
-    hsla(270, 90%, 60%, 0.85) 0%,
-    hsla(265, 85%, 60%, 0.5) 30%,
-    hsla(260, 80%, 65%, 0.2) 60%,
-    transparent 100%
+    ellipse at 30% 75%,
+    hsla(270, 95%, 62%, 0.9) 0%,
+    hsla(265, 90%, 60%, 0.55) 18%,
+    hsla(260, 85%, 65%, 0.22) 38%,
+    transparent 65%
   );
-  filter: blur(40px);
+  filter: blur(48px);
   z-index: -2;
-  opacity: 1;
+  opacity: 0.95;
   transition:
     transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
     opacity 0.5s ease,
@@ -70,30 +68,27 @@
 }
 
 .magic-bento-card--border-glow {
-  border-color: hsla(0, 0%, 100%, 0.1);
+  border-color: hsla(0, 0%, 100%, 0.12);
 }
 
-/* 副光：右上蓝 blob —— 同样放在卡片后方 (z:-2) */
+/* 副 halo：蓝色光从卡片右上背后外溢 */
 .magic-bento-card::after,
 .magic-bento-card--border-glow::after {
   content: '';
   position: absolute;
-  top: -15%;
-  right: -10%;
-  width: 55%;
-  height: 65%;
+  inset: -45% -25% -30% -15%;
   border-radius: 50%;
   pointer-events: none;
   background: radial-gradient(
-    circle at 50% 50%,
-    hsla(220, 100%, 62%, 0.75) 0%,
-    hsla(225, 95%, 60%, 0.4) 40%,
-    hsla(230, 85%, 65%, 0.12) 70%,
-    transparent 100%
+    ellipse at 75% 25%,
+    hsla(220, 100%, 65%, 0.85) 0%,
+    hsla(225, 95%, 62%, 0.45) 18%,
+    hsla(230, 85%, 65%, 0.18) 40%,
+    transparent 65%
   );
-  filter: blur(34px);
+  filter: blur(44px);
   z-index: -2;
-  opacity: 1;
+  opacity: 0.9;
   transition:
     transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
     opacity 0.5s ease,
@@ -101,47 +96,61 @@
 }
 
 .magic-bento-card:hover {
-  transform: translateY(-3px);
-  border-color: hsla(255, 80%, 75%, 0.35);
+  transform: translateY(-4px);
+  border-color: hsla(255, 80%, 80%, 0.4);
   box-shadow:
-    inset 0 1px 0 0 hsla(0, 0%, 100%, 0.14),
-    0 14px 44px -10px hsla(270, 85%, 50%, 0.45),
-    0 26px 64px -16px hsla(225, 90%, 50%, 0.28);
+    inset 0 1px 0 0 hsla(0, 0%, 100%, 0.16),
+    inset 0 0 0 1px hsla(255, 80%, 75%, 0.08),
+    0 16px 48px -12px hsla(0, 0%, 0%, 0.55);
 }
 
 .magic-bento-card:hover::before {
-  transform: translate(8%, -10%) scale(1.25);
-  filter: blur(46px);
+  transform: scale(1.15) translate(4%, -4%);
+  filter: blur(56px);
+  opacity: 1;
 }
 
 .magic-bento-card:hover::after {
-  transform: translate(-10%, 8%) scale(1.28);
-  filter: blur(38px);
+  transform: scale(1.18) translate(-4%, 4%);
+  filter: blur(52px);
+  opacity: 1;
 }
 
 /* ===========================================================
-   偶数卡片：光斑位置镜像
+   偶数卡片：halo 位置左右镜像
    =========================================================== */
 .card-grid > *:nth-child(even) .magic-bento-card::before,
 .magic-bento-card:nth-child(even)::before {
-  left: auto;
-  right: -15%;
+  inset: -40% -25% -50% -20%;
+  background: radial-gradient(
+    ellipse at 70% 75%,
+    hsla(270, 95%, 62%, 0.9) 0%,
+    hsla(265, 90%, 60%, 0.55) 18%,
+    hsla(260, 85%, 65%, 0.22) 38%,
+    transparent 65%
+  );
 }
 
 .card-grid > *:nth-child(even) .magic-bento-card::after,
 .magic-bento-card:nth-child(even)::after {
-  right: auto;
-  left: -10%;
+  inset: -45% -15% -30% -25%;
+  background: radial-gradient(
+    ellipse at 25% 25%,
+    hsla(220, 100%, 65%, 0.85) 0%,
+    hsla(225, 95%, 62%, 0.45) 18%,
+    hsla(230, 85%, 65%, 0.18) 40%,
+    transparent 65%
+  );
 }
 
 .card-grid > *:nth-child(even) .magic-bento-card:hover::before,
 .magic-bento-card:nth-child(even):hover::before {
-  transform: translate(-8%, -10%) scale(1.25);
+  transform: scale(1.15) translate(-4%, -4%);
 }
 
 .card-grid > *:nth-child(even) .magic-bento-card:hover::after,
 .magic-bento-card:nth-child(even):hover::after {
-  transform: translate(10%, 8%) scale(1.28);
+  transform: scale(1.18) translate(4%, 4%);
 }
 
 /* Default state */
