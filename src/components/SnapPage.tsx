@@ -2,11 +2,13 @@ import React, { useEffect } from "react";
 import { motion } from "motion/react";
 import { OptimizedHeader } from "./OptimizedHeader";
 import { SiteFooter } from "./SiteFooter";
+import { HomeBackground } from "./HomeBackground";
 
 /**
  * SnapPage —— 子页面统一容器
  * - 整页 scroll-snap 吸附式滑动
  * - Header 固定浮动,Footer 作为最后一屏
+ * - 共用首页 home-bg 背景
  */
 interface SnapPageProps {
   /** 浏览器标题 */
@@ -25,9 +27,8 @@ export function SnapPage({ title, children }: SnapPageProps) {
 
   return (
     <div
-      className="app-light-theme font-sans"
+      className="app-light-theme font-sans relative"
       style={{
-        background: "#F5F5F7",
         color: "hsl(230 25% 18%)",
         height: "100vh",
         overflowY: "auto",
@@ -35,16 +36,19 @@ export function SnapPage({ title, children }: SnapPageProps) {
         scrollBehavior: "smooth",
       }}
     >
-      <OptimizedHeader />
-      {children}
-      {/* Footer 单独占一屏(自适应内容高度,但参与 snap) */}
-      <div
-        style={{
-          scrollSnapAlign: "start",
-          scrollSnapStop: "always",
-        }}
-      >
-        <SiteFooter />
+      <HomeBackground />
+      <div className="relative z-10">
+        <OptimizedHeader />
+        {children}
+        {/* Footer 单独占一屏(自适应内容高度,但参与 snap) */}
+        <div
+          style={{
+            scrollSnapAlign: "start",
+            scrollSnapStop: "always",
+          }}
+        >
+          <SiteFooter />
+        </div>
       </div>
     </div>
   );
@@ -75,8 +79,8 @@ export function SnapScreen({
   children,
 }: SnapScreenProps) {
   const bgStyle: React.CSSProperties = (() => {
-    if (bg === "white") return { background: "#F5F5F7" };
-    if (bg === "tint") return { background: "#EDEDF2" };
+    if (bg === "white") return { background: "transparent" };
+    if (bg === "tint") return { background: "hsla(0, 0%, 100%, 0.35)" };
     if (bg === "dark")
       return {
         background:

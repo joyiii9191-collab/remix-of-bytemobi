@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { motion } from "motion/react";
 import { OptimizedHeader } from "./OptimizedHeader";
 import { SiteFooter } from "./SiteFooter";
+import { HomeBackground } from "./HomeBackground";
 
 interface SubPageLayoutProps {
   /** 浏览器标题 */
@@ -39,35 +40,10 @@ export function SubPageLayout({
     <div
       className="app-light-theme min-h-screen font-sans relative"
       style={{
-        background: "#F2F0F5",
         color: "hsl(230 25% 18%)",
       }}
     >
-      {/* Mica 风彩色丝带光斑背景 */}
-      <div
-        className="fixed inset-0 pointer-events-none z-0 overflow-hidden"
-        style={{
-          background: `
-            radial-gradient(ellipse 75% 60% at 8% 12%, hsla(220, 100%, 70%, 0.85) 0%, transparent 55%),
-            radial-gradient(ellipse 70% 55% at 92% 18%, hsla(195, 95%, 72%, 0.70) 0%, transparent 55%),
-            radial-gradient(ellipse 80% 65% at 95% 88%, hsla(275, 90%, 70%, 0.85) 0%, transparent 55%),
-            radial-gradient(ellipse 70% 60% at 5% 92%, hsla(320, 90%, 78%, 0.75) 0%, transparent 55%),
-            radial-gradient(ellipse 50% 45% at 50% 50%, hsla(25, 95%, 78%, 0.45) 0%, transparent 65%),
-            radial-gradient(ellipse 60% 50% at 30% 75%, hsla(160, 80%, 75%, 0.40) 0%, transparent 60%),
-            linear-gradient(180deg, #F4F2F7 0%, #EEEAF3 50%, #F0EAF5 100%)
-          `,
-        }}
-      />
-      <div
-        className="fixed inset-0 pointer-events-none z-0"
-        style={{
-          background: `
-            radial-gradient(ellipse 45% 40% at 35% 60%, hsla(260, 95%, 75%, 0.45) 0%, transparent 70%),
-            radial-gradient(ellipse 40% 38% at 70% 30%, hsla(215, 95%, 78%, 0.45) 0%, transparent 70%)
-          `,
-          filter: 'blur(8px)',
-        }}
-      />
+      <HomeBackground />
       <div className="relative z-10">
       <OptimizedHeader />
 
@@ -164,7 +140,7 @@ export function PageSection({
       id={id}
       className="w-full py-20 px-6"
       style={{
-        background: bg === "tint" ? "#EDEDF2" : "transparent",
+        background: bg === "tint" ? "hsla(0, 0%, 100%, 0.35)" : "transparent",
       }}
     >
       <div className="max-w-[1200px] mx-auto">
