@@ -1927,17 +1927,16 @@ function Section2() {
       {/* Background image removed for clean light theme */}
       {/* Header */}
       <div className="relative z-10 flex flex-col items-center gap-4 mb-10">
-        <div className="flex items-center px-[16px] py-[5px] rounded-full relative" style={{ border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.05)" }}>
-          <span className="text-[14px] text-white font-normal tracking-[-0.21px] leading-[1.6]">Core Business</span>
-          <div className="absolute inset-[-0.5px] rounded-full pointer-events-none" style={{ boxShadow: "inset 0 0 21px rgba(115,80,255,0.2)" }} />
+        <div className="flex items-center px-[16px] py-[5px] rounded-full relative" style={{ border: "1px solid hsla(0,0%,100%,0.7)", background: "hsla(0,0%,100%,0.45)", backdropFilter: 'blur(12px)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
+          <span className="text-[14px] font-normal tracking-[-0.21px] leading-[1.6]" style={{ color: 'hsl(260, 60%, 40%)' }}>Core Business</span>
         </div>
-        <h2 className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[44px] leading-[1.1] font-semibold tracking-tight">
+        <h2 className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[44px] leading-[1.1] font-semibold tracking-tight" style={{ color: 'hsl(230, 30%, 18%)' }}>
           核心业务板块
         </h2>
-        <p className="text-[18px] leading-[28px] font-medium" style={{ color: 'hsla(0, 0%, 100%, 0.8)' }}>
+        <p className="text-[18px] leading-[28px] font-medium" style={{ color: 'hsl(230, 25%, 25%)' }}>
           品牌与效果广告
         </p>
-        <p className="text-[13px] leading-[22px] text-center max-w-[480px]" style={{ color: 'hsla(0, 0%, 100%, 0.4)' }}>
+        <p className="text-[13px] leading-[22px] text-center max-w-[480px]" style={{ color: 'hsl(230, 15%, 40%)' }}>
           帮助广告主精准触达目标用户，兼顾品牌曝光与效果转化
         </p>
       </div>
