@@ -134,7 +134,7 @@ export default function GlobalFlow() {
             >
               探索全球能力
             </StarBorder>
-            <span className="text-xs uppercase tracking-[0.3em]" style={{ color: TEXT_MID }}>↓ 滑动浏览</span>
+            
           </div>
         </ScreenInner>
       </SnapScreen>

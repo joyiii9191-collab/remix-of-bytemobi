@@ -154,7 +154,7 @@ export default function About() {
             >
               了解 ByteMobi
             </StarBorder>
-            <span className="text-xs uppercase tracking-[0.3em]" style={{ color: TEXT_MID }}>↓ 滑动了解</span>
+            
           </div>
         </ScreenInner>
       </SnapScreen>
