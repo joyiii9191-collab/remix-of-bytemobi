@@ -151,7 +151,7 @@ function FeatureCard({
 }) {
   return (
     <div
-      className="cursor-pointer rounded-[14px] relative overflow-hidden transition-all duration-300 hover:-translate-y-[2px]"
+      className="group cursor-pointer rounded-[14px] relative overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-[1.04] hover:shadow-[0_22px_55px_-15px_hsla(245,60%,40%,0.38),0_6px_18px_-6px_hsla(230,40%,25%,0.18)]"
       style={{
         background:
           'linear-gradient(155deg, hsla(0,0%,100%,0.55) 0%, hsla(0,0%,100%,0.28) 45%, hsla(0,0%,100%,0.18) 100%)',
@@ -169,7 +169,24 @@ function FeatureCard({
           mixBlendMode: 'screen',
         }}
       />
-      <div className="relative flex flex-col items-center justify-center gap-3 p-6 aspect-[4/3] z-[1]">
+      {/* Sweeping shine on hover */}
+      <div
+        className="absolute -inset-y-2 -left-1/2 w-1/2 pointer-events-none opacity-0 group-hover:opacity-100 group-hover:translate-x-[400%] transition-all duration-[900ms] ease-out"
+        style={{
+          background:
+            'linear-gradient(115deg, transparent 0%, hsla(0,0%,100%,0.55) 50%, transparent 100%)',
+          filter: 'blur(6px)',
+        }}
+      />
+      {/* Soft color halo on hover */}
+      <div
+        className="absolute inset-0 pointer-events-none rounded-[14px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        style={{
+          background:
+            'radial-gradient(ellipse 85% 65% at 50% 100%, hsla(245, 90%, 68%, 0.22) 0%, transparent 70%)',
+        }}
+      />
+      <div className="relative flex flex-col items-center justify-center gap-3 p-6 aspect-[4/3] z-[1] [&_>_div:first-child]:transition-transform [&_>_div:first-child]:duration-500 [&_>_div:first-child]:ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:[&_>_div:first-child]:scale-110">
         {brandLogos ? (
           <div className="flex gap-2.5">
             {brandLogos.map((b) => (
