@@ -177,10 +177,10 @@ export default function GlobalFlow() {
               return (
                 <React.Fragment key={s.title}>
                   <motion.div
-                    initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, y: 40, scale: 0.94 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
                     viewport={{ once: false, amount: 0.3 }}
-                    transition={{ duration: 0.5, delay: i * 0.12 }}
+                    transition={{ duration: 0.7, delay: i * 0.22, ease: [0.22, 1, 0.36, 1] }}
                     className="flex-1 rounded-2xl p-6 relative glass-card flex flex-col items-center text-center"
                     style={{
                       ...CARD,
@@ -234,10 +234,10 @@ export default function GlobalFlow() {
               return (
                 <motion.div
                   key={s.title}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 40, scale: 0.94 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   viewport={{ once: false, amount: 0.3 }}
-                  transition={{ duration: 0.5, delay: i * 0.08 }}
+                  transition={{ duration: 0.7, delay: i * 0.18, ease: [0.22, 1, 0.36, 1] }}
                   className="rounded-2xl p-5 flex flex-col items-center text-center glass-card relative"
                   style={{
                     ...CARD,
@@ -272,10 +272,10 @@ export default function GlobalFlow() {
               return (
                 <motion.div
                   key={c.t}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 40, scale: 0.94 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   viewport={{ once: false, amount: 0.3 }}
-                  transition={{ duration: 0.5, delay: i * 0.08 }}
+                  transition={{ duration: 0.7, delay: i * 0.2, ease: [0.22, 1, 0.36, 1] }}
                   className="rounded-2xl p-6 glass-card flex flex-col items-center text-center"
                   style={{
                     ...CARD,
