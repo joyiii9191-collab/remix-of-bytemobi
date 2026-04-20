@@ -121,6 +121,33 @@
   filter: blur(30px);
 }
 
+/* ===========================================================
+   偶数卡片：光斑位置镜像
+   - ::before 紫光从「左下」 → 「右下」
+   - ::after  蓝光从「右上」 → 「左上」
+   =========================================================== */
+.card-grid > *:nth-child(even) .magic-bento-card::before,
+.magic-bento-card:nth-child(even)::before {
+  left: auto;
+  right: -20%;
+}
+
+.card-grid > *:nth-child(even) .magic-bento-card::after,
+.magic-bento-card:nth-child(even)::after {
+  right: auto;
+  left: -12%;
+}
+
+.card-grid > *:nth-child(even) .magic-bento-card:hover::before,
+.magic-bento-card:nth-child(even):hover::before {
+  transform: translate(-6%, -8%) scale(1.18);
+}
+
+.card-grid > *:nth-child(even) .magic-bento-card:hover::after,
+.magic-bento-card:nth-child(even):hover::after {
+  transform: translate(8%, 6%) scale(1.2);
+}
+
 /* Default state */
 .magic-bento-card__default {
   position: absolute;
