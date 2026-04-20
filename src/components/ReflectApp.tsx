@@ -2296,7 +2296,7 @@ function LogoCard({ label, index = 0, image }: { label: string; index?: number; 
             src={image}
             alt={label}
             className="h-full w-auto max-w-[100px] object-contain"
-            style={{ filter: 'url(#logo-key-white)' }}
+            style={{ mixBlendMode: 'screen' }}
             loading="lazy"
           />
         ) : (
@@ -2441,26 +2441,6 @@ function Section6LogoWall() {
           丰富流量来源，构建多元化投放渠道，实现广告精准触达
         </p>
       </div>
-
-      {/* SVG filter: key-out white background (near-white pixels become transparent) */}
-      <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true">
-        <defs>
-          <filter id="logo-key-white" colorInterpolationFilters="sRGB">
-            {/* alpha = 1 - min(R,G,B); near-white => alpha 0; colored => alpha ≈ 1 */}
-            <feColorMatrix
-              type="matrix"
-              values="1 0 0 0 0
-                      0 1 0 0 0
-                      0 0 1 0 0
-                      -1 -1 -1 0 1"
-            />
-            {/* Sharpen alpha curve so light-grey edges fully drop out and colored pixels stay opaque */}
-            <feComponentTransfer>
-              <feFuncA type="linear" slope="6" intercept="-0.2" />
-            </feComponentTransfer>
-          </filter>
-        </defs>
-      </svg>
 
       {/* Logo rows */}
       <div className="flex flex-col gap-6 w-full z-[1]">
