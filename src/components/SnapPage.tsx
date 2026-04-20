@@ -126,7 +126,7 @@ export function ScreenInner({
 }) {
   return (
     <div
-      className={`relative z-10 w-full max-w-[1200px] mx-auto px-6 flex-1 flex flex-col justify-center ${className}`}
+      className={`relative z-10 w-full max-w-[1200px] mx-auto px-6 flex-1 flex flex-col justify-center items-center text-center ${className}`}
       style={style}
     >
       {children}
