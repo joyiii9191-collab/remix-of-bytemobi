@@ -16,17 +16,21 @@ export default function Index() {
           color: "hsl(250 20% 18%)",
         }}
       >
-        {/* 背景图 — 弥散色彩球 */}
+        {/* 背景图 — 弥散色彩球 + 缓慢 ken-burns 流动 */}
         <div
-          className="fixed inset-0 pointer-events-none z-0"
+          className="fixed inset-0 pointer-events-none z-0 overflow-hidden"
           aria-hidden
-          style={{
-            backgroundImage: `url(${heroBg})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-          }}
-        />
+        >
+          <div
+            className="absolute inset-0 hero-bg-kenburns"
+            style={{
+              backgroundImage: `url(${heroBg})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+          />
+        </div>
 
         {/* 柔白蒙层 — 降低饱和度,让薄玻璃卡片在上方依然清晰可读 */}
         <div
