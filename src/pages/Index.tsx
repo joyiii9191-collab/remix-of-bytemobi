@@ -32,7 +32,7 @@ export default function Index() {
           />
         </div>
 
-        {/* 柔白蒙层 — 降低饱和度,让薄玻璃卡片在上方依然清晰可读 */}
+        {/* 底层柔白蒙层 — 给第二屏起的浅色卡片区使用 */}
         <div
           className="fixed inset-0 pointer-events-none z-0"
           aria-hidden
@@ -41,6 +41,17 @@ export default function Index() {
               "linear-gradient(135deg, hsla(250, 40%, 98%, 0.55) 0%, hsla(260, 35%, 96%, 0.5) 50%, hsla(270, 30%, 97%, 0.55) 100%)",
             backdropFilter: "saturate(85%)",
             WebkitBackdropFilter: "saturate(85%)",
+          }}
+        />
+
+        {/* 顶层深蓝紫蒙层 — 仅覆盖首屏 (0 → ~110vh),底部 alpha 降到 0 让浅色蒙层透出 */}
+        <div
+          className="absolute top-0 left-0 right-0 pointer-events-none z-0"
+          aria-hidden
+          style={{
+            height: "110vh",
+            background:
+              "linear-gradient(180deg, hsla(235, 55%, 10%, 0.86) 0%, hsla(248, 52%, 12%, 0.82) 35%, hsla(258, 50%, 14%, 0.72) 65%, hsla(265, 45%, 18%, 0.4) 88%, hsla(265, 45%, 22%, 0) 100%)",
           }}
         />
 
