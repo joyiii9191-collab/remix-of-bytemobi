@@ -125,7 +125,7 @@ export default function GlobalFlow() {
             移动增长引擎
           </ScreenTitle>
           <ScreenLead>
-            驱动全球增长,智能汇流每一刻。覆盖六大洲核心市场的实时流量与设备网络,为每一个增长目标计算最优路径。
+            驱动全球增长,智能汇流每一刻
           </ScreenLead>
           <div className="mt-10 flex items-center gap-6">
             <StarBorder
