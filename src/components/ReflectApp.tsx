@@ -2296,7 +2296,7 @@ function LogoCard({ label, index = 0, image }: { label: string; index?: number; 
             src={image}
             alt={label}
             className="h-full w-auto max-w-[100px] object-contain"
-            style={{ mixBlendMode: 'screen' }}
+            style={{ filter: 'url(#logo-key-white)' }}
             loading="lazy"
           />
         ) : (
