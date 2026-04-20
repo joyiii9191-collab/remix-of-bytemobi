@@ -223,55 +223,55 @@ All colors MUST be HSL.
 .mesh-blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.85;
+  filter: blur(60px);
+  opacity: 0.75;
   will-change: transform;
   mix-blend-mode: normal;
 }
 
 .mesh-blob--1 {
-  width: 55vw;
-  height: 55vw;
-  top: -10%;
-  left: -10%;
-  background: radial-gradient(circle, hsla(275, 85%, 72%, 0.55) 0%, hsla(275, 85%, 72%, 0) 70%);
+  width: 30vw;
+  height: 30vw;
+  top: 5%;
+  left: 8%;
+  background: radial-gradient(circle, hsla(275, 85%, 75%, 0.45) 0%, hsla(275, 85%, 75%, 0) 70%);
   animation: mesh-drift-1 28s ease-in-out infinite;
 }
 
 .mesh-blob--2 {
-  width: 50vw;
-  height: 50vw;
-  top: -5%;
-  right: -10%;
-  background: radial-gradient(circle, hsla(220, 90%, 75%, 0.50) 0%, hsla(220, 90%, 75%, 0) 70%);
+  width: 28vw;
+  height: 28vw;
+  top: 8%;
+  right: 6%;
+  background: radial-gradient(circle, hsla(220, 90%, 78%, 0.42) 0%, hsla(220, 90%, 78%, 0) 70%);
   animation: mesh-drift-2 32s ease-in-out infinite;
 }
 
 .mesh-blob--3 {
-  width: 60vw;
-  height: 60vw;
-  top: 30%;
+  width: 32vw;
+  height: 32vw;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: radial-gradient(circle, hsla(295, 85%, 78%, 0.55) 0%, hsla(295, 85%, 78%, 0) 70%);
+  background: radial-gradient(circle, hsla(295, 85%, 80%, 0.40) 0%, hsla(295, 85%, 80%, 0) 70%);
   animation: mesh-drift-3 36s ease-in-out infinite;
 }
 
 .mesh-blob--4 {
-  width: 50vw;
-  height: 50vw;
-  bottom: -10%;
-  left: -5%;
-  background: radial-gradient(circle, hsla(255, 85%, 78%, 0.50) 0%, hsla(255, 85%, 78%, 0) 70%);
+  width: 28vw;
+  height: 28vw;
+  bottom: 8%;
+  left: 12%;
+  background: radial-gradient(circle, hsla(255, 85%, 80%, 0.42) 0%, hsla(255, 85%, 80%, 0) 70%);
   animation: mesh-drift-4 30s ease-in-out infinite;
 }
 
 .mesh-blob--5 {
-  width: 55vw;
-  height: 55vw;
-  bottom: -10%;
-  right: -10%;
-  background: radial-gradient(circle, hsla(310, 80%, 78%, 0.50) 0%, hsla(310, 80%, 78%, 0) 70%);
+  width: 30vw;
+  height: 30vw;
+  bottom: 6%;
+  right: 8%;
+  background: radial-gradient(circle, hsla(310, 80%, 80%, 0.42) 0%, hsla(310, 80%, 80%, 0) 70%);
   animation: mesh-drift-5 34s ease-in-out infinite;
 }
 
