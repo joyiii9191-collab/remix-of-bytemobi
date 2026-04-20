@@ -1995,47 +1995,62 @@ function Section4Screen() {
         <div className="relative w-[550px] h-[493px]">
           {/* Connection lines - SVG */}
           <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 550 493" fill="none">
-            {/* Top center vertical line */}
-            <line x1="275" y1="0" x2="275" y2="167" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
-            {/* Bottom center vertical line */}
-            <line x1="275" y1="327" x2="275" y2="493" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+            <defs>
+              <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stopColor="hsla(260, 70%, 55%, 0.55)" />
+                <stop offset="50%" stopColor="hsla(265, 80%, 60%, 0.85)" />
+                <stop offset="100%" stopColor="hsla(260, 70%, 55%, 0.55)" />
+              </linearGradient>
+              <filter id="lineGlow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="1.2" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+            <g stroke="url(#lineGrad)" strokeWidth="1.5" filter="url(#lineGlow)">
+              {/* Top center vertical line */}
+              <line x1="275" y1="0" x2="275" y2="167" />
+              {/* Bottom center vertical line */}
+              <line x1="275" y1="327" x2="275" y2="493" />
 
-            {/* Left icon 1 (top, y=140) → center: horizontal then curve down */}
-            <path d="M 90 140 L 140 140 L 140 140 Q 140 140 140 140 L 140 140" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
-            <line x1="140" y1="140" x2="160" y2="140" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
-            <path d="M 160 140 Q 175 140 175 155 L 175 232 Q 175 247 190 247 L 195 247" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+              {/* Left icon 1 (top, y=140) → center */}
+              <path d="M 90 140 L 140 140" />
+              <line x1="140" y1="140" x2="160" y2="140" />
+              <path d="M 160 140 Q 175 140 175 155 L 175 232 Q 175 247 190 247 L 195 247" fill="none" />
 
-            {/* Left icon 2 (mid, y=247) → center: straight horizontal */}
-            <line x1="90" y1="247" x2="195" y2="247" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+              {/* Left icon 2 (mid, y=247) → center */}
+              <line x1="90" y1="247" x2="195" y2="247" />
 
-            {/* Left icon 3 (bottom, y=353) → center: horizontal then curve up */}
-            <line x1="90" y1="353" x2="160" y2="353" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
-            <path d="M 160 353 Q 175 353 175 338 L 175 262 Q 175 247 190 247 L 195 247" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+              {/* Left icon 3 (bottom, y=353) → center */}
+              <line x1="90" y1="353" x2="160" y2="353" />
+              <path d="M 160 353 Q 175 353 175 338 L 175 262 Q 175 247 190 247 L 195 247" fill="none" />
 
-            {/* Right icon 1 (top, y=140) → center: horizontal then curve down */}
-            <line x1="460" y1="140" x2="390" y2="140" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
-            <path d="M 390 140 Q 375 140 375 155 L 375 232 Q 375 247 360 247 L 355 247" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+              {/* Right icon 1 (top) → center */}
+              <line x1="460" y1="140" x2="390" y2="140" />
+              <path d="M 390 140 Q 375 140 375 155 L 375 232 Q 375 247 360 247 L 355 247" fill="none" />
 
-            {/* Right icon 2 (mid, y=247) → center: straight horizontal */}
-            <line x1="460" y1="247" x2="355" y2="247" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+              {/* Right icon 2 (mid) → center */}
+              <line x1="460" y1="247" x2="355" y2="247" />
 
-            {/* Right icon 3 (bottom, y=353) → center: horizontal then curve up */}
-            <line x1="460" y1="353" x2="390" y2="353" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
-            <path d="M 390 353 Q 375 353 375 338 L 375 262 Q 375 247 360 247 L 355 247" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+              {/* Right icon 3 (bottom) → center */}
+              <line x1="460" y1="353" x2="390" y2="353" />
+              <path d="M 390 353 Q 375 353 375 338 L 375 262 Q 375 247 360 247 L 355 247" fill="none" />
 
-            {/* Bottom center → curve to left bottom */}
-            <path d="M 275 400 Q 275 430 245 430 L 175 430 Q 160 430 160 445 L 160 493" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
-            {/* Bottom center → curve to right bottom */}
-            <path d="M 275 400 Q 275 430 305 430 L 375 430 Q 390 430 390 445 L 390 493" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+              {/* Bottom center → curve to left/right bottom */}
+              <path d="M 275 400 Q 275 430 245 430 L 175 430 Q 160 430 160 445 L 160 493" fill="none" />
+              <path d="M 275 400 Q 275 430 305 430 L 375 430 Q 390 430 390 445 L 390 493" fill="none" />
+            </g>
 
-            {/* Dots at key intersections */}
-            <circle cx="275" cy="167" r="2.5" fill="rgba(255,255,255,0.2)" />
-            <circle cx="275" cy="327" r="2.5" fill="rgba(255,255,255,0.2)" />
-            <circle cx="275" cy="400" r="2.5" fill="rgba(255,255,255,0.2)" />
-            <circle cx="140" cy="140" r="2" fill="rgba(255,255,255,0.15)" />
-            <circle cx="140" cy="353" r="2" fill="rgba(255,255,255,0.15)" />
-            <circle cx="410" cy="140" r="2" fill="rgba(255,255,255,0.15)" />
-            <circle cx="410" cy="353" r="2" fill="rgba(255,255,255,0.15)" />
+            {/* Dots at key intersections - brighter purple */}
+            <circle cx="275" cy="167" r="3" fill="hsla(265, 85%, 60%, 0.9)" />
+            <circle cx="275" cy="327" r="3" fill="hsla(265, 85%, 60%, 0.9)" />
+            <circle cx="275" cy="400" r="3" fill="hsla(265, 85%, 60%, 0.9)" />
+            <circle cx="140" cy="140" r="2.5" fill="hsla(260, 75%, 58%, 0.7)" />
+            <circle cx="140" cy="353" r="2.5" fill="hsla(260, 75%, 58%, 0.7)" />
+            <circle cx="410" cy="140" r="2.5" fill="hsla(260, 75%, 58%, 0.7)" />
+            <circle cx="410" cy="353" r="2.5" fill="hsla(260, 75%, 58%, 0.7)" />
           </svg>
 
           {/* Icon card component - reusable */}
