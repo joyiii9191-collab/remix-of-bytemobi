@@ -22,27 +22,19 @@
   min-height: 200px;
   overflow: hidden;
   isolation: isolate;
-  /* 与"品牌简介"卡片一致的轻薄白色磨砂,让暖色背景透出 */
-  background: linear-gradient(
-    155deg,
-    hsla(0, 0%, 100%, 0.30) 0%,
-    hsla(0, 0%, 100%, 0.15) 45%,
-    hsla(0, 0%, 100%, 0.08) 100%
-  );
-  backdrop-filter: blur(20px) saturate(140%);
-  -webkit-backdrop-filter: blur(20px) saturate(140%);
-  border: 1px solid hsla(0, 0%, 100%, 0.6);
+  /* 极薄透明玻璃 — 极少白色填充,小模糊,让背景色清晰透出 */
+  background: hsla(0, 0%, 100%, 0.18);
+  backdrop-filter: blur(8px) saturate(105%);
+  -webkit-backdrop-filter: blur(8px) saturate(105%);
+  border: 1px solid hsla(0, 0%, 100%, 0.5);
   box-shadow:
-    inset 0 1.5px 0 0 hsla(0, 0%, 100%, 0.95),
-    inset 1px 0 0 0 hsla(0, 0%, 100%, 0.5),
-    inset 0 -1px 0 0 hsla(25, 30%, 50%, 0.10),
-    inset 0 -10px 24px -12px hsla(0, 0%, 100%, 0.4),
-    0 12px 32px -10px hsla(25, 50%, 30%, 0.20),
-    0 2px 6px -2px hsla(25, 50%, 30%, 0.14);
+    inset 0 1px 0 0 hsla(0, 0%, 100%, 0.6),
+    0 8px 24px -10px hsla(250, 30%, 30%, 0.12);
   transition:
     transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
     border-color 0.4s ease,
-    box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.4s ease;
   --glow-x: 50%;
   --glow-y: 50%;
   --glow-intensity: 0;
@@ -50,30 +42,22 @@
   --glow-color: 255, 255, 255;
 }
 
+/* 顶部细 specular 反光线 — 仅一道极细的高光,不堆叠 */
 .magic-bento-card::before {
   content: '';
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background:
-    radial-gradient(
-      ellipse 110% 45% at 50% -8%,
-      hsla(0, 0%, 100%, 0.55) 0%,
-      hsla(0, 0%, 100%, 0.15) 35%,
-      transparent 65%
-    ),
-    linear-gradient(
-      135deg,
-      transparent 30%,
-      hsla(0, 0%, 100%, 0.20) 45%,
-      hsla(0, 0%, 100%, 0.04) 55%,
-      transparent 70%
-    );
+  background: linear-gradient(
+    180deg,
+    hsla(0, 0%, 100%, 0.18) 0%,
+    transparent 30%
+  );
   pointer-events: none;
   z-index: 1;
-  mix-blend-mode: screen;
 }
 
+/* 极淡的流光,不喧宾夺主 */
 .magic-bento-card::after {
   content: '';
   position: absolute;
@@ -83,18 +67,15 @@
   height: 200%;
   background: linear-gradient(
     115deg,
-    transparent 40%,
-    hsla(0, 0%, 100%, 0.0) 45%,
-    hsla(0, 0%, 100%, 0.18) 50%,
-    hsla(0, 0%, 100%, 0.0) 55%,
-    transparent 60%
+    transparent 45%,
+    hsla(0, 0%, 100%, 0.08) 50%,
+    transparent 55%
   );
   pointer-events: none;
   z-index: 2;
-  transform: translateX(-60%) translateY(-60%) rotate(0deg);
-  animation: glassShimmer 7s ease-in-out infinite;
-  mix-blend-mode: screen;
-  opacity: 0.85;
+  transform: translateX(-60%) translateY(-60%);
+  animation: glassShimmer 9s ease-in-out infinite;
+  opacity: 0.6;
 }
 
 @keyframes glassShimmer {
@@ -103,24 +84,20 @@
 }
 
 .magic-bento-card--border-glow {
-  border-color: hsla(0, 0%, 100%, 0.6);
+  border-color: hsla(0, 0%, 100%, 0.5);
 }
 
 .magic-bento-card:hover {
-  transform: translateY(-4px);
-  border-color: hsla(0, 0%, 100%, 0.85);
+  transform: translateY(-3px);
+  background: hsla(0, 0%, 100%, 0.24);
+  border-color: hsla(0, 0%, 100%, 0.7);
   box-shadow:
-    inset 0 1.5px 0 0 hsla(0, 0%, 100%, 1),
-    inset 1px 0 0 0 hsla(0, 0%, 100%, 0.6),
-    inset 0 -1px 0 0 hsla(25, 30%, 50%, 0.14),
-    inset 0 -12px 28px -12px hsla(0, 0%, 100%, 0.55),
-    0 20px 44px -14px hsla(25, 55%, 25%, 0.28),
-    0 4px 10px -3px hsla(25, 55%, 25%, 0.16);
+    inset 0 1px 0 0 hsla(0, 0%, 100%, 0.75),
+    0 14px 32px -10px hsla(250, 35%, 25%, 0.18);
 }
 
 .magic-bento-card:hover::after {
-  animation-duration: 3.5s;
-  opacity: 1;
+  opacity: 0.85;
 }
 
 /* Default state */
