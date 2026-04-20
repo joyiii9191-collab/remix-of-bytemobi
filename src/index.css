@@ -247,8 +247,8 @@ All colors MUST be HSL.
 .app-light-theme [style*="rgba(18, 15, 23"],
 .app-light-theme [style*="rgba(18,15,23"] {
   background: linear-gradient(135deg, rgba(255,255,255,0.55) 0%, rgba(238,235,251,0.5) 100%) !important;
-  backdrop-filter: blur(28px) saturate(1.6);
-  -webkit-backdrop-filter: blur(28px) saturate(1.6);
+  backdrop-filter: blur(8px) saturate(1.6);
+  -webkit-backdrop-filter: blur(8px) saturate(1.6);
 }
 
 /* === Text color remapping === */
@@ -329,8 +329,8 @@ All colors MUST be HSL.
 .app-light-theme [style*="background-color: #0a0a12"],
 .app-light-theme [style*="background-color:#0a0a12"] {
   background: rgba(255,255,255,0.4) !important;
-  backdrop-filter: blur(24px) saturate(1.6);
-  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  backdrop-filter: blur(8px) saturate(1.6);
+  -webkit-backdrop-filter: blur(8px) saturate(1.6);
 }
 
 /* Section bg-[#030014] tailwind class */
@@ -437,8 +437,8 @@ All colors MUST be HSL.
 .app-light-theme footer[style*="rgba(10, 5, 20"],
 .app-light-theme footer[style*="rgba(10,5,20"] {
   background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(238,235,251,0.7) 100%) !important;
-  backdrop-filter: blur(40px) saturate(1.5) !important;
-  -webkit-backdrop-filter: blur(40px) saturate(1.5) !important;
+  backdrop-filter: blur(8px) saturate(1.5) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(1.5) !important;
   border-top: 1px solid rgba(124,58,237,0.15) !important;
 }
 
@@ -462,8 +462,8 @@ All colors MUST be HSL.
 .app-light-theme [style*="background: rgba(0,0,0"],
 .app-light-theme [style*="background: rgba(0, 0, 0"] {
   background: rgba(255,255,255,0.45) !important;
-  backdrop-filter: blur(20px) saturate(1.5);
-  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  backdrop-filter: blur(8px) saturate(1.5);
+  -webkit-backdrop-filter: blur(8px) saturate(1.5);
 }
 
 /* ========================================================================
@@ -484,8 +484,8 @@ All colors MUST be HSL.
       hsla(270, 75%, 75%, 0.16) 100%
     ),
     linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.35) 100%);
-  backdrop-filter: blur(26px) saturate(1.6);
-  -webkit-backdrop-filter: blur(26px) saturate(1.6);
+  backdrop-filter: blur(8px) saturate(1.6);
+  -webkit-backdrop-filter: blur(8px) saturate(1.6);
   border: 1px solid hsla(232, 80%, 70%, 0.22);
   box-shadow:
     inset 0 1px 0 0 rgba(255, 255, 255, 0.55),

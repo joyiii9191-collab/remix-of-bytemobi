@@ -1275,8 +1275,8 @@ function Section1() {
           {/* Background fill — translucent glass: 让背景色清晰透出 */}
           <div className="absolute inset-0 pointer-events-none rounded-[24px]" style={{
             background: 'linear-gradient(155deg, hsla(0,0%,100%,0.30) 0%, hsla(0,0%,100%,0.15) 45%, hsla(0,0%,100%,0.08) 100%)',
-            backdropFilter: 'blur(40px) saturate(1.8)',
-            WebkitBackdropFilter: 'blur(40px) saturate(1.8)'
+            backdropFilter: 'blur(8px) saturate(1.8)',
+            WebkitBackdropFilter: 'blur(8px) saturate(1.8)'
           }} />
           {/* Top specular highlight */}
           <div className="absolute inset-0 pointer-events-none rounded-[24px] overflow-hidden" style={{ mixBlendMode: 'screen' }}>
@@ -2038,7 +2038,7 @@ function Section4Screen() {
                   background: 'radial-gradient(circle at 0% 0%, rgba(168,130,255,0.5) 0%, rgba(124,58,237,0.2) 30%, transparent 60%)',
                 }} />
                 {/* Card content */}
-                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: 'linear-gradient(155deg, hsla(0,0%,100%,0.6) 0%, hsla(0,0%,100%,0.3) 100%)', backdropFilter: 'blur(16px) saturate(1.5)', WebkitBackdropFilter: 'blur(16px) saturate(1.5)', border: '1px solid hsla(0,0%,100%,0.6)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
+                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: 'linear-gradient(155deg, hsla(0,0%,100%,0.6) 0%, hsla(0,0%,100%,0.3) 100%)', backdropFilter: 'blur(6px) saturate(1.5)', WebkitBackdropFilter: 'blur(6px) saturate(1.5)', border: '1px solid hsla(0,0%,100%,0.6)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
                   <div className="w-[32px] h-[32px] rounded-md" style={{ background: 'hsla(260,60%,55%,0.25)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.6)' }} />
                 </div>
               </div>
@@ -2058,7 +2058,7 @@ function Section4Screen() {
                   background: 'radial-gradient(circle at 0% 0%, rgba(168,130,255,0.5) 0%, rgba(124,58,237,0.2) 30%, transparent 60%)',
                 }} />
                 {/* Card content */}
-                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: 'linear-gradient(155deg, hsla(0,0%,100%,0.6) 0%, hsla(0,0%,100%,0.3) 100%)', backdropFilter: 'blur(16px) saturate(1.5)', WebkitBackdropFilter: 'blur(16px) saturate(1.5)', border: '1px solid hsla(0,0%,100%,0.6)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
+                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: 'linear-gradient(155deg, hsla(0,0%,100%,0.6) 0%, hsla(0,0%,100%,0.3) 100%)', backdropFilter: 'blur(6px) saturate(1.5)', WebkitBackdropFilter: 'blur(6px) saturate(1.5)', border: '1px solid hsla(0,0%,100%,0.6)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
                   <div className="w-[32px] h-[32px] rounded-md" style={{ background: 'hsla(260,60%,55%,0.25)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.6)' }} />
                 </div>
               </div>
@@ -2734,7 +2734,7 @@ function Section7Values() {
               {['S2S 对接', 'API 接入', 'MMP 接入'].map((label) => (
                 <div key={label} className="px-3 py-[4px] rounded-full relative" style={{
                   background: 'rgba(255,255,255,0.04)',
-                  backdropFilter: 'blur(20px)',
+                  backdropFilter: 'blur(8px)',
                   border: '1px solid rgba(139,92,246,0.15)',
                 }}>
                   <span className="text-[12px] text-[rgba(239,237,253,0.7)] relative z-[1]">{label}</span>
