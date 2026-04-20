@@ -183,18 +183,14 @@ export default function GlobalFlow() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, amount: 0.3 }}
                     transition={{ duration: 0.5, delay: i * 0.12 }}
-                    className="flex-1 rounded-2xl p-5 relative glass-card flex flex-col items-center text-center"
+                    className="flex-1 rounded-2xl p-6 relative glass-card flex flex-col items-center text-center"
                     style={CARD}
                   >
                     <div
-                      className="absolute top-3 left-3 text-xs font-semibold px-2 py-0.5 rounded-full"
-                      style={{ background: ACCENT, color: "white" }}
-                    >0{i + 1}</div>
-                    <div
-                      className="w-10 h-10 rounded-xl flex items-center justify-center mb-3 mt-4 mx-auto"
+                      className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
                       style={{ background: "rgba(99,102,241,0.1)", color: ACCENT }}
-                    ><Icon size={20} /></div>
-                    <h3 className="text-base font-semibold mb-1.5" style={{ color: TEXT_DARK }}>{s.title}</h3>
+                    ><Icon size={24} /></div>
+                    <h3 className="text-base font-semibold mb-2" style={{ color: TEXT_DARK }}>{s.title}</h3>
                     <p className="text-xs leading-relaxed" style={{ color: TEXT_MID }}>{s.desc}</p>
                   </motion.div>
                   {i < UA_STEPS.length - 1 && (
