@@ -45,10 +45,10 @@ const STATS = [
 ];
 
 const UA_STEPS = [
-  { icon: Radio, title: "RTB 实时竞价", desc: "毫秒级响应全球主流交易市场曝光机会。" },
-  { icon: Target, title: "多维定向", desc: "设备、兴趣、地域、时段灵活拼装人群策略。" },
-  { icon: Sparkles, title: "创意智能组合", desc: "动态优选高 CTR 版本,素材自动迭代。" },
-  { icon: LineChart, title: "全链路归因", desc: "曝光→点击→激活→付费,事件级可追溯。" },
+  { icon: Radio, title: "RTB 实时竞价", desc: "毫秒级响应全球主流交易市场曝光机会" },
+  { icon: Target, title: "多维定向", desc: "设备、兴趣、地域、时段灵活拼装人群策略" },
+  { icon: Sparkles, title: "创意智能组合", desc: "动态优选高 CTR 版本,素材自动迭代" },
+  { icon: LineChart, title: "全链路归因", desc: "曝光→点击→激活→付费,事件级可追溯" },
 ];
 
 const RT_FUNNEL = [
@@ -183,15 +183,15 @@ export default function GlobalFlow() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, amount: 0.3 }}
                     transition={{ duration: 0.5, delay: i * 0.12 }}
-                    className="flex-1 rounded-2xl p-5 relative glass-card"
+                    className="flex-1 rounded-2xl p-5 relative glass-card flex flex-col items-center text-center"
                     style={CARD}
                   >
                     <div
-                      className="absolute -top-3 left-5 text-xs font-semibold px-2 py-0.5 rounded-full"
+                      className="absolute top-3 left-3 text-xs font-semibold px-2 py-0.5 rounded-full"
                       style={{ background: ACCENT, color: "white" }}
                     >0{i + 1}</div>
                     <div
-                      className="w-10 h-10 rounded-xl flex items-center justify-center mb-3"
+                      className="w-10 h-10 rounded-xl flex items-center justify-center mb-3 mt-4 mx-auto"
                       style={{ background: "rgba(99,102,241,0.1)", color: ACCENT }}
                     ><Icon size={20} /></div>
                     <h3 className="text-base font-semibold mb-1.5" style={{ color: TEXT_DARK }}>{s.title}</h3>
