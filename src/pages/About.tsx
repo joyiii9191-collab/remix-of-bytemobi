@@ -1,4 +1,5 @@
 import React from "react";
+import StarBorder from "@/components/StarBorder";
 import { motion, useScroll, useTransform } from "motion/react";
 import {
   SnapPage, SnapScreen, ScreenInner,
