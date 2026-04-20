@@ -140,7 +140,7 @@ export function PageSection({
       id={id}
       className="w-full py-20 px-6"
       style={{
-        background: bg === "tint" ? "#EDEDF2" : "transparent",
+        background: bg === "tint" ? "hsla(0, 0%, 100%, 0.35)" : "transparent",
       }}
     >
       <div className="max-w-[1200px] mx-auto">
