@@ -6,6 +6,7 @@ import {
 } from "@/components/SnapPage";
 import { CountUp } from "@/components/SubPageLayout";
 import { ParticleWorldMap } from "@/components/ParticleWorldMap";
+import "./HopeX.css";
 
 const HOPEX_MARKERS = [
   { x: 18, y: 35, highlight: true, label: "NA" },
@@ -20,7 +21,7 @@ const HOPEX_LINES: Array<[number, number]> = [
   [0, 6], [0, 5], [6, 1], [6, 4], [1, 2], [1, 3],
 ];
 
-// 蓝紫磨砂玻璃卡片 (logo 蓝 70% / 紫 30%)
+// 蓝紫磨砂玻璃卡片 (logo 蓝 70% / 紫 30%) - 使用 glass-card 类提供完整玻璃质感
 const CARD: React.CSSProperties = {
   background:
     "linear-gradient(135deg, hsla(220,95%,75%,0.18) 0%, hsla(232,85%,72%,0.14) 35%, hsla(250,75%,72%,0.12) 70%, hsla(270,75%,75%,0.16) 100%), linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.35) 100%)",
@@ -28,8 +29,9 @@ const CARD: React.CSSProperties = {
   WebkitBackdropFilter: "blur(26px) saturate(1.6)",
   border: "1px solid hsla(232, 80%, 70%, 0.22)",
   boxShadow:
-    "inset 0 1px 0 0 rgba(255,255,255,0.55), 0 8px 28px -10px hsla(232,85%,55%,0.22), 0 16px 40px -16px hsla(265,75%,58%,0.18)",
+    "inset 0 1.5px 0 0 rgba(255,255,255,0.85), inset 1px 0 0 0 rgba(255,255,255,0.4), inset 0 -1px 0 0 hsla(230,30%,50%,0.12), inset 0 -10px 24px -12px rgba(255,255,255,0.4), 0 10px 30px -10px hsla(232,85%,40%,0.25), 0 2px 6px -2px hsla(232,85%,40%,0.15)",
 };
+const CARD_CLASS = "glass-card";
 const TEXT_DARK = "hsl(230 30% 18%)";
 const TEXT_MID = "hsl(230 20% 40%)";
 const ACCENT = "hsl(245 60% 45%)";
@@ -79,8 +81,7 @@ export default function HopeX() {
                 key={s.l}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="rounded-2xl p-6"
-                style={CARD}
+                className="rounded-2xl p-6 glass-card" style={CARD}
               >
                 <div className="text-4xl md:text-5xl font-bold mb-2"
                   style={{
@@ -111,7 +112,7 @@ export default function HopeX() {
                 key={c.t}
                 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="rounded-2xl p-6" style={CARD}
+                className="rounded-2xl p-6 glass-card" style={CARD}
               >
                 <h3 className="text-base font-semibold mb-1.5" style={{ color: TEXT_DARK }}>{c.t}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>{c.d}</p>
@@ -137,14 +138,14 @@ export default function HopeX() {
               <motion.div key={c.t}
                 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="rounded-2xl p-5" style={CARD}
+                className="rounded-2xl p-5 glass-card" style={CARD}
               >
                 <h3 className="text-base font-semibold mb-1.5" style={{ color: TEXT_DARK }}>{c.t}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>{c.d}</p>
               </motion.div>
             ))}
           </div>
-          <div className="rounded-2xl p-6 mt-5" style={CARD}>
+          <div className="rounded-2xl p-6 mt-5 glass-card" style={CARD}>
             <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>全球行业覆盖 · 仅展示 Logo</div>
             <div className="flex flex-wrap gap-2">
               {["电商", "游戏", "工具", "短剧", "娱乐内容", "金融科技"].map((t) => (
@@ -167,11 +168,10 @@ export default function HopeX() {
               <motion.div key={t}
                 initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: i * 0.06 }}
-                className="rounded-xl px-4 py-4 text-center text-sm font-semibold"
-                style={{ ...CARD, color: TEXT_DARK }}>{t}</motion.div>
+                className="rounded-xl px-4 py-4 text-center text-sm font-semibold glass-card" style={{ ...CARD, color: TEXT_DARK }}>{t}</motion.div>
             ))}
           </div>
-          <div className="rounded-2xl p-6 mt-6" style={CARD}>
+          <div className="rounded-2xl p-6 mt-6 glass-card" style={CARD}>
             <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>多元预算接入 · 官方 Logo 展示</div>
             <div className="flex flex-wrap gap-2">
               {["ShareThrough", "RTB House", "Shopee 品牌直客", "Shein 品牌直客"].map((t) => (
@@ -198,7 +198,7 @@ export default function HopeX() {
               <motion.div key={c.t}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="rounded-2xl p-6" style={CARD}
+                className="rounded-2xl p-6 glass-card" style={CARD}
               >
                 <h3 className="text-lg font-semibold mb-2" style={{ color: TEXT_DARK }}>{c.t}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>{c.d}</p>
@@ -217,7 +217,7 @@ export default function HopeX() {
             <motion.div
               initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5 }}
-              className="rounded-2xl p-7" style={CARD}>
+              className="rounded-2xl p-7 glass-card" style={CARD}>
               <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>For Advertisers</div>
               <h3 className="text-2xl font-bold mb-4" style={{ color: TEXT_DARK }}>广告主</h3>
               <ul className="space-y-2.5 text-sm" style={{ color: TEXT_DARK }}>
@@ -229,7 +229,7 @@ export default function HopeX() {
             <motion.div
               initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5 }}
-              className="rounded-2xl p-7" style={CARD}>
+              className="rounded-2xl p-7 glass-card" style={CARD}>
               <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>For Publishers</div>
               <h3 className="text-2xl font-bold mb-4" style={{ color: TEXT_DARK }}>流量方</h3>
               <ul className="space-y-2.5 text-sm" style={{ color: TEXT_DARK }}>
