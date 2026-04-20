@@ -59,7 +59,6 @@ export default function MediaResources() {
       {/* === Screen 2 — 价值主张 === */}
       <SnapScreen id="value" bg="tint">
         <ScreenInner>
-          <ScreenEyebrow>01 · 价值主张</ScreenEyebrow>
           <ScreenTitle>为出海团队提供端到端增长杠杆</ScreenTitle>
           <ScreenLead>从内容到合规,从开户到复盘,把出海增长做成可重复的体系。</ScreenLead>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
@@ -84,7 +83,6 @@ export default function MediaResources() {
       {/* === Screen 3 — 服务入口 === */}
       <SnapScreen id="services">
         <ScreenInner>
-          <ScreenEyebrow>02 · 服务入口</ScreenEyebrow>
           <ScreenTitle>四大服务能力</ScreenTitle>
           <ScreenLead>从开户到复盘的端到端能力,一个团队覆盖全部环节。</ScreenLead>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
@@ -109,7 +107,6 @@ export default function MediaResources() {
       {/* === Screen 4 — 特色亮点 === */}
       <SnapScreen id="highlight" bg="tint">
         <ScreenInner>
-          <ScreenEyebrow>03 · 特色亮点</ScreenEyebrow>
           <ScreenTitle>短剧与品牌出海一站式</ScreenTitle>
           <ScreenLead>从内容形态、本地化创意到投放与复盘的完整链路。</ScreenLead>
           <div className="rounded-2xl p-8 mt-10 glass-card" style={CARD}>
@@ -135,7 +132,6 @@ export default function MediaResources() {
       {/* === Screen 5 — 合作模式 === */}
       <SnapScreen id="model">
         <ScreenInner>
-          <ScreenEyebrow>04 · 合作模式</ScreenEyebrow>
           <ScreenTitle>覆盖跨境与品牌的多类客户</ScreenTitle>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10 mb-8">
             {["跨境商家", "品牌广告主", "渠道代理", "出海团队"].map((t, i) => (
@@ -167,7 +163,6 @@ export default function MediaResources() {
       {/* === Screen 6 — 政策支持 === */}
       <SnapScreen id="policy" bg="tint">
         <ScreenInner>
-          <ScreenEyebrow>05 · 政策支持</ScreenEyebrow>
           <ScreenTitle>平台资源与长期运营支持</ScreenTitle>
           <ScreenLead>帮助合作伙伴快速起量,实现稳定增长。</ScreenLead>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
