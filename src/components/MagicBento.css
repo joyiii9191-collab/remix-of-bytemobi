@@ -203,3 +203,37 @@
     gap: 12px;
   }
 }
+
+/* ===== 入场动效 ===== */
+@keyframes magic-bento-card-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(28px) scale(0.94);
+    filter: blur(6px);
+  }
+  60% {
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.card-grid .magic-bento-card {
+  opacity: 0;
+}
+
+.card-grid.is-visible .magic-bento-card {
+  animation: magic-bento-card-enter 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--enter-index, 0) * 90ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-grid .magic-bento-card,
+  .card-grid.is-visible .magic-bento-card {
+    animation: none;
+    opacity: 1;
+  }
+}
