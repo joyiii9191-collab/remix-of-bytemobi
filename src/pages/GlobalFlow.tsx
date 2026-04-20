@@ -227,7 +227,7 @@ export default function GlobalFlow() {
         <ScreenInner>
           <ScreenTitle>把流失用户变成新一轮增长</ScreenTitle>
           <ScreenLead>基于行为数据的分层重定向漏斗,从识别到 ROI 优化层层收敛。</ScreenLead>
-          <div className="flex flex-col gap-2.5 mt-8">
+          <div className="flex flex-col gap-3 mt-8 w-full">
             {RT_FUNNEL.map((s, i) => {
               const Icon = s.icon;
               return (
@@ -237,26 +237,30 @@ export default function GlobalFlow() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: false, amount: 0.3 }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="mx-auto rounded-2xl p-4 flex items-center gap-4"
+                  className="mx-auto rounded-2xl px-5 py-4 flex items-center gap-5 glass-card"
                   style={{
                     ...CARD,
                     width: s.width,
                     maxWidth: "100%",
-                    background: `linear-gradient(90deg, rgba(99,102,241,${0.06 + i * 0.02}) 0%, #FFFFFF 100%)`,
+                    background: `linear-gradient(90deg, rgba(99,102,241,${0.08 + i * 0.025}) 0%, rgba(255,255,255,0.95) 100%)`,
                   }}
                 >
                   <div
-                    className="w-9 h-9 shrink-0 rounded-xl flex items-center justify-center"
-                    style={{ background: "rgba(99,102,241,0.12)", color: ACCENT }}
-                  ><Icon size={18} /></div>
-                  <div className="flex-1 min-w-0">
-                    <div className="text-sm font-semibold" style={{ color: TEXT_DARK }}>{s.title}</div>
-                    <div className="text-xs mt-0.5" style={{ color: TEXT_MID }}>{s.desc}</div>
-                  </div>
+                    className="text-[11px] font-bold tracking-wider shrink-0 w-12 text-center"
+                    style={{ color: ACCENT }}
+                  >STEP<br/>{String(i + 1).padStart(2, "0")}</div>
                   <div
-                    className="text-xs font-semibold px-2 py-0.5 rounded-full hidden sm:block"
-                    style={{ background: "rgba(99,102,241,0.1)", color: ACCENT }}
-                  >STEP {i + 1}</div>
+                    className="w-px h-10 shrink-0"
+                    style={{ background: "rgba(99,102,241,0.2)" }}
+                  />
+                  <div
+                    className="w-10 h-10 shrink-0 rounded-xl flex items-center justify-center"
+                    style={{ background: "rgba(99,102,241,0.12)", color: ACCENT }}
+                  ><Icon size={20} /></div>
+                  <div className="flex-1 min-w-0 text-left">
+                    <div className="text-sm md:text-base font-semibold" style={{ color: TEXT_DARK }}>{s.title}</div>
+                    <div className="text-xs mt-1" style={{ color: TEXT_MID }}>{s.desc}</div>
+                  </div>
                 </motion.div>
               );
             })}
