@@ -44,7 +44,7 @@ export default function MediaResources() {
             一站式增长合作伙伴
           </ScreenTitle>
           <ScreenLead>
-            覆盖 TikTok、Facebook、Google 等全球主流媒体,从开户、投放、优化到合规风控的一站式服务。
+            覆盖 TikTok、Facebook、Google 等全球主流媒体,提供从开户、投放、优化到合规风控与代运营的一站式服务。
           </ScreenLead>
           <div className="mt-10 flex items-center gap-5">
             {["TikTok", "Meta", "Google"].map((p) => (
