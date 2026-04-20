@@ -2502,125 +2502,188 @@ function Section8TrafficMap() {
     { code: 'SEA',   name: '东南亚',  share: 8,  x: 80,  y: 60, cardDx:  10,  cardDy:  20, color: 'hsl(225, 75%, 60%)' },
   ];
 
-  // 浅色 hex 风格世界地图 — 用六边形点阵填充近似大陆形状
-  // 在 1000x500 viewBox 上生成
+  // 高密度点阵世界地图 — 1:1 复刻参考图
+  // viewBox: 1000 x 500。用大量重叠椭圆 blob 拼接陆地，减椭圆扣除海域。
   const mapDots = (() => {
-    // 每个 blob 用椭圆近似一块陆地。用更细密的 blob 拼接出更完整的世界轮廓。
-    // viewBox: 1000 x 500
-    const blobs: Array<{ cx: number; cy: number; w: number; h: number }> = [
-      // ====== North America ======
+    type Ellipse = { cx: number; cy: number; w: number; h: number };
+    // 加号 blob —— 计入陆地
+    const land: Ellipse[] = [
+      // ===== North America =====
       // Alaska
-      { cx: 130, cy: 110, w: 80, h: 50 },
+      { cx: 110, cy: 105, w: 70, h: 38 },
+      { cx: 145, cy: 118, w: 60, h: 28 },
+      // Canadian Arctic / north
+      { cx: 230, cy: 95,  w: 130, h: 40 },
+      { cx: 300, cy: 80,  w: 110, h: 35 },
       // Canada main
-      { cx: 230, cy: 130, w: 200, h: 80 },
+      { cx: 230, cy: 135, w: 200, h: 55 },
+      { cx: 270, cy: 160, w: 200, h: 45 },
       // Greenland
-      { cx: 380, cy: 90,  w: 70, h: 70 },
+      { cx: 395, cy: 80,  w: 55, h: 50 },
+      { cx: 405, cy: 110, w: 45, h: 45 },
       // USA mainland
-      { cx: 220, cy: 200, w: 180, h: 70 },
+      { cx: 220, cy: 195, w: 200, h: 50 },
+      { cx: 250, cy: 220, w: 180, h: 40 },
       // Mexico
-      { cx: 220, cy: 260, w: 80, h: 40 },
+      { cx: 230, cy: 250, w: 90, h: 30 },
+      { cx: 250, cy: 270, w: 70, h: 25 },
       // Central America
-      { cx: 260, cy: 290, w: 60, h: 30 },
-      // Caribbean (sparse)
-      { cx: 295, cy: 275, w: 50, h: 20 },
+      { cx: 275, cy: 290, w: 50, h: 22 },
+      // Caribbean specks
+      { cx: 305, cy: 275, w: 35, h: 14 },
+      { cx: 330, cy: 280, w: 25, h: 12 },
 
-      // ====== South America ======
-      { cx: 305, cy: 330, w: 70, h: 40 },   // North (Colombia/Venezuela)
-      { cx: 320, cy: 380, w: 90, h: 60 },   // Brazil
-      { cx: 305, cy: 440, w: 60, h: 50 },   // South cone
+      // ===== South America =====
+      { cx: 305, cy: 315, w: 70, h: 35 },   // North (Colombia/Venezuela)
+      { cx: 320, cy: 350, w: 80, h: 40 },   // Amazon
+      { cx: 330, cy: 385, w: 85, h: 45 },   // Brazil
+      { cx: 320, cy: 420, w: 65, h: 40 },   // South center
+      { cx: 305, cy: 455, w: 45, h: 35 },   // South cone
+      { cx: 295, cy: 480, w: 30, h: 20 },   // Patagonia tip
 
-      // ====== Europe ======
-      // British Isles
-      { cx: 480, cy: 150, w: 30, h: 30 },
-      // Scandinavia
-      { cx: 520, cy: 120, w: 60, h: 50 },
-      // Western Europe
-      { cx: 510, cy: 170, w: 70, h: 40 },
-      // Eastern Europe
-      { cx: 560, cy: 165, w: 60, h: 50 },
-      // Mediterranean / Iberia
-      { cx: 490, cy: 195, w: 50, h: 25 },
-      // Italy / Balkans
-      { cx: 530, cy: 200, w: 50, h: 30 },
+      // ===== Europe =====
+      { cx: 478, cy: 145, w: 22, h: 22 },   // Ireland
+      { cx: 492, cy: 150, w: 18, h: 28 },   // UK
+      { cx: 525, cy: 105, w: 35, h: 35 },   // Norway/Sweden north
+      { cx: 535, cy: 135, w: 45, h: 45 },   // Scandinavia
+      { cx: 510, cy: 170, w: 70, h: 30 },   // W. Europe
+      { cx: 565, cy: 165, w: 65, h: 40 },   // E. Europe
+      { cx: 490, cy: 195, w: 55, h: 22 },   // Iberia
+      { cx: 525, cy: 198, w: 30, h: 28 },   // Italy
+      { cx: 555, cy: 195, w: 50, h: 22 },   // Balkans
+      { cx: 600, cy: 175, w: 60, h: 35 },   // E. Europe to Caucasus
 
-      // ====== Africa ======
-      // North Africa (Sahara)
-      { cx: 530, cy: 240, w: 130, h: 50 },
-      // West Africa
-      { cx: 500, cy: 280, w: 70, h: 50 },
-      // Central Africa
-      { cx: 550, cy: 310, w: 80, h: 60 },
-      // East Africa
-      { cx: 590, cy: 330, w: 50, h: 70 },
-      // Southern Africa
-      { cx: 555, cy: 390, w: 70, h: 60 },
-      // Madagascar
-      { cx: 620, cy: 380, w: 18, h: 40 },
+      // ===== Africa =====
+      { cx: 510, cy: 235, w: 90, h: 30 },   // NW Africa (Maghreb)
+      { cx: 575, cy: 235, w: 100, h: 30 },  // N Africa east
+      { cx: 540, cy: 265, w: 130, h: 35 },  // Sahara
+      { cx: 505, cy: 290, w: 70, h: 40 },   // West Africa
+      { cx: 545, cy: 305, w: 75, h: 45 },   // Central
+      { cx: 580, cy: 330, w: 65, h: 50 },   // East / Horn (with neg below)
+      { cx: 555, cy: 370, w: 75, h: 45 },   // South-Central
+      { cx: 555, cy: 405, w: 65, h: 40 },   // Southern
+      { cx: 540, cy: 435, w: 45, h: 30 },   // South tip
+      { cx: 625, cy: 380, w: 14, h: 35 },   // Madagascar
 
-      // ====== Middle East ======
-      { cx: 605, cy: 230, w: 80, h: 50 },
+      // ===== Middle East =====
+      { cx: 605, cy: 220, w: 60, h: 35 },   // Levant/Turkey
+      { cx: 620, cy: 250, w: 60, h: 50 },   // Arabia
+      { cx: 635, cy: 280, w: 45, h: 35 },   // Arabia south
 
-      // ====== Asia ======
+      // ===== Asia =====
       // Russia / Siberia (huge band)
-      { cx: 700, cy: 110, w: 280, h: 60 },
-      { cx: 760, cy: 150, w: 200, h: 40 },
+      { cx: 660, cy: 95,  w: 200, h: 35 },
+      { cx: 760, cy: 90,  w: 220, h: 35 },
+      { cx: 700, cy: 125, w: 280, h: 40 },
+      { cx: 770, cy: 155, w: 260, h: 40 },
+      { cx: 820, cy: 180, w: 200, h: 35 },
       // Central Asia
-      { cx: 670, cy: 195, w: 100, h: 35 },
-      // China
-      { cx: 780, cy: 215, w: 110, h: 60 },
+      { cx: 670, cy: 195, w: 110, h: 30 },
+      { cx: 700, cy: 215, w: 90, h: 25 },
       // Mongolia
-      { cx: 780, cy: 175, w: 80, h: 25 },
+      { cx: 780, cy: 180, w: 90, h: 22 },
+      // China
+      { cx: 770, cy: 215, w: 100, h: 35 },
+      { cx: 790, cy: 240, w: 110, h: 40 },
       // Korea
-      { cx: 845, cy: 215, w: 18, h: 30 },
-      // Japan (3 blobs for arc)
-      { cx: 875, cy: 195, w: 22, h: 30 },
-      { cx: 880, cy: 220, w: 20, h: 28 },
-      { cx: 885, cy: 245, w: 18, h: 25 },
+      { cx: 850, cy: 220, w: 18, h: 28 },
+      // Japan arc
+      { cx: 875, cy: 195, w: 22, h: 28 },
+      { cx: 882, cy: 218, w: 20, h: 26 },
+      { cx: 888, cy: 240, w: 16, h: 22 },
       // India
-      { cx: 705, cy: 250, w: 70, h: 70 },
+      { cx: 705, cy: 245, w: 70, h: 35 },
+      { cx: 710, cy: 280, w: 55, h: 50 },
       // Indochina
-      { cx: 790, cy: 270, w: 50, h: 50 },
-      // SE Asia islands (Indonesia/Philippines)
-      { cx: 800, cy: 320, w: 110, h: 30 },
-      { cx: 850, cy: 295, w: 35, h: 25 },
+      { cx: 785, cy: 270, w: 45, h: 45 },
+      { cx: 800, cy: 295, w: 35, h: 35 },
+      // SE Asia islands
+      { cx: 790, cy: 320, w: 50, h: 18 },   // Sumatra
+      { cx: 825, cy: 325, w: 50, h: 18 },   // Java
+      { cx: 850, cy: 315, w: 35, h: 22 },   // Borneo
+      { cx: 870, cy: 305, w: 22, h: 20 },   // Sulawesi
+      { cx: 870, cy: 290, w: 22, h: 14 },   // Philippines south
+      { cx: 862, cy: 275, w: 18, h: 16 },   // Philippines north
 
-      // ====== Oceania ======
+      // ===== Oceania =====
       // Australia
-      { cx: 850, cy: 380, w: 110, h: 60 },
+      { cx: 855, cy: 380, w: 110, h: 50 },
+      { cx: 855, cy: 405, w: 90, h: 30 },
+      // Tasmania
+      { cx: 870, cy: 430, w: 18, h: 12 },
       // New Zealand
-      { cx: 935, cy: 425, w: 22, h: 35 },
+      { cx: 935, cy: 425, w: 16, h: 22 },
+      { cx: 940, cy: 450, w: 14, h: 18 },
       // PNG
-      { cx: 880, cy: 345, w: 35, h: 18 },
+      { cx: 880, cy: 340, w: 40, h: 16 },
+    ];
+
+    // 减号 blob —— 扣除海域（让陆地形状更准）
+    const sea: Ellipse[] = [
+      { cx: 165, cy: 220, w: 50, h: 40 },   // Gulf of California
+      { cx: 320, cy: 240, w: 60, h: 30 },   // Gulf of Mexico east edge
+      { cx: 295, cy: 365, w: 35, h: 80 },   // Pacific bite into S. America west
+      { cx: 480, cy: 250, w: 40, h: 30 },   // Mediterranean center (sea between Africa/Europe)
+      { cx: 600, cy: 305, w: 35, h: 40 },   // Gulf of Aden / Red Sea bottom
+      { cx: 605, cy: 270, w: 16, h: 60 },   // Red Sea
+      { cx: 695, cy: 215, w: 40, h: 25 },   // Caspian-ish
+      { cx: 820, cy: 350, w: 60, h: 30 },   // Timor sea / between AU and Indo
     ];
 
     const dots: JSX.Element[] = [];
     let key = 0;
-    const step = 9;        // dot grid spacing — denser
-    const dotR = 2.0;      // dot radius (round)
-    blobs.forEach((b, bi) => {
-      const cols = Math.max(3, Math.round(b.w / step));
-      const rows = Math.max(2, Math.round(b.h / step));
-      for (let r = 0; r < rows; r++) {
-        for (let c = 0; c < cols; c++) {
-          const offset = r % 2 === 0 ? 0 : step / 2;
-          const px = b.cx - b.w / 2 + c * step + offset;
-          const py = b.cy - b.h / 2 + r * step;
-          // 椭圆裁剪
-          const nx = (px - b.cx) / (b.w / 2);
-          const ny = (py - b.cy) / (b.h / 2);
-          if (nx * nx + ny * ny > 1) continue;
-          // 跳点制造不规则海岸
-          const seed = (bi * 131 + r * 17 + c * 7 + Math.round((nx + ny) * 9)) % 100;
-          if (seed < 8) continue;
-          const tone = seed % 3;
-          const fill =
-            tone === 0 ? 'rgba(99, 102, 241, 0.55)'
-            : tone === 1 ? 'rgba(129, 110, 240, 0.50)'
-            : 'rgba(139, 92, 246, 0.45)';
-          dots.push(<circle key={key++} cx={px} cy={py} r={dotR} fill={fill} />);
+    const step = 6.5;       // 高密度网格
+    const dotSize = 2.6;    // 方点大小（参考图为方块）
+    const radius = dotSize / 2;
+
+    const inEllipse = (px: number, py: number, e: Ellipse) => {
+      const nx = (px - e.cx) / (e.w / 2);
+      const ny = (py - e.cy) / (e.h / 2);
+      return nx * nx + ny * ny <= 1;
+    };
+
+    // 扫描 1000x500 viewBox
+    for (let py = 60; py <= 490; py += step) {
+      for (let px = 60; px <= 980; px += step) {
+        // 是否落在任何陆地
+        let landed = false;
+        let edgeBoost = 0;
+        for (let i = 0; i < land.length; i++) {
+          if (inEllipse(px, py, land[i])) { landed = true; break; }
         }
+        if (!landed) continue;
+        // 海域扣除
+        let inSea = false;
+        for (let i = 0; i < sea.length; i++) {
+          if (inEllipse(px, py, sea[i])) { inSea = true; break; }
+        }
+        if (inSea) continue;
+
+        // 海岸抖动：制造不规则边缘 + 内部偶尔留白
+        const seed = (Math.round(px) * 131 + Math.round(py) * 977) % 1000;
+        if (seed < 60) continue;        // 内部少量空隙
+        // 给岛屿/边缘一点点不规则
+        if ((px + py) % 13 === 0 && seed < 220) continue;
+
+        const tone = seed % 4;
+        const fill =
+          tone === 0 ? 'rgba(37, 99, 235, 0.85)'    // 蓝
+          : tone === 1 ? 'rgba(59, 130, 246, 0.78)'
+          : tone === 2 ? 'rgba(96, 165, 250, 0.70)'
+          : 'rgba(29, 78, 216, 0.82)';
+        dots.push(
+          <rect
+            key={key++}
+            x={px - radius}
+            y={py - radius}
+            width={dotSize}
+            height={dotSize}
+            rx={0.6}
+            fill={fill}
+          />
+        );
       }
-    });
+    }
     return dots;
   })();
 
