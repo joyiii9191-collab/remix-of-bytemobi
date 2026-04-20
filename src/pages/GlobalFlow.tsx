@@ -108,19 +108,7 @@ export default function GlobalFlow() {
           }}
         />
         <ScreenInner>
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium mb-5 self-start"
-            style={{
-              background: "rgba(99,102,241,0.1)",
-              color: "hsl(245 60% 35%)",
-              border: "1px solid rgba(124,58,237,0.18)",
-            }}
-          >
-            GLOBAL FLOW · 全球汇流
-          </motion.div>
+          {/* removed: GLOBAL FLOW badge */}
           <ScreenTitle size="xl">
             移动增长引擎
           </ScreenTitle>
