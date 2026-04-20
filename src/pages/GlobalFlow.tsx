@@ -275,18 +275,22 @@ export default function GlobalFlow() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false, amount: 0.3 }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="rounded-2xl p-6 glass-card"
+                  className="rounded-2xl p-6 glass-card flex flex-col items-center text-center"
                   style={{
                     ...CARD,
                     background: `linear-gradient(180deg, rgba(249,115,22,${0.08 + i * 0.025}) 0%, rgba(255,255,255,0.95) 100%)`,
                   }}
                 >
                   <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center mb-3"
+                    className="text-[10px] font-bold tracking-wider mb-3"
+                    style={{ color: "#F97316" }}
+                  >{c.tag}</div>
+                  <div
+                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
                     style={{ background: "rgba(249,115,22,0.12)", color: "#F97316" }}
-                  ><Icon size={20} /></div>
-                  <h3 className="text-base font-semibold mb-1.5" style={{ color: TEXT_DARK }}>{c.t}</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>{c.d}</p>
+                  ><Icon size={24} /></div>
+                  <h3 className="text-base font-semibold mb-2" style={{ color: TEXT_DARK }}>{c.t}</h3>
+                  <p className="text-xs leading-relaxed" style={{ color: TEXT_MID }}>{c.d}</p>
                 </motion.div>
               );
             })}
