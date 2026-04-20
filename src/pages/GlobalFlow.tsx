@@ -509,7 +509,7 @@ export default function GlobalFlow() {
 
           {/* 业务类型 */}
           <div className="w-full mt-8">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4" style={{ color: TEXT_DARK }}>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center" style={{ color: TEXT_DARK }}>
               业务类型
             </h2>
             <div className="grid grid-cols-2 gap-3">
