@@ -219,15 +219,15 @@ export function FeatureCard({
 }) {
   return (
     <div
-      className="rounded-2xl p-6 h-full transition-all"
+      className="rounded-3xl p-6 h-full transition-all"
       style={{
         background:
-          "linear-gradient(135deg, hsla(220,95%,75%,0.18) 0%, hsla(232,85%,72%,0.14) 35%, hsla(250,75%,72%,0.12) 70%, hsla(270,75%,75%,0.16) 100%), linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.35) 100%)",
-        
-        
-        border: "1px solid hsla(232, 80%, 70%, 0.22)",
+          "linear-gradient(135deg, hsla(220,95%,78%,0.15) 0%, hsla(232,85%,75%,0.12) 35%, hsla(250,75%,75%,0.10) 70%, hsla(270,75%,78%,0.14) 100%), linear-gradient(180deg, rgba(255,255,255,0.62) 0%, rgba(255,255,255,0.42) 100%)",
+        backdropFilter: "blur(22px) saturate(170%)",
+        WebkitBackdropFilter: "blur(22px) saturate(170%)",
+        border: "1px solid hsla(232, 80%, 75%, 0.25)",
         boxShadow:
-          "inset 0 1px 0 0 rgba(255,255,255,0.55), 0 8px 28px -10px hsla(232,85%,55%,0.22), 0 16px 40px -16px hsla(265,75%,58%,0.18)",
+          "inset 0 1px 0 0 rgba(255,255,255,0.7), 0 10px 30px -10px hsla(232,85%,55%,0.22), 0 18px 44px -16px hsla(265,75%,58%,0.18)",
       }}
     >
       {icon && <div className="mb-4">{icon}</div>}
