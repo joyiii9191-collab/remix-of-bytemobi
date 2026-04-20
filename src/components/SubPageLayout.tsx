@@ -98,9 +98,9 @@ export function SubPageLayout({
               transition={{ duration: 0.5 }}
               className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium mb-5"
               style={{
-                background: "rgba(99,102,241,0.1)",
-                color: "hsl(245 60% 35%)",
-                border: "1px solid rgba(124,58,237,0.18)",
+                background: "hsla(30, 80%, 70%, 0.18)",
+                color: "hsl(25 60% 30%)",
+                border: "1px solid hsla(0, 0%, 100%, 0.6)",
               }}
             >
               {eyebrow}
@@ -222,12 +222,12 @@ export function FeatureCard({
       className="rounded-3xl p-6 h-full transition-all"
       style={{
         background:
-          "linear-gradient(135deg, hsla(220,95%,78%,0.15) 0%, hsla(232,85%,75%,0.12) 35%, hsla(250,75%,75%,0.10) 70%, hsla(270,75%,78%,0.14) 100%), linear-gradient(180deg, rgba(255,255,255,0.62) 0%, rgba(255,255,255,0.42) 100%)",
-        backdropFilter: "blur(22px) saturate(170%)",
-        WebkitBackdropFilter: "blur(22px) saturate(170%)",
-        border: "1px solid hsla(232, 80%, 75%, 0.25)",
+          "linear-gradient(155deg, hsla(0,0%,100%,0.30) 0%, hsla(0,0%,100%,0.15) 45%, hsla(0,0%,100%,0.08) 100%)",
+        backdropFilter: "blur(20px) saturate(140%)",
+        WebkitBackdropFilter: "blur(20px) saturate(140%)",
+        border: "1px solid hsla(0, 0%, 100%, 0.6)",
         boxShadow:
-          "inset 0 1px 0 0 rgba(255,255,255,0.7), 0 10px 30px -10px hsla(232,85%,55%,0.22), 0 18px 44px -16px hsla(265,75%,58%,0.18)",
+          "inset 0 1.5px 0 0 hsla(0,0%,100%,0.95), 0 24px 60px -18px hsla(25, 40%, 25%, 0.22), 0 4px 12px -3px hsla(25, 40%, 25%, 0.12)",
       }}
     >
       {icon && <div className="mb-4">{icon}</div>}

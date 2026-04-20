@@ -237,7 +237,7 @@ All colors MUST be HSL.
   background-color: transparent !important;
 }
 
-/* Catch dark inline rgb backgrounds (Section, brand cards, etc.) */
+/* Catch dark inline rgb backgrounds (Section, brand cards, etc.) — convert to translucent warm glass */
 .app-light-theme [style*="rgb(10, 10, 18)"],
 .app-light-theme [style*="rgb(10,10,18)"],
 .app-light-theme [style*="rgb(3, 0, 20)"],
@@ -246,9 +246,9 @@ All colors MUST be HSL.
 .app-light-theme [style*="rgba(18,15,23"],
 .app-light-theme [style*="rgba(18, 15, 23"],
 .app-light-theme [style*="rgb(18,15,23)"] {
-  background: linear-gradient(135deg, rgba(255,255,255,0.62) 0%, rgba(244,241,252,0.55) 100%) !important;
-  backdrop-filter: blur(22px) saturate(160%);
-  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  background: linear-gradient(155deg, hsla(0,0%,100%,0.30) 0%, hsla(0,0%,100%,0.15) 45%, hsla(0,0%,100%,0.08) 100%) !important;
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
 }
 
 /* === Text color remapping === */
@@ -344,19 +344,19 @@ All colors MUST be HSL.
   /* leave alone — but lighten if dark */
 }
 
-/* Borders: convert white-on-dark to soft blue-purple */
+/* Borders: convert white-on-dark borders to soft warm white (no purple) */
 .app-light-theme [style*="border: 1px solid rgba(255,255,255"],
 .app-light-theme [style*="border: 1px solid rgba(255, 255, 255"] {
-  border-color: rgba(124, 58, 237, 0.18) !important;
+  border-color: hsla(0, 0%, 100%, 0.55) !important;
 }
 .app-light-theme [style*="border: 1px solid rgba(168,130,255"],
 .app-light-theme [style*="border: 1px solid rgba(168, 130, 255"] {
-  border-color: rgba(99, 102, 241, 0.25) !important;
+  border-color: hsla(0, 0%, 100%, 0.55) !important;
 }
 
 /* Borders via tailwind */
 .app-light-theme [class*="border-white"] {
-  border-color: rgba(124, 58, 237, 0.2) !important;
+  border-color: hsla(0, 0%, 100%, 0.55) !important;
 }
 
 /* === Raycast button → blue-purple flowing variant === */
@@ -417,19 +417,18 @@ All colors MUST be HSL.
 .app-light-theme input,
 .app-light-theme textarea,
 .app-light-theme select {
-  background: rgba(255,255,255,0.65) !important;
-  border: 1px solid rgba(124,58,237,0.18) !important;
-  color: hsl(230 35% 18%) !important;
-  
+  background: hsla(0, 0%, 100%, 0.55) !important;
+  border: 1px solid hsla(0, 0%, 100%, 0.7) !important;
+  color: hsl(25, 35%, 18%) !important;
 }
 .app-light-theme input::placeholder,
 .app-light-theme textarea::placeholder {
-  color: hsl(230 15% 55%) !important;
+  color: hsl(25, 15%, 50%) !important;
 }
 .app-light-theme input:focus,
 .app-light-theme textarea:focus {
-  border-color: rgba(99,102,241,0.5) !important;
-  box-shadow: 0 0 0 3px rgba(99,102,241,0.15) !important;
+  border-color: hsla(30, 80%, 65%, 0.5) !important;
+  box-shadow: 0 0 0 3px hsla(30, 80%, 65%, 0.18) !important;
   outline: none;
 }
 
@@ -466,6 +465,29 @@ All colors MUST be HSL.
   -webkit-backdrop-filter: blur(18px) saturate(160%);
 }
 
+/* Hide neon-card purple glow rings in light theme — they create unwanted purple borders */
+.app-light-theme .neon-glow--1,
+.app-light-theme .neon-glow--2,
+.app-light-theme .neon-glow--3,
+.app-light-theme .neon-glow--4,
+.app-light-theme .neon-glow--white {
+  display: none !important;
+}
+
+/* Soften neon-card content surface to transparent glass in light theme */
+.app-light-theme .neon-card__content {
+  background: hsla(0, 0%, 100%, 0.30) !important;
+  border: 1px solid hsla(0, 0%, 100%, 0.6) !important;
+  box-shadow:
+    inset 0 1.5px 0 0 hsla(0, 0%, 100%, 0.95),
+    0 12px 32px -10px hsla(25, 50%, 30%, 0.20) !important;
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+}
+.app-light-theme .neon-card::before {
+  border-color: transparent !important;
+}
+
 /* ========================================================================
    GLASS CARD — 蓝紫磨砂玻璃统一卡片样式
    logo 蓝紫渐变(70% 蓝 / 30% 紫)+ 半透明磨砂 + 柔和光晕
@@ -475,24 +497,23 @@ All colors MUST be HSL.
   position: relative;
   isolation: isolate;
   border-radius: 22px;
-  background:
-    linear-gradient(
-      135deg,
-      hsla(220, 95%, 78%, 0.15) 0%,
-      hsla(232, 85%, 75%, 0.12) 35%,
-      hsla(250, 75%, 75%, 0.10) 70%,
-      hsla(270, 75%, 78%, 0.14) 100%
-    ),
-    linear-gradient(180deg, rgba(255,255,255,0.62) 0%, rgba(255,255,255,0.42) 100%);
-  backdrop-filter: blur(24px) saturate(170%);
-  -webkit-backdrop-filter: blur(24px) saturate(170%);
-  border: 1px solid hsla(232, 80%, 75%, 0.25);
+  /* 与"品牌简介"卡片一致:轻薄白色磨砂,让背后的暖色背景透出 */
+  background: linear-gradient(
+    155deg,
+    hsla(0, 0%, 100%, 0.30) 0%,
+    hsla(0, 0%, 100%, 0.15) 45%,
+    hsla(0, 0%, 100%, 0.08) 100%
+  );
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid hsla(0, 0%, 100%, 0.6);
   box-shadow:
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.55),
-    inset 0 -1px 0 0 hsla(250, 60%, 70%, 0.12),
-    0 1px 2px -1px hsla(245, 60%, 30%, 0.08),
-    0 8px 28px -10px hsla(232, 85%, 55%, 0.22),
-    0 16px 40px -16px hsla(265, 75%, 58%, 0.18);
+    inset 0 1.5px 0 0 hsla(0, 0%, 100%, 0.95),
+    inset 1px 0 0 0 hsla(0, 0%, 100%, 0.5),
+    inset 0 -1px 0 0 hsla(25, 30%, 50%, 0.10),
+    inset 0 -12px 28px -12px hsla(0, 0%, 100%, 0.4),
+    0 24px 60px -18px hsla(25, 40%, 25%, 0.22),
+    0 4px 12px -3px hsla(25, 40%, 25%, 0.12);
   transition:
     transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
@@ -500,35 +521,33 @@ All colors MUST be HSL.
     background 0.4s ease;
 }
 
-/* 外层蓝紫光晕(70% 蓝偏左上, 30% 紫偏右下)*/
+/* 顶部 specular 高光 — 模拟玻璃反射 */
 .glass-card::before {
   content: "";
   position: absolute;
-  inset: -1px;
+  inset: 0;
   border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(
-    135deg,
-    hsla(220, 95%, 65%, 0.55) 0%,
-    hsla(235, 85%, 68%, 0.35) 45%,
-    hsla(255, 70%, 70%, 0.28) 75%,
-    hsla(275, 80%, 70%, 0.45) 100%
-  );
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
+  background:
+    radial-gradient(
+      ellipse 110% 45% at 50% -8%,
+      hsla(0, 0%, 100%, 0.55) 0%,
+      hsla(0, 0%, 100%, 0.15) 35%,
+      transparent 65%
+    ),
+    linear-gradient(
+      135deg,
+      transparent 30%,
+      hsla(0, 0%, 100%, 0.20) 45%,
+      hsla(0, 0%, 100%, 0.04) 55%,
+      transparent 70%
+    );
   pointer-events: none;
-  opacity: 0.85;
   z-index: 1;
+  mix-blend-mode: screen;
   transition: opacity 0.4s ease;
 }
 
-/* 顶部高光带 */
+/* 顶部高光线 */
 .glass-card::after {
   content: "";
   position: absolute;
@@ -539,7 +558,7 @@ All colors MUST be HSL.
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.85) 50%,
+    hsla(0, 0%, 100%, 0.85) 50%,
     transparent
   );
   pointer-events: none;
@@ -548,15 +567,15 @@ All colors MUST be HSL.
 
 .glass-card:hover {
   transform: translateY(-3px);
-  border-color: hsla(232, 85%, 65%, 0.35);
+  border-color: hsla(0, 0%, 100%, 0.8);
   box-shadow:
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.7),
-    inset 0 -1px 0 0 hsla(250, 60%, 70%, 0.18),
-    0 2px 4px -1px hsla(245, 60%, 30%, 0.1),
-    0 16px 40px -10px hsla(225, 90%, 55%, 0.32),
-    0 24px 60px -16px hsla(270, 80%, 58%, 0.28);
+    inset 0 1.5px 0 0 hsla(0, 0%, 100%, 1),
+    inset 1px 0 0 0 hsla(0, 0%, 100%, 0.6),
+    inset 0 -1px 0 0 hsla(25, 30%, 50%, 0.14),
+    inset 0 -14px 32px -12px hsla(0, 0%, 100%, 0.5),
+    0 32px 70px -18px hsla(25, 45%, 22%, 0.28),
+    0 6px 16px -3px hsla(25, 45%, 22%, 0.16);
 }
-.glass-card:hover::before { opacity: 1; }
 
 /* 子内容相对定位,确保覆盖在伪元素之上 */
 .glass-card > * {
@@ -564,21 +583,17 @@ All colors MUST be HSL.
   z-index: 3;
 }
 
-/* 暗主题(首页 / .dark)下的版本:依旧蓝紫,但底色透明深色 */
+/* 暗主题(.dark)下的版本 */
 .dark .glass-card,
 .app-dark .glass-card {
-  background:
-    linear-gradient(
-      135deg,
-      hsla(220, 95%, 65%, 0.14) 0%,
-      hsla(235, 85%, 68%, 0.10) 35%,
-      hsla(255, 75%, 70%, 0.08) 70%,
-      hsla(275, 80%, 70%, 0.12) 100%
-    ),
-    linear-gradient(180deg, hsla(245, 40%, 12%, 0.55) 0%, hsla(250, 35%, 10%, 0.35) 100%);
-  border-color: hsla(232, 80%, 70%, 0.18);
+  background: linear-gradient(
+    155deg,
+    hsla(0, 0%, 100%, 0.10) 0%,
+    hsla(0, 0%, 100%, 0.05) 45%,
+    hsla(0, 0%, 100%, 0.03) 100%
+  );
+  border-color: hsla(0, 0%, 100%, 0.18);
   box-shadow:
-    inset 0 1px 0 0 hsla(0, 0%, 100%, 0.08),
-    0 8px 28px -10px hsla(232, 90%, 30%, 0.5),
-    0 16px 40px -16px hsla(270, 80%, 30%, 0.4);
+    inset 0 1px 0 0 hsla(0, 0%, 100%, 0.12),
+    0 24px 60px -18px hsla(0, 0%, 0%, 0.5);
 }
