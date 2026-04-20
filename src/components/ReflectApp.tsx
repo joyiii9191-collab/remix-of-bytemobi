@@ -37,6 +37,7 @@ import logoAdjust from "@/assets/logo-adjust.png";
 import adjustLogo from "@/assets/adjust-logo.png";
 import appsflyerLogo from "@/assets/appsflyer-logo.png";
 import singularLogo from "@/assets/singular-logo.png";
+import worldMapDotted from "@/assets/world-map-dotted.png";
 import logoFirebase from "@/assets/logo-firebase.png";
 import logoTenjin from "@/assets/logo-tenjin.png";
 import logoAppstore from "@/assets/logo-appstore.png";
