@@ -137,6 +137,7 @@ export function SubPageLayout({
       <main className="relative z-10">{children}</main>
 
       <SiteFooter />
+      </div>
     </div>
   );
 }
