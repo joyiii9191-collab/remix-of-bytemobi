@@ -853,8 +853,7 @@ select:-webkit-autofill {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 4px 14px hsla(250, 90%, 55%, 0.35))
-          drop-shadow(0 0 1px hsla(232, 95%, 45%, 0.4));
+  
   animation: stat-shimmer 6s linear infinite;
 }
 
