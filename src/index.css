@@ -199,6 +199,11 @@ All colors MUST be HSL.
   50% { opacity: 1; transform: scale(1.03); }
 }
 
+@keyframes centerLogoFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1.5deg); }
+}
+
 /* ========================================================================
    LIGHT THEME GLOBAL OVERRIDES
    Scope: .app-light-theme remaps ReflectApp's hardcoded dark surfaces
