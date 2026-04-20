@@ -2340,10 +2340,9 @@ function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 
   return (
     <div ref={wrapperRef} className="relative w-full overflow-hidden">
       <div className="flex flex-col gap-3">
-        {/* Tag row */}
+        {/* Tag row — same width/speed as logos row: render logos.length copies then double for seamless loop */}
         {tag && (
           <div
-            className="flex items-center"
             style={{
               width: 'max-content',
               paddingLeft: isLeft ? '50vw' : 0,
@@ -2353,7 +2352,7 @@ function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 
             }}
           >
             <div
-              className="flex items-center"
+              className="flex items-center gap-6"
               style={{
                 width: 'max-content',
                 animation: phase === 'flowing'
@@ -2364,11 +2363,12 @@ function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 
                   : (isLeft ? 'translateX(0)' : 'translateX(-50%)'),
               }}
             >
-              {[0, 1].map((copy) => (
+              {Array.from({ length: logos.length * 2 }).map((_, i) => (
                 <span
-                  key={copy}
-                  className="inline-flex items-center px-[16px] py-[5px] rounded-full text-[14px] text-white font-normal tracking-[-0.21px] leading-[1.6] whitespace-nowrap mx-[12vw]"
+                  key={i}
+                  className="inline-flex items-center justify-center shrink-0 px-[16px] py-[5px] rounded-full text-[14px] text-white font-normal tracking-[-0.21px] leading-[1.6] whitespace-nowrap"
                   style={{
+                    minWidth: '120px',
                     border: "1px solid rgba(255,255,255,0.2)",
                     background: "rgba(255,255,255,0.05)",
                   }}
