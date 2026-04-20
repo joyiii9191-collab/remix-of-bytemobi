@@ -216,6 +216,95 @@ All colors MUST be HSL.
 .animate-float-slow { animation: float-slow 18s ease-in-out infinite; }
 .animate-float-slower { animation: float-slower 24s ease-in-out infinite; }
 
+/* ========================================================================
+   动画 MESH GRADIENT — 多个独立漂浮色块,体现高级玻璃磨砂质感
+   每个 blob 一种颜色 + 独立动画轨迹 + 大模糊
+   ======================================================================== */
+.mesh-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.85;
+  will-change: transform;
+  mix-blend-mode: normal;
+}
+
+.mesh-blob--1 {
+  width: 55vw;
+  height: 55vw;
+  top: -10%;
+  left: -10%;
+  background: radial-gradient(circle, hsla(275, 85%, 72%, 0.55) 0%, hsla(275, 85%, 72%, 0) 70%);
+  animation: mesh-drift-1 28s ease-in-out infinite;
+}
+
+.mesh-blob--2 {
+  width: 50vw;
+  height: 50vw;
+  top: -5%;
+  right: -10%;
+  background: radial-gradient(circle, hsla(220, 90%, 75%, 0.50) 0%, hsla(220, 90%, 75%, 0) 70%);
+  animation: mesh-drift-2 32s ease-in-out infinite;
+}
+
+.mesh-blob--3 {
+  width: 60vw;
+  height: 60vw;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, hsla(295, 85%, 78%, 0.55) 0%, hsla(295, 85%, 78%, 0) 70%);
+  animation: mesh-drift-3 36s ease-in-out infinite;
+}
+
+.mesh-blob--4 {
+  width: 50vw;
+  height: 50vw;
+  bottom: -10%;
+  left: -5%;
+  background: radial-gradient(circle, hsla(255, 85%, 78%, 0.50) 0%, hsla(255, 85%, 78%, 0) 70%);
+  animation: mesh-drift-4 30s ease-in-out infinite;
+}
+
+.mesh-blob--5 {
+  width: 55vw;
+  height: 55vw;
+  bottom: -10%;
+  right: -10%;
+  background: radial-gradient(circle, hsla(310, 80%, 78%, 0.50) 0%, hsla(310, 80%, 78%, 0) 70%);
+  animation: mesh-drift-5 34s ease-in-out infinite;
+}
+
+@keyframes mesh-drift-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(8vw, 6vh) scale(1.08); }
+  66%      { transform: translate(-4vw, 10vh) scale(0.95); }
+}
+
+@keyframes mesh-drift-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(-10vw, 8vh) scale(1.10); }
+  66%      { transform: translate(-4vw, 14vh) scale(0.92); }
+}
+
+@keyframes mesh-drift-3 {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  33%      { transform: translate(-58%, -42%) scale(1.10); }
+  66%      { transform: translate(-44%, -58%) scale(0.95); }
+}
+
+@keyframes mesh-drift-4 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(8vw, -6vh) scale(1.08); }
+  66%      { transform: translate(14vw, -2vh) scale(0.95); }
+}
+
+@keyframes mesh-drift-5 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(-10vw, -8vh) scale(1.10); }
+  66%      { transform: translate(-4vw, -14vh) scale(0.92); }
+}
+
 /* Flowing blue-purple shimmer keyframes */
 @keyframes flow-shimmer {
   0% { background-position: 0% 50%; }
