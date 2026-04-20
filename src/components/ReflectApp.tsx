@@ -2352,7 +2352,14 @@ function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 
             }}
           >
             {[0, 1].map((copy) => (
-              <span key={copy} className="text-[12px] px-3 py-1 rounded-full border border-[rgba(255,255,255,0.15)] text-white/50 tracking-[0.08em] whitespace-nowrap mx-[calc(50vw)]">
+              <span
+                key={copy}
+                className="inline-flex items-center px-[16px] py-[5px] rounded-full text-[14px] text-white font-normal tracking-[-0.21px] leading-[1.6] whitespace-nowrap mx-[calc(50vw)]"
+                style={{
+                  border: "1px solid rgba(255,255,255,0.2)",
+                  background: "rgba(255,255,255,0.05)",
+                }}
+              >
                 {tag}
               </span>
             ))}
