@@ -37,6 +37,7 @@ import logoAdjust from "@/assets/logo-adjust.png";
 import adjustLogo from "@/assets/adjust-logo.png";
 import appsflyerLogo from "@/assets/appsflyer-logo.png";
 import singularLogo from "@/assets/singular-logo.png";
+import worldMapDotted from "@/assets/world-map-dotted.png";
 import logoFirebase from "@/assets/logo-firebase.png";
 import logoTenjin from "@/assets/logo-tenjin.png";
 import logoAppstore from "@/assets/logo-appstore.png";
@@ -2492,137 +2493,15 @@ function Section8TrafficMap() {
     cardDy: number;   // 卡片相对锚点 y 偏移（px）
     color: string;
   }> = [
-    { code: 'NA',    name: '北美',    share: 33, x: 18,  y: 36, cardDx: -10,  cardDy: -70, color: 'hsl(245, 75%, 58%)' },
-    { code: 'LATAM', name: '拉美',    share: 7,  x: 28,  y: 70, cardDx: -120, cardDy:  30, color: 'hsl(255, 70%, 65%)' },
-    { code: 'EU',    name: '欧洲',    share: 7,  x: 49,  y: 30, cardDx: -50,  cardDy: -70, color: 'hsl(235, 70%, 60%)' },
-    { code: 'AF',    name: '非洲',    share: 3,  x: 53,  y: 62, cardDx: -50,  cardDy:  30, color: 'hsl(290, 60%, 65%)' },
-    { code: 'ME',    name: '中东',    share: 4,  x: 60,  y: 44, cardDx: -50,  cardDy:  30, color: 'hsl(270, 65%, 65%)' },
-    { code: 'IN',    name: '印度',    share: 10, x: 68,  y: 48, cardDx: -50,  cardDy:  30, color: 'hsl(280, 70%, 62%)' },
-    { code: 'JP',    name: '日本',    share: 28, x: 84,  y: 38, cardDx:  10,  cardDy: -70, color: 'hsl(265, 75%, 60%)' },
-    { code: 'SEA',   name: '东南亚',  share: 8,  x: 80,  y: 60, cardDx:  10,  cardDy:  20, color: 'hsl(225, 75%, 60%)' },
+    { code: 'NA',    name: '北美',    share: 33, x: 22,  y: 38, cardDx: -10,  cardDy: -70, color: 'hsl(245, 75%, 58%)' },
+    { code: 'LATAM', name: '拉美',    share: 7,  x: 30,  y: 72, cardDx: -130, cardDy:  20, color: 'hsl(255, 70%, 65%)' },
+    { code: 'EU',    name: '欧洲',    share: 7,  x: 50,  y: 32, cardDx: -50,  cardDy: -70, color: 'hsl(235, 70%, 60%)' },
+    { code: 'AF',    name: '非洲',    share: 3,  x: 54,  y: 64, cardDx: -50,  cardDy:  30, color: 'hsl(290, 60%, 65%)' },
+    { code: 'ME',    name: '中东',    share: 4,  x: 60,  y: 46, cardDx: -50,  cardDy:  30, color: 'hsl(270, 65%, 65%)' },
+    { code: 'IN',    name: '印度',    share: 10, x: 68,  y: 52, cardDx: -50,  cardDy:  40, color: 'hsl(280, 70%, 62%)' },
+    { code: 'JP',    name: '日本',    share: 28, x: 84,  y: 40, cardDx:  10,  cardDy: -70, color: 'hsl(265, 75%, 60%)' },
+    { code: 'SEA',   name: '东南亚',  share: 8,  x: 80,  y: 62, cardDx:  10,  cardDy:  30, color: 'hsl(225, 75%, 60%)' },
   ];
-
-  // 浅色 hex 风格世界地图 — 用六边形点阵填充近似大陆形状
-  // 在 1000x500 viewBox 上生成
-  const mapDots = (() => {
-    // 每个 blob 用椭圆近似一块陆地。用更细密的 blob 拼接出更完整的世界轮廓。
-    // viewBox: 1000 x 500
-    const blobs: Array<{ cx: number; cy: number; w: number; h: number }> = [
-      // ====== North America ======
-      // Alaska
-      { cx: 130, cy: 110, w: 80, h: 50 },
-      // Canada main
-      { cx: 230, cy: 130, w: 200, h: 80 },
-      // Greenland
-      { cx: 380, cy: 90,  w: 70, h: 70 },
-      // USA mainland
-      { cx: 220, cy: 200, w: 180, h: 70 },
-      // Mexico
-      { cx: 220, cy: 260, w: 80, h: 40 },
-      // Central America
-      { cx: 260, cy: 290, w: 60, h: 30 },
-      // Caribbean (sparse)
-      { cx: 295, cy: 275, w: 50, h: 20 },
-
-      // ====== South America ======
-      { cx: 305, cy: 330, w: 70, h: 40 },   // North (Colombia/Venezuela)
-      { cx: 320, cy: 380, w: 90, h: 60 },   // Brazil
-      { cx: 305, cy: 440, w: 60, h: 50 },   // South cone
-
-      // ====== Europe ======
-      // British Isles
-      { cx: 480, cy: 150, w: 30, h: 30 },
-      // Scandinavia
-      { cx: 520, cy: 120, w: 60, h: 50 },
-      // Western Europe
-      { cx: 510, cy: 170, w: 70, h: 40 },
-      // Eastern Europe
-      { cx: 560, cy: 165, w: 60, h: 50 },
-      // Mediterranean / Iberia
-      { cx: 490, cy: 195, w: 50, h: 25 },
-      // Italy / Balkans
-      { cx: 530, cy: 200, w: 50, h: 30 },
-
-      // ====== Africa ======
-      // North Africa (Sahara)
-      { cx: 530, cy: 240, w: 130, h: 50 },
-      // West Africa
-      { cx: 500, cy: 280, w: 70, h: 50 },
-      // Central Africa
-      { cx: 550, cy: 310, w: 80, h: 60 },
-      // East Africa
-      { cx: 590, cy: 330, w: 50, h: 70 },
-      // Southern Africa
-      { cx: 555, cy: 390, w: 70, h: 60 },
-      // Madagascar
-      { cx: 620, cy: 380, w: 18, h: 40 },
-
-      // ====== Middle East ======
-      { cx: 605, cy: 230, w: 80, h: 50 },
-
-      // ====== Asia ======
-      // Russia / Siberia (huge band)
-      { cx: 700, cy: 110, w: 280, h: 60 },
-      { cx: 760, cy: 150, w: 200, h: 40 },
-      // Central Asia
-      { cx: 670, cy: 195, w: 100, h: 35 },
-      // China
-      { cx: 780, cy: 215, w: 110, h: 60 },
-      // Mongolia
-      { cx: 780, cy: 175, w: 80, h: 25 },
-      // Korea
-      { cx: 845, cy: 215, w: 18, h: 30 },
-      // Japan (3 blobs for arc)
-      { cx: 875, cy: 195, w: 22, h: 30 },
-      { cx: 880, cy: 220, w: 20, h: 28 },
-      { cx: 885, cy: 245, w: 18, h: 25 },
-      // India
-      { cx: 705, cy: 250, w: 70, h: 70 },
-      // Indochina
-      { cx: 790, cy: 270, w: 50, h: 50 },
-      // SE Asia islands (Indonesia/Philippines)
-      { cx: 800, cy: 320, w: 110, h: 30 },
-      { cx: 850, cy: 295, w: 35, h: 25 },
-
-      // ====== Oceania ======
-      // Australia
-      { cx: 850, cy: 380, w: 110, h: 60 },
-      // New Zealand
-      { cx: 935, cy: 425, w: 22, h: 35 },
-      // PNG
-      { cx: 880, cy: 345, w: 35, h: 18 },
-    ];
-
-    const dots: JSX.Element[] = [];
-    let key = 0;
-    const step = 9;        // dot grid spacing — denser
-    const dotR = 2.0;      // dot radius (round)
-    blobs.forEach((b, bi) => {
-      const cols = Math.max(3, Math.round(b.w / step));
-      const rows = Math.max(2, Math.round(b.h / step));
-      for (let r = 0; r < rows; r++) {
-        for (let c = 0; c < cols; c++) {
-          const offset = r % 2 === 0 ? 0 : step / 2;
-          const px = b.cx - b.w / 2 + c * step + offset;
-          const py = b.cy - b.h / 2 + r * step;
-          // 椭圆裁剪
-          const nx = (px - b.cx) / (b.w / 2);
-          const ny = (py - b.cy) / (b.h / 2);
-          if (nx * nx + ny * ny > 1) continue;
-          // 跳点制造不规则海岸
-          const seed = (bi * 131 + r * 17 + c * 7 + Math.round((nx + ny) * 9)) % 100;
-          if (seed < 8) continue;
-          const tone = seed % 3;
-          const fill =
-            tone === 0 ? 'rgba(99, 102, 241, 0.55)'
-            : tone === 1 ? 'rgba(129, 110, 240, 0.50)'
-            : 'rgba(139, 92, 246, 0.45)';
-          dots.push(<circle key={key++} cx={px} cy={py} r={dotR} fill={fill} />);
-        }
-      }
-    });
-    return dots;
-  })();
 
   return (
     <div className="relative w-full h-full flex flex-col items-center justify-center px-[80px] gap-[24px] pt-[80px]" data-name="Section8TrafficMap">
@@ -2649,16 +2528,14 @@ function Section8TrafficMap() {
             boxShadow: '0 20px 60px rgba(99,102,241,0.10), inset 0 1px 0 rgba(255,255,255,0.7)',
           }}
         >
-          {/* Subtle grid */}
-          <div className="absolute inset-0 opacity-[0.05]" style={{
-            backgroundImage: 'linear-gradient(rgba(99,102,241,1) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,1) 1px, transparent 1px)',
-            backgroundSize: '50px 50px',
-          }} />
-
-          {/* Hex world map */}
-          <svg viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid meet" className="absolute inset-0 w-full h-full">
-            {mapDots}
-          </svg>
+          {/* World map (image) */}
+          <img
+            src={worldMapDotted}
+            alt="World map"
+            className="absolute inset-0 w-full h-full object-contain pointer-events-none select-none"
+            style={{ padding: '20px' }}
+            draggable={false}
+          />
 
           {/* Region anchors + connector + cards */}
           {regions.map((r) => (
