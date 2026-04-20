@@ -8338,7 +8338,7 @@ function Section9Solution() {
 
         {/* 中央 Hub */}
         <div
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full flex flex-col items-center justify-center text-center"
+          className="hub-card absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-[1.06] hover:shadow-[inset_0_1px_0_hsla(0,0%,100%,0.6),inset_0_-6px_16px_hsla(260,60%,55%,0.18),0_20px_45px_-10px_hsla(260,70%,40%,0.45),0_0_0_8px_hsla(260,70%,60%,0.12)] hover:border-[hsla(260,70%,70%,0.6)]"
           style={{
             width: 200,
             height: 200,
@@ -8352,7 +8352,7 @@ function Section9Solution() {
           }}
         >
           <div
-            className="w-[44px] h-[44px] rounded-full flex items-center justify-center mb-[10px]"
+            className="w-[44px] h-[44px] rounded-full flex items-center justify-center mb-[10px] transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-[.hub-card]:hover:rotate-180 [.hub-card:hover_&]:rotate-180 [.hub-card:hover_&]:scale-110"
             style={{
               background: "hsla(260, 70%, 55%, 0.18)",
               border: "1px solid hsla(260, 70%, 70%, 0.35)",
@@ -8361,7 +8361,7 @@ function Section9Solution() {
           >
             <LucideIcons.Infinity size={22} style={{ color: "hsl(260, 70%, 50%)" }} strokeWidth={2.5} />
           </div>
-          <p className="text-[15px] font-semibold leading-tight" style={{ color: "hsl(245, 55%, 18%)" }}>
+          <p className="text-[15px] font-semibold leading-tight transition-colors duration-300 [.hub-card:hover_&]:text-[hsl(260,70%,40%)]" style={{ color: "hsl(245, 55%, 18%)" }}>
             增长闭环
           </p>
           <p className="text-[11px] mt-[4px] leading-[1.5] px-[20px]" style={{ color: "hsl(245, 40%, 35%)" }}>
