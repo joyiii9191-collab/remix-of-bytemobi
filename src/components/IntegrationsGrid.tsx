@@ -12,7 +12,7 @@ function FeatureCard({
   hasPlaceholders?: boolean;
 }) {
   return (
-    <div className="liquid-glass liquid-glass--inner liquid-glass--glow cursor-pointer">
+    <div className="cursor-pointer rounded-[14px] transition-colors" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
       <div className="flex flex-col items-center justify-center gap-3 p-6 aspect-[4/3]">
         {hasPlaceholders ? (
           <div className="flex gap-2.5">

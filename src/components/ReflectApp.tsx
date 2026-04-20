@@ -1265,10 +1265,7 @@ function Section1() {
 
       {/* Main Figma-style glass container with LaserFlow */}
       <div className="w-full max-w-[1100px] relative z-[1]">
-        {/* Background glow */}
-        <div className="absolute inset-[-60px] blur-[10px] pointer-events-none" style={{
-          background: 'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(255,117,117,0.12) 5%, rgba(154,170,255,0.07) 60%, transparent 100%)'
-        }} />
+        {/* Background glow removed for minimal style */}
 
         {/* Glass shell */}
         <div className="relative rounded-[24px] w-full" style={{ border: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 20px 60px -16px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05)' }}>
