@@ -344,19 +344,19 @@ All colors MUST be HSL.
   /* leave alone — but lighten if dark */
 }
 
-/* Borders: convert white-on-dark to soft blue-purple */
+/* Borders: convert white-on-dark borders to soft warm white (no purple) */
 .app-light-theme [style*="border: 1px solid rgba(255,255,255"],
 .app-light-theme [style*="border: 1px solid rgba(255, 255, 255"] {
-  border-color: rgba(124, 58, 237, 0.18) !important;
+  border-color: hsla(0, 0%, 100%, 0.55) !important;
 }
 .app-light-theme [style*="border: 1px solid rgba(168,130,255"],
 .app-light-theme [style*="border: 1px solid rgba(168, 130, 255"] {
-  border-color: rgba(99, 102, 241, 0.25) !important;
+  border-color: hsla(0, 0%, 100%, 0.55) !important;
 }
 
 /* Borders via tailwind */
 .app-light-theme [class*="border-white"] {
-  border-color: rgba(124, 58, 237, 0.2) !important;
+  border-color: hsla(0, 0%, 100%, 0.55) !important;
 }
 
 /* === Raycast button → blue-purple flowing variant === */
