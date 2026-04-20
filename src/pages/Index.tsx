@@ -31,8 +31,8 @@ export default function Index() {
               left: "-6%",
               background:
                 "radial-gradient(circle at 35% 35%, #C9A8FF 0%, #9B6BF0 45%, #6E3FD9 75%, transparent 100%)",
-              filter: "blur(70px)",
-              opacity: 0.55,
+              filter: "blur(220px)",
+              opacity: 0.18,
             }}
           />
           {/* 蓝色光球 右中 */}
@@ -45,8 +45,8 @@ export default function Index() {
               right: "-4%",
               background:
                 "radial-gradient(circle at 40% 40%, #8FB8FF 0%, #5C92F0 45%, #3D6FD0 75%, transparent 100%)",
-              filter: "blur(80px)",
-              opacity: 0.55,
+              filter: "blur(230px)",
+              opacity: 0.18,
             }}
           />
           {/* 粉色光球 左下 */}
@@ -59,8 +59,8 @@ export default function Index() {
               left: "12%",
               background:
                 "radial-gradient(circle at 45% 45%, #FFC4E1 0%, #F285C4 50%, #D85AA0 80%, transparent 100%)",
-              filter: "blur(75px)",
-              opacity: 0.5,
+              filter: "blur(220px)",
+              opacity: 0.15,
             }}
           />
           {/* 黄色光球 右下点缀 */}
@@ -73,8 +73,8 @@ export default function Index() {
               right: "26%",
               background:
                 "radial-gradient(circle at 40% 40%, #FFE9A8 0%, #FFD05C 55%, #F0A830 85%, transparent 100%)",
-              filter: "blur(60px)",
-              opacity: 0.45,
+              filter: "blur(200px)",
+              opacity: 0.13,
             }}
           />
           {/* 青蓝点缀 中部 */}
@@ -87,8 +87,8 @@ export default function Index() {
               left: "42%",
               background:
                 "radial-gradient(circle at 40% 40%, #A8F0E0 0%, #5CD0BC 55%, #3AA89A 85%, transparent 100%)",
-              filter: "blur(70px)",
-              opacity: 0.4,
+              filter: "blur(210px)",
+              opacity: 0.12,
             }}
           />
         </div>
