@@ -184,11 +184,14 @@ export default function GlobalFlow() {
                     viewport={{ once: false, amount: 0.3 }}
                     transition={{ duration: 0.5, delay: i * 0.12 }}
                     className="flex-1 rounded-2xl p-6 relative glass-card flex flex-col items-center text-center"
-                    style={CARD}
+                    style={{
+                      ...CARD,
+                      background: `linear-gradient(180deg, rgba(59,130,246,${0.08 + i * 0.025}) 0%, rgba(255,255,255,0.95) 100%)`,
+                    }}
                   >
                     <div
                       className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
-                      style={{ background: "rgba(99,102,241,0.1)", color: ACCENT }}
+                      style={{ background: "rgba(59,130,246,0.12)", color: "#3B82F6" }}
                     ><Icon size={24} /></div>
                     <h3 className="text-base font-semibold mb-2" style={{ color: TEXT_DARK }}>{s.title}</h3>
                     <p className="text-xs leading-relaxed" style={{ color: TEXT_MID }}>{s.desc}</p>
