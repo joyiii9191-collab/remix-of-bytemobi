@@ -530,6 +530,16 @@ export default function GlobalFlow() {
               })}
             </div>
           </div>
+        </ScreenInner>
+      </SnapScreen>
+
+      {/* === Screen 8 — 双引擎能力 === */}
+      <SnapScreen id="web-engines" bg="tint">
+        <ScreenInner className="!justify-start">
+          <ScreenTitle>双引擎流量供给模型</ScreenTitle>
+          <ScreenLead>
+            内投团队 + 流量网络,覆盖增长能力与媒体资源,实现 Web 端长效增长。
+          </ScreenLead>
 
           {/* 增长引擎(内投团队) */}
           <div className="w-full mt-8">
