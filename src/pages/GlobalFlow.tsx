@@ -157,19 +157,10 @@ export default function GlobalFlow() {
                 className="rounded-2xl p-6 glass-card transition-all duration-500"
                 style={CARD}
               >
-                <div
-                  className="text-4xl md:text-5xl font-bold mb-2"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, hsl(232 90% 45%) 0%, hsl(250 80% 55%) 50%, hsl(270 75% 60%) 100%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    lineHeight: 1.1,
-                  }}
-                >
+                <div className="stat-number text-5xl md:text-6xl mb-3">
                   <CountUp value={s.value} suffix={s.suffix} />
                 </div>
-                <div className="text-sm font-medium" style={{ color: TEXT_MID }}>
+                <div className="stat-number-label text-sm uppercase" style={{ color: TEXT_MID }}>
                   {s.label}
                 </div>
               </motion.div>
