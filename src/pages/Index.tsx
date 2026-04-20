@@ -1,6 +1,7 @@
 import React from "react";
 import ReflectApp from "../components/ReflectApp";
 import { OptimizedHeader } from "../components/OptimizedHeader";
+import heroBg from "@/assets/hero-bg.jpg";
 
 export default function Index() {
   return (
@@ -15,27 +16,29 @@ export default function Index() {
           color: "hsl(250 20% 18%)",
         }}
       >
-        {/* 灰白底色 */}
+        {/* 背景图 — 弥散色彩球 */}
+        <div
+          className="fixed inset-0 pointer-events-none z-0"
+          aria-hidden
+          style={{
+            backgroundImage: `url(${heroBg})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        />
+
+        {/* 柔白蒙层 — 降低饱和度,让薄玻璃卡片在上方依然清晰可读 */}
         <div
           className="fixed inset-0 pointer-events-none z-0"
           aria-hidden
           style={{
             background:
-              "linear-gradient(135deg, #F6F5F9 0%, #F0EEF6 50%, #ECEAF3 100%)",
+              "linear-gradient(135deg, hsla(250, 40%, 98%, 0.55) 0%, hsla(260, 35%, 96%, 0.5) 50%, hsla(270, 30%, 97%, 0.55) 100%)",
+            backdropFilter: "saturate(85%)",
+            WebkitBackdropFilter: "saturate(85%)",
           }}
         />
-
-        {/* 动画 mesh gradient — 多个色块独立缓慢漂浮,营造高级弥散感 */}
-        <div
-          className="fixed inset-0 pointer-events-none z-0 overflow-hidden"
-          aria-hidden
-        >
-          <div className="mesh-blob mesh-blob--1" />
-          <div className="mesh-blob mesh-blob--2" />
-          <div className="mesh-blob mesh-blob--3" />
-          <div className="mesh-blob mesh-blob--4" />
-          <div className="mesh-blob mesh-blob--5" />
-        </div>
 
         <div className="relative z-10">
           <OptimizedHeader />
