@@ -8037,20 +8037,8 @@ function Section9Solution() {
     <div className="relative w-full h-full flex flex-col items-center justify-center px-[80px] gap-[56px]">
       {/* Header */}
       <div className="flex flex-col items-center gap-[24px] z-10">
-        <div
-          className="flex items-center px-[16px] py-[5px] rounded-full relative"
-          style={{
-            border: "1px solid rgba(255,255,255,0.2)",
-            background: "rgba(255,255,255,0.05)",
-          }}
-        >
-          <span className="text-[14px] text-white font-normal tracking-[-0.21px] leading-[1.6]">
-            One-Stop Solution
-          </span>
-          <div
-            className="absolute inset-[-0.5px] rounded-full pointer-events-none"
-            style={{ boxShadow: "inset 0 0 21px rgba(115,80,255,0.2)" }}
-          />
+        <div className="flex items-center px-[16px] py-[5px] rounded-full relative" style={{ border: "1px solid hsla(0,0%,100%,0.7)", background: "hsla(0,0%,100%,0.45)", boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
+          <span className="text-[14px] font-normal tracking-[-0.21px] leading-[1.6]" style={{ color: 'hsl(260, 60%, 40%)' }}>One-Stop Solution</span>
         </div>
         <h2
           className="text-[48px] font-medium leading-[1.1] tracking-[-2px] text-center"
