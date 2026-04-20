@@ -529,6 +529,7 @@ export default function GlobalFlow() {
                 );
               })}
             </div>
+          </div>
         </ScreenInner>
       </SnapScreen>
 
