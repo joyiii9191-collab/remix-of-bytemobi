@@ -38,8 +38,8 @@ const HUB_LINES: Array<[number, number]> = [
 const CARD: React.CSSProperties = {
   background:
     "linear-gradient(135deg, hsla(220,95%,75%,0.18) 0%, hsla(232,85%,72%,0.14) 35%, hsla(250,75%,72%,0.12) 70%, hsla(270,75%,75%,0.16) 100%), linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.35) 100%)",
-  backdropFilter: "blur(8px) saturate(1.6)",
-  WebkitBackdropFilter: "blur(8px) saturate(1.6)",
+  
+  
   border: "1px solid hsla(232, 80%, 70%, 0.22)",
   boxShadow:
     "inset 0 1px 0 0 rgba(255,255,255,0.55), 0 8px 28px -10px hsla(232,85%,55%,0.22), 0 16px 40px -16px hsla(265,75%,58%,0.18)",
@@ -163,8 +163,8 @@ export default function GlobalFlow() {
                 style={{
                   background:
                     "linear-gradient(135deg, hsla(220,100%,98%,0.55) 0%, hsla(232,90%,92%,0.35) 50%, hsla(265,80%,94%,0.4) 100%)",
-                  backdropFilter: "blur(8px) saturate(1.8)",
-                  WebkitBackdropFilter: "blur(8px) saturate(1.8)",
+                  
+                  
                   border: "1px solid hsla(0,0%,100%,0.6)",
                   boxShadow:
                     "inset 0 1px 0 0 hsla(0,0%,100%,0.9), inset 0 -1px 0 0 hsla(232,60%,80%,0.3), 0 12px 40px -12px hsla(232,85%,55%,0.28), 0 24px 60px -20px hsla(265,75%,58%,0.22)",
