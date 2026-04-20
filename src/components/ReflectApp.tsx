@@ -2459,13 +2459,9 @@ function Section6LogoWall() {
 
       {/* Keyframes style */}
       <style>{`
-        @keyframes marqueeLeft {
+        @keyframes marqueeLoop {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
-        }
-        @keyframes marqueeRight {
-          0% { transform: translateX(-50%); }
-          100% { transform: translateX(0); }
         }
       `}</style>
     </div>
