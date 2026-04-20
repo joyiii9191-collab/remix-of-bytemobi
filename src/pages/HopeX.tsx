@@ -1,4 +1,5 @@
 import React from "react";
+import StarBorder from "@/components/StarBorder";
 import { motion } from "motion/react";
 import {
   SnapPage, SnapScreen, ScreenInner,
@@ -6,7 +7,7 @@ import {
 } from "@/components/SnapPage";
 import { CountUp } from "@/components/SubPageLayout";
 import { ParticleWorldMap } from "@/components/ParticleWorldMap";
-import "./HopeX.css";
+import { GLASS_CARD as CARD, TEXT_DARK, TEXT_MID, ACCENT } from "@/lib/page-styles";
 
 const HOPEX_MARKERS = [
   { x: 18, y: 35, highlight: true, label: "NA" },
@@ -21,20 +22,7 @@ const HOPEX_LINES: Array<[number, number]> = [
   [0, 6], [0, 5], [6, 1], [6, 4], [1, 2], [1, 3],
 ];
 
-// 蓝紫磨砂玻璃卡片 (logo 蓝 70% / 紫 30%) - 使用 glass-card 类提供完整玻璃质感
-const CARD: React.CSSProperties = {
-  background:
-    "linear-gradient(135deg, hsla(220,95%,75%,0.18) 0%, hsla(232,85%,72%,0.14) 35%, hsla(250,75%,72%,0.12) 70%, hsla(270,75%,75%,0.16) 100%), linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.35) 100%)",
-  
-  
-  border: "1px solid hsla(232, 80%, 70%, 0.22)",
-  boxShadow:
-    "inset 0 1.5px 0 0 rgba(255,255,255,0.85), inset 1px 0 0 0 rgba(255,255,255,0.4), inset 0 -1px 0 0 hsla(230,30%,50%,0.12), inset 0 -10px 24px -12px rgba(255,255,255,0.4), 0 10px 30px -10px hsla(232,85%,40%,0.25), 0 2px 6px -2px hsla(232,85%,40%,0.15)",
-};
 const CARD_CLASS = "glass-card";
-const TEXT_DARK = "hsl(230 30% 18%)";
-const TEXT_MID = "hsl(230 20% 40%)";
-const ACCENT = "hsl(245 60% 45%)";
 
 const SCALE = [
   { v: 36, s: " 亿+", l: "每日广告请求量" },
@@ -65,7 +53,15 @@ export default function HopeX() {
           <ScreenLead>
             HopeX 是 HopeMobi 旗下的程序化广告平台,致力于为广告主与流量方提供可预测增长的商业化解决方案 —— 在不确定的市场中,提供确定性。
           </ScreenLead>
-          <div className="mt-10 text-xs uppercase tracking-[0.3em]" style={{ color: TEXT_MID }}>↓ 滑动查看平台规模</div>
+          <div className="mt-10 flex items-center gap-6">
+            <StarBorder
+              speed="5s"
+              onClick={() => document.getElementById("scale")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+            >
+              查看平台能力
+            </StarBorder>
+            <span className="text-xs uppercase tracking-[0.3em]" style={{ color: TEXT_MID }}>↓ 滑动查看</span>
+          </div>
         </ScreenInner>
       </SnapScreen>
 

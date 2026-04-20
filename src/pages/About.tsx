@@ -1,4 +1,5 @@
 import React from "react";
+import StarBorder from "@/components/StarBorder";
 import { motion, useScroll, useTransform } from "motion/react";
 import {
   SnapPage, SnapScreen, ScreenInner,
@@ -54,19 +55,7 @@ const TIMELINE: Milestone[] = [
 
 const EVENTS = ["IAB", "GDC", "Japan IT Week", "ChinaJoy", "TGS", "中东峰会", "IVS Kyoto"];
 
-// 蓝紫磨砂玻璃卡片 (logo 蓝 70% / 紫 30%)
-const CARD: React.CSSProperties = {
-  background:
-    "linear-gradient(135deg, hsla(220,95%,75%,0.18) 0%, hsla(232,85%,72%,0.14) 35%, hsla(250,75%,72%,0.12) 70%, hsla(270,75%,75%,0.16) 100%), linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.35) 100%)",
-  
-  
-  border: "1px solid hsla(232, 80%, 70%, 0.22)",
-  boxShadow:
-    "inset 0 1px 0 0 rgba(255,255,255,0.55), 0 8px 28px -10px hsla(232,85%,55%,0.22), 0 16px 40px -16px hsla(265,75%,58%,0.18)",
-};
-const TEXT_DARK = "hsl(230 30% 18%)";
-const TEXT_MID = "hsl(230 20% 40%)";
-const ACCENT = "hsl(245 60% 45%)";
+import { GLASS_CARD as CARD, TEXT_DARK, TEXT_MID, ACCENT } from "@/lib/page-styles";
 
 function HorizontalTimeline() {
   const ref = React.useRef<HTMLDivElement>(null);
@@ -158,7 +147,15 @@ export default function About() {
           <ScreenLead>
             成立于 2016 年,全球 5 个办公点、200+ 员工,致力于成为全球数字生态中值得信赖的桥梁。
           </ScreenLead>
-          <div className="mt-10 text-xs uppercase tracking-[0.3em]" style={{ color: TEXT_MID }}>↓ 滑动了解 ByteMobi</div>
+          <div className="mt-10 flex items-center gap-6">
+            <StarBorder
+              speed="5s"
+              onClick={() => document.getElementById("intro")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+            >
+              了解 ByteMobi
+            </StarBorder>
+            <span className="text-xs uppercase tracking-[0.3em]" style={{ color: TEXT_MID }}>↓ 滑动了解</span>
+          </div>
         </ScreenInner>
       </SnapScreen>
 
@@ -178,7 +175,7 @@ export default function About() {
               <motion.div key={c.t}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="rounded-2xl p-6" style={CARD}>
+                className="rounded-2xl p-6 glass-card" style={CARD}>
                 <h3 className="text-base font-semibold mb-2" style={{ color: TEXT_DARK }}>{c.t}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>{c.d}</p>
               </motion.div>
@@ -194,7 +191,7 @@ export default function About() {
           <ScreenTitle>覆盖关键市场的五个办公点</ScreenTitle>
           <ScreenLead>悬停查看地图节点,点击查看详细信息。</ScreenLead>
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-5 mt-6 flex-1 min-h-[320px]">
-            <div className="lg:col-span-3 rounded-2xl overflow-hidden relative" style={CARD}>
+            <div className="lg:col-span-3 rounded-2xl overflow-hidden relative glass-card" style={CARD}>
               <ParticleWorldMap markers={MAP_MARKERS} lines={MAP_LINES} />
               {hoverIdx !== null && (
                 <motion.div
@@ -326,7 +323,7 @@ export default function About() {
             <motion.div
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5 }}
-              className="rounded-2xl p-7" style={CARD}>
+              className="rounded-2xl p-7 glass-card" style={CARD}>
               <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>Mission</div>
               <h3 className="text-xl font-bold mb-3" style={{ color: TEXT_DARK }}>使命</h3>
               <p className="text-sm" style={{ color: TEXT_MID }}>让数字连接更有价值。</p>
@@ -334,7 +331,7 @@ export default function About() {
             <motion.div
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: 0.1 }}
-              className="rounded-2xl p-7" style={CARD}>
+              className="rounded-2xl p-7 glass-card" style={CARD}>
               <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>Vision</div>
               <h3 className="text-xl font-bold mb-3" style={{ color: TEXT_DARK }}>愿景</h3>
               <p className="text-sm" style={{ color: TEXT_MID }}>成为全球数字生态中值得信赖的桥梁。</p>
@@ -342,7 +339,7 @@ export default function About() {
             <motion.div
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: 0.2 }}
-              className="rounded-2xl p-7" style={CARD}>
+              className="rounded-2xl p-7 glass-card" style={CARD}>
               <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>Values</div>
               <h3 className="text-xl font-bold mb-3" style={{ color: TEXT_DARK }}>价值观</h3>
               <ul className="text-sm space-y-1.5" style={{ color: TEXT_MID }}>

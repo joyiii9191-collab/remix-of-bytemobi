@@ -1,4 +1,5 @@
 import React from "react";
+import StarBorder from "@/components/StarBorder";
 import { motion, AnimatePresence } from "motion/react";
 import {
   SnapPage, SnapScreen, ScreenInner,
@@ -13,18 +14,7 @@ import {
   ChevronLeft, ChevronRight, Building2, Languages,
 } from "lucide-react";
 
-// 蓝紫磨砂玻璃卡片 (logo 蓝 70% / 紫 30%)
-const CARD: React.CSSProperties = {
-  background:
-    "linear-gradient(135deg, hsla(220,95%,75%,0.18) 0%, hsla(232,85%,72%,0.14) 35%, hsla(250,75%,72%,0.12) 70%, hsla(270,75%,75%,0.16) 100%), linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.35) 100%)",
-  
-  
-  border: "1px solid hsla(232, 80%, 70%, 0.22)",
-  boxShadow:
-    "inset 0 1px 0 0 rgba(255,255,255,0.55), 0 8px 28px -10px hsla(232,85%,55%,0.22), 0 16px 40px -16px hsla(265,75%,58%,0.18)",
-};
-const TEXT_DARK = "hsl(230 30% 18%)";
-const TEXT_MID = "hsl(230 20% 40%)";
+import { GLASS_CARD as CARD, TEXT_DARK, TEXT_MID } from "@/lib/page-styles";
 const JP_RED = "hsl(355 75% 55%)";
 const JP_RED_SOFT = "rgba(220,38,38,0.08)";
 
@@ -129,7 +119,7 @@ function SideCard({ data, dir }: { data: typeof ADV_SIDE; dir: "l" | "r" }) {
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: false, amount: 0.3 }}
       transition={{ duration: 0.6 }}
-      className="rounded-2xl p-6 md:p-7"
+      className="rounded-2xl p-6 md:p-7 glass-card"
       style={CARD}
     >
       <div
@@ -183,7 +173,15 @@ export default function JapanFocus() {
           <ScreenLead>
             聚焦日本市场,同时完成全球多区域布局,助力广告主与媒体方实现高效增长。
           </ScreenLead>
-          <div className="mt-10 text-xs uppercase tracking-[0.3em]" style={{ color: TEXT_MID }}>↓ 滑动查看本地能力</div>
+          <div className="mt-10 flex items-center gap-6">
+            <StarBorder
+              speed="5s"
+              onClick={() => document.getElementById("strengths")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+            >
+              查看本地能力
+            </StarBorder>
+            <span className="text-xs uppercase tracking-[0.3em]" style={{ color: TEXT_MID }}>↓ 滑动查看</span>
+          </div>
         </ScreenInner>
       </SnapScreen>
 
@@ -203,7 +201,7 @@ export default function JapanFocus() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false, amount: 0.3 }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="rounded-2xl p-6 h-full"
+                  className="rounded-2xl p-6 h-full glass-card"
                   style={CARD}
                 >
                   <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-3"
@@ -245,7 +243,7 @@ export default function JapanFocus() {
           <ScreenEyebrow>03 · 全球布局</ScreenEyebrow>
           <ScreenTitle>以日本为核心的全球网络</ScreenTitle>
           <ScreenLead>日本核心市场深耕,并向亚太、欧美持续扩张。</ScreenLead>
-          <div className="rounded-2xl overflow-hidden mt-6 flex-1 min-h-[320px]" style={CARD}>
+          <div className="rounded-2xl overflow-hidden mt-6 flex-1 min-h-[320px] glass-card" style={CARD}>
             <JapanHighlightMap height={420} />
           </div>
         </ScreenInner>
@@ -262,7 +260,7 @@ export default function JapanFocus() {
               <motion.div
                 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5 }}
-                className="rounded-2xl p-6" style={CARD}
+                className="rounded-2xl p-6 glass-card" style={CARD}
               >
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-3"
                   style={{ background: JP_RED_SOFT, color: JP_RED }}><Users size={20} /></div>
@@ -276,7 +274,7 @@ export default function JapanFocus() {
               <motion.div
                 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: 0.08 }}
-                className="rounded-2xl p-6" style={CARD}
+                className="rounded-2xl p-6 glass-card" style={CARD}
               >
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-3"
                   style={{ background: JP_RED_SOFT, color: JP_RED }}><Languages size={20} /></div>
@@ -290,7 +288,7 @@ export default function JapanFocus() {
               <motion.div
                 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: 0.16 }}
-                className="rounded-2xl p-6 sm:col-span-2" style={CARD}
+                className="rounded-2xl p-6 sm:col-span-2 glass-card" style={CARD}
               >
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-3"
                   style={{ background: JP_RED_SOFT, color: JP_RED }}><Building2 size={20} /></div>

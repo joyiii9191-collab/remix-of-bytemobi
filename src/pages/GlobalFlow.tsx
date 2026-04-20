@@ -1,4 +1,5 @@
 import React from "react";
+import StarBorder from "@/components/StarBorder";
 import { motion } from "motion/react";
 import {
   SnapPage,
@@ -34,19 +35,7 @@ const HUB_LINES: Array<[number, number]> = [
   [0, 1], [1, 2], [0, 2], [2, 5], [1, 4], [0, 3],
 ];
 
-// 蓝紫磨砂玻璃卡片 (logo 蓝 70% / 紫 30%)
-const CARD: React.CSSProperties = {
-  background:
-    "linear-gradient(135deg, hsla(220,95%,75%,0.18) 0%, hsla(232,85%,72%,0.14) 35%, hsla(250,75%,72%,0.12) 70%, hsla(270,75%,75%,0.16) 100%), linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.35) 100%)",
-  
-  
-  border: "1px solid hsla(232, 80%, 70%, 0.22)",
-  boxShadow:
-    "inset 0 1px 0 0 rgba(255,255,255,0.55), 0 8px 28px -10px hsla(232,85%,55%,0.22), 0 16px 40px -16px hsla(265,75%,58%,0.18)",
-};
-const TEXT_DARK = "hsl(230 30% 18%)";
-const TEXT_MID = "hsl(230 20% 40%)";
-const ACCENT = "hsl(245 60% 45%)";
+import { GLASS_CARD as CARD, TEXT_DARK, TEXT_MID, ACCENT } from "@/lib/page-styles";
 
 const STATS = [
   { label: "覆盖国家 / 地区", value: 220, suffix: "+" },
@@ -138,8 +127,14 @@ export default function GlobalFlow() {
           <ScreenLead>
             驱动全球增长,智能汇流每一刻。覆盖六大洲核心市场的实时流量与设备网络,为每一个增长目标计算最优路径。
           </ScreenLead>
-          <div className="mt-10 text-xs uppercase tracking-[0.3em]" style={{ color: TEXT_MID }}>
-            ↓ 滑动浏览全部能力
+          <div className="mt-10 flex items-center gap-6">
+            <StarBorder
+              speed="5s"
+              onClick={() => document.getElementById("hub")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+            >
+              探索全球能力
+            </StarBorder>
+            <span className="text-xs uppercase tracking-[0.3em]" style={{ color: TEXT_MID }}>↓ 滑动浏览</span>
           </div>
         </ScreenInner>
       </SnapScreen>
@@ -238,7 +233,7 @@ export default function GlobalFlow() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, amount: 0.3 }}
                     transition={{ duration: 0.5, delay: i * 0.12 }}
-                    className="flex-1 rounded-2xl p-5 relative"
+                    className="flex-1 rounded-2xl p-5 relative glass-card"
                     style={CARD}
                   >
                     <div
@@ -265,7 +260,7 @@ export default function GlobalFlow() {
             {UA_STEPS.map((s, i) => {
               const Icon = s.icon;
               return (
-                <div key={s.title} className="rounded-2xl p-4 flex gap-3" style={CARD}>
+                <div key={s.title} className="rounded-2xl p-4 flex gap-3 glass-card" style={CARD}>
                   <div
                     className="w-9 h-9 shrink-0 rounded-xl flex items-center justify-center"
                     style={{ background: "rgba(99,102,241,0.1)", color: ACCENT }}
@@ -340,7 +335,7 @@ export default function GlobalFlow() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false, amount: 0.3 }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="rounded-2xl p-6"
+                  className="rounded-2xl p-6 glass-card"
                   style={CARD}
                 >
                   <div
@@ -373,7 +368,7 @@ export default function GlobalFlow() {
                 viewport={{ once: false, amount: 0.3 }}
                 transition={{ duration: 0.5, delay: i * 0.06 }}
                 whileHover={{ y: -4 }}
-                className="rounded-2xl p-4 text-left cursor-pointer"
+                className="rounded-2xl p-4 text-left cursor-pointer glass-card"
                 style={CARD}
               >
                 <span
@@ -447,7 +442,7 @@ export default function GlobalFlow() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: false, amount: 0.3 }}
                     transition={{ duration: 0.4, delay: i * 0.05 }}
-                    className="rounded-xl p-3 flex flex-col items-center text-center"
+                    className="rounded-xl p-3 flex flex-col items-center text-center glass-card"
                     style={CARD}
                   >
                     <div
@@ -466,7 +461,7 @@ export default function GlobalFlow() {
             <motion.div
               initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5 }}
-              className="rounded-2xl p-5" style={CARD}>
+              className="rounded-2xl p-5 glass-card" style={CARD}>
               <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-2" style={{ color: ACCENT }}>Engine 01</div>
               <h3 className="text-base font-semibold mb-2" style={{ color: TEXT_DARK }}>增长引擎 · 内投团队</h3>
               <ul className="text-xs leading-relaxed space-y-1" style={{ color: TEXT_MID }}>
@@ -479,7 +474,7 @@ export default function GlobalFlow() {
             <motion.div
               initial={{ opacity: 0, x: 16 }} whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: 0.1 }}
-              className="rounded-2xl p-5" style={CARD}>
+              className="rounded-2xl p-5 glass-card" style={CARD}>
               <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-2" style={{ color: ACCENT }}>Engine 02</div>
               <h3 className="text-base font-semibold mb-2" style={{ color: TEXT_DARK }}>流量网络 · 网盟 / 联盟</h3>
               <ul className="text-xs leading-relaxed space-y-1" style={{ color: TEXT_MID }}>
