@@ -89,7 +89,7 @@
 }
 
 .magic-bento-card:hover {
-  transform: scale(1.03);
+  transform: translateY(-3px);
   background: hsla(0, 0%, 100%, 0.08);
   border-color: hsla(0, 0%, 100%, 0.55);
   box-shadow:
