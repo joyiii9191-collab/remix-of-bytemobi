@@ -93,6 +93,7 @@ const MEDIA_BLOCKS = [
 
 export default function GlobalFlow() {
   const [openCase, setOpenCase] = React.useState<Case | null>(null);
+  const [activeCase, setActiveCase] = React.useState(0);
 
   return (
     <SnapPage title="全球汇流">
