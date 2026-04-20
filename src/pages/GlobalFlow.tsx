@@ -558,10 +558,10 @@ export default function GlobalFlow() {
 
           {/* 增长引擎(内投团队) */}
           <div className="w-full mt-8">
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>
+            <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3 text-center" style={{ color: ACCENT }}>
               我们的增长引擎 · 内投团队
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
                 { icon: Gauge, t: "预算与出价动态优化", d: "实时调价 · ROI 守护" },
                 { icon: Sparkles, t: "创意测试与持续迭代", d: "AB 测试 · 高 CTR 沉淀" },
@@ -576,15 +576,20 @@ export default function GlobalFlow() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, amount: 0.3 }}
                     transition={{ duration: 0.45, delay: i * 0.06 }}
-                    className="rounded-xl p-4 glass-card"
+                    whileHover={{ y: -4 }}
+                    className="rounded-2xl p-5 glass-card flex flex-col items-center text-center h-full"
                     style={CARD}
                   >
                     <div
-                      className="w-9 h-9 rounded-lg flex items-center justify-center mb-2"
-                      style={{ background: "rgba(99,102,241,0.1)", color: ACCENT }}
-                    ><Icon size={18} /></div>
-                    <div className="text-sm font-semibold" style={{ color: TEXT_DARK }}>{c.t}</div>
-                    <div className="text-[11px] mt-1" style={{ color: TEXT_MID }}>{c.d}</div>
+                      className="w-12 h-12 rounded-xl flex items-center justify-center mb-3"
+                      style={{
+                        background: "linear-gradient(135deg, rgba(99,102,241,0.15), rgba(99,102,241,0.05))",
+                        color: ACCENT,
+                        boxShadow: "0 4px 12px rgba(99,102,241,0.12)",
+                      }}
+                    ><Icon size={22} /></div>
+                    <div className="text-sm font-semibold leading-snug mb-1.5" style={{ color: TEXT_DARK }}>{c.t}</div>
+                    <div className="text-[11px] leading-relaxed" style={{ color: TEXT_MID }}>{c.d}</div>
                   </motion.div>
                 );
               })}
