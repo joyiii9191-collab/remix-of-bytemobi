@@ -43,11 +43,11 @@
 }
 
 /* 左上角蓝紫径向 blob —— 只占卡片左上 ~50% */
-/* 主光：左下大紫色 blob (70%) */
+/* 主光：左上大紫色 blob (70%) */
 .magic-bento-card::before {
   content: '';
   position: absolute;
-  bottom: -30%;
+  top: -30%;
   left: -20%;
   width: 90%;
   height: 100%;
