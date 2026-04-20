@@ -2114,41 +2114,24 @@ function Section4Screen() {
             <div className="w-[60px] h-[60px] rounded-[12px]" style={{ background: 'hsla(230,30%,40%,0.15)', border: '3px solid hsla(230,30%,40%,0.15)' }} />
           </div>
 
-          {/* Center - subtle purple glow logo frame with breathing */}
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[160px] h-[160px]">
-            {/* Soft outer glow */}
-            <div className="absolute -inset-[6px] rounded-[32px]" style={{
-              background: 'radial-gradient(ellipse at center, rgba(124,58,237,0.15) 0%, transparent 70%)',
-              filter: 'blur(12px)',
+          {/* Center - logo only with floating animation */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px] flex items-center justify-center group">
+            {/* Soft outer halo */}
+            <div className="absolute inset-0 rounded-full pointer-events-none" style={{
+              background: 'radial-gradient(circle at center, rgba(168,130,255,0.18) 0%, transparent 65%)',
+              filter: 'blur(20px)',
               animation: 'centerBreath 4s ease-in-out infinite',
             }} />
-            {/* Thin border glow */}
-            <div className="absolute -inset-[2px] rounded-[28px]" style={{
-              background: 'linear-gradient(135deg, rgba(168,130,255,0.25), rgba(124,58,237,0.15), rgba(168,130,255,0.25))',
-              animation: 'centerBreath 4s ease-in-out infinite',
-            }} />
-            {/* Inner background - glass effect */}
-            <div
-              className="absolute inset-0 rounded-[26px]"
+            {/* Logo - floating + hover lift */}
+            <img
+              src={logo3d}
+              alt="Logo"
+              className="relative w-[200px] h-[200px] object-contain z-[1] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110 group-hover:-rotate-2 cursor-pointer"
               style={{
-                background: 'rgba(10, 5, 20, 0.6)',
-                
-                
-                border: '1px solid rgba(168, 130, 255, 0.12)',
-                boxShadow: 'inset 0 0 30px rgba(124, 58, 237, 0.05), 0 0 40px rgba(124, 58, 237, 0.06)',
+                filter: 'drop-shadow(0 14px 30px rgba(180,120,255,0.45))',
+                animation: 'centerLogoFloat 5s ease-in-out infinite',
               }}
             />
-            {/* Logo */}
-            <div className="relative w-full h-full rounded-[22px] flex items-center justify-center z-[1]">
-              <img
-                src={logo3d}
-                alt="Logo"
-                className="w-[110px] h-[110px] object-contain"
-                style={{
-                  filter: 'drop-shadow(0 4px 20px rgba(180,120,255,0.3))',
-                }}
-              />
-            </div>
           </div>
         </div>
       </div>
