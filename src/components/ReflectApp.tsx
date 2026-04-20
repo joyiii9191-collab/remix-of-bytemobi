@@ -2046,14 +2046,23 @@ function Section4Screen() {
             { top: 323, left: 30, logo: appLogo3 },
           ].map((item, i) => (
             <div key={`left-${i}`} className="absolute" style={{ top: `${item.top}px`, left: `${item.left}px` }}>
-              <div className="relative w-[60px] h-[60px]">
-                {/* Top-left corner glow */}
-                <div className="absolute -inset-[2px] rounded-[14px]" style={{
+              <div className="group relative w-[60px] h-[60px] cursor-pointer transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-[1.18] hover:-rotate-3">
+                {/* Top-left corner glow - intensifies on hover */}
+                <div className="absolute -inset-[2px] rounded-[14px] transition-opacity duration-500 group-hover:opacity-0" style={{
                   background: 'radial-gradient(circle at 0% 0%, rgba(168,130,255,0.5) 0%, rgba(124,58,237,0.2) 30%, transparent 60%)',
                 }} />
+                {/* Hover halo - purple bloom */}
+                <div className="absolute -inset-[6px] rounded-[18px] opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none" style={{
+                  background: 'radial-gradient(circle at center, rgba(168,130,255,0.55) 0%, rgba(124,58,237,0.25) 40%, transparent 75%)',
+                  filter: 'blur(8px)',
+                }} />
                 {/* Card content */}
-                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: 'linear-gradient(155deg, hsla(0,0%,100%,0.6) 0%, hsla(0,0%,100%,0.3) 100%)',   border: '1px solid hsla(0,0%,100%,0.6)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
-                  <img src={item.logo} alt="" className="w-[44px] h-[44px] object-cover rounded-[10px]" />
+                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1] transition-all duration-500 group-hover:shadow-[0_10px_28px_-8px_hsla(260,70%,45%,0.55)]" style={{ background: 'linear-gradient(155deg, hsla(0,0%,100%,0.6) 0%, hsla(0,0%,100%,0.3) 100%)',   border: '1px solid hsla(0,0%,100%,0.6)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
+                  {/* Sweeping shine */}
+                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-[900ms] ease-out pointer-events-none" style={{
+                    background: 'linear-gradient(115deg, transparent 30%, hsla(0,0%,100%,0.6) 50%, transparent 70%)',
+                  }} />
+                  <img src={item.logo} alt="" className="w-[44px] h-[44px] object-cover rounded-[10px] transition-transform duration-500 group-hover:scale-110 relative z-[1]" />
                 </div>
               </div>
             </div>
@@ -2066,14 +2075,23 @@ function Section4Screen() {
             { top: 323, right: 30, logo: appLogo6 },
           ].map((item, i) => (
             <div key={`right-${i}`} className="absolute" style={{ top: `${item.top}px`, right: `${item.right}px` }}>
-              <div className="relative w-[60px] h-[60px]">
+              <div className="group relative w-[60px] h-[60px] cursor-pointer transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-[1.18] hover:rotate-3">
                 {/* Top-left corner glow */}
-                <div className="absolute -inset-[2px] rounded-[14px]" style={{
+                <div className="absolute -inset-[2px] rounded-[14px] transition-opacity duration-500 group-hover:opacity-0" style={{
                   background: 'radial-gradient(circle at 0% 0%, rgba(168,130,255,0.5) 0%, rgba(124,58,237,0.2) 30%, transparent 60%)',
                 }} />
+                {/* Hover halo */}
+                <div className="absolute -inset-[6px] rounded-[18px] opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none" style={{
+                  background: 'radial-gradient(circle at center, rgba(168,130,255,0.55) 0%, rgba(124,58,237,0.25) 40%, transparent 75%)',
+                  filter: 'blur(8px)',
+                }} />
                 {/* Card content */}
-                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: 'linear-gradient(155deg, hsla(0,0%,100%,0.6) 0%, hsla(0,0%,100%,0.3) 100%)',   border: '1px solid hsla(0,0%,100%,0.6)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
-                  <img src={item.logo} alt="" className="w-[44px] h-[44px] object-cover rounded-[10px]" />
+                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1] transition-all duration-500 group-hover:shadow-[0_10px_28px_-8px_hsla(260,70%,45%,0.55)]" style={{ background: 'linear-gradient(155deg, hsla(0,0%,100%,0.6) 0%, hsla(0,0%,100%,0.3) 100%)',   border: '1px solid hsla(0,0%,100%,0.6)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
+                  {/* Sweeping shine */}
+                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-[900ms] ease-out pointer-events-none" style={{
+                    background: 'linear-gradient(115deg, transparent 30%, hsla(0,0%,100%,0.6) 50%, transparent 70%)',
+                  }} />
+                  <img src={item.logo} alt="" className="w-[44px] h-[44px] object-cover rounded-[10px] transition-transform duration-500 group-hover:scale-110 relative z-[1]" />
                 </div>
               </div>
             </div>
