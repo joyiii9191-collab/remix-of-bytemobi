@@ -417,19 +417,18 @@ All colors MUST be HSL.
 .app-light-theme input,
 .app-light-theme textarea,
 .app-light-theme select {
-  background: rgba(255,255,255,0.65) !important;
-  border: 1px solid rgba(124,58,237,0.18) !important;
-  color: hsl(230 35% 18%) !important;
-  
+  background: hsla(0, 0%, 100%, 0.55) !important;
+  border: 1px solid hsla(0, 0%, 100%, 0.7) !important;
+  color: hsl(25, 35%, 18%) !important;
 }
 .app-light-theme input::placeholder,
 .app-light-theme textarea::placeholder {
-  color: hsl(230 15% 55%) !important;
+  color: hsl(25, 15%, 50%) !important;
 }
 .app-light-theme input:focus,
 .app-light-theme textarea:focus {
-  border-color: rgba(99,102,241,0.5) !important;
-  box-shadow: 0 0 0 3px rgba(99,102,241,0.15) !important;
+  border-color: hsla(30, 80%, 65%, 0.5) !important;
+  box-shadow: 0 0 0 3px hsla(30, 80%, 65%, 0.18) !important;
   outline: none;
 }
 
