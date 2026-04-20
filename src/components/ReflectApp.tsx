@@ -2442,6 +2442,28 @@ function Section6LogoWall() {
         </p>
       </div>
 
+      {/* SVG filter: key-out white background (turns near-white pixels transparent) */}
+      <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true">
+        <defs>
+          <filter id="logo-key-white" colorInterpolationFilters="sRGB">
+            {/* alpha = 1 - min(R,G,B); near-white => alpha 0; colored => alpha ≈ 1 */}
+            <feColorMatrix
+              type="matrix"
+              values="1 0 0 0 0
+                      0 1 0 0 0
+                      0 0 1 0 0
+                      -1 -1 -1 0 1"
+            />
+            {/* Boost remaining alpha so faint colored logos stay solid */}
+            <feComponentTransfer>
+              <feFuncA type="linear" slope="3" intercept="0" />
+            </feComponentTransfer>
+            {/* Multiply original RGB by new alpha to keep colors */}
+            <feComposite in="SourceGraphic" in2="thresholded" operator="in" />
+          </filter>
+        </defs>
+      </svg>
+
       {/* Logo rows */}
       <div className="flex flex-col gap-6 w-full z-[1]">
         <LogoMarquee direction="left" logos={row1} tag="互动广告平台 & 激励广告平台" />
