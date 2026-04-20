@@ -53,12 +53,10 @@ export default function HopeX() {
             style={{ background: "rgba(99,102,241,0.1)", color: "hsl(245 60% 35%)", border: "1px solid rgba(124,58,237,0.18)" }}
           >HOPEX · PROGRAMMATIC</motion.div>
           <ScreenTitle size="xl">
-            程序化广告
-            <br />
-            在不确定中提供确定性
+            关于 HopeX
           </ScreenTitle>
           <ScreenLead>
-            HopeX 是 HopeMobi 旗下的程序化广告平台,致力于为广告主与流量方提供可预测增长的商业化解决方案。
+            HopeX 是 HopeMobi 旗下的程序化广告平台,致力于为广告主与流量方提供可预测增长的商业化解决方案 —— 在不确定的市场中,提供确定性。
           </ScreenLead>
           <div className="mt-10 text-xs uppercase tracking-[0.3em]" style={{ color: TEXT_MID }}>↓ 滑动查看平台规模</div>
         </ScreenInner>
@@ -142,10 +140,10 @@ export default function HopeX() {
             ))}
           </div>
           <div className="rounded-2xl p-6 mt-5" style={CARD}>
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>全球行业覆盖</div>
+            <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>全球行业覆盖 · 仅展示 Logo</div>
             <div className="flex flex-wrap gap-2">
               {["电商", "游戏", "工具", "短剧", "娱乐内容", "金融科技"].map((t) => (
-                <div key={t} className="px-3 py-1.5 rounded-lg text-sm"
+                <div key={t} className="px-3 py-1.5 rounded-lg text-sm font-medium"
                   style={{ background: "rgba(99,102,241,0.08)", color: "hsl(245 60% 35%)" }}>{t}</div>
               ))}
             </div>
@@ -169,11 +167,12 @@ export default function HopeX() {
             ))}
           </div>
           <div className="rounded-2xl p-6 mt-6" style={CARD}>
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>多元预算接入</div>
-            <div className="flex flex-wrap gap-3 text-sm" style={{ color: TEXT_DARK }}>
-              <span>ShareThrough</span><span>·</span>
-              <span>RTB House</span><span>·</span>
-              <span>品牌直客 Shopee / Shein</span>
+            <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>多元预算接入 · 官方 Logo 展示</div>
+            <div className="flex flex-wrap gap-2">
+              {["ShareThrough", "RTB House", "Shopee 品牌直客", "Shein 品牌直客"].map((t) => (
+                <div key={t} className="px-3 py-1.5 rounded-lg text-sm font-medium"
+                  style={{ background: "rgba(99,102,241,0.08)", color: "hsl(245 60% 35%)" }}>{t}</div>
+              ))}
             </div>
           </div>
         </ScreenInner>
@@ -235,6 +234,13 @@ export default function HopeX() {
               </ul>
             </motion.div>
           </div>
+          <motion.p
+            initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-center text-sm md:text-base mt-8 max-w-3xl mx-auto leading-relaxed"
+            style={{ color: TEXT_MID }}>
+            HopeX 致力于打通广告主与流量方之间的高效连接,通过技术驱动与全球化资源整合,实现规模、效率与收益的持续增长。
+          </motion.p>
         </ScreenInner>
       </SnapScreen>
     </SnapPage>

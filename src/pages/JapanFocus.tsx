@@ -170,8 +170,9 @@ export default function JapanFocus() {
             style={{ background: JP_RED_SOFT, color: JP_RED, border: `1px solid ${JP_RED_SOFT}` }}
           >JAPAN FOCUS · 日本聚势</motion.div>
           <ScreenTitle size="xl">
-            深度理解本地市场
+            全球领先的移动广告平台
             <br />
+            深度理解本地市场,
             <span style={{ color: JP_RED, WebkitTextFillColor: JP_RED }}>以数据驱动为核心</span>
           </ScreenTitle>
           <ScreenLead>
@@ -288,9 +289,12 @@ export default function JapanFocus() {
               >
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-3"
                   style={{ background: JP_RED_SOFT, color: JP_RED }}><Building2 size={20} /></div>
-                <h3 className="text-base font-semibold mb-1.5" style={{ color: TEXT_DARK }}>日本办公室</h3>
-                <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>
-                  自 2019 年起持续深耕,本地化运营、商务与合规一体化协作。
+                <h3 className="text-base font-semibold mb-1.5" style={{ color: TEXT_DARK }}>东京办公室</h3>
+                <p className="text-sm leading-relaxed mb-2" style={{ color: TEXT_MID }}>
+                  自 2019 年起持续深耕,本地团队 / 运营 / 融入,本地化运营、商务与合规一体化协作。
+                </p>
+                <p className="text-xs leading-relaxed" style={{ color: "hsl(230 15% 55%)" }}>
+                  地址:以日本聚势表原文为准 · 上线前需业务确认
                 </p>
               </motion.div>
             </div>

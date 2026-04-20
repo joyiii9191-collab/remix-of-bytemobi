@@ -125,15 +125,13 @@ export default function GlobalFlow() {
               border: "1px solid rgba(124,58,237,0.18)",
             }}
           >
-            GLOBAL FLOW · 移动增长引擎
+            GLOBAL FLOW · 全球汇流
           </motion.div>
           <ScreenTitle size="xl">
-            驱动全球增长
-            <br />
-            智能汇流每一刻
+            移动增长引擎
           </ScreenTitle>
           <ScreenLead>
-            覆盖六大洲核心市场的实时流量与设备网络,每一秒都在为客户的增长目标计算最优路径。
+            驱动全球增长,智能汇流每一刻。覆盖六大洲核心市场的实时流量与设备网络,为每一个增长目标计算最优路径。
           </ScreenLead>
           <div className="mt-10 text-xs uppercase tracking-[0.3em]" style={{ color: TEXT_MID }}>
             ↓ 滑动浏览全部能力
@@ -375,37 +373,73 @@ export default function GlobalFlow() {
       {/* === Screen 7 — Web 业务 === */}
       <SnapScreen id="web">
         <ScreenInner>
-          <ScreenEyebrow>06 · Web 端增长</ScreenEyebrow>
-          <ScreenTitle>双引擎覆盖移动与 Web</ScreenTitle>
-          <ScreenLead>从 App 到 Web,把每一类增长场景都纳入同一引擎。</ScreenLead>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mt-10">
-            {[
-              { icon: Layers, name: "Fintech" },
-              { icon: ShieldCheck, name: "Health" },
-              { icon: Sparkles, name: "Entertainment" },
-              { icon: Network, name: "Digital" },
-              { icon: Globe2, name: "Commerce" },
-              { icon: Zap, name: "Travel" },
-            ].map((b, i) => {
-              const Icon = b.icon;
-              return (
-                <motion.div
-                  key={b.name}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: false, amount: 0.3 }}
-                  transition={{ duration: 0.4, delay: i * 0.06 }}
-                  className="rounded-2xl p-5 flex flex-col items-center text-center"
-                  style={CARD}
-                >
-                  <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-3"
-                    style={{ background: "rgba(99,102,241,0.1)", color: ACCENT }}
-                  ><Icon size={22} /></div>
-                  <div className="text-sm font-semibold" style={{ color: TEXT_DARK }}>{b.name}</div>
-                </motion.div>
-              );
-            })}
+          <ScreenEyebrow>06 · Web 端增长宏图</ScreenEyebrow>
+          <ScreenTitle>Web 长效增长 · 流量供给 · 双引擎 · 全链路</ScreenTitle>
+          <ScreenLead>
+            以流量供给侧为基础,通过内投团队与流量网络的双引擎模式,覆盖市场与全链路,实现 Web 端的长效增长。
+          </ScreenLead>
+
+          {/* 业务类型 */}
+          <div className="mt-8">
+            <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>业务类型</div>
+            <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
+              {[
+                { icon: Layers, name: "Fintech" },
+                { icon: ShieldCheck, name: "Health" },
+                { icon: Sparkles, name: "Entertainment" },
+                { icon: Network, name: "Digital" },
+                { icon: Globe2, name: "Commerce" },
+                { icon: Zap, name: "Travel" },
+              ].map((b, i) => {
+                const Icon = b.icon;
+                return (
+                  <motion.div
+                    key={b.name}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: false, amount: 0.3 }}
+                    transition={{ duration: 0.4, delay: i * 0.05 }}
+                    className="rounded-xl p-3 flex flex-col items-center text-center"
+                    style={CARD}
+                  >
+                    <div
+                      className="w-9 h-9 rounded-lg flex items-center justify-center mb-2"
+                      style={{ background: "rgba(99,102,241,0.1)", color: ACCENT }}
+                    ><Icon size={16} /></div>
+                    <div className="text-xs font-semibold" style={{ color: TEXT_DARK }}>{b.name}</div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* 双引擎 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+            <motion.div
+              initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5 }}
+              className="rounded-2xl p-5" style={CARD}>
+              <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-2" style={{ color: ACCENT }}>Engine 01</div>
+              <h3 className="text-base font-semibold mb-2" style={{ color: TEXT_DARK }}>增长引擎 · 内投团队</h3>
+              <ul className="text-xs leading-relaxed space-y-1" style={{ color: TEXT_MID }}>
+                <li>· 预算出价优化</li>
+                <li>· 创意测试</li>
+                <li>· 转化洞察</li>
+                <li>· 合规与长期增长</li>
+              </ul>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 16 }} whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: 0.1 }}
+              className="rounded-2xl p-5" style={CARD}>
+              <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-2" style={{ color: ACCENT }}>Engine 02</div>
+              <h3 className="text-base font-semibold mb-2" style={{ color: TEXT_DARK }}>流量网络 · 网盟 / 联盟</h3>
+              <ul className="text-xs leading-relaxed space-y-1" style={{ color: TEXT_MID }}>
+                <li>· 高效对接</li>
+                <li>· 快速启动</li>
+                <li>· 持续增长</li>
+              </ul>
+            </motion.div>
           </div>
         </ScreenInner>
       </SnapScreen>
