@@ -433,6 +433,12 @@ export default function GlobalFlow() {
               </motion.div>
             </div>
           </div>
+          <p
+            className="w-full text-center text-xs mt-8"
+            style={{ color: "hsl(220 9% 60%)" }}
+          >
+            免责声明:部分客户为历史合作或渠道服务案例,数据为综合表现参考
+          </p>
         </ScreenInner>
 
         <Dialog open={!!openCase} onOpenChange={(o) => !o && setOpenCase(null)}>
