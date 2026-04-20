@@ -517,45 +517,37 @@ export default function GlobalFlow() {
                 鼠标悬停查看示例 · 完整资料以压缩档传送
               </div>
             </div>
-            <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
+            <div className="grid grid-cols-2 gap-3">
               {[
-                { icon: Landmark, name: "Fintech", cn: "金融科技", color: "hsl(160 70% 42%)" },
-                { icon: ShieldCheck, name: "Health", cn: "健康", color: "hsl(180 60% 45%)" },
-                { icon: Sparkles, name: "Entertainment", cn: "娱乐", color: "hsl(340 75% 55%)" },
-                { icon: Cloud, name: "Digital", cn: "数字服务", color: "hsl(40 90% 55%)" },
-                { icon: ShoppingBag, name: "Commerce", cn: "电商", color: "hsl(14 90% 58%)" },
-                { icon: Globe2, name: "Travel", cn: "旅行", color: "hsl(210 85% 55%)" },
-              ].map((b, i) => {
-                const Icon = b.icon;
-                return (
-                  <motion.div
-                    key={b.name}
-                    initial={{ opacity: 0, y: 12 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false, amount: 0.3 }}
-                    transition={{ duration: 0.4, delay: i * 0.05 }}
-                    whileHover={{ y: -4 }}
-                    className="group relative rounded-xl p-3 flex flex-col items-center text-center glass-card cursor-pointer overflow-hidden"
-                    style={CARD}
-                  >
-                    <div
-                      className="w-10 h-10 rounded-lg flex items-center justify-center mb-2 transition-colors"
-                      style={{ background: `${b.color.replace("hsl(", "hsla(").replace(")", " / 0.12)")}`, color: b.color }}
-                    ><Icon size={18} /></div>
-                    <div className="text-xs font-semibold" style={{ color: TEXT_DARK }}>{b.name}</div>
-                    <div className="text-[10px] mt-0.5" style={{ color: TEXT_MID }}>{b.cn}</div>
+                { name: "Fintech", cn: "金融科技", color: "hsl(160 70% 42%)" },
+                { name: "Health", cn: "健康", color: "hsl(180 60% 45%)" },
+                { name: "Entertainment", cn: "娱乐", color: "hsl(340 75% 55%)" },
+                { name: "Digital", cn: "数字服务", color: "hsl(40 90% 55%)" },
+                { name: "Commerce", cn: "电商", color: "hsl(14 90% 58%)" },
+                { name: "Travel", cn: "旅行", color: "hsl(210 85% 55%)" },
+              ].map((b, i) => (
+                <motion.div
+                  key={b.name}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, amount: 0.3 }}
+                  transition={{ duration: 0.4, delay: i * 0.05 }}
+                  whileHover={{ y: -4 }}
+                  className="group relative rounded-xl px-5 py-4 flex items-baseline gap-3 glass-card cursor-pointer overflow-hidden"
+                  style={CARD}
+                >
+                  <div className="text-base font-semibold" style={{ color: TEXT_DARK }}>{b.name}</div>
+                  <div className="text-xs" style={{ color: TEXT_MID }}>{b.cn}</div>
 
-                    {/* Hover 浮层 — 影片占位 */}
-                    <div
-                      className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm"
-                      style={{ background: `${b.color.replace("hsl(", "hsla(").replace(")", " / 0.92)")}` }}
-                    >
-                      <Video size={20} className="text-white mb-1" />
-                      <div className="text-[10px] text-white font-semibold tracking-wider">查看示例影片</div>
-                    </div>
-                  </motion.div>
-                );
-              })}
+                  {/* Hover 浮层 — 影片占位 */}
+                  <div
+                    className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm"
+                    style={{ background: `${b.color.replace("hsl(", "hsla(").replace(")", " / 0.92)")}` }}
+                  >
+                    <div className="text-xs text-white font-semibold tracking-wider">查看示例影片</div>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </ScreenInner>
