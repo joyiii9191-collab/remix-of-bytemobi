@@ -243,12 +243,12 @@ All colors MUST be HSL.
 .app-light-theme [style*="rgb(3, 0, 20)"],
 .app-light-theme [style*="rgb(3,0,20)"],
 .app-light-theme [style*="rgb(18, 15, 23)"],
-.app-light-theme [style*="rgb(18,15,23)"],
+.app-light-theme [style*="rgba(18,15,23"],
 .app-light-theme [style*="rgba(18, 15, 23"],
-.app-light-theme [style*="rgba(18,15,23"] {
-  background: linear-gradient(135deg, rgba(255,255,255,0.55) 0%, rgba(238,235,251,0.5) 100%) !important;
-  
-  
+.app-light-theme [style*="rgb(18,15,23)"] {
+  background: linear-gradient(135deg, rgba(255,255,255,0.62) 0%, rgba(244,241,252,0.55) 100%) !important;
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
 }
 
 /* === Text color remapping === */
@@ -328,9 +328,9 @@ All colors MUST be HSL.
 .app-light-theme [style*="background:#030014"],
 .app-light-theme [style*="background-color: #0a0a12"],
 .app-light-theme [style*="background-color:#0a0a12"] {
-  background: rgba(255,255,255,0.4) !important;
-  
-  
+  background: rgba(255,255,255,0.5) !important;
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
 }
 
 /* Section bg-[#030014] tailwind class */
@@ -436,9 +436,9 @@ All colors MUST be HSL.
 /* Footer: lighten dark footer */
 .app-light-theme footer[style*="rgba(10, 5, 20"],
 .app-light-theme footer[style*="rgba(10,5,20"] {
-  background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(238,235,251,0.7) 100%) !important;
-  
-  
+  background: linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(238,235,251,0.75) 100%) !important;
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
   border-top: 1px solid rgba(124,58,237,0.15) !important;
 }
 
@@ -461,9 +461,9 @@ All colors MUST be HSL.
 /* Subtle universal glass for elements with explicit dark inline backgrounds we missed */
 .app-light-theme [style*="background: rgba(0,0,0"],
 .app-light-theme [style*="background: rgba(0, 0, 0"] {
-  background: rgba(255,255,255,0.45) !important;
-  
-  
+  background: rgba(255,255,255,0.5) !important;
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
 }
 
 /* ========================================================================
@@ -474,19 +474,19 @@ All colors MUST be HSL.
 .glass-card {
   position: relative;
   isolation: isolate;
-  border-radius: 18px;
+  border-radius: 22px;
   background:
     linear-gradient(
       135deg,
-      hsla(220, 95%, 75%, 0.18) 0%,
-      hsla(232, 85%, 72%, 0.14) 35%,
-      hsla(250, 75%, 72%, 0.12) 70%,
-      hsla(270, 75%, 75%, 0.16) 100%
+      hsla(220, 95%, 78%, 0.15) 0%,
+      hsla(232, 85%, 75%, 0.12) 35%,
+      hsla(250, 75%, 75%, 0.10) 70%,
+      hsla(270, 75%, 78%, 0.14) 100%
     ),
-    linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.35) 100%);
-  
-  
-  border: 1px solid hsla(232, 80%, 70%, 0.22);
+    linear-gradient(180deg, rgba(255,255,255,0.62) 0%, rgba(255,255,255,0.42) 100%);
+  backdrop-filter: blur(24px) saturate(170%);
+  -webkit-backdrop-filter: blur(24px) saturate(170%);
+  border: 1px solid hsla(232, 80%, 75%, 0.25);
   box-shadow:
     inset 0 1px 0 0 rgba(255, 255, 255, 0.55),
     inset 0 -1px 0 0 hsla(250, 60%, 70%, 0.12),
