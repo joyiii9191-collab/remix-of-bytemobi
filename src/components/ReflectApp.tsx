@@ -2171,17 +2171,16 @@ function Section4Screen() {
           依托自有流量体系，实现广告投放的高效精细化管理和优化
         </p>
 
-        {/* CTA button - Raycast style with flowing light border */}
+        {/* CTA button - StarBorder style (matches hero) */}
         <div className="flex items-center gap-4 mt-2">
-          <a href="/programmatic-ads" className="raycast-btn relative inline-flex items-center gap-2 px-7 py-3 rounded-full text-[14px] font-medium text-white/90 overflow-hidden" style={{
-            background: 'rgba(255,255,255,0.04)',
-          }}>
-            {/* Animated border glow */}
-            <span className="raycast-btn-border" />
-            <span className="raycast-btn-bg" />
-            <span className="relative z-[1]">了解程序化广告</span>
-            <span className="relative z-[1] ml-1">→</span>
-          </a>
+          <StarBorder
+            as="a"
+            href="/programmatic-ads"
+            color="magenta"
+            speed="5s"
+          >
+            了解程序化广告
+          </StarBorder>
         </div>
       </div>
     </div>
