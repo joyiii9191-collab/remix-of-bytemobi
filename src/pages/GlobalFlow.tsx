@@ -22,6 +22,7 @@ import {
   Radio, Target, Sparkles, LineChart, Users, Repeat,
   ShieldCheck, Layers, Globe2, Gauge, Network, Zap, ArrowRight,
   ShoppingBag, Landmark, Dice5, Gamepad2, Video, Cloud,
+  type LucideIcon,
 } from "lucide-react";
 
 const HUB_MARKERS = [
@@ -63,7 +64,7 @@ const RT_FUNNEL = [
 type Case = {
   tag: string; title: string; metric: string; region: string;
   summary: string; highlights: string[];
-  icon: React.ComponentType<{ size?: number; className?: string }>;
+  icon: LucideIcon;
   color: string;
 };
 const CASES: Case[] = [
