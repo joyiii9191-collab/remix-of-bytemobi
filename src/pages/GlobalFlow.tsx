@@ -509,10 +509,10 @@ export default function GlobalFlow() {
 
           {/* 业务类型 */}
           <div className="w-full mt-8">
-            <div className="flex items-baseline justify-between mb-3">
-              <div className="text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: ACCENT }}>
+            <div className="flex items-end justify-between mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold" style={{ color: TEXT_DARK }}>
                 业务类型
-              </div>
+              </h2>
               <div className="text-[11px]" style={{ color: TEXT_MID }}>
                 鼠标悬停查看示例 · 完整资料以压缩档传送
               </div>
