@@ -1,30 +1,24 @@
 import homeBg from "@/assets/home-bg.jpg";
 
 /**
- * 全站统一的首页风格背景：
- *   1. 底层 home-bg.jpg (cover, fixed)
- *   2. 中层超模糊副本，营造柔和色彩弥散
- *   3. 顶层 78% 白色蒙层，让前景保持轻盈
- *
- * 与首页 ReflectApp 的背景视觉保持完全一致。
- * 在所有子页面容器最外层放一个 <HomeBackground />，再把内容放在 z-10 之上即可。
+ * 全站统一的首页风格背景:
+ *   1. 极淡的浅紫/浅蓝渐变基底(与首页 Index.tsx 一致)
+ *   2. home-bg.jpg 作为弱光晕(大模糊 + 低不透明度)
+ *   3. 顶层 88% 白色蒙层,让光球更隐约,前景更轻盈
  */
 export function HomeBackground() {
   return (
     <>
-      {/* 主背景图（fixed，跟随滚动稳定） */}
+      {/* 浅色基底渐变(与 Index.tsx 一致) */}
       <div
         aria-hidden
         className="fixed inset-0 pointer-events-none z-0"
         style={{
-          backgroundImage: `url(${homeBg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundAttachment: "fixed",
+          background:
+            "linear-gradient(135deg, #F4F3FA 0%, #EFF2FA 45%, #F2EEF7 100%)",
         }}
       />
-      {/* 模糊 + 提亮副本 */}
+      {/* home-bg 极弱光晕 */}
       <div
         aria-hidden
         className="fixed inset-0 pointer-events-none z-0"
@@ -32,16 +26,16 @@ export function HomeBackground() {
           backgroundImage: `url(${homeBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          filter: "blur(80px) saturate(0.6) brightness(1.05)",
+          filter: "blur(160px) saturate(0.55) brightness(1.08)",
           transform: "scale(1.3)",
-          opacity: 0.18,
+          opacity: 0.08,
         }}
       />
-      {/* 78% 白蒙层 */}
+      {/* 88% 白蒙层,把光球压成极隐约的环境色 */}
       <div
         aria-hidden
         className="fixed inset-0 pointer-events-none z-0"
-        style={{ background: "hsla(0, 0%, 100%, 0.78)" }}
+        style={{ background: "hsla(0, 0%, 100%, 0.88)" }}
       />
     </>
   );
