@@ -8408,10 +8408,12 @@ function Section9Solution() {
                 className="relative w-[64px] h-[64px] rounded-full flex items-center justify-center transition-all duration-500 group-hover:scale-110"
                 style={{
                   background:
-                    "linear-gradient(135deg, hsla(0,0%,100%,0.95) 0%, hsla(260,70%,94%,0.85) 100%)",
-                  border: "1.5px solid hsla(0,0%,100%,0.95)",
+                    "radial-gradient(circle at 30% 30%, hsla(0,0%,100%,0.22) 0%, hsla(260,70%,94%,0.08) 100%)",
+                  border: "1px solid hsla(0,0%,100%,0.45)",
                   boxShadow:
-                    "inset 0 2px 0 hsla(0,0%,100%,0.95), inset 0 -4px 10px hsla(260,55%,60%,0.18), 0 12px 28px -8px hsla(260,60%,40%,0.4)",
+                    "inset 0 1px 0 hsla(0,0%,100%,0.55), inset 0 -3px 8px hsla(260,55%,60%,0.08), 0 8px 22px -10px hsla(260,60%,40%,0.22)",
+                  backdropFilter: "blur(10px)",
+                  WebkitBackdropFilter: "blur(10px)",
                 }}
               >
                 {IconComp && (
