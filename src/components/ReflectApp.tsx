@@ -2704,19 +2704,7 @@ function Section8TrafficMap() {
 
       {/* Map canvas */}
       <div className="relative w-full max-w-[1200px] z-10 flex-1 min-h-0">
-        <div
-          className="relative w-full h-full rounded-[24px] overflow-hidden"
-          style={{
-            background: 'linear-gradient(135deg, rgba(248,246,255,0.95) 0%, rgba(238,234,252,0.92) 50%, rgba(244,240,255,0.95) 100%)',
-            border: '1px solid rgba(139,92,246,0.18)',
-            boxShadow: '0 20px 60px rgba(99,102,241,0.10), inset 0 1px 0 rgba(255,255,255,0.7)',
-          }}
-        >
-          {/* Subtle grid */}
-          <div className="absolute inset-0 opacity-[0.05]" style={{
-            backgroundImage: 'linear-gradient(rgba(99,102,241,1) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,1) 1px, transparent 1px)',
-            backgroundSize: '50px 50px',
-          }} />
+        <div className="relative w-full h-full overflow-hidden">
 
           {/* Hex world map */}
           <svg viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid meet" className="absolute inset-0 w-full h-full">
