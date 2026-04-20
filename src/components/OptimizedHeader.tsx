@@ -30,8 +30,8 @@ export function OptimizedHeader() {
         className="rounded-full px-8 py-3 flex items-center justify-between w-full max-w-6xl"
         style={{
           background: 'rgba(255,255,255,0.55)',
-          
-          
+          backdropFilter: 'blur(24px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(24px) saturate(180%)',
           border: '1px solid rgba(255,255,255,0.7)',
           boxShadow:
             '0 8px 32px -4px rgba(79,70,229,0.18), inset 0 1px 0 0 rgba(255,255,255,0.9), 0 0 0 1px rgba(124,58,237,0.05)',
