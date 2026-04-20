@@ -1267,36 +1267,48 @@ function Section1() {
       <div className="w-full max-w-[1100px] relative z-[1]">
         {/* Background glow removed for minimal style */}
 
-        {/* Glass shell */}
-        <div className="relative rounded-[24px] w-full" style={{ border: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 20px 60px -16px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05)' }}>
-          {/* Background fill — neutral glass */}
-          <div className="absolute inset-0 pointer-events-none rounded-[24px]" style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.03) 50%, rgba(255,255,255,0.05) 100%)', backdropFilter: 'blur(40px) saturate(1.4)', WebkitBackdropFilter: 'blur(40px) saturate(1.4)' }} />
+        {/* Glass shell — light frosted glass */}
+        <div className="relative rounded-[24px] w-full" style={{
+          border: '1px solid hsla(0, 0%, 100%, 0.55)',
+          boxShadow: 'inset 0 1.5px 0 0 hsla(0,0%,100%,0.9), inset 1px 0 0 0 hsla(0,0%,100%,0.4), inset 0 -1px 0 0 hsla(230,30%,50%,0.10), inset 0 -12px 28px -12px hsla(0,0%,100%,0.35), 0 24px 60px -18px hsla(230,40%,25%,0.25), 0 4px 12px -3px hsla(230,40%,25%,0.15)'
+        }}>
+          {/* Background fill — light glass */}
+          <div className="absolute inset-0 pointer-events-none rounded-[24px]" style={{
+            background: 'linear-gradient(155deg, hsla(0,0%,100%,0.55) 0%, hsla(0,0%,100%,0.28) 45%, hsla(0,0%,100%,0.18) 100%)',
+            backdropFilter: 'blur(28px) saturate(1.7)',
+            WebkitBackdropFilter: 'blur(28px) saturate(1.7)'
+          }} />
+          {/* Top specular highlight */}
+          <div className="absolute inset-0 pointer-events-none rounded-[24px] overflow-hidden" style={{ mixBlendMode: 'screen' }}>
+            <div className="absolute inset-0" style={{
+              background: 'radial-gradient(ellipse 110% 45% at 50% -8%, hsla(0,0%,100%,0.55) 0%, hsla(0,0%,100%,0.15) 35%, transparent 65%), linear-gradient(135deg, transparent 30%, hsla(0,0%,100%,0.20) 45%, hsla(0,0%,100%,0.04) 55%, transparent 70%)'
+            }} />
+          </div>
           {/* Content */}
           <div className="overflow-clip rounded-[inherit] size-full relative z-[1]">
             <div className="flex items-center gap-12 p-10 relative">
               {/* Left side — brand text */}
               <div className="w-[380px] shrink-0 flex flex-col gap-6">
                 {/* Tag pill */}
-                <div className="flex items-center px-[16px] py-[5px] rounded-full relative self-start" style={{ border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.05)" }}>
-                  <span className="text-[14px] text-white font-normal tracking-[-0.21px] leading-[1.6]">About ByteMobi</span>
-                  <div className="absolute inset-[-0.5px] rounded-full pointer-events-none" style={{ boxShadow: "inset 0 0 21px rgba(255,255,255,0.12)" }} />
+                <div className="flex items-center px-[16px] py-[5px] rounded-full relative self-start" style={{ border: "1px solid hsla(0,0%,100%,0.7)", background: "hsla(0,0%,100%,0.45)", backdropFilter: 'blur(12px)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
+                  <span className="text-[14px] font-normal tracking-[-0.21px] leading-[1.6]" style={{ color: 'hsl(260, 60%, 40%)' }}>About ByteMobi</span>
                 </div>
 
                 {/* Title */}
-                <h2 className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[44px] leading-[1.1] font-semibold tracking-tight">
+                <h2 className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[44px] leading-[1.1] font-semibold tracking-tight" style={{ color: 'hsl(230, 30%, 18%)' }}>
                   品牌简介
                 </h2>
 
                 {/* Subtitle */}
-                <p className="text-[18px] leading-[28px] font-medium" style={{ color: 'hsla(0, 0%, 100%, 0.8)' }}>
+                <p className="text-[18px] leading-[28px] font-medium" style={{ color: 'hsl(230, 25%, 25%)' }}>
                   聚焦全球品牌与效果广告营销
                 </p>
 
                 {/* Divider — neutral */}
-                <div className="w-12 h-px" style={{ background: 'hsla(0, 0%, 100%, 0.2)' }} />
+                <div className="w-12 h-px" style={{ background: 'hsla(230, 30%, 40%, 0.25)' }} />
 
                 {/* Description */}
-                <p className="text-[13px] leading-[22px] text-justify max-w-[360px]" style={{ color: 'hsla(0, 0%, 100%, 0.4)' }}>
+                <p className="text-[13px] leading-[22px] text-justify max-w-[360px]" style={{ color: 'hsl(230, 15%, 40%)' }}>
                   依托自有程序化流量体系整合全球头部媒体及合作伙伴生态资源，构建多元化流量网络，以全球布局为基础，深度拓展日本市场，为广告主提供高效的一站式广告投放与流量变现解决方案。
                 </p>
 
@@ -1304,24 +1316,24 @@ function Section1() {
                 <div className="flex gap-8 mt-2">
                   <div className="flex flex-col gap-1">
                     <AnimatedNumber value={200} suffix="+" />
-                    <span className="text-[11px] tracking-wide" style={{ color: 'hsla(0, 0%, 100%, 0.25)' }}>合作媒体</span>
+                    <span className="text-[11px] tracking-wide" style={{ color: 'hsl(230, 15%, 45%)' }}>合作媒体</span>
                   </div>
-                  <div className="w-px h-12" style={{ background: 'hsla(0, 0%, 100%, 0.06)' }} />
+                  <div className="w-px h-12" style={{ background: 'hsla(230, 30%, 40%, 0.15)' }} />
                   <div className="flex flex-col gap-1">
                     <AnimatedNumber value={50} suffix="+" />
-                    <span className="text-[11px] tracking-wide" style={{ color: 'hsla(0, 0%, 100%, 0.25)' }}>覆盖国家</span>
+                    <span className="text-[11px] tracking-wide" style={{ color: 'hsl(230, 15%, 45%)' }}>覆盖国家</span>
                   </div>
-                  <div className="w-px h-12" style={{ background: 'hsla(0, 0%, 100%, 0.06)' }} />
+                  <div className="w-px h-12" style={{ background: 'hsla(230, 30%, 40%, 0.15)' }} />
                   <div className="flex flex-col gap-1">
                     <AnimatedNumber value={10} suffix="亿+" />
-                    <span className="text-[11px] tracking-wide" style={{ color: 'hsla(0, 0%, 100%, 0.25)' }}>日均流量</span>
+                    <span className="text-[11px] tracking-wide" style={{ color: 'hsl(230, 15%, 45%)' }}>日均流量</span>
                   </div>
                 </div>
               </div>
 
               {/* Vertical divider — glass edge */}
               <div className="w-px self-stretch" style={{
-                background: 'linear-gradient(180deg, transparent 5%, hsla(0, 0%, 100%, 0.08) 30%, hsla(0, 0%, 100%, 0.08) 70%, transparent 95%)',
+                background: 'linear-gradient(180deg, transparent 5%, hsla(230, 30%, 40%, 0.18) 30%, hsla(230, 30%, 40%, 0.18) 70%, transparent 95%)',
               }} />
 
               {/* Right side — 4 cards grid */}
@@ -1915,17 +1927,16 @@ function Section2() {
       {/* Background image removed for clean light theme */}
       {/* Header */}
       <div className="relative z-10 flex flex-col items-center gap-4 mb-10">
-        <div className="flex items-center px-[16px] py-[5px] rounded-full relative" style={{ border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.05)" }}>
-          <span className="text-[14px] text-white font-normal tracking-[-0.21px] leading-[1.6]">Core Business</span>
-          <div className="absolute inset-[-0.5px] rounded-full pointer-events-none" style={{ boxShadow: "inset 0 0 21px rgba(115,80,255,0.2)" }} />
+        <div className="flex items-center px-[16px] py-[5px] rounded-full relative" style={{ border: "1px solid hsla(0,0%,100%,0.7)", background: "hsla(0,0%,100%,0.45)", backdropFilter: 'blur(12px)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
+          <span className="text-[14px] font-normal tracking-[-0.21px] leading-[1.6]" style={{ color: 'hsl(260, 60%, 40%)' }}>Core Business</span>
         </div>
-        <h2 className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[44px] leading-[1.1] font-semibold tracking-tight">
+        <h2 className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[44px] leading-[1.1] font-semibold tracking-tight" style={{ color: 'hsl(230, 30%, 18%)' }}>
           核心业务板块
         </h2>
-        <p className="text-[18px] leading-[28px] font-medium" style={{ color: 'hsla(0, 0%, 100%, 0.8)' }}>
+        <p className="text-[18px] leading-[28px] font-medium" style={{ color: 'hsl(230, 25%, 25%)' }}>
           品牌与效果广告
         </p>
-        <p className="text-[13px] leading-[22px] text-center max-w-[480px]" style={{ color: 'hsla(0, 0%, 100%, 0.4)' }}>
+        <p className="text-[13px] leading-[22px] text-center max-w-[480px]" style={{ color: 'hsl(230, 15%, 40%)' }}>
           帮助广告主精准触达目标用户，兼顾品牌曝光与效果转化
         </p>
       </div>
@@ -2027,8 +2038,8 @@ function Section4Screen() {
                   background: 'radial-gradient(circle at 0% 0%, rgba(168,130,255,0.5) 0%, rgba(124,58,237,0.2) 30%, transparent 60%)',
                 }} />
                 {/* Card content */}
-                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: '#030014', border: '1px solid rgba(168,130,255,0.08)' }}>
-                  <div className="w-[32px] h-[32px] rounded-md" style={{ background: 'rgba(255,255,255,0.06)' }} />
+                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: 'linear-gradient(155deg, hsla(0,0%,100%,0.6) 0%, hsla(0,0%,100%,0.3) 100%)', backdropFilter: 'blur(16px) saturate(1.5)', WebkitBackdropFilter: 'blur(16px) saturate(1.5)', border: '1px solid hsla(0,0%,100%,0.6)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
+                  <div className="w-[32px] h-[32px] rounded-md" style={{ background: 'hsla(260,60%,55%,0.25)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.6)' }} />
                 </div>
               </div>
             </div>
@@ -2047,8 +2058,8 @@ function Section4Screen() {
                   background: 'radial-gradient(circle at 0% 0%, rgba(168,130,255,0.5) 0%, rgba(124,58,237,0.2) 30%, transparent 60%)',
                 }} />
                 {/* Card content */}
-                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: '#030014', border: '1px solid rgba(168,130,255,0.08)' }}>
-                  <div className="w-[32px] h-[32px] rounded-md" style={{ background: 'rgba(255,255,255,0.06)' }} />
+                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: 'linear-gradient(155deg, hsla(0,0%,100%,0.6) 0%, hsla(0,0%,100%,0.3) 100%)', backdropFilter: 'blur(16px) saturate(1.5)', WebkitBackdropFilter: 'blur(16px) saturate(1.5)', border: '1px solid hsla(0,0%,100%,0.6)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
+                  <div className="w-[32px] h-[32px] rounded-md" style={{ background: 'hsla(260,60%,55%,0.25)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.6)' }} />
                 </div>
               </div>
             </div>
@@ -2056,19 +2067,19 @@ function Section4Screen() {
 
           {/* Corner faded icons - top left */}
           <div className="absolute" style={{ top: '10px', left: '30px', opacity: 0.05 }}>
-            <div className="w-[60px] h-[60px] rounded-[12px]" style={{ background: '#030014', border: '3px solid #030014' }} />
+            <div className="w-[60px] h-[60px] rounded-[12px]" style={{ background: 'hsla(230,30%,40%,0.15)', border: '3px solid hsla(230,30%,40%,0.15)' }} />
           </div>
           {/* Corner faded icons - top right */}
           <div className="absolute" style={{ top: '10px', right: '30px', opacity: 0.05 }}>
-            <div className="w-[60px] h-[60px] rounded-[12px]" style={{ background: '#030014', border: '3px solid #030014' }} />
+            <div className="w-[60px] h-[60px] rounded-[12px]" style={{ background: 'hsla(230,30%,40%,0.15)', border: '3px solid hsla(230,30%,40%,0.15)' }} />
           </div>
           {/* Corner faded icons - bottom left */}
           <div className="absolute" style={{ bottom: '10px', left: '30px', opacity: 0.05 }}>
-            <div className="w-[60px] h-[60px] rounded-[12px]" style={{ background: '#030014', border: '3px solid #030014' }} />
+            <div className="w-[60px] h-[60px] rounded-[12px]" style={{ background: 'hsla(230,30%,40%,0.15)', border: '3px solid hsla(230,30%,40%,0.15)' }} />
           </div>
           {/* Corner faded icons - bottom right */}
           <div className="absolute" style={{ bottom: '10px', right: '30px', opacity: 0.05 }}>
-            <div className="w-[60px] h-[60px] rounded-[12px]" style={{ background: '#030014', border: '3px solid #030014' }} />
+            <div className="w-[60px] h-[60px] rounded-[12px]" style={{ background: 'hsla(230,30%,40%,0.15)', border: '3px solid hsla(230,30%,40%,0.15)' }} />
           </div>
 
           {/* Center - subtle purple glow logo frame with breathing */}
