@@ -2481,58 +2481,92 @@ function Section6LogoWall() {
 }
 
 function Section8TrafficMap() {
-  const regions: Array<{ code: string; name: string; share: number; color: string }> = [
-    { code: 'NA',    name: '北美',    share: 33, color: 'hsl(245, 75%, 58%)' },
-    { code: 'JP',    name: '日本',    share: 28, color: 'hsl(265, 75%, 60%)' },
-    { code: 'IN',    name: '印度',    share: 10, color: 'hsl(280, 70%, 62%)' },
-    { code: 'SEA',   name: '东南亚',  share: 8,  color: 'hsl(225, 75%, 60%)' },
-    { code: 'LATAM', name: '拉美',    share: 7,  color: 'hsl(255, 70%, 65%)' },
-    { code: 'EU',    name: '欧洲',    share: 7,  color: 'hsl(235, 70%, 60%)' },
-    { code: 'ME',    name: '中东',    share: 4,  color: 'hsl(270, 65%, 65%)' },
-    { code: 'AF',    name: '非洲',    share: 3,  color: 'hsl(290, 60%, 65%)' },
+  // 区域：x/y 是地图百分比定位（锚点位置），cardX/cardY 是卡片相对锚点偏移
+  const regions: Array<{
+    code: string;
+    name: string;
+    share: number;
+    x: number;        // 锚点 left%
+    y: number;        // 锚点 top%
+    cardDx: number;   // 卡片相对锚点 x 偏移（px）
+    cardDy: number;   // 卡片相对锚点 y 偏移（px）
+    color: string;
+  }> = [
+    { code: 'NA',    name: '北美',    share: 33, x: 18,  y: 36, cardDx: -10,  cardDy: -70, color: 'hsl(245, 75%, 58%)' },
+    { code: 'LATAM', name: '拉美',    share: 7,  x: 28,  y: 70, cardDx: -120, cardDy:  30, color: 'hsl(255, 70%, 65%)' },
+    { code: 'EU',    name: '欧洲',    share: 7,  x: 49,  y: 30, cardDx: -50,  cardDy: -70, color: 'hsl(235, 70%, 60%)' },
+    { code: 'AF',    name: '非洲',    share: 3,  x: 53,  y: 62, cardDx: -50,  cardDy:  30, color: 'hsl(290, 60%, 65%)' },
+    { code: 'ME',    name: '中东',    share: 4,  x: 60,  y: 44, cardDx: -50,  cardDy:  30, color: 'hsl(270, 65%, 65%)' },
+    { code: 'IN',    name: '印度',    share: 10, x: 68,  y: 48, cardDx: -50,  cardDy:  30, color: 'hsl(280, 70%, 62%)' },
+    { code: 'JP',    name: '日本',    share: 28, x: 84,  y: 38, cardDx:  10,  cardDy: -70, color: 'hsl(265, 75%, 60%)' },
+    { code: 'SEA',   name: '东南亚',  share: 8,  x: 80,  y: 60, cardDx:  10,  cardDy:  20, color: 'hsl(225, 75%, 60%)' },
   ];
 
-  // Globe (hex-dot sphere) — generated procedurally
-  // We approximate a sphere using a polar grid; each "land" cell is filled with a hex dot
-  const globeDots = (() => {
-    const cx = 250;
-    const cy = 250;
-    const R = 230;
+  // 浅色 hex 风格世界地图 — 用六边形点阵填充近似大陆形状
+  // 在 1000x500 viewBox 上生成
+  const mapDots = (() => {
+    const blobs: Array<{ cx: number; cy: number; w: number; h: number }> = [
+      // North America
+      { cx: 200, cy: 170, w: 170, h: 130 },
+      { cx: 240, cy: 250, w: 70, h: 50 },
+      // South America
+      { cx: 300, cy: 360, w: 90, h: 120 },
+      // Europe
+      { cx: 510, cy: 150, w: 90, h: 70 },
+      // Africa
+      { cx: 540, cy: 290, w: 100, h: 140 },
+      // Middle East
+      { cx: 600, cy: 215, w: 70, h: 55 },
+      // Russia / North Asia
+      { cx: 720, cy: 130, w: 240, h: 70 },
+      // South Asia / India
+      { cx: 690, cy: 250, w: 80, h: 70 },
+      // East Asia / China
+      { cx: 790, cy: 200, w: 100, h: 80 },
+      // Japan
+      { cx: 875, cy: 195, w: 28, h: 55 },
+      // SE Asia
+      { cx: 800, cy: 290, w: 80, h: 55 },
+      // Oceania
+      { cx: 850, cy: 380, w: 100, h: 55 },
+    ];
     const dots: JSX.Element[] = [];
     let key = 0;
-    const rows = 44;
-    for (let i = 0; i < rows; i++) {
-      // latitude from -PI/2 .. PI/2
-      const lat = -Math.PI / 2 + (i / (rows - 1)) * Math.PI;
-      const ringR = Math.cos(lat) * R;
-      const yy = cy + Math.sin(lat) * R;
-      const cols = Math.max(6, Math.round((2 * Math.PI * ringR) / 11));
-      for (let j = 0; j < cols; j++) {
-        const lon = (j / cols) * Math.PI * 2;
-        const xx = cx + Math.cos(lon) * ringR;
-        // pseudo-random "land" mask — clusters that resemble continents
-        const seed = Math.sin(i * 12.9898 + j * 78.233) * 43758.5453;
-        const rnd = seed - Math.floor(seed);
-        // Bias toward equator + some longitudinal clusters
-        const landBias =
-          0.55 +
-          0.25 * Math.cos(lat * 1.4) +
-          0.18 * Math.sin(lon * 2.1 + Math.cos(lat) * 1.2) +
-          0.14 * Math.cos(lon * 3.3 - lat * 2.0);
-        if (rnd > landBias) continue;
-        // Depth shading from sphere normal (left-top light)
-        const nx = (xx - cx) / R;
-        const ny = (yy - cy) / R;
-        const nz = Math.sqrt(Math.max(0, 1 - nx * nx - ny * ny));
-        const light = Math.max(0, 0.35 * -nx + 0.45 * -ny + 0.6 * nz);
-        const alpha = 0.25 + light * 0.55;
-        // Mix of indigo/purple
-        const fill = (i + j) % 5 === 0
-          ? `rgba(168, 85, 247, ${alpha.toFixed(3)})`
-          : `rgba(99, 102, 241, ${alpha.toFixed(3)})`;
-        dots.push(<circle key={key++} cx={xx} cy={yy} r={2} fill={fill} />);
+    const step = 11;          // hex grid spacing
+    const hexR = 3.6;         // hex radius
+    blobs.forEach((b, bi) => {
+      const cols = Math.max(4, Math.round(b.w / step));
+      const rows = Math.max(3, Math.round(b.h / step));
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const offset = r % 2 === 0 ? 0 : step / 2;
+          const px = b.cx - b.w / 2 + c * step + offset;
+          const py = b.cy - b.h / 2 + r * step;
+          // 椭圆裁剪
+          const nx = (px - b.cx) / (b.w / 2);
+          const ny = (py - b.cy) / (b.h / 2);
+          if (nx * nx + ny * ny > 1) continue;
+          // 跳点制造海岸不规则
+          const seed = (bi * 131 + r * 17 + c * 7 + Math.round((nx + ny) * 9)) % 100;
+          if (seed < 14) continue;
+          const tone = seed % 3;
+          const fill =
+            tone === 0 ? 'rgba(99, 102, 241, 0.45)'
+            : tone === 1 ? 'rgba(139, 92, 246, 0.40)'
+            : 'rgba(168, 85, 247, 0.35)';
+          // 用六边形 polygon
+          const points = [
+            [px + hexR, py],
+            [px + hexR / 2, py + hexR * 0.866],
+            [px - hexR / 2, py + hexR * 0.866],
+            [px - hexR, py],
+            [px - hexR / 2, py - hexR * 0.866],
+            [px + hexR / 2, py - hexR * 0.866],
+          ].map(p => p.join(',')).join(' ');
+          dots.push(<polygon key={key++} points={points} fill={fill} />);
+        }
       }
-    }
+    });
     return dots;
   })();
 
@@ -2551,90 +2585,102 @@ function Section8TrafficMap() {
         </p>
       </div>
 
-      {/* Body: globe + cards */}
-      <div className="relative w-full max-w-[1200px] z-10 flex-1 min-h-0 flex items-center gap-[40px]">
-        {/* Left: globe */}
-        <div className="relative shrink-0" style={{ width: 520, height: 520 }}>
-          {/* Soft halo */}
-          <div className="absolute inset-0 rounded-full" style={{
-            background: 'radial-gradient(circle at 38% 38%, rgba(180,160,255,0.45) 0%, rgba(150,130,240,0.18) 45%, transparent 70%)',
-            filter: 'blur(12px)',
-          }} />
-          {/* Outer ring */}
-          <div className="absolute inset-[28px] rounded-full" style={{
+      {/* Map canvas */}
+      <div className="relative w-full max-w-[1200px] z-10 flex-1 min-h-0">
+        <div
+          className="relative w-full h-full rounded-[24px] overflow-hidden"
+          style={{
+            background: 'linear-gradient(135deg, rgba(248,246,255,0.95) 0%, rgba(238,234,252,0.92) 50%, rgba(244,240,255,0.95) 100%)',
             border: '1px solid rgba(139,92,246,0.18)',
+            boxShadow: '0 20px 60px rgba(99,102,241,0.10), inset 0 1px 0 rgba(255,255,255,0.7)',
+          }}
+        >
+          {/* Subtle grid */}
+          <div className="absolute inset-0 opacity-[0.05]" style={{
+            backgroundImage: 'linear-gradient(rgba(99,102,241,1) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,1) 1px, transparent 1px)',
+            backgroundSize: '50px 50px',
           }} />
-          <div className="absolute inset-[60px] rounded-full" style={{
-            border: '1px dashed rgba(139,92,246,0.15)',
-          }} />
-          {/* Sphere base */}
-          <svg viewBox="0 0 500 500" className="absolute inset-0 w-full h-full">
-            <defs>
-              <radialGradient id="sphereGrad" cx="38%" cy="35%" r="65%">
-                <stop offset="0%" stopColor="rgba(255,255,255,0.85)" />
-                <stop offset="55%" stopColor="rgba(220,215,255,0.55)" />
-                <stop offset="100%" stopColor="rgba(140,120,230,0.18)" />
-              </radialGradient>
-              <radialGradient id="sphereShade" cx="70%" cy="80%" r="70%">
-                <stop offset="0%" stopColor="rgba(60,40,140,0.20)" />
-                <stop offset="100%" stopColor="rgba(60,40,140,0)" />
-              </radialGradient>
-            </defs>
-            {/* Sphere body */}
-            <circle cx="250" cy="250" r="230" fill="url(#sphereGrad)" />
-            <circle cx="250" cy="250" r="230" fill="url(#sphereShade)" />
-            {/* Specular highlight */}
-            <ellipse cx="180" cy="170" rx="70" ry="40" fill="rgba(255,255,255,0.35)" opacity="0.8" />
-            {/* Continent dots */}
-            <g>{globeDots}</g>
-            {/* Rim */}
-            <circle cx="250" cy="250" r="230" fill="none" stroke="rgba(139,92,246,0.25)" strokeWidth="1" />
-          </svg>
-        </div>
 
-        {/* Right: region cards grid */}
-        <div className="flex-1 grid grid-cols-2 gap-3">
+          {/* Hex world map */}
+          <svg viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid meet" className="absolute inset-0 w-full h-full">
+            {mapDots}
+          </svg>
+
+          {/* Region anchors + connector + cards */}
           {regions.map((r) => (
-            <div
-              key={r.code}
-              className="group relative rounded-[14px] p-4 transition-all duration-300 hover:-translate-y-0.5"
-              style={{
-                background: 'rgba(255,255,255,0.7)',
-                border: '1px solid rgba(139,92,246,0.18)',
-                boxShadow: '0 6px 18px rgba(60,40,140,0.06), inset 0 1px 0 rgba(255,255,255,0.9)',
-                backdropFilter: 'blur(8px)',
-              }}
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <span
-                    className="inline-block rounded-full"
-                    style={{ width: 8, height: 8, background: r.color, boxShadow: `0 0 0 3px ${r.color.replace(')', ', 0.18)').replace('hsl', 'hsla')}` }}
-                  />
-                  <div className="flex items-baseline gap-1.5">
-                    <span className="text-[12px] font-semibold tracking-[0.08em]" style={{ color: 'rgba(20,18,45,0.85)' }}>{r.code}</span>
-                    <span className="text-[12px]" style={{ color: 'rgba(30,27,60,0.55)' }}>{r.name}</span>
+            <div key={r.code} className="absolute" style={{ left: `${r.x}%`, top: `${r.y}%` }}>
+              {/* Anchor dot */}
+              <div
+                className="absolute"
+                style={{
+                  left: 0, top: 0,
+                  transform: 'translate(-50%, -50%)',
+                  width: 10, height: 10,
+                  borderRadius: 999,
+                  background: r.color,
+                  boxShadow: `0 0 0 4px ${r.color.replace('hsl', 'hsla').replace(')', ', 0.18)')}, 0 0 14px ${r.color.replace('hsl', 'hsla').replace(')', ', 0.55)')}`,
+                }}
+              />
+              {/* Connector line (anchor -> card corner) */}
+              <svg
+                className="absolute pointer-events-none"
+                style={{
+                  left: Math.min(0, r.cardDx),
+                  top: Math.min(0, r.cardDy),
+                  width: Math.abs(r.cardDx) + 4,
+                  height: Math.abs(r.cardDy) + 4,
+                  overflow: 'visible',
+                }}
+              >
+                <line
+                  x1={r.cardDx < 0 ? Math.abs(r.cardDx) : 0}
+                  y1={r.cardDy < 0 ? Math.abs(r.cardDy) : 0}
+                  x2={r.cardDx < 0 ? 0 : r.cardDx}
+                  y2={r.cardDy < 0 ? 0 : r.cardDy}
+                  stroke={r.color}
+                  strokeWidth="1"
+                  strokeDasharray="3 3"
+                  opacity="0.5"
+                />
+              </svg>
+              {/* Card */}
+              <div
+                className="absolute"
+                style={{
+                  left: r.cardDx,
+                  top: r.cardDy,
+                  transform: r.cardDx < 0 ? 'translate(-100%, -50%)' : 'translate(0, -50%)',
+                }}
+              >
+                <div
+                  className="px-3 py-2 rounded-[12px] backdrop-blur-md whitespace-nowrap flex items-center gap-3"
+                  style={{
+                    background: 'rgba(255,255,255,0.92)',
+                    border: '1px solid rgba(139,92,246,0.22)',
+                    boxShadow: '0 8px 24px rgba(60,40,140,0.12), inset 0 1px 0 rgba(255,255,255,0.95)',
+                  }}
+                >
+                  <div
+                    className="size-[28px] rounded-[8px] flex items-center justify-center shrink-0"
+                    style={{
+                      background: `linear-gradient(135deg, ${r.color.replace('hsl', 'hsla').replace(')', ', 0.18)')}, ${r.color.replace('hsl', 'hsla').replace(')', ', 0.08)')})`,
+                      border: `1px solid ${r.color.replace('hsl', 'hsla').replace(')', ', 0.35)')}`,
+                    }}
+                  >
+                    <span className="text-[10px] font-bold tracking-[0.04em]" style={{ color: r.color }}>{r.code}</span>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-[11px]" style={{ color: 'rgba(30,27,60,0.55)' }}>{r.name}</span>
+                    <span className="text-[16px] font-semibold tracking-[-0.4px] leading-tight" style={{ color: r.color }}>{r.share}%</span>
                   </div>
                 </div>
-                <span className="text-[20px] font-semibold tracking-[-0.5px]" style={{ color: r.color }}>{r.share}%</span>
-              </div>
-              {/* Progress bar */}
-              <div className="mt-2 h-[4px] rounded-full overflow-hidden" style={{ background: 'rgba(99,102,241,0.10)' }}>
-                <div
-                  className="h-full rounded-full"
-                  style={{
-                    width: `${r.share * 2.4}%`,
-                    background: `linear-gradient(90deg, ${r.color}, ${r.color.replace(/(\d+)%\)/, (m, p1) => `${Math.min(75, parseInt(p1) + 10)}%)`)})`,
-                  }}
-                />
               </div>
             </div>
           ))}
 
-          {/* Footer note */}
-          <div className="col-span-2 mt-1 flex items-center justify-between">
-            <span className="text-[11px] tracking-[0.2em] uppercase" style={{ color: 'rgba(99,102,241,0.55)' }}>Traffic Distribution</span>
-            <span className="text-[11px]" style={{ color: 'rgba(30,27,60,0.45)' }}>实时占比 · Updated continuously</span>
+          {/* Watermark */}
+          <div className="absolute bottom-3 right-4 pointer-events-none">
+            <span className="text-[10px] tracking-[0.25em] uppercase" style={{ color: 'rgba(99,102,241,0.45)' }}>Traffic Distribution Map</span>
           </div>
         </div>
       </div>
