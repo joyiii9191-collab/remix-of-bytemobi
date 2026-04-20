@@ -2671,8 +2671,8 @@ function Section8TrafficMap() {
           : tone === 1 ? 'rgba(59, 130, 246, 0.78)'
           : tone === 2 ? 'rgba(96, 165, 250, 0.70)'
           : 'rgba(29, 78, 216, 0.82)';
-        // 横向平移让日本居中：viewBox 1000 宽，shift -380，wrap 1000
-        const shifted = ((px - 380) % 1000 + 1000) % 1000;
+        // 横向平移：让北美完整显示在右侧、欧亚居中
+        const shifted = ((px - 480) % 1000 + 1000) % 1000;
         dots.push(
           <rect
             key={key++}
