@@ -110,29 +110,16 @@
     0 14px 40px -12px hsla(0, 0%, 0%, 0.4);
 }
 
-/* ===== 默认 hover：紫光左下→右上 ; 蓝光右上→左下 (奇数卡) ===== */
 .magic-bento-card:hover::before {
+  transform: translate(8%, -8%) scale(1.2);
   filter: blur(32px);
   opacity: 1;
-  animation: bento-glow-purple-odd 6s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
 }
 
 .magic-bento-card:hover::after {
+  transform: translate(-8%, 8%) scale(1.22);
   filter: blur(28px);
   opacity: 1;
-  animation: bento-glow-blue-odd 6s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
-}
-
-@keyframes bento-glow-purple-odd {
-  0%   { transform: translate(0%, 0%) scale(1.1); }
-  50%  { transform: translate(60%, -30%) scale(1.25); }
-  100% { transform: translate(110%, -10%) scale(1.18); }
-}
-
-@keyframes bento-glow-blue-odd {
-  0%   { transform: translate(0%, 0%) scale(1.1); }
-  50%  { transform: translate(-60%, 30%) scale(1.25); }
-  100% { transform: translate(-110%, 10%) scale(1.18); }
 }
 
 /* ===========================================================
@@ -150,24 +137,14 @@
   left: -8%;
 }
 
-.card-grid > *:nth-child(even) .magic-bento-card:hover::before {
-  animation: bento-glow-purple-even 6s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
+.card-grid > *:nth-child(even) .magic-bento-card:hover::before,
+.magic-bento-card:nth-child(even):hover::before {
+  transform: translate(-8%, -8%) scale(1.2);
 }
 
-.card-grid > *:nth-child(even) .magic-bento-card:hover::after {
-  animation: bento-glow-blue-even 6s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
-}
-
-@keyframes bento-glow-purple-even {
-  0%   { transform: translate(0%, 0%) scale(1.1); }
-  50%  { transform: translate(-60%, -30%) scale(1.25); }
-  100% { transform: translate(-110%, -10%) scale(1.18); }
-}
-
-@keyframes bento-glow-blue-even {
-  0%   { transform: translate(0%, 0%) scale(1.1); }
-  50%  { transform: translate(60%, 30%) scale(1.25); }
-  100% { transform: translate(110%, 10%) scale(1.18); }
+.card-grid > *:nth-child(even) .magic-bento-card:hover::after,
+.magic-bento-card:nth-child(even):hover::after {
+  transform: translate(8%, 8%) scale(1.22);
 }
 
 /* Default state */
