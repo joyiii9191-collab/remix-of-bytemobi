@@ -607,62 +607,73 @@ export default function GlobalFlow() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {/* 广告主合作流程 */}
-              <motion.div
-                initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5 }}
-                className="rounded-2xl p-5 glass-card" style={CARD}
-              >
-                <div className="flex items-center gap-2 mb-3">
-                  <Target size={16} style={{ color: ACCENT }} />
-                  <h3 className="text-sm font-semibold" style={{ color: TEXT_DARK }}>广告主合作流程</h3>
-                </div>
-                <ol className="space-y-2">
-                  {[
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {[
+                {
+                  icon: Target,
+                  title: "广告主合作流程",
+                  steps: [
                     "需求沟通与目标对齐",
                     "媒体策略与流量匹配",
                     "投放上线与素材测试",
                     "数据复盘与放量优化",
-                  ].map((s, i) => (
-                    <li key={s} className="flex items-start gap-3 text-xs" style={{ color: TEXT_DARK }}>
-                      <span
-                        className="shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold"
-                        style={{ background: ACCENT, color: "#fff" }}
-                      >{i + 1}</span>
-                      <span style={{ color: TEXT_MID, lineHeight: 1.7 }}>{s}</span>
-                    </li>
-                  ))}
-                </ol>
-              </motion.div>
-
-              {/* 发布商合作流程 */}
-              <motion.div
-                initial={{ opacity: 0, x: 16 }} whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: 0.1 }}
-                className="rounded-2xl p-5 glass-card" style={CARD}
-              >
-                <div className="flex items-center gap-2 mb-3">
-                  <Network size={16} style={{ color: ACCENT }} />
-                  <h3 className="text-sm font-semibold" style={{ color: TEXT_DARK }}>发布商合作流程</h3>
-                </div>
-                <ol className="space-y-2">
-                  {[
+                  ],
+                  dir: -16,
+                  delay: 0,
+                },
+                {
+                  icon: Network,
+                  title: "发布商合作流程",
+                  steps: [
                     "资质审核与流量评估",
                     "对接 SDK / API 接入",
                     "广告策略与填充优化",
                     "结算透明与长期分润",
-                  ].map((s, i) => (
-                    <li key={s} className="flex items-start gap-3 text-xs" style={{ color: TEXT_DARK }}>
-                      <span
-                        className="shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold"
-                        style={{ background: ACCENT, color: "#fff" }}
-                      >{i + 1}</span>
-                      <span style={{ color: TEXT_MID, lineHeight: 1.7 }}>{s}</span>
-                    </li>
-                  ))}
-                </ol>
-              </motion.div>
+                  ],
+                  dir: 16,
+                  delay: 0.1,
+                },
+              ].map((card) => {
+                const CardIcon = card.icon;
+                return (
+                  <motion.div
+                    key={card.title}
+                    initial={{ opacity: 0, x: card.dir }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: false, amount: 0.3 }}
+                    transition={{ duration: 0.5, delay: card.delay }}
+                    whileHover={{ y: -4 }}
+                    className="rounded-2xl p-6 glass-card"
+                    style={CARD}
+                  >
+                    <div className="flex items-center gap-2.5 mb-5 pb-4 border-b" style={{ borderColor: "rgba(99,102,241,0.12)" }}>
+                      <div
+                        className="w-8 h-8 rounded-lg flex items-center justify-center"
+                        style={{
+                          background: "linear-gradient(135deg, rgba(99,102,241,0.15), rgba(99,102,241,0.05))",
+                          color: ACCENT,
+                        }}
+                      ><CardIcon size={16} /></div>
+                      <h3 className="text-sm font-semibold" style={{ color: TEXT_DARK }}>{card.title}</h3>
+                    </div>
+                    <ol className="space-y-3.5">
+                      {card.steps.map((s, i) => (
+                        <li key={s} className="flex items-center gap-3.5">
+                          <span
+                            className="shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-[12px] font-bold"
+                            style={{
+                              background: `linear-gradient(135deg, ${ACCENT}, hsl(243 75% 65%))`,
+                              color: "#fff",
+                              boxShadow: "0 3px 8px rgba(99,102,241,0.28)",
+                            }}
+                          >{i + 1}</span>
+                          <span className="text-[13px] font-medium" style={{ color: TEXT_DARK, lineHeight: 1.5 }}>{s}</span>
+                        </li>
+                      ))}
+                    </ol>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </ScreenInner>
