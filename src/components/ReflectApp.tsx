@@ -2340,43 +2340,24 @@ function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 
   return (
     <div ref={wrapperRef} className="relative w-full overflow-hidden">
       <div className="flex flex-col gap-3">
-        {/* Tag row — same width/speed as logos row: render logos.length copies then double for seamless loop */}
+        {/* Tag — single, centered, static (no flow) */}
         {tag && (
           <div
+            className="flex justify-center w-full"
             style={{
-              width: 'max-content',
-              paddingLeft: isLeft ? '50vw' : 0,
-              paddingRight: isLeft ? 0 : '50vw',
               opacity: phase === 'idle' ? 0 : 1,
               transition: 'opacity 0.6s ease-out',
             }}
           >
-            <div
-              className="flex items-center gap-6"
+            <span
+              className="inline-flex items-center px-[16px] py-[5px] rounded-full text-[14px] text-white font-normal tracking-[-0.21px] leading-[1.6] whitespace-nowrap"
               style={{
-                width: 'max-content',
-                animation: phase === 'flowing'
-                  ? `${isLeft ? 'marqueeLeft' : 'marqueeRight'} 40s linear infinite`
-                  : 'none',
-                transform: phase === 'flowing'
-                  ? undefined
-                  : (isLeft ? 'translateX(0)' : 'translateX(-50%)'),
+                border: "1px solid rgba(255,255,255,0.2)",
+                background: "rgba(255,255,255,0.05)",
               }}
             >
-              {Array.from({ length: logos.length * 2 }).map((_, i) => (
-                <span
-                  key={i}
-                  className="inline-flex items-center justify-center shrink-0 px-[16px] py-[5px] rounded-full text-[14px] text-white font-normal tracking-[-0.21px] leading-[1.6] whitespace-nowrap"
-                  style={{
-                    minWidth: '120px',
-                    border: "1px solid rgba(255,255,255,0.2)",
-                    background: "rgba(255,255,255,0.05)",
-                  }}
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+              {tag}
+            </span>
           </div>
         )}
 
