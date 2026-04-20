@@ -8948,8 +8948,8 @@ export default function ReflectApp() {
           backgroundImage: `url(${homeBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          filter: "blur(6px)",
-          transform: "scale(1.05)",
+          filter: "blur(28px) saturate(1.1)",
+          transform: "scale(1.15)",
         }}
       />
       <div
