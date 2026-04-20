@@ -1282,7 +1282,7 @@ function Section1() {
                 {/* Tag pill */}
                 <div className="flex items-center px-[16px] py-[5px] rounded-full relative self-start" style={{ border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.05)" }}>
                   <span className="text-[14px] text-white font-normal tracking-[-0.21px] leading-[1.6]">About ByteMobi</span>
-                  <div className="absolute inset-[-0.5px] rounded-full pointer-events-none" style={{ boxShadow: "inset 0 0 21px rgba(255,255,255,0.12)" }} />
+                  <div className="absolute inset-[-0.5px] rounded-full pointer-events-none" style={{ boxShadow: "inset 0 0 21px rgba(115,80,255,0.2)" }} />
                 </div>
 
                 {/* Title */}
@@ -1296,7 +1296,7 @@ function Section1() {
                 </p>
 
                 {/* Divider — glass style */}
-                <div className="w-12 h-px" style={{ background: 'linear-gradient(to right, hsla(0, 0%, 100%, 0.3), hsla(0, 0%, 100%, 0.1))' }} />
+                <div className="w-12 h-px" style={{ background: 'linear-gradient(to right, hsla(277, 100%, 61%, 0.4), hsla(220, 100%, 60%, 0.4))' }} />
 
                 {/* Description */}
                 <p className="text-[13px] leading-[22px] text-justify max-w-[360px]" style={{ color: 'hsla(0, 0%, 100%, 0.4)' }}>
