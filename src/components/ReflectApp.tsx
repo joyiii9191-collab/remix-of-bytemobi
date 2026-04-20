@@ -2292,7 +2292,13 @@ function LogoCard({ label, index = 0, image }: { label: string; index?: number; 
     >
       <div className="relative z-[1] size-full flex items-center justify-center py-3">
         {image ? (
-          <img src={image} alt={label} className="h-full w-auto max-w-[100px] object-contain" loading="lazy" />
+          <img
+            src={image}
+            alt={label}
+            className="h-full w-auto max-w-[100px] object-contain"
+            style={{ mixBlendMode: 'screen' }}
+            loading="lazy"
+          />
         ) : (
           <div className="size-[36px] rounded-[8px] flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.05)' }}>
             <div className="size-[20px] rounded-[4px]" style={{ background: 'rgba(255,255,255,0.08)' }} />
