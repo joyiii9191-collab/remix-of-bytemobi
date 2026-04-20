@@ -25,8 +25,8 @@ export default function Index() {
           <div
             className="absolute rounded-full glass-orb-float-1"
             style={{
-              width: "520px",
-              height: "520px",
+              width: "390px",
+              height: "390px",
               top: "-8%",
               left: "-6%",
               background:
@@ -39,8 +39,8 @@ export default function Index() {
           <div
             className="absolute rounded-full glass-orb-float-2"
             style={{
-              width: "440px",
-              height: "440px",
+              width: "330px",
+              height: "330px",
               top: "28%",
               right: "-4%",
               background:
@@ -53,8 +53,8 @@ export default function Index() {
           <div
             className="absolute rounded-full glass-orb-float-3"
             style={{
-              width: "380px",
-              height: "380px",
+              width: "285px",
+              height: "285px",
               bottom: "6%",
               left: "12%",
               background:
@@ -67,8 +67,8 @@ export default function Index() {
           <div
             className="absolute rounded-full glass-orb-float-1"
             style={{
-              width: "260px",
-              height: "260px",
+              width: "195px",
+              height: "195px",
               bottom: "22%",
               right: "26%",
               background:
@@ -81,8 +81,8 @@ export default function Index() {
           <div
             className="absolute rounded-full glass-orb-float-2"
             style={{
-              width: "300px",
-              height: "300px",
+              width: "225px",
+              height: "225px",
               top: "55%",
               left: "42%",
               background:
