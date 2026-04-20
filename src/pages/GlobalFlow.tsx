@@ -144,7 +144,7 @@ export default function GlobalFlow() {
         <ScreenInner>
           <ScreenTitle>全球汇流 · 增长枢纽</ScreenTitle>
           <ScreenLead>覆盖六大洲核心市场的实时流量与设备网络。</ScreenLead>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
             {STATS.map((s, i) => (
               <motion.div
                 key={s.label}
@@ -152,9 +152,7 @@ export default function GlobalFlow() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                whileHover={{ y: -6, scale: 1.02 }}
-                className="rounded-2xl p-6 glass-card transition-all duration-500"
-                style={CARD}
+                className="text-center"
               >
                 <div className="stat-number text-5xl md:text-6xl mb-3">
                   <CountUp value={s.value} suffix={s.suffix} />
