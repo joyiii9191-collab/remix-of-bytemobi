@@ -471,75 +471,169 @@ export default function GlobalFlow() {
         </Dialog>
       </SnapScreen>
 
-      {/* === Screen 7 — Web 业务 === */}
+      {/* === Screen 7 — Web 端长效增长 === */}
       <SnapScreen id="web">
-        <ScreenInner>
-          <ScreenTitle>Web 长效增长 · 流量供给 · 双引擎 · 全链路</ScreenTitle>
+        <ScreenInner className="!justify-start">
+          <ScreenTitle>Web 端长效增长</ScreenTitle>
           <ScreenLead>
-            以流量供给侧为基础,通过内投团队与流量网络的双引擎模式,覆盖市场与全链路,实现 Web 端的长效增长。
+            Web 端效果广告与用户增长业务核心 · 流量供给侧资源 · 双引擎流量供给模型 · 业务覆盖市场及全链路能力
           </ScreenLead>
 
           {/* 业务类型 */}
-          <div className="mt-8">
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>业务类型</div>
+          <div className="w-full mt-8">
+            <div className="flex items-baseline justify-between mb-3">
+              <div className="text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: ACCENT }}>
+                业务类型
+              </div>
+              <div className="text-[11px]" style={{ color: TEXT_MID }}>
+                鼠标悬停查看示例 · 完整资料以压缩档传送
+              </div>
+            </div>
             <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
               {[
-                { icon: Layers, name: "Fintech" },
-                { icon: ShieldCheck, name: "Health" },
-                { icon: Sparkles, name: "Entertainment" },
-                { icon: Network, name: "Digital" },
-                { icon: Globe2, name: "Commerce" },
-                { icon: Zap, name: "Travel" },
+                { icon: Landmark, name: "Fintech", cn: "金融科技", color: "hsl(160 70% 42%)" },
+                { icon: ShieldCheck, name: "Health", cn: "健康", color: "hsl(180 60% 45%)" },
+                { icon: Sparkles, name: "Entertainment", cn: "娱乐", color: "hsl(340 75% 55%)" },
+                { icon: Cloud, name: "Digital", cn: "数字服务", color: "hsl(40 90% 55%)" },
+                { icon: ShoppingBag, name: "Commerce", cn: "电商", color: "hsl(14 90% 58%)" },
+                { icon: Globe2, name: "Travel", cn: "旅行", color: "hsl(210 85% 55%)" },
               ].map((b, i) => {
                 const Icon = b.icon;
                 return (
                   <motion.div
                     key={b.name}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, amount: 0.3 }}
                     transition={{ duration: 0.4, delay: i * 0.05 }}
-                    className="rounded-xl p-3 flex flex-col items-center text-center glass-card"
+                    whileHover={{ y: -4 }}
+                    className="group relative rounded-xl p-3 flex flex-col items-center text-center glass-card cursor-pointer overflow-hidden"
                     style={CARD}
                   >
                     <div
-                      className="w-9 h-9 rounded-lg flex items-center justify-center mb-2"
-                      style={{ background: "rgba(99,102,241,0.1)", color: ACCENT }}
-                    ><Icon size={16} /></div>
+                      className="w-10 h-10 rounded-lg flex items-center justify-center mb-2 transition-colors"
+                      style={{ background: `${b.color.replace("hsl(", "hsla(").replace(")", " / 0.12)")}`, color: b.color }}
+                    ><Icon size={18} /></div>
                     <div className="text-xs font-semibold" style={{ color: TEXT_DARK }}>{b.name}</div>
+                    <div className="text-[10px] mt-0.5" style={{ color: TEXT_MID }}>{b.cn}</div>
+
+                    {/* Hover 浮层 — 影片占位 */}
+                    <div
+                      className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm"
+                      style={{ background: `${b.color.replace("hsl(", "hsla(").replace(")", " / 0.92)")}` }}
+                    >
+                      <Video size={20} className="text-white mb-1" />
+                      <div className="text-[10px] text-white font-semibold tracking-wider">查看示例影片</div>
+                    </div>
                   </motion.div>
                 );
               })}
             </div>
           </div>
 
-          {/* 双引擎 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-            <motion.div
-              initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5 }}
-              className="rounded-2xl p-5 glass-card" style={CARD}>
-              <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-2" style={{ color: ACCENT }}>Engine 01</div>
-              <h3 className="text-base font-semibold mb-2" style={{ color: TEXT_DARK }}>增长引擎 · 内投团队</h3>
-              <ul className="text-xs leading-relaxed space-y-1" style={{ color: TEXT_MID }}>
-                <li>· 预算出价优化</li>
-                <li>· 创意测试</li>
-                <li>· 转化洞察</li>
-                <li>· 合规与长期增长</li>
-              </ul>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 16 }} whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: 0.1 }}
-              className="rounded-2xl p-5 glass-card" style={CARD}>
-              <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-2" style={{ color: ACCENT }}>Engine 02</div>
-              <h3 className="text-base font-semibold mb-2" style={{ color: TEXT_DARK }}>流量网络 · 网盟 / 联盟</h3>
-              <ul className="text-xs leading-relaxed space-y-1" style={{ color: TEXT_MID }}>
-                <li>· 高效对接</li>
-                <li>· 快速启动</li>
-                <li>· 持续增长</li>
-              </ul>
-            </motion.div>
+          {/* 增长引擎(内投团队) */}
+          <div className="w-full mt-8">
+            <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>
+              我们的增长引擎 · 内投团队
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              {[
+                { icon: Gauge, t: "预算与出价动态优化", d: "实时调价 · ROI 守护" },
+                { icon: Sparkles, t: "创意测试与持续迭代", d: "AB 测试 · 高 CTR 沉淀" },
+                { icon: LineChart, t: "全链路转化洞察", d: "事件级归因与诊断" },
+                { icon: ShieldCheck, t: "合规与长期增长", d: "政策合规 · 长尾价值" },
+              ].map((c, i) => {
+                const Icon = c.icon;
+                return (
+                  <motion.div
+                    key={c.t}
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false, amount: 0.3 }}
+                    transition={{ duration: 0.45, delay: i * 0.06 }}
+                    className="rounded-xl p-4 glass-card"
+                    style={CARD}
+                  >
+                    <div
+                      className="w-9 h-9 rounded-lg flex items-center justify-center mb-2"
+                      style={{ background: "rgba(99,102,241,0.1)", color: ACCENT }}
+                    ><Icon size={18} /></div>
+                    <div className="text-sm font-semibold" style={{ color: TEXT_DARK }}>{c.t}</div>
+                    <div className="text-[11px] mt-1" style={{ color: TEXT_MID }}>{c.d}</div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* 流量网络(网盟 / 联盟) */}
+          <div className="w-full mt-8">
+            <div className="flex items-baseline justify-between mb-3">
+              <div className="text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: ACCENT }}>
+                我们的流量网络 · 网盟 / 联盟
+              </div>
+              <div className="text-[11px] font-semibold" style={{ color: TEXT_DARK }}>
+                高效对接 · 快速启动 · 持续增长
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* 广告主合作流程 */}
+              <motion.div
+                initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5 }}
+                className="rounded-2xl p-5 glass-card" style={CARD}
+              >
+                <div className="flex items-center gap-2 mb-3">
+                  <Target size={16} style={{ color: ACCENT }} />
+                  <h3 className="text-sm font-semibold" style={{ color: TEXT_DARK }}>广告主合作流程</h3>
+                </div>
+                <ol className="space-y-2">
+                  {[
+                    "需求沟通与目标对齐",
+                    "媒体策略与流量匹配",
+                    "投放上线与素材测试",
+                    "数据复盘与放量优化",
+                  ].map((s, i) => (
+                    <li key={s} className="flex items-start gap-3 text-xs" style={{ color: TEXT_DARK }}>
+                      <span
+                        className="shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold"
+                        style={{ background: ACCENT, color: "#fff" }}
+                      >{i + 1}</span>
+                      <span style={{ color: TEXT_MID, lineHeight: 1.7 }}>{s}</span>
+                    </li>
+                  ))}
+                </ol>
+              </motion.div>
+
+              {/* 发布商合作流程 */}
+              <motion.div
+                initial={{ opacity: 0, x: 16 }} whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: 0.1 }}
+                className="rounded-2xl p-5 glass-card" style={CARD}
+              >
+                <div className="flex items-center gap-2 mb-3">
+                  <Network size={16} style={{ color: ACCENT }} />
+                  <h3 className="text-sm font-semibold" style={{ color: TEXT_DARK }}>发布商合作流程</h3>
+                </div>
+                <ol className="space-y-2">
+                  {[
+                    "资质审核与流量评估",
+                    "对接 SDK / API 接入",
+                    "广告策略与填充优化",
+                    "结算透明与长期分润",
+                  ].map((s, i) => (
+                    <li key={s} className="flex items-start gap-3 text-xs" style={{ color: TEXT_DARK }}>
+                      <span
+                        className="shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold"
+                        style={{ background: ACCENT, color: "#fff" }}
+                      >{i + 1}</span>
+                      <span style={{ color: TEXT_MID, lineHeight: 1.7 }}>{s}</span>
+                    </li>
+                  ))}
+                </ol>
+              </motion.div>
+            </div>
           </div>
         </ScreenInner>
       </SnapScreen>
