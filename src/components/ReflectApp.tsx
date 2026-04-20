@@ -1271,7 +1271,7 @@ function Section1() {
         }} />
 
         {/* Glass shell */}
-        <div className="relative rounded-[24px] w-full" style={{ border: '1px solid rgba(124,58,237,0.25)', boxShadow: '0 0 40px rgba(124,58,237,0.12), 0 20px 60px -16px rgba(99,102,241,0.2), inset 0 1px 0 rgba(255,255,255,0.7)' }}>
+        <div className="relative rounded-[24px] w-full" style={{ border: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 20px 60px -16px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05)' }}>
           {/* Background fill — light glass */}
           <div className="absolute inset-0 pointer-events-none rounded-[24px]" style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(238,235,251,0.6) 50%, rgba(245,240,253,0.7) 100%)', backdropFilter: 'blur(40px) saturate(1.6)', WebkitBackdropFilter: 'blur(40px) saturate(1.6)' }} />
           {/* Content */}
