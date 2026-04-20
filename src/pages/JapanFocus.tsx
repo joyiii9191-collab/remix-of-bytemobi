@@ -188,7 +188,6 @@ export default function JapanFocus() {
       {/* === Screen 2 — 平台核心优势 === */}
       <SnapScreen id="strengths" bg="tint">
         <ScreenInner>
-          <ScreenEyebrow>01 · 平台核心优势</ScreenEyebrow>
           <ScreenTitle>数据驱动 + 本地洞察</ScreenTitle>
           <ScreenLead>从全球项目实绩到反欺诈对策,技术与运营双轮驱动。</ScreenLead>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
@@ -218,7 +217,6 @@ export default function JapanFocus() {
       {/* === Screen 3 — 双侧分栏 === */}
       <SnapScreen id="two-sides">
         <ScreenInner>
-          <ScreenEyebrow>02 · 双边平台</ScreenEyebrow>
           <ScreenTitle>一边广告主,一边媒体</ScreenTitle>
           <ScreenLead>两侧能力清晰分栏,让需求方与供给方都能快速找到合作入口。</ScreenLead>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 relative mt-8">
@@ -240,7 +238,6 @@ export default function JapanFocus() {
       {/* === Screen 4 — 全球地图 + 日本特写 === */}
       <SnapScreen id="map" bg="tint">
         <ScreenInner>
-          <ScreenEyebrow>03 · 全球布局</ScreenEyebrow>
           <ScreenTitle>以日本为核心的全球网络</ScreenTitle>
           <ScreenLead>日本核心市场深耕,并向亚太、欧美持续扩张。</ScreenLead>
           <div className="rounded-2xl overflow-hidden mt-6 flex-1 min-h-[320px] glass-card" style={CARD}>
@@ -252,7 +249,6 @@ export default function JapanFocus() {
       {/* === Screen 5 — 本地团队数据 === */}
       <SnapScreen id="local">
         <ScreenInner>
-          <ScreenEyebrow>04 · 日本深耕</ScreenEyebrow>
           <ScreenTitle>自 2019 起的本地团队</ScreenTitle>
           <ScreenLead>由本地化运营、合规与商务组成的日本办公室,与全球资源协同。</ScreenLead>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-8">

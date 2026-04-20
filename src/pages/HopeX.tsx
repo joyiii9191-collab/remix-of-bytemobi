@@ -68,7 +68,6 @@ export default function HopeX() {
       {/* === Screen 2 — 平台规模 === */}
       <SnapScreen id="scale" bg="tint">
         <ScreenInner>
-          <ScreenEyebrow>01 · 平台规模</ScreenEyebrow>
           <ScreenTitle>规模与基础能力</ScreenTitle>
           <ScreenLead>规模是程序化的前提,HopeX 的请求量与连接数支持稳定可预测的增长。</ScreenLead>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-10">
@@ -94,7 +93,6 @@ export default function HopeX() {
       {/* === Screen 3 — 全球流量网络 === */}
       <SnapScreen id="network">
         <ScreenInner>
-          <ScreenEyebrow>02 · 全球流量网络</ScreenEyebrow>
           <ScreenTitle>覆盖全球四大区域</ScreenTitle>
           <ScreenLead>从北美到东南亚,从欧洲到拉美,多区域并行支持业务扩张。</ScreenLead>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
@@ -121,7 +119,6 @@ export default function HopeX() {
       {/* === Screen 4 — DSP 能力 === */}
       <SnapScreen id="dsp" bg="tint">
         <ScreenInner>
-          <ScreenEyebrow>03 · DSP 能力</ScreenEyebrow>
           <ScreenTitle>广告主一站式买量</ScreenTitle>
           <ScreenLead>从 RTB 到联盟、从主流媒体到 OEM,多种买量方式按需组合。</ScreenLead>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
@@ -156,7 +153,6 @@ export default function HopeX() {
       {/* === Screen 5 — SSP 能力 === */}
       <SnapScreen id="ssp">
         <ScreenInner>
-          <ScreenEyebrow>04 · SSP 能力</ScreenEyebrow>
           <ScreenTitle>多形式 · 多预算入口</ScreenTitle>
           <ScreenLead>从 Banner 到 CTV,所有主流广告位 + 多元预算源。</ScreenLead>
           <div className="grid grid-cols-3 md:grid-cols-6 gap-3 mt-8">
@@ -182,7 +178,6 @@ export default function HopeX() {
       {/* === Screen 6 — 流量来源 === */}
       <SnapScreen id="traffic" bg="tint">
         <ScreenInner>
-          <ScreenEyebrow>05 · 流量来源</ScreenEyebrow>
           <ScreenTitle>自有 + 外部流量</ScreenTitle>
           <ScreenLead>自有矩阵保证基本盘,外部对接保证规模与多样性。</ScreenLead>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
@@ -207,7 +202,6 @@ export default function HopeX() {
       {/* === Screen 7 — 合作价值 === */}
       <SnapScreen id="value">
         <ScreenInner>
-          <ScreenEyebrow>06 · 合作价值</ScreenEyebrow>
           <ScreenTitle>一端服务广告主,一端服务流量方</ScreenTitle>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-10">
             <motion.div

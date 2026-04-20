@@ -142,7 +142,6 @@ export default function GlobalFlow() {
       {/* === Screen 2 — 增长枢纽数据 === */}
       <SnapScreen id="hub" bg="tint">
         <ScreenInner>
-          <ScreenEyebrow>01 · 增长枢纽</ScreenEyebrow>
           <ScreenTitle>全球汇流 · 增长枢纽</ScreenTitle>
           <ScreenLead>覆盖六大洲核心市场的实时流量与设备网络。</ScreenLead>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-10">
@@ -172,7 +171,6 @@ export default function GlobalFlow() {
       {/* === Screen 3 — UA 流程 === */}
       <SnapScreen id="ua">
         <ScreenInner>
-          <ScreenEyebrow>02 · 用户获取 UA</ScreenEyebrow>
           <ScreenTitle>程序化获客,全链路可观测</ScreenTitle>
           <ScreenLead>从竞价响应到归因回流,四个环节毫秒级闭环优化。</ScreenLead>
           <div className="hidden md:flex items-stretch gap-3 mt-10">
@@ -231,7 +229,6 @@ export default function GlobalFlow() {
       {/* === Screen 4 — RT 漏斗 === */}
       <SnapScreen id="rt" bg="tint">
         <ScreenInner>
-          <ScreenEyebrow>03 · 用户再营销 RT</ScreenEyebrow>
           <ScreenTitle>把流失用户变成新一轮增长</ScreenTitle>
           <ScreenLead>基于行为数据的分层重定向漏斗,从识别到 ROI 优化层层收敛。</ScreenLead>
           <div className="flex flex-col gap-2.5 mt-8">
@@ -274,7 +271,6 @@ export default function GlobalFlow() {
       {/* === Screen 5 — 媒体与流量 === */}
       <SnapScreen id="media">
         <ScreenInner>
-          <ScreenEyebrow>04 · 媒体与流量</ScreenEyebrow>
           <ScreenTitle>全球媒体与流量整合</ScreenTitle>
           <ScreenLead>从直签媒体到反欺诈,统一在一个看板里被衡量。</ScreenLead>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
@@ -306,7 +302,6 @@ export default function GlobalFlow() {
       {/* === Screen 6 — 案例 === */}
       <SnapScreen id="cases" bg="tint">
         <ScreenInner>
-          <ScreenEyebrow>05 · 增长成果精选</ScreenEyebrow>
           <ScreenTitle>六大行业代表案例</ScreenTitle>
           <ScreenLead>点击卡片查看案例详情。</ScreenLead>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mt-8">
@@ -368,7 +363,6 @@ export default function GlobalFlow() {
       {/* === Screen 7 — Web 业务 === */}
       <SnapScreen id="web">
         <ScreenInner>
-          <ScreenEyebrow>06 · Web 端增长宏图</ScreenEyebrow>
           <ScreenTitle>Web 长效增长 · 流量供给 · 双引擎 · 全链路</ScreenTitle>
           <ScreenLead>
             以流量供给侧为基础,通过内投团队与流量网络的双引擎模式,覆盖市场与全链路,实现 Web 端的长效增长。

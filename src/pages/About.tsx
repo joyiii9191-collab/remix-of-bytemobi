@@ -162,7 +162,6 @@ export default function About() {
       {/* === Screen 2 — 公司简介 === */}
       <SnapScreen id="intro" bg="tint">
         <ScreenInner>
-          <ScreenEyebrow>01 · 公司简介</ScreenEyebrow>
           <ScreenTitle>可信、协同、长期</ScreenTitle>
           <ScreenLead>近十年行业积累,全球协同的技术与商务团队。</ScreenLead>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-10">
@@ -187,7 +186,6 @@ export default function About() {
       {/* === Screen 3 — 全球办公点 === */}
       <SnapScreen id="offices">
         <ScreenInner>
-          <ScreenEyebrow>02 · 全球布局</ScreenEyebrow>
           <ScreenTitle>覆盖关键市场的五个办公点</ScreenTitle>
           <ScreenLead>悬停查看地图节点,点击查看详细信息。</ScreenLead>
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-5 mt-6 flex-1 min-h-[320px]">
@@ -305,7 +303,6 @@ export default function About() {
       {/* === Screen 4 — 发展历程 === */}
       <SnapScreen id="timeline" bg="tint">
         <ScreenInner>
-          <ScreenEyebrow>03 · 发展历程</ScreenEyebrow>
           <ScreenTitle>十年路径</ScreenTitle>
           <ScreenLead>从 2016 到 2025,八个里程碑串起公司的全球化轨迹。</ScreenLead>
           <div className="mt-10">
@@ -317,7 +314,6 @@ export default function About() {
       {/* === Screen 5 — 企业文化 === */}
       <SnapScreen id="culture">
         <ScreenInner>
-          <ScreenEyebrow>04 · 企业文化</ScreenEyebrow>
           <ScreenTitle>使命 · 愿景 · 价值观</ScreenTitle>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
             <motion.div
@@ -356,7 +352,6 @@ export default function About() {
       {/* === Screen 6 — 全球活动 === */}
       <SnapScreen id="events" bg="tint">
         <ScreenInner>
-          <ScreenEyebrow>05 · 全球近期活动</ScreenEyebrow>
           <ScreenTitle>持续参与全球行业活动</ScreenTitle>
           <ScreenLead>覆盖游戏、广告、出海等多个行业的国际峰会与展会。</ScreenLead>
           <div className="flex flex-wrap gap-3 mt-10">
