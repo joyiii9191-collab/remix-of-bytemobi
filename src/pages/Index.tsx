@@ -38,9 +38,9 @@ export default function Index() {
           aria-hidden
           style={{
             background:
-              "linear-gradient(135deg, hsla(250, 30%, 88%, 0.78) 0%, hsla(260, 28%, 85%, 0.74) 50%, hsla(270, 25%, 87%, 0.78) 100%)",
-            backdropFilter: "saturate(78%) brightness(92%)",
-            WebkitBackdropFilter: "saturate(78%) brightness(92%)",
+              "linear-gradient(135deg, hsla(250, 35%, 93%, 0.65) 0%, hsla(260, 32%, 91%, 0.62) 50%, hsla(270, 28%, 92%, 0.65) 100%)",
+            backdropFilter: "saturate(82%) brightness(97%)",
+            WebkitBackdropFilter: "saturate(82%) brightness(97%)",
           }}
         />
 
