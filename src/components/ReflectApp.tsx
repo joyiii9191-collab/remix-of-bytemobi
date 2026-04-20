@@ -8244,44 +8244,27 @@ function Container279() {
 
 function Section9Solution() {
   const steps = [
-    {
-      icon: "ClipboardList",
-      title: "投放策略制定",
-      desc: "深入了解客户推广目标、预算规模与目标市场，量身定制投放策略。",
-    },
-    {
-      icon: "Building2",
-      title: "媒体开户与资源整合",
-      desc: "快速完成主流媒体平台开户，整合优质流量资源与渠道。",
-    },
-    {
-      icon: "Palette",
-      title: "素材制作与创意支持",
-      desc: "专业创意团队提供多语言素材制作与A/B测试，持续提升广告效果。",
-    },
-    {
-      icon: "Rocket",
-      title: "投手投放与执行管理",
-      desc: "全渠道精准投放，实时监控数据表现，灵活调整优化策略。",
-    },
-    {
-      icon: "BrainCircuit",
-      title: "智能优化与效果提升",
-      desc: "AI驱动智能出价与人群定向优化，持续提升ROI与转化率。",
-    },
-    {
-      icon: "BarChart3",
-      title: "流量变现与报告分析",
-      desc: "定期输出数据报告，深度分析ROI与转化路径，驱动持续增长。",
-    },
+    { icon: "ClipboardList", title: "投放策略制定", desc: "深入了解客户推广目标、预算与目标市场，量身定制投放策略。" },
+    { icon: "Building2", title: "媒体开户与资源整合", desc: "快速完成主流媒体平台开户，整合优质流量资源与渠道。" },
+    { icon: "Palette", title: "素材制作与创意支持", desc: "多语言素材制作与 A/B 测试，持续提升广告创意效果。" },
+    { icon: "Rocket", title: "投手投放与执行管理", desc: "全渠道精准投放，实时监控数据，灵活调整优化策略。" },
+    { icon: "BrainCircuit", title: "智能优化与效果提升", desc: "AI 驱动智能出价与人群定向，持续提升 ROI 与转化率。" },
+    { icon: "BarChart3", title: "流量变现与报告分析", desc: "数据报告与 ROI 复盘反哺策略，驱动持续增长闭环。" },
   ];
 
+  // 圆形布局参数
+  const N = steps.length;
+  const ringSize = 560; // 环形容器尺寸
+  const radius = 230;   // 步骤圆心到大圆中心的距离
+  const cx = ringSize / 2;
+  const cy = ringSize / 2;
+
   return (
-    <div className="relative w-full h-full flex flex-col items-center justify-center px-[80px] gap-[56px]">
+    <div className="relative w-full h-full flex flex-col items-center justify-center px-[80px] gap-[40px]">
       {/* Header */}
-      <div className="flex flex-col items-center gap-[24px] z-10">
+      <div className="flex flex-col items-center gap-[20px] z-10">
         <div className="flex items-center px-[16px] py-[5px] rounded-full relative" style={{ border: "1px solid hsla(0,0%,100%,0.7)", background: "hsla(0,0%,100%,0.45)", boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
-          <span className="text-[14px] font-normal tracking-[-0.21px] leading-[1.6]" style={{ color: 'hsl(260, 60%, 40%)' }}>One-Stop Solution</span>
+          <span className="text-[14px] font-normal tracking-[-0.21px] leading-[1.6]" style={{ color: 'hsl(260, 60%, 40%)' }}>One-Stop Closed-Loop Solution</span>
         </div>
         <h2
           className="text-[48px] font-medium leading-[1.1] tracking-[-2px] text-center"
@@ -8293,61 +8276,179 @@ function Section9Solution() {
         >
           一站式解决方案
         </h2>
-        <p className="text-[16px] leading-[1.6] text-center max-w-[600px]" style={{ color: "hsl(230 30% 30%)" }}>
-          从需求沟通到效果复盘，全流程专业服务，让出海推广更简单高效
+        <p className="text-[15px] leading-[1.6] text-center max-w-[640px]" style={{ color: "hsl(230 30% 30%)" }}>
+          从策略到复盘，六大环节首尾相连形成增长闭环，每一步都反哺下一次更优投放
         </p>
       </div>
 
-      {/* Steps Flow */}
-      <div className="flex items-start gap-0 w-full max-w-[1100px] z-10">
-        {steps.map((step, i) => (
-          <div key={step.num} className="flex items-start flex-1">
-            {/* Step Card */}
-            <div className="flex flex-col items-center gap-[16px] flex-1">
-              {/* Icon circle */}
-              <div
-                className="w-[56px] h-[56px] rounded-full flex items-center justify-center relative"
+      {/* Closed-Loop Ring */}
+      <div className="relative z-10" style={{ width: ringSize, height: ringSize }}>
+        {/* 旋转的虚线环 */}
+        <svg
+          className="absolute inset-0 animate-[spin_60s_linear_infinite]"
+          viewBox={`0 0 ${ringSize} ${ringSize}`}
+          width={ringSize}
+          height={ringSize}
+        >
+          <defs>
+            <linearGradient id="loopRing" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="hsla(260, 80%, 60%, 0.55)" />
+              <stop offset="50%" stopColor="hsla(220, 80%, 60%, 0.35)" />
+              <stop offset="100%" stopColor="hsla(280, 80%, 60%, 0.55)" />
+            </linearGradient>
+          </defs>
+          <circle
+            cx={cx}
+            cy={cy}
+            r={radius}
+            fill="none"
+            stroke="url(#loopRing)"
+            strokeWidth="1.2"
+            strokeDasharray="2 8"
+          />
+        </svg>
+
+        {/* 静态实心引导环 */}
+        <svg
+          className="absolute inset-0 pointer-events-none"
+          viewBox={`0 0 ${ringSize} ${ringSize}`}
+          width={ringSize}
+          height={ringSize}
+        >
+          <circle
+            cx={cx}
+            cy={cy}
+            r={radius}
+            fill="none"
+            stroke="hsla(260, 60%, 50%, 0.15)"
+            strokeWidth="0.8"
+          />
+          {/* 流动的小光点 */}
+          {[0, 1, 2].map((i) => (
+            <circle key={i} r="3" fill="hsla(260, 90%, 70%, 0.95)">
+              <animateMotion
+                dur="12s"
+                repeatCount="indefinite"
+                begin={`${i * 4}s`}
+                path={`M ${cx + radius},${cy} A ${radius},${radius} 0 1 1 ${cx - radius},${cy} A ${radius},${radius} 0 1 1 ${cx + radius},${cy}`}
+              />
+            </circle>
+          ))}
+        </svg>
+
+        {/* 中央 Hub */}
+        <div
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full flex flex-col items-center justify-center text-center"
+          style={{
+            width: 200,
+            height: 200,
+            background:
+              "radial-gradient(circle at 30% 30%, hsla(0,0%,100%,0.85) 0%, hsla(260,60%,92%,0.75) 50%, hsla(245,55%,80%,0.55) 100%)",
+            border: "1px solid hsla(0,0%,100%,0.85)",
+            boxShadow:
+              "inset 0 2px 0 hsla(0,0%,100%,0.95), inset 0 -8px 20px hsla(260,60%,55%,0.18), 0 20px 50px -10px hsla(260,60%,40%,0.35), 0 0 0 8px hsla(0,0%,100%,0.35)",
+            backdropFilter: "blur(12px)",
+          }}
+        >
+          <div
+            className="w-[44px] h-[44px] rounded-full flex items-center justify-center mb-[10px]"
+            style={{
+              background: "linear-gradient(135deg, hsl(260, 70%, 55%) 0%, hsl(220, 75%, 55%) 100%)",
+              boxShadow: "0 6px 16px -4px hsla(260,70%,40%,0.55), inset 0 1px 0 hsla(0,0%,100%,0.4)",
+            }}
+          >
+            <LucideIcons.Infinity size={22} color="white" strokeWidth={2.5} />
+          </div>
+          <p className="text-[15px] font-semibold leading-tight" style={{ color: "hsl(245, 55%, 18%)" }}>
+            增长闭环
+          </p>
+          <p className="text-[11px] mt-[4px] leading-[1.5] px-[20px]" style={{ color: "hsl(245, 40%, 35%)" }}>
+            数据驱动 · 持续优化
+          </p>
+          <div className="flex items-center gap-[3px] mt-[10px]">
+            {[0, 1, 2].map((i) => (
+              <span
+                key={i}
+                className="w-[4px] h-[4px] rounded-full animate-pulse"
                 style={{
-                  background: "linear-gradient(135deg, rgba(120,60,255,0.15) 0%, rgba(60,120,255,0.1) 100%)",
-                  border: "1px solid rgba(120,60,255,0.3)",
+                  background: "hsl(260, 70%, 55%)",
+                  animationDelay: `${i * 0.3}s`,
+                }}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* 环上的步骤节点 */}
+        {steps.map((step, i) => {
+          // 从顶部开始，顺时针排列
+          const angle = -Math.PI / 2 + (i * 2 * Math.PI) / N;
+          const x = cx + radius * Math.cos(angle);
+          const y = cy + radius * Math.sin(angle);
+          const IconComp = LucideIcons[step.icon as keyof typeof LucideIcons] as React.ComponentType<any>;
+          // 根据角度决定卡片在节点的哪一侧（避免遮挡中心）
+          const isRight = Math.cos(angle) >= 0;
+          const isTop = Math.sin(angle) < -0.3;
+          const isBottom = Math.sin(angle) > 0.3;
+
+          return (
+            <div
+              key={step.title}
+              className="absolute group"
+              style={{
+                left: x,
+                top: y,
+                transform: "translate(-50%, -50%)",
+              }}
+            >
+              {/* 节点圆 */}
+              <div
+                className="relative w-[64px] h-[64px] rounded-full flex items-center justify-center transition-all duration-500 group-hover:scale-110"
+                style={{
+                  background:
+                    "linear-gradient(135deg, hsla(0,0%,100%,0.95) 0%, hsla(260,70%,94%,0.85) 100%)",
+                  border: "1.5px solid hsla(0,0%,100%,0.95)",
+                  boxShadow:
+                    "inset 0 2px 0 hsla(0,0%,100%,0.95), inset 0 -4px 10px hsla(260,55%,60%,0.18), 0 12px 28px -8px hsla(260,60%,40%,0.4)",
                 }}
               >
-                {(() => {
-                  const IconComp = LucideIcons[step.icon as keyof typeof LucideIcons] as React.ComponentType<any>;
-                  return IconComp ? <IconComp size={24} style={{ color: "rgba(160,120,255,0.9)" }} /> : null;
-                })()}
+                {IconComp && (
+                  <IconComp size={26} style={{ color: "hsl(260, 65%, 48%)" }} strokeWidth={2} />
+                )}
+                {/* 序号徽标 */}
                 <div
-                  className="absolute inset-[-0.5px] rounded-full pointer-events-none"
-                  style={{ boxShadow: "inset 0 0 21px rgba(115,80,255,0.25)" }}
-                />
+                  className="absolute -top-1 -right-1 w-[22px] h-[22px] rounded-full flex items-center justify-center text-[11px] font-bold text-white"
+                  style={{
+                    background: "linear-gradient(135deg, hsl(260, 75%, 55%) 0%, hsl(220, 80%, 55%) 100%)",
+                    boxShadow: "0 4px 10px -2px hsla(260,70%,40%,0.5)",
+                  }}
+                >
+                  {i + 1}
+                </div>
               </div>
 
-              {/* Title + Desc */}
-              <div className="flex flex-col items-center gap-[6px] text-center px-[4px]">
-                <p className="text-[16px] font-medium text-white leading-[1.2]">{step.title}</p>
-                <p className="text-[12px] leading-[1.6]" style={{ color: "rgba(255,255,255,0.45)" }}>
+              {/* 卡片标签 */}
+              <div
+                className="absolute w-[180px] pointer-events-none"
+                style={{
+                  left: isRight ? 76 : -180 - 12,
+                  top: isTop ? -4 : isBottom ? "auto" : "50%",
+                  bottom: isBottom ? -4 : "auto",
+                  transform: !isTop && !isBottom ? "translateY(-50%)" : "none",
+                  textAlign: isRight ? "left" : "right",
+                }}
+              >
+                <p className="text-[14px] font-semibold leading-tight mb-[4px]" style={{ color: "hsl(245, 55%, 15%)" }}>
+                  {step.title}
+                </p>
+                <p className="text-[11px] leading-[1.55]" style={{ color: "hsl(245, 25%, 40%)" }}>
                   {step.desc}
                 </p>
               </div>
             </div>
-
-            {/* Connector line */}
-            {i < steps.length - 1 && (
-              <div className="flex items-center pt-[30px]">
-                <div
-                  className="w-[40px] h-[1px]"
-                  style={{
-                    background: "linear-gradient(90deg, rgba(120,60,255,0.4) 0%, rgba(60,120,255,0.2) 100%)",
-                  }}
-                />
-              </div>
-            )}
-          </div>
-        ))}
+          );
+        })}
       </div>
-
-
-      {/* Background glow removed */}
     </div>
   );
 }
