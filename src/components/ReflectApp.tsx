@@ -2820,6 +2820,7 @@ function Section7Values() {
           <RevealCard imageSrc={ctvTvImg} left="48%" top="30%" isActive={activeIndex === 2} />
         </div>
       </div>
+      </div>
     </div>
   );
 }
