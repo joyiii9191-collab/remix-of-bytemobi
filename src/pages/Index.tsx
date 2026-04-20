@@ -17,10 +17,17 @@ export default function Index() {
       >
         <OptimizedHeader />
 
-        {/* Pure solid background */}
+        {/* 灰白底 + 蓝紫渐变光斑 */}
         <div
           className="fixed inset-0 pointer-events-none z-0"
-          style={{ background: "#F5F5F7" }}
+          style={{
+            background: `
+              radial-gradient(ellipse 80% 60% at 15% 20%, hsla(225, 95%, 70%, 0.35) 0%, transparent 60%),
+              radial-gradient(ellipse 70% 55% at 85% 80%, hsla(270, 85%, 72%, 0.32) 0%, transparent 60%),
+              radial-gradient(ellipse 60% 50% at 70% 15%, hsla(250, 90%, 75%, 0.22) 0%, transparent 55%),
+              linear-gradient(180deg, #F5F5F7 0%, #EEEEF2 100%)
+            `,
+          }}
         />
 
         <div className="relative z-10 w-full">
