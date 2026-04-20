@@ -93,6 +93,7 @@ const MEDIA_BLOCKS = [
 
 export default function GlobalFlow() {
   const [openCase, setOpenCase] = React.useState<Case | null>(null);
+  const [activeCase, setActiveCase] = React.useState(0);
 
   return (
     <SnapPage title="全球汇流">
@@ -287,34 +288,137 @@ export default function GlobalFlow() {
         </ScreenInner>
       </SnapScreen>
 
-      {/* === Screen 6 — 案例 === */}
+      {/* === Screen 6 — 案例(参考 efunad works 三栏布局) === */}
       <SnapScreen id="cases" bg="tint">
-        <ScreenInner>
+        <ScreenInner className="!justify-start">
           <ScreenTitle>六大行业代表案例</ScreenTitle>
-          <ScreenLead>点击卡片查看案例详情。</ScreenLead>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mt-8">
-            {CASES.map((c, i) => (
-              <motion.button
-                key={c.title}
-                type="button"
-                onClick={() => setOpenCase(c)}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.3 }}
-                transition={{ duration: 0.5, delay: i * 0.06 }}
-                whileHover={{ y: -4 }}
-                className="rounded-2xl p-4 text-left cursor-pointer glass-card"
-                style={CARD}
+          <ScreenLead>切换左侧行业,查看代表项目与核心成果。</ScreenLead>
+
+          <div className="w-full grid grid-cols-12 gap-8 mt-10 items-center">
+            {/* 左:Tab 列表 */}
+            <div className="col-span-12 md:col-span-3 flex md:flex-col gap-1 overflow-x-auto md:overflow-visible">
+              {CASES.map((c, i) => {
+                const active = activeCase === i;
+                return (
+                  <button
+                    key={c.title}
+                    type="button"
+                    onClick={() => setActiveCase(i)}
+                    className="relative text-left px-4 py-4 transition-all shrink-0 md:shrink"
+                    style={{
+                      borderLeft: active
+                        ? "3px solid #F59E0B"
+                        : "3px solid transparent",
+                      background: active ? "hsla(0,0%,100%,0.55)" : "transparent",
+                      color: active ? TEXT_DARK : TEXT_MID,
+                    }}
+                  >
+                    <div
+                      className="text-base md:text-lg font-bold leading-tight"
+                      style={{ color: active ? "#F59E0B" : TEXT_DARK }}
+                    >
+                      {c.title}
+                    </div>
+                    <div className="text-[11px] mt-1 tracking-wider" style={{ color: TEXT_MID }}>
+                      {c.tag} · {c.region}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* 中:海报卡片 + 错位条纹卡 */}
+            <div className="col-span-12 md:col-span-5 flex justify-center items-center">
+              <div className="relative w-full max-w-[360px] aspect-square">
+                {/* 背后斜条纹卡 */}
+                <motion.div
+                  key={`bg-${activeCase}`}
+                  initial={{ opacity: 0, x: -20, y: -20, rotate: -8 }}
+                  animate={{ opacity: 1, x: 24, y: -24, rotate: -6 }}
+                  transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                  className="absolute inset-0 rounded-2xl"
+                  style={{
+                    background:
+                      "repeating-linear-gradient(135deg, #1E40AF 0 8px, #2563EB 8px 16px)",
+                    boxShadow: "0 20px 50px -20px rgba(30,64,175,0.45)",
+                  }}
+                />
+                {/* 前置主卡 */}
+                <motion.div
+                  key={`fg-${activeCase}`}
+                  initial={{ opacity: 0, scale: 0.92, y: 16 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                  className="absolute inset-0 rounded-2xl glass-card flex flex-col items-center justify-center p-6 text-center"
+                  style={{
+                    ...CARD,
+                    border: "2px solid hsla(210, 80%, 70%, 0.6)",
+                  }}
+                >
+                  <div
+                    className="text-[10px] font-bold tracking-[0.25em] mb-3 px-3 py-1 rounded-full"
+                    style={{ background: "rgba(99,102,241,0.1)", color: ACCENT }}
+                  >
+                    {CASES[activeCase].tag.toUpperCase()}
+                  </div>
+                  <div
+                    className="text-3xl md:text-4xl font-extrabold mb-3"
+                    style={{ color: ACCENT, lineHeight: 1.1 }}
+                  >
+                    {CASES[activeCase].metric}
+                  </div>
+                  <div className="text-sm font-semibold" style={{ color: TEXT_DARK }}>
+                    {CASES[activeCase].title}
+                  </div>
+                  <div className="text-xs mt-1" style={{ color: TEXT_MID }}>
+                    {CASES[activeCase].region}
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+
+            {/* 右:标题 + 描述 + CTA */}
+            <div className="col-span-12 md:col-span-4">
+              <motion.div
+                key={`txt-${activeCase}`}
+                initial={{ opacity: 0, x: 24 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                className="text-left"
               >
-                <span
-                  className="inline-block text-[10px] font-semibold px-2 py-0.5 rounded-full mb-2"
-                  style={{ background: "rgba(99,102,241,0.1)", color: ACCENT }}
-                >{c.tag}</span>
-                <h3 className="text-sm font-semibold mb-2" style={{ color: TEXT_DARK }}>{c.title}</h3>
-                <div className="text-lg font-bold mb-2" style={{ color: ACCENT }}>{c.metric}</div>
-                <div className="text-[10px]" style={{ color: TEXT_MID }}>{c.region}</div>
-              </motion.button>
-            ))}
+                <h3
+                  className="text-2xl md:text-3xl font-bold mb-4"
+                  style={{ color: TEXT_DARK, lineHeight: 1.25 }}
+                >
+                  {CASES[activeCase].title}
+                  <span
+                    className="block text-sm font-medium mt-1"
+                    style={{ color: TEXT_MID }}
+                  >
+                    ({CASES[activeCase].tag} · {CASES[activeCase].region})
+                  </span>
+                </h3>
+                <p
+                  className="text-sm md:text-base mb-6"
+                  style={{ color: TEXT_MID, lineHeight: 1.7 }}
+                >
+                  {CASES[activeCase].summary}
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setOpenCase(CASES[activeCase])}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm transition-all hover:scale-[1.03]"
+                  style={{
+                    background: "#FCD34D",
+                    color: "#1E293B",
+                    border: "2px solid #1E40AF",
+                    boxShadow: "4px 4px 0 0 #1E40AF",
+                  }}
+                >
+                  了解更多 <ArrowRight size={16} />
+                </button>
+              </motion.div>
+            </div>
           </div>
         </ScreenInner>
 
