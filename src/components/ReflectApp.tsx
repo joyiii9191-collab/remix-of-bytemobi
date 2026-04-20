@@ -8343,21 +8343,23 @@ function Section9Solution() {
             width: 200,
             height: 200,
             background:
-              "radial-gradient(circle at 30% 30%, hsla(0,0%,100%,0.85) 0%, hsla(260,60%,92%,0.75) 50%, hsla(245,55%,80%,0.55) 100%)",
-            border: "1px solid hsla(0,0%,100%,0.85)",
+              "radial-gradient(circle at 30% 30%, hsla(0,0%,100%,0.18) 0%, hsla(260,60%,92%,0.08) 50%, hsla(245,55%,80%,0.04) 100%)",
+            border: "1px solid hsla(0,0%,100%,0.35)",
             boxShadow:
-              "inset 0 2px 0 hsla(0,0%,100%,0.95), inset 0 -8px 20px hsla(260,60%,55%,0.18), 0 20px 50px -10px hsla(260,60%,40%,0.35), 0 0 0 8px hsla(0,0%,100%,0.35)",
-            backdropFilter: "blur(12px)",
+              "inset 0 1px 0 hsla(0,0%,100%,0.45), inset 0 -6px 16px hsla(260,60%,55%,0.08), 0 10px 30px -12px hsla(260,60%,40%,0.18)",
+            backdropFilter: "blur(14px)",
+            WebkitBackdropFilter: "blur(14px)",
           }}
         >
           <div
             className="w-[44px] h-[44px] rounded-full flex items-center justify-center mb-[10px]"
             style={{
-              background: "linear-gradient(135deg, hsl(260, 70%, 55%) 0%, hsl(220, 75%, 55%) 100%)",
-              boxShadow: "0 6px 16px -4px hsla(260,70%,40%,0.55), inset 0 1px 0 hsla(0,0%,100%,0.4)",
+              background: "hsla(260, 70%, 55%, 0.18)",
+              border: "1px solid hsla(260, 70%, 70%, 0.35)",
+              boxShadow: "inset 0 1px 0 hsla(0,0%,100%,0.25)",
             }}
           >
-            <LucideIcons.Infinity size={22} color="white" strokeWidth={2.5} />
+            <LucideIcons.Infinity size={22} style={{ color: "hsl(260, 70%, 50%)" }} strokeWidth={2.5} />
           </div>
           <p className="text-[15px] font-semibold leading-tight" style={{ color: "hsl(245, 55%, 18%)" }}>
             增长闭环
