@@ -301,7 +301,7 @@ export default function GlobalFlow() {
       <SnapScreen id="cases" bg="tint">
         <ScreenInner className="!justify-start">
           <ScreenTitle>增长成果精选</ScreenTitle>
-          <ScreenLead>切换左侧行业,查看代表项目与核心成果。</ScreenLead>
+          
 
           <div
             className="w-full grid grid-cols-12 gap-8 mt-10 items-center"
