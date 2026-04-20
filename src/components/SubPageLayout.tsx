@@ -65,7 +65,7 @@ export function SubPageLayout({
             radial-gradient(ellipse 45% 40% at 35% 60%, hsla(260, 95%, 75%, 0.45) 0%, transparent 70%),
             radial-gradient(ellipse 40% 38% at 70% 30%, hsla(215, 95%, 78%, 0.45) 0%, transparent 70%)
           `,
-          filter: 'blur(40px)',
+          filter: 'blur(8px)',
         }}
       />
       <div className="relative z-10">
@@ -223,8 +223,8 @@ export function FeatureCard({
       style={{
         background:
           "linear-gradient(135deg, hsla(220,95%,75%,0.18) 0%, hsla(232,85%,72%,0.14) 35%, hsla(250,75%,72%,0.12) 70%, hsla(270,75%,75%,0.16) 100%), linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.35) 100%)",
-        backdropFilter: "blur(26px) saturate(1.6)",
-        WebkitBackdropFilter: "blur(26px) saturate(1.6)",
+        backdropFilter: "blur(8px) saturate(1.6)",
+        WebkitBackdropFilter: "blur(8px) saturate(1.6)",
         border: "1px solid hsla(232, 80%, 70%, 0.22)",
         boxShadow:
           "inset 0 1px 0 0 rgba(255,255,255,0.55), 0 8px 28px -10px hsla(232,85%,55%,0.22), 0 16px 40px -16px hsla(265,75%,58%,0.18)",
