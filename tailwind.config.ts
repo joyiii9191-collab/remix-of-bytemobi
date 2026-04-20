@@ -73,12 +73,12 @@ export default {
           to: { height: "0" },
         },
         "star-movement-bottom": {
-          "0%": { transform: "translate(0%, 0%)", opacity: "1" },
-          "100%": { transform: "translate(-100%, 0%)", opacity: "0" },
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-50%)" },
         },
         "star-movement-top": {
-          "0%": { transform: "translate(0%, 0%)", opacity: "1" },
-          "100%": { transform: "translate(100%, 0%)", opacity: "0" },
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(50%)" },
         },
       },
       animation: {
