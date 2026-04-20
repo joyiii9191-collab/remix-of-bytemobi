@@ -8950,7 +8950,7 @@ export default function ReflectApp() {
           backgroundPosition: "center",
           filter: "blur(40px) saturate(0.85) brightness(0.92)",
           transform: "scale(1.2)",
-          opacity: 0.55,
+          opacity: 0.3,
         }}
       />
       <div
