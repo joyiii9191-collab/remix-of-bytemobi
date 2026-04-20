@@ -245,7 +245,7 @@ export default function JapanFocus() {
           <ScreenEyebrow>03 · 全球布局</ScreenEyebrow>
           <ScreenTitle>以日本为核心的全球网络</ScreenTitle>
           <ScreenLead>日本核心市场深耕,并向亚太、欧美持续扩张。</ScreenLead>
-          <div className="rounded-2xl overflow-hidden mt-6 flex-1 min-h-[320px]" style={CARD}>
+          <div className="rounded-2xl overflow-hidden mt-6 flex-1 min-h-[320px] glass-card" style={CARD}>
             <JapanHighlightMap height={420} />
           </div>
         </ScreenInner>
@@ -262,7 +262,7 @@ export default function JapanFocus() {
               <motion.div
                 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5 }}
-                className="rounded-2xl p-6" style={CARD}
+                className="rounded-2xl p-6 glass-card" style={CARD}
               >
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-3"
                   style={{ background: JP_RED_SOFT, color: JP_RED }}><Users size={20} /></div>
@@ -276,7 +276,7 @@ export default function JapanFocus() {
               <motion.div
                 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: 0.08 }}
-                className="rounded-2xl p-6" style={CARD}
+                className="rounded-2xl p-6 glass-card" style={CARD}
               >
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-3"
                   style={{ background: JP_RED_SOFT, color: JP_RED }}><Languages size={20} /></div>
@@ -290,7 +290,7 @@ export default function JapanFocus() {
               <motion.div
                 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: 0.16 }}
-                className="rounded-2xl p-6 sm:col-span-2" style={CARD}
+                className="rounded-2xl p-6 sm:col-span-2 glass-card" style={CARD}
               >
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-3"
                   style={{ background: JP_RED_SOFT, color: JP_RED }}><Building2 size={20} /></div>

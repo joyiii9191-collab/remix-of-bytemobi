@@ -76,7 +76,7 @@ export default function MediaResources() {
               <motion.div key={c.t}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="rounded-2xl p-7" style={CARD}>
+                className="rounded-2xl p-7 glass-card" style={CARD}>
                 <div className="text-3xl font-bold mb-3" style={{ color: ACCENT }}>0{i + 1}</div>
                 <h3 className="text-lg font-semibold mb-2" style={{ color: TEXT_DARK }}>{c.t}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>{c.d}</p>
@@ -102,7 +102,7 @@ export default function MediaResources() {
               <motion.div key={c.t}
                 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="rounded-2xl p-6" style={CARD}>
+                className="rounded-2xl p-6 glass-card" style={CARD}>
                 <h3 className="text-base font-semibold mb-1.5" style={{ color: TEXT_DARK }}>{c.t}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>{c.d}</p>
               </motion.div>
@@ -117,7 +117,7 @@ export default function MediaResources() {
           <ScreenEyebrow>03 · 特色亮点</ScreenEyebrow>
           <ScreenTitle>短剧与品牌出海一站式</ScreenTitle>
           <ScreenLead>从内容形态、本地化创意到投放与复盘的完整链路。</ScreenLead>
-          <div className="rounded-2xl p-8 mt-10" style={CARD}>
+          <div className="rounded-2xl p-8 mt-10 glass-card" style={CARD}>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
                 { k: "短剧出海", v: "内容 + 投放协同" },
@@ -151,7 +151,7 @@ export default function MediaResources() {
                 style={{ ...CARD, color: TEXT_DARK }}>{t}</motion.div>
             ))}
           </div>
-          <div className="rounded-2xl p-6" style={CARD}>
+          <div className="rounded-2xl p-6 glass-card" style={CARD}>
             <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-4" style={{ color: ACCENT }}>合作流程</div>
             <div className="flex flex-wrap items-center gap-2 text-sm" style={{ color: TEXT_DARK }}>
               {["咨询", "评估", "签约", "搭建", "优化", "复盘"].map((s, i, arr) => (
@@ -184,7 +184,7 @@ export default function MediaResources() {
               <motion.div key={c.t}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="rounded-2xl p-7" style={CARD}>
+                className="rounded-2xl p-7 glass-card" style={CARD}>
                 <h3 className="text-lg font-semibold mb-2" style={{ color: TEXT_DARK }}>{c.t}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>{c.d}</p>
               </motion.div>

@@ -265,7 +265,7 @@ export default function GlobalFlow() {
             {UA_STEPS.map((s, i) => {
               const Icon = s.icon;
               return (
-                <div key={s.title} className="rounded-2xl p-4 flex gap-3" style={CARD}>
+                <div key={s.title} className="rounded-2xl p-4 flex gap-3 glass-card" style={CARD}>
                   <div
                     className="w-9 h-9 shrink-0 rounded-xl flex items-center justify-center"
                     style={{ background: "rgba(99,102,241,0.1)", color: ACCENT }}
@@ -466,7 +466,7 @@ export default function GlobalFlow() {
             <motion.div
               initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5 }}
-              className="rounded-2xl p-5" style={CARD}>
+              className="rounded-2xl p-5 glass-card" style={CARD}>
               <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-2" style={{ color: ACCENT }}>Engine 01</div>
               <h3 className="text-base font-semibold mb-2" style={{ color: TEXT_DARK }}>增长引擎 · 内投团队</h3>
               <ul className="text-xs leading-relaxed space-y-1" style={{ color: TEXT_MID }}>
@@ -479,7 +479,7 @@ export default function GlobalFlow() {
             <motion.div
               initial={{ opacity: 0, x: 16 }} whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: 0.1 }}
-              className="rounded-2xl p-5" style={CARD}>
+              className="rounded-2xl p-5 glass-card" style={CARD}>
               <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-2" style={{ color: ACCENT }}>Engine 02</div>
               <h3 className="text-base font-semibold mb-2" style={{ color: TEXT_DARK }}>流量网络 · 网盟 / 联盟</h3>
               <ul className="text-xs leading-relaxed space-y-1" style={{ color: TEXT_MID }}>

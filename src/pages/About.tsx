@@ -178,7 +178,7 @@ export default function About() {
               <motion.div key={c.t}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="rounded-2xl p-6" style={CARD}>
+                className="rounded-2xl p-6 glass-card" style={CARD}>
                 <h3 className="text-base font-semibold mb-2" style={{ color: TEXT_DARK }}>{c.t}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>{c.d}</p>
               </motion.div>
@@ -194,7 +194,7 @@ export default function About() {
           <ScreenTitle>覆盖关键市场的五个办公点</ScreenTitle>
           <ScreenLead>悬停查看地图节点,点击查看详细信息。</ScreenLead>
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-5 mt-6 flex-1 min-h-[320px]">
-            <div className="lg:col-span-3 rounded-2xl overflow-hidden relative" style={CARD}>
+            <div className="lg:col-span-3 rounded-2xl overflow-hidden relative glass-card" style={CARD}>
               <ParticleWorldMap markers={MAP_MARKERS} lines={MAP_LINES} />
               {hoverIdx !== null && (
                 <motion.div
@@ -326,7 +326,7 @@ export default function About() {
             <motion.div
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5 }}
-              className="rounded-2xl p-7" style={CARD}>
+              className="rounded-2xl p-7 glass-card" style={CARD}>
               <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>Mission</div>
               <h3 className="text-xl font-bold mb-3" style={{ color: TEXT_DARK }}>使命</h3>
               <p className="text-sm" style={{ color: TEXT_MID }}>让数字连接更有价值。</p>
@@ -334,7 +334,7 @@ export default function About() {
             <motion.div
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: 0.1 }}
-              className="rounded-2xl p-7" style={CARD}>
+              className="rounded-2xl p-7 glass-card" style={CARD}>
               <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>Vision</div>
               <h3 className="text-xl font-bold mb-3" style={{ color: TEXT_DARK }}>愿景</h3>
               <p className="text-sm" style={{ color: TEXT_MID }}>成为全球数字生态中值得信赖的桥梁。</p>
@@ -342,7 +342,7 @@ export default function About() {
             <motion.div
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: 0.2 }}
-              className="rounded-2xl p-7" style={CARD}>
+              className="rounded-2xl p-7 glass-card" style={CARD}>
               <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>Values</div>
               <h3 className="text-xl font-bold mb-3" style={{ color: TEXT_DARK }}>价值观</h3>
               <ul className="text-sm space-y-1.5" style={{ color: TEXT_MID }}>
