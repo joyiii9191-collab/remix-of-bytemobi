@@ -8957,7 +8957,7 @@ export default function ReflectApp() {
         aria-hidden
         className="fixed inset-0 pointer-events-none z-0"
         style={{
-          background: "hsl(0, 0%, 100%)",
+          background: "hsla(0, 0%, 100%, 0.5)",
         }}
       />
 
