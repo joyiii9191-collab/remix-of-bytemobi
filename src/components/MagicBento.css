@@ -110,7 +110,7 @@
 }
 
 .magic-bento-card:hover::before {
-  transform: translate(6%, -8%) scale(1.18);
+  transform: translate(8%, 6%) scale(1.18);
   opacity: 1;
   filter: blur(36px);
 }
