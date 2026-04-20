@@ -299,6 +299,37 @@ All colors MUST be HSL.
 
 @media (prefers-reduced-motion: reduce) {
   .hero-bg-kenburns { animation: none; transform: scale(1.05); }
+  .glass-orb-float-1, .glass-orb-float-2, .glass-orb-float-3 { animation: none; }
+}
+
+/* Glassmorphism 蓝色光球漂浮 — 缓慢、不规则的轨迹 */
+.glass-orb-float-1 {
+  will-change: transform;
+  animation: orb-drift-1 28s ease-in-out infinite alternate;
+}
+.glass-orb-float-2 {
+  will-change: transform;
+  animation: orb-drift-2 34s ease-in-out infinite alternate;
+}
+.glass-orb-float-3 {
+  will-change: transform;
+  animation: orb-drift-3 40s ease-in-out infinite alternate;
+}
+
+@keyframes orb-drift-1 {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(60px, 40px) scale(1.08); }
+  100% { transform: translate(-30px, 70px) scale(0.95); }
+}
+@keyframes orb-drift-2 {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(-70px, -50px) scale(1.1); }
+  100% { transform: translate(40px, -80px) scale(0.92); }
+}
+@keyframes orb-drift-3 {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(50px, -60px) scale(1.05); }
+  100% { transform: translate(-60px, 30px) scale(0.96); }
 }
 
 /* ========================================================================
@@ -736,4 +767,40 @@ All colors MUST be HSL.
     0 8px 24px -10px hsla(250, 30%, 30%, 0.12) !important;
   backdrop-filter: blur(8px) saturate(105%);
   -webkit-backdrop-filter: blur(8px) saturate(105%);
+}
+
+/* ===== Form input autofill override =====
+   防止浏览器（Chrome/Safari）默认的暖黄色 autofill 背景污染深色玻璃表单 */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill {
+  -webkit-text-fill-color: #ffffff !important;
+  -webkit-box-shadow: 0 0 0 1000px rgba(30, 22, 60, 0.6) inset !important;
+  box-shadow: 0 0 0 1000px rgba(30, 22, 60, 0.6) inset !important;
+  caret-color: #ffffff;
+  transition: background-color 9999s ease-in-out 0s;
+  border-color: rgba(168, 130, 255, 0.4) !important;
+}
+
+/* Focus state for the contact form inputs — 蓝紫流光 */
+#contact input:focus,
+#contact textarea:focus,
+#contact select:focus {
+  border-color: hsl(245, 88%, 64%) !important;
+  background: rgba(110, 90, 240, 0.10) !important;
+  box-shadow:
+    0 0 0 3px hsla(245, 88%, 64%, 0.22),
+    0 0 18px -4px hsla(265, 85%, 60%, 0.45) !important;
+}
+
+/* Placeholder text — 改为黑色，提升可读性 */
+#contact input::placeholder,
+#contact textarea::placeholder {
+  color: rgba(0, 0, 0, 0.55) !important;
+  opacity: 1;
 }

@@ -2312,7 +2312,6 @@ function LogoCard({ label, index = 0, image }: { label: string; index?: number; 
 function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 'right'; logos: { label: string; image?: string }[]; tag?: string }) {
   const doubled = [...logos, ...logos];
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const tagRef = useRef<HTMLDivElement>(null);
   const [phase, setPhase] = useState<'idle' | 'centered' | 'flowing'>('idle');
 
   useEffect(() => {
@@ -2322,7 +2321,7 @@ function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 
       ([entry]) => {
         if (entry.isIntersecting) {
           setPhase('centered');
-          const timer = setTimeout(() => setPhase('flowing'), 2200);
+          const timer = setTimeout(() => setPhase('flowing'), 1200);
           observer.disconnect();
           return () => clearTimeout(timer);
         }
@@ -2333,63 +2332,55 @@ function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 
     return () => observer.disconnect();
   }, []);
 
-  const animName = direction === 'left' ? 'marqueeLeft' : 'marqueeRight';
+  // 起始位置：第一行第一个 logo 位于视口中心；第二行最后一个 logo 位于视口中心。
+  // 流动方向：第一行向左（content 向左移），第二行向右（content 向右移）。
+  // 内容已 doubled，向左流动 -50% 后无缝循环；向右流动从 -50% 回到 0% 也无缝循环。
+  const isLeft = direction === 'left';
 
   return (
     <div ref={wrapperRef} className="relative w-full overflow-hidden">
-      {/* Fade edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-[120px] z-10" style={{ background: 'linear-gradient(90deg, #030014 0%, transparent 100%)' }} />
-      <div className="absolute right-0 top-0 bottom-0 w-[120px] z-10" style={{ background: 'linear-gradient(270deg, #030014 0%, transparent 100%)' }} />
-      
-      <div className="flex flex-col gap-3">
-        {/* Tag */}
-        {tag && (
-          <div
-            ref={tagRef}
-            className="flex items-center"
-            style={{
-              width: 'max-content',
-              opacity: phase === 'idle' ? 0 : 1,
-              transition: phase === 'centered' ? 'opacity 0.6s ease-out' : 'none',
-              ...(phase === 'centered' ? {
-                transform: 'translateX(calc(50vw - 50%))',
-              } : phase === 'flowing' ? {
-                animation: `${animName} 30s linear infinite`,
-              } : {}),
-            }}
-          >
-            {[0, 1].map((copy) => (
-              <span
-                key={copy}
-                className="inline-flex items-center px-[16px] py-[5px] rounded-full text-[14px] text-white font-normal tracking-[-0.21px] leading-[1.6] whitespace-nowrap mx-[calc(50vw)]"
-                style={{
-                  border: "1px solid rgba(255,255,255,0.2)",
-                  background: "rgba(255,255,255,0.05)",
-                }}
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
-
-        {/* Logos - start centered, then flow */}
+      {/* Logos + tag flowing together as one row */}
+      <div
+        style={{
+          width: 'max-content',
+          paddingLeft: isLeft ? '50vw' : 0,
+          paddingRight: isLeft ? 0 : '50vw',
+          opacity: phase === 'idle' ? 0 : 1,
+          transition: 'opacity 0.8s ease-out',
+        }}
+      >
         <div
           className="flex items-center gap-6"
           style={{
             width: 'max-content',
-            opacity: phase === 'idle' ? 0 : 1,
-            transition: phase === 'centered' ? 'opacity 0.8s ease-out, transform 0.8s ease-out' : 'none',
-            ...(phase === 'centered' ? {
-              transform: `translateX(calc(50vw - ${logos.length * 39}px))`,
-            } : phase === 'flowing' ? {
-              animation: `${animName} 30s linear infinite`,
-            } : {}),
+            animation: phase === 'flowing'
+              ? `${isLeft ? 'marqueeLeft' : 'marqueeRight'} 40s linear infinite`
+              : 'none',
+            transform: phase === 'flowing'
+              ? undefined
+              : (isLeft ? 'translateX(0)' : 'translateX(-50%)'),
           }}
         >
-          {doubled.map((item, i) => (
-            <LogoCard key={i} label={item.label} index={i} image={item.image} />
-          ))}
+          {doubled.map((item, i) => {
+            // Insert tag at the start of each logos copy (positions 0 and logos.length)
+            const showTag = tag && (i === 0 || i === logos.length);
+            return (
+              <div key={i} className="flex items-center gap-6">
+                {showTag && (
+                  <span
+                    className="inline-flex items-center px-[16px] py-[5px] rounded-full text-[14px] text-white font-normal tracking-[-0.21px] leading-[1.6] whitespace-nowrap shrink-0"
+                    style={{
+                      border: "1px solid rgba(255,255,255,0.2)",
+                      background: "rgba(255,255,255,0.05)",
+                    }}
+                  >
+                    {tag}
+                  </span>
+                )}
+                <LogoCard label={item.label} index={i} image={item.image} />
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
@@ -2471,20 +2462,8 @@ function Section8TrafficMap() {
 
       {/* Header */}
       <div className="flex flex-col items-center gap-3 z-10">
-        <div
-          className="flex items-center px-[16px] py-[5px] rounded-full relative"
-          style={{
-            border: "1px solid rgba(255,255,255,0.2)",
-            background: "rgba(255,255,255,0.05)",
-          }}
-        >
-          <span className="text-[14px] text-white font-normal tracking-[-0.21px] leading-[1.6]">
-            Global Coverage
-          </span>
-          <div
-            className="absolute inset-[-0.5px] rounded-full pointer-events-none"
-            style={{ boxShadow: "inset 0 0 21px rgba(115,80,255,0.2)" }}
-          />
+        <div className="flex items-center px-[16px] py-[5px] rounded-full relative" style={{ border: "1px solid hsla(0,0%,100%,0.7)", background: "hsla(0,0%,100%,0.45)", boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
+          <span className="text-[14px] font-normal tracking-[-0.21px] leading-[1.6]" style={{ color: 'hsl(260, 60%, 40%)' }}>Global Coverage</span>
         </div>
         <h2 className="text-[36px] font-semibold text-white leading-[1.15] tracking-tight text-center">
           我们的流量分布区域
@@ -2599,22 +2578,23 @@ function AttributionItem({ item, isActive, onClick }: {
   return (
     <div className="cursor-pointer transition-all duration-500" onClick={onClick}>
       <div className="flex flex-col gap-2">
-        <p className="font-medium tracking-[-0.5px] leading-[1.3] transition-all duration-500 text-white" style={{
+        <p className="font-medium tracking-[-0.5px] leading-[1.3] transition-all duration-500" style={{
           fontSize: isActive ? '55px' : '22px',
+          color: 'rgba(20,18,45,0.92)',
         }}>
           {item.title}
           <span className="ml-1 transition-all duration-500" style={{
             fontSize: isActive ? '20px' : '15px',
-            color: 'rgba(255,255,255,0.5)',
+            color: 'rgba(20,18,45,0.5)',
           }}>({item.titleFull})</span>
         </p>
         <div
           className="transition-all duration-500 overflow-hidden"
           style={{ maxHeight: isActive ? '80px' : '0px', opacity: isActive ? 1 : 0 }}
         >
-          <p className="text-[15px] text-[#818089] leading-[1.6] tracking-[-0.24px]">{item.description}</p>
-          <p className="text-[14px] text-[rgba(239,237,253,0.5)] leading-[1.6] mt-1">
-            <span className="text-[rgba(239,237,253,0.4)] mr-1">适用场景：</span>{item.scenes}
+          <p className="text-[15px] leading-[1.6] tracking-[-0.24px]" style={{ color: 'rgba(30,27,60,0.72)' }}>{item.description}</p>
+          <p className="text-[14px] leading-[1.6] mt-1" style={{ color: 'rgba(30,27,60,0.55)' }}>
+            <span className="mr-1" style={{ color: 'rgba(30,27,60,0.45)' }}>适用场景：</span>{item.scenes}
           </p>
         </div>
       </div>
@@ -2739,17 +2719,20 @@ function Section7Values() {
   }, [items.length]);
 
   return (
-    <div className="relative w-full h-full flex items-center justify-center px-[80px] gap-[60px]" data-name="Section7Values">
+    <div className="relative w-full h-full flex items-center justify-center px-[80px]" data-name="Section7Values">
+      <div className="w-full max-w-[1200px] flex items-center gap-[60px]">
       {/* Left content - match right image height */}
       <div className="flex flex-col flex-1 gap-[24px]">
         {/* Top: title + items */}
         <div className="flex flex-col gap-[24px]">
           <div className="flex items-baseline gap-4">
-            <h2 className="text-[44px] font-medium text-white leading-[1.1] tracking-[-2px]">多元化流量网络</h2>
-            <div className="px-4 py-[5px] rounded-full border border-[rgba(255,255,255,0.2)] relative">
-              <div className="absolute inset-0 bg-[rgba(255,255,255,0.05)] rounded-full pointer-events-none" />
-              <div className="absolute inset-[-0.5px] rounded-full pointer-events-none" style={{ boxShadow: 'inset 0 0 21px rgba(115,80,255,0.2)' }} />
-              <span className="text-[14px] text-white leading-[1.6] tracking-[-0.21px] relative">多种归因方式</span>
+            <h2 className="text-[44px] font-medium leading-[1.1] tracking-[-2px]" style={{ color: 'rgba(20,18,45,0.95)' }}>多元化流量网络</h2>
+            <div className="px-3 py-[4px] rounded-full" style={{
+              background: 'rgba(255,255,255,0.45)',
+              border: '1px solid rgba(139,92,246,0.25)',
+              backdropFilter: 'blur(8px)',
+            }}>
+              <span className="text-[12px] leading-[1.4]" style={{ color: 'rgba(30,27,60,0.75)' }}>多种归因方式</span>
             </div>
           </div>
 
@@ -2759,7 +2742,7 @@ function Section7Values() {
                 <AttributionItem item={item} isActive={activeIndex === i} onClick={() => setActiveIndex(i)} />
                 {i < items.length - 1 && (
                   <div className="mt-3 h-px w-full" style={{
-                    background: 'linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0) 100%)',
+                    background: 'linear-gradient(90deg, rgba(20,18,45,0) 0%, rgba(20,18,45,0.12) 50%, rgba(20,18,45,0) 100%)',
                   }} />
                 )}
               </div>
@@ -2772,17 +2755,17 @@ function Section7Values() {
           {/* Tech support header */}
           <div className="flex items-baseline gap-4">
             <div className="flex flex-col gap-1">
-              <h3 className="text-[20px] font-medium text-white leading-[1.2]">技术支持</h3>
-              <p className="text-[13px] text-[rgba(239,237,253,0.5)]">高精度数据对接</p>
+              <h3 className="text-[20px] font-medium leading-[1.2]" style={{ color: 'rgba(20,18,45,0.92)' }}>技术支持</h3>
+              <p className="text-[13px]" style={{ color: 'rgba(30,27,60,0.55)' }}>高精度数据对接</p>
             </div>
             <div className="flex gap-2">
               {['S2S 对接', 'API 接入', 'MMP 接入'].map((label) => (
-                <div key={label} className="px-3 py-[4px] rounded-full relative" style={{
-                  background: 'rgba(255,255,255,0.04)',
-                  
-                  border: '1px solid rgba(139,92,246,0.15)',
+                <div key={label} className="px-3 py-[4px] rounded-full" style={{
+                  background: 'rgba(255,255,255,0.45)',
+                  border: '1px solid rgba(139,92,246,0.25)',
+                  backdropFilter: 'blur(8px)',
                 }}>
-                  <span className="text-[12px] text-[rgba(239,237,253,0.7)] relative z-[1]">{label}</span>
+                  <span className="text-[12px] leading-[1.4]" style={{ color: 'rgba(30,27,60,0.75)' }}>{label}</span>
                 </div>
               ))}
             </div>
@@ -2791,15 +2774,15 @@ function Section7Values() {
           {/* Three info containers */}
           <div className="relative h-[60px] flex items-center">
             <div className="w-[calc(33.33%-8px)] flex items-center justify-center">
-              <img src={adjustLogo} alt="Adjust" className="h-[40px] object-contain brightness-0 invert" />
+              <img src={adjustLogo} alt="Adjust" className="h-[60px] object-contain" style={{ filter: 'brightness(0) saturate(100%) invert(10%) sepia(20%) saturate(2000%) hue-rotate(230deg)' }} />
             </div>
-            <div className="w-px h-[16px] bg-[rgba(255,255,255,0.24)]" />
+            <div className="w-px h-[16px]" style={{ background: 'rgba(20,18,45,0.18)' }} />
             <div className="w-[calc(33.33%-8px)] flex items-center justify-center">
-              <img src={appsflyerLogo} alt="AppsFlyer" className="h-[40px] object-contain brightness-0 invert" />
+              <img src={appsflyerLogo} alt="AppsFlyer" className="h-[40px] object-contain" style={{ filter: 'brightness(0) saturate(100%) invert(10%) sepia(20%) saturate(2000%) hue-rotate(230deg)' }} />
             </div>
-            <div className="w-px h-[16px] bg-[rgba(255,255,255,0.24)]" />
+            <div className="w-px h-[16px]" style={{ background: 'rgba(20,18,45,0.18)' }} />
             <div className="w-[calc(33.33%-8px)] flex items-center justify-center">
-              <img src={singularLogo} alt="Singular" className="h-[40px] object-contain brightness-0 invert" />
+              <img src={singularLogo} alt="Singular" className="h-[32px] object-contain" style={{ filter: 'brightness(0) saturate(100%) invert(10%) sepia(20%) saturate(2000%) hue-rotate(230deg)' }} />
             </div>
           </div>
         </div>
@@ -2819,6 +2802,7 @@ function Section7Values() {
         <div className="absolute inset-0 transition-opacity duration-1000" style={{ opacity: activeIndex === 2 ? 1 : 0 }}>
           <RevealCard imageSrc={ctvTvImg} left="48%" top="30%" isActive={activeIndex === 2} />
         </div>
+      </div>
       </div>
     </div>
   );
@@ -8045,20 +8029,8 @@ function Section9Solution() {
     <div className="relative w-full h-full flex flex-col items-center justify-center px-[80px] gap-[56px]">
       {/* Header */}
       <div className="flex flex-col items-center gap-[24px] z-10">
-        <div
-          className="flex items-center px-[16px] py-[5px] rounded-full relative"
-          style={{
-            border: "1px solid rgba(255,255,255,0.2)",
-            background: "rgba(255,255,255,0.05)",
-          }}
-        >
-          <span className="text-[14px] text-white font-normal tracking-[-0.21px] leading-[1.6]">
-            One-Stop Solution
-          </span>
-          <div
-            className="absolute inset-[-0.5px] rounded-full pointer-events-none"
-            style={{ boxShadow: "inset 0 0 21px rgba(115,80,255,0.2)" }}
-          />
+        <div className="flex items-center px-[16px] py-[5px] rounded-full relative" style={{ border: "1px solid hsla(0,0%,100%,0.7)", background: "hsla(0,0%,100%,0.45)", boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
+          <span className="text-[14px] font-normal tracking-[-0.21px] leading-[1.6]" style={{ color: 'hsl(260, 60%, 40%)' }}>One-Stop Solution</span>
         </div>
         <h2
           className="text-[48px] font-medium leading-[1.1] tracking-[-2px] text-center"
@@ -8170,26 +8142,8 @@ function Section10Contact() {
         {/* Left: Text */}
         <div className="flex flex-col gap-[32px] flex-1">
           <div className="flex flex-col gap-[24px]">
-            <div
-              className="flex items-center px-[16px] py-[5px] rounded-full relative w-fit"
-              style={{
-                border: "1px solid rgba(255,255,255,0.2)",
-                background: "rgba(255,255,255,0.05)",
-              }}
-            >
-              <span className="text-[14px] text-white font-normal tracking-[-0.21px] leading-[1.6]">
-                Contact Us
-              </span>
-              <div
-                className="absolute inset-[-0.5px] rounded-full pointer-events-none"
-                style={{
-                  background: "linear-gradient(180deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 100%)",
-                  mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-                  maskComposite: "xor",
-                  WebkitMaskComposite: "xor",
-                  padding: "1px",
-                }}
-              />
+            <div className="flex items-center px-[16px] py-[5px] rounded-full relative w-fit" style={{ border: "1px solid hsla(0,0%,100%,0.7)", background: "hsla(0,0%,100%,0.45)", boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
+              <span className="text-[14px] font-normal tracking-[-0.21px] leading-[1.6]" style={{ color: 'hsl(260, 60%, 40%)' }}>Contact Us</span>
             </div>
             <h2 className="text-[36px] font-semibold text-white leading-[1.15] tracking-[-0.72px]">
               联系我们
