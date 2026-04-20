@@ -2528,16 +2528,14 @@ function Section8TrafficMap() {
             boxShadow: '0 20px 60px rgba(99,102,241,0.10), inset 0 1px 0 rgba(255,255,255,0.7)',
           }}
         >
-          {/* Subtle grid */}
-          <div className="absolute inset-0 opacity-[0.05]" style={{
-            backgroundImage: 'linear-gradient(rgba(99,102,241,1) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,1) 1px, transparent 1px)',
-            backgroundSize: '50px 50px',
-          }} />
-
-          {/* Hex world map */}
-          <svg viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid meet" className="absolute inset-0 w-full h-full">
-            {mapDots}
-          </svg>
+          {/* World map (image) */}
+          <img
+            src={worldMapDotted}
+            alt="World map"
+            className="absolute inset-0 w-full h-full object-contain pointer-events-none select-none"
+            style={{ padding: '20px' }}
+            draggable={false}
+          />
 
           {/* Region anchors + connector + cards */}
           {regions.map((r) => (
