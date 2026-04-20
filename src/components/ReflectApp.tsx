@@ -46,6 +46,12 @@ import logoSamsung from "@/assets/logo-samsung.png";
 import logoHuawei from "@/assets/logo-huawei.png";
 import logoOppo from "@/assets/logo-oppo.png";
 import logoXiaomi from "@/assets/logo-xiaomi.png";
+import appLogo1 from "@/assets/app-logo-1.png";
+import appLogo2 from "@/assets/app-logo-2.png";
+import appLogo3 from "@/assets/app-logo-3.png";
+import appLogo4 from "@/assets/app-logo-4.png";
+import appLogo5 from "@/assets/app-logo-5.png";
+import appLogo6 from "@/assets/app-logo-6.jpeg";
 import imgQF6418F24Png from "@/assets/855bd636812be95fbb29b5f939c42167715a1bb3.png";
 import imgQ871C3758Png from "@/assets/c14f43844921a3b41d95b2af1ef5bd30d73a1b6d.png";
 import imgVerticalDivider2 from "@/assets/a73ed680cbd1094cce46fa47751b942b452322f4.png";
@@ -2035,9 +2041,9 @@ function Section4Screen() {
           {/* Icon card component - reusable */}
           {/* Left column icons */}
           {[
-            { top: 110, left: 30, opacity: 1 },
-            { top: 217, left: 30, opacity: 1 },
-            { top: 323, left: 30, opacity: 1 },
+            { top: 110, left: 30, logo: appLogo1 },
+            { top: 217, left: 30, logo: appLogo2 },
+            { top: 323, left: 30, logo: appLogo3 },
           ].map((item, i) => (
             <div key={`left-${i}`} className="absolute" style={{ top: `${item.top}px`, left: `${item.left}px` }}>
               <div className="relative w-[60px] h-[60px]">
@@ -2047,7 +2053,7 @@ function Section4Screen() {
                 }} />
                 {/* Card content */}
                 <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: 'linear-gradient(155deg, hsla(0,0%,100%,0.6) 0%, hsla(0,0%,100%,0.3) 100%)',   border: '1px solid hsla(0,0%,100%,0.6)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
-                  <div className="w-[32px] h-[32px] rounded-md" style={{ background: 'hsla(260,60%,55%,0.25)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.6)' }} />
+                  <img src={item.logo} alt="" className="w-[44px] h-[44px] object-cover rounded-[10px]" />
                 </div>
               </div>
             </div>
@@ -2055,9 +2061,9 @@ function Section4Screen() {
 
           {/* Right column icons */}
           {[
-            { top: 110, right: 30, opacity: 1 },
-            { top: 217, right: 30, opacity: 1 },
-            { top: 323, right: 30, opacity: 1 },
+            { top: 110, right: 30, logo: appLogo4 },
+            { top: 217, right: 30, logo: appLogo5 },
+            { top: 323, right: 30, logo: appLogo6 },
           ].map((item, i) => (
             <div key={`right-${i}`} className="absolute" style={{ top: `${item.top}px`, right: `${item.right}px` }}>
               <div className="relative w-[60px] h-[60px]">
@@ -2067,7 +2073,7 @@ function Section4Screen() {
                 }} />
                 {/* Card content */}
                 <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: 'linear-gradient(155deg, hsla(0,0%,100%,0.6) 0%, hsla(0,0%,100%,0.3) 100%)',   border: '1px solid hsla(0,0%,100%,0.6)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
-                  <div className="w-[32px] h-[32px] rounded-md" style={{ background: 'hsla(260,60%,55%,0.25)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.6)' }} />
+                  <img src={item.logo} alt="" className="w-[44px] h-[44px] object-cover rounded-[10px]" />
                 </div>
               </div>
             </div>
