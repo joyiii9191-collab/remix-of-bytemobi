@@ -12,7 +12,7 @@ export default function Index() {
           scrollSnapType: "y mandatory",
           WebkitOverflowScrolling: "touch",
           background:
-            "linear-gradient(135deg, #E8E6F3 0%, #DCE3F2 45%, #E5DEEF 100%)",
+            "linear-gradient(135deg, #F4F3FA 0%, #EFF2FA 45%, #F2EEF7 100%)",
           color: "hsl(250 20% 18%)",
         }}
       >
