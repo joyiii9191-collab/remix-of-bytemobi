@@ -78,10 +78,10 @@
 .magic-bento-card--border-glow::after {
   content: '';
   position: absolute;
-  top: -15%;
-  right: -12%;
-  width: 55%;
-  height: 65%;
+  top: -12%;
+  right: 5%;
+  width: 45%;
+  height: 60%;
   border-radius: 50%;
   pointer-events: none;
   background: radial-gradient(
