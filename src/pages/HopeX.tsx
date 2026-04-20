@@ -52,7 +52,15 @@ export default function HopeX() {
           <ScreenLead>
             HopeX 是 HopeMobi 旗下的程序化广告平台,致力于为广告主与流量方提供可预测增长的商业化解决方案 —— 在不确定的市场中,提供确定性。
           </ScreenLead>
-          <div className="mt-10 text-xs uppercase tracking-[0.3em]" style={{ color: TEXT_MID }}>↓ 滑动查看平台规模</div>
+          <div className="mt-10 flex items-center gap-6">
+            <StarBorder
+              speed="5s"
+              onClick={() => document.getElementById("scale")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+            >
+              查看平台能力
+            </StarBorder>
+            <span className="text-xs uppercase tracking-[0.3em]" style={{ color: TEXT_MID }}>↓ 滑动查看</span>
+          </div>
         </ScreenInner>
       </SnapScreen>
 

@@ -39,10 +39,16 @@ export default function MediaResources() {
           <ScreenLead>
             覆盖 TikTok、Facebook、Google 等全球主流媒体,提供从开户、投放、优化到合规风控与代运营的一站式服务。
           </ScreenLead>
-          <div className="mt-10 flex items-center gap-5">
+          <div className="mt-10 flex items-center gap-5 flex-wrap">
+            <StarBorder
+              speed="5s"
+              onClick={() => document.getElementById("value")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+            >
+              开启出海合作
+            </StarBorder>
             {["TikTok", "Meta", "Google"].map((p) => (
               <div key={p}
-                className="px-4 py-2 rounded-xl text-sm font-semibold"
+                className="px-4 py-2 rounded-xl text-sm font-semibold glass-card"
                 style={{ ...CARD, color: ACCENT }}>{p}</div>
             ))}
           </div>

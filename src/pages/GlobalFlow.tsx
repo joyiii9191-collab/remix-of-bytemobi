@@ -126,8 +126,14 @@ export default function GlobalFlow() {
           <ScreenLead>
             驱动全球增长,智能汇流每一刻。覆盖六大洲核心市场的实时流量与设备网络,为每一个增长目标计算最优路径。
           </ScreenLead>
-          <div className="mt-10 text-xs uppercase tracking-[0.3em]" style={{ color: TEXT_MID }}>
-            ↓ 滑动浏览全部能力
+          <div className="mt-10 flex items-center gap-6">
+            <StarBorder
+              speed="5s"
+              onClick={() => document.getElementById("hub")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+            >
+              探索全球能力
+            </StarBorder>
+            <span className="text-xs uppercase tracking-[0.3em]" style={{ color: TEXT_MID }}>↓ 滑动浏览</span>
           </div>
         </ScreenInner>
       </SnapScreen>

@@ -172,7 +172,15 @@ export default function JapanFocus() {
           <ScreenLead>
             聚焦日本市场,同时完成全球多区域布局,助力广告主与媒体方实现高效增长。
           </ScreenLead>
-          <div className="mt-10 text-xs uppercase tracking-[0.3em]" style={{ color: TEXT_MID }}>↓ 滑动查看本地能力</div>
+          <div className="mt-10 flex items-center gap-6">
+            <StarBorder
+              speed="5s"
+              onClick={() => document.getElementById("strengths")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+            >
+              查看本地能力
+            </StarBorder>
+            <span className="text-xs uppercase tracking-[0.3em]" style={{ color: TEXT_MID }}>↓ 滑动查看</span>
+          </div>
         </ScreenInner>
       </SnapScreen>
 

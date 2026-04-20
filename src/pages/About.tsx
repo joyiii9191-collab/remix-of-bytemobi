@@ -146,7 +146,15 @@ export default function About() {
           <ScreenLead>
             成立于 2016 年,全球 5 个办公点、200+ 员工,致力于成为全球数字生态中值得信赖的桥梁。
           </ScreenLead>
-          <div className="mt-10 text-xs uppercase tracking-[0.3em]" style={{ color: TEXT_MID }}>↓ 滑动了解 ByteMobi</div>
+          <div className="mt-10 flex items-center gap-6">
+            <StarBorder
+              speed="5s"
+              onClick={() => document.getElementById("intro")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+            >
+              了解 ByteMobi
+            </StarBorder>
+            <span className="text-xs uppercase tracking-[0.3em]" style={{ color: TEXT_MID }}>↓ 滑动了解</span>
+          </div>
         </ScreenInner>
       </SnapScreen>
 
