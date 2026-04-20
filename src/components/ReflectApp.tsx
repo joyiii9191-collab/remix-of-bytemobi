@@ -1301,15 +1301,15 @@ function Section1() {
                 </h2>
 
                 {/* Subtitle */}
-                <p className="text-[18px] leading-[28px] font-medium" style={{ color: 'hsla(0, 0%, 100%, 0.8)' }}>
+                <p className="text-[18px] leading-[28px] font-medium" style={{ color: 'hsl(230, 25%, 25%)' }}>
                   聚焦全球品牌与效果广告营销
                 </p>
 
                 {/* Divider — neutral */}
-                <div className="w-12 h-px" style={{ background: 'hsla(0, 0%, 100%, 0.2)' }} />
+                <div className="w-12 h-px" style={{ background: 'hsla(230, 30%, 40%, 0.25)' }} />
 
                 {/* Description */}
-                <p className="text-[13px] leading-[22px] text-justify max-w-[360px]" style={{ color: 'hsla(0, 0%, 100%, 0.4)' }}>
+                <p className="text-[13px] leading-[22px] text-justify max-w-[360px]" style={{ color: 'hsl(230, 15%, 40%)' }}>
                   依托自有程序化流量体系整合全球头部媒体及合作伙伴生态资源，构建多元化流量网络，以全球布局为基础，深度拓展日本市场，为广告主提供高效的一站式广告投放与流量变现解决方案。
                 </p>
 
@@ -1317,24 +1317,24 @@ function Section1() {
                 <div className="flex gap-8 mt-2">
                   <div className="flex flex-col gap-1">
                     <AnimatedNumber value={200} suffix="+" />
-                    <span className="text-[11px] tracking-wide" style={{ color: 'hsla(0, 0%, 100%, 0.25)' }}>合作媒体</span>
+                    <span className="text-[11px] tracking-wide" style={{ color: 'hsl(230, 15%, 45%)' }}>合作媒体</span>
                   </div>
-                  <div className="w-px h-12" style={{ background: 'hsla(0, 0%, 100%, 0.06)' }} />
+                  <div className="w-px h-12" style={{ background: 'hsla(230, 30%, 40%, 0.15)' }} />
                   <div className="flex flex-col gap-1">
                     <AnimatedNumber value={50} suffix="+" />
-                    <span className="text-[11px] tracking-wide" style={{ color: 'hsla(0, 0%, 100%, 0.25)' }}>覆盖国家</span>
+                    <span className="text-[11px] tracking-wide" style={{ color: 'hsl(230, 15%, 45%)' }}>覆盖国家</span>
                   </div>
-                  <div className="w-px h-12" style={{ background: 'hsla(0, 0%, 100%, 0.06)' }} />
+                  <div className="w-px h-12" style={{ background: 'hsla(230, 30%, 40%, 0.15)' }} />
                   <div className="flex flex-col gap-1">
                     <AnimatedNumber value={10} suffix="亿+" />
-                    <span className="text-[11px] tracking-wide" style={{ color: 'hsla(0, 0%, 100%, 0.25)' }}>日均流量</span>
+                    <span className="text-[11px] tracking-wide" style={{ color: 'hsl(230, 15%, 45%)' }}>日均流量</span>
                   </div>
                 </div>
               </div>
 
               {/* Vertical divider — glass edge */}
               <div className="w-px self-stretch" style={{
-                background: 'linear-gradient(180deg, transparent 5%, hsla(0, 0%, 100%, 0.08) 30%, hsla(0, 0%, 100%, 0.08) 70%, transparent 95%)',
+                background: 'linear-gradient(180deg, transparent 5%, hsla(230, 30%, 40%, 0.18) 30%, hsla(230, 30%, 40%, 0.18) 70%, transparent 95%)',
               }} />
 
               {/* Right side — 4 cards grid */}
