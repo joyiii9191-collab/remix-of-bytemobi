@@ -2794,7 +2794,7 @@ function Section7Values() {
           {/* Three info containers */}
           <div className="relative h-[60px] flex items-center">
             <div className="w-[calc(33.33%-8px)] flex items-center justify-center">
-              <img src={adjustLogo} alt="Adjust" className="h-[52px] object-contain" style={{ filter: 'brightness(0) saturate(100%) invert(10%) sepia(20%) saturate(2000%) hue-rotate(230deg)' }} />
+              <img src={adjustLogo} alt="Adjust" className="h-[60px] object-contain" style={{ filter: 'brightness(0) saturate(100%) invert(10%) sepia(20%) saturate(2000%) hue-rotate(230deg)' }} />
             </div>
             <div className="w-px h-[16px]" style={{ background: 'rgba(20,18,45,0.18)' }} />
             <div className="w-[calc(33.33%-8px)] flex items-center justify-center">
@@ -2802,7 +2802,7 @@ function Section7Values() {
             </div>
             <div className="w-px h-[16px]" style={{ background: 'rgba(20,18,45,0.18)' }} />
             <div className="w-[calc(33.33%-8px)] flex items-center justify-center">
-              <img src={singularLogo} alt="Singular" className="h-[40px] object-contain" style={{ filter: 'brightness(0) saturate(100%) invert(10%) sepia(20%) saturate(2000%) hue-rotate(230deg)' }} />
+              <img src={singularLogo} alt="Singular" className="h-[32px] object-contain" style={{ filter: 'brightness(0) saturate(100%) invert(10%) sepia(20%) saturate(2000%) hue-rotate(230deg)' }} />
             </div>
           </div>
         </div>
