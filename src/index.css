@@ -843,11 +843,11 @@ select:-webkit-autofill {
   line-height: 1;
   background-image: linear-gradient(
     110deg,
-    hsl(245 80% 62%) 0%,
-    hsl(260 85% 68%) 25%,
-    hsl(280 80% 70%) 50%,
-    hsl(260 85% 68%) 75%,
-    hsl(245 80% 62%) 100%
+    hsl(230 35% 75%) 0%,
+    hsl(240 30% 80%) 25%,
+    hsl(250 30% 82%) 50%,
+    hsl(240 30% 80%) 75%,
+    hsl(230 35% 75%) 100%
   );
   background-size: 200% 100%;
   -webkit-background-clip: text;
