@@ -85,10 +85,10 @@ const CASES: Case[] = [
 ];
 
 const MEDIA_BLOCKS = [
-  { icon: Globe2, t: "直签媒体", d: "头部 App、广告网络、运营商等一手资源直连。" },
-  { icon: Layers, t: "区域流量包", d: "按市场打包的优质流量,快速覆盖目标地区。" },
-  { icon: Gauge, t: "预算看板", d: "预算、出价、消耗、转化在一个视图内闭环。" },
-  { icon: ShieldCheck, t: "反欺诈", d: "多模型实时识别异常流量,保障投放质量。" },
+  { icon: Globe2, t: "直签媒体", d: "头部 App、广告网络、运营商等一手资源直连", tag: "RESOURCE" },
+  { icon: Layers, t: "区域流量包", d: "按市场打包的优质流量,快速覆盖目标地区", tag: "COVERAGE" },
+  { icon: Gauge, t: "预算看板", d: "预算、出价、消耗、转化在一个视图内闭环", tag: "CONTROL" },
+  { icon: ShieldCheck, t: "反欺诈", d: "多模型实时识别异常流量,保障投放质量", tag: "QUALITY" },
 ];
 
 export default function GlobalFlow() {
