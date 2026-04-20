@@ -2492,14 +2492,14 @@ function Section8TrafficMap() {
     cardDy: number;   // 卡片相对锚点 y 偏移（px）
     color: string;
   }> = [
-    { code: 'NA',    name: '北美',    share: 33, x: 70,  y: 36, cardDx:  10,  cardDy: -70, color: 'hsl(245, 75%, 58%)' },
-    { code: 'LATAM', name: '拉美',    share: 7,  x: 80,  y: 70, cardDx:  10,  cardDy:  30, color: 'hsl(255, 70%, 65%)' },
-    { code: 'EU',    name: '欧洲',    share: 7,  x: 4,   y: 30, cardDx:  10,  cardDy: -70, color: 'hsl(235, 70%, 60%)' },
-    { code: 'AF',    name: '非洲',    share: 3,  x: 8,   y: 62, cardDx:  10,  cardDy:  30, color: 'hsl(290, 60%, 65%)' },
-    { code: 'ME',    name: '中东',    share: 4,  x: 14,  y: 44, cardDx:  10,  cardDy: -60, color: 'hsl(270, 65%, 65%)' },
-    { code: 'IN',    name: '印度',    share: 10, x: 22,  y: 48, cardDx:  10,  cardDy:  30, color: 'hsl(280, 70%, 62%)' },
-    { code: 'JP',    name: '日本',    share: 28, x: 38,  y: 38, cardDx:  10,  cardDy: -70, color: 'hsl(265, 75%, 60%)' },
-    { code: 'SEA',   name: '东南亚',  share: 8,  x: 34,  y: 60, cardDx: -50,  cardDy:  30, color: 'hsl(225, 75%, 60%)' },
+    { code: 'NA',    name: '北美',    share: 33, x: 18,  y: 36, cardDx: -10,  cardDy: -70, color: 'hsl(245, 75%, 58%)' },
+    { code: 'LATAM', name: '拉美',    share: 7,  x: 28,  y: 70, cardDx: -120, cardDy:  30, color: 'hsl(255, 70%, 65%)' },
+    { code: 'EU',    name: '欧洲',    share: 7,  x: 49,  y: 30, cardDx: -50,  cardDy: -70, color: 'hsl(235, 70%, 60%)' },
+    { code: 'AF',    name: '非洲',    share: 3,  x: 53,  y: 62, cardDx: -50,  cardDy:  30, color: 'hsl(290, 60%, 65%)' },
+    { code: 'ME',    name: '中东',    share: 4,  x: 60,  y: 44, cardDx: -50,  cardDy:  30, color: 'hsl(270, 65%, 65%)' },
+    { code: 'IN',    name: '印度',    share: 10, x: 68,  y: 48, cardDx: -50,  cardDy:  30, color: 'hsl(280, 70%, 62%)' },
+    { code: 'JP',    name: '日本',    share: 28, x: 84,  y: 38, cardDx:  10,  cardDy: -70, color: 'hsl(265, 75%, 60%)' },
+    { code: 'SEA',   name: '东南亚',  share: 8,  x: 80,  y: 60, cardDx:  10,  cardDy:  20, color: 'hsl(225, 75%, 60%)' },
   ];
 
   // 高密度点阵世界地图 — 1:1 复刻参考图
@@ -2671,12 +2671,10 @@ function Section8TrafficMap() {
           : tone === 1 ? 'rgba(59, 130, 246, 0.78)'
           : tone === 2 ? 'rgba(96, 165, 250, 0.70)'
           : 'rgba(29, 78, 216, 0.82)';
-        // 横向平移：让北美完整显示在右侧、欧亚居中
-        const shifted = ((px - 480) % 1000 + 1000) % 1000;
         dots.push(
           <rect
             key={key++}
-            x={shifted - radius}
+            x={px - radius}
             y={py - radius}
             width={dotSize}
             height={dotSize}
