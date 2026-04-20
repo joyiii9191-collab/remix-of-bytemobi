@@ -19,6 +19,7 @@ import imgVerticalDivider from "@/assets/ac2eb037d77f8237ede48a3afc7330a2c1d2a95
 import imgVerticalDivider1 from "@/assets/1591e87697198101447f11664b328358928e0134.png";
 import imgQC92Fad10Png from "@/assets/0e0b93789f680040932a23db46863f95278916f9.png";
 import logo3d from "@/assets/logo-3d.png";
+import homeBg from "@/assets/home-bg.jpg";
 import logoChartboost from "@/assets/logo-chartboost.png";
 import logoAudienceNetwork from "@/assets/logo-audience-network.png";
 import logoKiip from "@/assets/logo-kiip.png";
@@ -8928,7 +8929,34 @@ export default function ReflectApp() {
   }, []);
 
   return (
-    <div className="w-full" style={{ backgroundImage: "linear-gradient(90deg, rgb(3, 0, 20) 0%, rgb(3, 0, 20) 100%), linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%)" }} data-name="Reflect App">
+    <div
+      className="w-full relative"
+      data-name="Reflect App"
+      style={{
+        backgroundImage: `url(${homeBg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      {/* 背景轻微模糊 + 提亮蒙层（fixed 全屏，置于内容下方） */}
+      <div
+        aria-hidden
+        className="fixed inset-0 pointer-events-none z-0"
+        style={{
+          backgroundImage: `url(${homeBg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          filter: "blur(6px)",
+          transform: "scale(1.05)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="fixed inset-0 pointer-events-none z-0"
+        style={{ background: "hsla(0, 0%, 100%, 0.18)" }}
+      />
 
       {/* 第1屏：Hero */}
       <SnapSection>
