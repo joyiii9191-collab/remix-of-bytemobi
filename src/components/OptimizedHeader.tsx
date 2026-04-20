@@ -29,12 +29,12 @@ export function OptimizedHeader() {
       <div
         className="rounded-full px-8 py-3 flex items-center justify-between w-full max-w-6xl"
         style={{
-          background: 'hsla(0, 0%, 100%, 0.45)',
-          backdropFilter: 'blur(24px) saturate(160%)',
-          WebkitBackdropFilter: 'blur(24px) saturate(160%)',
-          border: '1px solid hsla(0, 0%, 100%, 0.65)',
+          background: 'hsla(0, 0%, 100%, 0.18)',
+          backdropFilter: 'blur(8px) saturate(105%)',
+          WebkitBackdropFilter: 'blur(8px) saturate(105%)',
+          border: '1px solid hsla(0, 0%, 100%, 0.5)',
           boxShadow:
-            '0 8px 32px -4px hsla(25, 50%, 30%, 0.18), inset 0 1px 0 0 hsla(0, 0%, 100%, 0.9)',
+            'inset 0 1px 0 0 hsla(0, 0%, 100%, 0.6), 0 8px 24px -10px hsla(250, 30%, 30%, 0.12)',
         }}
       >
         {/* Logo */}
