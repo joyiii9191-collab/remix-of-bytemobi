@@ -475,9 +475,37 @@ export default function GlobalFlow() {
       <SnapScreen id="web">
         <ScreenInner className="!justify-start">
           <ScreenTitle>Web 端长效增长</ScreenTitle>
-          <ScreenLead>
-            Web 端效果广告与用户增长业务核心 · 流量供给侧资源 · 双引擎流量供给模型 · 业务覆盖市场及全链路能力
-          </ScreenLead>
+          <ScreenLead>Web 端效果广告与用户增长业务核心</ScreenLead>
+
+          <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-3 mt-6">
+            {[
+              { icon: Layers, t: "流量供给侧资源", d: "汇聚一手媒体与联盟,深度覆盖优质流量入口" },
+              { icon: Network, t: "双引擎流量供给模型", d: "内投团队 + 流量网络协同,兼顾增长与规模" },
+              { icon: Globe2, t: "业务覆盖市场及全链路能力", d: "多市场、多场景全链路打通,持续可优化" },
+            ].map((c, i) => {
+              const Icon = c.icon;
+              return (
+                <motion.div
+                  key={c.t}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, amount: 0.3 }}
+                  transition={{ duration: 0.45, delay: i * 0.08 }}
+                  className="rounded-xl p-4 glass-card flex items-start gap-3"
+                  style={CARD}
+                >
+                  <div
+                    className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
+                    style={{ background: "rgba(99,102,241,0.1)", color: ACCENT }}
+                  ><Icon size={18} /></div>
+                  <div>
+                    <div className="text-sm font-semibold" style={{ color: TEXT_DARK }}>{c.t}</div>
+                    <div className="text-[11px] mt-1" style={{ color: TEXT_MID, lineHeight: 1.6 }}>{c.d}</div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
 
           {/* 业务类型 */}
           <div className="w-full mt-8">
