@@ -2377,8 +2377,6 @@ function LogoMarquee({ direction = 'left', logos, tag }: { direction?: 'left' | 
         <div
           style={{
             width: 'max-content',
-            paddingLeft: isLeft ? '50vw' : 0,
-            paddingRight: isLeft ? 0 : '50vw',
             opacity: phase === 'idle' ? 0 : 1,
             transition: 'opacity 0.8s ease-out',
           }}
