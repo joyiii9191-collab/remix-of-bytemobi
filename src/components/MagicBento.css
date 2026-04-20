@@ -43,24 +43,55 @@
 }
 
 /* 左上角蓝紫径向 blob —— 只占卡片左上 ~50% */
+/* 主光：左下大紫色 blob (70%) */
 .magic-bento-card::before {
   content: '';
   position: absolute;
-  top: -25%;
-  left: -15%;
-  width: 75%;
-  height: 90%;
+  bottom: -30%;
+  left: -20%;
+  width: 90%;
+  height: 100%;
   border-radius: 50%;
   pointer-events: none;
   background: radial-gradient(
-    circle at 35% 35%,
-    hsla(225, 95%, 65%, 0.55) 0%,
-    hsla(235, 85%, 65%, 0.35) 30%,
-    hsla(255, 75%, 68%, 0.18) 55%,
-    hsla(275, 80%, 68%, 0.08) 75%,
+    circle at 50% 50%,
+    hsla(270, 85%, 62%, 0.55) 0%,
+    hsla(265, 80%, 62%, 0.32) 35%,
+    hsla(260, 75%, 65%, 0.12) 65%,
     transparent 100%
   );
-  filter: blur(28px);
+  filter: blur(32px);
+  z-index: 0;
+  opacity: 0.9;
+  transition:
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.5s ease,
+    filter 0.5s ease;
+}
+
+/* 副光：右上小蓝色 blob (30%) + 顶部细高光 */
+.magic-bento-card--border-glow {
+  border-color: hsla(0, 0%, 100%, 0.08);
+}
+
+.magic-bento-card::after,
+.magic-bento-card--border-glow::after {
+  content: '';
+  position: absolute;
+  top: -15%;
+  right: -12%;
+  width: 55%;
+  height: 65%;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 50% 50%,
+    hsla(220, 100%, 65%, 0.45) 0%,
+    hsla(225, 95%, 62%, 0.22) 40%,
+    hsla(230, 85%, 65%, 0.08) 70%,
+    transparent 100%
+  );
+  filter: blur(26px);
   z-index: 0;
   opacity: 0.85;
   transition:
@@ -69,41 +100,25 @@
     filter 0.5s ease;
 }
 
-/* 顶部细高光 */
-.magic-bento-card--border-glow {
-  border-color: hsla(0, 0%, 100%, 0.08);
-}
-
-.magic-bento-card--border-glow::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 18%;
-  right: 18%;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    hsla(0, 0%, 100%, 0.35) 50%,
-    transparent
-  );
-  pointer-events: none;
-  z-index: 2;
-}
-
 .magic-bento-card:hover {
   transform: translateY(-3px);
-  border-color: hsla(232, 80%, 72%, 0.28);
+  border-color: hsla(255, 80%, 72%, 0.3);
   box-shadow:
     inset 0 1px 0 0 hsla(0, 0%, 100%, 0.12),
-    0 12px 40px -10px hsla(225, 90%, 50%, 0.35),
-    0 24px 60px -16px hsla(270, 80%, 50%, 0.25);
+    0 12px 40px -10px hsla(270, 85%, 50%, 0.4),
+    0 24px 60px -16px hsla(225, 90%, 50%, 0.22);
 }
 
 .magic-bento-card:hover::before {
-  transform: translate(8%, 5%) scale(1.15);
+  transform: translate(6%, -8%) scale(1.18);
   opacity: 1;
-  filter: blur(32px);
+  filter: blur(36px);
+}
+
+.magic-bento-card:hover::after {
+  transform: translate(-8%, 6%) scale(1.2);
+  opacity: 1;
+  filter: blur(30px);
 }
 
 /* Default state */
