@@ -2711,73 +2711,77 @@ function Section8TrafficMap() {
             {mapDots}
           </svg>
 
-          {/* Region anchors + cards (reference-style: icon pill + label + value) */}
-          {regions.map((r) => {
-            const cardLeft = r.cardDx < 0;
-            return (
-              <div key={r.code} className="absolute" style={{ left: `${r.x}%`, top: `${r.y}%` }}>
-                {/* Anchor highlight — red dot like reference */}
-                <div
-                  className="absolute"
-                  style={{
-                    left: 0, top: 0,
-                    transform: 'translate(-50%, -50%)',
-                    width: 14, height: 14,
-                    borderRadius: 999,
-                    background: 'hsl(0, 85%, 60%)',
-                    boxShadow: '0 0 0 5px hsla(0, 85%, 60%, 0.18), 0 0 0 12px hsla(0, 85%, 60%, 0.08), 0 0 18px hsla(0, 85%, 60%, 0.55)',
-                  }}
+          {/* Region anchors + connector + cards */}
+          {regions.map((r) => (
+            <div key={r.code} className="absolute" style={{ left: `${r.x}%`, top: `${r.y}%` }}>
+              {/* Anchor dot */}
+              <div
+                className="absolute"
+                style={{
+                  left: 0, top: 0,
+                  transform: 'translate(-50%, -50%)',
+                  width: 10, height: 10,
+                  borderRadius: 999,
+                  background: r.color,
+                  boxShadow: `0 0 0 4px ${r.color.replace('hsl', 'hsla').replace(')', ', 0.18)')}, 0 0 14px ${r.color.replace('hsl', 'hsla').replace(')', ', 0.55)')}`,
+                }}
+              />
+              {/* Connector line (anchor -> card corner) */}
+              <svg
+                className="absolute pointer-events-none"
+                style={{
+                  left: Math.min(0, r.cardDx),
+                  top: Math.min(0, r.cardDy),
+                  width: Math.abs(r.cardDx) + 4,
+                  height: Math.abs(r.cardDy) + 4,
+                  overflow: 'visible',
+                }}
+              >
+                <line
+                  x1={r.cardDx < 0 ? Math.abs(r.cardDx) : 0}
+                  y1={r.cardDy < 0 ? Math.abs(r.cardDy) : 0}
+                  x2={r.cardDx < 0 ? 0 : r.cardDx}
+                  y2={r.cardDy < 0 ? 0 : r.cardDy}
+                  stroke={r.color}
+                  strokeWidth="1"
+                  strokeDasharray="3 3"
+                  opacity="0.5"
                 />
-                {/* Floating card */}
+              </svg>
+              {/* Card */}
+              <div
+                className="absolute"
+                style={{
+                  left: r.cardDx,
+                  top: r.cardDy,
+                  transform: r.cardDx < 0 ? 'translate(-100%, -50%)' : 'translate(0, -50%)',
+                }}
+              >
                 <div
-                  className="absolute"
+                  className="px-3 py-2 rounded-[12px] backdrop-blur-md whitespace-nowrap flex items-center gap-3"
                   style={{
-                    left: r.cardDx,
-                    top: r.cardDy,
-                    transform: cardLeft ? 'translate(-100%, -50%)' : 'translate(0, -50%)',
+                    background: 'rgba(255,255,255,0.92)',
+                    border: '1px solid rgba(139,92,246,0.22)',
+                    boxShadow: '0 8px 24px rgba(60,40,140,0.12), inset 0 1px 0 rgba(255,255,255,0.95)',
                   }}
                 >
                   <div
-                    className="pl-2 pr-4 py-2 rounded-[14px] whitespace-nowrap flex items-center gap-2.5 relative"
+                    className="size-[28px] rounded-[8px] flex items-center justify-center shrink-0"
                     style={{
-                      background: 'rgba(255,255,255,0.98)',
-                      boxShadow: '0 12px 32px rgba(60,40,140,0.14), 0 2px 6px rgba(60,40,140,0.06), inset 0 1px 0 rgba(255,255,255,1)',
+                      background: `linear-gradient(135deg, ${r.color.replace('hsl', 'hsla').replace(')', ', 0.18)')}, ${r.color.replace('hsl', 'hsla').replace(')', ', 0.08)')})`,
+                      border: `1px solid ${r.color.replace('hsl', 'hsla').replace(')', ', 0.35)')}`,
                     }}
                   >
-                    {/* Colored icon tile */}
-                    <div
-                      className="size-[34px] rounded-[10px] flex items-center justify-center shrink-0"
-                      style={{
-                        background: r.color,
-                        boxShadow: `0 4px 10px ${r.color.replace('hsl', 'hsla').replace(')', ', 0.35)')}`,
-                      }}
-                    >
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <rect x="4" y="9" width="16" height="11" rx="1.5" />
-                        <path d="M4 9l8-5 8 5" />
-                        <path d="M10 20v-5h4v5" />
-                      </svg>
-                    </div>
-                    <div className="flex flex-col leading-tight">
-                      <span className="text-[11px] font-normal" style={{ color: 'rgba(30,27,60,0.55)' }}>{r.name}</span>
-                      <span className="text-[16px] font-semibold tracking-[-0.3px]" style={{ color: 'rgba(20,18,45,0.92)' }}>{r.share}%</span>
-                    </div>
-                    {/* Tail pointing to anchor */}
-                    <div
-                      className="absolute"
-                      style={{
-                        [cardLeft ? 'right' : 'left']: -5,
-                        top: '50%',
-                        transform: 'translateY(-50%) rotate(45deg)',
-                        width: 10, height: 10,
-                        background: 'rgba(255,255,255,0.98)',
-                      } as React.CSSProperties}
-                    />
+                    <span className="text-[10px] font-bold tracking-[0.04em]" style={{ color: r.color }}>{r.code}</span>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-[11px]" style={{ color: 'rgba(30,27,60,0.55)' }}>{r.name}</span>
+                    <span className="text-[16px] font-semibold tracking-[-0.4px] leading-tight" style={{ color: r.color }}>{r.share}%</span>
                   </div>
                 </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
 
           {/* Watermark */}
           <div className="absolute bottom-3 right-4 pointer-events-none">
