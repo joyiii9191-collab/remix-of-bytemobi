@@ -129,7 +129,7 @@ function SideCard({ data, dir }: { data: typeof ADV_SIDE; dir: "l" | "r" }) {
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: false, amount: 0.3 }}
       transition={{ duration: 0.6 }}
-      className="rounded-2xl p-6 md:p-7"
+      className="rounded-2xl p-6 md:p-7 glass-card"
       style={CARD}
     >
       <div
@@ -203,7 +203,7 @@ export default function JapanFocus() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false, amount: 0.3 }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="rounded-2xl p-6 h-full"
+                  className="rounded-2xl p-6 h-full glass-card"
                   style={CARD}
                 >
                   <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-3"

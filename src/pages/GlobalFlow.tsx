@@ -238,7 +238,7 @@ export default function GlobalFlow() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, amount: 0.3 }}
                     transition={{ duration: 0.5, delay: i * 0.12 }}
-                    className="flex-1 rounded-2xl p-5 relative"
+                    className="flex-1 rounded-2xl p-5 relative glass-card"
                     style={CARD}
                   >
                     <div
@@ -340,7 +340,7 @@ export default function GlobalFlow() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false, amount: 0.3 }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="rounded-2xl p-6"
+                  className="rounded-2xl p-6 glass-card"
                   style={CARD}
                 >
                   <div
@@ -373,7 +373,7 @@ export default function GlobalFlow() {
                 viewport={{ once: false, amount: 0.3 }}
                 transition={{ duration: 0.5, delay: i * 0.06 }}
                 whileHover={{ y: -4 }}
-                className="rounded-2xl p-4 text-left cursor-pointer"
+                className="rounded-2xl p-4 text-left cursor-pointer glass-card"
                 style={CARD}
               >
                 <span
@@ -447,7 +447,7 @@ export default function GlobalFlow() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: false, amount: 0.3 }}
                     transition={{ duration: 0.4, delay: i * 0.05 }}
-                    className="rounded-xl p-3 flex flex-col items-center text-center"
+                    className="rounded-xl p-3 flex flex-col items-center text-center glass-card"
                     style={CARD}
                   >
                     <div
