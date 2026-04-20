@@ -768,3 +768,37 @@ All colors MUST be HSL.
   backdrop-filter: blur(8px) saturate(105%);
   -webkit-backdrop-filter: blur(8px) saturate(105%);
 }
+
+/* ===== Form input autofill override =====
+   防止浏览器（Chrome/Safari）默认的暖黄色 autofill 背景污染深色玻璃表单 */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill {
+  -webkit-text-fill-color: #ffffff !important;
+  -webkit-box-shadow: 0 0 0 1000px rgba(30, 22, 60, 0.6) inset !important;
+  box-shadow: 0 0 0 1000px rgba(30, 22, 60, 0.6) inset !important;
+  caret-color: #ffffff;
+  transition: background-color 9999s ease-in-out 0s;
+  border-color: rgba(168, 130, 255, 0.4) !important;
+}
+
+/* Focus state for the contact form inputs */
+#contact input:focus,
+#contact textarea:focus,
+#contact select:focus {
+  border-color: rgba(168, 130, 255, 0.55) !important;
+  background: rgba(168, 130, 255, 0.08) !important;
+  box-shadow: 0 0 0 3px rgba(120, 60, 255, 0.15) !important;
+}
+
+/* Placeholder text — 统一为淡紫白，去除暖色调 */
+#contact input::placeholder,
+#contact textarea::placeholder {
+  color: rgba(220, 210, 255, 0.35) !important;
+  opacity: 1;
+}
