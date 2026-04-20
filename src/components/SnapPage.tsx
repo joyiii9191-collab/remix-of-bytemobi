@@ -126,7 +126,7 @@ export function ScreenInner({
 }) {
   return (
     <div
-      className={`relative z-10 w-full max-w-[1200px] mx-auto px-6 flex-1 flex flex-col justify-center ${className}`}
+      className={`relative z-10 w-full max-w-[1200px] mx-auto px-6 flex-1 flex flex-col justify-center items-center text-center ${className}`}
       style={style}
     >
       {children}
@@ -190,7 +190,7 @@ export function ScreenLead({ children }: { children: React.ReactNode }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.4 }}
       transition={{ duration: 0.7, delay: 0.1 }}
-      className="text-base md:text-lg max-w-3xl"
+      className="text-base md:text-lg max-w-3xl mx-auto"
       style={{ color: "hsl(230 25% 32%)", lineHeight: 1.7 }}
     >
       {children}
