@@ -2038,7 +2038,7 @@ function Section4Screen() {
                   background: 'radial-gradient(circle at 0% 0%, rgba(168,130,255,0.5) 0%, rgba(124,58,237,0.2) 30%, transparent 60%)',
                 }} />
                 {/* Card content */}
-                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: '#030014', border: '1px solid rgba(168,130,255,0.08)' }}>
+                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: 'linear-gradient(155deg, hsla(0,0%,100%,0.6) 0%, hsla(0,0%,100%,0.3) 100%)', backdropFilter: 'blur(16px) saturate(1.5)', WebkitBackdropFilter: 'blur(16px) saturate(1.5)', border: '1px solid hsla(0,0%,100%,0.6)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
                   <div className="w-[32px] h-[32px] rounded-md" style={{ background: 'rgba(255,255,255,0.06)' }} />
                 </div>
               </div>
@@ -2058,7 +2058,7 @@ function Section4Screen() {
                   background: 'radial-gradient(circle at 0% 0%, rgba(168,130,255,0.5) 0%, rgba(124,58,237,0.2) 30%, transparent 60%)',
                 }} />
                 {/* Card content */}
-                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: '#030014', border: '1px solid rgba(168,130,255,0.08)' }}>
+                <div className="relative w-full h-full rounded-[12px] flex items-center justify-center overflow-hidden z-[1]" style={{ background: 'linear-gradient(155deg, hsla(0,0%,100%,0.6) 0%, hsla(0,0%,100%,0.3) 100%)', backdropFilter: 'blur(16px) saturate(1.5)', WebkitBackdropFilter: 'blur(16px) saturate(1.5)', border: '1px solid hsla(0,0%,100%,0.6)', boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
                   <div className="w-[32px] h-[32px] rounded-md" style={{ background: 'rgba(255,255,255,0.06)' }} />
                 </div>
               </div>
@@ -2067,19 +2067,19 @@ function Section4Screen() {
 
           {/* Corner faded icons - top left */}
           <div className="absolute" style={{ top: '10px', left: '30px', opacity: 0.05 }}>
-            <div className="w-[60px] h-[60px] rounded-[12px]" style={{ background: '#030014', border: '3px solid #030014' }} />
+            <div className="w-[60px] h-[60px] rounded-[12px]" style={{ background: 'hsla(230,30%,40%,0.15)', border: '3px solid hsla(230,30%,40%,0.15)' }} />
           </div>
           {/* Corner faded icons - top right */}
           <div className="absolute" style={{ top: '10px', right: '30px', opacity: 0.05 }}>
-            <div className="w-[60px] h-[60px] rounded-[12px]" style={{ background: '#030014', border: '3px solid #030014' }} />
+            <div className="w-[60px] h-[60px] rounded-[12px]" style={{ background: 'hsla(230,30%,40%,0.15)', border: '3px solid hsla(230,30%,40%,0.15)' }} />
           </div>
           {/* Corner faded icons - bottom left */}
           <div className="absolute" style={{ bottom: '10px', left: '30px', opacity: 0.05 }}>
-            <div className="w-[60px] h-[60px] rounded-[12px]" style={{ background: '#030014', border: '3px solid #030014' }} />
+            <div className="w-[60px] h-[60px] rounded-[12px]" style={{ background: 'hsla(230,30%,40%,0.15)', border: '3px solid hsla(230,30%,40%,0.15)' }} />
           </div>
           {/* Corner faded icons - bottom right */}
           <div className="absolute" style={{ bottom: '10px', right: '30px', opacity: 0.05 }}>
-            <div className="w-[60px] h-[60px] rounded-[12px]" style={{ background: '#030014', border: '3px solid #030014' }} />
+            <div className="w-[60px] h-[60px] rounded-[12px]" style={{ background: 'hsla(230,30%,40%,0.15)', border: '3px solid hsla(230,30%,40%,0.15)' }} />
           </div>
 
           {/* Center - subtle purple glow logo frame with breathing */}
