@@ -2442,7 +2442,7 @@ function Section6LogoWall() {
         </p>
       </div>
 
-      {/* SVG filter: key-out white background (turns near-white pixels transparent) */}
+      {/* SVG filter: key-out white background (near-white pixels become transparent) */}
       <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true">
         <defs>
           <filter id="logo-key-white" colorInterpolationFilters="sRGB">
@@ -2454,12 +2454,10 @@ function Section6LogoWall() {
                       0 0 1 0 0
                       -1 -1 -1 0 1"
             />
-            {/* Boost remaining alpha so faint colored logos stay solid */}
+            {/* Sharpen alpha curve so light-grey edges fully drop out and colored pixels stay opaque */}
             <feComponentTransfer>
-              <feFuncA type="linear" slope="3" intercept="0" />
+              <feFuncA type="linear" slope="6" intercept="-0.2" />
             </feComponentTransfer>
-            {/* Multiply original RGB by new alpha to keep colors */}
-            <feComposite in="SourceGraphic" in2="thresholded" operator="in" />
           </filter>
         </defs>
       </svg>
