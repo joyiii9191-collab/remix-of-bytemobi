@@ -2204,16 +2204,16 @@ function Section5Screen() {
           整合全球主流媒体资源，提升广告覆盖率与投放效果
         </p>
 
-        {/* CTA button - Raycast style with flowing light border */}
+        {/* CTA button - StarBorder style (matches hero) */}
         <div className="flex items-center gap-4 mt-2">
-          <a href="/media-resources" className="raycast-btn relative inline-flex items-center gap-2 px-7 py-3 rounded-full text-[14px] font-medium text-white/90 overflow-hidden" style={{
-            background: 'rgba(255,255,255,0.04)',
-          }}>
-            <span className="raycast-btn-border" />
-            <span className="raycast-btn-bg" />
-            <span className="relative z-[1]">了解大媒体资源</span>
-            <span className="relative z-[1] ml-1">→</span>
-          </a>
+          <StarBorder
+            as="a"
+            href="/media-resources"
+            color="magenta"
+            speed="5s"
+          >
+            了解大媒体资源
+          </StarBorder>
         </div>
       </div>
 
