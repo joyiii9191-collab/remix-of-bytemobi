@@ -662,9 +662,9 @@ export default function GlobalFlow() {
                           <span
                             className="shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-[12px] font-bold"
                             style={{
-                              background: `linear-gradient(135deg, ${ACCENT}, hsl(243 75% 65%))`,
-                              color: "#fff",
-                              boxShadow: "0 3px 8px rgba(99,102,241,0.28)",
+                              background: "linear-gradient(135deg, rgba(99,102,241,0.15), rgba(99,102,241,0.05))",
+                              color: ACCENT,
+                              boxShadow: "0 4px 12px rgba(99,102,241,0.12)",
                             }}
                           >{i + 1}</span>
                           <span className="text-[13px] font-medium" style={{ color: TEXT_DARK, lineHeight: 1.5 }}>{s}</span>
