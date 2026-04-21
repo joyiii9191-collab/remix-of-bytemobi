@@ -445,7 +445,7 @@ export default function HopeX() {
       {/* === Screen 6 — 流量来源 === */}
       <SnapScreen id="traffic" bg="tint">
         <ScreenInner>
-          <ScreenTitle>自有 + 外部流量</ScreenTitle>
+          <ScreenTitle>全域流量矩阵</ScreenTitle>
           <ScreenLead>自有矩阵保证基本盘,外部对接保证规模与多样性。</ScreenLead>
           <div className="flex flex-col gap-6 mt-10 w-full">
             {[
