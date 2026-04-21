@@ -451,7 +451,7 @@ export default function HopeX() {
             {[
               {
                 tag: "OWNED",
-                t: "自有 App 矩阵",
+                t: "自有核心流量",
                 d: "短剧 / 工具 / 娱乐等自营 App。",
                 apps: [
                   "ShortMax", "DramaBox", "ReelShort", "FlexTV",
