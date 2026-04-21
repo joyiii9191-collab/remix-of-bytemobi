@@ -65,19 +65,47 @@ export default function HopeX() {
         <ScreenInner>
           <ScreenTitle>规模与基础能力</ScreenTitle>
           <ScreenLead>规模是程序化的前提,HopeX 的请求量与连接数支持稳定可预测的增长。</ScreenLead>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
             {SCALE.map((s, i) => (
               <motion.div
                 key={s.l}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="text-center"
+                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.6, delay: i * 0.08 }}
+                className="relative flex items-center justify-center h-40 md:h-48"
               >
-                <div className="stat-number text-5xl md:text-6xl mb-3">
-                  <CountUp value={s.v} suffix={s.s} />
+                {/* 镂空大数字背景 */}
+                <div
+                  aria-hidden
+                  className="absolute inset-0 flex items-center justify-center font-black select-none pointer-events-none"
+                  style={{
+                    fontSize: "clamp(7rem, 12vw, 11rem)",
+                    lineHeight: 1,
+                    letterSpacing: "-0.04em",
+                    color: "transparent",
+                    WebkitTextStroke: "1.5px hsla(230, 20%, 60%, 0.45)",
+                    fontFamily: "'Inter', system-ui, sans-serif",
+                  }}
+                >
+                  <CountUp value={s.v} />
                 </div>
-                <div className="stat-number-label text-sm uppercase" style={{ color: TEXT_MID }}>
-                  {s.l}
+                {/* 前景标签 */}
+                <div className="relative z-10 flex items-center gap-3">
+                  <span
+                    aria-hidden
+                    className="block h-[2px] w-7 rounded-full"
+                    style={{ background: "hsl(245 70% 55%)" }}
+                  />
+                  <div className="flex flex-col">
+                    <div
+                      className="text-base md:text-lg font-semibold tracking-wide"
+                      style={{ color: TEXT_DARK }}
+                    >
+                      {s.l}
+                    </div>
+                    <div className="text-xs md:text-sm font-medium mt-0.5" style={{ color: TEXT_MID }}>
+                      <CountUp value={s.v} suffix={s.s} />
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             ))}
