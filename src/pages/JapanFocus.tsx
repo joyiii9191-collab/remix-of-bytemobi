@@ -355,33 +355,36 @@ export default function JapanFocus() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: false, amount: 0.3 }}
                       transition={{ duration: 0.55, delay: i * 0.15, ease: "easeOut" }}
-                      className="relative flex-1 max-w-[240px]"
+                      className="relative flex-shrink-0"
                     >
                       <div
-                        className="relative rounded-2xl flex flex-col items-center text-center px-6 py-7"
+                        className="relative rounded-full flex flex-col items-center justify-center text-center"
                         style={{
-                          background: `linear-gradient(180deg, rgba(139,92,246,${0.1 + i * 0.03}) 0%, rgba(255,255,255,0.95) 100%)`,
-                          border: "1px solid rgba(139,92,246,0.2)",
-                          boxShadow: "0 18px 40px -22px rgba(139,92,246,0.5)",
+                          width: 240,
+                          height: 240,
+                          padding: "28px 26px",
+                          background: `radial-gradient(circle at 35% 30%, rgba(255,255,255,0.95) 0%, rgba(139,92,246,${0.12 + i * 0.04}) 70%, rgba(139,92,246,${0.18 + i * 0.04}) 100%)`,
+                          border: "1px solid rgba(139,92,246,0.22)",
+                          boxShadow: "0 22px 50px -22px rgba(139,92,246,0.55), inset 0 1px 1px rgba(255,255,255,0.8)",
                         }}
                       >
                         <div
-                          className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4"
+                          className="w-12 h-12 rounded-2xl flex items-center justify-center mb-2"
                           style={{ background: "rgba(139,92,246,0.14)", color: "hsl(262 75% 55%)" }}
                         >
-                          <Icon size={26} />
+                          <Icon size={24} />
                         </div>
 
-                        <div className="font-semibold tracking-wider" style={{ fontSize: 18, color: TEXT_DARK }}>
+                        <div className="font-semibold tracking-wider" style={{ fontSize: 17, color: TEXT_DARK }}>
                           {s.t.split(" ")[0]}
                         </div>
-                        <div className="mt-1 tracking-[0.25em] uppercase" style={{ fontSize: 10, color: "hsl(262 75% 55%)" }}>
+                        <div className="mt-0.5 tracking-[0.22em] uppercase" style={{ fontSize: 9, color: "hsl(262 75% 55%)" }}>
                           {s.t.split(" ")[1]}
                         </div>
 
-                        <div className="my-3 h-px w-10" style={{ background: "rgba(139,92,246,0.32)" }} />
+                        <div className="my-2 h-px w-8" style={{ background: "rgba(139,92,246,0.32)" }} />
 
-                        <p className="text-xs md:text-[13px] leading-relaxed" style={{ color: TEXT_MID }}>
+                        <p className="text-[11px] leading-snug px-2" style={{ color: TEXT_MID }}>
                           {s.d}
                         </p>
                       </div>
