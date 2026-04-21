@@ -447,7 +447,7 @@ export default function HopeX() {
         <ScreenInner>
           <ScreenTitle>自有 + 外部流量</ScreenTitle>
           <ScreenLead>自有矩阵保证基本盘,外部对接保证规模与多样性。</ScreenLead>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10 w-full">
+          <div className="flex flex-col gap-6 mt-10 w-full">
             {[
               {
                 tag: "OWNED",
@@ -484,45 +484,42 @@ export default function HopeX() {
               },
             ].map((c, i) => (
               <motion.div key={c.t}
-                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="rounded-2xl p-6 glass-card flex flex-col gap-4 overflow-hidden"
-                style={CARD}
+                initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="flex items-center gap-6 w-full"
               >
-                <div className="flex items-center gap-2">
+                {/* Left: label */}
+                <div className="shrink-0 w-[200px] flex flex-col gap-1.5 text-left">
                   <span
-                    className="text-[10px] font-bold uppercase tracking-[0.2em] px-2 py-0.5 rounded"
-                    style={{
-                      background: "rgba(99,102,241,0.12)",
-                      color: ACCENT,
-                    }}
+                    className="text-[10px] font-bold uppercase tracking-[0.2em]"
+                    style={{ color: ACCENT }}
                   >
                     {c.tag}
                   </span>
-                  <h3 className="text-lg font-semibold" style={{ color: TEXT_DARK }}>{c.t}</h3>
+                  <h3 className="text-base font-semibold leading-tight" style={{ color: TEXT_DARK }}>{c.t}</h3>
+                  <p className="text-[12px] leading-snug" style={{ color: TEXT_MID }}>{c.d}</p>
                 </div>
-                <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>{c.d}</p>
 
-                {/* Logo marquee */}
+                {/* Right: marquee row */}
                 <div
-                  className="relative -mx-6 mt-2 overflow-hidden"
+                  className="relative flex-1 min-w-0 overflow-hidden"
                   style={{
                     maskImage:
-                      "linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%)",
+                      "linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%)",
                     WebkitMaskImage:
-                      "linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%)",
+                      "linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%)",
                   }}
                 >
                   <div
                     className="flex gap-3 w-max"
                     style={{
-                      animation: `${c.direction === "left" ? "logo-marquee" : "logo-marquee-reverse"} 28s linear infinite`,
+                      animation: `${c.direction === "left" ? "logo-marquee" : "logo-marquee-reverse"} 32s linear infinite`,
                     }}
                   >
                     {[...c.apps, ...c.apps].map((name, idx) => (
                       <div
                         key={`${name}-${idx}`}
-                        className="shrink-0 w-[64px] h-[64px] rounded-xl flex flex-col items-center justify-center gap-1"
+                        className="shrink-0 w-[68px] h-[68px] rounded-xl flex flex-col items-center justify-center gap-1"
                         style={{
                           background: "rgba(255,255,255,0.6)",
                           border: "1px dashed rgba(99,102,241,0.3)",
