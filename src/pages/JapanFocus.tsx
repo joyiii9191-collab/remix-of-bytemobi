@@ -548,7 +548,6 @@ export default function JapanFocus() {
       {/* === Screen 3a — 广告主核心服务 === */}
       <SnapScreen id="two-sides-adv">
         <ScreenInner>
-          <ScreenEyebrow>SERVICES · 01</ScreenEyebrow>
           <ScreenTitle>广告主核心服务</ScreenTitle>
           <ScreenLead>为出海日本与亚太的广告主提供低门槛、高确定性的合作方式。</ScreenLead>
           <div className="mt-8 w-full">
@@ -560,7 +559,6 @@ export default function JapanFocus() {
       {/* === Screen 3b — 媒体方核心服务 === */}
       <SnapScreen id="two-sides-pub" bg="tint">
         <ScreenInner>
-          <ScreenEyebrow>SERVICES · 02</ScreenEyebrow>
           <ScreenTitle>媒体方核心服务</ScreenTitle>
           <ScreenLead>为日本本地媒体提供清晰、可控、可持续的变现方案。</ScreenLead>
           <div className="mt-8 w-full">
