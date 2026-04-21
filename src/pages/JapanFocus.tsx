@@ -275,9 +275,8 @@ export default function JapanFocus() {
       <SnapScreen id="strength-fraud" bg="tint">
         <ScreenInner>
           <ScreenTitle>严格的全球广告反欺诈对策</ScreenTitle>
-          <ScreenLead>
-            自研机器学习实时检测 + 第三方验证机构协同,及时识别虚假点击与成效,
-            优化发布商资源,保障公平透明。
+          <ScreenLead className="whitespace-nowrap max-w-none">
+            自研机器学习实时检测 + 第三方验证机构协同,及时识别虚假点击与成效,优化发布商资源,保障公平透明
           </ScreenLead>
           <div className="relative w-full max-w-[560px] aspect-square mx-auto mt-8">
             {/* 中心循环徽标 */}
