@@ -64,7 +64,6 @@ export default function HopeX() {
       <SnapScreen id="scale" bg="tint">
         <ScreenInner className="max-w-[1440px] px-8 xl:px-10">
           <ScreenTitle>平台规模与基础能力</ScreenTitle>
-          <ScreenLead>规模是程序化的前提,HopeX 的请求量与连接数支持稳定可预测的增长。</ScreenLead>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-10 xl:gap-x-14 gap-y-12 mt-16 w-full">
             {SCALE.map((s, i) => (
               <motion.div
