@@ -17,8 +17,8 @@ import {
 } from "lucide-react";
 
 import { GLASS_CARD as CARD, TEXT_DARK, TEXT_MID } from "@/lib/page-styles";
-const JP_RED = "hsl(355 75% 55%)";
-const JP_RED_SOFT = "rgba(220,38,38,0.08)";
+const JP_RED = "hsl(245 60% 45%)";
+const JP_RED_SOFT = "hsla(245, 60%, 45%, 0.08)";
 
 const CATEGORIES = [
   { icon: Heart, name: "交友 Dating" },
@@ -100,7 +100,7 @@ function OfficeCarousel() {
           transition={{ duration: 0.6 }}
           className="absolute inset-0 flex items-center justify-center"
           style={{
-            background: `linear-gradient(135deg, hsl(${355 + idx * 5} 60% 92%) 0%, hsl(${20 + idx * 8} 50% 88%) 100%)`,
+            background: `linear-gradient(135deg, hsl(${245 + idx * 5} 60% 92%) 0%, hsl(${260 + idx * 8} 50% 88%) 100%)`,
           }}
         >
           <svg width="200" height="200" viewBox="0 0 200 200" className="opacity-40">
@@ -229,8 +229,8 @@ export default function JapanFocus() {
                   <div
                     className="w-20 h-20 rounded-full flex items-center justify-center"
                     style={{
-                      background: `radial-gradient(circle at 30% 30%, hsl(355 80% 92%), hsl(355 70% 82%))`,
-                      boxShadow: "0 8px 24px -10px rgba(220,38,38,0.35)",
+                      background: `radial-gradient(circle at 30% 30%, hsl(245 70% 94%), hsl(245 60% 84%))`,
+                      boxShadow: "0 8px 24px -10px hsla(245, 60%, 45%, 0.35)",
                       color: JP_RED,
                     }}
                   >
@@ -401,7 +401,7 @@ export default function JapanFocus() {
                 background: "white",
                 border: `2px solid ${JP_RED}`,
                 color: JP_RED,
-                boxShadow: "0 6px 20px -6px rgba(220,38,38,0.4)",
+                boxShadow: "0 6px 20px -6px hsla(245, 60%, 45%, 0.4)",
               }}
             ><Sparkles size={18} /></div>
             <SideCard data={ADV_SIDE} dir="l" />
@@ -437,7 +437,7 @@ export default function JapanFocus() {
                   style={{ background: JP_RED_SOFT, color: JP_RED }}><Users size={20} /></div>
                 <div className="text-4xl font-bold mb-1"
                   style={{
-                    background: `linear-gradient(180deg, hsl(355 70% 35%) 0%, ${JP_RED} 100%)`,
+                    background: `linear-gradient(180deg, hsl(245 70% 30%) 0%, ${JP_RED} 100%)`,
                     WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", lineHeight: 1.1,
                   }}><CountUp value={47} /></div>
                 <div className="text-sm" style={{ color: TEXT_MID }}>员工规模 · 商务/运营/技术/合规</div>
@@ -451,7 +451,7 @@ export default function JapanFocus() {
                   style={{ background: JP_RED_SOFT, color: JP_RED }}><Languages size={20} /></div>
                 <div className="text-4xl font-bold mb-1"
                   style={{
-                    background: `linear-gradient(180deg, hsl(355 70% 35%) 0%, ${JP_RED} 100%)`,
+                    background: `linear-gradient(180deg, hsl(245 70% 30%) 0%, ${JP_RED} 100%)`,
                     WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", lineHeight: 1.1,
                   }}><CountUp value={65} suffix="%" /></div>
                 <div className="text-sm" style={{ color: TEXT_MID }}>日籍员工占比 · 深度融入本地市场</div>
