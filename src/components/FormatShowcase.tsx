@@ -231,7 +231,7 @@ export function FormatShowcase() {
       {/* Left content */}
       <div className="flex flex-col flex-1 gap-8 h-[520px] justify-center">
         {/* Title block */}
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 text-left items-start">
           <h2
             className="text-[36px] lg:text-[40px] font-semibold leading-[1.1] tracking-[-1px]"
             style={{ color: TEXT_DARK }}
