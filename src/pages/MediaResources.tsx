@@ -181,7 +181,7 @@ export default function MediaResources() {
       {/* === Screen 5 — 合作模式 === */}
       <SnapScreen id="model">
         <ScreenInner>
-          <ScreenTitle>覆盖跨境与品牌的多类客户</ScreenTitle>
+          <ScreenTitle>灵活对接 · 共赢增长</ScreenTitle>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10 mb-8">
             {["跨境商家", "品牌广告主", "渠道代理", "出海团队"].map((t, i) => (
               <motion.div key={t}
