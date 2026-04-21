@@ -81,7 +81,7 @@ const PROGRAMMATIC = [
 const ADV_SIDE = {
   title: "面向广告主",
   subtitle: "先成果,后付费",
-  core: "核心服务:成果报酬型(CPI / CPA)全球流量采买,覆盖应用安装、会员注册、商品购买等目标。",
+  core: "成果报酬型(CPI / CPA)全球流量采买,覆盖应用安装、会员注册、商品购买等目标",
   items: [
     { icon: Sparkles, t: "零初期费用", d: "完全成果报酬模式,无预付风险。" },
     { icon: Target, t: "灵活 KPI 设计", d: "按转化目标动态调整出价与活动。" },
