@@ -174,7 +174,7 @@ function SideCard({ data, dir }: { data: typeof ADV_SIDE; dir: "l" | "r" }) {
       className="rounded-3xl p-8 md:p-10 glass-card w-full max-w-4xl mx-auto"
       style={CARD}
     >
-      <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-4 mb-5">
+      <div className="flex flex-col items-center gap-3 md:gap-4 mb-5 text-center">
         <h3 className="text-2xl md:text-3xl font-bold" style={{ color: TEXT_DARK }}>
           {data.subtitle}
         </h3>
