@@ -237,24 +237,53 @@ export default function HopeX() {
       {/* === Screen 5 — SSP 能力 === */}
       <SnapScreen id="ssp">
         <ScreenInner>
-          <ScreenTitle>多形式 · 多预算入口</ScreenTitle>
-          <ScreenLead>从 Banner 到 CTV,所有主流广告位 + 多元预算源。</ScreenLead>
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-3 mt-8">
-            {["Banner", "Video", "Native", "App", "Web", "CTV"].map((t, i) => (
-              <motion.div key={t}
-                initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: i * 0.06 }}
-                className="rounded-xl px-4 py-4 text-center text-sm font-semibold glass-card" style={{ ...CARD, color: TEXT_DARK }}>{t}</motion.div>
+          <ScreenTitle>智能投放与优化能力</ScreenTitle>
+          <ScreenLead>以算法 + 数据 + 人工经验,持续放大投放效率与 ROI。</ScreenLead>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-10 w-full">
+            {[
+              {
+                t: "智能受众分群与精准定向",
+                d: "基于多维行为与画像数据,自动构建高价值人群,精准触达目标用户。",
+                icon: "01",
+              },
+              {
+                t: "实时策略调整(秒级响应)",
+                d: "毫秒级竞价决策,秒级策略迭代,快速响应流量与市场变化。",
+                icon: "02",
+              },
+              {
+                t: "预算自适应与智能限流",
+                d: "动态分配预算,智能限流防止超投,确保投放节奏稳定可控。",
+                icon: "03",
+              },
+              {
+                t: "人机协同优化策略",
+                d: "AI 自动优化 + 资深优化师经验复核,兼顾效率与判断深度。",
+                icon: "04",
+              },
+            ].map((c, i) => (
+              <motion.div key={c.t}
+                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="rounded-2xl p-6 glass-card flex gap-4 items-start"
+                style={CARD}
+              >
+                <div
+                  className="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-sm font-bold"
+                  style={{
+                    background: "linear-gradient(135deg, hsl(245 70% 55%) 0%, hsl(265 65% 60%) 100%)",
+                    color: "#fff",
+                    letterSpacing: "0.05em",
+                  }}
+                >
+                  {c.icon}
+                </div>
+                <div className="min-w-0">
+                  <h3 className="text-lg font-semibold mb-1.5" style={{ color: TEXT_DARK }}>{c.t}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>{c.d}</p>
+                </div>
+              </motion.div>
             ))}
-          </div>
-          <div className="rounded-2xl p-6 mt-6 glass-card" style={CARD}>
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>多元预算接入 · 官方 Logo 展示</div>
-            <div className="flex flex-wrap gap-2">
-              {["ShareThrough", "RTB House", "Shopee 品牌直客", "Shein 品牌直客"].map((t) => (
-                <div key={t} className="px-3 py-1.5 rounded-lg text-sm font-medium"
-                  style={{ background: "rgba(99,102,241,0.08)", color: "hsl(245 60% 35%)" }}>{t}</div>
-              ))}
-            </div>
           </div>
         </ScreenInner>
       </SnapScreen>
