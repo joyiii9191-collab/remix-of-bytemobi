@@ -91,7 +91,7 @@ const ADV_SIDE = {
 const PUB_SIDE = {
   title: "面向媒体",
   subtitle: "一站式变现伙伴",
-  core: "核心服务:一站式变现仪表板,管理高单价联盟项目(CPA / CPI / CPL),支持网站、应用、SNS 流量。",
+  core: "一站式变现仪表板,管理高单价联盟项目(CPA / CPI / CPL),支持网站、应用、SNS 流量",
   items: [
     { icon: Trophy, t: "高值项目库", d: "多品类高收益广告主,填充率高。" },
     { icon: Activity, t: "实时数据化运营", d: "小时级报表,支持自主调价。" },
