@@ -567,8 +567,8 @@ export default function JapanFocus() {
       {/* === Screen 4 — 全球地图 + 日本特写 === */}
       <SnapScreen id="map" bg="tint">
         <ScreenInner>
-          <ScreenTitle>以日本为核心的全球网络</ScreenTitle>
-          <ScreenLead>日本核心市场深耕,并向亚太、欧美持续扩张</ScreenLead>
+          <ScreenTitle>一、日本核心市场深耕</ScreenTitle>
+          <ScreenLead>重点布局日本市场,深刻理解其用户行为与监管环境,提供专业运营服务,保障广告主与媒体方在日本市场的成功</ScreenLead>
           <div className="rounded-2xl overflow-hidden mt-6 flex-1 min-h-[320px] glass-card" style={CARD}>
             <JapanHighlightMap height={420} />
           </div>

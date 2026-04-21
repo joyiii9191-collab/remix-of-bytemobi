@@ -109,28 +109,53 @@ export function ParticleWorldMap({
         {/* 标记 */}
         {markers.map((m, i) => (
           <g key={`m-${i}`}>
+            {/* 高亮节点的额外发光光晕 */}
+            {m.highlight && (
+              <>
+                <motion.circle
+                  cx={m.x}
+                  cy={m.y}
+                  r={2.5}
+                  fill={accent}
+                  opacity={0.25}
+                  animate={{ r: [2.5, 3.2, 2.5], opacity: [0.25, 0.45, 0.25] }}
+                  transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                  style={{ filter: `drop-shadow(0 0 2px ${accent})` }}
+                />
+                <motion.circle
+                  cx={m.x}
+                  cy={m.y}
+                  r={1.4}
+                  fill="none"
+                  stroke={accent}
+                  strokeWidth={0.25}
+                  initial={{ r: 1.4, opacity: 0.9 }}
+                  animate={{ r: 5.5, opacity: 0 }}
+                  transition={{ duration: 2.2, repeat: Infinity, ease: "easeOut" }}
+                />
+                <motion.circle
+                  cx={m.x}
+                  cy={m.y}
+                  r={1.4}
+                  fill="none"
+                  stroke={accent}
+                  strokeWidth={0.2}
+                  initial={{ r: 1.4, opacity: 0.7 }}
+                  animate={{ r: 7, opacity: 0 }}
+                  transition={{ duration: 2.6, repeat: Infinity, ease: "easeOut", delay: 0.6 }}
+                />
+              </>
+            )}
             <motion.circle
               cx={m.x}
               cy={m.y}
-              r={m.highlight ? 1.4 : 0.9}
+              r={m.highlight ? 1.6 : 0.9}
               fill={accent}
-              initial={{ opacity: 0.5 }}
-              animate={{ opacity: [0.5, 1, 0.5] }}
+              initial={{ opacity: 0.6 }}
+              animate={{ opacity: m.highlight ? [0.85, 1, 0.85] : [0.5, 1, 0.5] }}
               transition={{ duration: 2, repeat: Infinity, delay: i * 0.2 }}
+              style={m.highlight ? { filter: `drop-shadow(0 0 1.5px ${accent})` } : undefined}
             />
-            {m.highlight && (
-              <motion.circle
-                cx={m.x}
-                cy={m.y}
-                r={1.4}
-                fill="none"
-                stroke={accent}
-                strokeWidth={0.2}
-                initial={{ r: 1.4, opacity: 0.8 }}
-                animate={{ r: 4, opacity: 0 }}
-                transition={{ duration: 2.2, repeat: Infinity, delay: i * 0.2 }}
-              />
-            )}
           </g>
         ))}
       </svg>
