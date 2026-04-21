@@ -614,13 +614,31 @@ export default function HopeX() {
               </ul>
             </motion.div>
           </div>
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-center text-sm md:text-base mt-8 max-w-3xl mx-auto leading-relaxed"
-            style={{ color: TEXT_MID }}>
-            HopeX 致力于打通广告主与流量方之间的高效连接,通过技术驱动与全球化资源整合,实现规模、效率与收益的持续增长。
-          </motion.p>
+            className="mt-12 max-w-4xl mx-auto text-center flex flex-col items-center gap-5"
+          >
+            <p
+              className="text-sm md:text-base leading-relaxed"
+              style={{ color: TEXT_MID }}
+            >
+              HopeX 致力于打通广告主与流量方之间的高效连接,通过技术驱动与全球化资源整合,实现规模、效率与收益的持续增长。
+            </p>
+            <div className="flex items-center gap-4 w-full max-w-md">
+              <span className="h-px flex-1" style={{ background: `${ACCENT}33` }} />
+              <span className="w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
+              <span className="h-px flex-1" style={{ background: `${ACCENT}33` }} />
+            </div>
+            <h3
+              className="text-2xl md:text-3xl font-bold tracking-tight bg-clip-text text-transparent"
+              style={{
+                backgroundImage: `linear-gradient(90deg, ${TEXT_DARK}, ${ACCENT})`,
+              }}
+            >
+              Empowering the Future of Ads with HopeX
+            </h3>
+          </motion.div>
         </ScreenInner>
       </SnapScreen>
     </SnapPage>
