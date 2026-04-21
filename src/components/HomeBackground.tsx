@@ -36,11 +36,11 @@ export function HomeBackground() {
           opacity: 0.18,
         }}
       />
-      {/* 78% 白蒙层 */}
+      {/* 50% 白蒙层(更淡,让背景色彩透出) */}
       <div
         aria-hidden
         className="fixed inset-0 pointer-events-none z-0"
-        style={{ background: "hsla(0, 0%, 100%, 0.78)" }}
+        style={{ background: "hsla(0, 0%, 100%, 0.5)" }}
       />
     </>
   );
