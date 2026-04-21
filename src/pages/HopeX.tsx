@@ -64,13 +64,13 @@ export default function HopeX() {
       <SnapScreen id="scale" bg="tint">
         <ScreenInner className="max-w-[1440px] px-8 xl:px-10">
           <ScreenTitle>平台规模与基础能力</ScreenTitle>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-10 xl:gap-x-14 gap-y-12 mt-16 w-full">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-10 xl:gap-x-14 gap-y-6 mt-6 w-full">
             {SCALE.map((s, i) => (
               <motion.div
                 key={s.l}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.6, delay: i * 0.08 }}
-                className="relative flex items-center justify-center h-40 md:h-44 min-w-0"
+                className="relative flex items-center justify-center h-32 md:h-36 min-w-0"
               >
                 <div
                   aria-hidden
@@ -111,7 +111,7 @@ export default function HopeX() {
           <motion.div
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.2 }} transition={{ duration: 0.6, delay: 0.2 }}
-            className="rounded-2xl glass-card mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6 p-6 lg:p-8 items-center w-full max-w-[1200px] mx-auto"
+            className="rounded-2xl glass-card mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6 p-5 lg:p-6 items-center w-full max-w-[1200px] mx-auto"
             style={CARD}
           >
             <div className="min-w-0">
@@ -136,7 +136,7 @@ export default function HopeX() {
                 ))}
               </ul>
             </div>
-            <div className="relative h-[260px] lg:h-[320px] rounded-xl overflow-hidden">
+            <div className="relative h-[200px] lg:h-[240px] rounded-xl overflow-hidden">
               <ParticleWorldMap markers={HOPEX_MARKERS} lines={HOPEX_LINES} />
             </div>
           </motion.div>
