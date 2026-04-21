@@ -555,9 +555,9 @@ export default function HopeX() {
 
       {/* === Screen 7 — 合作价值 === */}
       <SnapScreen id="value">
-        <ScreenInner>
+        <ScreenInner className="max-w-[1440px] px-8 xl:px-10">
           <ScreenTitle>一端服务广告主,一端服务流量方</ScreenTitle>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-10 w-full">
             <motion.div
               initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5 }}
