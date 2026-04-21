@@ -33,6 +33,27 @@ const SCALE = [
   { v: 300, s: "+", l: "广告主合作伙伴" },
 ];
 
+function GlassTag({ children }: { children: React.ReactNode }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -8 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, amount: 0.4 }}
+      transition={{ duration: 0.5 }}
+      className="inline-flex items-center gap-2 px-4 py-1.5 mb-5 rounded-full text-xs font-semibold uppercase tracking-[0.22em] backdrop-blur-md border"
+      style={{
+        background: "rgba(255,255,255,0.55)",
+        borderColor: `${ACCENT}33`,
+        color: ACCENT,
+        boxShadow: "0 4px 18px -8px rgba(60, 60, 120, 0.25), inset 0 1px 0 rgba(255,255,255,0.6)",
+      }}
+    >
+      <span className="w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
+      {children}
+    </motion.div>
+  );
+}
+
 export default function HopeX() {
   return (
     <SnapPage title="程序化广告">
@@ -149,6 +170,7 @@ export default function HopeX() {
       {/* === Screen 4 — DSP 全渠道增长能力 === */}
       <SnapScreen id="dsp" bg="tint">
         <ScreenInner>
+          <GlassTag>DSP 能力</GlassTag>
           <ScreenTitle>全渠道增长能力</ScreenTitle>
           <ScreenLead>HopeX DSP 聚合多元流量来源</ScreenLead>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10 w-full">
@@ -239,6 +261,7 @@ export default function HopeX() {
       {/* === Screen 5 — SSP 能力 === */}
       <SnapScreen id="ssp">
         <ScreenInner>
+          <GlassTag>DSP 能力</GlassTag>
           <ScreenTitle>智能投放与优化能力</ScreenTitle>
           <ScreenLead>以算法 + 数据 + 人工经验,持续放大投放效率与 ROI。</ScreenLead>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-10 w-full">
@@ -293,6 +316,7 @@ export default function HopeX() {
       {/* === Screen 5b — 全球行业覆盖 === */}
       <SnapScreen id="industries">
         <ScreenInner>
+          <GlassTag>DSP 能力</GlassTag>
           <ScreenTitle>全球行业覆盖</ScreenTitle>
           <ScreenLead>跨越多元行业,服务全球头部客户。</ScreenLead>
           <div className="grid grid-cols-3 md:grid-cols-6 gap-4 mt-10 w-full">
