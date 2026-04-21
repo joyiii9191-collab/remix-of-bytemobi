@@ -111,7 +111,7 @@ export default function HopeX() {
           <motion.div
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.2 }} transition={{ duration: 0.6, delay: 0.2 }}
-            className="rounded-2xl glass-card mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6 p-6 lg:p-8 items-center"
+            className="rounded-2xl glass-card mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6 p-6 lg:p-8 items-center w-full max-w-[1200px] mx-auto"
             style={CARD}
           >
             <div className="min-w-0">
