@@ -568,9 +568,47 @@ export default function JapanFocus() {
       <SnapScreen id="map" bg="tint">
         <ScreenInner>
           <ScreenTitle>日本核心市场深耕</ScreenTitle>
-          <ScreenLead>重点布局日本市场,深刻理解其用户行为与监管环境,提供专业运营服务,保障广告主与媒体方在日本市场的成功</ScreenLead>
-          <div className="rounded-2xl overflow-hidden mt-6 flex-1 min-h-[320px] glass-card" style={CARD}>
-            <JapanHighlightMap height={420} />
+          <ScreenLead>重点布局 · 深度理解 · 专业运营 · 共赢成功</ScreenLead>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6 flex-1 min-h-[320px]">
+            {/* 左侧:分点信息卡 */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 content-start">
+              {[
+                { icon: Target, t: "重点布局日本市场", d: "聚焦日本作为核心战略市场,长期深耕、持续投入" },
+                { icon: Users, t: "深刻理解用户行为", d: "把握本地用户偏好与消费习惯,精准触达核心人群" },
+                { icon: ShieldCheck, t: "熟悉监管环境", d: "严格遵循日本广告法规与合规要求,稳健可持续" },
+                { icon: Handshake, t: "保障广告主与媒体共赢", d: "提供专业运营服务,助力双方在日本市场取得成功" },
+              ].map((item, i) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false, amount: 0.3 }}
+                    transition={{ duration: 0.5, delay: i * 0.08 }}
+                    className="rounded-2xl p-5 glass-card"
+                    style={CARD}
+                  >
+                    <div
+                      className="w-10 h-10 rounded-xl flex items-center justify-center mb-3"
+                      style={{ background: JP_RED_SOFT, color: JP_RED }}
+                    >
+                      <Icon size={20} />
+                    </div>
+                    <h3 className="text-base font-semibold mb-1.5" style={{ color: TEXT_DARK }}>
+                      {item.t}
+                    </h3>
+                    <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>
+                      {item.d}
+                    </p>
+                  </motion.div>
+                );
+              })}
+            </div>
+            {/* 右侧:世界地图 + 日本高亮 */}
+            <div className="rounded-2xl overflow-hidden glass-card flex items-center justify-center" style={CARD}>
+              <JapanHighlightMap height={420} />
+            </div>
           </div>
         </ScreenInner>
       </SnapScreen>
