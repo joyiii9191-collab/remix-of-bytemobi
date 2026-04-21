@@ -276,7 +276,9 @@ export default function JapanFocus() {
         <ScreenInner>
           <ScreenTitle>严格的全球广告反欺诈对策</ScreenTitle>
           <ScreenLead>
-            自研机器学习实时检测 + 第三方验证机构协同,及时识别虚假点击与成效,优化发布商资源,保障公平透明
+            <span className="whitespace-nowrap inline-block">
+              自研机器学习实时检测 + 第三方验证机构协同,及时识别虚假点击与成效,优化发布商资源,保障公平透明
+            </span>
           </ScreenLead>
           <div className="relative w-full max-w-[1280px] mx-auto mt-10">
             {/* 循环流程 —— 跑道形连续弧形箭头环绕三张等大卡片 */}
