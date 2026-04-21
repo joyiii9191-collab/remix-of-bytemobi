@@ -566,47 +566,11 @@ export default function JapanFocus() {
 
       {/* === Screen 4 — 全球地图 + 日本特写 === */}
       <SnapScreen id="map" bg="tint">
-        <ScreenInner className="!items-stretch !text-left">
-          <div className="grid grid-cols-1 lg:grid-cols-[minmax(280px,420px)_1fr] gap-8 items-center w-full flex-1">
-            {/* 左侧信息卡 */}
-            <motion.div
-              initial={{ opacity: 0, x: -24 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false, amount: 0.3 }}
-              transition={{ duration: 0.6 }}
-              className="rounded-2xl p-7 glass-card"
-              style={CARD}
-            >
-              <div
-                className="text-xs font-semibold uppercase tracking-[0.25em] mb-3"
-                style={{ color: "hsl(245 60% 45%)" }}
-              >
-                Japan Focus
-              </div>
-              <h2
-                className="text-2xl md:text-3xl font-bold tracking-tight mb-4"
-                style={{
-                  background:
-                    "linear-gradient(180deg, hsl(245 60% 12%) 0%, hsl(245 45% 32%) 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  lineHeight: 1.2,
-                }}
-              >
-                日本核心市场深耕
-              </h2>
-              <p
-                className="text-sm md:text-base"
-                style={{ color: "hsl(230 25% 32%)", lineHeight: 1.75 }}
-              >
-                重点布局日本市场,深刻理解其用户行为与监管环境,提供专业运营服务,保障广告主与媒体方在日本市场的成功
-              </p>
-            </motion.div>
-
-            {/* 右侧地图 */}
-            <div className="rounded-2xl overflow-hidden min-h-[320px] glass-card h-full" style={CARD}>
-              <JapanHighlightMap height={460} />
-            </div>
+        <ScreenInner>
+          <ScreenTitle>日本核心市场深耕</ScreenTitle>
+          <ScreenLead>重点布局日本市场,深刻理解其用户行为与监管环境,提供专业运营服务,保障广告主与媒体方在日本市场的成功</ScreenLead>
+          <div className="rounded-2xl overflow-hidden mt-6 flex-1 min-h-[320px] glass-card" style={CARD}>
+            <JapanHighlightMap height={420} />
           </div>
         </ScreenInner>
       </SnapScreen>
