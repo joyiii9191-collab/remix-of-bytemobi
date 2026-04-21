@@ -45,9 +45,36 @@ const FRAUD_LOOP = [
 ];
 
 const PROGRAMMATIC = [
-  { icon: Cpu, t: "精准算法", d: "多维特征建模,锁定高价值用户。" },
-  { icon: Zap, t: "实时优化", d: "全链路实时数据,分钟级回流调整。" },
-  { icon: SlidersHorizontal, t: "定制策略", d: "按行业 KPI 与预算自适应分配。" },
+  {
+    icon: Cpu,
+    t: "精准算法",
+    items: [
+      "多维特征建模",
+      "锁定高价值用户",
+      "深度学习意图预测",
+      "跨设备身份识别",
+    ],
+  },
+  {
+    icon: Zap,
+    t: "实时优化",
+    items: [
+      "全链路实时数据",
+      "分钟级回流调整",
+      "智能出价动态校准",
+      "异常流量秒级拦截",
+    ],
+  },
+  {
+    icon: SlidersHorizontal,
+    t: "定制策略",
+    items: [
+      "按行业 KPI 自适应",
+      "预算智能分配",
+      "千人千面创意匹配",
+      "全渠道协同投放",
+    ],
+  },
 ];
 
 const ADV_SIDE = {
@@ -441,7 +468,7 @@ export default function JapanFocus() {
             依托精准算法与全链路实时数据,自动优化广告投放,
             提升广告主营销效率与媒体方变现效果
           </ScreenLead>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-12 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 w-full max-w-5xl mx-auto">
             {PROGRAMMATIC.map((p, i) => {
               const Icon = p.icon;
               return (
@@ -451,22 +478,34 @@ export default function JapanFocus() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false, amount: 0.3 }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="rounded-2xl p-7 glass-card text-left h-full flex flex-col"
+                  className="rounded-2xl p-8 glass-card flex flex-col items-center text-center min-h-[420px]"
                   style={CARD}
                 >
                   <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
+                    className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"
                     style={{ background: JP_RED_SOFT, color: JP_RED }}
                   >
-                    <Icon size={22} />
+                    <Icon size={26} />
                   </div>
-                  <h3 className="text-lg font-semibold mb-2" style={{ color: TEXT_DARK }}>
+                  <h3 className="text-xl font-semibold mb-3" style={{ color: TEXT_DARK }}>
                     {p.t}
                   </h3>
-                  <div className="w-8 h-px mb-3" style={{ background: JP_RED, opacity: 0.5 }} />
-                  <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>
-                    {p.d}
-                  </p>
+                  <div className="w-10 h-px mb-5" style={{ background: JP_RED, opacity: 0.5 }} />
+                  <ul className="flex flex-col gap-3 w-full mt-2">
+                    {p.items.map((item) => (
+                      <li
+                        key={item}
+                        className="text-sm leading-relaxed flex items-center justify-center gap-2"
+                        style={{ color: TEXT_MID }}
+                      >
+                        <span
+                          className="inline-block w-1.5 h-1.5 rounded-full flex-shrink-0"
+                          style={{ background: JP_RED, opacity: 0.6 }}
+                        />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </motion.div>
               );
             })}
