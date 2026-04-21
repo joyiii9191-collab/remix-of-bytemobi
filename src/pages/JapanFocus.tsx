@@ -279,54 +279,157 @@ export default function JapanFocus() {
             自研机器学习实时检测 + 第三方验证机构协同,及时识别虚假点击与成效,
             优化发布商资源,保障公平透明。
           </ScreenLead>
-          <div className="relative w-full max-w-[920px] mx-auto mt-12">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
-              {FRAUD_LOOP.map((s, i) => {
-                const Icon = s.icon;
-                return (
-                  <React.Fragment key={s.t}>
+          <div className="relative w-full max-w-[1040px] mx-auto mt-10">
+            {/* 循环图 —— 三个玻璃球 + 上下弧线箭头 */}
+            <div className="relative w-full" style={{ aspectRatio: "1040 / 460" }}>
+              {/* SVG: 上下两条弧线 + 箭头 */}
+              <svg
+                viewBox="0 0 1040 460"
+                className="absolute inset-0 w-full h-full pointer-events-none"
+                fill="none"
+              >
+                <defs>
+                  <linearGradient id="loopArrow" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stopColor="hsl(245 70% 60%)" stopOpacity="0.35" />
+                    <stop offset="50%" stopColor="hsl(245 70% 55%)" stopOpacity="0.95" />
+                    <stop offset="100%" stopColor="hsl(245 70% 60%)" stopOpacity="0.35" />
+                  </linearGradient>
+                  <marker
+                    id="arrowR"
+                    viewBox="0 0 10 10"
+                    refX="8"
+                    refY="5"
+                    markerWidth="7"
+                    markerHeight="7"
+                    orient="auto-start-reverse"
+                  >
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="hsl(245 70% 55%)" />
+                  </marker>
+                  <marker
+                    id="arrowL"
+                    viewBox="0 0 10 10"
+                    refX="8"
+                    refY="5"
+                    markerWidth="7"
+                    markerHeight="7"
+                    orient="auto-start-reverse"
+                  >
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="hsl(245 70% 55%)" />
+                  </marker>
+                </defs>
+                {/* 上弧:左 -> 右 */}
+                <path
+                  d="M 175 200 C 175 40, 865 40, 865 200"
+                  stroke="url(#loopArrow)"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  markerEnd="url(#arrowR)"
+                />
+                {/* 下弧:右 -> 左 */}
+                <path
+                  d="M 865 260 C 865 420, 175 420, 175 260"
+                  stroke="url(#loopArrow)"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  markerEnd="url(#arrowL)"
+                />
+                {/* 弧线标签 */}
+                <text
+                  x="520"
+                  y="60"
+                  textAnchor="middle"
+                  fontSize="14"
+                  fontWeight="600"
+                  fill={JP_RED}
+                  letterSpacing="2"
+                >
+                  实时检测
+                </text>
+                <text
+                  x="520"
+                  y="410"
+                  textAnchor="middle"
+                  fontSize="14"
+                  fontWeight="600"
+                  fill={JP_RED}
+                  letterSpacing="2"
+                >
+                  持续优化
+                </text>
+              </svg>
+
+              {/* 三个圆球 */}
+              <div className="absolute inset-0 flex items-center justify-between px-2">
+                {FRAUD_LOOP.map((s, i) => {
+                  const Icon = s.icon;
+                  return (
                     <motion.div
-                      initial={{ opacity: 0, y: 16 }}
-                      whileInView={{ opacity: 1, y: 0 }}
+                      key={s.t}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: false, amount: 0.3 }}
-                      transition={{ duration: 0.5, delay: i * 0.12 }}
-                      className="rounded-2xl p-6 glass-card text-left relative z-10"
-                      style={CARD}
+                      transition={{ duration: 0.55, delay: i * 0.15, ease: "easeOut" }}
+                      className="relative flex flex-col items-center"
+                      style={{ width: i === 1 ? 180 : 240 }}
                     >
                       <div
-                        className="w-12 h-12 rounded-xl flex items-center justify-center mb-3"
-                        style={{ background: JP_RED_SOFT, color: JP_RED }}
+                        className="rounded-full flex flex-col items-center justify-center text-center relative"
+                        style={{
+                          width: i === 1 ? 160 : 220,
+                          height: i === 1 ? 160 : 220,
+                          background:
+                            "radial-gradient(circle at 30% 25%, hsl(245 80% 72%) 0%, hsl(245 75% 55%) 45%, hsl(245 80% 38%) 100%)",
+                          boxShadow:
+                            "0 20px 50px -10px hsla(245, 70%, 35%, 0.55), inset 0 -8px 20px hsla(245, 80%, 25%, 0.4), inset 0 6px 14px hsla(0, 0%, 100%, 0.35)",
+                          color: "white",
+                        }}
                       >
-                        <Icon size={22} />
+                        {/* 高光 */}
+                        <div
+                          className="absolute rounded-full pointer-events-none"
+                          style={{
+                            top: "10%",
+                            left: "18%",
+                            width: "45%",
+                            height: "30%",
+                            background:
+                              "radial-gradient(ellipse at center, hsla(0,0%,100%,0.55) 0%, hsla(0,0%,100%,0) 70%)",
+                            filter: "blur(2px)",
+                          }}
+                        />
+                        <Icon size={i === 1 ? 26 : 30} className="mb-2 opacity-90" />
+                        <div
+                          className="font-bold tracking-wider"
+                          style={{ fontSize: i === 1 ? 18 : 22 }}
+                        >
+                          {s.t.split(" ")[0]}
+                        </div>
+                        <div
+                          className="opacity-80 mt-1 tracking-widest"
+                          style={{ fontSize: i === 1 ? 10 : 11 }}
+                        >
+                          {s.t.split(" ")[1]}
+                        </div>
                       </div>
-                      <div className="text-base font-semibold mb-2" style={{ color: TEXT_DARK }}>
-                        {s.t}
-                      </div>
-                      <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>
+                      <p
+                        className="text-xs md:text-sm mt-5 max-w-[220px] leading-relaxed"
+                        style={{ color: TEXT_MID }}
+                      >
                         {s.d}
                       </p>
                     </motion.div>
-                    {i < FRAUD_LOOP.length - 1 && (
-                      <div
-                        className="hidden md:flex absolute top-1/2 -translate-y-1/2 items-center justify-center text-2xl pointer-events-none z-0"
-                        style={{
-                          left: `calc(${((i + 1) * 100) / 3}% - 12px)`,
-                          color: JP_RED,
-                          opacity: 0.6,
-                        }}
-                      >
-                        →
-                      </div>
-                    )}
-                  </React.Fragment>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
-            <div
-              className="hidden md:block absolute -bottom-6 left-1/2 -translate-x-1/2 text-xs px-3 py-1 rounded-full"
-              style={{ background: JP_RED_SOFT, color: JP_RED }}
-            >
-              ↻ 持续循环优化
+
+            <div className="flex justify-center mt-4">
+              <div
+                className="text-xs px-4 py-1.5 rounded-full font-medium"
+                style={{ background: JP_RED_SOFT, color: JP_RED }}
+              >
+                ↻ 检测 → 验证 → 优化 持续闭环
+              </div>
             </div>
           </div>
         </ScreenInner>
