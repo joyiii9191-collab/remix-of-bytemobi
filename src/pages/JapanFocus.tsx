@@ -194,7 +194,7 @@ export default function JapanFocus() {
           <div className="mt-10 flex items-center gap-6">
             <StarBorder
               speed="5s"
-              onClick={() => document.getElementById("strengths")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+              onClick={() => document.getElementById("strength-categories")?.scrollIntoView({ behavior: "smooth", block: "start" })}
             >
               查看本地能力
             </StarBorder>
