@@ -282,7 +282,7 @@ export default function JapanFocus() {
           <div className="relative w-full max-w-[1280px] mx-auto mt-10">
             {/* 循环流程 —— 跑道形连续弧形箭头环绕三张等大卡片 */}
             <div className="relative w-full" style={{ aspectRatio: "1280 / 520" }}>
-              {/* SVG: 双层跑道 —— 内圈封闭 + 外圈断开带箭头(参考样式) */}
+              {/* SVG: 双层跑道 —— 外圈带箭头(完全包裹卡片) + 内圈细描边 */}
               <svg
                 viewBox="0 0 1280 520"
                 className="absolute inset-0 w-full h-full pointer-events-none"
@@ -290,49 +290,51 @@ export default function JapanFocus() {
                 preserveAspectRatio="none"
               >
                 <defs>
-                  {/* 外层箭头段渐变:淡 -> 浓 */}
                   <linearGradient id="outerTop" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0%" stopColor="hsl(222 88% 60%)" stopOpacity="0.15" />
-                    <stop offset="100%" stopColor="hsl(222 88% 55%)" stopOpacity="1" />
+                    <stop offset="0%" stopColor="hsl(265 80% 70%)" stopOpacity="0.15" />
+                    <stop offset="60%" stopColor="hsl(262 75% 60%)" stopOpacity="0.9" />
+                    <stop offset="100%" stopColor="hsl(262 75% 55%)" stopOpacity="1" />
                   </linearGradient>
                   <linearGradient id="outerBottom" x1="1" y1="0" x2="0" y2="0">
-                    <stop offset="0%" stopColor="hsl(222 88% 60%)" stopOpacity="0.15" />
-                    <stop offset="100%" stopColor="hsl(222 88% 55%)" stopOpacity="1" />
+                    <stop offset="0%" stopColor="hsl(265 80% 70%)" stopOpacity="0.15" />
+                    <stop offset="60%" stopColor="hsl(262 75% 60%)" stopOpacity="0.9" />
+                    <stop offset="100%" stopColor="hsl(262 75% 55%)" stopOpacity="1" />
                   </linearGradient>
                 </defs>
 
-                {/* 内层封闭跑道(主色实心环) */}
+                {/* 内层细描边跑道(紧贴卡片外缘) */}
                 <path
-                  d="M 290 110 L 990 110 A 150 150 0 0 1 990 410 L 290 410 A 150 150 0 0 1 290 110 Z"
-                  stroke="hsl(222 88% 55%)"
-                  strokeWidth="9"
+                  d="M 310 130 L 970 130 A 130 130 0 0 1 970 390 L 310 390 A 130 130 0 0 1 310 130 Z"
+                  stroke="hsl(262 60% 80%)"
+                  strokeWidth="3"
                   strokeLinejoin="round"
                   fill="none"
+                  opacity="0.7"
                 />
 
-                {/* 外层上半段(淡 -> 浓),终止于顶部偏右,带箭头 */}
+                {/* 外层上半段:左中 -> 左上弧 -> 顶部水平线 -> 终止箭头(顶部偏右) */}
                 <path
-                  d="M 70 260 A 220 220 0 0 1 290 40 L 820 40"
+                  d="M 60 260 A 220 220 0 0 1 280 40 L 1000 40"
                   stroke="url(#outerTop)"
                   strokeWidth="14"
-                  strokeLinecap="round"
+                  strokeLinecap="butt"
                   strokeLinejoin="round"
                   fill="none"
                 />
-                {/* 上半段箭头 */}
-                <polygon points="820,40 798,26 798,54" fill="hsl(222 88% 55%)" />
+                {/* 上半段三角箭头(水平指向右,贴在末端) */}
+                <polygon points="1000,18 1040,40 1000,62" fill="hsl(262 75% 55%)" />
 
-                {/* 外层下半段(淡 -> 浓),终止于底部偏左,带箭头 */}
+                {/* 外层下半段:右中 -> 右下弧 -> 底部水平线 -> 终止箭头(底部偏左) */}
                 <path
-                  d="M 1210 260 A 220 220 0 0 1 990 480 L 460 480"
+                  d="M 1220 260 A 220 220 0 0 1 1000 480 L 280 480"
                   stroke="url(#outerBottom)"
                   strokeWidth="14"
-                  strokeLinecap="round"
+                  strokeLinecap="butt"
                   strokeLinejoin="round"
                   fill="none"
                 />
-                {/* 下半段箭头 */}
-                <polygon points="460,480 482,466 482,494" fill="hsl(222 88% 55%)" />
+                {/* 下半段三角箭头(水平指向左,贴在末端) */}
+                <polygon points="280,458 240,480 280,502" fill="hsl(262 75% 55%)" />
 
                 <text x="950" y="28" textAnchor="middle" fontSize="13" fontWeight="600" fill={JP_RED} letterSpacing="3">
                   实时检测
@@ -342,8 +344,8 @@ export default function JapanFocus() {
                 </text>
               </svg>
 
-              {/* 三张等大卡片(蓝色渐变染色,与全球汇流一致) */}
-              <div className="absolute inset-0 flex items-center justify-center gap-6 md:gap-10 px-[14%]">
+              {/* 三张等大卡片(紫色渐变染色) */}
+              <div className="absolute inset-0 flex items-center justify-center gap-6 md:gap-10 px-[16%]">
                 {FRAUD_LOOP.map((s, i) => {
                   const Icon = s.icon;
                   return (
@@ -353,19 +355,19 @@ export default function JapanFocus() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: false, amount: 0.3 }}
                       transition={{ duration: 0.55, delay: i * 0.15, ease: "easeOut" }}
-                      className="relative flex-1 max-w-[260px]"
+                      className="relative flex-1 max-w-[240px]"
                     >
                       <div
                         className="relative rounded-2xl flex flex-col items-center text-center px-6 py-7"
                         style={{
-                          background: `linear-gradient(180deg, rgba(59,130,246,${0.1 + i * 0.03}) 0%, rgba(255,255,255,0.95) 100%)`,
-                          border: "1px solid rgba(59,130,246,0.18)",
-                          boxShadow: "0 18px 40px -22px rgba(59,130,246,0.45)",
+                          background: `linear-gradient(180deg, rgba(139,92,246,${0.1 + i * 0.03}) 0%, rgba(255,255,255,0.95) 100%)`,
+                          border: "1px solid rgba(139,92,246,0.2)",
+                          boxShadow: "0 18px 40px -22px rgba(139,92,246,0.5)",
                         }}
                       >
                         <div
                           className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4"
-                          style={{ background: "rgba(59,130,246,0.12)", color: "#3B82F6" }}
+                          style={{ background: "rgba(139,92,246,0.14)", color: "hsl(262 75% 55%)" }}
                         >
                           <Icon size={26} />
                         </div>
@@ -373,11 +375,11 @@ export default function JapanFocus() {
                         <div className="font-semibold tracking-wider" style={{ fontSize: 18, color: TEXT_DARK }}>
                           {s.t.split(" ")[0]}
                         </div>
-                        <div className="mt-1 tracking-[0.25em] uppercase" style={{ fontSize: 10, color: "#3B82F6" }}>
+                        <div className="mt-1 tracking-[0.25em] uppercase" style={{ fontSize: 10, color: "hsl(262 75% 55%)" }}>
                           {s.t.split(" ")[1]}
                         </div>
 
-                        <div className="my-3 h-px w-10" style={{ background: "rgba(59,130,246,0.3)" }} />
+                        <div className="my-3 h-px w-10" style={{ background: "rgba(139,92,246,0.32)" }} />
 
                         <p className="text-xs md:text-[13px] leading-relaxed" style={{ color: TEXT_MID }}>
                           {s.d}
@@ -388,6 +390,7 @@ export default function JapanFocus() {
                 })}
               </div>
             </div>
+
 
             <div className="flex justify-center mt-6">
               <div
