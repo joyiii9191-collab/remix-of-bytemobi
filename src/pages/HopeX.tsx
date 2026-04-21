@@ -65,20 +65,20 @@ export default function HopeX() {
         <ScreenInner>
           <ScreenTitle>规模与基础能力</ScreenTitle>
           <ScreenLead>规模是程序化的前提,HopeX 的请求量与连接数支持稳定可预测的增长。</ScreenLead>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
             {SCALE.map((s, i) => (
               <motion.div
                 key={s.l}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="rounded-2xl p-6 glass-card" style={CARD}
+                className="text-center"
               >
-                <div className="text-4xl md:text-5xl font-bold mb-2"
-                  style={{
-                    background: "linear-gradient(180deg, hsl(245 70% 30%) 0%, hsl(245 60% 50%) 100%)",
-                    WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", lineHeight: 1.1,
-                  }}><CountUp value={s.v} suffix={s.s} /></div>
-                <div className="text-sm" style={{ color: TEXT_MID }}>{s.l}</div>
+                <div className="stat-number text-5xl md:text-6xl mb-3">
+                  <CountUp value={s.v} suffix={s.s} />
+                </div>
+                <div className="stat-number-label text-sm uppercase" style={{ color: TEXT_MID }}>
+                  {s.l}
+                </div>
               </motion.div>
             ))}
           </div>
