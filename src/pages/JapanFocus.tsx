@@ -172,7 +172,12 @@ function SideCard({ data, dir }: { data: typeof ADV_SIDE; dir: "l" | "r" }) {
       viewport={{ once: false, amount: 0.2 }}
       transition={{ duration: 0.6 }}
       className="rounded-3xl p-8 md:p-10 glass-card w-full max-w-4xl mx-auto"
-      style={CARD}
+      style={{
+        ...CARD,
+        backdropFilter: "blur(24px) saturate(140%)",
+        WebkitBackdropFilter: "blur(24px) saturate(140%)",
+        background: "hsla(0, 0%, 100%, 0.55)",
+      }}
     >
       <div className="flex flex-col items-center gap-3 md:gap-4 mb-5 text-center">
         <h3 className="text-2xl md:text-3xl font-bold" style={{ color: TEXT_DARK }}>
