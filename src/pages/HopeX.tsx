@@ -349,6 +349,99 @@ export default function HopeX() {
         </ScreenInner>
       </SnapScreen>
 
+      {/* === Screen 5d — 多元预算接入 === */}
+      <SnapScreen id="budget">
+        <ScreenInner>
+          <ScreenTitle>多元预算接入</ScreenTitle>
+          <ScreenLead>HopeX SSP 已对接多类型预算,稳定覆盖效果与品牌双目标。</ScreenLead>
+
+          {/* Budget sources */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-10 w-full">
+            {[
+              {
+                tag: "头部 DSP",
+                t: "程序化广告预算",
+                d: "对接全球头部 DSP 平台,稳定承接程序化预算流入。",
+                logos: ["ShareThrough", "RTB House", "Criteo", "The Trade Desk"],
+              },
+              {
+                tag: "品牌直客",
+                t: "品牌广告主预算",
+                d: "服务全球头部品牌客户,直连预算源,降低中间损耗。",
+                logos: ["Shopee", "SHEIN", "Binance", "Lazada"],
+              },
+            ].map((c, i) => (
+              <motion.div key={c.t}
+                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="rounded-2xl p-6 glass-card flex flex-col gap-4"
+                style={CARD}
+              >
+                <div className="flex items-center gap-3">
+                  <span
+                    className="text-[10px] font-bold uppercase tracking-[0.2em] px-2.5 py-1 rounded-md"
+                    style={{
+                      background: "linear-gradient(135deg, hsl(245 70% 55%) 0%, hsl(265 65% 60%) 100%)",
+                      color: "#fff",
+                    }}
+                  >
+                    {c.tag}
+                  </span>
+                  <h3 className="text-lg font-semibold" style={{ color: TEXT_DARK }}>{c.t}</h3>
+                </div>
+                <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>{c.d}</p>
+                <div className="flex flex-wrap gap-1.5 mt-auto">
+                  {c.logos.map((l) => (
+                    <span
+                      key={l}
+                      className="px-2.5 py-1 rounded-md text-xs font-medium"
+                      style={{
+                        background: "rgba(99,102,241,0.08)",
+                        color: "hsl(245 60% 35%)",
+                        border: "1px solid rgba(99,102,241,0.18)",
+                      }}
+                    >
+                      {l}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Budget characteristics footnote */}
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-3 text-[12px] w-full max-w-[900px]" style={{ color: TEXT_MID }}>
+            <div className="flex items-center gap-2">
+              <span className="block w-1 h-1 rounded-full shrink-0" style={{ background: ACCENT }} />
+              电商大促及节日预算
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="block w-1 h-1 rounded-full shrink-0" style={{ background: ACCENT }} />
+              长周期品牌预算(最长 12 个月)
+            </div>
+          </div>
+
+          {/* Highlights */}
+          <div className="mt-5 flex flex-wrap items-center gap-3 w-full">
+            <span className="text-[12px] font-semibold tracking-[0.15em]" style={{ color: ACCENT }}>★ 特点</span>
+            {[
+              { t: "预算稳定", d: "持续可预期的预算来源" },
+              { t: "覆盖全域", d: "效果 + 品牌全场景覆盖" },
+              { t: "效果 + 品牌双目标", d: "支持多元投放策略" },
+            ].map((f, i) => (
+              <motion.div key={f.t}
+                initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: i * 0.08 }}
+                className="px-3 py-1.5 rounded-full text-[12px] font-medium glass-card"
+                style={{ ...CARD, color: TEXT_DARK }}
+              >
+                {f.t}
+              </motion.div>
+            ))}
+          </div>
+        </ScreenInner>
+      </SnapScreen>
+
       {/* === Screen 6 — 流量来源 === */}
       <SnapScreen id="traffic" bg="tint">
         <ScreenInner>
