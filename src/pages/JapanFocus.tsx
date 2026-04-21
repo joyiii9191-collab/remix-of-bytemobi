@@ -401,7 +401,7 @@ export default function JapanFocus() {
                 background: "white",
                 border: `2px solid ${JP_RED}`,
                 color: JP_RED,
-                boxShadow: "0 6px 20px -6px rgba(220,38,38,0.4)",
+                boxShadow: "0 6px 20px -6px hsla(245, 60%, 45%, 0.4)",
               }}
             ><Sparkles size={18} /></div>
             <SideCard data={ADV_SIDE} dir="l" />
@@ -437,7 +437,7 @@ export default function JapanFocus() {
                   style={{ background: JP_RED_SOFT, color: JP_RED }}><Users size={20} /></div>
                 <div className="text-4xl font-bold mb-1"
                   style={{
-                    background: `linear-gradient(180deg, hsl(355 70% 35%) 0%, ${JP_RED} 100%)`,
+                    background: `linear-gradient(180deg, hsl(245 70% 30%) 0%, ${JP_RED} 100%)`,
                     WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", lineHeight: 1.1,
                   }}><CountUp value={47} /></div>
                 <div className="text-sm" style={{ color: TEXT_MID }}>员工规模 · 商务/运营/技术/合规</div>
@@ -451,7 +451,7 @@ export default function JapanFocus() {
                   style={{ background: JP_RED_SOFT, color: JP_RED }}><Languages size={20} /></div>
                 <div className="text-4xl font-bold mb-1"
                   style={{
-                    background: `linear-gradient(180deg, hsl(355 70% 35%) 0%, ${JP_RED} 100%)`,
+                    background: `linear-gradient(180deg, hsl(245 70% 30%) 0%, ${JP_RED} 100%)`,
                     WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", lineHeight: 1.1,
                   }}><CountUp value={65} suffix="%" /></div>
                 <div className="text-sm" style={{ color: TEXT_MID }}>日籍员工占比 · 深度融入本地市场</div>
