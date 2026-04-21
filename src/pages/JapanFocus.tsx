@@ -100,7 +100,7 @@ function OfficeCarousel() {
           transition={{ duration: 0.6 }}
           className="absolute inset-0 flex items-center justify-center"
           style={{
-            background: `linear-gradient(135deg, hsl(${355 + idx * 5} 60% 92%) 0%, hsl(${20 + idx * 8} 50% 88%) 100%)`,
+            background: `linear-gradient(135deg, hsl(${245 + idx * 5} 60% 92%) 0%, hsl(${260 + idx * 8} 50% 88%) 100%)`,
           }}
         >
           <svg width="200" height="200" viewBox="0 0 200 200" className="opacity-40">
