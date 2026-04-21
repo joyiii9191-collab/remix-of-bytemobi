@@ -687,6 +687,15 @@ export default function JapanFocus() {
                 className="rounded-2xl p-6 sm:col-span-2 glass-card flex flex-col items-center justify-center text-center"
                 style={CARD}
               >
+                <div
+                  className="w-11 h-11 rounded-xl flex items-center justify-center mb-3"
+                  style={{
+                    background: `linear-gradient(135deg, hsla(245, 60%, 45%, 0.12), hsla(245, 70%, 30%, 0.08))`,
+                    border: `1px solid hsla(245, 60%, 45%, 0.18)`,
+                  }}
+                >
+                  <Building2 size={22} style={{ color: JP_RED }} />
+                </div>
                 <h3 className="text-base font-semibold mb-1.5" style={{ color: TEXT_DARK }}>
                   东京办公室
                 </h3>
