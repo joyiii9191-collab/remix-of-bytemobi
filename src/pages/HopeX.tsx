@@ -42,11 +42,11 @@ export default function HopeX() {
           <ScreenTitle size="xl">
             关于 HopeX
           </ScreenTitle>
-          <ScreenLead>
-            HopeX 是 HopeMobi 旗下的程序化广告平台,致力于为广告主与流量方提供可预测增长的商业化解决方案。
-          </ScreenLead>
-          <p className="mt-4 max-w-3xl text-sm md:text-[15px] leading-relaxed" style={{ color: "hsl(220 10% 45%)", letterSpacing: "0.01em" }}>
-            在充满不确定性的全球市场环境中,HopeX 通过数据驱动与智能算法,将投放决策、流量分发与效果优化系统化,让每一次增长都有据可依。
+          <p className="text-base md:text-lg whitespace-nowrap" style={{ color: "hsl(230 25% 32%)", lineHeight: 1.7 }}>
+            HopeX 是 HopeMobi 旗下的程序化广告平台,致力于为广告主与流量方提供可预测增长的商业化解决方案
+          </p>
+          <p className="mt-4 text-sm md:text-[15px] whitespace-nowrap" style={{ color: "hsl(220 10% 45%)", letterSpacing: "0.01em", lineHeight: 1.7 }}>
+            在充满不确定性的全球市场环境中,HopeX 通过数据驱动与智能算法,将投放决策、流量分发与效果优化系统化,让每一次增长都有据可依
           </p>
           <div className="mt-10 flex items-center gap-6">
             <StarBorder
