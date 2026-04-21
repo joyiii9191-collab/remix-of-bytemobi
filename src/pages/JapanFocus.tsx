@@ -40,7 +40,7 @@ const PARTNER_GROUPS = [
 
 const FRAUD_LOOP = [
   { icon: ScanSearch, t: "检测 Detect", d: "自研机器学习\n实时识别异常流量与虚假点击" },
-  { icon: BadgeCheck, t: "验证 Verify", d: "第三方验证机构协同复核成效真实性。" },
+  { icon: BadgeCheck, t: "验证 Verify", d: "第三方验证机构协同\n复核成效真实性" },
   { icon: SlidersHorizontal, t: "优化 Optimize", d: "动态优化发布商资源,保障公平透明。" },
 ];
 
