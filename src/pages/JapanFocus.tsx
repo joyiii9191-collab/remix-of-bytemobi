@@ -279,96 +279,90 @@ export default function JapanFocus() {
             自研机器学习实时检测 + 第三方验证机构协同,及时识别虚假点击与成效,
             优化发布商资源,保障公平透明。
           </ScreenLead>
-          <div className="relative w-full max-w-[560px] aspect-square mx-auto mt-8">
+          <div
+            className="relative w-full mx-auto mt-8"
+            style={{ maxWidth: 920, height: 440 }}
+          >
             {/* 中心循环徽标 */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-                className="rounded-full flex items-center justify-center"
+                className="rounded-full"
                 style={{
-                  width: 140,
-                  height: 140,
+                  width: 150,
+                  height: 150,
                   border: `1.5px dashed ${JP_RED}`,
-                  opacity: 0.55,
+                  opacity: 0.5,
                 }}
               />
               <div
                 className="absolute rounded-full flex flex-col items-center justify-center text-center glass-card"
-                style={{ ...CARD, width: 110, height: 110 }}
+                style={{ ...CARD, width: 118, height: 118 }}
               >
-                <div className="text-xs" style={{ color: TEXT_MID }}>持续</div>
-                <div className="text-sm font-semibold" style={{ color: JP_RED }}>循环优化</div>
+                <div className="text-[11px]" style={{ color: TEXT_MID }}>持续</div>
+                <div className="text-sm font-semibold mt-0.5" style={{ color: JP_RED }}>循环优化</div>
               </div>
             </div>
 
             {/* 弧形箭头 SVG */}
             <svg
-              viewBox="0 0 100 100"
+              viewBox="0 0 100 50"
+              preserveAspectRatio="none"
               className="absolute inset-0 w-full h-full pointer-events-none"
               style={{ color: JP_RED }}
             >
               <defs>
-                <marker id="fraud-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                <marker id="fraud-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
                   <path d="M0,0 L10,5 L0,10 z" fill="currentColor" />
                 </marker>
               </defs>
-              {[0, 1, 2].map((i) => {
-                const start = (i * 120 - 90 + 18) * (Math.PI / 180);
-                const end = ((i + 1) * 120 - 90 - 18) * (Math.PI / 180);
-                const r = 36;
-                const cx = 50, cy = 50;
-                const x1 = cx + r * Math.cos(start);
-                const y1 = cy + r * Math.sin(start);
-                const x2 = cx + r * Math.cos(end);
-                const y2 = cy + r * Math.sin(end);
-                return (
-                  <path
-                    key={i}
-                    d={`M ${x1} ${y1} A ${r} ${r} 0 0 1 ${x2} ${y2}`}
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="0.6"
-                    opacity="0.5"
-                    markerEnd="url(#fraud-arrow)"
-                  />
-                );
-              })}
+              {/* 顶 → 右下 */}
+              <path d="M 58 12 Q 80 22 78 38" fill="none" stroke="currentColor" strokeWidth="0.5" opacity="0.55" markerEnd="url(#fraud-arrow)" />
+              {/* 右下 → 左下 */}
+              <path d="M 70 44 Q 50 50 30 44" fill="none" stroke="currentColor" strokeWidth="0.5" opacity="0.55" markerEnd="url(#fraud-arrow)" />
+              {/* 左下 → 顶 */}
+              <path d="M 22 38 Q 20 22 42 12" fill="none" stroke="currentColor" strokeWidth="0.5" opacity="0.55" markerEnd="url(#fraud-arrow)" />
             </svg>
 
-            {/* 三个节点 */}
+            {/* 三个节点 — 三角形布局 */}
             {FRAUD_LOOP.map((s, i) => {
               const Icon = s.icon;
-              const angle = (i * 120 - 90) * (Math.PI / 180);
-              const r = 42;
-              const x = 50 + r * Math.cos(angle);
-              const y = 50 + r * Math.sin(angle);
+              // 顶部、左下、右下
+              const positions = [
+                { left: "50%", top: "0%" },
+                { left: "8%", top: "78%" },
+                { left: "92%", top: "78%" },
+              ];
+              const pos = positions[i];
               return (
                 <motion.div
                   key={s.t}
-                  initial={{ opacity: 0, scale: 0.8 }}
+                  initial={{ opacity: 0, scale: 0.85 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: false, amount: 0.3 }}
                   transition={{ duration: 0.5, delay: i * 0.15 }}
-                  className="absolute rounded-2xl p-4 glass-card text-center"
+                  className="absolute rounded-2xl p-5 glass-card text-left"
                   style={{
                     ...CARD,
-                    width: 170,
-                    left: `${x}%`,
-                    top: `${y}%`,
-                    transform: "translate(-50%, -50%)",
+                    width: 240,
+                    left: pos.left,
+                    top: pos.top,
+                    transform: "translate(-50%, 0)",
                   }}
                 >
-                  <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center mx-auto mb-2"
-                    style={{ background: JP_RED_SOFT, color: JP_RED }}
-                  >
-                    <Icon size={20} />
+                  <div className="flex items-center gap-3 mb-2">
+                    <div
+                      className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
+                      style={{ background: JP_RED_SOFT, color: JP_RED }}
+                    >
+                      <Icon size={22} />
+                    </div>
+                    <div className="text-base font-semibold" style={{ color: TEXT_DARK }}>
+                      {s.t}
+                    </div>
                   </div>
-                  <div className="text-sm font-semibold mb-1" style={{ color: TEXT_DARK }}>
-                    {s.t}
-                  </div>
-                  <p className="text-xs leading-relaxed" style={{ color: TEXT_MID }}>
+                  <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>
                     {s.d}
                   </p>
                 </motion.div>
