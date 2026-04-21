@@ -180,17 +180,17 @@ function SideCard({ data, dir }: { data: typeof ADV_SIDE; dir: "l" | "r" }) {
         </h3>
       </div>
       <div
-        className="rounded-2xl p-5 md:p-6 mb-7 border"
+        className="rounded-2xl p-5 md:p-6 mb-7 border text-left"
         style={{
           background: "hsla(245, 60%, 45%, 0.04)",
           borderColor: "hsla(245, 60%, 45%, 0.18)",
         }}
       >
-        <p className="text-[15px] md:text-base leading-relaxed" style={{ color: TEXT_DARK }}>
+        <p className="text-[15px] md:text-base leading-relaxed text-left" style={{ color: TEXT_DARK }}>
           {data.core}
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
         {data.items.map((it, i) => {
           const Icon = it.icon;
           return (
@@ -200,7 +200,7 @@ function SideCard({ data, dir }: { data: typeof ADV_SIDE; dir: "l" | "r" }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 0.4, delay: i * 0.06 }}
-              className="group flex gap-4 p-4 rounded-xl transition-all duration-300 hover:bg-white/40 hover:-translate-y-0.5 border border-transparent hover:border-[hsla(245,60%,45%,0.2)]"
+              className="group flex gap-4 p-4 rounded-xl transition-all duration-300 hover:bg-white/40 hover:-translate-y-0.5 border border-transparent hover:border-[hsla(245,60%,45%,0.2)] text-left"
             >
               <div
                 className="w-10 h-10 shrink-0 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
@@ -208,11 +208,11 @@ function SideCard({ data, dir }: { data: typeof ADV_SIDE; dir: "l" | "r" }) {
               >
                 <Icon size={18} />
               </div>
-              <div className="min-w-0">
-                <div className="text-[15px] font-semibold mb-1" style={{ color: TEXT_DARK }}>
+              <div className="min-w-0 text-left">
+                <div className="text-[15px] font-semibold mb-1 text-left" style={{ color: TEXT_DARK }}>
                   {it.t}
                 </div>
-                <div className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>
+                <div className="text-sm leading-relaxed text-left" style={{ color: TEXT_MID }}>
                   {it.d}
                 </div>
               </div>
