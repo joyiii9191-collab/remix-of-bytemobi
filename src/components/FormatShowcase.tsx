@@ -230,19 +230,7 @@ export function FormatShowcase() {
   return (
     <div className="w-full flex items-center gap-10 lg:gap-14 mt-6">
       {/* Left content */}
-      <div className="flex flex-col flex-1 gap-8 h-[520px] justify-center">
-        {/* Title block */}
-        <div className="flex flex-col gap-3 text-left items-start">
-          <h2
-            className="text-[36px] lg:text-[40px] font-semibold leading-[1.1] tracking-[-1px]"
-            style={{ color: TEXT_DARK }}
-          >
-            全场景流量变现能力
-          </h2>
-          <p className="text-[14px] lg:text-[15px]" style={{ color: TEXT_MID }}>
-            支持多种广告形式 · 全端覆盖
-          </p>
-        </div>
+      <div className="flex flex-col flex-1 gap-6 justify-center">
 
         {/* Carousel */}
         <div className="flex flex-col gap-3 min-h-[200px]">

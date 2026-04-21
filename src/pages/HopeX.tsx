@@ -370,6 +370,8 @@ export default function HopeX() {
       {/* === Screen 5c — 全场景流量变现能力 === */}
       <SnapScreen id="formats" bg="tint">
         <ScreenInner>
+          <ScreenTitle>全场景流量变现能力</ScreenTitle>
+          <ScreenLead>支持多种广告形式 · 全端覆盖</ScreenLead>
           <FormatShowcase />
         </ScreenInner>
       </SnapScreen>
