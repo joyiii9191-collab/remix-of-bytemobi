@@ -1,6 +1,7 @@
 import React from "react";
 import StarBorder from "@/components/StarBorder";
 import { motion } from "motion/react";
+import { Rocket, BarChart3, ShieldCheck, LineChart } from "lucide-react";
 import {
   SnapPage, SnapScreen, ScreenInner,
   ScreenEyebrow, ScreenTitle, ScreenLead,
@@ -92,21 +93,62 @@ export default function MediaResources() {
         <ScreenInner>
           <ScreenTitle>核心业务</ScreenTitle>
           <ScreenLead>从开户到复盘的端到端能力,一个团队覆盖全部环节。</ScreenLead>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
             {[
-              { t: "开户与投放启动", d: "为广告主完成账号开设、账户准备与投放上线前配置。" },
-              { t: "代投与优化", d: "根据投放目标进行日常优化、素材迭代与预算调整。" },
-              { t: "风控与合规", d: "检查素材、定向和投放方式是否符合平台规则。" },
-              { t: "数据与复盘", d: "整理投放结果、做效果分析与下一轮优化建议。" },
-            ].map((c, i) => (
-              <motion.div key={c.t}
-                initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="rounded-2xl p-6 glass-card" style={CARD}>
-                <h3 className="text-base font-semibold mb-1.5" style={{ color: TEXT_DARK }}>{c.t}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>{c.d}</p>
-              </motion.div>
-            ))}
+              {
+                t: "账户与投放启动",
+                d: "为广告主完成账号开设、账户准备与投放上线前配置。",
+                Icon: Rocket,
+                items: [
+                  "TikTok / Facebook / Google 快速开户",
+                  "1–3 工作日启动投放",
+                  "多主体、多币种、多账户体系",
+                ],
+              },
+              {
+                t: "数据驱动优化",
+                d: "根据投放目标进行日常优化、素材迭代与预算调整。",
+                Icon: BarChart3,
+                items: [
+                  "多平台素材策略与本地化适配",
+                  "实时数据监测与跨平台优化",
+                  "全案运营(策略 + 执行 + 复盘)",
+                ],
+              },
+              {
+                t: "创意与合规护航",
+                d: "检查素材、定向和投放方式是否符合平台规则。",
+                Icon: ShieldCheck,
+                items: [
+                  "素材规范适配与创意指导",
+                  "广告预审与合规审核",
+                  "风控监测 + 封禁预警 + 快速申诉",
+                ],
+              },
+            ].map((c, i) => {
+              const Icon = c.Icon;
+              return (
+                <motion.div key={c.t}
+                  initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.08 }}
+                  className="rounded-2xl p-7 glass-card" style={CARD}>
+                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl"
+                    style={{ background: "rgba(99,102,241,0.1)", color: ACCENT }}>
+                    <Icon size={22} strokeWidth={1.8} />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2" style={{ color: TEXT_DARK }}>{c.t}</h3>
+                  <p className="text-sm leading-relaxed mb-4" style={{ color: TEXT_MID }}>{c.d}</p>
+                  <ul className="space-y-1.5 pt-3 border-t border-white/40">
+                    {c.items.map((it) => (
+                      <li key={it} className="text-sm flex items-start gap-2" style={{ color: TEXT_MID }}>
+                        <span className="mt-2 h-1 w-1 rounded-full flex-shrink-0" style={{ background: ACCENT }} />
+                        <span>{it}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              );
+            })}
           </div>
         </ScreenInner>
       </SnapScreen>
