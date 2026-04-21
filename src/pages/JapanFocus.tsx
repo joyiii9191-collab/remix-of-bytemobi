@@ -17,8 +17,8 @@ import {
 } from "lucide-react";
 
 import { GLASS_CARD as CARD, TEXT_DARK, TEXT_MID } from "@/lib/page-styles";
-const JP_RED = "hsl(355 75% 55%)";
-const JP_RED_SOFT = "rgba(220,38,38,0.08)";
+const JP_RED = "hsl(245 60% 45%)";
+const JP_RED_SOFT = "hsla(245, 60%, 45%, 0.08)";
 
 const CATEGORIES = [
   { icon: Heart, name: "交友 Dating" },
