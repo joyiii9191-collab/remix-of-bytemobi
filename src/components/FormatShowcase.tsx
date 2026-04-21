@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { LayoutGrid, TrendingUp } from "lucide-react";
 import { TEXT_DARK, TEXT_MID, ACCENT } from "@/lib/page-styles";
 import formatBanner from "@/assets/format-banner.png";
 import formatVideo from "@/assets/format-video.png";
@@ -266,23 +267,25 @@ export function FormatShowcase() {
         </div>
 
         {/* Bottom: developer benefits */}
-        <div className="flex flex-col gap-3">
-          <ul className="space-y-2 text-[13px]" style={{ color: TEXT_MID }}>
-            <li className="flex items-start gap-2">
-              <span
-                className="mt-[7px] block w-1.5 h-1.5 rounded-full shrink-0"
-                style={{ background: ACCENT }}
-              />
-              单一平台管理多元变现渠道
-            </li>
-            <li className="flex items-start gap-2">
-              <span
-                className="mt-[7px] block w-1.5 h-1.5 rounded-full shrink-0"
-                style={{ background: ACCENT }}
-              />
-              不同场景最大化收益
-            </li>
-          </ul>
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-[13px]" style={{ color: TEXT_MID }}>
+          <div className="flex items-center gap-2">
+            <span
+              className="flex items-center justify-center w-7 h-7 rounded-lg shrink-0"
+              style={{ background: "rgba(99,102,241,0.12)", color: ACCENT }}
+            >
+              <LayoutGrid size={14} strokeWidth={2.2} />
+            </span>
+            <span>单一平台管理多元变现渠道</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span
+              className="flex items-center justify-center w-7 h-7 rounded-lg shrink-0"
+              style={{ background: "rgba(99,102,241,0.12)", color: ACCENT }}
+            >
+              <TrendingUp size={14} strokeWidth={2.2} />
+            </span>
+            <span>不同场景最大化收益</span>
+          </div>
         </div>
       </div>
 
