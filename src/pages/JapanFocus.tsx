@@ -684,29 +684,37 @@ export default function JapanFocus() {
               <motion.div
                 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: 0.16 }}
-                className="rounded-2xl p-6 sm:col-span-2 glass-card flex flex-col items-center justify-center text-center"
+                className="rounded-2xl p-6 sm:col-span-2 glass-card flex items-center gap-5 text-left"
                 style={CARD}
               >
-                <div
-                  className="w-11 h-11 rounded-xl flex items-center justify-center mb-3"
-                  style={{
-                    background: `linear-gradient(135deg, hsla(245, 60%, 45%, 0.12), hsla(245, 70%, 30%, 0.08))`,
-                    border: `1px solid hsla(245, 60%, 45%, 0.18)`,
-                  }}
-                >
-                  <Building2 size={22} style={{ color: JP_RED }} />
-                </div>
-                <h3 className="text-base font-semibold mb-1.5" style={{ color: TEXT_DARK }}>
-                  东京办公室
-                </h3>
-                <p className="text-sm leading-relaxed mb-2" style={{ color: TEXT_MID }}>
-                  本地团队 · 本地运营 · 本地融入
-                </p>
-                <div
-                  className="text-xs leading-relaxed rounded-lg px-3 py-1.5 inline-block"
-                  style={{ background: "hsla(245, 60%, 45%, 0.05)", color: TEXT_MID }}
-                >
-                  東京都港区六本木三丁目3番27号 スハラ六本木
+                <Building2
+                  size={40}
+                  strokeWidth={1.5}
+                  style={{ color: JP_RED, flexShrink: 0 }}
+                />
+                <div className="flex flex-col min-w-0">
+                  <h3
+                    className="font-semibold mb-1.5"
+                    style={{
+                      color: TEXT_DARK,
+                      fontSize: "1.25rem",
+                      letterSpacing: "0.04em",
+                      lineHeight: 1.2,
+                    }}
+                  >
+                    东京办公室
+                  </h3>
+                  <p
+                    className="leading-relaxed"
+                    style={{
+                      color: TEXT_MID,
+                      fontSize: "0.9rem",
+                      letterSpacing: "0.02em",
+                      fontWeight: 400,
+                    }}
+                  >
+                    東京都港区六本木三丁目3番27号 スハラ六本木
+                  </p>
                 </div>
               </motion.div>
             </div>
