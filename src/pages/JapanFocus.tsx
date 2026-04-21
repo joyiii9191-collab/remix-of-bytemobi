@@ -570,34 +570,21 @@ export default function JapanFocus() {
         <ScreenInner>
           <ScreenTitle>日本核心市场深耕</ScreenTitle>
           <ScreenLead>重点布局 · 深度理解 · 专业运营 · 共赢成功</ScreenLead>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6 flex-1 min-h-[320px]">
-            {/* 左侧:分点信息卡(单列) */}
-            <div className="flex flex-col gap-3 sm:gap-4 content-start">
+          <div className="flex flex-col gap-5 sm:gap-6 mt-6 flex-1 min-h-[320px]">
+            {/* 上:世界地图 + 日本高亮 */}
+            <div
+              className="rounded-2xl overflow-hidden glass-card flex items-center justify-center p-3 sm:p-4 flex-1 min-h-[260px]"
+              style={CARD}
+            >
+              <WorldMapJapan accent={JP_RED} land="hsl(230 20% 55%)" />
+            </div>
+            {/* 下:4 个简化信息卡 */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
               {[
-                {
-                  icon: Target,
-                  t: "重点布局日本市场",
-                  d: "聚焦日本作为核心战略市场,长期深耕、持续投入",
-                  bullets: ["东京设立本地办公室", "持续扩张本地团队规模", "长期主义 · 稳定投入"],
-                },
-                {
-                  icon: Users,
-                  t: "深刻理解用户行为",
-                  d: "把握本地用户偏好与消费习惯,精准触达核心人群",
-                  bullets: ["本地用户洞察", "细分人群画像", "高 ROI 触达策略"],
-                },
-                {
-                  icon: ShieldCheck,
-                  t: "熟悉监管环境",
-                  d: "严格遵循日本广告法规与合规要求,稳健可持续",
-                  bullets: ["JIAA / 景表法合规", "数据隐私与安全", "广告内容审核"],
-                },
-                {
-                  icon: Handshake,
-                  t: "保障广告主与媒体共赢",
-                  d: "提供专业运营服务,助力双方在日本市场取得成功",
-                  bullets: ["精细化投放管理", "全链路数据透明", "持续优化成效"],
-                },
+                { icon: Target, t: "重点布局", d: "聚焦日本核心战略市场" },
+                { icon: Users, t: "理解用户", d: "把握本地偏好与习惯" },
+                { icon: ShieldCheck, t: "合规运营", d: "遵循日本广告法规" },
+                { icon: Handshake, t: "共赢成功", d: "助广告主与媒体共赢" },
               ].map((item, i) => {
                 const Icon = item.icon;
                 return (
@@ -607,54 +594,32 @@ export default function JapanFocus() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, amount: 0.3 }}
                     transition={{ duration: 0.5, delay: i * 0.08 }}
-                    className="rounded-2xl pl-3 pr-4 py-4 sm:pl-4 sm:pr-5 sm:py-5 glass-card text-left"
+                    className="rounded-2xl p-4 sm:p-5 glass-card text-left flex items-start gap-3"
                     style={CARD}
                   >
-                    <div className="flex items-start gap-3 sm:gap-4">
-                      <div
-                        className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center shrink-0"
-                        style={{ background: JP_RED_SOFT, color: JP_RED }}
+                    <div
+                      className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center shrink-0"
+                      style={{ background: JP_RED_SOFT, color: JP_RED }}
+                    >
+                      <Icon size={22} strokeWidth={1.8} />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3
+                        className="text-sm sm:text-base font-semibold mb-1 break-words"
+                        style={{ color: TEXT_DARK }}
                       >
-                        <Icon size={30} strokeWidth={1.8} />
-                      </div>
-                      <div className="flex-1 min-w-0 text-left">
-                        <h3
-                          className="text-sm sm:text-base font-semibold mb-1 text-left break-words"
-                          style={{ color: TEXT_DARK }}
-                        >
-                          {item.t}
-                        </h3>
-                        <p
-                          className="text-xs sm:text-sm leading-relaxed mb-2 text-left break-words"
-                          style={{ color: TEXT_MID }}
-                        >
-                          {item.d}
-                        </p>
-                        <ul className="flex flex-wrap justify-start gap-x-3 gap-y-1.5">
-                          {item.bullets.map((b, j) => (
-                            <li
-                              key={j}
-                              className="flex items-center gap-1 text-[11px] sm:text-xs text-left"
-                              style={{ color: TEXT_MID }}
-                            >
-                              <BadgeCheck
-                                size={11}
-                                className="shrink-0"
-                                style={{ color: JP_RED }}
-                              />
-                              <span className="break-words">{b}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                        {item.t}
+                      </h3>
+                      <p
+                        className="text-xs sm:text-[13px] leading-relaxed break-words"
+                        style={{ color: TEXT_MID }}
+                      >
+                        {item.d}
+                      </p>
                     </div>
                   </motion.div>
                 );
               })}
-            </div>
-            {/* 右侧:世界地图 + 日本高亮 */}
-            <div className="rounded-2xl overflow-hidden glass-card flex items-center justify-center p-3 sm:p-4" style={CARD}>
-              <WorldMapJapan accent={JP_RED} land="hsl(230 20% 55%)" />
             </div>
           </div>
         </ScreenInner>
