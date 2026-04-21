@@ -606,15 +606,15 @@ export default function JapanFocus() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, amount: 0.3 }}
                     transition={{ duration: 0.5, delay: i * 0.08 }}
-                    className="rounded-2xl p-4 sm:p-5 glass-card text-left"
+                    className="rounded-2xl pl-3 pr-4 py-4 sm:pl-4 sm:pr-5 sm:py-5 glass-card text-left"
                     style={CARD}
                   >
-                    <div className="flex items-start gap-3 sm:gap-3.5">
+                    <div className="flex items-start gap-3 sm:gap-4">
                       <div
-                        className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center shrink-0"
+                        className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center shrink-0"
                         style={{ background: JP_RED_SOFT, color: JP_RED }}
                       >
-                        <Icon size={18} />
+                        <Icon size={30} strokeWidth={1.8} />
                       </div>
                       <div className="flex-1 min-w-0 text-left">
                         <h3
