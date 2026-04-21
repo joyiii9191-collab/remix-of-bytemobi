@@ -643,12 +643,22 @@ export default function HopeX() {
 
                 {/* Content */}
                 <div className="relative z-[1] p-7">
-                  <h3 className="text-2xl font-bold mb-5" style={{ color: TEXT_DARK }}>
+                  <h3 className="text-2xl font-bold mb-5 text-left" style={{ color: TEXT_DARK }}>
                     {card.title}
                   </h3>
-                  <ul className="space-y-4">
+                  <div className="grid grid-cols-1 gap-3">
                     {card.items.map(({ icon: Icon, label, desc }) => (
-                      <li key={label} className="flex items-start gap-3">
+                      <div
+                        key={label}
+                        className="relative rounded-2xl p-4 flex items-start gap-3 text-left transition-transform duration-300 hover:-translate-y-0.5"
+                        style={{
+                          border: "1px solid hsla(0, 0%, 100%, 0.7)",
+                          background:
+                            "linear-gradient(155deg, hsla(0,0%,100%,0.55) 0%, hsla(0,0%,100%,0.30) 60%, hsla(0,0%,100%,0.18) 100%)",
+                          boxShadow:
+                            "inset 0 1px 0 hsla(0,0%,100%,0.85), 0 8px 22px -12px hsla(230,40%,25%,0.18)",
+                        }}
+                      >
                         <span
                           className="shrink-0 w-9 h-9 rounded-lg flex items-center justify-center mt-0.5"
                           style={{ background: `${ACCENT}1A`, color: ACCENT }}
@@ -663,9 +673,9 @@ export default function HopeX() {
                             {desc}
                           </span>
                         </div>
-                      </li>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               </motion.div>
             ))}
