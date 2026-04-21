@@ -165,7 +165,7 @@ export default function JapanFocus() {
             <span style={{ color: JP_RED, WebkitTextFillColor: JP_RED }}>以数据驱动为核心</span>
           </ScreenTitle>
           <ScreenLead>
-            聚焦日本市场,同时完成全球多区域布局,助力广告主与媒体方实现高效增长。
+            聚焦日本市场,同时完成全球多区域布局,助力广告主与媒体方实现高效增长
           </ScreenLead>
           <div className="mt-10 flex items-center gap-6">
             <StarBorder
