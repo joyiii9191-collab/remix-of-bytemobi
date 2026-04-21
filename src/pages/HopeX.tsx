@@ -65,20 +65,20 @@ export default function HopeX() {
         <ScreenInner>
           <ScreenTitle>规模与基础能力</ScreenTitle>
           <ScreenLead>规模是程序化的前提,HopeX 的请求量与连接数支持稳定可预测的增长。</ScreenLead>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-16 gap-y-12 mt-16">
             {SCALE.map((s, i) => (
               <motion.div
                 key={s.l}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.6, delay: i * 0.08 }}
-                className="relative flex items-center justify-center h-40 md:h-48"
+                className="relative flex items-center justify-center h-40 md:h-44 overflow-hidden"
               >
                 {/* 镂空大数字背景 */}
                 <div
                   aria-hidden
                   className="absolute inset-0 flex items-center justify-center font-black select-none pointer-events-none"
                   style={{
-                    fontSize: "clamp(7rem, 12vw, 11rem)",
+                    fontSize: "clamp(5rem, 8vw, 8rem)",
                     lineHeight: 1,
                     letterSpacing: "-0.04em",
                     color: "transparent",
