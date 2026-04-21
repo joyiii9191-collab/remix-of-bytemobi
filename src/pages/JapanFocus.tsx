@@ -478,11 +478,12 @@ export default function JapanFocus() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false, amount: 0.3 }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="rounded-2xl p-8 glass-card flex flex-col items-center text-center min-h-[420px]"
+                  whileHover={{ y: -8 }}
+                  className="group rounded-2xl p-8 glass-card flex flex-col items-start text-left min-h-[360px] transition-all duration-300 hover:shadow-[0_20px_50px_-12px_hsla(245,60%,45%,0.25)] hover:bg-white/55 hover:backdrop-blur-2xl border border-white/40 hover:border-[hsla(0,72%,55%,0.45)]"
                   style={CARD}
                 >
                   <div
-                    className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"
+                    className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
                     style={{ background: JP_RED_SOFT, color: JP_RED }}
                   >
                     <Icon size={26} />
@@ -491,18 +492,18 @@ export default function JapanFocus() {
                     {p.t}
                   </h3>
                   <div className="w-10 h-px mb-5" style={{ background: JP_RED, opacity: 0.5 }} />
-                  <ul className="flex flex-col gap-3 w-full mt-2">
+                  <ul className="flex flex-col gap-4 w-full">
                     {p.items.map((item) => (
                       <li
                         key={item}
-                        className="text-sm leading-relaxed flex items-center justify-center gap-2"
+                        className="text-[15px] leading-7 flex items-start gap-3"
                         style={{ color: TEXT_MID }}
                       >
                         <span
-                          className="inline-block w-1.5 h-1.5 rounded-full flex-shrink-0"
-                          style={{ background: JP_RED, opacity: 0.6 }}
+                          className="inline-block w-2 h-2 rounded-full flex-shrink-0 mt-2.5"
+                          style={{ background: JP_RED, opacity: 0.7 }}
                         />
-                        <span>{item}</span>
+                        <span className="flex-1">{item}</span>
                       </li>
                     ))}
                   </ul>
