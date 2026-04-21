@@ -12,17 +12,41 @@ import {
   Coins, Sparkles, Target, Users, Headphones, Network,
   LayoutDashboard, Trophy, Activity, Wallet, Settings2,
   ChevronLeft, ChevronRight, Building2, Languages,
+  Heart, Gamepad2, Banknote, Music2, ShoppingCart, Newspaper, Sparkle,
+  ScanSearch, BadgeCheck, Cpu, Zap, SlidersHorizontal,
 } from "lucide-react";
 
 import { GLASS_CARD as CARD, TEXT_DARK, TEXT_MID } from "@/lib/page-styles";
 const JP_RED = "hsl(355 75% 55%)";
 const JP_RED_SOFT = "rgba(220,38,38,0.08)";
 
-const STRENGTHS = [
-  { icon: Globe2, title: "全球项目实绩", desc: "覆盖交友、游戏、金融、娱乐、电商、新闻等多品类。" },
-  { icon: Handshake, title: "全球优质合作伙伴", desc: "Unity、Tapjoy 等头部网络与 OEM 厂商深度对接。" },
-  { icon: ShieldCheck, title: "严格的反欺诈对策", desc: "自研机器学习实时检测 + 第三方验证机构协同。" },
-  { icon: Database, title: "数据驱动的程序化能力", desc: "精准算法 + 全链路实时数据,每一次出价有据。" },
+const CATEGORIES = [
+  { icon: Heart, name: "交友 Dating" },
+  { icon: Sparkle, name: "生活 Life Style" },
+  { icon: Gamepad2, name: "游戏 Game" },
+  { icon: Banknote, name: "金融 Finance" },
+  { icon: Music2, name: "娱乐 Entertainment" },
+  { icon: ShoppingCart, name: "电商 Shopping" },
+  { icon: Newspaper, name: "新闻 News" },
+  { icon: Sparkles, name: "更多品类" },
+];
+
+const PARTNER_GROUPS = [
+  { label: "OEM", slots: ["Xiaomi", "OPPO", "TRANSSION"] },
+  { label: "DIRECT APPS", slots: ["VMate", "Simeji", "Joyme", "Snaptube", "Meitu"] },
+  { label: "SSP", slots: ["Unity", "Tapjoy", "Appnext", "AppLovin", "ironSource"] },
+];
+
+const FRAUD_LOOP = [
+  { icon: ScanSearch, t: "检测 Detect", d: "自研机器学习实时识别异常流量与虚假点击。" },
+  { icon: BadgeCheck, t: "验证 Verify", d: "第三方验证机构协同复核成效真实性。" },
+  { icon: SlidersHorizontal, t: "优化 Optimize", d: "动态优化发布商资源,保障公平透明。" },
+];
+
+const PROGRAMMATIC = [
+  { icon: Cpu, t: "精准算法", d: "多维特征建模,锁定高价值用户。" },
+  { icon: Zap, t: "实时优化", d: "全链路实时数据,分钟级回流调整。" },
+  { icon: SlidersHorizontal, t: "定制策略", d: "按行业 KPI 与预算自适应分配。" },
 ];
 
 const ADV_SIDE = {
@@ -170,7 +194,7 @@ export default function JapanFocus() {
           <div className="mt-10 flex items-center gap-6">
             <StarBorder
               speed="5s"
-              onClick={() => document.getElementById("strengths")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+              onClick={() => document.getElementById("strength-categories")?.scrollIntoView({ behavior: "smooth", block: "start" })}
             >
               查看本地能力
             </StarBorder>
@@ -179,29 +203,185 @@ export default function JapanFocus() {
         </ScreenInner>
       </SnapScreen>
 
-      {/* === Screen 2 — 平台核心优势 === */}
-      <SnapScreen id="strengths" bg="tint">
+      {/* === Screen 2 — 全球项目实绩 (品类网格) === */}
+      <SnapScreen id="strength-categories" bg="tint">
         <ScreenInner>
-          <ScreenTitle>数据驱动 + 本地洞察</ScreenTitle>
-          <ScreenLead>从全球项目实绩到反欺诈对策,技术与运营双轮驱动。</ScreenLead>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-10">
-            {STRENGTHS.map((s, i) => {
-              const Icon = s.icon;
+          <ScreenTitle>丰富的全球项目实绩</ScreenTitle>
+          <ScreenLead>
+            覆盖交友、游戏、金融、娱乐、电商、新闻等全球多品类。
+            <br />
+            <span className="text-sm" style={{ color: "hsl(230 15% 50%)" }}>
+              结合本地用户行为与文化特点,提供定制化营销优化方案。
+            </span>
+          </ScreenLead>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-12 w-full">
+            {CATEGORIES.map((c, i) => {
+              const Icon = c.icon;
               return (
                 <motion.div
-                  key={s.title}
+                  key={c.name}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, amount: 0.3 }}
+                  transition={{ duration: 0.5, delay: i * 0.05 }}
+                  className="flex flex-col items-center gap-3"
+                >
+                  <div
+                    className="w-20 h-20 rounded-full flex items-center justify-center"
+                    style={{
+                      background: `radial-gradient(circle at 30% 30%, hsl(355 80% 92%), hsl(355 70% 82%))`,
+                      boxShadow: "0 8px 24px -10px rgba(220,38,38,0.35)",
+                      color: JP_RED,
+                    }}
+                  >
+                    <Icon size={32} strokeWidth={1.6} />
+                  </div>
+                  <div className="text-sm font-medium" style={{ color: TEXT_DARK }}>
+                    {c.name}
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </ScreenInner>
+      </SnapScreen>
+
+      {/* === Screen 2b — 全球优质合作伙伴 === */}
+      <SnapScreen id="strength-partners">
+        <ScreenInner>
+          <ScreenTitle>全球优质的合作伙伴</ScreenTitle>
+          <ScreenLead>与头部 OEM、Direct Apps 与 SSP 深度对接,资源协同高效。</ScreenLead>
+          <div className="w-full mt-10 space-y-5">
+            {PARTNER_GROUPS.map((g, gi) => (
+              <motion.div
+                key={g.label}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: gi * 0.1 }}
+                className="grid grid-cols-[110px_1fr] gap-4 items-center"
+              >
+                <div
+                  className="text-xs font-bold tracking-widest text-right pr-2"
+                  style={{ color: JP_RED }}
+                >
+                  {g.label}
+                </div>
+                <div className="grid gap-3" style={{ gridTemplateColumns: `repeat(${g.slots.length}, minmax(0,1fr))` }}>
+                  {g.slots.map((name) => (
+                    <div
+                      key={name}
+                      className="h-16 rounded-xl flex items-center justify-center text-sm font-semibold glass-card"
+                      style={{ ...CARD, color: TEXT_MID }}
+                    >
+                      {name}
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          <p className="text-xs mt-6" style={{ color: "hsl(230 15% 55%)" }}>
+            * Logo 位预留,上线前替换为正式品牌素材
+          </p>
+        </ScreenInner>
+      </SnapScreen>
+
+      {/* === Screen 2c — 严格的全球反欺诈对策 (循环图) === */}
+      <SnapScreen id="strength-fraud" bg="tint">
+        <ScreenInner>
+          <ScreenTitle>严格的全球广告反欺诈对策</ScreenTitle>
+          <ScreenLead>
+            自研机器学习实时检测 + 第三方验证机构协同,及时识别虚假点击与成效,
+            优化发布商资源,保障公平透明。
+          </ScreenLead>
+          <div className="relative w-full max-w-[920px] mx-auto mt-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+              {FRAUD_LOOP.map((s, i) => {
+                const Icon = s.icon;
+                return (
+                  <React.Fragment key={s.t}>
+                    <motion.div
+                      initial={{ opacity: 0, y: 16 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: false, amount: 0.3 }}
+                      transition={{ duration: 0.5, delay: i * 0.12 }}
+                      className="rounded-2xl p-6 glass-card text-left relative z-10"
+                      style={CARD}
+                    >
+                      <div
+                        className="w-12 h-12 rounded-xl flex items-center justify-center mb-3"
+                        style={{ background: JP_RED_SOFT, color: JP_RED }}
+                      >
+                        <Icon size={22} />
+                      </div>
+                      <div className="text-base font-semibold mb-2" style={{ color: TEXT_DARK }}>
+                        {s.t}
+                      </div>
+                      <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>
+                        {s.d}
+                      </p>
+                    </motion.div>
+                    {i < FRAUD_LOOP.length - 1 && (
+                      <div
+                        className="hidden md:flex absolute top-1/2 -translate-y-1/2 items-center justify-center text-2xl pointer-events-none z-0"
+                        style={{
+                          left: `calc(${((i + 1) * 100) / 3}% - 12px)`,
+                          color: JP_RED,
+                          opacity: 0.6,
+                        }}
+                      >
+                        →
+                      </div>
+                    )}
+                  </React.Fragment>
+                );
+              })}
+            </div>
+            <div
+              className="hidden md:block absolute -bottom-6 left-1/2 -translate-x-1/2 text-xs px-3 py-1 rounded-full"
+              style={{ background: JP_RED_SOFT, color: JP_RED }}
+            >
+              ↻ 持续循环优化
+            </div>
+          </div>
+        </ScreenInner>
+      </SnapScreen>
+
+      {/* === Screen 2d — 数据驱动的程序化投放能力 === */}
+      <SnapScreen id="strength-programmatic">
+        <ScreenInner>
+          <ScreenTitle>数据驱动的程序化投放能力</ScreenTitle>
+          <ScreenLead>
+            依托精准算法与全链路实时数据,自动优化广告投放,
+            提升广告主营销效率与媒体方变现效果。
+          </ScreenLead>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-12 w-full">
+            {PROGRAMMATIC.map((p, i) => {
+              const Icon = p.icon;
+              return (
+                <motion.div
+                  key={p.t}
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false, amount: 0.3 }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="rounded-2xl p-6 h-full flex flex-col glass-card"
+                  className="rounded-2xl p-7 glass-card text-left h-full flex flex-col"
                   style={CARD}
                 >
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 shrink-0"
-                    style={{ background: JP_RED_SOFT, color: JP_RED }}><Icon size={22} /></div>
-                  <h3 className="text-base font-semibold mb-2 leading-snug" style={{ color: TEXT_DARK }}>{s.title}</h3>
+                  <div
+                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
+                    style={{ background: JP_RED_SOFT, color: JP_RED }}
+                  >
+                    <Icon size={22} />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2" style={{ color: TEXT_DARK }}>
+                    {p.t}
+                  </h3>
                   <div className="w-8 h-px mb-3" style={{ background: JP_RED, opacity: 0.5 }} />
-                  <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>{s.desc}</p>
+                  <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>
+                    {p.d}
+                  </p>
                 </motion.div>
               );
             })}
