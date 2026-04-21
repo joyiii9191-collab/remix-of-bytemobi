@@ -237,7 +237,7 @@ export default function JapanFocus() {
       <SnapScreen id="strength-partners">
         <ScreenInner>
           <ScreenTitle>全球优质的合作伙伴</ScreenTitle>
-          <ScreenLead>与头部 OEM、Direct Apps 与 SSP 深度对接,资源协同高效。</ScreenLead>
+          <ScreenLead>与头部 OEM、Direct Apps 与 SSP 深度对接,资源协同高效</ScreenLead>
           <div className="w-full mt-10 space-y-5">
             {PARTNER_GROUPS.map((g, gi) => (
               <motion.div
