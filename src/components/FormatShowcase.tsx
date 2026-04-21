@@ -241,12 +241,6 @@ export function FormatShowcase() {
 
         {/* Carousel */}
         <div className="flex flex-col gap-3 min-h-[200px]">
-          <div
-            className="text-[11px] font-semibold uppercase tracking-[0.2em] mb-1"
-            style={{ color: ACCENT }}
-          >
-            广告形式
-          </div>
           {ITEMS.map((item, i) => (
             <div key={item.title}>
               <CarouselItem
