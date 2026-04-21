@@ -8,9 +8,6 @@ import {
 import { CountUp } from "@/components/SubPageLayout";
 import { ParticleWorldMap } from "@/components/ParticleWorldMap";
 import { GLASS_CARD as CARD, TEXT_DARK, TEXT_MID, ACCENT } from "@/lib/page-styles";
-import dspRtb from "@/assets/dsp-rtb.jpg";
-import dspAffiliate from "@/assets/dsp-affiliate.jpg";
-import dspMedia from "@/assets/dsp-media.jpg";
 
 const HOPEX_MARKERS = [
   { x: 18, y: 35, highlight: true, label: "NA" },
@@ -158,22 +155,22 @@ export default function HopeX() {
                 t: "程序化广告",
                 sub: "RTB",
                 d: "实时竞价,毫秒级响应,智能算法精准触达海量曝光。",
-                bg: dspRtb,
                 logos: ["Google ADX", "OpenX", "PubMatic", "Magnite"],
+                gradient: "linear-gradient(135deg, hsl(245 70% 35%) 0%, hsl(260 65% 45%) 100%)",
               },
               {
                 t: "联盟营销",
                 sub: "CPA / CPL / CPS",
                 d: "结果导向计费,深度衡量转化效果,高 ROI 增长。",
-                bg: dspAffiliate,
                 logos: ["Admitad", "Awin", "Impact", "Rakuten"],
+                gradient: "linear-gradient(135deg, hsl(220 70% 35%) 0%, hsl(245 70% 50%) 100%)",
               },
               {
                 t: "主流媒体",
                 sub: "Google · TikTok · Meta",
                 d: "对接全球头部媒体平台,覆盖核心用户场景。",
-                bg: dspMedia,
                 logos: ["Google", "TikTok", "Meta", "YouTube"],
+                gradient: "linear-gradient(135deg, hsl(265 65% 40%) 0%, hsl(290 60% 50%) 100%)",
               },
             ].map((c, i) => (
               <motion.div key={c.t}
@@ -183,7 +180,7 @@ export default function HopeX() {
                 style={CARD}
               >
                 {/* 默认状态:序号 + 标题 */}
-                <div className="relative z-10 h-full flex flex-col p-6 transition-opacity duration-500 group-hover:opacity-0">
+                <div className="absolute inset-0 z-10 flex flex-col p-6 transition-opacity duration-500 group-hover:opacity-0 pointer-events-none">
                   <div className="text-xs font-bold tracking-[0.3em] mb-auto" style={{ color: ACCENT }}>
                     0{i + 1}
                   </div>
@@ -195,17 +192,28 @@ export default function HopeX() {
                   </div>
                 </div>
 
-                {/* Hover:背景图 + 文案 + Logos */}
+                {/* Hover:占位图(渐变) + 文案 + Logos */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  {/* 占位图:渐变背景 + 网格图案 */}
+                  <div className="absolute inset-0" style={{ background: c.gradient }} />
                   <div
-                    className="absolute inset-0 bg-cover bg-center scale-110 group-hover:scale-100 transition-transform duration-700"
-                    style={{ backgroundImage: `url(${c.bg})` }}
+                    aria-hidden
+                    className="absolute inset-0 opacity-30"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)",
+                      backgroundSize: "32px 32px",
+                    }}
                   />
+                  {/* 占位图标识 */}
+                  <div className="absolute top-6 right-6 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/40">
+                    Placeholder
+                  </div>
                   <div className="absolute inset-0" style={{
-                    background: "linear-gradient(180deg, rgba(15,12,40,0.55) 0%, rgba(15,12,40,0.85) 100%)"
+                    background: "linear-gradient(180deg, rgba(15,12,40,0.25) 0%, rgba(15,12,40,0.85) 100%)"
                   }} />
                   <div className="relative z-10 h-full flex flex-col justify-end p-6 text-white">
-                    <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-2" style={{ color: "hsl(245 90% 80%)" }}>
+                    <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-2 text-white/80">
                       {c.sub}
                     </div>
                     <h3 className="text-2xl font-bold mb-3">{c.t}</h3>
@@ -213,7 +221,7 @@ export default function HopeX() {
                     <div className="flex flex-wrap gap-1.5">
                       {c.logos.map((l) => (
                         <span key={l} className="px-2.5 py-1 rounded-md text-xs font-medium backdrop-blur-md"
-                          style={{ background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.2)" }}>
+                          style={{ background: "rgba(255,255,255,0.18)", border: "1px solid rgba(255,255,255,0.25)" }}>
                           {l}
                         </span>
                       ))}
