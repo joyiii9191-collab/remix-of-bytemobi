@@ -215,34 +215,22 @@ export default function JapanFocus() {
               结合本地用户行为与文化特点,提供定制化营销优化方案。
             </span>
           </ScreenLead>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-12 w-full">
-            {CATEGORIES.map((c, i) => {
-              const Icon = c.icon;
-              return (
-                <motion.div
-                  key={c.name}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false, amount: 0.3 }}
-                  transition={{ duration: 0.5, delay: i * 0.05 }}
-                  className="flex flex-col items-center gap-3"
-                >
-                  <div
-                    className="w-20 h-20 rounded-full flex items-center justify-center"
-                    style={{
-                      background: `radial-gradient(circle at 30% 30%, hsl(245 70% 94%), hsl(245 60% 84%))`,
-                      boxShadow: "0 8px 24px -10px hsla(245, 60%, 45%, 0.35)",
-                      color: JP_RED,
-                    }}
-                  >
-                    <Icon size={32} strokeWidth={1.6} />
-                  </div>
-                  <div className="text-sm font-medium" style={{ color: TEXT_DARK }}>
-                    {c.name}
-                  </div>
-                </motion.div>
-              );
-            })}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-10 mt-12 w-full">
+            {CATEGORIES.map((c, i) => (
+              <motion.div
+                key={c.name}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: i * 0.05 }}
+                className="flex flex-col items-center gap-3"
+              >
+                <GlassCategoryIcon variant={c.variant} size={96} />
+                <div className="text-sm font-medium" style={{ color: TEXT_DARK }}>
+                  {c.name}
+                </div>
+              </motion.div>
+            ))}
           </div>
         </ScreenInner>
       </SnapScreen>
