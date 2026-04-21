@@ -545,22 +545,25 @@ export default function JapanFocus() {
         </ScreenInner>
       </SnapScreen>
 
-      {/* === Screen 3 — 双侧分栏 === */}
-      <SnapScreen id="two-sides">
+      {/* === Screen 3a — 广告主核心服务 === */}
+      <SnapScreen id="two-sides-adv">
         <ScreenInner>
-          <ScreenTitle>一边广告主,一边媒体</ScreenTitle>
-          <ScreenLead>两侧能力清晰分栏,让需求方与供给方都能快速找到合作入口。</ScreenLead>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 relative mt-8">
-            <div
-              className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full items-center justify-center"
-              style={{
-                background: "white",
-                border: `2px solid ${JP_RED}`,
-                color: JP_RED,
-                boxShadow: "0 6px 20px -6px hsla(245, 60%, 45%, 0.4)",
-              }}
-            ><Sparkles size={18} /></div>
+          <ScreenEyebrow>SERVICES · 01</ScreenEyebrow>
+          <ScreenTitle>广告主核心服务</ScreenTitle>
+          <ScreenLead>为出海日本与亚太的广告主提供低门槛、高确定性的合作方式。</ScreenLead>
+          <div className="mt-8 w-full">
             <SideCard data={ADV_SIDE} dir="l" />
+          </div>
+        </ScreenInner>
+      </SnapScreen>
+
+      {/* === Screen 3b — 媒体方核心服务 === */}
+      <SnapScreen id="two-sides-pub" bg="tint">
+        <ScreenInner>
+          <ScreenEyebrow>SERVICES · 02</ScreenEyebrow>
+          <ScreenTitle>媒体方核心服务</ScreenTitle>
+          <ScreenLead>为日本本地媒体提供清晰、可控、可持续的变现方案。</ScreenLead>
+          <div className="mt-8 w-full">
             <SideCard data={PUB_SIDE} dir="r" />
           </div>
         </ScreenInner>
