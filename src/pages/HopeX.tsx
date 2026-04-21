@@ -107,6 +107,39 @@ export default function HopeX() {
               </motion.div>
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }} transition={{ duration: 0.6, delay: 0.2 }}
+            className="rounded-2xl glass-card mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6 p-6 lg:p-8 items-center"
+            style={CARD}
+          >
+            <div className="min-w-0">
+              <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>
+                Global Network
+              </div>
+              <p className="text-base md:text-lg font-medium leading-relaxed mb-4" style={{ color: TEXT_DARK }}>
+                HopeX 已构建全球化流量网络,覆盖:
+              </p>
+              <ul className="space-y-2.5 text-sm md:text-[15px]" style={{ color: TEXT_MID }}>
+                {[
+                  { r: "北美", d: "US / CA" },
+                  { r: "亚太", d: "SEA / JP / KR / IN" },
+                  { r: "拉美", d: "BR / MX 等" },
+                  { r: "欧洲及中东非", d: "EMEA" },
+                ].map((item) => (
+                  <li key={item.r} className="flex items-center gap-3">
+                    <span className="block h-1.5 w-1.5 rounded-full shrink-0" style={{ background: ACCENT }} />
+                    <span style={{ color: TEXT_DARK }} className="font-semibold">{item.r}</span>
+                    <span>({item.d})</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="relative h-[260px] lg:h-[320px] rounded-xl overflow-hidden">
+              <ParticleWorldMap markers={HOPEX_MARKERS} lines={HOPEX_LINES} />
+            </div>
+          </motion.div>
         </ScreenInner>
       </SnapScreen>
 
