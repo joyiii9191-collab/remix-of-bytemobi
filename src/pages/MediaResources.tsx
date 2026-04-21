@@ -50,9 +50,21 @@ export default function MediaResources() {
           <ScreenLead>从内容到合规,从开户到复盘,把出海增长做成可重复的体系。</ScreenLead>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
             {[
-              { t: "全链路赋能", d: "短剧 + 品牌 + 多平台,覆盖营销全流程。" },
-              { t: "稳定高效增长", d: "账户健康度与素材效率持续监控,避免起量断档。" },
-              { t: "快速出海启动", d: "从合规到上线,按周交付而不是按月。" },
+              {
+                t: "全链路赋能",
+                d: "短剧 + 品牌 + 多平台,覆盖营销全流程。",
+                items: ["短剧内容制作与发行", "品牌全球推广", "多平台协同投放"],
+              },
+              {
+                t: "稳定高效增长",
+                d: "账户健康度与素材效率持续监控,避免起量断档。",
+                items: ["多平台资源整合", "策略协同优化", "全流程合规风控"],
+              },
+              {
+                t: "快速出海启动",
+                d: "从合规到上线,按周交付而不是按月。",
+                items: ["1–3 个工作日开户", "多主体 / 多币种支持", "账户代投代运营"],
+              },
             ].map((c, i) => (
               <motion.div key={c.t}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
@@ -60,7 +72,15 @@ export default function MediaResources() {
                 className="rounded-2xl p-7 glass-card" style={CARD}>
                 <div className="text-3xl font-bold mb-3" style={{ color: ACCENT }}>0{i + 1}</div>
                 <h3 className="text-lg font-semibold mb-2" style={{ color: TEXT_DARK }}>{c.t}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>{c.d}</p>
+                <p className="text-sm leading-relaxed mb-4" style={{ color: TEXT_MID }}>{c.d}</p>
+                <ul className="space-y-1.5 pt-3 border-t border-white/40">
+                  {c.items.map((it) => (
+                    <li key={it} className="text-sm flex items-start gap-2" style={{ color: TEXT_MID }}>
+                      <span className="mt-2 h-1 w-1 rounded-full flex-shrink-0" style={{ background: ACCENT }} />
+                      <span>{it}</span>
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
             ))}
           </div>
