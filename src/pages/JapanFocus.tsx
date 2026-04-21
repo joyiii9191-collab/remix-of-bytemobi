@@ -7,6 +7,7 @@ import {
 } from "@/components/SnapPage";
 import { CountUp } from "@/components/SubPageLayout";
 import { JapanHighlightMap } from "@/components/JapanHighlightMap";
+import { WorldMapJapan } from "@/components/WorldMapJapan";
 import { GlassCategoryIcon } from "@/components/GlassCategoryIcon";
 import {
   Globe2, Handshake, ShieldCheck, Database,
@@ -652,8 +653,8 @@ export default function JapanFocus() {
               })}
             </div>
             {/* 右侧:世界地图 + 日本高亮 */}
-            <div className="rounded-2xl overflow-hidden glass-card flex items-center justify-center" style={CARD}>
-              <JapanHighlightMap height={420} />
+            <div className="rounded-2xl overflow-hidden glass-card flex items-center justify-center p-3 sm:p-4" style={CARD}>
+              <WorldMapJapan accent={JP_RED} land="hsl(230 20% 55%)" />
             </div>
           </div>
         </ScreenInner>
