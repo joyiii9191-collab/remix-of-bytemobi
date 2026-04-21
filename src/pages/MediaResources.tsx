@@ -1,7 +1,12 @@
 import React from "react";
 import StarBorder from "@/components/StarBorder";
 import { motion } from "motion/react";
-import { Rocket, BarChart3, ShieldCheck, LineChart } from "lucide-react";
+import {
+  Rocket, BarChart3, ShieldCheck, LineChart,
+  Store, Megaphone, Network, Globe2,
+  MessageCircle, ClipboardCheck, FileSignature, Settings2, TrendingUp, PieChart,
+  Gift, Sparkles, GraduationCap,
+} from "lucide-react";
 import {
   SnapPage, SnapScreen, ScreenInner,
   ScreenEyebrow, ScreenTitle, ScreenLead,
@@ -178,56 +183,91 @@ export default function MediaResources() {
         </ScreenInner>
       </SnapScreen>
 
-      {/* === Screen 5 — 合作模式 === */}
+      {/* === Screen 5 — 合作模式 + 政策支持 === */}
       <SnapScreen id="model">
         <ScreenInner>
           <ScreenTitle>灵活对接 · 共赢增长</ScreenTitle>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10 mb-8">
-            {["跨境商家", "品牌广告主", "渠道代理", "出海团队"].map((t, i) => (
+          <ScreenLead>覆盖跨境与品牌的多类客户,提供长期稳定的资源与运营支持。</ScreenLead>
+
+          {/* 合作对象 */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6 w-full">
+            {[
+              { t: "跨境电商商家", Icon: Store },
+              { t: "品牌广告主", Icon: Megaphone },
+              { t: "渠道代理商", Icon: Network },
+              { t: "出海创业团队", Icon: Globe2 },
+            ].map(({ t, Icon }, i) => (
               <motion.div key={t}
-                initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: i * 0.06 }}
-                className="rounded-xl px-4 py-5 text-center text-sm font-semibold"
-                style={{ ...CARD, color: TEXT_DARK }}>{t}</motion.div>
+                className="rounded-xl px-4 py-4 flex flex-col items-center gap-2 glass-card"
+                style={CARD}>
+                <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg"
+                  style={{ background: "rgba(99,102,241,0.1)", color: ACCENT }}>
+                  <Icon size={18} strokeWidth={1.8} />
+                </span>
+                <span className="text-sm font-semibold" style={{ color: TEXT_DARK }}>{t}</span>
+              </motion.div>
             ))}
           </div>
-          <div className="rounded-2xl p-6 glass-card" style={CARD}>
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-4" style={{ color: ACCENT }}>合作流程</div>
-            <div className="flex flex-wrap items-center gap-2 text-sm" style={{ color: TEXT_DARK }}>
-              {["咨询", "评估", "签约", "搭建", "优化", "复盘"].map((s, i, arr) => (
-                <React.Fragment key={s}>
-                  <motion.span
-                    initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.3, delay: i * 0.08 }}
-                    className="px-3 py-1.5 rounded-full font-medium"
-                    style={{ background: "rgba(99,102,241,0.1)", color: ACCENT }}>{s}</motion.span>
-                  {i < arr.length - 1 && <span style={{ color: "hsl(230 15% 60%)" }}>→</span>}
-                </React.Fragment>
+
+          {/* 合作流程 — 箭头标签式 */}
+          <div className="mt-5 w-full">
+            <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3 text-left" style={{ color: ACCENT }}>合作流程</div>
+            <div className="flex flex-wrap items-stretch gap-1.5">
+              {[
+                { s: "STEP 01", t: "咨询沟通", Icon: MessageCircle },
+                { s: "STEP 02", t: "需求评估", Icon: ClipboardCheck },
+                { s: "STEP 03", t: "签约合作", Icon: FileSignature },
+                { s: "STEP 04", t: "账户搭建", Icon: Settings2 },
+                { s: "STEP 05", t: "投放优化", Icon: TrendingUp },
+                { s: "STEP 06", t: "数据复盘", Icon: PieChart },
+              ].map(({ s, t, Icon }, i) => (
+                <motion.div key={t}
+                  initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.35, delay: i * 0.06 }}
+                  className="flex-1 min-w-[110px] relative px-3 py-2.5 flex items-center gap-2"
+                  style={{
+                    background: `linear-gradient(135deg, hsl(${230 + i * 8} 70% ${60 + (i % 2) * 5}%) 0%, hsl(${245 + i * 6} 65% ${52 + (i % 2) * 5}%) 100%)`,
+                    color: "white",
+                    clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%, 12px 50%)",
+                    paddingLeft: i === 0 ? "12px" : "20px",
+                  }}>
+                  <Icon size={16} strokeWidth={2} className="flex-shrink-0" />
+                  <div className="text-left leading-tight">
+                    <div className="text-[10px] font-bold opacity-80 tracking-wider">{s}</div>
+                    <div className="text-xs font-semibold">{t}</div>
+                  </div>
+                </motion.div>
               ))}
             </div>
           </div>
-        </ScreenInner>
-      </SnapScreen>
 
-      {/* === Screen 6 — 政策支持 === */}
-      <SnapScreen id="policy" bg="tint">
-        <ScreenInner>
-          <ScreenTitle>平台资源与长期运营支持</ScreenTitle>
-          <ScreenLead>帮助合作伙伴快速起量,实现稳定增长。</ScreenLead>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
-            {[
-              { t: "平台资源支持与返点政策", d: "结合平台政策为合作伙伴争取更优条件。" },
-              { t: "流量扶持与投放策略支持", d: "新客户起量与冷启动阶段的策略陪跑。" },
-              { t: "专业培训与长期运营指导", d: "持续输出方法论,帮助团队自我成长。" },
-            ].map((c, i) => (
-              <motion.div key={c.t}
-                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="rounded-2xl p-7 glass-card" style={CARD}>
-                <h3 className="text-lg font-semibold mb-2" style={{ color: TEXT_DARK }}>{c.t}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>{c.d}</p>
-              </motion.div>
-            ))}
+          {/* 政策支持 */}
+          <div className="mt-5 w-full">
+            <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3 text-left" style={{ color: ACCENT }}>政策支持</div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              {[
+                { t: "平台资源支持与返点政策", d: "结合平台政策为合作伙伴争取更优条件。", Icon: Gift },
+                { t: "流量扶持与投放策略支持", d: "新客户起量与冷启动阶段的策略陪跑。", Icon: Sparkles },
+                { t: "专业培训与长期运营指导", d: "持续输出方法论,帮助团队自我成长。", Icon: GraduationCap },
+              ].map(({ t, d, Icon }, i) => (
+                <motion.div key={t}
+                  initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: i * 0.08 }}
+                  className="rounded-xl p-4 glass-card text-left" style={CARD}>
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg"
+                      style={{ background: "rgba(99,102,241,0.1)", color: ACCENT }}>
+                      <Icon size={16} strokeWidth={1.8} />
+                    </span>
+                    <h3 className="text-sm font-semibold" style={{ color: TEXT_DARK }}>{t}</h3>
+                  </div>
+                  <p className="text-xs leading-relaxed" style={{ color: TEXT_MID }}>{d}</p>
+                </motion.div>
+              ))}
+            </div>
+            <p className="text-xs mt-3 italic text-center" style={{ color: TEXT_MID }}>帮助合作伙伴快速起量,实现稳定增长。</p>
           </div>
         </ScreenInner>
       </SnapScreen>
