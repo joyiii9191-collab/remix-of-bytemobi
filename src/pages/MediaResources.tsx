@@ -90,7 +90,7 @@ export default function MediaResources() {
       {/* === Screen 3 — 服务入口 === */}
       <SnapScreen id="services">
         <ScreenInner>
-          <ScreenTitle>四大服务能力</ScreenTitle>
+          <ScreenTitle>核心业务</ScreenTitle>
           <ScreenLead>从开户到复盘的端到端能力,一个团队覆盖全部环节。</ScreenLead>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
             {[
