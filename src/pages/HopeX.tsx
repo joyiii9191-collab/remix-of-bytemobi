@@ -136,7 +136,7 @@ export default function HopeX() {
                 ))}
               </ul>
             </div>
-            <div className="relative h-[260px] lg:h-[320px] rounded-xl overflow-hidden">
+            <div className="relative h-[200px] lg:h-[240px] rounded-xl overflow-hidden">
               <ParticleWorldMap markers={HOPEX_MARKERS} lines={HOPEX_LINES} />
             </div>
           </motion.div>
