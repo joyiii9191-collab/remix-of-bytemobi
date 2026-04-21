@@ -447,19 +447,109 @@ export default function HopeX() {
         <ScreenInner>
           <ScreenTitle>自有 + 外部流量</ScreenTitle>
           <ScreenLead>自有矩阵保证基本盘,外部对接保证规模与多样性。</ScreenLead>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10 w-full">
             {[
-              { t: "自有 App 矩阵", d: "短剧 / 工具 / 娱乐等自营 App。" },
-              { t: "OEM SDK", d: "深度集成主流安卓 OEM 渠道。" },
-              { t: "外部开发者体系", d: "持续扩张第三方开发者生态。" },
+              {
+                tag: "OWNED",
+                t: "自有 App 矩阵",
+                d: "短剧 / 工具 / 娱乐等自营 App。",
+                apps: [
+                  "ShortMax", "DramaBox", "ReelShort", "FlexTV",
+                  "GoodNovel", "TopShort", "MyDrama", "FunStory",
+                  "PlayLet", "MiniMax",
+                ],
+                direction: "left" as const,
+              },
+              {
+                tag: "OEM",
+                t: "OEM SDK",
+                d: "深度集成主流安卓 OEM 渠道。",
+                apps: [
+                  "Xiaomi", "OPPO", "vivo", "Honor",
+                  "Realme", "Transsion", "Tecno", "Infinix",
+                  "Samsung",
+                ],
+                direction: "right" as const,
+              },
+              {
+                tag: "PARTNERS",
+                t: "外部开发者体系",
+                d: "持续扩张第三方开发者生态。",
+                apps: [
+                  "Partner A", "Partner B", "Partner C", "Partner D",
+                  "Partner E", "Partner F", "Partner G", "Partner H",
+                  "Partner I", "Partner J",
+                ],
+                direction: "left" as const,
+              },
             ].map((c, i) => (
               <motion.div key={c.t}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="rounded-2xl p-6 glass-card" style={CARD}
+                className="rounded-2xl p-6 glass-card flex flex-col gap-4 overflow-hidden"
+                style={CARD}
               >
-                <h3 className="text-lg font-semibold mb-2" style={{ color: TEXT_DARK }}>{c.t}</h3>
+                <div className="flex items-center gap-2">
+                  <span
+                    className="text-[10px] font-bold uppercase tracking-[0.2em] px-2 py-0.5 rounded"
+                    style={{
+                      background: "rgba(99,102,241,0.12)",
+                      color: ACCENT,
+                    }}
+                  >
+                    {c.tag}
+                  </span>
+                  <h3 className="text-lg font-semibold" style={{ color: TEXT_DARK }}>{c.t}</h3>
+                </div>
                 <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>{c.d}</p>
+
+                {/* Logo marquee */}
+                <div
+                  className="relative -mx-6 mt-2 overflow-hidden"
+                  style={{
+                    maskImage:
+                      "linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%)",
+                    WebkitMaskImage:
+                      "linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%)",
+                  }}
+                >
+                  <div
+                    className="flex gap-3 w-max"
+                    style={{
+                      animation: `${c.direction === "left" ? "logo-marquee" : "logo-marquee-reverse"} 28s linear infinite`,
+                    }}
+                  >
+                    {[...c.apps, ...c.apps].map((name, idx) => (
+                      <div
+                        key={`${name}-${idx}`}
+                        className="shrink-0 w-[64px] h-[64px] rounded-xl flex flex-col items-center justify-center gap-1"
+                        style={{
+                          background: "rgba(255,255,255,0.6)",
+                          border: "1px dashed rgba(99,102,241,0.3)",
+                          backdropFilter: "blur(6px)",
+                        }}
+                        title={name}
+                      >
+                        <div
+                          className="w-7 h-7 rounded-md flex items-center justify-center text-[12px] font-bold"
+                          style={{
+                            background:
+                              "linear-gradient(135deg, hsl(245 70% 55%) 0%, hsl(265 65% 60%) 100%)",
+                            color: "#fff",
+                          }}
+                        >
+                          {name.slice(0, 1).toUpperCase()}
+                        </div>
+                        <div
+                          className="text-[9px] font-medium leading-none truncate w-full text-center px-1"
+                          style={{ color: TEXT_MID }}
+                        >
+                          {name}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
