@@ -183,14 +183,14 @@ export function ScreenTitle({
   );
 }
 
-export function ScreenLead({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+export function ScreenLead({ children }: { children: React.ReactNode }) {
   return (
     <motion.p
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.4 }}
       transition={{ duration: 0.7, delay: 0.1 }}
-      className={`text-base md:text-lg max-w-3xl mx-auto ${className}`}
+      className="text-base md:text-lg max-w-3xl mx-auto"
       style={{ color: "hsl(230 25% 32%)", lineHeight: 1.7 }}
     >
       {children}

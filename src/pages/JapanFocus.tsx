@@ -275,151 +275,59 @@ export default function JapanFocus() {
       <SnapScreen id="strength-fraud" bg="tint">
         <ScreenInner>
           <ScreenTitle>严格的全球广告反欺诈对策</ScreenTitle>
-          <ScreenLead className="whitespace-nowrap max-w-none">
-            自研机器学习实时检测 + 第三方验证机构协同,及时识别虚假点击与成效,优化发布商资源,保障公平透明
+          <ScreenLead>
+            自研机器学习实时检测 + 第三方验证机构协同,及时识别虚假点击与成效,
+            优化发布商资源,保障公平透明。
           </ScreenLead>
-          <div className="relative w-full max-w-[760px] aspect-square mx-auto mt-10">
-            {/* 旋转主圆环 */}
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
-              className="absolute rounded-full"
-              style={{
-                left: "50%",
-                top: "50%",
-                width: "44%",
-                height: "44%",
-                transform: "translate(-50%, -50%)",
-                border: `1.5px dashed ${JP_RED}`,
-                opacity: 0.45,
-              }}
-            />
-            {/* 内层实线圆环 */}
-            <div
-              className="absolute rounded-full"
-              style={{
-                left: "50%",
-                top: "50%",
-                width: "32%",
-                height: "32%",
-                transform: "translate(-50%, -50%)",
-                border: `1px solid ${JP_RED}`,
-                opacity: 0.18,
-              }}
-            />
-
-            {/* 中心徽标 */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div
-                className="rounded-full flex flex-col items-center justify-center text-center glass-card"
-                style={{ ...CARD, width: 130, height: 130 }}
-              >
-                <div className="text-[11px] tracking-widest" style={{ color: TEXT_MID }}>CONTINUOUS</div>
-                <div className="text-base font-bold mt-1" style={{ color: JP_RED }}>循环优化</div>
-                <div className="text-[10px] mt-0.5" style={{ color: TEXT_MID }}>Loop Optimization</div>
-              </div>
-            </div>
-
-            {/* 弧形箭头 SVG (沿主圆环) */}
-            <svg
-              viewBox="0 0 100 100"
-              className="absolute inset-0 w-full h-full pointer-events-none"
-              style={{ color: JP_RED }}
-            >
-              <defs>
-                <marker id="fraud-arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-                  <path d="M0,0 L10,5 L0,10 z" fill="currentColor" />
-                </marker>
-              </defs>
-              {[0, 1, 2].map((i) => {
-                const start = (i * 120 - 90 + 22) * (Math.PI / 180);
-                const end = ((i + 1) * 120 - 90 - 22) * (Math.PI / 180);
-                const r = 22; // 主圆环半径 (44% / 2)
-                const cx = 50, cy = 50;
-                const x1 = cx + r * Math.cos(start);
-                const y1 = cy + r * Math.sin(start);
-                const x2 = cx + r * Math.cos(end);
-                const y2 = cy + r * Math.sin(end);
+          <div className="relative w-full max-w-[920px] mx-auto mt-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+              {FRAUD_LOOP.map((s, i) => {
+                const Icon = s.icon;
                 return (
-                  <path
-                    key={i}
-                    d={`M ${x1} ${y1} A ${r} ${r} 0 0 1 ${x2} ${y2}`}
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="0.5"
-                    opacity="0.55"
-                    markerEnd="url(#fraud-arrow)"
-                  />
+                  <React.Fragment key={s.t}>
+                    <motion.div
+                      initial={{ opacity: 0, y: 16 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: false, amount: 0.3 }}
+                      transition={{ duration: 0.5, delay: i * 0.12 }}
+                      className="rounded-2xl p-6 glass-card text-left relative z-10"
+                      style={CARD}
+                    >
+                      <div
+                        className="w-12 h-12 rounded-xl flex items-center justify-center mb-3"
+                        style={{ background: JP_RED_SOFT, color: JP_RED }}
+                      >
+                        <Icon size={22} />
+                      </div>
+                      <div className="text-base font-semibold mb-2" style={{ color: TEXT_DARK }}>
+                        {s.t}
+                      </div>
+                      <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>
+                        {s.d}
+                      </p>
+                    </motion.div>
+                    {i < FRAUD_LOOP.length - 1 && (
+                      <div
+                        className="hidden md:flex absolute top-1/2 -translate-y-1/2 items-center justify-center text-2xl pointer-events-none z-0"
+                        style={{
+                          left: `calc(${((i + 1) * 100) / 3}% - 12px)`,
+                          color: JP_RED,
+                          opacity: 0.6,
+                        }}
+                      >
+                        →
+                      </div>
+                    )}
+                  </React.Fragment>
                 );
               })}
-            </svg>
-
-            {/* 三个节点:图标在圆环上, 文字卡片在外侧 */}
-            {FRAUD_LOOP.map((s, i) => {
-              const Icon = s.icon;
-              const angleDeg = i * 120 - 90;
-              const angle = angleDeg * (Math.PI / 180);
-              // 图标在主圆环上 (r=22%)
-              const ix = 50 + 22 * Math.cos(angle);
-              const iy = 50 + 22 * Math.sin(angle);
-              // 文字卡片在外侧 (r=40%)
-              const cardR = 40;
-              const cx = 50 + cardR * Math.cos(angle);
-              const cy = 50 + cardR * Math.sin(angle);
-              return (
-                <React.Fragment key={s.t}>
-                  {/* 圆环上的图标 */}
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: false, amount: 0.3 }}
-                    transition={{ duration: 0.5, delay: i * 0.15 }}
-                    className="absolute rounded-full flex items-center justify-center glass-card"
-                    style={{
-                      ...CARD,
-                      width: 56,
-                      height: 56,
-                      left: `${ix}%`,
-                      top: `${iy}%`,
-                      transform: "translate(-50%, -50%)",
-                      color: JP_RED,
-                      borderColor: JP_RED,
-                    }}
-                  >
-                    <Icon size={24} />
-                  </motion.div>
-
-                  {/* 外侧文字卡片 */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false, amount: 0.3 }}
-                    transition={{ duration: 0.55, delay: 0.1 + i * 0.15 }}
-                    className="absolute rounded-2xl p-4 glass-card text-center"
-                    style={{
-                      ...CARD,
-                      width: 200,
-                      left: `${cx}%`,
-                      top: `${cy}%`,
-                      transform: "translate(-50%, -50%)",
-                    }}
-                  >
-                    <div
-                      className="text-[10px] font-bold tracking-widest mb-1"
-                      style={{ color: JP_RED }}
-                    >
-                      STEP {String(i + 1).padStart(2, "0")}
-                    </div>
-                    <div className="text-sm font-semibold mb-1.5" style={{ color: TEXT_DARK }}>
-                      {s.t}
-                    </div>
-                    <p className="text-xs leading-relaxed" style={{ color: TEXT_MID }}>
-                      {s.d}
-                    </p>
-                  </motion.div>
-                </React.Fragment>
-              );
-            })}
+            </div>
+            <div
+              className="hidden md:block absolute -bottom-6 left-1/2 -translate-x-1/2 text-xs px-3 py-1 rounded-full"
+              style={{ background: JP_RED_SOFT, color: JP_RED }}
+            >
+              ↻ 持续循环优化
+            </div>
           </div>
         </ScreenInner>
       </SnapScreen>
