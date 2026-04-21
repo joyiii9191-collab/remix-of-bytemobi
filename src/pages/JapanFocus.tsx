@@ -78,25 +78,25 @@ const PROGRAMMATIC = [
 ];
 
 const ADV_SIDE = {
-  title: "面向广告主", subtitle: "先成果,后付费",
-  desc: "为出海日本与亚太的广告主提供低门槛、高确定性的合作方式。",
+  title: "面向广告主",
+  subtitle: "先成果,后付费",
+  core: "核心服务:成果报酬型(CPI / CPA)全球流量采买,覆盖应用安装、会员注册、商品购买等目标。",
   items: [
-    { icon: Coins, t: "成果报酬型 CPI / CPA", d: "按真实激活与转化付费。" },
-    { icon: Sparkles, t: "零初期费用", d: "无平台接入与启动费。" },
-    { icon: Target, t: "灵活 KPI", d: "按行业自定义考核口径。" },
-    { icon: Headphones, t: "本地咨询", d: "日籍团队提供本地建议。" },
-    { icon: Network, t: "全球流量", d: "同账户对接全球资源。" },
+    { icon: Sparkles, t: "零初期费用", d: "完全成果报酬模式,无预付风险。" },
+    { icon: Target, t: "灵活 KPI 设计", d: "按转化目标动态调整出价与活动。" },
+    { icon: Headphones, t: "本地深度咨询", d: "法规、用户特性、文化适配。" },
+    { icon: Network, t: "全球高端流量", d: "直接对接头部媒体与优质长尾流量。" },
   ],
 };
 const PUB_SIDE = {
-  title: "面向媒体", subtitle: "一站式变现伙伴",
-  desc: "为日本本地媒体提供清晰、可控、可持续的变现方案。",
+  title: "面向媒体",
+  subtitle: "一站式变现伙伴",
+  core: "核心服务:一站式变现仪表板,管理高单价联盟项目(CPA / CPI / CPL),支持网站、应用、SNS 流量。",
   items: [
-    { icon: LayoutDashboard, t: "一站式变现仪表板", d: "收益与填充全指标可视化。" },
-    { icon: Trophy, t: "高值项目库", d: "持续接入头部广告主项目。" },
-    { icon: Activity, t: "实时数据", d: "分钟级回流便于策略调整。" },
-    { icon: Wallet, t: "可靠支付", d: "按时结算,多币种支持。" },
-    { icon: Settings2, t: "定制策略", d: "为头部媒体提供专属方案。" },
+    { icon: Trophy, t: "高值项目库", d: "多品类高收益广告主,填充率高。" },
+    { icon: Activity, t: "实时数据化运营", d: "小时级报表,支持自主调价。" },
+    { icon: Wallet, t: "可靠报酬支付", d: "定期支付,无账期拖延。" },
+    { icon: Settings2, t: "定制化广告策略", d: "按媒体用户画像匹配广告,提升 eCPM。" },
   ],
 };
 
@@ -167,31 +167,62 @@ function OfficeCarousel() {
 function SideCard({ data, dir }: { data: typeof ADV_SIDE; dir: "l" | "r" }) {
   return (
     <motion.div
-      initial={{ opacity: 0, x: dir === "l" ? -20 : 20 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: false, amount: 0.3 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, amount: 0.2 }}
       transition={{ duration: 0.6 }}
-      className="rounded-2xl p-6 md:p-7 glass-card"
+      className="rounded-3xl p-8 md:p-10 glass-card w-full max-w-4xl mx-auto"
       style={CARD}
     >
+      <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-4 mb-5">
+        <div
+          className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full self-start"
+          style={{ background: JP_RED_SOFT, color: JP_RED }}
+        >
+          {data.title}
+        </div>
+        <h3 className="text-2xl md:text-3xl font-bold" style={{ color: TEXT_DARK }}>
+          {data.subtitle}
+        </h3>
+      </div>
       <div
-        className="inline-flex items-center gap-2 text-xs font-semibold px-2.5 py-1 rounded-full mb-3"
-        style={{ background: JP_RED_SOFT, color: JP_RED }}
-      >{data.title}</div>
-      <h3 className="text-2xl font-bold mb-2" style={{ color: TEXT_DARK }}>{data.subtitle}</h3>
-      <p className="text-sm mb-5" style={{ color: TEXT_MID }}>{data.desc}</p>
-      <div className="space-y-2.5">
-        {data.items.map((it) => {
+        className="rounded-2xl p-5 md:p-6 mb-7 border"
+        style={{
+          background: "hsla(245, 60%, 45%, 0.04)",
+          borderColor: "hsla(245, 60%, 45%, 0.18)",
+        }}
+      >
+        <p className="text-[15px] md:text-base leading-relaxed" style={{ color: TEXT_DARK }}>
+          {data.core}
+        </p>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {data.items.map((it, i) => {
           const Icon = it.icon;
           return (
-            <div key={it.t} className="flex gap-3">
-              <div className="w-8 h-8 shrink-0 rounded-lg flex items-center justify-center"
-                style={{ background: JP_RED_SOFT, color: JP_RED }}><Icon size={15} /></div>
-              <div className="min-w-0">
-                <div className="text-sm font-semibold" style={{ color: TEXT_DARK }}>{it.t}</div>
-                <div className="text-xs mt-0.5" style={{ color: TEXT_MID }}>{it.d}</div>
+            <motion.div
+              key={it.t}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.3 }}
+              transition={{ duration: 0.4, delay: i * 0.06 }}
+              className="group flex gap-4 p-4 rounded-xl transition-all duration-300 hover:bg-white/40 hover:-translate-y-0.5 border border-transparent hover:border-[hsla(245,60%,45%,0.2)]"
+            >
+              <div
+                className="w-10 h-10 shrink-0 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
+                style={{ background: JP_RED_SOFT, color: JP_RED }}
+              >
+                <Icon size={18} />
               </div>
-            </div>
+              <div className="min-w-0">
+                <div className="text-[15px] font-semibold mb-1" style={{ color: TEXT_DARK }}>
+                  {it.t}
+                </div>
+                <div className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>
+                  {it.d}
+                </div>
+              </div>
+            </motion.div>
           );
         })}
       </div>
@@ -514,22 +545,25 @@ export default function JapanFocus() {
         </ScreenInner>
       </SnapScreen>
 
-      {/* === Screen 3 — 双侧分栏 === */}
-      <SnapScreen id="two-sides">
+      {/* === Screen 3a — 广告主核心服务 === */}
+      <SnapScreen id="two-sides-adv">
         <ScreenInner>
-          <ScreenTitle>一边广告主,一边媒体</ScreenTitle>
-          <ScreenLead>两侧能力清晰分栏,让需求方与供给方都能快速找到合作入口。</ScreenLead>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 relative mt-8">
-            <div
-              className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full items-center justify-center"
-              style={{
-                background: "white",
-                border: `2px solid ${JP_RED}`,
-                color: JP_RED,
-                boxShadow: "0 6px 20px -6px hsla(245, 60%, 45%, 0.4)",
-              }}
-            ><Sparkles size={18} /></div>
+          <ScreenEyebrow>SERVICES · 01</ScreenEyebrow>
+          <ScreenTitle>广告主核心服务</ScreenTitle>
+          <ScreenLead>为出海日本与亚太的广告主提供低门槛、高确定性的合作方式。</ScreenLead>
+          <div className="mt-8 w-full">
             <SideCard data={ADV_SIDE} dir="l" />
+          </div>
+        </ScreenInner>
+      </SnapScreen>
+
+      {/* === Screen 3b — 媒体方核心服务 === */}
+      <SnapScreen id="two-sides-pub" bg="tint">
+        <ScreenInner>
+          <ScreenEyebrow>SERVICES · 02</ScreenEyebrow>
+          <ScreenTitle>媒体方核心服务</ScreenTitle>
+          <ScreenLead>为日本本地媒体提供清晰、可控、可持续的变现方案。</ScreenLead>
+          <div className="mt-8 w-full">
             <SideCard data={PUB_SIDE} dir="r" />
           </div>
         </ScreenInner>
