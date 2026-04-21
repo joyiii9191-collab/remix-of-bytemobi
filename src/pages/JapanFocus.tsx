@@ -229,8 +229,8 @@ export default function JapanFocus() {
                   <div
                     className="w-20 h-20 rounded-full flex items-center justify-center"
                     style={{
-                      background: `radial-gradient(circle at 30% 30%, hsl(355 80% 92%), hsl(355 70% 82%))`,
-                      boxShadow: "0 8px 24px -10px rgba(220,38,38,0.35)",
+                      background: `radial-gradient(circle at 30% 30%, hsl(245 70% 94%), hsl(245 60% 84%))`,
+                      boxShadow: "0 8px 24px -10px hsla(245, 60%, 45%, 0.35)",
                       color: JP_RED,
                     }}
                   >
