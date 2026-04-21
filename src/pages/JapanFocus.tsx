@@ -304,7 +304,7 @@ export default function JapanFocus() {
 
                 {/* 内层细描边跑道(包裹卡片外缘,留呼吸空间) */}
                 <path
-                  d="M 240 110 L 1040 110 A 150 150 0 0 1 1040 410 L 240 410 A 150 150 0 0 1 240 110 Z"
+                  d="M 280 110 L 1000 110 A 150 150 0 0 1 1000 410 L 280 410 A 150 150 0 0 1 280 110 Z"
                   stroke="hsl(262 60% 80%)"
                   strokeWidth="3"
                   strokeLinejoin="round"
