@@ -184,7 +184,7 @@ export default function JapanFocus() {
         <ScreenInner>
           <ScreenTitle>数据驱动 + 本地洞察</ScreenTitle>
           <ScreenLead>从全球项目实绩到反欺诈对策,技术与运营双轮驱动。</ScreenLead>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-10">
             {STRENGTHS.map((s, i) => {
               const Icon = s.icon;
               return (
@@ -194,12 +194,13 @@ export default function JapanFocus() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false, amount: 0.3 }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="rounded-2xl p-6 h-full glass-card"
+                  className="rounded-2xl p-6 h-full flex flex-col glass-card"
                   style={CARD}
                 >
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-3"
-                    style={{ background: JP_RED_SOFT, color: JP_RED }}><Icon size={20} /></div>
-                  <h3 className="text-base font-semibold mb-1.5" style={{ color: TEXT_DARK }}>{s.title}</h3>
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 shrink-0"
+                    style={{ background: JP_RED_SOFT, color: JP_RED }}><Icon size={22} /></div>
+                  <h3 className="text-base font-semibold mb-2 leading-snug" style={{ color: TEXT_DARK }}>{s.title}</h3>
+                  <div className="w-8 h-px mb-3" style={{ background: JP_RED, opacity: 0.5 }} />
                   <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>{s.desc}</p>
                 </motion.div>
               );
