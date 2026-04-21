@@ -680,24 +680,40 @@ export default function JapanFocus() {
                 </div>
               </motion.div>
 
-              {/* 东京办公室 */}
+              {/* 办公室 */}
               <motion.div
                 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: 0.16 }}
                 className="rounded-2xl p-6 sm:col-span-2 glass-card flex flex-col items-center justify-center text-center"
                 style={CARD}
               >
-                <h3 className="text-base font-semibold mb-1.5" style={{ color: TEXT_DARK }}>
-                  东京办公室
+                <h3 className="text-base font-semibold mb-3" style={{ color: TEXT_DARK }}>
+                  全球办公室
                 </h3>
-                <p className="text-sm leading-relaxed mb-2" style={{ color: TEXT_MID }}>
-                  本地团队 · 本地运营 · 本地融入
-                </p>
-                <div
-                  className="text-xs leading-relaxed rounded-lg px-3 py-1.5 inline-block"
-                  style={{ background: "hsla(245, 60%, 45%, 0.05)", color: TEXT_MID }}
-                >
-                  東京都港区六本木三丁目3番27号 スハラ六本木
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 w-full">
+                  {[
+                    { city: "东京", country: "JP", addr: "東京都港区六本木三丁目3番27号 スハラ六本木" },
+                    { city: "上海", country: "CN", addr: "上海市黄浦区中山南一路 100 号" },
+                    { city: "新加坡", country: "SG", addr: "1 Raffles Place, #20-61, Singapore" },
+                  ].map((o) => (
+                    <div
+                      key={o.city}
+                      className="rounded-lg px-3 py-2 text-left"
+                      style={{ background: "hsla(245, 60%, 45%, 0.05)" }}
+                    >
+                      <div className="flex items-baseline gap-1.5 mb-0.5">
+                        <span className="text-sm font-semibold" style={{ color: TEXT_DARK }}>
+                          {o.city}
+                        </span>
+                        <span className="text-[10px] font-medium" style={{ color: JP_RED }}>
+                          {o.country}
+                        </span>
+                      </div>
+                      <div className="text-[11px] leading-snug break-words" style={{ color: TEXT_MID }}>
+                        {o.addr}
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </motion.div>
             </div>
