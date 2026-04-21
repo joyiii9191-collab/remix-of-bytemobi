@@ -39,11 +39,6 @@ export default function MediaResources() {
             >
               开启出海合作
             </StarBorder>
-            {["TikTok", "Meta", "Google"].map((p) => (
-              <div key={p}
-                className="px-4 py-2 rounded-xl text-sm font-semibold glass-card"
-                style={{ ...CARD, color: ACCENT }}>{p}</div>
-            ))}
           </div>
         </ScreenInner>
       </SnapScreen>
