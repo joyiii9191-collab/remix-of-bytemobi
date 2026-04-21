@@ -47,7 +47,7 @@ export default function MediaResources() {
       <SnapScreen id="value" bg="tint">
         <ScreenInner>
           <ScreenTitle>为出海团队提供端到端增长杠杆</ScreenTitle>
-          <ScreenLead>从内容到合规,从开户到复盘,把出海增长做成可重复的体系。</ScreenLead>
+          <ScreenLead>为出海团队提供端到端增长杠杆</ScreenLead>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
             {[
               {
