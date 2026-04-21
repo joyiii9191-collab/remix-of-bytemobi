@@ -288,6 +288,59 @@ export default function HopeX() {
         </ScreenInner>
       </SnapScreen>
 
+      {/* === Screen 5b — 全球行业覆盖 === */}
+      <SnapScreen id="industries">
+        <ScreenInner>
+          <ScreenTitle>全球行业覆盖</ScreenTitle>
+          <ScreenLead>跨越多元行业,服务全球头部客户。</ScreenLead>
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-4 mt-10 w-full">
+            {[
+              { t: "电商", en: "E-commerce" },
+              { t: "游戏", en: "Gaming" },
+              { t: "工具", en: "Utility" },
+              { t: "短剧", en: "Short Drama" },
+              { t: "娱乐内容", en: "Entertainment" },
+              { t: "金融科技", en: "FinTech" },
+            ].map((c, i) => (
+              <motion.div key={c.t}
+                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: i * 0.06 }}
+                className="rounded-2xl glass-card aspect-square flex flex-col items-center justify-center gap-2"
+                style={CARD}
+              >
+                <div
+                  className="w-10 h-10 rounded-xl flex items-center justify-center text-xs font-bold"
+                  style={{
+                    background: "linear-gradient(135deg, hsl(245 70% 55%) 0%, hsl(265 65% 60%) 100%)",
+                    color: "#fff",
+                  }}
+                >
+                  {c.t.slice(0, 1)}
+                </div>
+                <div className="text-sm font-semibold" style={{ color: TEXT_DARK }}>{c.t}</div>
+                <div className="text-[10px] uppercase tracking-[0.15em]" style={{ color: TEXT_MID }}>{c.en}</div>
+              </motion.div>
+            ))}
+          </div>
+          <div className="mt-6 grid grid-cols-3 md:grid-cols-6 gap-4 w-full">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <motion.div key={i}
+                initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: i * 0.05 }}
+                className="rounded-xl h-16 flex items-center justify-center text-[10px] font-semibold uppercase tracking-[0.2em]"
+                style={{
+                  background: "rgba(99,102,241,0.06)",
+                  border: "1px dashed rgba(99,102,241,0.25)",
+                  color: "hsl(245 30% 50%)",
+                }}
+              >
+                Logo
+              </motion.div>
+            ))}
+          </div>
+        </ScreenInner>
+      </SnapScreen>
+
       {/* === Screen 6 — 流量来源 === */}
       <SnapScreen id="traffic" bg="tint">
         <ScreenInner>
