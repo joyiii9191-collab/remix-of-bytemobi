@@ -569,7 +569,7 @@ export default function JapanFocus() {
       <SnapScreen id="map" bg="tint">
         <ScreenInner>
           <ScreenTitle>日本核心市场深耕</ScreenTitle>
-          <ScreenLead>重点布局 · 深度理解 · 专业运营 · 共赢成功</ScreenLead>
+          
           <div className="flex flex-col gap-5 sm:gap-6 mt-6 flex-1 min-h-[320px]">
             {/* 上:世界地图 + 日本高亮 */}
             <div
