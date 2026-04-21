@@ -7,6 +7,7 @@ import {
 } from "@/components/SnapPage";
 import { CountUp } from "@/components/SubPageLayout";
 import { JapanHighlightMap } from "@/components/JapanHighlightMap";
+import { GlassCategoryIcon } from "@/components/GlassCategoryIcon";
 import {
   Globe2, Handshake, ShieldCheck, Database,
   Coins, Sparkles, Target, Users, Headphones, Network,
@@ -20,15 +21,15 @@ import { GLASS_CARD as CARD, TEXT_DARK, TEXT_MID } from "@/lib/page-styles";
 const JP_RED = "hsl(245 60% 45%)";
 const JP_RED_SOFT = "hsla(245, 60%, 45%, 0.08)";
 
-const CATEGORIES = [
-  { icon: Heart, name: "交友 Dating" },
-  { icon: Sparkle, name: "生活 Life Style" },
-  { icon: Gamepad2, name: "游戏 Game" },
-  { icon: Banknote, name: "金融 Finance" },
-  { icon: Music2, name: "娱乐 Entertainment" },
-  { icon: ShoppingCart, name: "电商 Shopping" },
-  { icon: Newspaper, name: "新闻 News" },
-  { icon: Sparkles, name: "更多品类" },
+const CATEGORIES: { variant: "dating" | "lifestyle" | "game" | "finance" | "entertainment" | "shopping" | "news" | "more"; name: string }[] = [
+  { variant: "dating", name: "交友 Dating" },
+  { variant: "lifestyle", name: "生活 Life Style" },
+  { variant: "game", name: "游戏 Game" },
+  { variant: "finance", name: "金融 Finance" },
+  { variant: "entertainment", name: "娱乐 Entertainment" },
+  { variant: "shopping", name: "电商 Shopping" },
+  { variant: "news", name: "新闻 News" },
+  { variant: "more", name: "更多品类" },
 ];
 
 const PARTNER_GROUPS = [
@@ -214,34 +215,22 @@ export default function JapanFocus() {
               结合本地用户行为与文化特点,提供定制化营销优化方案。
             </span>
           </ScreenLead>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-12 w-full">
-            {CATEGORIES.map((c, i) => {
-              const Icon = c.icon;
-              return (
-                <motion.div
-                  key={c.name}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false, amount: 0.3 }}
-                  transition={{ duration: 0.5, delay: i * 0.05 }}
-                  className="flex flex-col items-center gap-3"
-                >
-                  <div
-                    className="w-20 h-20 rounded-full flex items-center justify-center"
-                    style={{
-                      background: `radial-gradient(circle at 30% 30%, hsl(245 70% 94%), hsl(245 60% 84%))`,
-                      boxShadow: "0 8px 24px -10px hsla(245, 60%, 45%, 0.35)",
-                      color: JP_RED,
-                    }}
-                  >
-                    <Icon size={32} strokeWidth={1.6} />
-                  </div>
-                  <div className="text-sm font-medium" style={{ color: TEXT_DARK }}>
-                    {c.name}
-                  </div>
-                </motion.div>
-              );
-            })}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-10 mt-12 w-full">
+            {CATEGORIES.map((c, i) => (
+              <motion.div
+                key={c.name}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: i * 0.05 }}
+                className="flex flex-col items-center gap-3"
+              >
+                <GlassCategoryIcon variant={c.variant} size={96} />
+                <div className="text-sm font-medium" style={{ color: TEXT_DARK }}>
+                  {c.name}
+                </div>
+              </motion.div>
+            ))}
           </div>
         </ScreenInner>
       </SnapScreen>
