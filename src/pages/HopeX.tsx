@@ -147,36 +147,81 @@ export default function HopeX() {
       </SnapScreen>
 
 
-      {/* === Screen 4 — DSP 能力 === */}
+      {/* === Screen 4 — DSP 全渠道增长能力 === */}
       <SnapScreen id="dsp" bg="tint">
         <ScreenInner>
-          <ScreenTitle>广告主一站式买量</ScreenTitle>
-          <ScreenLead>从 RTB 到联盟、从主流媒体到 OEM,多种买量方式按需组合。</ScreenLead>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+          <ScreenTitle>全渠道增长能力</ScreenTitle>
+          <ScreenLead>HopeX DSP 聚合多元流量来源,鼠标悬停查看每个渠道的代表媒体。</ScreenLead>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10 w-full">
             {[
-              { t: "全渠道", d: "RTB、联盟 CPA/CPL/CPS、主流媒体采购、OEM 等。" },
-              { t: "智能受众分群", d: "精准定向,覆盖核心人群与潜客。" },
-              { t: "实时策略调整", d: "秒级响应,预算自适应、智能限流。" },
-              { t: "人机协同优化", d: "算法 + 投手共同迭代,避免单点失败。" },
+              {
+                t: "程序化广告",
+                sub: "RTB",
+                d: "实时竞价,毫秒级响应,智能算法精准触达海量曝光。",
+                bg: dspRtb,
+                logos: ["Google ADX", "OpenX", "PubMatic", "Magnite"],
+              },
+              {
+                t: "联盟营销",
+                sub: "CPA / CPL / CPS",
+                d: "结果导向计费,深度衡量转化效果,高 ROI 增长。",
+                bg: dspAffiliate,
+                logos: ["Admitad", "Awin", "Impact", "Rakuten"],
+              },
+              {
+                t: "主流媒体",
+                sub: "Google · TikTok · Meta",
+                d: "对接全球头部媒体平台,覆盖核心用户场景。",
+                bg: dspMedia,
+                logos: ["Google", "TikTok", "Meta", "YouTube"],
+              },
             ].map((c, i) => (
               <motion.div key={c.t}
-                initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="rounded-2xl p-5 glass-card" style={CARD}
+                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="group relative rounded-2xl overflow-hidden glass-card cursor-pointer h-[340px]"
+                style={CARD}
               >
-                <h3 className="text-base font-semibold mb-1.5" style={{ color: TEXT_DARK }}>{c.t}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>{c.d}</p>
+                {/* 默认状态:序号 + 标题 */}
+                <div className="relative z-10 h-full flex flex-col p-6 transition-opacity duration-500 group-hover:opacity-0">
+                  <div className="text-xs font-bold tracking-[0.3em] mb-auto" style={{ color: ACCENT }}>
+                    0{i + 1}
+                  </div>
+                  <div>
+                    <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-2" style={{ color: ACCENT }}>
+                      {c.sub}
+                    </div>
+                    <h3 className="text-2xl font-bold" style={{ color: TEXT_DARK }}>{c.t}</h3>
+                  </div>
+                </div>
+
+                {/* Hover:背景图 + 文案 + Logos */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div
+                    className="absolute inset-0 bg-cover bg-center scale-110 group-hover:scale-100 transition-transform duration-700"
+                    style={{ backgroundImage: `url(${c.bg})` }}
+                  />
+                  <div className="absolute inset-0" style={{
+                    background: "linear-gradient(180deg, rgba(15,12,40,0.55) 0%, rgba(15,12,40,0.85) 100%)"
+                  }} />
+                  <div className="relative z-10 h-full flex flex-col justify-end p-6 text-white">
+                    <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-2" style={{ color: "hsl(245 90% 80%)" }}>
+                      {c.sub}
+                    </div>
+                    <h3 className="text-2xl font-bold mb-3">{c.t}</h3>
+                    <p className="text-sm leading-relaxed mb-4 text-white/85">{c.d}</p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {c.logos.map((l) => (
+                        <span key={l} className="px-2.5 py-1 rounded-md text-xs font-medium backdrop-blur-md"
+                          style={{ background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.2)" }}>
+                          {l}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </motion.div>
             ))}
-          </div>
-          <div className="rounded-2xl p-6 mt-5 glass-card" style={CARD}>
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>全球行业覆盖 · 仅展示 Logo</div>
-            <div className="flex flex-wrap gap-2">
-              {["电商", "游戏", "工具", "短剧", "娱乐内容", "金融科技"].map((t) => (
-                <div key={t} className="px-3 py-1.5 rounded-lg text-sm font-medium"
-                  style={{ background: "rgba(99,102,241,0.08)", color: "hsl(245 60% 35%)" }}>{t}</div>
-              ))}
-            </div>
           </div>
         </ScreenInner>
       </SnapScreen>
