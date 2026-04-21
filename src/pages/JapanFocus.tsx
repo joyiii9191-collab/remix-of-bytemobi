@@ -184,13 +184,7 @@ function SideCard({ data, dir }: { data: typeof ADV_SIDE; dir: "l" | "r" }) {
           {data.subtitle}
         </h3>
       </div>
-      <div
-        className="rounded-2xl p-5 md:p-6 mb-7 border text-center"
-        style={{
-          background: "hsla(245, 60%, 45%, 0.04)",
-          borderColor: "hsla(245, 60%, 45%, 0.18)",
-        }}
-      >
+      <div className="mb-7 text-center">
         <p className="text-[15px] md:text-base leading-relaxed text-center" style={{ color: TEXT_DARK }}>
           {data.core}
         </p>
@@ -205,7 +199,11 @@ function SideCard({ data, dir }: { data: typeof ADV_SIDE; dir: "l" | "r" }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 0.4, delay: i * 0.06 }}
-              className="group flex gap-4 p-4 rounded-xl transition-all duration-300 hover:bg-white/40 hover:-translate-y-0.5 border border-transparent hover:border-[hsla(245,60%,45%,0.2)] text-left"
+              className="group flex gap-4 p-5 rounded-2xl transition-all duration-300 hover:-translate-y-0.5 text-left border"
+              style={{
+                background: "hsla(245, 60%, 45%, 0.04)",
+                borderColor: "hsla(245, 60%, 45%, 0.18)",
+              }}
             >
               <div
                 className="w-10 h-10 shrink-0 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
