@@ -29,7 +29,8 @@ const ITEMS: FormatItem[] = [
     titleFull: "视频广告",
     description: "沉浸式视频内容,提升品牌记忆与转化深度。",
     image: formatVideo,
-    spot: { left: "45%", top: "55%" },
+    spot: { left: "82%", top: "78%" },
+    objectPosition: "right center",
   },
   {
     title: "Native",
@@ -43,21 +44,24 @@ const ITEMS: FormatItem[] = [
     titleFull: "移动应用",
     description: "深度覆盖移动端 App 内场景,触达高活跃用户。",
     image: formatApp,
-    spot: { left: "50%", top: "50%" },
+    spot: { left: "50%", top: "72%" },
+    objectPosition: "center",
   },
   {
     title: "Web",
     titleFull: "网页端",
     description: "覆盖桌面与移动 Web,补齐多端流量入口。",
     image: formatWeb,
-    spot: { left: "48%", top: "42%" },
+    spot: { left: "50%", top: "20%" },
+    objectPosition: "center top",
   },
   {
     title: "CTV",
     titleFull: "联网电视",
     description: "客厅大屏沉浸场景,助力品牌曝光与高质量触达。",
     image: formatCtv,
-    spot: { left: "42%", top: "35%" },
+    spot: { left: "48%", top: "22%" },
+    objectPosition: "center top",
   },
 ];
 
