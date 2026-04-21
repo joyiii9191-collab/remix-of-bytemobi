@@ -158,12 +158,6 @@ export default function JapanFocus() {
         <div className="absolute inset-0 pointer-events-none"
           style={{ background: "linear-gradient(180deg, rgba(245,245,247,0) 0%, rgba(245,245,247,0.6) 80%, #F5F5F7 100%)" }} />
         <ScreenInner>
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium mb-5 self-start"
-            style={{ background: JP_RED_SOFT, color: JP_RED, border: `1px solid ${JP_RED_SOFT}` }}
-          >JAPAN FOCUS · 日本聚势</motion.div>
           <ScreenTitle size="xl">
             全球领先的移动广告平台
             <br />
