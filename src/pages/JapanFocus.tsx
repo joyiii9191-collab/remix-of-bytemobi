@@ -185,13 +185,13 @@ function SideCard({ data, dir }: { data: typeof ADV_SIDE; dir: "l" | "r" }) {
         </h3>
       </div>
       <div
-        className="rounded-2xl p-5 md:p-6 mb-7 border text-left"
+        className="rounded-2xl p-5 md:p-6 mb-7 border text-center"
         style={{
           background: "hsla(245, 60%, 45%, 0.04)",
           borderColor: "hsla(245, 60%, 45%, 0.18)",
         }}
       >
-        <p className="text-[15px] md:text-base leading-relaxed text-left" style={{ color: TEXT_DARK }}>
+        <p className="text-[15px] md:text-base leading-relaxed text-center" style={{ color: TEXT_DARK }}>
           {data.core}
         </p>
       </div>
