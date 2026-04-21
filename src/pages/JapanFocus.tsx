@@ -279,151 +279,185 @@ export default function JapanFocus() {
             自研机器学习实时检测 + 第三方验证机构协同,及时识别虚假点击与成效,
             优化发布商资源,保障公平透明。
           </ScreenLead>
-          <div className="relative w-full max-w-[1040px] mx-auto mt-10">
-            {/* 循环图 —— 三个玻璃球 + 上下弧线箭头 */}
-            <div className="relative w-full" style={{ aspectRatio: "1040 / 460" }}>
-              {/* SVG: 上下两条弧线 + 箭头 */}
+          <div className="relative w-full max-w-[1100px] mx-auto mt-10">
+            {/* 循环流程 —— 弧形箭头跑道环绕三张等大玻璃卡 */}
+            <div className="relative w-full" style={{ aspectRatio: "1100 / 460" }}>
+              {/* SVG: 跑道形弧线 + 双向箭头 */}
               <svg
-                viewBox="0 0 1040 460"
+                viewBox="0 0 1100 460"
                 className="absolute inset-0 w-full h-full pointer-events-none"
                 fill="none"
               >
                 <defs>
-                  <linearGradient id="loopArrow" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0%" stopColor="hsl(245 70% 60%)" stopOpacity="0.35" />
-                    <stop offset="50%" stopColor="hsl(245 70% 55%)" stopOpacity="0.95" />
-                    <stop offset="100%" stopColor="hsl(245 70% 60%)" stopOpacity="0.35" />
+                  <linearGradient id="loopArrowTop" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stopColor="hsl(220 90% 70%)" stopOpacity="0.35" />
+                    <stop offset="55%" stopColor="hsl(225 85% 58%)" stopOpacity="1" />
+                    <stop offset="100%" stopColor="hsl(225 85% 58%)" stopOpacity="1" />
+                  </linearGradient>
+                  <linearGradient id="loopArrowBottom" x1="1" y1="0" x2="0" y2="0">
+                    <stop offset="0%" stopColor="hsl(220 90% 70%)" stopOpacity="0.35" />
+                    <stop offset="55%" stopColor="hsl(225 85% 58%)" stopOpacity="1" />
+                    <stop offset="100%" stopColor="hsl(225 85% 58%)" stopOpacity="1" />
                   </linearGradient>
                   <marker
-                    id="arrowR"
-                    viewBox="0 0 10 10"
-                    refX="8"
-                    refY="5"
+                    id="arrowR2"
+                    viewBox="0 0 12 12"
+                    refX="6"
+                    refY="6"
                     markerWidth="7"
                     markerHeight="7"
                     orient="auto-start-reverse"
                   >
-                    <path d="M 0 0 L 10 5 L 0 10 z" fill="hsl(245 70% 55%)" />
+                    <path d="M 0 0 L 12 6 L 0 12 z" fill="hsl(225 85% 58%)" />
                   </marker>
                   <marker
-                    id="arrowL"
-                    viewBox="0 0 10 10"
-                    refX="8"
-                    refY="5"
+                    id="arrowL2"
+                    viewBox="0 0 12 12"
+                    refX="6"
+                    refY="6"
                     markerWidth="7"
                     markerHeight="7"
                     orient="auto-start-reverse"
                   >
-                    <path d="M 0 0 L 10 5 L 0 10 z" fill="hsl(245 70% 55%)" />
+                    <path d="M 0 0 L 12 6 L 0 12 z" fill="hsl(225 85% 58%)" />
                   </marker>
                 </defs>
-                {/* 上弧:左 -> 右 */}
+
+                {/* 外层跑道阴影/底色(浅) */}
                 <path
-                  d="M 175 200 C 175 40, 865 40, 865 200"
-                  stroke="url(#loopArrow)"
-                  strokeWidth="3"
+                  d="M 230 60 L 870 60 A 170 170 0 0 1 870 400 L 230 400 A 170 170 0 0 1 230 60 Z"
+                  stroke="hsl(220 80% 88%)"
+                  strokeWidth="14"
                   strokeLinecap="round"
-                  markerEnd="url(#arrowR)"
+                  opacity="0.55"
                 />
-                {/* 下弧:右 -> 左 */}
+
+                {/* 上半段:左 -> 右 (粗弧形箭头) */}
                 <path
-                  d="M 865 260 C 865 420, 175 420, 175 260"
-                  stroke="url(#loopArrow)"
-                  strokeWidth="3"
+                  d="M 230 60 L 860 60 A 170 170 0 0 1 1010 220"
+                  stroke="url(#loopArrowTop)"
+                  strokeWidth="10"
                   strokeLinecap="round"
-                  markerEnd="url(#arrowL)"
+                  markerEnd="url(#arrowR2)"
                 />
+                {/* 下半段:右 -> 左 */}
+                <path
+                  d="M 870 400 L 240 400 A 170 170 0 0 1 90 240"
+                  stroke="url(#loopArrowBottom)"
+                  strokeWidth="10"
+                  strokeLinecap="round"
+                  markerEnd="url(#arrowL2)"
+                />
+
                 {/* 弧线标签 */}
-                <text
-                  x="520"
-                  y="60"
-                  textAnchor="middle"
-                  fontSize="14"
-                  fontWeight="600"
-                  fill={JP_RED}
-                  letterSpacing="2"
-                >
+                <text x="550" y="42" textAnchor="middle" fontSize="13" fontWeight="600" fill={JP_RED} letterSpacing="3">
                   实时检测
                 </text>
-                <text
-                  x="520"
-                  y="410"
-                  textAnchor="middle"
-                  fontSize="14"
-                  fontWeight="600"
-                  fill={JP_RED}
-                  letterSpacing="2"
-                >
+                <text x="550" y="438" textAnchor="middle" fontSize="13" fontWeight="600" fill={JP_RED} letterSpacing="3">
                   持续优化
                 </text>
               </svg>
 
-              {/* 三个圆球 */}
-              <div className="absolute inset-0 flex items-center justify-between px-2">
+              {/* 三张等大玻璃卡 */}
+              <div className="absolute inset-0 flex items-center justify-center gap-8 md:gap-12 px-[8%]">
                 {FRAUD_LOOP.map((s, i) => {
                   const Icon = s.icon;
                   return (
                     <motion.div
                       key={s.t}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: false, amount: 0.3 }}
                       transition={{ duration: 0.55, delay: i * 0.15, ease: "easeOut" }}
-                      className="relative flex flex-col items-center"
-                      style={{ width: i === 1 ? 180 : 240 }}
+                      className="relative flex-1 max-w-[260px]"
                     >
+                      {/* 清透玻璃卡 */}
                       <div
-                        className="rounded-full flex flex-col items-center justify-center text-center relative"
+                        className="relative rounded-3xl flex flex-col items-center text-center px-5 py-7 overflow-hidden"
                         style={{
-                          width: i === 1 ? 160 : 220,
-                          height: i === 1 ? 160 : 220,
                           background:
-                            "radial-gradient(circle at 30% 25%, hsl(245 80% 72%) 0%, hsl(245 75% 55%) 45%, hsl(245 80% 38%) 100%)",
+                            "linear-gradient(160deg, hsla(220,100%,99%,0.85) 0%, hsla(225,90%,94%,0.55) 60%, hsla(230,80%,88%,0.4) 100%)",
+                          backdropFilter: "blur(14px)",
+                          WebkitBackdropFilter: "blur(14px)",
+                          border: "1px solid hsla(0,0%,100%,0.7)",
                           boxShadow:
-                            "0 20px 50px -10px hsla(245, 70%, 35%, 0.55), inset 0 -8px 20px hsla(245, 80%, 25%, 0.4), inset 0 6px 14px hsla(0, 0%, 100%, 0.35)",
-                          color: "white",
+                            "0 20px 40px -18px hsla(225,70%,40%,0.35), inset 0 1px 1px hsla(0,0%,100%,0.95), inset 0 -2px 6px hsla(225,60%,55%,0.12)",
                         }}
                       >
-                        {/* 高光 */}
+                        {/* 顶部高光 */}
                         <div
-                          className="absolute rounded-full pointer-events-none"
+                          className="absolute pointer-events-none rounded-full"
                           style={{
-                            top: "10%",
-                            left: "18%",
-                            width: "45%",
-                            height: "30%",
+                            top: "-10%",
+                            left: "12%",
+                            width: "70%",
+                            height: "35%",
                             background:
-                              "radial-gradient(ellipse at center, hsla(0,0%,100%,0.55) 0%, hsla(0,0%,100%,0) 70%)",
-                            filter: "blur(2px)",
+                              "radial-gradient(ellipse at center, hsla(0,0%,100%,0.7) 0%, hsla(0,0%,100%,0) 70%)",
+                            filter: "blur(4px)",
                           }}
                         />
-                        <Icon size={i === 1 ? 26 : 30} className="mb-2 opacity-90" />
+
+                        {/* 玻璃球图标容器 */}
+                        <div
+                          className="relative flex items-center justify-center rounded-full mb-4"
+                          style={{
+                            width: 76,
+                            height: 76,
+                            background:
+                              "radial-gradient(circle at 30% 25%, hsla(220,100%,98%,0.95) 0%, hsla(225,90%,90%,0.6) 45%, hsla(235,75%,78%,0.4) 100%)",
+                            border: "1px solid hsla(0,0%,100%,0.7)",
+                            boxShadow:
+                              "inset 0 1px 2px hsla(0,0%,100%,0.95), inset 0 -3px 8px hsla(230,60%,55%,0.18), 0 8px 18px -10px hsla(230,80%,45%,0.4)",
+                          }}
+                        >
+                          <div
+                            className="absolute rounded-full pointer-events-none"
+                            style={{
+                              top: "10%",
+                              left: "18%",
+                              width: "50%",
+                              height: "32%",
+                              background:
+                                "radial-gradient(ellipse at center, hsla(0,0%,100%,0.85) 0%, hsla(0,0%,100%,0) 70%)",
+                              filter: "blur(2px)",
+                            }}
+                          />
+                          <Icon size={32} style={{ color: "hsl(225 80% 50%)" }} className="relative z-10" />
+                        </div>
+
                         <div
                           className="font-bold tracking-wider"
-                          style={{ fontSize: i === 1 ? 18 : 22 }}
+                          style={{ fontSize: 20, color: "hsl(225 70% 28%)" }}
                         >
                           {s.t.split(" ")[0]}
                         </div>
                         <div
-                          className="opacity-80 mt-1 tracking-widest"
-                          style={{ fontSize: i === 1 ? 10 : 11 }}
+                          className="mt-1 tracking-[0.25em] uppercase"
+                          style={{ fontSize: 10, color: "hsl(225 50% 50%)" }}
                         >
                           {s.t.split(" ")[1]}
                         </div>
+
+                        <div
+                          className="my-3 h-px w-10"
+                          style={{ background: "hsla(225,60%,60%,0.35)" }}
+                        />
+
+                        <p
+                          className="text-xs md:text-[13px] leading-relaxed"
+                          style={{ color: TEXT_MID }}
+                        >
+                          {s.d}
+                        </p>
                       </div>
-                      <p
-                        className="text-xs md:text-sm mt-5 max-w-[220px] leading-relaxed"
-                        style={{ color: TEXT_MID }}
-                      >
-                        {s.d}
-                      </p>
                     </motion.div>
                   );
                 })}
               </div>
             </div>
 
-            <div className="flex justify-center mt-4">
+            <div className="flex justify-center mt-6">
               <div
                 className="text-xs px-4 py-1.5 rounded-full font-medium"
                 style={{ background: JP_RED_SOFT, color: JP_RED }}
