@@ -185,10 +185,10 @@ export default function GlobalFlow() {
               return (
                 <React.Fragment key={s.title}>
                   <motion.div
-                    initial={{ opacity: 0, y: 40, scale: 0.94 }}
-                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, amount: 0.3 }}
-                    transition={{ duration: 0.7, delay: i * 0.22, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ duration: 0.5, delay: i * 0.08 }}
                     className="flex-1 rounded-2xl p-6 relative glass-card flex flex-col items-center text-center"
                     style={{
                       ...CARD,
@@ -242,10 +242,10 @@ export default function GlobalFlow() {
               return (
                 <motion.div
                   key={s.title}
-                  initial={{ opacity: 0, y: 40, scale: 0.94 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false, amount: 0.3 }}
-                  transition={{ duration: 0.7, delay: i * 0.18, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ duration: 0.5, delay: i * 0.08 }}
                   className="rounded-2xl p-5 flex flex-col items-center text-center glass-card relative"
                   style={{
                     ...CARD,
@@ -280,10 +280,10 @@ export default function GlobalFlow() {
               return (
                 <motion.div
                   key={c.t}
-                  initial={{ opacity: 0, y: 40, scale: 0.94 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false, amount: 0.3 }}
-                  transition={{ duration: 0.7, delay: i * 0.2, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ duration: 0.5, delay: i * 0.08 }}
                   className="rounded-2xl p-6 glass-card flex flex-col items-center text-center"
                   style={{
                     ...CARD,
@@ -487,10 +487,10 @@ export default function GlobalFlow() {
               return (
                 <motion.div
                   key={c.t}
-                  initial={{ opacity: 0, y: 24, scale: 0.96, filter: "blur(6px)" }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false, amount: 0.3 }}
-                  transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ duration: 0.5, delay: i * 0.08 }}
                   whileHover={{ y: -4 }}
                   className="rounded-xl p-4 glass-card flex items-start gap-3"
                   style={CARD}
@@ -524,10 +524,10 @@ export default function GlobalFlow() {
               ].map((b, i) => (
                 <motion.div
                   key={b.name}
-                  initial={{ opacity: 0, y: 18, scale: 0.94, filter: "blur(6px)" }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false, amount: 0.3 }}
-                  transition={{ duration: 0.55, delay: 0.25 + i * 0.07, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ duration: 0.5, delay: i * 0.08 }}
                   whileHover={{ y: -4 }}
                   className="group relative rounded-xl px-5 py-4 flex items-baseline gap-3 glass-card cursor-pointer overflow-hidden"
                   style={CARD}
