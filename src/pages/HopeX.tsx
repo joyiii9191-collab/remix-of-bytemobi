@@ -70,7 +70,7 @@ export default function HopeX() {
                 key={s.l}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.6, delay: i * 0.08 }}
-                className="relative flex items-center justify-center h-40 md:h-44 min-w-0"
+                className="relative flex items-center justify-center h-32 md:h-36 min-w-0"
               >
                 <div
                   aria-hidden
