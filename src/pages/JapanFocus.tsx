@@ -356,35 +356,60 @@ export default function JapanFocus() {
                       viewport={{ once: false, amount: 0.3 }}
                       transition={{ duration: 0.55, delay: i * 0.15, ease: "easeOut" }}
                       className="relative flex-shrink-0"
+                      style={{ width: 240, height: 240 }}
                     >
+                      {/* 用绝对定位包裹,hover 缩放不会撑开布局/影响跑道 */}
                       <div
-                        className="relative rounded-full flex flex-col items-center justify-center text-center"
+                        className="group absolute inset-0 rounded-full flex flex-col items-center justify-center text-center transition-all duration-300 ease-out hover:scale-[1.06] cursor-pointer"
                         style={{
-                          width: 240,
-                          height: 240,
                           padding: "28px 26px",
-                          background: `radial-gradient(circle at 35% 30%, rgba(255,255,255,0.95) 0%, rgba(139,92,246,${0.12 + i * 0.04}) 70%, rgba(139,92,246,${0.18 + i * 0.04}) 100%)`,
-                          border: "1px solid rgba(139,92,246,0.22)",
-                          boxShadow: "0 22px 50px -22px rgba(139,92,246,0.55), inset 0 1px 1px rgba(255,255,255,0.8)",
+                          background:
+                            "radial-gradient(circle at 32% 28%, rgba(255,255,255,0.55) 0%, rgba(237,233,254,0.28) 55%, rgba(196,181,253,0.18) 100%)",
+                          backdropFilter: "blur(14px) saturate(140%)",
+                          WebkitBackdropFilter: "blur(14px) saturate(140%)",
+                          boxShadow:
+                            "0 18px 40px -20px rgba(139,92,246,0.4), inset 0 1px 1px rgba(255,255,255,0.85), inset 0 -2px 8px rgba(139,92,246,0.08)",
+                        }}
+                        onMouseEnter={(e) => {
+                          (e.currentTarget as HTMLDivElement).style.boxShadow =
+                            "0 30px 60px -20px rgba(139,92,246,0.55), inset 0 1px 1px rgba(255,255,255,0.95), inset 0 -2px 10px rgba(139,92,246,0.12)";
+                        }}
+                        onMouseLeave={(e) => {
+                          (e.currentTarget as HTMLDivElement).style.boxShadow =
+                            "0 18px 40px -20px rgba(139,92,246,0.4), inset 0 1px 1px rgba(255,255,255,0.85), inset 0 -2px 8px rgba(139,92,246,0.08)";
                         }}
                       >
+                        {/* 顶部高光 */}
                         <div
-                          className="w-12 h-12 rounded-2xl flex items-center justify-center mb-2"
-                          style={{ background: "rgba(139,92,246,0.14)", color: "hsl(262 75% 55%)" }}
+                          className="absolute pointer-events-none rounded-full"
+                          style={{
+                            top: "8%",
+                            left: "18%",
+                            width: "55%",
+                            height: "28%",
+                            background:
+                              "radial-gradient(ellipse at center, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 70%)",
+                            filter: "blur(3px)",
+                          }}
+                        />
+
+                        <div
+                          className="w-12 h-12 rounded-2xl flex items-center justify-center mb-2 transition-transform duration-500 ease-out group-hover:rotate-[360deg] group-active:scale-95"
+                          style={{ background: "rgba(139,92,246,0.18)", color: "hsl(262 75% 55%)" }}
                         >
                           <Icon size={24} />
                         </div>
 
-                        <div className="font-semibold tracking-wider" style={{ fontSize: 17, color: TEXT_DARK }}>
+                        <div className="font-semibold tracking-wider relative z-10" style={{ fontSize: 17, color: TEXT_DARK }}>
                           {s.t.split(" ")[0]}
                         </div>
-                        <div className="mt-0.5 tracking-[0.22em] uppercase" style={{ fontSize: 9, color: "hsl(262 75% 55%)" }}>
+                        <div className="mt-0.5 tracking-[0.22em] uppercase relative z-10" style={{ fontSize: 9, color: "hsl(262 75% 55%)" }}>
                           {s.t.split(" ")[1]}
                         </div>
 
-                        <div className="my-2 h-px w-8" style={{ background: "rgba(139,92,246,0.32)" }} />
+                        <div className="my-2 h-px w-8" style={{ background: "rgba(139,92,246,0.3)" }} />
 
-                        <p className="text-[11px] leading-snug px-2" style={{ color: TEXT_MID }}>
+                        <p className="text-[11px] leading-snug px-2 relative z-10" style={{ color: TEXT_MID }}>
                           {s.d}
                         </p>
                       </div>
