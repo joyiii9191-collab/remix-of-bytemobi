@@ -151,7 +151,7 @@ export default function HopeX() {
       <SnapScreen id="dsp" bg="tint">
         <ScreenInner>
           <ScreenTitle>全渠道增长能力</ScreenTitle>
-          <ScreenLead>HopeX DSP 聚合多元流量来源,鼠标悬停查看每个渠道的代表媒体。</ScreenLead>
+          <ScreenLead>HopeX DSP 聚合多元流量来源</ScreenLead>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10 w-full">
             {[
               {
