@@ -487,10 +487,11 @@ export default function GlobalFlow() {
               return (
                 <motion.div
                   key={c.t}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 24, scale: 0.96, filter: "blur(6px)" }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
                   viewport={{ once: false, amount: 0.3 }}
-                  transition={{ duration: 0.45, delay: i * 0.08 }}
+                  transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                  whileHover={{ y: -4 }}
                   className="rounded-xl p-4 glass-card flex items-start gap-3"
                   style={CARD}
                 >
@@ -523,10 +524,10 @@ export default function GlobalFlow() {
               ].map((b, i) => (
                 <motion.div
                   key={b.name}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 18, scale: 0.94, filter: "blur(6px)" }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
                   viewport={{ once: false, amount: 0.3 }}
-                  transition={{ duration: 0.4, delay: i * 0.05 }}
+                  transition={{ duration: 0.55, delay: 0.25 + i * 0.07, ease: [0.22, 1, 0.36, 1] }}
                   whileHover={{ y: -4 }}
                   className="group relative rounded-xl px-5 py-4 flex items-baseline gap-3 glass-card cursor-pointer overflow-hidden"
                   style={CARD}
