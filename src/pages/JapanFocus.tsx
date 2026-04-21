@@ -249,7 +249,7 @@ export default function JapanFocus() {
                 className="grid grid-cols-[110px_1fr] gap-4 items-center"
               >
                 <div
-                  className="text-xs font-bold tracking-widest text-right pr-2"
+                  className="text-xs font-bold tracking-widest text-left pl-2"
                   style={{ color: JP_RED }}
                 >
                   {g.label}
