@@ -8,6 +8,7 @@ import {
 import { CountUp } from "@/components/SubPageLayout";
 import { ParticleWorldMap } from "@/components/ParticleWorldMap";
 import { GLASS_CARD as CARD, TEXT_DARK, TEXT_MID, ACCENT } from "@/lib/page-styles";
+import { FormatShowcase } from "@/components/FormatShowcase";
 
 const HOPEX_MARKERS = [
   { x: 18, y: 35, highlight: true, label: "NA" },
@@ -338,6 +339,13 @@ export default function HopeX() {
               </motion.div>
             ))}
           </div>
+        </ScreenInner>
+      </SnapScreen>
+
+      {/* === Screen 5c — 全场景流量变现能力 === */}
+      <SnapScreen id="formats" bg="tint">
+        <ScreenInner>
+          <FormatShowcase />
         </ScreenInner>
       </SnapScreen>
 
