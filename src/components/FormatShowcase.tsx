@@ -72,9 +72,9 @@ function CarouselItem({
 }) {
   return (
     <div className="cursor-pointer transition-all duration-500" onClick={onClick}>
-      <div className="flex flex-col gap-2">
+      <div className="flex items-baseline gap-3 flex-wrap">
         <p
-          className="font-medium tracking-[-0.5px] leading-[1.3] transition-all duration-500"
+          className="font-medium tracking-[-0.5px] leading-[1.3] transition-all duration-500 shrink-0"
           style={{
             fontSize: isActive ? "44px" : "20px",
             color: TEXT_DARK,
@@ -92,10 +92,16 @@ function CarouselItem({
           </span>
         </p>
         <div
-          className="transition-all duration-500 overflow-hidden"
-          style={{ maxHeight: isActive ? "60px" : "0px", opacity: isActive ? 1 : 0 }}
+          className="transition-all duration-500 overflow-hidden flex-1 min-w-0"
+          style={{
+            maxWidth: isActive ? "100%" : "0px",
+            opacity: isActive ? 1 : 0,
+          }}
         >
-          <p className="text-[14px] leading-[1.6] tracking-[-0.2px]" style={{ color: TEXT_MID }}>
+          <p
+            className="text-[13px] leading-[1.5] tracking-[-0.2px] truncate"
+            style={{ color: TEXT_MID }}
+          >
             {item.description}
           </p>
         </div>
