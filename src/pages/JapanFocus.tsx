@@ -12,17 +12,41 @@ import {
   Coins, Sparkles, Target, Users, Headphones, Network,
   LayoutDashboard, Trophy, Activity, Wallet, Settings2,
   ChevronLeft, ChevronRight, Building2, Languages,
+  Heart, Gamepad2, Banknote, Music2, ShoppingCart, Newspaper, Sparkle,
+  ScanSearch, BadgeCheck, Cpu, Zap, SlidersHorizontal,
 } from "lucide-react";
 
 import { GLASS_CARD as CARD, TEXT_DARK, TEXT_MID } from "@/lib/page-styles";
 const JP_RED = "hsl(355 75% 55%)";
 const JP_RED_SOFT = "rgba(220,38,38,0.08)";
 
-const STRENGTHS = [
-  { icon: Globe2, title: "全球项目实绩", desc: "覆盖交友、游戏、金融、娱乐、电商、新闻等多品类。" },
-  { icon: Handshake, title: "全球优质合作伙伴", desc: "Unity、Tapjoy 等头部网络与 OEM 厂商深度对接。" },
-  { icon: ShieldCheck, title: "严格的反欺诈对策", desc: "自研机器学习实时检测 + 第三方验证机构协同。" },
-  { icon: Database, title: "数据驱动的程序化能力", desc: "精准算法 + 全链路实时数据,每一次出价有据。" },
+const CATEGORIES = [
+  { icon: Heart, name: "交友 Dating" },
+  { icon: Sparkle, name: "生活 Life Style" },
+  { icon: Gamepad2, name: "游戏 Game" },
+  { icon: Banknote, name: "金融 Finance" },
+  { icon: Music2, name: "娱乐 Entertainment" },
+  { icon: ShoppingCart, name: "电商 Shopping" },
+  { icon: Newspaper, name: "新闻 News" },
+  { icon: Sparkles, name: "更多品类" },
+];
+
+const PARTNER_GROUPS = [
+  { label: "OEM", slots: ["Xiaomi", "OPPO", "TRANSSION"] },
+  { label: "DIRECT APPS", slots: ["VMate", "Simeji", "Joyme", "Snaptube", "Meitu"] },
+  { label: "SSP", slots: ["Unity", "Tapjoy", "Appnext", "AppLovin", "ironSource"] },
+];
+
+const FRAUD_LOOP = [
+  { icon: ScanSearch, t: "检测 Detect", d: "自研机器学习实时识别异常流量与虚假点击。" },
+  { icon: BadgeCheck, t: "验证 Verify", d: "第三方验证机构协同复核成效真实性。" },
+  { icon: SlidersHorizontal, t: "优化 Optimize", d: "动态优化发布商资源,保障公平透明。" },
+];
+
+const PROGRAMMATIC = [
+  { icon: Cpu, t: "精准算法", d: "多维特征建模,锁定高价值用户。" },
+  { icon: Zap, t: "实时优化", d: "全链路实时数据,分钟级回流调整。" },
+  { icon: SlidersHorizontal, t: "定制策略", d: "按行业 KPI 与预算自适应分配。" },
 ];
 
 const ADV_SIDE = {
