@@ -172,7 +172,7 @@ function SideCard({ data, dir }: { data: typeof ADV_SIDE; dir: "l" | "r" }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.2 }}
       transition={{ duration: 0.6 }}
-      className="rounded-3xl p-8 md:p-10 glass-card w-full max-w-4xl mx-auto"
+      className="rounded-3xl p-8 md:p-10 glass-card w-full max-w-5xl mx-auto"
       style={{
         ...CARD,
         backdropFilter: "blur(24px) saturate(140%)",
