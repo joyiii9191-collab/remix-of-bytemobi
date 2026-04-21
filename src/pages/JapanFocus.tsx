@@ -7,6 +7,7 @@ import {
 } from "@/components/SnapPage";
 import { CountUp } from "@/components/SubPageLayout";
 import { JapanHighlightMap } from "@/components/JapanHighlightMap";
+import { GlassCategoryIcon } from "@/components/GlassCategoryIcon";
 import {
   Globe2, Handshake, ShieldCheck, Database,
   Coins, Sparkles, Target, Users, Headphones, Network,
@@ -20,15 +21,15 @@ import { GLASS_CARD as CARD, TEXT_DARK, TEXT_MID } from "@/lib/page-styles";
 const JP_RED = "hsl(245 60% 45%)";
 const JP_RED_SOFT = "hsla(245, 60%, 45%, 0.08)";
 
-const CATEGORIES = [
-  { icon: Heart, name: "交友 Dating" },
-  { icon: Sparkle, name: "生活 Life Style" },
-  { icon: Gamepad2, name: "游戏 Game" },
-  { icon: Banknote, name: "金融 Finance" },
-  { icon: Music2, name: "娱乐 Entertainment" },
-  { icon: ShoppingCart, name: "电商 Shopping" },
-  { icon: Newspaper, name: "新闻 News" },
-  { icon: Sparkles, name: "更多品类" },
+const CATEGORIES: { variant: "dating" | "lifestyle" | "game" | "finance" | "entertainment" | "shopping" | "news" | "more"; name: string }[] = [
+  { variant: "dating", name: "交友 Dating" },
+  { variant: "lifestyle", name: "生活 Life Style" },
+  { variant: "game", name: "游戏 Game" },
+  { variant: "finance", name: "金融 Finance" },
+  { variant: "entertainment", name: "娱乐 Entertainment" },
+  { variant: "shopping", name: "电商 Shopping" },
+  { variant: "news", name: "新闻 News" },
+  { variant: "more", name: "更多品类" },
 ];
 
 const PARTNER_GROUPS = [
