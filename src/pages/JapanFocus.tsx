@@ -175,12 +175,6 @@ function SideCard({ data, dir }: { data: typeof ADV_SIDE; dir: "l" | "r" }) {
       style={CARD}
     >
       <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-4 mb-5">
-        <div
-          className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full self-start"
-          style={{ background: JP_RED_SOFT, color: JP_RED }}
-        >
-          {data.title}
-        </div>
         <h3 className="text-2xl md:text-3xl font-bold" style={{ color: TEXT_DARK }}>
           {data.subtitle}
         </h3>
