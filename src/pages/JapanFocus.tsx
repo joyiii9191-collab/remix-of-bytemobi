@@ -119,7 +119,7 @@ function OfficeCarousel() {
   const prev = () => setIdx((i) => (i - 1 + total) % total);
 
   return (
-    <div className="relative rounded-2xl overflow-hidden w-full" style={{ ...CARD, height: 360 }}>
+    <div className="relative rounded-2xl overflow-hidden w-full" style={{ ...CARD, height: 420 }}>
       <AnimatePresence mode="wait">
         <motion.div
           key={idx}
