@@ -570,13 +570,33 @@ export default function JapanFocus() {
           <ScreenTitle>日本核心市场深耕</ScreenTitle>
           <ScreenLead>重点布局 · 深度理解 · 专业运营 · 共赢成功</ScreenLead>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6 flex-1 min-h-[320px]">
-            {/* 左侧:分点信息卡 */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 content-start">
+            {/* 左侧:分点信息卡(单列) */}
+            <div className="flex flex-col gap-3 sm:gap-4 content-start">
               {[
-                { icon: Target, t: "重点布局日本市场", d: "聚焦日本作为核心战略市场,长期深耕、持续投入" },
-                { icon: Users, t: "深刻理解用户行为", d: "把握本地用户偏好与消费习惯,精准触达核心人群" },
-                { icon: ShieldCheck, t: "熟悉监管环境", d: "严格遵循日本广告法规与合规要求,稳健可持续" },
-                { icon: Handshake, t: "保障广告主与媒体共赢", d: "提供专业运营服务,助力双方在日本市场取得成功" },
+                {
+                  icon: Target,
+                  t: "重点布局日本市场",
+                  d: "聚焦日本作为核心战略市场,长期深耕、持续投入",
+                  bullets: ["东京设立本地办公室", "持续扩张本地团队规模", "长期主义 · 稳定投入"],
+                },
+                {
+                  icon: Users,
+                  t: "深刻理解用户行为",
+                  d: "把握本地用户偏好与消费习惯,精准触达核心人群",
+                  bullets: ["本地用户洞察", "细分人群画像", "高 ROI 触达策略"],
+                },
+                {
+                  icon: ShieldCheck,
+                  t: "熟悉监管环境",
+                  d: "严格遵循日本广告法规与合规要求,稳健可持续",
+                  bullets: ["JIAA / 景表法合规", "数据隐私与安全", "广告内容审核"],
+                },
+                {
+                  icon: Handshake,
+                  t: "保障广告主与媒体共赢",
+                  d: "提供专业运营服务,助力双方在日本市场取得成功",
+                  bullets: ["精细化投放管理", "全链路数据透明", "持续优化成效"],
+                },
               ].map((item, i) => {
                 const Icon = item.icon;
                 return (
@@ -586,21 +606,47 @@ export default function JapanFocus() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, amount: 0.3 }}
                     transition={{ duration: 0.5, delay: i * 0.08 }}
-                    className="rounded-2xl p-5 glass-card"
+                    className="rounded-2xl p-4 sm:p-5 glass-card"
                     style={CARD}
                   >
-                    <div
-                      className="w-10 h-10 rounded-xl flex items-center justify-center mb-3"
-                      style={{ background: JP_RED_SOFT, color: JP_RED }}
-                    >
-                      <Icon size={20} />
+                    <div className="flex items-start gap-3 sm:gap-4">
+                      <div
+                        className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center shrink-0"
+                        style={{ background: JP_RED_SOFT, color: JP_RED }}
+                      >
+                        <Icon size={20} />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3
+                          className="text-sm sm:text-base font-semibold mb-1 break-words"
+                          style={{ color: TEXT_DARK }}
+                        >
+                          {item.t}
+                        </h3>
+                        <p
+                          className="text-xs sm:text-sm leading-relaxed mb-2 break-words"
+                          style={{ color: TEXT_MID }}
+                        >
+                          {item.d}
+                        </p>
+                        <ul className="flex flex-wrap gap-x-3 gap-y-1.5">
+                          {item.bullets.map((b, j) => (
+                            <li
+                              key={j}
+                              className="flex items-center gap-1.5 text-[11px] sm:text-xs"
+                              style={{ color: TEXT_MID }}
+                            >
+                              <BadgeCheck
+                                size={12}
+                                className="shrink-0"
+                                style={{ color: JP_RED }}
+                              />
+                              <span className="break-words">{b}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
-                    <h3 className="text-base font-semibold mb-1.5" style={{ color: TEXT_DARK }}>
-                      {item.t}
-                    </h3>
-                    <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>
-                      {item.d}
-                    </p>
                   </motion.div>
                 );
               })}
