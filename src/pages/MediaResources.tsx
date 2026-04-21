@@ -1,7 +1,12 @@
 import React from "react";
 import StarBorder from "@/components/StarBorder";
 import { motion } from "motion/react";
-import { Rocket, BarChart3, ShieldCheck, LineChart } from "lucide-react";
+import {
+  Rocket, BarChart3, ShieldCheck, LineChart,
+  Store, Megaphone, Network, Globe2,
+  MessageCircle, ClipboardCheck, FileSignature, Settings2, TrendingUp, PieChart,
+  Gift, Sparkles, GraduationCap,
+} from "lucide-react";
 import {
   SnapPage, SnapScreen, ScreenInner,
   ScreenEyebrow, ScreenTitle, ScreenLead,
