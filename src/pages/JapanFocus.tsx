@@ -282,7 +282,7 @@ export default function JapanFocus() {
           <div className="relative w-full max-w-[1280px] mx-auto mt-10">
             {/* 循环流程 —— 跑道形连续弧形箭头环绕三张等大卡片 */}
             <div className="relative w-full" style={{ aspectRatio: "1280 / 520" }}>
-              {/* SVG: 连续跑道路径(底色 + 双箭头分段) */}
+              {/* SVG: 双层跑道 —— 内圈封闭 + 外圈断开带箭头(参考样式) */}
               <svg
                 viewBox="0 0 1280 520"
                 className="absolute inset-0 w-full h-full pointer-events-none"
@@ -290,53 +290,54 @@ export default function JapanFocus() {
                 preserveAspectRatio="none"
               >
                 <defs>
-                  <linearGradient id="loopTop" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0%" stopColor="hsl(220 90% 75%)" stopOpacity="0.25" />
-                    <stop offset="40%" stopColor="hsl(222 88% 62%)" stopOpacity="0.85" />
+                  {/* 外层箭头段渐变:淡 -> 浓 */}
+                  <linearGradient id="outerTop" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stopColor="hsl(222 88% 60%)" stopOpacity="0.15" />
                     <stop offset="100%" stopColor="hsl(222 88% 55%)" stopOpacity="1" />
                   </linearGradient>
-                  <linearGradient id="loopBottom" x1="1" y1="0" x2="0" y2="0">
-                    <stop offset="0%" stopColor="hsl(220 90% 75%)" stopOpacity="0.25" />
-                    <stop offset="40%" stopColor="hsl(222 88% 62%)" stopOpacity="0.85" />
+                  <linearGradient id="outerBottom" x1="1" y1="0" x2="0" y2="0">
+                    <stop offset="0%" stopColor="hsl(222 88% 60%)" stopOpacity="0.15" />
                     <stop offset="100%" stopColor="hsl(222 88% 55%)" stopOpacity="1" />
                   </linearGradient>
                 </defs>
 
-                {/* 底层完整跑道(浅色描边,确保转角连续无断裂) */}
+                {/* 内层封闭跑道(主色实心环) */}
                 <path
-                  d="M 260 40 L 1020 40 A 220 220 0 0 1 1020 480 L 260 480 A 220 220 0 0 1 260 40 Z"
-                  stroke="hsl(220 80% 90%)"
+                  d="M 290 110 L 990 110 A 150 150 0 0 1 990 410 L 290 410 A 150 150 0 0 1 290 110 Z"
+                  stroke="hsl(222 88% 55%)"
+                  strokeWidth="9"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+
+                {/* 外层上半段(淡 -> 浓),终止于顶部偏右,带箭头 */}
+                <path
+                  d="M 70 260 A 220 220 0 0 1 290 40 L 820 40"
+                  stroke="url(#outerTop)"
                   strokeWidth="14"
-                  strokeLinejoin="round"
-                  opacity="0.7"
-                />
-
-                {/* 上半段:左侧圆弧顶部 -> 顶部直线 -> 右侧圆弧到右中点(箭头) */}
-                <path
-                  d="M 40 260 A 220 220 0 0 1 260 40 L 1020 40 A 220 220 0 0 1 1240 260"
-                  stroke="url(#loopTop)"
-                  strokeWidth="11"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   fill="none"
                 />
-                <polygon points="1240,260 1222,248 1222,272" fill="hsl(222 88% 55%)" />
+                {/* 上半段箭头 */}
+                <polygon points="820,40 798,26 798,54" fill="hsl(222 88% 55%)" />
 
-                {/* 下半段:右中点 -> 右下圆弧 -> 底部直线 -> 左下圆弧到左中点(箭头) */}
+                {/* 外层下半段(淡 -> 浓),终止于底部偏左,带箭头 */}
                 <path
-                  d="M 1240 260 A 220 220 0 0 1 1020 480 L 260 480 A 220 220 0 0 1 40 260"
-                  stroke="url(#loopBottom)"
-                  strokeWidth="11"
+                  d="M 1210 260 A 220 220 0 0 1 990 480 L 460 480"
+                  stroke="url(#outerBottom)"
+                  strokeWidth="14"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   fill="none"
                 />
-                <polygon points="40,260 58,248 58,272" fill="hsl(222 88% 55%)" />
+                {/* 下半段箭头 */}
+                <polygon points="460,480 482,466 482,494" fill="hsl(222 88% 55%)" />
 
-                <text x="640" y="22" textAnchor="middle" fontSize="13" fontWeight="600" fill={JP_RED} letterSpacing="3">
+                <text x="950" y="28" textAnchor="middle" fontSize="13" fontWeight="600" fill={JP_RED} letterSpacing="3">
                   实时检测
                 </text>
-                <text x="640" y="510" textAnchor="middle" fontSize="13" fontWeight="600" fill={JP_RED} letterSpacing="3">
+                <text x="330" y="504" textAnchor="middle" fontSize="13" fontWeight="600" fill={JP_RED} letterSpacing="3">
                   持续优化
                 </text>
               </svg>
