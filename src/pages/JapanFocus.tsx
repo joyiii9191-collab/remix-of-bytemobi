@@ -606,38 +606,38 @@ export default function JapanFocus() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, amount: 0.3 }}
                     transition={{ duration: 0.5, delay: i * 0.08 }}
-                    className="rounded-2xl p-4 sm:p-5 glass-card"
+                    className="rounded-2xl p-4 sm:p-5 glass-card text-left"
                     style={CARD}
                   >
-                    <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="flex items-start gap-3 sm:gap-3.5">
                       <div
-                        className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center shrink-0"
+                        className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center shrink-0"
                         style={{ background: JP_RED_SOFT, color: JP_RED }}
                       >
-                        <Icon size={20} />
+                        <Icon size={18} />
                       </div>
-                      <div className="flex-1 min-w-0">
+                      <div className="flex-1 min-w-0 text-left">
                         <h3
-                          className="text-sm sm:text-base font-semibold mb-1 break-words"
+                          className="text-sm sm:text-base font-semibold mb-1 text-left break-words"
                           style={{ color: TEXT_DARK }}
                         >
                           {item.t}
                         </h3>
                         <p
-                          className="text-xs sm:text-sm leading-relaxed mb-2 break-words"
+                          className="text-xs sm:text-sm leading-relaxed mb-2 text-left break-words"
                           style={{ color: TEXT_MID }}
                         >
                           {item.d}
                         </p>
-                        <ul className="flex flex-wrap gap-x-3 gap-y-1.5">
+                        <ul className="flex flex-wrap justify-start gap-x-3 gap-y-1.5">
                           {item.bullets.map((b, j) => (
                             <li
                               key={j}
-                              className="flex items-center gap-1.5 text-[11px] sm:text-xs"
+                              className="flex items-center gap-1 text-[11px] sm:text-xs text-left"
                               style={{ color: TEXT_MID }}
                             >
                               <BadgeCheck
-                                size={12}
+                                size={11}
                                 className="shrink-0"
                                 style={{ color: JP_RED }}
                               />
