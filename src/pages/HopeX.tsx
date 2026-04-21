@@ -143,31 +143,6 @@ export default function HopeX() {
         </ScreenInner>
       </SnapScreen>
 
-      {/* === Screen 3 — 全球流量网络 === */}
-      <SnapScreen id="network">
-        <ScreenInner>
-          <ScreenTitle>覆盖全球四大区域</ScreenTitle>
-          <ScreenLead>从北美到东南亚,从欧洲到拉美,多区域并行支持业务扩张。</ScreenLead>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
-            {[
-              { t: "北美 NA", d: "US / CA,成熟广告市场,适合高预算、强转化投放。" },
-              { t: "亚太 APAC", d: "SEA / JP / KR / IN,多语言多市场并行。" },
-              { t: "拉美 LATAM", d: "BR / MX 等,高增长市场,适合规模化获取新用户。" },
-              { t: "欧洲及中东非 EMEA", d: "覆盖更广的国际化商业投放区域。" },
-            ].map((c, i) => (
-              <motion.div
-                key={c.t}
-                initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="rounded-2xl p-6 glass-card" style={CARD}
-              >
-                <h3 className="text-base font-semibold mb-1.5" style={{ color: TEXT_DARK }}>{c.t}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>{c.d}</p>
-              </motion.div>
-            ))}
-          </div>
-        </ScreenInner>
-      </SnapScreen>
 
       {/* === Screen 4 — DSP 能力 === */}
       <SnapScreen id="dsp" bg="tint">
