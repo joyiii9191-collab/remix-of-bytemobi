@@ -630,49 +630,45 @@ export default function JapanFocus() {
         <ScreenInner>
           <ScreenTitle>区域概览</ScreenTitle>
           <ScreenLead>自2019年布局，“本地团队、本地运营、本地融入”</ScreenLead>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-8 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-8 items-stretch w-full max-w-5xl mx-auto">
             <div
               className="grid grid-cols-1 sm:grid-cols-2 gap-4"
-              style={{ gridTemplateRows: "1fr 1fr", height: 360 }}
+              style={{ gridTemplateRows: "1fr 1fr", height: 420 }}
             >
               {/* 员工规模 */}
               <motion.div
                 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5 }}
-                className="rounded-2xl p-5 glass-card flex flex-col justify-center"
+                className="rounded-2xl p-6 glass-card flex flex-col items-center justify-center text-center"
                 style={CARD}
               >
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-2"
-                  style={{ background: JP_RED_SOFT, color: JP_RED }}><Users size={20} /></div>
-                <div className="flex items-baseline gap-1 mb-0.5">
-                  <div className="text-4xl font-bold"
+                <div className="flex items-baseline gap-1 mb-2 justify-center">
+                  <div className="text-5xl font-bold"
                     style={{
                       background: `linear-gradient(180deg, hsl(245 70% 30%) 0%, ${JP_RED} 100%)`,
                       WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", lineHeight: 1.1,
                     }}><CountUp value={47} /></div>
-                  <span className="text-sm font-medium" style={{ color: JP_RED }}>名</span>
+                  <span className="text-base font-medium" style={{ color: JP_RED }}>名</span>
                 </div>
-                <div className="text-sm font-medium" style={{ color: TEXT_DARK }}>员工规模</div>
-                <div className="text-xs mt-0.5" style={{ color: TEXT_MID }}>商务 / 运营 / 技术 / 合规</div>
+                <div className="text-base font-semibold" style={{ color: TEXT_DARK }}>员工规模</div>
+                <div className="text-xs mt-1" style={{ color: TEXT_MID }}>商务 / 运营 / 技术 / 合规</div>
               </motion.div>
 
               {/* 日籍员工占比 */}
               <motion.div
                 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: 0.08 }}
-                className="rounded-2xl p-5 glass-card flex flex-col justify-center"
+                className="rounded-2xl p-6 glass-card flex flex-col items-center justify-center text-center"
                 style={CARD}
               >
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-2"
-                  style={{ background: JP_RED_SOFT, color: JP_RED }}><Languages size={20} /></div>
-                <div className="text-4xl font-bold mb-0.5"
+                <div className="text-5xl font-bold mb-2"
                   style={{
                     background: `linear-gradient(180deg, hsl(245 70% 30%) 0%, ${JP_RED} 100%)`,
                     WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", lineHeight: 1.1,
                   }}><CountUp value={65} suffix="%" /></div>
-                <div className="text-sm font-medium" style={{ color: TEXT_DARK }}>日籍员工占比</div>
-                <div className="text-xs mt-0.5 mb-2" style={{ color: TEXT_MID }}>深度融入本地市场</div>
-                <div className="h-1.5 rounded-full overflow-hidden" style={{ background: JP_RED_SOFT }}>
+                <div className="text-base font-semibold" style={{ color: TEXT_DARK }}>日籍员工占比</div>
+                <div className="text-xs mt-1 mb-3" style={{ color: TEXT_MID }}>深度融入本地市场</div>
+                <div className="h-1.5 w-3/4 rounded-full overflow-hidden" style={{ background: JP_RED_SOFT }}>
                   <motion.div
                     className="h-full rounded-full"
                     style={{ background: `linear-gradient(90deg, hsl(245 70% 45%), ${JP_RED})` }}
@@ -688,33 +684,20 @@ export default function JapanFocus() {
               <motion.div
                 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: 0.16 }}
-                className="rounded-2xl p-5 sm:col-span-2 glass-card flex items-start gap-4"
+                className="rounded-2xl p-6 sm:col-span-2 glass-card flex flex-col items-center justify-center text-center"
                 style={CARD}
               >
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
-                  style={{ background: JP_RED_SOFT, color: JP_RED }}><Building2 size={20} /></div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-1 flex-wrap">
-                    <h3 className="text-base font-semibold" style={{ color: TEXT_DARK }}>东京办公室</h3>
-                    <span
-                      className="text-[11px] px-2 py-0.5 rounded-full font-medium"
-                      style={{ background: JP_RED_SOFT, color: JP_RED }}
-                    >
-                      Since 2019
-                    </span>
-                  </div>
-                  <p className="text-xs sm:text-sm leading-relaxed mb-2" style={{ color: TEXT_MID }}>
-                    本地团队 · 本地运营 · 本地融入
-                  </p>
-                  <div
-                    className="flex items-start gap-2 text-xs leading-relaxed rounded-lg px-2.5 py-1.5"
-                    style={{ background: "hsla(245, 60%, 45%, 0.05)", color: TEXT_MID }}
-                  >
-                    <Building2 size={13} className="shrink-0 mt-0.5" style={{ color: JP_RED }} />
-                    <span className="break-words">
-                      東京都港区六本木三丁目3番27号 スハラ六本木
-                    </span>
-                  </div>
+                <h3 className="text-base font-semibold mb-1.5" style={{ color: TEXT_DARK }}>
+                  东京办公室
+                </h3>
+                <p className="text-sm leading-relaxed mb-2" style={{ color: TEXT_MID }}>
+                  本地团队 · 本地运营 · 本地融入
+                </p>
+                <div
+                  className="text-xs leading-relaxed rounded-lg px-3 py-1.5 inline-block"
+                  style={{ background: "hsla(245, 60%, 45%, 0.05)", color: TEXT_MID }}
+                >
+                  東京都港区六本木三丁目3番27号 スハラ六本木
                 </div>
               </motion.div>
             </div>
