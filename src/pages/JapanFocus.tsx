@@ -549,7 +549,7 @@ export default function JapanFocus() {
       <SnapScreen id="two-sides-adv">
         <ScreenInner>
           <ScreenTitle>广告主核心服务</ScreenTitle>
-          <ScreenLead>为出海日本与亚太的广告主提供低门槛、高确定性的合作方式。</ScreenLead>
+          <ScreenLead>为出海日本与亚太的广告主提供低门槛、高确定性的合作方式</ScreenLead>
           <div className="mt-8 w-full">
             <SideCard data={ADV_SIDE} dir="l" />
           </div>
