@@ -5,6 +5,7 @@ import formatVideo from "@/assets/format-video.png";
 import formatNative from "@/assets/format-native.png";
 import formatApp from "@/assets/format-app.png";
 import formatWeb from "@/assets/format-web.png";
+import formatCtv from "@/assets/format-ctv.png";
 
 type FormatItem = {
   title: string;
@@ -50,6 +51,13 @@ const ITEMS: FormatItem[] = [
     description: "覆盖桌面与移动 Web,补齐多端流量入口。",
     image: formatWeb,
     spot: { left: "48%", top: "42%" },
+  },
+  {
+    title: "CTV",
+    titleFull: "联网电视",
+    description: "客厅大屏沉浸场景,助力品牌曝光与高质量触达。",
+    image: formatCtv,
+    spot: { left: "42%", top: "35%" },
   },
 ];
 
