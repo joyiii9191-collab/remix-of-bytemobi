@@ -279,87 +279,70 @@ export default function JapanFocus() {
             自研机器学习实时检测 + 第三方验证机构协同,及时识别虚假点击与成效,
             优化发布商资源,保障公平透明。
           </ScreenLead>
-          <div className="relative w-full max-w-[1100px] mx-auto mt-10">
-            {/* 循环流程 —— 弧形箭头跑道环绕三张等大玻璃卡 */}
-            <div className="relative w-full" style={{ aspectRatio: "1100 / 460" }}>
-              {/* SVG: 跑道形弧线 + 双向箭头 */}
+          <div className="relative w-full max-w-[1280px] mx-auto mt-10">
+            {/* 循环流程 —— 跑道形连续弧形箭头环绕三张等大卡片 */}
+            <div className="relative w-full" style={{ aspectRatio: "1280 / 520" }}>
+              {/* SVG: 连续跑道路径(底色 + 双箭头分段) */}
               <svg
-                viewBox="0 0 1100 460"
+                viewBox="0 0 1280 520"
                 className="absolute inset-0 w-full h-full pointer-events-none"
                 fill="none"
+                preserveAspectRatio="none"
               >
                 <defs>
-                  <linearGradient id="loopArrowTop" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0%" stopColor="hsl(220 90% 70%)" stopOpacity="0.35" />
-                    <stop offset="55%" stopColor="hsl(225 85% 58%)" stopOpacity="1" />
-                    <stop offset="100%" stopColor="hsl(225 85% 58%)" stopOpacity="1" />
+                  <linearGradient id="loopTop" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stopColor="hsl(220 90% 75%)" stopOpacity="0.25" />
+                    <stop offset="40%" stopColor="hsl(222 88% 62%)" stopOpacity="0.85" />
+                    <stop offset="100%" stopColor="hsl(222 88% 55%)" stopOpacity="1" />
                   </linearGradient>
-                  <linearGradient id="loopArrowBottom" x1="1" y1="0" x2="0" y2="0">
-                    <stop offset="0%" stopColor="hsl(220 90% 70%)" stopOpacity="0.35" />
-                    <stop offset="55%" stopColor="hsl(225 85% 58%)" stopOpacity="1" />
-                    <stop offset="100%" stopColor="hsl(225 85% 58%)" stopOpacity="1" />
+                  <linearGradient id="loopBottom" x1="1" y1="0" x2="0" y2="0">
+                    <stop offset="0%" stopColor="hsl(220 90% 75%)" stopOpacity="0.25" />
+                    <stop offset="40%" stopColor="hsl(222 88% 62%)" stopOpacity="0.85" />
+                    <stop offset="100%" stopColor="hsl(222 88% 55%)" stopOpacity="1" />
                   </linearGradient>
-                  <marker
-                    id="arrowR2"
-                    viewBox="0 0 12 12"
-                    refX="6"
-                    refY="6"
-                    markerWidth="7"
-                    markerHeight="7"
-                    orient="auto-start-reverse"
-                  >
-                    <path d="M 0 0 L 12 6 L 0 12 z" fill="hsl(225 85% 58%)" />
-                  </marker>
-                  <marker
-                    id="arrowL2"
-                    viewBox="0 0 12 12"
-                    refX="6"
-                    refY="6"
-                    markerWidth="7"
-                    markerHeight="7"
-                    orient="auto-start-reverse"
-                  >
-                    <path d="M 0 0 L 12 6 L 0 12 z" fill="hsl(225 85% 58%)" />
-                  </marker>
                 </defs>
 
-                {/* 外层跑道阴影/底色(浅) */}
+                {/* 底层完整跑道(浅色描边,确保转角连续无断裂) */}
                 <path
-                  d="M 230 60 L 870 60 A 170 170 0 0 1 870 400 L 230 400 A 170 170 0 0 1 230 60 Z"
-                  stroke="hsl(220 80% 88%)"
+                  d="M 260 40 L 1020 40 A 220 220 0 0 1 1020 480 L 260 480 A 220 220 0 0 1 260 40 Z"
+                  stroke="hsl(220 80% 90%)"
                   strokeWidth="14"
-                  strokeLinecap="round"
-                  opacity="0.55"
+                  strokeLinejoin="round"
+                  opacity="0.7"
                 />
 
-                {/* 上半段:左 -> 右 (粗弧形箭头) */}
+                {/* 上半段:左侧圆弧顶部 -> 顶部直线 -> 右侧圆弧到右中点(箭头) */}
                 <path
-                  d="M 230 60 L 860 60 A 170 170 0 0 1 1010 220"
-                  stroke="url(#loopArrowTop)"
-                  strokeWidth="10"
+                  d="M 40 260 A 220 220 0 0 1 260 40 L 1020 40 A 220 220 0 0 1 1240 260"
+                  stroke="url(#loopTop)"
+                  strokeWidth="11"
                   strokeLinecap="round"
-                  markerEnd="url(#arrowR2)"
+                  strokeLinejoin="round"
+                  fill="none"
                 />
-                {/* 下半段:右 -> 左 */}
-                <path
-                  d="M 870 400 L 240 400 A 170 170 0 0 1 90 240"
-                  stroke="url(#loopArrowBottom)"
-                  strokeWidth="10"
-                  strokeLinecap="round"
-                  markerEnd="url(#arrowL2)"
-                />
+                <polygon points="1240,260 1222,248 1222,272" fill="hsl(222 88% 55%)" />
 
-                {/* 弧线标签 */}
-                <text x="550" y="42" textAnchor="middle" fontSize="13" fontWeight="600" fill={JP_RED} letterSpacing="3">
+                {/* 下半段:右中点 -> 右下圆弧 -> 底部直线 -> 左下圆弧到左中点(箭头) */}
+                <path
+                  d="M 1240 260 A 220 220 0 0 1 1020 480 L 260 480 A 220 220 0 0 1 40 260"
+                  stroke="url(#loopBottom)"
+                  strokeWidth="11"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+                <polygon points="40,260 58,248 58,272" fill="hsl(222 88% 55%)" />
+
+                <text x="640" y="22" textAnchor="middle" fontSize="13" fontWeight="600" fill={JP_RED} letterSpacing="3">
                   实时检测
                 </text>
-                <text x="550" y="438" textAnchor="middle" fontSize="13" fontWeight="600" fill={JP_RED} letterSpacing="3">
+                <text x="640" y="510" textAnchor="middle" fontSize="13" fontWeight="600" fill={JP_RED} letterSpacing="3">
                   持续优化
                 </text>
               </svg>
 
-              {/* 三张等大玻璃卡 */}
-              <div className="absolute inset-0 flex items-center justify-center gap-8 md:gap-12 px-[8%]">
+              {/* 三张等大卡片(蓝色渐变染色,与全球汇流一致) */}
+              <div className="absolute inset-0 flex items-center justify-center gap-6 md:gap-10 px-[14%]">
                 {FRAUD_LOOP.map((s, i) => {
                   const Icon = s.icon;
                   return (
@@ -371,83 +354,31 @@ export default function JapanFocus() {
                       transition={{ duration: 0.55, delay: i * 0.15, ease: "easeOut" }}
                       className="relative flex-1 max-w-[260px]"
                     >
-                      {/* 清透玻璃卡 */}
                       <div
-                        className="relative rounded-3xl flex flex-col items-center text-center px-5 py-7 overflow-hidden"
+                        className="relative rounded-2xl flex flex-col items-center text-center px-6 py-7"
                         style={{
-                          background:
-                            "linear-gradient(160deg, hsla(220,100%,99%,0.85) 0%, hsla(225,90%,94%,0.55) 60%, hsla(230,80%,88%,0.4) 100%)",
-                          backdropFilter: "blur(14px)",
-                          WebkitBackdropFilter: "blur(14px)",
-                          border: "1px solid hsla(0,0%,100%,0.7)",
-                          boxShadow:
-                            "0 20px 40px -18px hsla(225,70%,40%,0.35), inset 0 1px 1px hsla(0,0%,100%,0.95), inset 0 -2px 6px hsla(225,60%,55%,0.12)",
+                          background: `linear-gradient(180deg, rgba(59,130,246,${0.1 + i * 0.03}) 0%, rgba(255,255,255,0.95) 100%)`,
+                          border: "1px solid rgba(59,130,246,0.18)",
+                          boxShadow: "0 18px 40px -22px rgba(59,130,246,0.45)",
                         }}
                       >
-                        {/* 顶部高光 */}
                         <div
-                          className="absolute pointer-events-none rounded-full"
-                          style={{
-                            top: "-10%",
-                            left: "12%",
-                            width: "70%",
-                            height: "35%",
-                            background:
-                              "radial-gradient(ellipse at center, hsla(0,0%,100%,0.7) 0%, hsla(0,0%,100%,0) 70%)",
-                            filter: "blur(4px)",
-                          }}
-                        />
-
-                        {/* 玻璃球图标容器 */}
-                        <div
-                          className="relative flex items-center justify-center rounded-full mb-4"
-                          style={{
-                            width: 76,
-                            height: 76,
-                            background:
-                              "radial-gradient(circle at 30% 25%, hsla(220,100%,98%,0.95) 0%, hsla(225,90%,90%,0.6) 45%, hsla(235,75%,78%,0.4) 100%)",
-                            border: "1px solid hsla(0,0%,100%,0.7)",
-                            boxShadow:
-                              "inset 0 1px 2px hsla(0,0%,100%,0.95), inset 0 -3px 8px hsla(230,60%,55%,0.18), 0 8px 18px -10px hsla(230,80%,45%,0.4)",
-                          }}
+                          className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4"
+                          style={{ background: "rgba(59,130,246,0.12)", color: "#3B82F6" }}
                         >
-                          <div
-                            className="absolute rounded-full pointer-events-none"
-                            style={{
-                              top: "10%",
-                              left: "18%",
-                              width: "50%",
-                              height: "32%",
-                              background:
-                                "radial-gradient(ellipse at center, hsla(0,0%,100%,0.85) 0%, hsla(0,0%,100%,0) 70%)",
-                              filter: "blur(2px)",
-                            }}
-                          />
-                          <Icon size={32} style={{ color: "hsl(225 80% 50%)" }} className="relative z-10" />
+                          <Icon size={26} />
                         </div>
 
-                        <div
-                          className="font-bold tracking-wider"
-                          style={{ fontSize: 20, color: "hsl(225 70% 28%)" }}
-                        >
+                        <div className="font-semibold tracking-wider" style={{ fontSize: 18, color: TEXT_DARK }}>
                           {s.t.split(" ")[0]}
                         </div>
-                        <div
-                          className="mt-1 tracking-[0.25em] uppercase"
-                          style={{ fontSize: 10, color: "hsl(225 50% 50%)" }}
-                        >
+                        <div className="mt-1 tracking-[0.25em] uppercase" style={{ fontSize: 10, color: "#3B82F6" }}>
                           {s.t.split(" ")[1]}
                         </div>
 
-                        <div
-                          className="my-3 h-px w-10"
-                          style={{ background: "hsla(225,60%,60%,0.35)" }}
-                        />
+                        <div className="my-3 h-px w-10" style={{ background: "rgba(59,130,246,0.3)" }} />
 
-                        <p
-                          className="text-xs md:text-[13px] leading-relaxed"
-                          style={{ color: TEXT_MID }}
-                        >
+                        <p className="text-xs md:text-[13px] leading-relaxed" style={{ color: TEXT_MID }}>
                           {s.d}
                         </p>
                       </div>
