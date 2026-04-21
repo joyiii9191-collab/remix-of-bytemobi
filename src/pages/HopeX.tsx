@@ -9,6 +9,7 @@ import { CountUp } from "@/components/SubPageLayout";
 import { ParticleWorldMap } from "@/components/ParticleWorldMap";
 import { GLASS_CARD as CARD, TEXT_DARK, TEXT_MID, ACCENT } from "@/lib/page-styles";
 import { FormatShowcase } from "@/components/FormatShowcase";
+import { TrendingUp, Target, Globe2, Wallet, Coins, Cpu } from "lucide-react";
 
 const HOPEX_MARKERS = [
   { x: 18, y: 35, highlight: true, label: "NA" },
@@ -555,7 +556,7 @@ export default function HopeX() {
 
       {/* === Screen 7 — 合作价值 === */}
       <SnapScreen id="value">
-        <ScreenInner className="max-w-[1440px] px-8 xl:px-10">
+        <ScreenInner>
           <ScreenTitle>一端服务广告主,一端服务流量方</ScreenTitle>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-10 w-full">
             <motion.div
@@ -564,10 +565,25 @@ export default function HopeX() {
               className="rounded-2xl p-7 glass-card" style={CARD}>
               <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>For Advertisers</div>
               <h3 className="text-2xl font-bold mb-4" style={{ color: TEXT_DARK }}>广告主</h3>
-              <ul className="space-y-2.5 text-sm" style={{ color: TEXT_DARK }}>
-                <li className="flex gap-2"><span className="mt-1.5 w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />稳定规模化增长</li>
-                <li className="flex gap-2"><span className="mt-1.5 w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />高 ROI</li>
-                <li className="flex gap-2"><span className="mt-1.5 w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />全球覆盖</li>
+              <ul className="space-y-3 text-sm" style={{ color: TEXT_DARK }}>
+                <li className="flex items-center gap-3">
+                  <span className="shrink-0 w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: `${ACCENT}1A`, color: ACCENT }}>
+                    <TrendingUp size={16} strokeWidth={2.2} />
+                  </span>
+                  稳定规模化增长
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="shrink-0 w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: `${ACCENT}1A`, color: ACCENT }}>
+                    <Target size={16} strokeWidth={2.2} />
+                  </span>
+                  高 ROI
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="shrink-0 w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: `${ACCENT}1A`, color: ACCENT }}>
+                    <Globe2 size={16} strokeWidth={2.2} />
+                  </span>
+                  全球覆盖
+                </li>
               </ul>
             </motion.div>
             <motion.div
@@ -576,10 +592,25 @@ export default function HopeX() {
               className="rounded-2xl p-7 glass-card" style={CARD}>
               <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>For Publishers</div>
               <h3 className="text-2xl font-bold mb-4" style={{ color: TEXT_DARK }}>流量方</h3>
-              <ul className="space-y-2.5 text-sm" style={{ color: TEXT_DARK }}>
-                <li className="flex gap-2"><span className="mt-1.5 w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />多元预算</li>
-                <li className="flex gap-2"><span className="mt-1.5 w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />收益最大化</li>
-                <li className="flex gap-2"><span className="mt-1.5 w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />技术驱动</li>
+              <ul className="space-y-3 text-sm" style={{ color: TEXT_DARK }}>
+                <li className="flex items-center gap-3">
+                  <span className="shrink-0 w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: `${ACCENT}1A`, color: ACCENT }}>
+                    <Wallet size={16} strokeWidth={2.2} />
+                  </span>
+                  多元预算
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="shrink-0 w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: `${ACCENT}1A`, color: ACCENT }}>
+                    <Coins size={16} strokeWidth={2.2} />
+                  </span>
+                  收益最大化
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="shrink-0 w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: `${ACCENT}1A`, color: ACCENT }}>
+                    <Cpu size={16} strokeWidth={2.2} />
+                  </span>
+                  技术驱动
+                </li>
               </ul>
             </motion.div>
           </div>
