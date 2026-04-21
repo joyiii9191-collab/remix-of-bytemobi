@@ -439,7 +439,7 @@ export default function JapanFocus() {
           <ScreenTitle>数据驱动的程序化投放能力</ScreenTitle>
           <ScreenLead>
             依托精准算法与全链路实时数据,自动优化广告投放,
-            提升广告主营销效率与媒体方变现效果。
+            提升广告主营销效率与媒体方变现效果
           </ScreenLead>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-12 w-full">
             {PROGRAMMATIC.map((p, i) => {
