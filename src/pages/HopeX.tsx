@@ -370,6 +370,7 @@ export default function HopeX() {
       {/* === Screen 5c — 全场景流量变现能力 === */}
       <SnapScreen id="formats" bg="tint">
         <ScreenInner>
+          <GlassTag>SSP 能力</GlassTag>
           <ScreenTitle>全场景流量变现能力</ScreenTitle>
           <ScreenLead>支持多种广告形式 · 全端覆盖</ScreenLead>
           <FormatShowcase />
@@ -379,6 +380,7 @@ export default function HopeX() {
       {/* === Screen 5d — 多元预算接入 === */}
       <SnapScreen id="budget">
         <ScreenInner>
+          <GlassTag>SSP 能力</GlassTag>
           <ScreenTitle>多元预算接入</ScreenTitle>
           <ScreenLead>HopeX SSP 已对接多类型预算,稳定覆盖效果与品牌双目标。</ScreenLead>
 
@@ -472,6 +474,7 @@ export default function HopeX() {
       {/* === Screen 6 — 流量来源 === */}
       <SnapScreen id="traffic" bg="tint">
         <ScreenInner>
+          <GlassTag>SSP 能力</GlassTag>
           <ScreenTitle>全域流量矩阵</ScreenTitle>
           <ScreenLead>自有矩阵保证基本盘,外部对接保证规模与多样性。</ScreenLead>
           <div className="flex flex-col gap-6 mt-10 w-full">
