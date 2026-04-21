@@ -302,9 +302,9 @@ export default function JapanFocus() {
                   </linearGradient>
                 </defs>
 
-                {/* 内层细描边跑道(紧贴卡片外缘) */}
+                {/* 内层细描边跑道(包裹卡片外缘,留呼吸空间) */}
                 <path
-                  d="M 310 130 L 970 130 A 130 130 0 0 1 970 390 L 310 390 A 130 130 0 0 1 310 130 Z"
+                  d="M 200 90 L 1080 90 A 170 170 0 0 1 1080 430 L 200 430 A 170 170 0 0 1 200 90 Z"
                   stroke="hsl(262 60% 80%)"
                   strokeWidth="3"
                   strokeLinejoin="round"
