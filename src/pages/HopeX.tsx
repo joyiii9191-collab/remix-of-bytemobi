@@ -643,7 +643,7 @@ export default function HopeX() {
 
                 {/* Content */}
                 <div className="relative z-[1] p-7">
-                  <h3 className="text-2xl font-bold mb-5 text-left" style={{ color: TEXT_DARK }}>
+                  <h3 className="text-2xl font-bold mb-5 text-center" style={{ color: TEXT_DARK }}>
                     {card.title}
                   </h3>
                   <div className="grid grid-cols-1 gap-3">
