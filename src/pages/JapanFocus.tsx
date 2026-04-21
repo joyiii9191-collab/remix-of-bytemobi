@@ -209,11 +209,9 @@ export default function JapanFocus() {
         <ScreenInner>
           <ScreenTitle>丰富的全球项目实绩</ScreenTitle>
           <ScreenLead>
-            覆盖交友、游戏、金融、娱乐、电商、新闻等全球多品类。
+            覆盖交友、游戏、金融、娱乐、电商、新闻等全球多品类
             <br />
-            <span className="text-sm" style={{ color: "hsl(230 15% 50%)" }}>
-              结合本地用户行为与文化特点,提供定制化营销优化方案。
-            </span>
+            结合本地用户行为与文化特点,提供定制化营销优化方案
           </ScreenLead>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-10 mt-12 w-full">
             {CATEGORIES.map((c, i) => (
