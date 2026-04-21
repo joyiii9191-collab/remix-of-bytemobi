@@ -118,9 +118,6 @@ export default function GlobalFlow() {
     <SnapPage title="全球汇流">
       {/* === Screen 1 — Hero === */}
       <SnapScreen id="hero">
-        <div className="absolute inset-0 pointer-events-none opacity-70">
-          <ParticleWorldMap markers={HUB_MARKERS} lines={HUB_LINES} />
-        </div>
         <div
           className="absolute inset-0 pointer-events-none"
           style={{

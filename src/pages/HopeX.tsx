@@ -36,9 +36,6 @@ export default function HopeX() {
     <SnapPage title="程序化广告">
       {/* === Screen 1 — Hero === */}
       <SnapScreen id="hero">
-        <div className="absolute inset-0 pointer-events-none opacity-70">
-          <ParticleWorldMap markers={HOPEX_MARKERS} lines={HOPEX_LINES} />
-        </div>
         <div className="absolute inset-0 pointer-events-none"
           style={{ background: "linear-gradient(180deg, rgba(245,245,247,0) 0%, rgba(245,245,247,0.6) 80%, #F5F5F7 100%)" }} />
         <ScreenInner>
