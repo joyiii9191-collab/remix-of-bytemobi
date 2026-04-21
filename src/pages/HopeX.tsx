@@ -587,61 +587,88 @@ export default function HopeX() {
       <SnapScreen id="value">
         <ScreenInner>
           <ScreenTitle>一端服务广告主,一端服务流量方</ScreenTitle>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-10 w-full">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5 }}
-              className="rounded-2xl p-7 glass-card" style={CARD}>
-              <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>For Advertisers</div>
-              <h3 className="text-2xl font-bold mb-4" style={{ color: TEXT_DARK }}>广告主</h3>
-              <ul className="space-y-3 text-sm" style={{ color: TEXT_DARK }}>
-                <li className="flex items-center gap-3">
-                  <span className="shrink-0 w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: `${ACCENT}1A`, color: ACCENT }}>
-                    <TrendingUp size={16} strokeWidth={2.2} />
-                  </span>
-                  稳定规模化增长
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="shrink-0 w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: `${ACCENT}1A`, color: ACCENT }}>
-                    <Target size={16} strokeWidth={2.2} />
-                  </span>
-                  高 ROI
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="shrink-0 w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: `${ACCENT}1A`, color: ACCENT }}>
-                    <Globe2 size={16} strokeWidth={2.2} />
-                  </span>
-                  全球覆盖
-                </li>
-              </ul>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5 }}
-              className="rounded-2xl p-7 glass-card" style={CARD}>
-              <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>For Publishers</div>
-              <h3 className="text-2xl font-bold mb-4" style={{ color: TEXT_DARK }}>流量方</h3>
-              <ul className="space-y-3 text-sm" style={{ color: TEXT_DARK }}>
-                <li className="flex items-center gap-3">
-                  <span className="shrink-0 w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: `${ACCENT}1A`, color: ACCENT }}>
-                    <Wallet size={16} strokeWidth={2.2} />
-                  </span>
-                  多元预算
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="shrink-0 w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: `${ACCENT}1A`, color: ACCENT }}>
-                    <Coins size={16} strokeWidth={2.2} />
-                  </span>
-                  收益最大化
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="shrink-0 w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: `${ACCENT}1A`, color: ACCENT }}>
-                    <Cpu size={16} strokeWidth={2.2} />
-                  </span>
-                  技术驱动
-                </li>
-              </ul>
-            </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 w-full">
+            {[
+              {
+                title: "对广告主（DSP）",
+                items: [
+                  { icon: TrendingUp, label: "稳定规模化增长", desc: "持续放量,平稳爬坡,长周期增长可预期。" },
+                  { icon: Target, label: "高 ROI", desc: "算法 + 数据驱动,精准触达高价值用户。" },
+                  { icon: Globe2, label: "全球覆盖", desc: "多区域多渠道一站式触达全球受众。" },
+                ],
+                from: -20,
+              },
+              {
+                title: "对流量方（SSP）",
+                items: [
+                  { icon: Wallet, label: "多元预算", desc: "DSP、品牌直客、节日大促预算稳定接入。" },
+                  { icon: Coins, label: "收益最大化", desc: "智能竞价 + 流量分层,提升每一次曝光价值。" },
+                  { icon: Cpu, label: "技术驱动", desc: "底层投放与变现引擎,持续迭代优化。" },
+                ],
+                from: 20,
+              },
+            ].map((card) => (
+              <motion.div
+                key={card.title}
+                initial={{ opacity: 0, x: card.from }} whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5 }}
+                className="relative rounded-[24px]"
+                style={{
+                  border: "1px solid hsla(0, 0%, 100%, 0.6)",
+                  boxShadow:
+                    "inset 0 1.5px 0 0 hsla(0,0%,100%,0.95), inset 1px 0 0 0 hsla(0,0%,100%,0.5), inset 0 -1px 0 0 hsla(230,30%,50%,0.10), inset 0 -12px 28px -12px hsla(0,0%,100%,0.4), 0 24px 60px -18px hsla(230,40%,25%,0.22), 0 4px 12px -3px hsla(230,40%,25%,0.12)",
+                }}
+              >
+                {/* Glass fill */}
+                <div
+                  className="absolute inset-0 pointer-events-none rounded-[24px]"
+                  style={{
+                    background:
+                      "linear-gradient(155deg, hsla(0,0%,100%,0.30) 0%, hsla(0,0%,100%,0.15) 45%, hsla(0,0%,100%,0.08) 100%)",
+                  }}
+                />
+                {/* Top specular highlight */}
+                <div
+                  className="absolute inset-0 pointer-events-none rounded-[24px] overflow-hidden"
+                  style={{ mixBlendMode: "screen" }}
+                >
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background:
+                        "radial-gradient(ellipse 110% 45% at 50% -8%, hsla(0,0%,100%,0.55) 0%, hsla(0,0%,100%,0.15) 35%, transparent 65%), linear-gradient(135deg, transparent 30%, hsla(0,0%,100%,0.20) 45%, hsla(0,0%,100%,0.04) 55%, transparent 70%)",
+                    }}
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="relative z-[1] p-7">
+                  <h3 className="text-2xl font-bold mb-5" style={{ color: TEXT_DARK }}>
+                    {card.title}
+                  </h3>
+                  <ul className="space-y-4">
+                    {card.items.map(({ icon: Icon, label, desc }) => (
+                      <li key={label} className="flex items-start gap-3">
+                        <span
+                          className="shrink-0 w-9 h-9 rounded-lg flex items-center justify-center mt-0.5"
+                          style={{ background: `${ACCENT}1A`, color: ACCENT }}
+                        >
+                          <Icon size={16} strokeWidth={2.2} />
+                        </span>
+                        <div className="flex flex-col gap-0.5 min-w-0">
+                          <span className="text-[15px] font-semibold" style={{ color: TEXT_DARK }}>
+                            {label}
+                          </span>
+                          <span className="text-[13px] leading-relaxed" style={{ color: TEXT_MID }}>
+                            {desc}
+                          </span>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
+            ))}
           </div>
           <motion.div
             initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
