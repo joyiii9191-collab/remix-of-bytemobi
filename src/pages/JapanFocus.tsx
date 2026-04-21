@@ -578,7 +578,7 @@ export default function JapanFocus() {
       {/* === Screen 5 — 本地团队数据 === */}
       <SnapScreen id="local">
         <ScreenInner>
-          <ScreenTitle>自 2019 起的本地团队</ScreenTitle>
+          <ScreenTitle>区域概览</ScreenTitle>
           <ScreenLead>由本地化运营、合规与商务组成的日本办公室,与全球资源协同。</ScreenLead>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
