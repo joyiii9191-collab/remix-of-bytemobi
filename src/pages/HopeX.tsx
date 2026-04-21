@@ -62,23 +62,22 @@ export default function HopeX() {
 
       {/* === Screen 2 — 平台规模 === */}
       <SnapScreen id="scale" bg="tint">
-        <ScreenInner>
+        <ScreenInner className="max-w-[1440px] px-8 xl:px-10">
           <ScreenTitle>规模与基础能力</ScreenTitle>
           <ScreenLead>规模是程序化的前提,HopeX 的请求量与连接数支持稳定可预测的增长。</ScreenLead>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-16 gap-y-12 mt-16">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-10 xl:gap-x-14 gap-y-12 mt-16 w-full">
             {SCALE.map((s, i) => (
               <motion.div
                 key={s.l}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.6, delay: i * 0.08 }}
-                className="relative flex items-center justify-center h-40 md:h-44 overflow-hidden"
+                className="relative flex items-center justify-center h-40 md:h-44 min-w-0"
               >
-                {/* 镂空大数字背景 */}
                 <div
                   aria-hidden
                   className="absolute inset-0 flex items-center justify-center font-black select-none pointer-events-none"
                   style={{
-                    fontSize: "clamp(5rem, 8vw, 8rem)",
+                    fontSize: "clamp(4.5rem, 6.2vw, 7rem)",
                     lineHeight: 1,
                     letterSpacing: "-0.04em",
                     color: "transparent",
@@ -88,16 +87,15 @@ export default function HopeX() {
                 >
                   <CountUp value={s.v} />
                 </div>
-                {/* 前景标签 */}
-                <div className="relative z-10 flex items-center gap-3">
+                <div className="relative z-10 flex items-center gap-3 max-w-full px-2">
                   <span
                     aria-hidden
-                    className="block h-[2px] w-7 rounded-full"
+                    className="block h-[2px] w-7 rounded-full shrink-0"
                     style={{ background: "hsl(245 70% 55%)" }}
                   />
-                  <div className="flex flex-col">
+                  <div className="flex flex-col min-w-0">
                     <div
-                      className="text-base md:text-lg font-semibold tracking-wide"
+                      className="text-base md:text-lg font-semibold tracking-wide leading-tight"
                       style={{ color: TEXT_DARK }}
                     >
                       {s.l}
