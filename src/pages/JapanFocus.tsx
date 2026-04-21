@@ -22,13 +22,13 @@ const JP_RED = "hsl(245 60% 45%)";
 const JP_RED_SOFT = "hsla(245, 60%, 45%, 0.08)";
 
 const CATEGORIES: { variant: "dating" | "lifestyle" | "game" | "finance" | "entertainment" | "shopping" | "news" | "more"; name: string }[] = [
-  { variant: "dating", name: "交友 Dating" },
-  { variant: "lifestyle", name: "生活 Life Style" },
-  { variant: "game", name: "游戏 Game" },
-  { variant: "finance", name: "金融 Finance" },
-  { variant: "entertainment", name: "娱乐 Entertainment" },
-  { variant: "shopping", name: "电商 Shopping" },
-  { variant: "news", name: "新闻 News" },
+  { variant: "dating", name: "交友" },
+  { variant: "lifestyle", name: "生活" },
+  { variant: "game", name: "游戏" },
+  { variant: "finance", name: "金融" },
+  { variant: "entertainment", name: "娱乐" },
+  { variant: "shopping", name: "电商" },
+  { variant: "news", name: "新闻" },
   { variant: "more", name: "更多品类" },
 ];
 
