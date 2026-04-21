@@ -263,9 +263,6 @@ export function FormatShowcase() {
 
         {/* Bottom: developer benefits */}
         <div className="flex flex-col gap-3">
-          <div className="text-[13px] font-semibold" style={{ color: TEXT_DARK }}>
-            帮助开发者实现:
-          </div>
           <ul className="space-y-2 text-[13px]" style={{ color: TEXT_MID }}>
             <li className="flex items-start gap-2">
               <span
