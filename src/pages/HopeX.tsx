@@ -8,6 +8,9 @@ import {
 import { CountUp } from "@/components/SubPageLayout";
 import { ParticleWorldMap } from "@/components/ParticleWorldMap";
 import { GLASS_CARD as CARD, TEXT_DARK, TEXT_MID, ACCENT } from "@/lib/page-styles";
+import dspRtb from "@/assets/dsp-rtb.jpg";
+import dspAffiliate from "@/assets/dsp-affiliate.jpg";
+import dspMedia from "@/assets/dsp-media.jpg";
 
 const HOPEX_MARKERS = [
   { x: 18, y: 35, highlight: true, label: "NA" },
