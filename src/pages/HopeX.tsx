@@ -9,6 +9,7 @@ import { CountUp } from "@/components/SubPageLayout";
 import { ParticleWorldMap } from "@/components/ParticleWorldMap";
 import { GLASS_CARD as CARD, TEXT_DARK, TEXT_MID, ACCENT } from "@/lib/page-styles";
 import { FormatShowcase } from "@/components/FormatShowcase";
+import { TrendingUp, Target, Globe2, Wallet, Coins, Cpu } from "lucide-react";
 
 const HOPEX_MARKERS = [
   { x: 18, y: 35, highlight: true, label: "NA" },
