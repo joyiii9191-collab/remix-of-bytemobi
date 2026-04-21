@@ -268,9 +268,6 @@ export default function JapanFocus() {
               </motion.div>
             ))}
           </div>
-          <p className="text-xs mt-6" style={{ color: "hsl(230 15% 55%)" }}>
-            * Logo 位预留,上线前替换为正式品牌素材
-          </p>
         </ScreenInner>
       </SnapScreen>
 
