@@ -12,6 +12,8 @@ import {
 import {
   Building2, MapPin, Users, Calendar, Sparkles,
   Globe2, Award, Rocket, Star, TrendingUp, ShieldCheck, Cpu,
+  Network, Languages, Code2, FileBadge, BadgeCheck,
+  Lock, ServerCog, HeartHandshake,
   type LucideIcon,
 } from "lucide-react";
 
