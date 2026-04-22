@@ -408,7 +408,7 @@ export default function GlobalFlow() {
                         <div
                           className="rounded-xl px-4 py-3 backdrop-blur-xl border"
                           style={{
-                            background: "hsla(245, 50%, 30%, 0.55)",
+                            background: "hsla(0,0%,100%,0.18)",
                             borderColor: "hsla(0,0%,100%,0.35)",
                             boxShadow: "0 8px 24px -8px hsla(0,0%,0%,0.35)",
                           }}
