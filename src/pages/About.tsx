@@ -1074,16 +1074,20 @@ export default function About() {
                     {e.name}
                   </h3>
 
-                  <div className="grid grid-cols-[12px_1fr] items-center gap-x-1 gap-y-1 text-[10.5px] md:text-[11px]">
-                    <Calendar size={11} strokeWidth={1.8} className="shrink-0" style={{ color: ACCENT }} />
-                    <span className="font-medium tabular-nums tracking-wide truncate" style={{ color: ACCENT }}>{e.date}</span>
+                  <div className="flex flex-col gap-1 text-[10.5px] md:text-[11px]">
+                    <div className="flex items-center gap-1 min-w-0">
+                      <Calendar size={11} strokeWidth={1.8} className="shrink-0" style={{ color: ACCENT }} />
+                      <span className="font-medium tabular-nums tracking-wide truncate" style={{ color: ACCENT }}>{e.date}</span>
+                    </div>
 
-                    <MapPin size={11} strokeWidth={1.8} className="shrink-0" style={{ color: TEXT_MID }} />
-                    <span className="truncate min-w-0 leading-snug" style={{ color: TEXT_MID }} title={`${e.city} · ${e.location}`}>
-                      <span style={{ color: TEXT_DARK }} className="font-medium">{e.city}</span>
-                      <span className="opacity-60"> · </span>
-                      {e.location}
-                    </span>
+                    <div className="flex items-center gap-1 min-w-0">
+                      <MapPin size={11} strokeWidth={1.8} className="shrink-0" style={{ color: TEXT_MID }} />
+                      <span className="truncate min-w-0 leading-snug" style={{ color: TEXT_MID }} title={`${e.city} · ${e.location}`}>
+                        <span style={{ color: TEXT_DARK }} className="font-medium">{e.city}</span>
+                        <span className="opacity-60"> · </span>
+                        {e.location}
+                      </span>
+                    </div>
                   </div>
                 </div>
 
