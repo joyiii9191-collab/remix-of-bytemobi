@@ -27,6 +27,16 @@ import caseCryptocomBanner from "@/assets/case-cryptocom-banner.png";
 import casePaybisLogo from "@/assets/case-paybis-logo.png";
 import casePaybisBanner from "@/assets/case-paybis-banner.png";
 import caseBet365Img from "@/assets/case-bet365.png";
+import caseBet365Logo from "@/assets/case-bet365-logo.png";
+import caseBet365Banner from "@/assets/case-bet365-banner.jpg";
+import case1xbetLogo from "@/assets/case-1xbet-logo.png";
+import case1xbetBanner from "@/assets/case-1xbet-banner.jpg";
+import caseMelbetLogo from "@/assets/case-melbet-logo.png";
+import caseMelbetBanner from "@/assets/case-melbet-banner.png";
+import caseGgvegasLogo from "@/assets/case-ggvegas-logo.png";
+import caseGgvegasBanner from "@/assets/case-ggvegas-banner.png";
+import casePrimepartnersLogo from "@/assets/case-primepartners-logo.png";
+import casePrimepartnersBanner from "@/assets/case-primepartners-banner.jpg";
 import caseHungryImg from "@/assets/case-hungry-studio.png";
 import caseTiktokImg from "@/assets/case-tiktok.png";
 import caseNordvpnImg from "@/assets/case-nordvpn.png";
@@ -245,28 +255,72 @@ const CATEGORIES: Category[] = [
       {
         brand: "Bet365",
         region: "EU",
-        goal: "注册 & 首充 (FTD) 转化",
-        highlights: ["高转化意图人群聚合", "全漏斗精细化优化", "首存转化效率持续提升"],
+        goal: "注册 & 首充转化",
+        highlights: [
+          "高转化意图人群聚合",
+          "全漏斗精细化优化",
+          "首存转化效率持续提升",
+        ],
         metric: "+3,000",
-        metricLabel: "首充 FTD 用户增量",
-        image: caseBet365Img,
-        imageBg: "hsl(150 60% 28%)",
+        metricLabel: "FTD 首充用户增量",
+        banner: caseBet365Banner,
+        logo: caseBet365Logo,
       },
       {
-        brand: "欧盟合规娱乐平台 C",
-        region: "EU",
-        goal: "活跃用户与复充转化",
-        highlights: ["活跃用户 +41%", "复充率 +23%", "合规媒体 100% 直签"],
-        metric: "FTD +73%",
-        metricLabel: "首充转化提升",
+        brand: "1xBet",
+        region: "Global",
+        goal: "ROI & 用户增长",
+        highlights: [
+          "多渠道动态预算分配模型",
+          "获客成本降低约 10%+",
+          "ROI 稳定性显著增强",
+        ],
+        metric: "CAC -10%+",
+        metricLabel: "获客成本下降",
+        banner: case1xbetBanner,
+        logo: case1xbetLogo,
       },
       {
-        brand: "LATAM iGaming 品牌",
-        region: "BR · CO",
-        goal: "ROI 优先的规模化获客",
-        highlights: ["首存预测模型", "ROI 优化投放策略", "买量结构多元化"],
-        metric: "ROI +58%",
-        metricLabel: "投放回报提升",
+        brand: "Melbet",
+        region: "Global",
+        goal: "活跃用户 & 留存",
+        highlights: [
+          "用户生命周期运营优化",
+          "活跃度持续增长",
+          "提升长期留存与回流率",
+        ],
+        metric: "活跃 ↑",
+        metricLabel: "用户活跃度持续增长",
+        banner: caseMelbetBanner,
+        logo: caseMelbetLogo,
+      },
+      {
+        brand: "GGVegas",
+        region: "Global",
+        goal: "高价值用户获取",
+        highlights: [
+          "高价值人群筛选模型",
+          "高 ARPU 用户占比提升",
+          "强化整体付费能力结构",
+        ],
+        metric: "ARPU ↑",
+        metricLabel: "高价值用户占比提升",
+        banner: caseGgvegasBanner,
+        logo: caseGgvegasLogo,
+      },
+      {
+        brand: "Prime Partners",
+        region: "LATAM · SEA",
+        goal: "新市场拓展",
+        highlights: [
+          "区域流量结构化投放",
+          "拉美 / 东南亚规模增长",
+          "快速完成市场冷启动",
+        ],
+        metric: "新市场 ↑",
+        metricLabel: "区域规模化增长",
+        banner: casePrimepartnersBanner,
+        logo: casePrimepartnersLogo,
       },
     ],
   },
