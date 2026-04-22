@@ -65,6 +65,12 @@ interface SnapScreenProps {
   bg?: "white" | "tint" | "dark" | string;
   /** 是否需要 hero 顶部留白(默认 true,首屏需要) */
   pad?: boolean;
+  /**
+   * 是否参与 scroll-snap 吸附(默认 true)。
+   * 设为 false 后该屏不再吸附,高度按内容自适应,允许长内容自由滚动;
+   * 用户滚出该屏后会重新进入下一屏的吸附。
+   */
+  snap?: boolean;
   className?: string;
   style?: React.CSSProperties;
   children: React.ReactNode;
@@ -74,6 +80,7 @@ export function SnapScreen({
   id,
   bg = "white",
   pad = true,
+  snap = true,
   className = "",
   style,
   children,
@@ -90,15 +97,25 @@ export function SnapScreen({
     return { background: bg };
   })();
 
+  const snapStyle: React.CSSProperties = snap
+    ? {
+        minHeight: "100vh",
+        height: "100vh",
+        scrollSnapAlign: "start",
+        scrollSnapStop: "always",
+      }
+    : {
+        // 不参与吸附:按内容自适应高度,允许超过一屏
+        minHeight: "100vh",
+        scrollSnapAlign: "none",
+      };
+
   return (
     <section
       id={id}
       className={`relative w-full overflow-hidden ${className}`}
       style={{
-        minHeight: "100vh",
-        height: "100vh",
-        scrollSnapAlign: "start",
-        scrollSnapStop: "always",
+        ...snapStyle,
         paddingTop: pad ? "96px" : 0,
         paddingBottom: "32px",
         display: "flex",
