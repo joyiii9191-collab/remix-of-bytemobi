@@ -10,6 +10,7 @@ import JapanFocus from "./pages/JapanFocus.tsx";
 import HopeX from "./pages/HopeX.tsx";
 import MediaResources from "./pages/MediaResources.tsx";
 import About from "./pages/About.tsx";
+import CaseCategory from "./pages/CaseCategory.tsx";
 import { LanguageProvider } from "./contexts/LanguageContext";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/hopex" element={<HopeX />} />
           <Route path="/media" element={<MediaResources />} />
           <Route path="/about" element={<About />} />
+          <Route path="/cases/:category" element={<CaseCategory />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
