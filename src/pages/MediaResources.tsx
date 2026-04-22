@@ -420,9 +420,9 @@ export default function MediaResources() {
               };
 
               return (
-                <div className="relative w-full">
-                  {/* 背景 U 形渐变细线 */}
-                  <svg viewBox="0 0 1000 320" className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none">
+                <div className="relative w-full" style={{ minHeight: "380px" }}>
+                  {/* 背景 U 形渐变细线 — 拉伸填满,与圆点行的 top 百分比一致对齐 */}
+                  <svg viewBox="0 0 1000 360" className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none">
                     <defs>
                       <linearGradient id="trackGrad" x1="0" y1="0" x2="1" y2="1">
                         <stop offset="0%" stopColor="hsl(245 80% 68%)" />
@@ -430,9 +430,9 @@ export default function MediaResources() {
                         <stop offset="100%" stopColor="hsl(265 75% 62%)" />
                       </linearGradient>
                     </defs>
-                    {/* 上行 → 右弯 → 下行,使用一条平滑路径 */}
+                    {/* 上线 y=70 (≈19.4%), 下线 y=200 (≈55.6%) */}
                     <path
-                      d="M 30 80 L 880 80 Q 970 80 970 160 Q 970 240 880 240 L 30 240"
+                      d="M 30 70 L 880 70 Q 970 70 970 135 Q 970 200 880 200 L 30 200"
                       fill="none"
                       stroke="url(#trackGrad)"
                       strokeWidth="2"
@@ -442,37 +442,65 @@ export default function MediaResources() {
                     />
                   </svg>
 
-                  {/* 上行三个步骤 */}
-                  <div className="grid grid-cols-3 gap-x-6 relative" style={{ paddingRight: "8%" }}>
+                  {/* 上行圆点行 — 绝对定位让圆点中心对齐线 (top: 19.4%) */}
+                  <div className="absolute left-0 grid grid-cols-3 gap-x-6"
+                    style={{ top: "19.4%", right: "calc(8% + 15px)", transform: "translateY(-50%)" }}>
                     {top.map((s, idx) => {
-                      const i = idx; // 0,1,2
+                      const i = idx;
                       return (
-                        <motion.div key={s.t}
-                          initial={{ opacity: 0, y: -10 }} whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: i * 0.07 }}
-                          className="flex flex-col items-center" style={{ paddingTop: "70px" }}>
+                        <motion.div key={`dot-top-${s.t}`}
+                          initial={{ opacity: 0, scale: 0.6 }} whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.35, delay: i * 0.07 }}
+                          className="flex justify-center">
                           <Dot i={i} />
-                          <div className="mt-4 w-full">
-                            <Card t={s.t} bullets={s.bullets} dotColor={`hsl(${hueFor(i)}, 78%, 60%)`} />
-                          </div>
                         </motion.div>
                       );
                     })}
                   </div>
 
-                  {/* 下行三个步骤 (从右到左,实际索引 5,4,3) */}
-                  <div className="grid grid-cols-3 gap-x-6 relative mt-2" style={{ paddingLeft: "8%" }}>
-                    {bottom.map((s, idx) => {
-                      const i = 5 - idx; // 5,4,3
+                  {/* 上行文字 — 紧跟圆点下方 */}
+                  <div className="absolute left-0 grid grid-cols-3 gap-x-6"
+                    style={{ top: "calc(19.4% + 18px)", right: "calc(8% + 15px)" }}>
+                    {top.map((s, idx) => {
+                      const i = idx;
                       return (
-                        <motion.div key={s.t}
-                          initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: idx * 0.07 }}
-                          className="flex flex-col items-center" style={{ paddingTop: "20px" }}>
+                        <motion.div key={`txt-top-${s.t}`}
+                          initial={{ opacity: 0, y: -6 }} whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: i * 0.07 }}
+                          className="pt-3">
+                          <Card t={s.t} bullets={s.bullets} dotColor={`hsl(${hueFor(i)}, 78%, 60%)`} />
+                        </motion.div>
+                      );
+                    })}
+                  </div>
+
+                  {/* 下行圆点行 — top: 55.6% */}
+                  <div className="absolute right-0 grid grid-cols-3 gap-x-6"
+                    style={{ top: "55.6%", left: "calc(8% + 15px)", transform: "translateY(-50%)" }}>
+                    {bottom.map((s, idx) => {
+                      const i = 5 - idx;
+                      return (
+                        <motion.div key={`dot-bot-${s.t}`}
+                          initial={{ opacity: 0, scale: 0.6 }} whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.35, delay: idx * 0.07 }}
+                          className="flex justify-center">
                           <Dot i={i} />
-                          <div className="mt-4 w-full">
-                            <Card t={s.t} bullets={s.bullets} dotColor={`hsl(${hueFor(i)}, 78%, 60%)`} />
-                          </div>
+                        </motion.div>
+                      );
+                    })}
+                  </div>
+
+                  {/* 下行文字 */}
+                  <div className="absolute right-0 grid grid-cols-3 gap-x-6"
+                    style={{ top: "calc(55.6% + 18px)", left: "calc(8% + 15px)" }}>
+                    {bottom.map((s, idx) => {
+                      const i = 5 - idx;
+                      return (
+                        <motion.div key={`txt-bot-${s.t}`}
+                          initial={{ opacity: 0, y: 6 }} whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: idx * 0.07 }}
+                          className="pt-3">
+                          <Card t={s.t} bullets={s.bullets} dotColor={`hsl(${hueFor(i)}, 78%, 60%)`} />
                         </motion.div>
                       );
                     })}
