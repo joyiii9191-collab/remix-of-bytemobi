@@ -295,19 +295,13 @@ function CompanyIntro() {
                 <Icon size={26} />
               </div>
 
-              <div className="flex flex-col items-center gap-1 mb-2">
+              <div className="flex flex-col items-center mb-2">
                 <h3
                   className="text-2xl md:text-3xl font-bold leading-tight"
                   style={{ color: TEXT_DARK }}
                 >
                   {p.label}
                 </h3>
-                <span
-                  className="text-[11px] font-medium uppercase tracking-[0.2em]"
-                  style={{ color: ACCENT }}
-                >
-                  {p.en}
-                </span>
               </div>
 
               <p
