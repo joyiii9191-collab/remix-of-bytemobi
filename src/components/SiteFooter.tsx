@@ -13,26 +13,6 @@ export function SiteFooter() {
       <div className="max-w-[1200px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
           <div>
-            <h4 className="text-white/80 text-sm font-semibold mb-4 tracking-wide">公司</h4>
-            <ul className="flex flex-col gap-2.5">
-              <li>
-                <Link to="/about" className="text-white/50 text-sm hover:text-white/80 transition-colors">
-                  关于我们
-                </Link>
-              </li>
-              <li>
-                <span className="text-white/50 text-sm hover:text-white/80 transition-colors cursor-pointer">
-                  商务合作
-                </span>
-              </li>
-              <li>
-                <span className="text-white/50 text-sm hover:text-white/80 transition-colors cursor-pointer">
-                  人才招聘
-                </span>
-              </li>
-            </ul>
-          </div>
-          <div>
             <h4 className="text-white/80 text-sm font-semibold mb-4 tracking-wide">服务</h4>
             <ul className="flex flex-col gap-2.5">
               <li>
@@ -49,6 +29,26 @@ export function SiteFooter() {
                 <Link to="/media" className="text-white/50 text-sm hover:text-white/80 transition-colors">
                   大媒体资源
                 </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-white/80 text-sm font-semibold mb-4 tracking-wide">公司</h4>
+            <ul className="flex flex-col gap-2.5">
+              <li>
+                <Link to="/about" className="text-white/50 text-sm hover:text-white/80 transition-colors">
+                  关于我们
+                </Link>
+              </li>
+              <li>
+                <span className="text-white/50 text-sm hover:text-white/80 transition-colors cursor-pointer">
+                  商务合作
+                </span>
+              </li>
+              <li>
+                <span className="text-white/50 text-sm hover:text-white/80 transition-colors cursor-pointer">
+                  人才招聘
+                </span>
               </li>
             </ul>
           </div>
