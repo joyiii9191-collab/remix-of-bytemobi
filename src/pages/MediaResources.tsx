@@ -319,7 +319,7 @@ export default function MediaResources() {
           <ScreenLead>覆盖跨境与品牌的多类客户,提供长期稳定的资源与运营支持</ScreenLead>
 
           {/* 合作对象 */}
-          <div className="mt-6 w-full">
+          <div className="mt-8 w-full">
             <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3 text-left" style={{ color: ACCENT }}>合作对象</div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 w-full">
               {[
@@ -345,7 +345,7 @@ export default function MediaResources() {
           </div>
 
           {/* 合作流程 — 连贯紫蓝时间轴,步骤标题在轴上方 */}
-          <div className="mt-5 w-full">
+          <div className="mt-10 w-full">
             <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-4 text-left" style={{ color: ACCENT }}>合作流程</div>
             <div className="relative pt-12">
               {/* 贯穿时间轴 */}
@@ -391,7 +391,7 @@ export default function MediaResources() {
           </div>
 
           {/* 政策支持 */}
-          <div className="mt-5 w-full">
+          <div className="mt-10 w-full">
             <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3 text-left" style={{ color: ACCENT }}>政策支持</div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               {[
