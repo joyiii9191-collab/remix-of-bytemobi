@@ -286,19 +286,16 @@ export default function MediaResources() {
                       viewport={{ once: false, amount: 0.3 }}
                       transition={{ duration: 0.5, delay: 0.15 + i * 0.1 }}
                       whileHover={{ scale: 1.1, y: -3 }}
-                      className="w-[88px] h-[88px] rounded-full bg-white/90 backdrop-blur-md border-2 flex flex-col items-center justify-center text-center px-2 shadow-lg transition-all duration-300 hover:shadow-2xl cursor-pointer">
-                      <div
-                        className="w-full h-full rounded-full flex flex-col items-center justify-center text-center px-2"
-                        style={{
-                          borderColor: `${node.color}40`,
-                          boxShadow: `0 8px 24px -8px ${node.color}30`,
-                          borderWidth: "2px",
-                          borderStyle: "solid",
-                        }}>
-                        <Icon size={18} style={{ color: node.color }} strokeWidth={1.8} className="transition-transform duration-300 hover:scale-110" />
-                        <div className="text-[11px] font-bold mt-1" style={{ color: TEXT_DARK }}>{node.k}</div>
-                        <div className="text-[9px] leading-tight mt-0.5" style={{ color: TEXT_MID }}>{node.v}</div>
-                      </div>
+                      className="w-[88px] h-[88px] rounded-full bg-white/90 backdrop-blur-md flex flex-col items-center justify-center text-center px-2 shadow-lg transition-shadow duration-300 hover:shadow-2xl cursor-pointer"
+                      style={{
+                        borderWidth: "2px",
+                        borderStyle: "solid",
+                        borderColor: `${node.color}40`,
+                        boxShadow: `0 8px 24px -8px ${node.color}30`,
+                      }}>
+                      <Icon size={18} style={{ color: node.color }} strokeWidth={1.8} />
+                      <div className="text-[11px] font-bold mt-1" style={{ color: TEXT_DARK }}>{node.k}</div>
+                      <div className="text-[9px] leading-tight mt-0.5" style={{ color: TEXT_MID }}>{node.v}</div>
                     </motion.div>
                   </div>
                 );
