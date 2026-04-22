@@ -142,7 +142,7 @@ const PILLARS: Pillar[] = [
     desc: "5 个办公点协同,服务覆盖全球关键市场",
     points: [
       { icon: MapPin, text: "深圳 / 新加坡 / 东京" },
-      { icon: Network, text: "杜塞尔多夫 / 洛杉矶" },
+      { icon: MapPin, text: "杜塞尔多夫 / 洛杉矶" },
       { icon: Languages, text: "10+ 国家本地化商务" },
     ],
   },
@@ -317,13 +317,13 @@ function CompanyIntro() {
                 {p.desc}
               </p>
 
-              <ul className="space-y-2.5 w-full max-w-xs">
+              <ul className="space-y-2.5 inline-flex flex-col items-start text-left mx-auto">
                 {p.points.map((pt) => {
                   const PtIcon = pt.icon;
                   return (
                     <li
                       key={pt.text}
-                      className="text-xs md:text-sm leading-relaxed flex items-center justify-center gap-2"
+                      className="text-xs md:text-sm leading-relaxed flex items-center gap-2"
                       style={{ color: TEXT_MID }}
                     >
                       <span
