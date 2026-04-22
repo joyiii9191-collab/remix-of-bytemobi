@@ -1015,7 +1015,7 @@ export default function About() {
       <SnapScreen id="events" bg="tint">
         <ScreenInner>
           <ScreenTitle>全球近期活动</ScreenTitle>
-          <ScreenLead>覆盖游戏、广告、出海等多个行业的国际峰会与展会。</ScreenLead>
+          
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mt-10 w-full">
             {EVENTS.map((e, i) => (
               <motion.div
