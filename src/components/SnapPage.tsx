@@ -47,13 +47,8 @@ export function SnapPage({ title, children }: SnapPageProps) {
         <div className="relative z-10">
           <OptimizedHeader />
           {children}
-          {/* Footer 单独占一屏(自适应内容高度,但参与 snap) */}
-          <div
-            style={{
-              scrollSnapAlign: "start",
-              scrollSnapStop: "always",
-            }}
-          >
+          {/* Footer 不参与 snap,作为页面自然末尾,避免遮挡上一屏内容 */}
+          <div style={{ scrollSnapAlign: "none" }}>
             <SiteFooter />
           </div>
         </div>
