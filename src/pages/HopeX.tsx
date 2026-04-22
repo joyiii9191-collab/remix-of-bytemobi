@@ -199,7 +199,8 @@ export default function HopeX() {
             ].map((c, i) => (
               <motion.div key={c.t}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.1 }}
+                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                whileHover={{ y: -6 }}
                 className="group relative rounded-2xl overflow-hidden glass-card cursor-pointer h-[340px]"
                 style={CARD}
               >
@@ -289,7 +290,8 @@ export default function HopeX() {
             ].map((c, i) => (
               <motion.div key={c.t}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.08 }}
+                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                whileHover={{ y: -4 }}
                 className="rounded-2xl p-6 glass-card flex gap-4 items-start"
                 style={CARD}
               >
@@ -329,8 +331,9 @@ export default function HopeX() {
               { t: "金融科技", en: "FinTech" },
             ].map((c, i) => (
               <motion.div key={c.t}
-                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: i * 0.06 }}
+                initial={{ opacity: 0, y: 20, scale: 0.96 }} whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.45, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
+                whileHover={{ y: -4, scale: 1.03 }}
                 className="rounded-2xl glass-card aspect-square flex flex-col items-center justify-center gap-2"
                 style={CARD}
               >
@@ -402,7 +405,8 @@ export default function HopeX() {
             ].map((c, i) => (
               <motion.div key={c.t}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.1 }}
+                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                whileHover={{ y: -4 }}
                 className="rounded-2xl p-6 glass-card flex flex-col gap-4"
                 style={CARD}
               >
@@ -459,8 +463,9 @@ export default function HopeX() {
               { t: "效果 + 品牌双目标", d: "支持多元投放策略" },
             ].map((f, i) => (
               <motion.div key={f.t}
-                initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: i * 0.08 }}
+                initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                whileHover={{ y: -2, scale: 1.05 }}
                 className="px-3 py-1.5 rounded-full text-[12px] font-medium glass-card"
                 style={{ ...CARD, color: TEXT_DARK }}
               >
