@@ -179,7 +179,7 @@ function HorizontalTimeline() {
   const { scrollYProgress } = useScroll({
     target: ref,
     container: containerRef ?? undefined,
-    offset: ["start 75%", "end 30%"],
+    offset: ["start 70%", "end 60%"],
   });
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
