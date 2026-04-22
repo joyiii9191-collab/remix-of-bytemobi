@@ -643,7 +643,7 @@ function ValueList() {
             ease: [0.22, 1, 0.36, 1],
           }}
           whileHover={{ y: -2 }}
-          className="rounded-xl px-3.5 py-4 flex flex-col items-center text-center"
+          className="rounded-xl px-3.5 py-7 md:py-8 flex flex-col items-center text-center"
           style={{
             background:
               "linear-gradient(135deg, rgba(255,255,255,0.55) 0%, rgba(120,90,240,0.06) 100%)",
@@ -657,10 +657,10 @@ function ValueList() {
             size={56}
             strokeWidth={1.2}
             color="hsl(255 60% 72%)"
-            className="mb-3"
+            className="mb-5"
           />
           <h4
-            className="text-[13.5px] md:text-[14.5px] font-bold tracking-tight leading-tight mb-1"
+            className="text-[13.5px] md:text-[14.5px] font-bold tracking-tight leading-tight mb-3"
             style={{
               backgroundImage:
                 "linear-gradient(120deg, hsl(225 75% 52%) 0%, hsl(265 70% 58%) 100%)",
@@ -673,7 +673,7 @@ function ValueList() {
             {v.label}
           </h4>
           <p
-            className="text-[11.5px] md:text-[12.5px] leading-[1.6] whitespace-pre-line"
+            className="text-[11.5px] md:text-[12.5px] leading-[1.7] whitespace-pre-line"
             style={{ color: TEXT_MID }}
           >
             {v.desc}
