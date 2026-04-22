@@ -646,12 +646,12 @@ function ValueList() {
           className="rounded-2xl px-3.5 py-7 md:py-8 flex flex-col items-center text-center relative overflow-hidden"
           style={{
             background:
-              "linear-gradient(160deg, rgba(255,255,255,0.32) 0%, rgba(255,255,255,0.10) 50%, rgba(255,255,255,0.04) 100%)",
-            border: "1px solid rgba(255,255,255,0.35)",
+              "linear-gradient(140deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.18) 45%, rgba(180,170,255,0.10) 100%)",
+            border: "1px solid rgba(255,255,255,0.55)",
             boxShadow:
-              "inset 0 1px 0 rgba(255,255,255,0.55), inset 0 0 0 1px rgba(255,255,255,0.05)",
-            backdropFilter: "blur(22px) saturate(140%)",
-            WebkitBackdropFilter: "blur(22px) saturate(140%)",
+              "0 10px 30px -18px rgba(99,102,241,0.28), inset 0 1px 0 rgba(255,255,255,0.7), inset 0 -1px 0 rgba(255,255,255,0.18)",
+            backdropFilter: "blur(18px) saturate(160%)",
+            WebkitBackdropFilter: "blur(18px) saturate(160%)",
             transition: "box-shadow 0.3s ease, transform 0.3s ease",
           }}
         >
