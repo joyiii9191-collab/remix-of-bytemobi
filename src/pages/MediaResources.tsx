@@ -201,33 +201,38 @@ export default function MediaResources() {
           <ScreenTitle>短剧与品牌出海一站式解决方案</ScreenTitle>
           <ScreenLead>从内容生产到商业转化的完整闭环</ScreenLead>
 
-          <div className="mt-10 w-full flex items-center justify-center">
-            <div className="relative w-full max-w-[640px] aspect-square">
+          <div className="mt-6 w-full flex items-center justify-center">
+            <div className="relative w-full max-w-[460px] aspect-square mx-auto">
               {/* 外圈渐变环 */}
               <div className="absolute inset-0 rounded-full"
                 style={{
-                  background: "conic-gradient(from 0deg, rgba(99,102,241,0.35), rgba(168,85,247,0.25), rgba(236,72,153,0.25), rgba(59,130,246,0.3), rgba(99,102,241,0.35))",
-                  filter: "blur(2px)",
-                  opacity: 0.55,
+                  background: "conic-gradient(from 0deg, rgba(99,102,241,0.28), rgba(168,85,247,0.2), rgba(236,72,153,0.2), rgba(59,130,246,0.24), rgba(99,102,241,0.28))",
+                  filter: "blur(3px)",
+                  opacity: 0.5,
                 }} />
-              <div className="absolute inset-[6%] rounded-full bg-white/40 backdrop-blur-sm border border-white/60" />
+              <div className="absolute inset-[8%] rounded-full bg-white/30 backdrop-blur-sm border border-white/50" />
 
-              {/* 中心圆 */}
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[32%] aspect-square rounded-full flex flex-col items-center justify-center text-center shadow-2xl z-10"
+              {/* 中心圆 — 更清透 */}
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[34%] aspect-square rounded-full flex flex-col items-center justify-center text-center z-10 cursor-default"
                 style={{
-                  background: "linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)",
-                  boxShadow: "0 20px 60px -10px rgba(99,102,241,0.5), inset 0 -8px 20px rgba(0,0,0,0.15)",
+                  background: "linear-gradient(135deg, rgba(99,102,241,0.85) 0%, rgba(139,92,246,0.8) 100%)",
+                  backdropFilter: "blur(12px)",
+                  boxShadow: "0 10px 40px -8px rgba(99,102,241,0.4), inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -4px 12px rgba(0,0,0,0.08)",
+                  border: "1px solid rgba(255,255,255,0.35)",
                 }}>
-                <Repeat size={26} className="text-white/90 mb-1.5" strokeWidth={1.8} />
-                <div className="text-white text-lg font-bold tracking-wide">闭环增长</div>
-                <div className="text-white/80 text-[10px] mt-1 px-3">Content → Commerce</div>
-              </div>
+                <Repeat size={22} className="text-white/95 mb-1" strokeWidth={1.6} />
+                <div className="text-white text-base font-bold tracking-wide">闭环增长</div>
+                <div className="text-white/80 text-[9px] mt-0.5 tracking-wider">CONTENT → COMMERCE</div>
+              </motion.div>
 
               {/* 循环箭头 SVG */}
               <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100">
                 <defs>
                   <marker id="arrowhead" markerWidth="5" markerHeight="5" refX="2.5" refY="2.5" orient="auto">
-                    <path d="M0,0 L5,2.5 L0,5 z" fill={ACCENT} opacity="0.7" />
+                    <path d="M0,0 L5,2.5 L0,5 z" fill={ACCENT} opacity="0.65" />
                   </marker>
                 </defs>
                 {[
@@ -236,9 +241,9 @@ export default function MediaResources() {
                   { from: 90, to: 180 },
                   { from: 180, to: 270 },
                 ].map((arc, i) => {
-                  const r = 36;
-                  const startRad = ((arc.from + 18) * Math.PI) / 180;
-                  const endRad = ((arc.to - 18) * Math.PI) / 180;
+                  const r = 38;
+                  const startRad = ((arc.from + 16) * Math.PI) / 180;
+                  const endRad = ((arc.to - 16) * Math.PI) / 180;
                   const x1 = 50 + r * Math.cos(startRad);
                   const y1 = 50 + r * Math.sin(startRad);
                   const x2 = 50 + r * Math.cos(endRad);
@@ -247,25 +252,25 @@ export default function MediaResources() {
                     <path key={i}
                       d={`M ${x1} ${y1} A ${r} ${r} 0 0 1 ${x2} ${y2}`}
                       stroke={ACCENT}
-                      strokeWidth="0.5"
-                      strokeDasharray="1.5 1.2"
+                      strokeWidth="0.4"
+                      strokeDasharray="1.2 1"
                       fill="none"
-                      opacity="0.6"
+                      opacity="0.55"
                       markerEnd="url(#arrowhead)" />
                   );
                 })}
               </svg>
 
-              {/* 4个节点 */}
+              {/* 4个节点 — 中心点正好落在外环上 */}
               {[
-                { angle: -90, num: "01", k: "内容生产", v: "短剧创作 + 品牌内容", Icon: PlayCircle, color: "#6366f1" },
-                { angle: 0, num: "02", k: "媒体投放", v: "TikTok / Meta / Google", Icon: Share2, color: "#8b5cf6" },
-                { angle: 90, num: "03", k: "本地转化", v: "区域素材 + 合规落地", Icon: Flag, color: "#ec4899" },
-                { angle: 180, num: "04", k: "商业回流", v: "数据复盘 + 持续优化", Icon: Target, color: "#3b82f6" },
+                { angle: -90, k: "内容生产", v: "短剧创作 + 品牌内容", Icon: PlayCircle, color: "#6366f1" },
+                { angle: 0, k: "媒体投放", v: "TikTok / Meta / Google", Icon: Share2, color: "#8b5cf6" },
+                { angle: 90, k: "本地转化", v: "区域素材 + 合规落地", Icon: Flag, color: "#ec4899" },
+                { angle: 180, k: "商业回流", v: "数据复盘 + 持续优化", Icon: Target, color: "#3b82f6" },
               ].map((node, i) => {
                 const Icon = node.Icon;
                 const rad = (node.angle * Math.PI) / 180;
-                const radius = 50;
+                const radius = 50; // 外环半径 = 容器一半，节点中心刚好压在环上
                 const x = 50 + radius * Math.cos(rad);
                 const y = 50 + radius * Math.sin(rad);
                 return (
@@ -273,21 +278,19 @@ export default function MediaResources() {
                     initial={{ opacity: 0, scale: 0.6 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: false, amount: 0.3 }}
-                    transition={{ duration: 0.5, delay: 0.15 + i * 0.12 }}
-                    whileHover={{ scale: 1.08, y: -2 }}
-                    className="absolute -translate-x-1/2 -translate-y-1/2 z-20"
+                    transition={{ duration: 0.5, delay: 0.15 + i * 0.1 }}
+                    whileHover={{ scale: 1.1, y: -3 }}
+                    className="absolute -translate-x-1/2 -translate-y-1/2 z-20 cursor-pointer group"
                     style={{ left: `${x}%`, top: `${y}%` }}>
-                    <div className="relative flex flex-col items-center">
-                      <div className="absolute -top-2 -right-2 z-10 w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold text-white shadow-lg"
-                        style={{ background: node.color }}>
-                        {node.num}
-                      </div>
-                      <div className="w-[118px] h-[118px] rounded-full bg-white/85 backdrop-blur-md border-2 flex flex-col items-center justify-center text-center px-3 shadow-xl transition-all"
-                        style={{ borderColor: `${node.color}55` }}>
-                        <Icon size={22} style={{ color: node.color }} strokeWidth={1.8} />
-                        <div className="text-[13px] font-bold mt-1.5" style={{ color: TEXT_DARK }}>{node.k}</div>
-                        <div className="text-[10px] leading-tight mt-0.5" style={{ color: TEXT_MID }}>{node.v}</div>
-                      </div>
+                    <div
+                      className="w-[96px] h-[96px] rounded-full bg-white/90 backdrop-blur-md border-2 flex flex-col items-center justify-center text-center px-2 shadow-lg transition-all duration-300 group-hover:shadow-2xl"
+                      style={{
+                        borderColor: `${node.color}40`,
+                        boxShadow: `0 8px 24px -8px ${node.color}30`,
+                      }}>
+                      <Icon size={20} style={{ color: node.color }} strokeWidth={1.8} className="transition-transform duration-300 group-hover:scale-110" />
+                      <div className="text-[12px] font-bold mt-1" style={{ color: TEXT_DARK }}>{node.k}</div>
+                      <div className="text-[9px] leading-tight mt-0.5" style={{ color: TEXT_MID }}>{node.v}</div>
                     </div>
                   </motion.div>
                 );
@@ -296,8 +299,8 @@ export default function MediaResources() {
           </div>
 
           {/* 底部一句话 */}
-          <div className="mt-6 text-center text-sm" style={{ color: TEXT_MID }}>
-            <span className="inline-block px-5 py-2 rounded-full bg-white/60 backdrop-blur-sm border border-white/70">
+          <div className="mt-4 text-center text-sm" style={{ color: TEXT_MID }}>
+            <span className="inline-block px-5 py-2 rounded-full bg-white/60 backdrop-blur-sm border border-white/70 transition-all duration-300 hover:bg-white/80 hover:shadow-md">
               短剧吸引流量 · 品牌承接转化 · 数据驱动复投 — 可持续的出海增长飞轮
             </span>
           </div>
