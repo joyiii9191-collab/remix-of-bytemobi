@@ -75,90 +75,130 @@ const EVENTS = ["IAB", "GDC", "Japan IT Week", "ChinaJoy", "TGS", "中东峰会"
 
 import { GLASS_CARD as CARD, TEXT_DARK, TEXT_MID, ACCENT } from "@/lib/page-styles";
 
-function HorizontalTimeline() {
-  const ref = React.useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 85%", "end 20%"] });
-  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+// 时间轴渐变色:蓝 → 紫
+const TIMELINE_GRADIENT = "linear-gradient(180deg, hsl(220 90% 60%) 0%, hsl(250 80% 62%) 50%, hsl(280 75% 60%) 100%)";
+
+function TimelineItem({
+  m,
+  index,
+  total,
+  scrollYProgress,
+}: {
+  m: Milestone;
+  index: number;
+  total: number;
+  scrollYProgress: ReturnType<typeof useScroll>["scrollYProgress"];
+}) {
+  const isLeft = index % 2 === 0;
+  // 每一项在整体进度中的位置
+  const itemPos = total > 1 ? index / (total - 1) : 0;
+  // 当滚动进度越过该项位置后,逐步染色
+  const colorProgress = useTransform(
+    scrollYProgress,
+    [Math.max(0, itemPos - 0.06), Math.min(1, itemPos + 0.02)],
+    [0, 1]
+  );
+  // 灰色 → 渐变色
+  const yearColor = useTransform(
+    colorProgress,
+    [0, 1],
+    ["rgba(15,20,40,0.18)", "rgba(99,102,241,1)"]
+  );
+  const titleOpacity = useTransform(colorProgress, [0, 1], [0.35, 1]);
+  const dotScale = useTransform(colorProgress, [0, 1], [0.6, 1]);
+  const dotOpacity = useTransform(colorProgress, [0, 1], [0.25, 1]);
+
+  // 节点颜色随进度填充
+  const dotBg = useTransform(
+    colorProgress,
+    [0, 1],
+    ["#ffffff", "hsl(245 80% 60%)"]
+  );
 
   return (
-    <div ref={ref} className="relative max-w-4xl mx-auto">
-      {/* 中轴线 — 背景 */}
-      <div
-        className="absolute top-0 bottom-0 w-[2px] rounded-full left-[18px] md:left-1/2 md:-translate-x-1/2"
-        style={{ background: "rgba(99,102,241,0.15)" }}
-      />
-      {/* 中轴线 — 进度 */}
+    <li className="relative min-h-[110px] md:min-h-[140px]">
+      {/* 中轴节点 */}
       <motion.div
-        className="absolute top-0 w-[2px] rounded-full left-[18px] md:left-1/2 md:-translate-x-1/2 origin-top"
+        className="absolute top-2 z-10 left-[18px] md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full"
         style={{
-          height: lineHeight,
-          background: `linear-gradient(180deg, ${ACCENT} 0%, hsl(265 70% 60%) 100%)`,
+          background: dotBg,
+          border: "2px solid hsl(245 80% 60%)",
+          opacity: dotOpacity,
+          scale: dotScale,
+          boxShadow: "0 0 0 6px rgba(99,102,241,0.08)",
         }}
       />
 
-      <ol className="relative space-y-10 md:space-y-14">
-        {TIMELINE.map((m, i) => {
-          const Icon = m.icon;
-          const isLeft = i % 2 === 0;
-          return (
-            <li key={m.year} className="relative">
-              {/* 中轴节点 */}
-              <motion.div
-                initial={{ scale: 0, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: false, amount: 0.6 }}
-                transition={{ duration: 0.4, delay: 0.1 }}
-                className="absolute top-1 z-10 left-[18px] md:left-1/2 -translate-x-1/2 w-9 h-9 rounded-full flex items-center justify-center"
-                style={{
-                  background: "white",
-                  border: `2px solid ${ACCENT}`,
-                  color: ACCENT,
-                  boxShadow: "0 6px 16px -4px rgba(99,102,241,0.45)",
-                }}
-              >
-                <Icon size={15} />
-              </motion.div>
+      {/* 内容 — 桌面端左右交错;移动端右侧 */}
+      <div
+        className={`pl-16 md:pl-0 md:grid md:grid-cols-2 md:gap-16 ${
+          isLeft ? "" : "md:[&>*:first-child]:col-start-2"
+        }`}
+      >
+        <div className={isLeft ? "md:text-right md:pr-4" : "md:text-left md:pl-4"}>
+          {/* 年份 — 大字号 + 衬线优化 */}
+          <motion.div
+            className="font-bold leading-none tracking-tight tabular-nums"
+            style={{
+              color: yearColor,
+              fontSize: "clamp(3.2rem, 7vw, 5.5rem)",
+              fontFamily:
+                "'Playfair Display', 'Cormorant Garamond', 'Noto Serif SC', Georgia, serif",
+              letterSpacing: "-0.02em",
+            }}
+          >
+            {m.year}
+          </motion.div>
+          <motion.div
+            className="mt-3 text-lg md:text-xl font-semibold"
+            style={{ color: TEXT_DARK, opacity: titleOpacity }}
+          >
+            {m.title}
+          </motion.div>
+          <motion.div
+            className="mt-1 text-sm md:text-base leading-relaxed"
+            style={{ color: TEXT_MID, opacity: titleOpacity }}
+          >
+            {m.desc}
+          </motion.div>
+        </div>
+      </div>
+    </li>
+  );
+}
 
-              {/* 内容 — 移动端右侧；桌面端左右交错 */}
-              <div
-                className={`pl-16 md:pl-0 md:grid md:grid-cols-2 md:gap-12 ${
-                  isLeft ? "" : "md:[&>*:first-child]:col-start-2"
-                }`}
-              >
-                <motion.div
-                  initial={{ opacity: 0, x: isLeft ? -24 : 24, y: 12 }}
-                  whileInView={{ opacity: 1, x: 0, y: 0 }}
-                  viewport={{ once: false, amount: 0.3 }}
-                  transition={{ duration: 0.55, ease: "easeOut" }}
-                  className={`relative rounded-2xl p-5 md:p-6 ${
-                    isLeft ? "md:text-right md:mr-2" : "md:text-left md:ml-2"
-                  }`}
-                  style={{
-                    background: "white",
-                    border: "1px solid rgba(15,20,40,0.06)",
-                    boxShadow: "0 12px 30px -18px rgba(30,41,99,0.25)",
-                  }}
-                >
-                  <div
-                    className="text-xs font-semibold tracking-[0.2em] uppercase mb-1"
-                    style={{ color: ACCENT }}
-                  >
-                    {m.year}
-                  </div>
-                  <div
-                    className="text-base md:text-lg font-semibold mb-1"
-                    style={{ color: TEXT_DARK }}
-                  >
-                    {m.title}
-                  </div>
-                  <div className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>
-                    {m.desc}
-                  </div>
-                </motion.div>
-              </div>
-            </li>
-          );
-        })}
+function HorizontalTimeline() {
+  const ref = React.useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 75%", "end 30%"] });
+  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
+  return (
+    <div ref={ref} className="relative max-w-5xl mx-auto">
+      {/* 中轴线 — 背景 */}
+      <div
+        className="absolute top-0 bottom-0 w-[2px] rounded-full left-[18px] md:left-1/2 md:-translate-x-1/2"
+        style={{ background: "rgba(15,20,40,0.08)" }}
+      />
+      {/* 中轴线 — 蓝紫渐变进度条 */}
+      <motion.div
+        className="absolute top-0 w-[3px] rounded-full left-[18px] md:left-1/2 md:-translate-x-[1.5px] origin-top"
+        style={{
+          height: lineHeight,
+          background: TIMELINE_GRADIENT,
+          boxShadow: "0 0 14px rgba(120,90,240,0.45)",
+        }}
+      />
+
+      <ol className="relative space-y-16 md:space-y-24">
+        {TIMELINE.map((m, i) => (
+          <TimelineItem
+            key={m.year}
+            m={m}
+            index={i}
+            total={TIMELINE.length}
+            scrollYProgress={scrollYProgress}
+          />
+        ))}
       </ol>
     </div>
   );
