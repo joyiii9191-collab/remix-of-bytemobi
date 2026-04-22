@@ -10,6 +10,7 @@ import {
   Image as ImageIcon, Activity, ClipboardList,
   Palette, FileSearch, AlertTriangle,
   Film, Globe, Share2, Boxes, GitMerge, ShieldAlert, Clock, Wallet, UserCog,
+  PlayCircle, Flag, Target, Repeat,
 } from "lucide-react";
 import {
   SnapPage, SnapScreen, ScreenInner,
@@ -194,27 +195,111 @@ export default function MediaResources() {
         </ScreenInner>
       </SnapScreen>
 
-      {/* === Screen 4 — 特色亮点 === */}
+      {/* === Screen 4 — 特色亮点 (循环图) === */}
       <SnapScreen id="highlight" bg="tint">
         <ScreenInner>
-          <ScreenTitle>短剧与品牌出海一站式</ScreenTitle>
-          <ScreenLead>从内容形态、本地化创意到投放与复盘的完整链路。</ScreenLead>
-          <div className="rounded-2xl p-8 mt-10 glass-card" style={CARD}>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <ScreenTitle>短剧与品牌出海一站式解决方案</ScreenTitle>
+          <ScreenLead>从内容生产到商业转化的完整闭环</ScreenLead>
+
+          <div className="mt-10 w-full flex items-center justify-center">
+            <div className="relative w-full max-w-[640px] aspect-square">
+              {/* 外圈渐变环 */}
+              <div className="absolute inset-0 rounded-full"
+                style={{
+                  background: "conic-gradient(from 0deg, rgba(99,102,241,0.35), rgba(168,85,247,0.25), rgba(236,72,153,0.25), rgba(59,130,246,0.3), rgba(99,102,241,0.35))",
+                  filter: "blur(2px)",
+                  opacity: 0.55,
+                }} />
+              <div className="absolute inset-[6%] rounded-full bg-white/40 backdrop-blur-sm border border-white/60" />
+
+              {/* 中心圆 */}
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[32%] aspect-square rounded-full flex flex-col items-center justify-center text-center shadow-2xl z-10"
+                style={{
+                  background: "linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)",
+                  boxShadow: "0 20px 60px -10px rgba(99,102,241,0.5), inset 0 -8px 20px rgba(0,0,0,0.15)",
+                }}>
+                <Repeat size={26} className="text-white/90 mb-1.5" strokeWidth={1.8} />
+                <div className="text-white text-lg font-bold tracking-wide">闭环增长</div>
+                <div className="text-white/80 text-[10px] mt-1 px-3">Content → Commerce</div>
+              </div>
+
+              {/* 循环箭头 SVG */}
+              <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100">
+                <defs>
+                  <marker id="arrowhead" markerWidth="5" markerHeight="5" refX="2.5" refY="2.5" orient="auto">
+                    <path d="M0,0 L5,2.5 L0,5 z" fill={ACCENT} opacity="0.7" />
+                  </marker>
+                </defs>
+                {[
+                  { from: -90, to: 0 },
+                  { from: 0, to: 90 },
+                  { from: 90, to: 180 },
+                  { from: 180, to: 270 },
+                ].map((arc, i) => {
+                  const r = 36;
+                  const startRad = ((arc.from + 18) * Math.PI) / 180;
+                  const endRad = ((arc.to - 18) * Math.PI) / 180;
+                  const x1 = 50 + r * Math.cos(startRad);
+                  const y1 = 50 + r * Math.sin(startRad);
+                  const x2 = 50 + r * Math.cos(endRad);
+                  const y2 = 50 + r * Math.sin(endRad);
+                  return (
+                    <path key={i}
+                      d={`M ${x1} ${y1} A ${r} ${r} 0 0 1 ${x2} ${y2}`}
+                      stroke={ACCENT}
+                      strokeWidth="0.5"
+                      strokeDasharray="1.5 1.2"
+                      fill="none"
+                      opacity="0.6"
+                      markerEnd="url(#arrowhead)" />
+                  );
+                })}
+              </svg>
+
+              {/* 4个节点 */}
               {[
-                { k: "短剧出海", v: "内容 + 投放协同" },
-                { k: "品牌出海", v: "整合营销解决方案" },
-                { k: "多平台", v: "TikTok / Meta / Google" },
-                { k: "本地化", v: "区域素材 + 合规" },
-              ].map((x, i) => (
-                <motion.div key={x.k}
-                  initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.08 }}>
-                  <div className="text-sm font-semibold mb-1" style={{ color: ACCENT }}>{x.k}</div>
-                  <div className="text-sm" style={{ color: TEXT_MID }}>{x.v}</div>
-                </motion.div>
-              ))}
+                { angle: -90, num: "01", k: "内容生产", v: "短剧创作 + 品牌内容", Icon: PlayCircle, color: "#6366f1" },
+                { angle: 0, num: "02", k: "媒体投放", v: "TikTok / Meta / Google", Icon: Share2, color: "#8b5cf6" },
+                { angle: 90, num: "03", k: "本地转化", v: "区域素材 + 合规落地", Icon: Flag, color: "#ec4899" },
+                { angle: 180, num: "04", k: "商业回流", v: "数据复盘 + 持续优化", Icon: Target, color: "#3b82f6" },
+              ].map((node, i) => {
+                const Icon = node.Icon;
+                const rad = (node.angle * Math.PI) / 180;
+                const radius = 50;
+                const x = 50 + radius * Math.cos(rad);
+                const y = 50 + radius * Math.sin(rad);
+                return (
+                  <motion.div key={node.k}
+                    initial={{ opacity: 0, scale: 0.6 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: false, amount: 0.3 }}
+                    transition={{ duration: 0.5, delay: 0.15 + i * 0.12 }}
+                    whileHover={{ scale: 1.08, y: -2 }}
+                    className="absolute -translate-x-1/2 -translate-y-1/2 z-20"
+                    style={{ left: `${x}%`, top: `${y}%` }}>
+                    <div className="relative flex flex-col items-center">
+                      <div className="absolute -top-2 -right-2 z-10 w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold text-white shadow-lg"
+                        style={{ background: node.color }}>
+                        {node.num}
+                      </div>
+                      <div className="w-[118px] h-[118px] rounded-full bg-white/85 backdrop-blur-md border-2 flex flex-col items-center justify-center text-center px-3 shadow-xl transition-all"
+                        style={{ borderColor: `${node.color}55` }}>
+                        <Icon size={22} style={{ color: node.color }} strokeWidth={1.8} />
+                        <div className="text-[13px] font-bold mt-1.5" style={{ color: TEXT_DARK }}>{node.k}</div>
+                        <div className="text-[10px] leading-tight mt-0.5" style={{ color: TEXT_MID }}>{node.v}</div>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
+          </div>
+
+          {/* 底部一句话 */}
+          <div className="mt-6 text-center text-sm" style={{ color: TEXT_MID }}>
+            <span className="inline-block px-5 py-2 rounded-full bg-white/60 backdrop-blur-sm border border-white/70">
+              短剧吸引流量 · 品牌承接转化 · 数据驱动复投 — 可持续的出海增长飞轮
+            </span>
           </div>
         </ScreenInner>
       </SnapScreen>
