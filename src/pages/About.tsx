@@ -467,6 +467,20 @@ export default function About() {
                       <div className="text-[11px]" style={{ color: TEXT_MID }}>
                         {o.city}, {o.country} · 自 {o.established} 起
                       </div>
+                      <motion.div
+                        initial={false}
+                        animate={{
+                          height: hoverIdx === i ? "auto" : 0,
+                          opacity: hoverIdx === i ? 1 : 0,
+                          marginTop: hoverIdx === i ? 6 : 0,
+                        }}
+                        transition={{ duration: 0.25 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="text-[11px] leading-relaxed pr-2" style={{ color: TEXT_DARK }}>
+                          📍 {o.addr}
+                        </div>
+                      </motion.div>
                     </div>
                     <div className="text-xs font-medium shrink-0" style={{ color: ACCENT }}>详情 →</div>
                   </div>
