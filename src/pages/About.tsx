@@ -11,7 +11,8 @@ import {
 } from "@/components/ui/dialog";
 import {
   Building2, MapPin, Users, Calendar, Sparkles,
-  Globe2, Award, Rocket, Star, TrendingUp, type LucideIcon,
+  Globe2, Award, Rocket, Star, TrendingUp, ShieldCheck, Cpu,
+  type LucideIcon,
 } from "lucide-react";
 
 type Office = {
@@ -120,226 +121,198 @@ function HorizontalTimeline() {
   );
 }
 
-type IntroCard = {
+type Pillar = {
   key: string;
   icon: LucideIcon;
-  eyebrow?: string;
-  stat?: string;
-  unit?: string;
-  title: string;
+  label: string;
+  en: string;
   desc: string;
-  details: string[];
-  feature?: boolean;
-  span?: string;
+  points: string[];
 };
 
-const INTRO_CARDS: IntroCard[] = [
+const PILLARS: Pillar[] = [
   {
-    key: "values",
-    icon: Sparkles,
-    eyebrow: "核心价值观",
-    title: "可信、协同、长期",
-    desc: "近十年行业积累,全球协同的技术与商务团队,与客户共同成长。",
-    details: [
-      "可信 — 数据安全合规、交付稳定可靠",
-      "协同 — 技术、商务、运营一体化作战",
-      "长期 — 与客户与生态伙伴共同成长",
-    ],
-    feature: true,
-    span: "lg:col-span-2 lg:row-span-2",
-  },
-  {
-    key: "founded",
-    icon: Calendar,
-    eyebrow: "成立时间",
-    stat: "2016",
-    unit: "年",
-    title: "深圳总部成立",
-    desc: "深耕行业近十年的稳健积累。",
-    details: [
-      "2016 年于深圳创立,聚焦数字连接",
-      "完成多轮产品与商业化验证",
-      "建立稳定的全球客户与媒体生态",
-    ],
-  },
-  {
-    key: "offices",
+    key: "global",
     icon: Globe2,
-    eyebrow: "全球办公点",
-    stat: "5",
-    unit: "个",
-    title: "覆盖关键市场",
-    desc: "深圳、新加坡、东京、杜塞尔多夫、洛杉矶多地协同。",
-    details: [
-      "深圳(总部) · 全球研发与运营中枢",
-      "新加坡 / 东京 · 亚太区域中心",
-      "杜塞尔多夫 / 洛杉矶 · 欧美本地化服务",
-    ],
+    label: "全球",
+    en: "Global",
+    desc: "5 个办公点协同,服务覆盖全球关键市场",
+    points: ["深圳 / 新加坡 / 东京", "杜塞尔多夫 / 洛杉矶", "10+ 国家本地化商务"],
   },
   {
-    key: "team",
-    icon: Users,
-    eyebrow: "全球团队",
-    stat: "200+",
-    unit: "人",
-    title: "一体化的全球团队",
-    desc: "技术、产品、商务、运营协同作战。",
-    details: [
-      "工程与算法占比 50%+",
-      "本地化商务覆盖 10+ 国家与地区",
-      "7×24 全球运营与客户支持",
-    ],
+    key: "tech",
+    icon: Cpu,
+    label: "技术",
+    en: "Technology",
+    desc: "工程与算法驱动,持续投入数字连接基础设施",
+    points: ["工程与算法占比 50%+", "多项软件著作权与发明专利", "国家高新技术企业"],
   },
   {
-    key: "creds",
-    icon: Award,
-    eyebrow: "理念 · 资质",
-    title: "让数字连接更有价值",
-    desc: "以理念为指引,以资质为承诺。",
-    details: [
-      "ISO 27001 信息安全管理体系认证",
-      "国家高新技术企业",
-      "多项软件著作权与发明专利",
-    ],
-    span: "md:col-span-2 lg:col-span-2",
+    key: "trust",
+    icon: ShieldCheck,
+    label: "可信赖",
+    en: "Trustworthy",
+    desc: "近十年稳健交付,与客户与生态长期共赢",
+    points: ["ISO 27001 信息安全认证", "数据合规、交付稳定可靠", "与客户长期共同成长"],
   },
 ];
 
-function IntroCards() {
-  const [openKey, setOpenKey] = React.useState<string | null>(null);
+const STATS: { value: string; unit: string; label: string }[] = [
+  { value: "2016", unit: "", label: "深圳总部成立" },
+  { value: "5", unit: "个", label: "全球办公点" },
+  { value: "200", unit: "+", label: "全球员工" },
+  { value: "10", unit: "+", label: "覆盖国家与地区" },
+];
 
+function CompanyIntro() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-8">
-      {INTRO_CARDS.map((c, i) => {
-        const Icon = c.icon;
-        const isOpen = openKey === c.key;
-        const isFeature = !!c.feature;
-        return (
-          <motion.button
-            key={c.key}
-            type="button"
-            onClick={() => setOpenKey(isOpen ? null : c.key)}
-            initial={{ opacity: 0, y: 20 }}
+    <div className="mt-8 lg:mt-10 flex flex-col gap-8 lg:gap-10">
+      {/* 关键数字条 */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.3 }}
+        transition={{ duration: 0.5 }}
+        className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-5 pb-8 lg:pb-10"
+        style={{ borderBottom: "1px solid rgba(15,20,40,0.08)" }}
+      >
+        {STATS.map((s, i) => (
+          <motion.div
+            key={s.label}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: i * 0.06 }}
-            whileHover={{ y: -3 }}
-            className={`group text-left rounded-2xl p-6 glass-card relative overflow-hidden transition-all ${c.span ?? ""}`}
-            style={{
-              ...CARD,
-              ...(isFeature
-                ? {
-                    background: `linear-gradient(135deg, ${ACCENT} 0%, hsl(265 70% 60%) 100%)`,
-                    color: "white",
-                    border: "1px solid rgba(255,255,255,0.2)",
-                    boxShadow: "0 14px 40px -16px rgba(99,102,241,0.5)",
-                  }
-                : {}),
-              ...(isOpen && !isFeature
-                ? { border: `1px solid ${ACCENT}`, boxShadow: "0 14px 40px -18px rgba(99,102,241,0.4)" }
-                : {}),
-            }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.45, delay: i * 0.06 }}
+            className="text-center md:text-left"
           >
-            {c.eyebrow && (
-              <div
-                className="text-[11px] font-semibold uppercase tracking-wider mb-3"
-                style={{ color: isFeature ? "rgba(255,255,255,0.7)" : ACCENT }}
-              >
-                {c.eyebrow}
-              </div>
-            )}
-
-            <div className="flex items-center gap-3 mb-3">
-              <div
-                className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
+            <div className="flex items-baseline justify-center md:justify-start gap-0.5">
+              <span
+                className="text-4xl md:text-5xl font-bold leading-none tracking-tight"
                 style={{
-                  background: isFeature ? "rgba(255,255,255,0.15)" : "rgba(99,102,241,0.1)",
-                  color: isFeature ? "white" : ACCENT,
+                  background: `linear-gradient(135deg, ${ACCENT} 0%, hsl(265 70% 60%) 100%)`,
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
                 }}
               >
-                <Icon size={20} />
-              </div>
-              {c.stat && (
-                <div className="flex items-baseline gap-1">
-                  <span
-                    className="text-3xl md:text-4xl font-bold leading-none"
-                    style={{ color: isFeature ? "white" : TEXT_DARK }}
-                  >
-                    {c.stat}
-                  </span>
-                  {c.unit && (
-                    <span
-                      className="text-sm font-medium"
-                      style={{ color: isFeature ? "rgba(255,255,255,0.8)" : TEXT_MID }}
-                    >
-                      {c.unit}
-                    </span>
-                  )}
-                </div>
+                {s.value}
+              </span>
+              {s.unit && (
+                <span
+                  className="text-xl md:text-2xl font-semibold"
+                  style={{ color: ACCENT }}
+                >
+                  {s.unit}
+                </span>
               )}
             </div>
-
-            <h3
-              className={`font-semibold mb-2 ${isFeature ? "text-2xl md:text-3xl leading-tight" : "text-base"}`}
-              style={{ color: isFeature ? "white" : TEXT_DARK }}
-            >
-              {c.title}
-            </h3>
-            <p
-              className={`leading-relaxed ${isFeature ? "text-sm md:text-base" : "text-sm"}`}
-              style={{ color: isFeature ? "rgba(255,255,255,0.85)" : TEXT_MID }}
-            >
-              {c.desc}
-            </p>
-
-            <div
-              className="flex items-center gap-1 mt-4 text-xs font-medium"
-              style={{ color: isFeature ? "rgba(255,255,255,0.85)" : ACCENT }}
-            >
-              <span>{isOpen ? "收起" : "查看更多"}</span>
-              <motion.span
-                animate={{ rotate: isOpen ? 180 : 0 }}
-                transition={{ duration: 0.25 }}
-                className="inline-block"
-              >
-                ▾
-              </motion.span>
+            <div className="mt-2 text-xs md:text-sm" style={{ color: TEXT_MID }}>
+              {s.label}
             </div>
+          </motion.div>
+        ))}
+      </motion.div>
 
+      {/* 三大支柱:全球 · 技术 · 可信赖 */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-8">
+        {PILLARS.map((p, i) => {
+          const Icon = p.icon;
+          return (
             <motion.div
-              initial={false}
-              animate={{
-                height: isOpen ? "auto" : 0,
-                opacity: isOpen ? 1 : 0,
-                marginTop: isOpen ? 16 : 0,
-              }}
-              transition={{ duration: 0.3 }}
-              className="overflow-hidden"
+              key={p.key}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.55, delay: i * 0.1 }}
+              className="relative md:px-2"
             >
-              <ul
-                className="space-y-1.5 pt-3 border-t"
-                style={{
-                  borderColor: isFeature ? "rgba(255,255,255,0.2)" : "rgba(15,20,40,0.08)",
-                }}
+              <div className="flex items-center gap-3 mb-4">
+                <div
+                  className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
+                  style={{
+                    background: `linear-gradient(135deg, ${ACCENT} 0%, hsl(265 70% 60%) 100%)`,
+                    color: "white",
+                    boxShadow: "0 8px 22px -10px rgba(99,102,241,0.55)",
+                  }}
+                >
+                  <Icon size={22} />
+                </div>
+                <span
+                  className="text-xs font-mono tracking-widest"
+                  style={{ color: "rgba(15,20,40,0.35)" }}
+                >
+                  0{i + 1}
+                </span>
+              </div>
+
+              <div className="flex items-baseline gap-2 mb-2">
+                <h3
+                  className="text-2xl md:text-3xl font-bold leading-tight"
+                  style={{ color: TEXT_DARK }}
+                >
+                  {p.label}
+                </h3>
+                <span
+                  className="text-xs font-medium uppercase tracking-wider"
+                  style={{ color: ACCENT }}
+                >
+                  {p.en}
+                </span>
+              </div>
+
+              <p
+                className="text-sm md:text-[15px] leading-relaxed mb-4"
+                style={{ color: TEXT_MID }}
               >
-                {c.details.map((d) => (
+                {p.desc}
+              </p>
+
+              <ul className="space-y-1.5">
+                {p.points.map((pt) => (
                   <li
-                    key={d}
-                    className="text-xs leading-relaxed flex gap-2"
-                    style={{ color: isFeature ? "rgba(255,255,255,0.9)" : TEXT_MID }}
+                    key={pt}
+                    className="text-xs md:text-sm leading-relaxed flex items-start gap-2"
+                    style={{ color: TEXT_MID }}
                   >
-                    <span style={{ color: isFeature ? "white" : ACCENT }}>•</span>
-                    <span>{d}</span>
+                    <span
+                      className="mt-2 w-1 h-1 rounded-full shrink-0"
+                      style={{ background: ACCENT }}
+                    />
+                    <span>{pt}</span>
                   </li>
                 ))}
               </ul>
             </motion.div>
-          </motion.button>
-        );
-      })}
+          );
+        })}
+      </div>
+
+      {/* 理念落款 */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: false, amount: 0.3 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="pt-6 lg:pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-3"
+        style={{ borderTop: "1px solid rgba(15,20,40,0.08)" }}
+      >
+        <div className="flex items-center gap-3">
+          <Sparkles size={18} style={{ color: ACCENT }} />
+          <span
+            className="text-base md:text-lg font-semibold"
+            style={{ color: TEXT_DARK }}
+          >
+            让数字连接更有价值
+          </span>
+        </div>
+        <div className="text-xs md:text-sm" style={{ color: TEXT_MID }}>
+          以理念为指引,以全球化、技术力与可信赖,为客户创造长期价值
+        </div>
+      </motion.div>
     </div>
   );
 }
+
 
 export default function About() {
   const [openOffice, setOpenOffice] = React.useState<Office | null>(null);
@@ -377,7 +350,7 @@ export default function About() {
       <SnapScreen id="intro" bg="tint">
         <ScreenInner>
           <ScreenTitle>公司简介</ScreenTitle>
-          <IntroCards />
+          <CompanyIntro />
         </ScreenInner>
       </SnapScreen>
 
