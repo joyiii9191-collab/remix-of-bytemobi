@@ -39,6 +39,11 @@ const HUB_LINES: Array<[number, number]> = [
 
 import { GLASS_CARD as CARD, TEXT_DARK, TEXT_MID, ACCENT } from "@/lib/page-styles";
 import caseEcommerceImg from "@/assets/case-ecommerce-aliexpress.png";
+import caseBinanceImg from "@/assets/case-binance.png";
+import caseBet365Img from "@/assets/case-bet365.png";
+import caseHungryImg from "@/assets/case-hungry-studio.png";
+import caseTiktokImg from "@/assets/case-tiktok.png";
+import caseNordvpnImg from "@/assets/case-nordvpn.png";
 
 const STATS = [
   { label: "覆盖国家 / 地区", value: 220, suffix: "+" },
