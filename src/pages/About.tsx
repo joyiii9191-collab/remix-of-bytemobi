@@ -429,75 +429,91 @@ export default function About() {
         <ScreenInner>
           <ScreenTitle>全球布局 · 本地深耕</ScreenTitle>
           <ScreenLead>5 城办公网络协同,在每一个关键市场实现本地化运营与服务。</ScreenLead>
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-5 mt-6 flex-1 min-h-[320px]">
-            <div className="lg:col-span-3 rounded-2xl overflow-hidden relative glass-card" style={CARD}>
-              <ParticleWorldMap markers={MAP_MARKERS} lines={MAP_LINES} />
-              {hoverIdx !== null && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }}
-                  className="absolute pointer-events-none"
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-8">
+            {OFFICES.map((o, i) => (
+              <motion.button
+                key={o.name}
+                type="button"
+                onClick={() => setOpenOffice(o)}
+                onMouseEnter={() => setHoverIdx(i)}
+                onMouseLeave={() => setHoverIdx(null)}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: i * 0.06 }}
+                className="group relative rounded-2xl overflow-hidden text-left aspect-[16/10] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                style={{
+                  border: "1px solid rgba(255,255,255,0.6)",
+                  boxShadow:
+                    hoverIdx === i
+                      ? "0 22px 50px -20px rgba(30,41,99,0.35)"
+                      : "0 10px 28px -16px rgba(30,41,99,0.22)",
+                  transition: "box-shadow 0.3s ease",
+                }}
+              >
+                {/* 背景图 */}
+                <img
+                  src={o.image}
+                  alt={`${o.nameZh} ${o.nameEn} 办公点`}
+                  loading="lazy"
+                  width={1280}
+                  height={768}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                {/* 半透明白色遮罩营造柔光氛围 */}
+                <div
+                  className="absolute inset-0"
                   style={{
-                    left: `${OFFICES[hoverIdx].x}%`,
-                    top: `${OFFICES[hoverIdx].y}%`,
-                    transform: "translate(-50%, -50%)",
-                  }}>
-                  <div className="w-12 h-12 rounded-full"
-                    style={{
-                      background: `radial-gradient(circle, ${ACCENT} 0%, transparent 70%)`,
-                      opacity: 0.5,
-                    }} />
-                </motion.div>
-              )}
-            </div>
-            <div className="lg:col-span-2 flex flex-col gap-2 overflow-y-auto">
-              {OFFICES.map((o, i) => (
-                <motion.button
-                  key={o.name} type="button"
-                  onMouseEnter={() => setHoverIdx(i)}
-                  onMouseLeave={() => setHoverIdx(null)}
-                  onClick={() => setOpenOffice(o)}
-                  whileHover={{ x: 4 }}
-                  className="rounded-xl p-3 text-left transition-all"
-                  style={{
-                    background: "white",
-                    border: hoverIdx === i ? `1px solid ${ACCENT}` : "1px solid rgba(15,20,40,0.06)",
-                    boxShadow: hoverIdx === i
-                      ? "0 6px 18px -8px rgba(99,102,241,0.4)"
-                      : "0 2px 8px -4px rgba(15,20,40,0.05)",
-                  }}>
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-center gap-2 mb-1">
-                        <MapPin size={13} style={{ color: ACCENT }} />
-                        <div className="font-semibold text-sm" style={{ color: TEXT_DARK }}>{o.name}</div>
-                        {o.highlight && (
-                          <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded"
-                            style={{ background: ACCENT, color: "white" }}>HQ</span>
-                        )}
-                      </div>
-                      <div className="text-[11px]" style={{ color: TEXT_MID }}>
-                        {o.city}, {o.country} · 自 {o.established} 起
-                      </div>
-                      <motion.div
-                        initial={false}
-                        animate={{
-                          height: hoverIdx === i ? "auto" : 0,
-                          opacity: hoverIdx === i ? 1 : 0,
-                          marginTop: hoverIdx === i ? 6 : 0,
-                        }}
-                        transition={{ duration: 0.25 }}
-                        className="overflow-hidden"
-                      >
-                        <div className="text-[11px] leading-relaxed pr-2" style={{ color: TEXT_DARK }}>
-                          📍 {o.addr}
-                        </div>
-                      </motion.div>
-                    </div>
-                    <div className="text-xs font-medium shrink-0" style={{ color: ACCENT }}>详情 →</div>
+                    background:
+                      "linear-gradient(180deg, rgba(232,238,250,0.55) 0%, rgba(232,238,250,0.45) 60%, rgba(232,238,250,0.65) 100%)",
+                  }}
+                />
+
+                {/* HQ 标签 */}
+                {o.highlight && (
+                  <div className="absolute top-4 left-4 z-10">
+                    <span
+                      className="text-[10px] font-semibold tracking-[0.2em] uppercase px-2.5 py-1 rounded-full backdrop-blur-md"
+                      style={{
+                        background: "rgba(255,255,255,0.85)",
+                        color: ACCENT,
+                        border: "1px solid rgba(99,102,241,0.25)",
+                      }}
+                    >
+                      Headquarters
+                    </span>
                   </div>
-                </motion.button>
-              ))}
-            </div>
+                )}
+
+                {/* 文本内容居中 */}
+                <div className="relative z-10 h-full w-full flex flex-col items-center justify-center px-6 text-center">
+                  <h3
+                    className="text-2xl md:text-3xl font-bold leading-tight"
+                    style={{ color: "hsl(225 55% 22%)" }}
+                  >
+                    {o.nameZh}{" "}
+                    <span className="font-semibold">{o.nameEn}</span>
+                  </h3>
+                  <div
+                    className="mt-3 text-xs md:text-sm tracking-wide"
+                    style={{ color: "hsl(225 25% 38%)" }}
+                  >
+                    {o.focus.split("·")[0].trim()}
+                  </div>
+                  <div
+                    className="mt-5 inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.18em] uppercase px-4 py-2 rounded-full transition-all"
+                    style={{
+                      background: "hsl(225 55% 22%)",
+                      color: "white",
+                      boxShadow: "0 6px 16px -8px rgba(30,41,99,0.5)",
+                    }}
+                  >
+                    <MapPin size={12} />
+                    View Details
+                  </div>
+                </div>
+              </motion.button>
+            ))}
           </div>
         </ScreenInner>
 
