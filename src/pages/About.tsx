@@ -156,13 +156,13 @@ export default function About() {
       <SnapScreen id="intro" bg="tint">
         <ScreenInner>
           <ScreenTitle>可信、协同、长期</ScreenTitle>
-          <ScreenLead>近十年行业积累,全球协同的技术与商务团队。</ScreenLead>
+          <ScreenLead>近十年行业积累,全球协同的技术与商务团队</ScreenLead>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-10">
             {[
-              { t: "2016 年成立", d: "深耕行业近十年,具备较长的行业积累。" },
-              { t: "总部西安 · 全球 5 办公点", d: "多地协同覆盖关键市场。" },
-              { t: "200+ 员工", d: "技术、产品、商务、运营一体化团队。" },
-              { t: "ISO 27001 + 高新技术企业", d: "可信的合规与技术基础。" },
+              { t: "2016 年成立", d: "总部位于深圳,深耕行业近十年的稳健积累" },
+              { t: "全球 5 个办公点", d: "深圳、新加坡、东京、杜塞尔多夫、洛杉矶多地协同" },
+              { t: "200+ 员工", d: "技术、产品、商务、运营一体化的全球团队" },
+              { t: "理念 · 资质", d: "“让数字连接更有价值” · ISO 27001 · 高新技术企业" },
             ].map((c, i) => (
               <motion.div key={c.t}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
