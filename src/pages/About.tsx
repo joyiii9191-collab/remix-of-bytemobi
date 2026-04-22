@@ -98,17 +98,14 @@ function TimelineItem({
   // 染色进度
   const colorProgress = useTransform(scrollYProgress, [start, end], [0, 1]);
 
-  // 灰色 → 蓝紫色
-  const yearColor = useTransform(
-    colorProgress,
-    [0, 1],
-    ["rgba(15,20,40,0.18)", "hsl(250 80% 58%)"]
-  );
+  // 节点底色:白 → 蓝紫
   const dotBg = useTransform(
     colorProgress,
     [0, 1],
     ["rgba(255,255,255,1)", "hsl(250 80% 60%)"]
   );
+  // 渐变文字层透明度:0 → 1 (覆盖在灰色文字之上)
+  const gradientOpacity = useTransform(colorProgress, [0, 1], [0, 1]);
 
   // 入场动效:基于同一进度,把 opacity / x / y 一起推
   const enterProgress = useTransform(scrollYProgress, [start - 0.02, end], [0, 1]);
@@ -117,6 +114,13 @@ function TimelineItem({
   const x = useTransform(enterProgress, [0, 1], [isLeft ? -40 : 40, 0]);
   const dotScale = useTransform(enterProgress, [0, 1], [0.4, 1]);
   const dotOpacity = useTransform(enterProgress, [0, 1], [0.2, 1]);
+
+  const yearStyle: React.CSSProperties = {
+    fontSize: "clamp(3.2rem, 7vw, 5.5rem)",
+    fontFamily:
+      "'Playfair Display', 'Cormorant Garamond', 'Noto Serif SC', Georgia, serif",
+    letterSpacing: "-0.02em",
+  };
 
   return (
     <li className="relative min-h-[140px] md:min-h-[180px]">
@@ -142,19 +146,33 @@ function TimelineItem({
           className={isLeft ? "md:text-right md:pr-6" : "md:text-left md:pl-6"}
           style={{ opacity, x, y }}
         >
-          {/* 年份 — 大字号 + 衬线 */}
-          <motion.div
-            className="font-bold leading-none tracking-tight tabular-nums"
-            style={{
-              color: yearColor,
-              fontSize: "clamp(3.2rem, 7vw, 5.5rem)",
-              fontFamily:
-                "'Playfair Display', 'Cormorant Garamond', 'Noto Serif SC', Georgia, serif",
-              letterSpacing: "-0.02em",
-            }}
-          >
-            {m.year}
-          </motion.div>
+          {/* 年份 — 灰色底层 + 蓝紫渐变层叠加,通过透明度切换 */}
+          <div className="relative inline-block">
+            {/* 灰色底层 */}
+            <div
+              className="font-bold leading-none tracking-tight tabular-nums"
+              style={{ ...yearStyle, color: "rgba(15,20,40,0.18)" }}
+            >
+              {m.year}
+            </div>
+            {/* 蓝紫渐变覆盖层 */}
+            <motion.div
+              aria-hidden
+              className="absolute inset-0 font-bold leading-none tracking-tight tabular-nums"
+              style={{
+                ...yearStyle,
+                opacity: gradientOpacity,
+                background:
+                  "linear-gradient(135deg, hsl(220 90% 58%) 0%, hsl(250 85% 60%) 50%, hsl(280 80% 60%) 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              {m.year}
+            </motion.div>
+          </div>
+
           <div
             className="mt-3 text-lg md:text-xl font-semibold"
             style={{ color: TEXT_DARK }}
