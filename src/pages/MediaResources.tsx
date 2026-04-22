@@ -320,7 +320,7 @@ export default function MediaResources() {
 
           {/* 合作对象 */}
           <div className="mt-8 w-full">
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3 text-left" style={{ color: ACCENT }}>合作对象</div>
+            <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3 text-center" style={{ color: ACCENT }}>合作对象</div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 w-full">
               {[
                 { t: "跨境电商商家", d: "DTC / 平台卖家拓展海外市场", Icon: Store },
@@ -346,7 +346,7 @@ export default function MediaResources() {
 
           {/* 合作流程 — 连贯紫蓝时间轴,步骤标题在轴上方 */}
           <div className="mt-10 w-full">
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-4 text-left" style={{ color: ACCENT }}>合作流程</div>
+            <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-4 text-center" style={{ color: ACCENT }}>合作流程</div>
             <div className="relative pt-12">
               {/* 贯穿时间轴 */}
               <div className="absolute left-0 right-0 h-[2px]" style={{
@@ -392,7 +392,7 @@ export default function MediaResources() {
 
           {/* 政策支持 */}
           <div className="mt-10 w-full">
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3 text-left" style={{ color: ACCENT }}>政策支持</div>
+            <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3 text-center" style={{ color: ACCENT }}>政策支持</div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               {[
                 { t: "平台资源支持与返点政策", d: "结合平台政策为合作伙伴争取更优条件。", Icon: Gift },
