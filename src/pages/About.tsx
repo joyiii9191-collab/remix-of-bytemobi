@@ -71,7 +71,65 @@ const TIMELINE: Milestone[] = [
   { year: "2025", title: "员工 200+", desc: "持续投入", icon: Sparkles },
 ];
 
-const EVENTS = ["IAB", "GDC", "Japan IT Week", "ChinaJoy", "TGS", "中东峰会", "IVS Kyoto"];
+import eventIabAlm from "@/assets/event-iab-alm.png";
+import eventGdc from "@/assets/event-gdc.jpg";
+import eventJapanItWeek from "@/assets/event-japan-it-week.jpg";
+import eventChinajoy from "@/assets/event-chinajoy.jpg";
+import eventTgs from "@/assets/event-tgs.jpg";
+import eventAffiliateWorld from "@/assets/event-affiliate-world.png";
+
+type EventItem = {
+  name: string;
+  date: string;
+  location: string;
+  city: string;
+  image: string;
+};
+
+const EVENTS: EventItem[] = [
+  {
+    name: "IAB ALM 2026",
+    date: "2026.02.01 – 02.03",
+    location: "JW Marriott Desert Springs Resort & Spa",
+    city: "Palm Springs, USA",
+    image: eventIabAlm,
+  },
+  {
+    name: "GDC 2026",
+    date: "2026.03.09 – 03.13",
+    location: "Moscone Center, 747 Howard St",
+    city: "San Francisco, USA",
+    image: eventGdc,
+  },
+  {
+    name: "Affiliate World Europe",
+    date: "2026.07.09 – 07.10",
+    location: "Budapest",
+    city: "Hungary",
+    image: eventAffiliateWorld,
+  },
+  {
+    name: "ChinaJoy 2026",
+    date: "2026.07.31 – 08.03",
+    location: "上海新国际博览中心 · 龙阳路 2345 号",
+    city: "上海, 中国",
+    image: eventChinajoy,
+  },
+  {
+    name: "Tokyo Game Show 2026",
+    date: "2026.09.17 – 09.21",
+    location: "幕張メッセ · 千葉県千葉市美浜区中瀬 2-1",
+    city: "千叶, 日本",
+    image: eventTgs,
+  },
+  {
+    name: "Japan IT Week 2026",
+    date: "2026.10.21 – 10.23",
+    location: "Makuhari Messe · 2-1 Nakase, Mihama",
+    city: "千叶, 日本",
+    image: eventJapanItWeek,
+  },
+];
 
 import { GLASS_CARD as CARD, TEXT_DARK, TEXT_MID, ACCENT } from "@/lib/page-styles";
 import { GradientGlassCard } from "@/components/GradientGlassCard";
