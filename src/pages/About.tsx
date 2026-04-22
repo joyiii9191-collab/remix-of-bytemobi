@@ -164,6 +164,49 @@ const STATS: { value: string; unit: string; label: string }[] = [
   { value: "10", unit: "+", label: "覆盖国家与地区" },
 ];
 
+function AnimatedNumber({ value, duration = 1.6 }: { value: string; duration?: number }) {
+  const numericMatch = value.match(/^(\d+)/);
+  const target = numericMatch ? parseInt(numericMatch[1], 10) : 0;
+  const ref = React.useRef<HTMLSpanElement | null>(null);
+  const [display, setDisplay] = React.useState(0);
+  const [started, setStarted] = React.useState(false);
+
+  React.useEffect(() => {
+    if (!ref.current) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            setStarted(true);
+          } else {
+            setStarted(false);
+            setDisplay(0);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    io.observe(ref.current);
+    return () => io.disconnect();
+  }, []);
+
+  React.useEffect(() => {
+    if (!started) return;
+    let raf = 0;
+    const start = performance.now();
+    const tick = (now: number) => {
+      const t = Math.min(1, (now - start) / (duration * 1000));
+      const eased = 1 - Math.pow(1 - t, 3);
+      setDisplay(Math.round(target * eased));
+      if (t < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [started, target, duration]);
+
+  return <span ref={ref}>{display}</span>;
+}
+
 function CompanyIntro() {
   return (
     <div className="mt-8 lg:mt-10 flex flex-col gap-8 lg:gap-10">
@@ -183,11 +226,11 @@ function CompanyIntro() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.45, delay: i * 0.06 }}
-            className="text-center md:text-left"
+            className="text-center"
           >
-            <div className="flex items-baseline justify-center md:justify-start gap-0.5">
+            <div className="flex items-baseline justify-center gap-0.5">
               <span
-                className="text-4xl md:text-5xl font-bold leading-none tracking-tight"
+                className="text-4xl md:text-5xl font-bold leading-none tracking-tight tabular-nums"
                 style={{
                   background: `linear-gradient(135deg, ${ACCENT} 0%, hsl(265 70% 60%) 100%)`,
                   WebkitBackgroundClip: "text",
@@ -195,7 +238,7 @@ function CompanyIntro() {
                   backgroundClip: "text",
                 }}
               >
-                {s.value}
+                <AnimatedNumber value={s.value} duration={s.value.length >= 4 ? 2 : 1.4} />
               </span>
               {s.unit && (
                 <span
@@ -206,7 +249,7 @@ function CompanyIntro() {
                 </span>
               )}
             </div>
-            <div className="mt-2 text-xs md:text-sm" style={{ color: TEXT_MID }}>
+            <div className="mt-2 text-xs md:text-sm text-center" style={{ color: TEXT_MID }}>
               {s.label}
             </div>
           </motion.div>
