@@ -602,7 +602,7 @@ const VALUES: ValueItem[] = [
   {
     no: "01",
     label: "长期主义",
-    desc: "以十年视角做今天的选择\n让每一项投入积累复利。",
+    desc: "以十年视角做今天的选择\n让每一项投入积累复利",
     icon: ShieldCheck,
   },
   {
