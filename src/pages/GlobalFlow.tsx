@@ -371,8 +371,9 @@ export default function GlobalFlow() {
                   initial={{ opacity: 0, x: -20, y: -20, rotate: -8 }}
                   animate={{ opacity: 1, x: 24, y: -24, rotate: -6 }}
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                  className="absolute inset-0 rounded-2xl overflow-hidden"
+                  className="absolute inset-0 overflow-hidden"
                   style={{
+                    borderRadius: CASES[activeCase].image ? "22%" : 16,
                     background: CASES[activeCase].image
                       ? `url(${CASES[activeCase].image}) center/cover no-repeat`
                       : "repeating-linear-gradient(135deg, hsl(220 10% 75%) 0 8px, hsl(220 10% 82%) 8px 16px)",
