@@ -637,29 +637,83 @@ const VALUES: ValueItem[] = [
   },
 ];
 
-function ValueGrid() {
+/* ============================================================
+ * 价值观 4 条 — 卡片内列表(无独立卡片样式)
+ * ============================================================ */
+function ValueList() {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-5 w-full">
-      {VALUES.map((v, i) => (
-        <motion.div
-          key={v.label}
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.25 }}
-          transition={{
-            duration: 0.55,
-            delay: i * 0.08,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-        >
-          <GradientGlassCard
-            icon={v.icon}
-            no={v.no}
-            title={v.label}
-            desc={v.desc}
-          />
-        </motion.div>
-      ))}
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-3.5 w-full">
+      {VALUES.map((v, i) => {
+        const Icon = v.icon;
+        return (
+          <motion.div
+            key={v.label}
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{
+              duration: 0.5,
+              delay: 0.1 + i * 0.07,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="flex items-start gap-3"
+          >
+            {/* 图标小方块 — 与 SectionHeader 同语言 */}
+            <span
+              className="w-8 h-8 rounded-lg flex items-center justify-center backdrop-blur-md shrink-0 mt-0.5"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(120,90,240,0.18) 100%)",
+                border: "1px solid rgba(255,255,255,0.6)",
+                color: ACCENT,
+                boxShadow: "0 6px 18px -10px rgba(99,102,241,0.35)",
+              }}
+            >
+              <Icon size={15} strokeWidth={1.8} />
+            </span>
+
+            <div className="flex-1 min-w-0">
+              <div className="flex items-baseline gap-2 mb-0.5">
+                <span
+                  className="font-bold tabular-nums leading-none"
+                  style={{
+                    fontSize: "0.85rem",
+                    fontFamily:
+                      "'Playfair Display', 'Cormorant Garamond', Georgia, serif",
+                    backgroundImage:
+                      "linear-gradient(135deg, hsl(220 90% 58%) 0%, hsl(280 80% 60%) 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                    color: "transparent",
+                  }}
+                >
+                  {v.no}
+                </span>
+                <h4
+                  className="text-[14px] md:text-[15px] font-semibold leading-tight"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(135deg, hsl(220 90% 50%) 0%, hsl(260 85% 55%) 50%, hsl(290 80% 58%) 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                    color: "transparent",
+                  }}
+                >
+                  {v.label}
+                </h4>
+              </div>
+              <p
+                className="text-[12.5px] md:text-[13px] leading-[1.65]"
+                style={{ color: TEXT_MID }}
+              >
+                {v.desc}
+              </p>
+            </div>
+          </motion.div>
+        );
+      })}
     </div>
   );
 }
@@ -922,11 +976,18 @@ export default function About() {
             </motion.div>
           </div>
 
-          {/* 价值观 — 同样使用 SectionHeader 形成同层级 */}
-          <div className="mt-6 w-full">
+          {/* 价值观 — 与使命/愿景同款大玻璃卡 */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.55, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-4 md:mt-5 w-full rounded-2xl p-5 md:p-6 glass-card"
+            style={CARD}
+          >
             <SectionHeader icon={Sparkles} label="价值观" />
-            <ValueGrid />
-          </div>
+            <ValueList />
+          </motion.div>
         </ScreenInner>
       </SnapScreen>
 
