@@ -429,7 +429,7 @@ export default function About() {
         <ScreenInner>
           <ScreenTitle>全球布局 · 本地深耕</ScreenTitle>
           <ScreenLead>5 城办公网络协同,在每一个关键市场实现本地化运营与服务。</ScreenLead>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-6 gap-5 mt-8">
             {OFFICES.map((o, i) => (
               <motion.button
                 key={o.name}
@@ -441,7 +441,9 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.2 }}
                 transition={{ duration: 0.5, delay: i * 0.06 }}
-                className="group relative rounded-2xl overflow-hidden text-left aspect-[16/10] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                className={`group relative rounded-2xl overflow-hidden text-left aspect-[16/10] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${
+                  i < 2 ? "md:col-span-3" : "md:col-span-2"
+                }`}
                 style={{
                   border: "1px solid rgba(255,255,255,0.6)",
                   boxShadow:
@@ -460,27 +462,27 @@ export default function About() {
                   height={768}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                {/* 半透明白色遮罩营造柔光氛围 */}
+                {/* 半透明白色遮罩 — 更亮以提升可读性 */}
                 <div
                   className="absolute inset-0"
                   style={{
                     background:
-                      "linear-gradient(180deg, rgba(232,238,250,0.55) 0%, rgba(232,238,250,0.45) 60%, rgba(232,238,250,0.65) 100%)",
+                      "linear-gradient(180deg, rgba(240,244,252,0.78) 0%, rgba(240,244,252,0.62) 55%, rgba(240,244,252,0.82) 100%)",
                   }}
                 />
 
-                {/* HQ 标签 */}
+                {/* HQ 标签 — 更小更精致 */}
                 {o.highlight && (
-                  <div className="absolute top-4 left-4 z-10">
+                  <div className="absolute top-3 left-3 z-10">
                     <span
-                      className="text-[10px] font-semibold tracking-[0.2em] uppercase px-2.5 py-1 rounded-full backdrop-blur-md"
+                      className="text-[9px] font-semibold tracking-[0.18em] uppercase px-2 py-0.5 rounded-full backdrop-blur-md"
                       style={{
-                        background: "rgba(255,255,255,0.85)",
+                        background: "rgba(255,255,255,0.9)",
                         color: ACCENT,
                         border: "1px solid rgba(99,102,241,0.25)",
                       }}
                     >
-                      Headquarters
+                      HQ
                     </span>
                   </div>
                 )}
@@ -489,23 +491,30 @@ export default function About() {
                 <div className="relative z-10 h-full w-full flex flex-col items-center justify-center px-6 text-center">
                   <h3
                     className="text-2xl md:text-3xl font-bold leading-tight"
-                    style={{ color: "hsl(225 55% 22%)" }}
+                    style={{
+                      color: "hsl(225 60% 18%)",
+                      textShadow: "0 1px 2px rgba(255,255,255,0.6)",
+                    }}
                   >
                     {o.nameZh}{" "}
                     <span className="font-semibold">{o.nameEn}</span>
                   </h3>
                   <div
-                    className="mt-3 text-xs md:text-sm tracking-wide"
-                    style={{ color: "hsl(225 25% 38%)" }}
+                    className="mt-2.5 text-xs md:text-sm font-medium tracking-wide"
+                    style={{
+                      color: "hsl(225 35% 28%)",
+                      textShadow: "0 1px 2px rgba(255,255,255,0.5)",
+                    }}
                   >
                     {o.focus.split("·")[0].trim()}
                   </div>
                   <div
                     className="mt-5 inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.18em] uppercase px-4 py-2 rounded-full transition-all"
                     style={{
-                      background: "hsl(225 55% 22%)",
-                      color: "white",
-                      boxShadow: "0 6px 16px -8px rgba(30,41,99,0.5)",
+                      background: "white",
+                      color: "hsl(225 60% 22%)",
+                      border: "1px solid rgba(30,41,99,0.12)",
+                      boxShadow: "0 6px 18px -8px rgba(30,41,99,0.25)",
                     }}
                   >
                     <MapPin size={12} />
