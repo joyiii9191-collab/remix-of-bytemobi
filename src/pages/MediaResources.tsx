@@ -93,24 +93,27 @@ export default function MediaResources() {
               <motion.div key={c.t}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="rounded-2xl p-7 glass-card" style={CARD}>
+                whileHover={{ y: -4 }}
+                className="rounded-2xl p-7 glass-card transition-all duration-300 hover:bg-white/60 hover:shadow-xl" style={CARD}>
                 <div className="text-3xl font-bold mb-3" style={{ color: ACCENT }}>0{i + 1}</div>
                 <h3 className="text-lg font-semibold mb-2" style={{ color: TEXT_DARK }}>{c.t}</h3>
                 <p className="text-sm leading-relaxed mb-4" style={{ color: TEXT_MID }}>{c.d}</p>
-                <ul className="space-y-3 pt-3 border-t border-white/40">
-                  {c.items.map((it) => {
-                    const ItemIcon = it.Icon;
-                    return (
-                      <li key={it.text} className="text-sm flex items-center justify-center gap-2.5" style={{ color: TEXT_MID }}>
-                        <span className="inline-flex h-5 w-5 items-center justify-center rounded-md flex-shrink-0"
-                          style={{ background: "rgba(99,102,241,0.1)", color: ACCENT }}>
-                          <ItemIcon size={12} strokeWidth={2} />
-                        </span>
-                        <span>{it.text}</span>
-                      </li>
-                    );
-                  })}
-                </ul>
+                <div className="pt-3 border-t border-white/40 flex justify-center">
+                  <ul className="space-y-3 inline-block text-left">
+                    {c.items.map((it) => {
+                      const ItemIcon = it.Icon;
+                      return (
+                        <li key={it.text} className="text-sm flex items-center gap-2.5" style={{ color: TEXT_MID }}>
+                          <span className="inline-flex h-5 w-5 items-center justify-center rounded-md flex-shrink-0"
+                            style={{ background: "rgba(99,102,241,0.1)", color: ACCENT }}>
+                            <ItemIcon size={12} strokeWidth={2} />
+                          </span>
+                          <span>{it.text}</span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -160,27 +163,30 @@ export default function MediaResources() {
                 <motion.div key={c.t}
                   initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="rounded-2xl p-7 glass-card" style={CARD}>
+                  whileHover={{ y: -4 }}
+                  className="rounded-2xl p-7 glass-card transition-all duration-300 hover:bg-white/60 hover:shadow-xl" style={CARD}>
                   <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl"
                     style={{ background: "rgba(99,102,241,0.1)", color: ACCENT }}>
                     <Icon size={22} strokeWidth={1.8} />
                   </div>
                   <h3 className="text-lg font-semibold mb-2" style={{ color: TEXT_DARK }}>{c.t}</h3>
                   <p className="text-sm leading-relaxed mb-4" style={{ color: TEXT_MID }}>{c.d}</p>
-                  <ul className="space-y-3 pt-3 border-t border-white/40">
-                    {c.items.map((it) => {
-                      const ItemIcon = it.Icon;
-                      return (
-                        <li key={it.text} className="text-sm flex items-center justify-center gap-2.5" style={{ color: TEXT_MID }}>
-                          <span className="inline-flex h-5 w-5 items-center justify-center rounded-md flex-shrink-0"
-                            style={{ background: "rgba(99,102,241,0.1)", color: ACCENT }}>
-                            <ItemIcon size={12} strokeWidth={2} />
-                          </span>
-                          <span>{it.text}</span>
-                        </li>
-                      );
-                    })}
-                  </ul>
+                  <div className="pt-3 border-t border-white/40 flex justify-center">
+                    <ul className="space-y-3 inline-block text-left">
+                      {c.items.map((it) => {
+                        const ItemIcon = it.Icon;
+                        return (
+                          <li key={it.text} className="text-sm flex items-center gap-2.5" style={{ color: TEXT_MID }}>
+                            <span className="inline-flex h-5 w-5 items-center justify-center rounded-md flex-shrink-0"
+                              style={{ background: "rgba(99,102,241,0.1)", color: ACCENT }}>
+                              <ItemIcon size={12} strokeWidth={2} />
+                            </span>
+                            <span>{it.text}</span>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
                 </motion.div>
               );
             })}
