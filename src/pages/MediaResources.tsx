@@ -97,12 +97,12 @@ export default function MediaResources() {
                 <div className="text-3xl font-bold mb-3" style={{ color: ACCENT }}>0{i + 1}</div>
                 <h3 className="text-lg font-semibold mb-2" style={{ color: TEXT_DARK }}>{c.t}</h3>
                 <p className="text-sm leading-relaxed mb-4" style={{ color: TEXT_MID }}>{c.d}</p>
-                <ul className="space-y-2 pt-3 border-t border-white/40">
+                <ul className="space-y-3 pt-3 border-t border-white/40">
                   {c.items.map((it) => {
                     const ItemIcon = it.Icon;
                     return (
-                      <li key={it.text} className="text-sm flex items-start gap-2.5" style={{ color: TEXT_MID }}>
-                        <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-md flex-shrink-0"
+                      <li key={it.text} className="text-sm flex items-center justify-center gap-2.5" style={{ color: TEXT_MID }}>
+                        <span className="inline-flex h-5 w-5 items-center justify-center rounded-md flex-shrink-0"
                           style={{ background: "rgba(99,102,241,0.1)", color: ACCENT }}>
                           <ItemIcon size={12} strokeWidth={2} />
                         </span>
@@ -167,12 +167,12 @@ export default function MediaResources() {
                   </div>
                   <h3 className="text-lg font-semibold mb-2" style={{ color: TEXT_DARK }}>{c.t}</h3>
                   <p className="text-sm leading-relaxed mb-4" style={{ color: TEXT_MID }}>{c.d}</p>
-                  <ul className="space-y-2 pt-3 border-t border-white/40">
+                  <ul className="space-y-3 pt-3 border-t border-white/40">
                     {c.items.map((it) => {
                       const ItemIcon = it.Icon;
                       return (
-                        <li key={it.text} className="text-sm flex items-start gap-2.5" style={{ color: TEXT_MID }}>
-                          <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-md flex-shrink-0"
+                        <li key={it.text} className="text-sm flex items-center justify-center gap-2.5" style={{ color: TEXT_MID }}>
+                          <span className="inline-flex h-5 w-5 items-center justify-center rounded-md flex-shrink-0"
                             style={{ background: "rgba(99,102,241,0.1)", color: ACCENT }}>
                             <ItemIcon size={12} strokeWidth={2} />
                           </span>
