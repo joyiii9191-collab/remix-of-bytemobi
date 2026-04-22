@@ -388,9 +388,12 @@ export default function GlobalFlow() {
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                   className="absolute inset-0 overflow-hidden"
                   style={{
-                    borderRadius: CASES[activeCase].image ? "22%" : 16,
+                    borderRadius:
+                      CASES[activeCase].imageFit === "cover" ? "22%" : 16,
                     background: CASES[activeCase].image
-                      ? `url(${CASES[activeCase].image}) center/cover no-repeat`
+                      ? `${CASES[activeCase].imageBg ?? "transparent"} url(${CASES[activeCase].image}) center/${
+                          CASES[activeCase].imageFit ?? "contain"
+                        } no-repeat`
                       : "repeating-linear-gradient(135deg, hsl(220 10% 75%) 0 8px, hsl(220 10% 82%) 8px 16px)",
                     boxShadow: "0 20px 50px -20px hsla(220, 10%, 40%, 0.35)",
                   }}
