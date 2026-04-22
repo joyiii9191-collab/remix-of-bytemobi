@@ -405,19 +405,38 @@ export default function CaseCategory() {
                 <div
                   className="relative w-full aspect-[16/10] flex items-center justify-center overflow-hidden"
                   style={{
-                    background: c.image
-                      ? c.imageBg ?? "hsl(220 15% 96%)"
-                      : `linear-gradient(135deg, ${data.color.replace("hsl(", "hsla(").replace(")", " / 0.18)")}, ${data.color.replace("hsl(", "hsla(").replace(")", " / 0.05)")})`,
+                    background: c.banner
+                      ? `url(${c.banner}) center/cover no-repeat`
+                      : c.image
+                        ? c.imageBg ?? "hsl(220 15% 96%)"
+                        : `linear-gradient(135deg, ${data.color.replace("hsl(", "hsla(").replace(")", " / 0.18)")}, ${data.color.replace("hsl(", "hsla(").replace(")", " / 0.05)")})`,
                   }}
                 >
-                  {c.image ? (
+                  {c.banner && c.logo && (
+                    <div
+                      className="absolute top-3 left-3 w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center shadow-lg"
+                      style={{
+                        background: c.logoBg ?? "hsl(0 0% 100%)",
+                        border: "1px solid hsla(0,0%,100%,0.6)",
+                      }}
+                    >
+                      <img
+                        src={c.logo}
+                        alt={`${c.brand} logo`}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+                  {!c.banner && c.image && (
                     <img
                       src={c.image}
                       alt={c.brand}
                       className="max-w-[60%] max-h-[70%] object-contain"
                       loading="lazy"
                     />
-                  ) : (
+                  )}
+                  {!c.banner && !c.image && (
                     <div
                       className="text-3xl md:text-4xl font-extrabold tracking-tight"
                       style={{ color: data.color }}
