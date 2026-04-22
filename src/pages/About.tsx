@@ -106,6 +106,8 @@ function TimelineItem({
   );
   // 渐变文字层透明度:0 → 1 (覆盖在灰色文字之上)
   const gradientOpacity = useTransform(colorProgress, [0, 1], [0, 1]);
+  // 灰色底层透明度:1 → 0 (染色完成后完全隐藏,避免底部露出灰色)
+  const greyOpacity = useTransform(colorProgress, [0, 0.6, 1], [1, 0.4, 0]);
 
   // 入场动效:基于同一进度,把 opacity / x / y 一起推
   const enterProgress = useTransform(scrollYProgress, [start - 0.02, end], [0, 1]);
@@ -146,27 +148,34 @@ function TimelineItem({
           className={isLeft ? "md:text-right md:pr-6" : "md:text-left md:pl-6"}
           style={{ opacity, x, y }}
         >
-          {/* 年份 — 灰色底层 + 蓝紫渐变层叠加,通过透明度切换 */}
+          {/* 年份 — 灰色底层 + 蓝紫渐变层叠加,渐变完成时灰色淡出避免底部露色 */}
           <div className="relative inline-block">
             {/* 灰色底层 */}
-            <div
-              className="font-bold leading-none tracking-tight tabular-nums"
-              style={{ ...yearStyle, color: "rgba(15,20,40,0.18)" }}
+            <motion.div
+              className="font-bold tracking-tight tabular-nums"
+              style={{
+                ...yearStyle,
+                lineHeight: 1.1,
+                color: "rgba(15,20,40,0.18)",
+                opacity: greyOpacity,
+              }}
             >
               {m.year}
-            </div>
+            </motion.div>
             {/* 蓝紫渐变覆盖层 */}
             <motion.div
               aria-hidden
-              className="absolute inset-0 font-bold leading-none tracking-tight tabular-nums"
+              className="absolute inset-0 font-bold tracking-tight tabular-nums"
               style={{
                 ...yearStyle,
+                lineHeight: 1.1,
                 opacity: gradientOpacity,
-                background:
+                backgroundImage:
                   "linear-gradient(135deg, hsl(220 90% 58%) 0%, hsl(250 85% 60%) 50%, hsl(280 80% 60%) 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
+                color: "transparent",
               }}
             >
               {m.year}
