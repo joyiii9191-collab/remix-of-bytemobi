@@ -320,7 +320,7 @@ export default function GlobalFlow() {
           
 
           <div
-            className="w-full grid grid-cols-12 gap-8 mt-10 items-start"
+            className="w-full grid grid-cols-12 gap-8 mt-10 items-center"
             onMouseEnter={() => setPauseCases(true)}
             onMouseLeave={() => setPauseCases(false)}
           >
@@ -362,75 +362,135 @@ export default function GlobalFlow() {
               })}
             </div>
 
-            {/* 右:横幅图片 + 玻璃信息卡 + 文案 + CTA */}
-            <div className="col-span-12 md:col-span-9 flex flex-col gap-6">
-              {/* 横幅:背景图 + 错位玻璃信息卡 */}
-              <div className="relative w-full">
-                <div className="relative w-full aspect-[21/9] md:aspect-[24/9]">
-                  {/* 背景横幅图(替代原灰白斜杠占位) */}
-                  <motion.div
-                    key={`bg-${activeCase}`}
-                    initial={{ opacity: 0, x: -16, y: -16, rotate: -3 }}
-                    animate={{ opacity: 1, x: 16, y: -16, rotate: -2 }}
-                    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                    className="absolute inset-0 rounded-2xl overflow-hidden"
-                    style={{
-                      background: CASES[activeCase].image
-                        ? `url(${CASES[activeCase].image}) center/cover no-repeat`
-                        : "repeating-linear-gradient(135deg, hsl(220 10% 75%) 0 8px, hsl(220 10% 82%) 8px 16px)",
-                      boxShadow: "0 20px 50px -20px hsla(220, 10%, 40%, 0.35)",
-                    }}
-                  />
-                  {/* 前置玻璃信息卡 — 保持原样式 */}
-                  <motion.div
-                    key={`fg-${activeCase}`}
-                    initial={{ opacity: 0, scale: 0.92, y: 16 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                    className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-[200px] md:w-[240px] aspect-square rounded-2xl glass-card flex flex-col items-center justify-center p-6 text-center"
-                    style={CARD}
-                  >
-                    <div
-                      className="inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-4"
-                      style={{ background: CASES[activeCase].color, color: "#fff" }}
-                    >
-                      {React.createElement(CASES[activeCase].icon, { size: 28 })}
+            {/* 中:海报卡片 + 错位灰色占位卡 */}
+            <div className="col-span-12 md:col-span-5 flex justify-center items-center">
+              <div className="relative w-full max-w-[360px] aspect-square">
+                {/* 背后灰色占位卡 */}
+                <motion.div
+                  key={`bg-${activeCase}`}
+                  initial={{ opacity: 0, x: -20, y: -20, rotate: -8 }}
+                  animate={{ opacity: 1, x: 24, y: -24, rotate: -6 }}
+                  transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                  className="absolute inset-0 rounded-2xl"
+                  style={{
+                    background:
+                      "repeating-linear-gradient(135deg, hsl(220 10% 75%) 0 8px, hsl(220 10% 82%) 8px 16px)",
+                    boxShadow: "0 20px 50px -20px hsla(220, 10%, 40%, 0.35)",
+                  }}
+                />
+                {/* 前置主卡 */}
+                <motion.div
+                  key={`fg-${activeCase}`}
+                  initial={{ opacity: 0, scale: 0.92, y: 16 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                  className="absolute inset-0 rounded-2xl overflow-hidden"
+                  style={{
+                    ...CARD,
+                    background: CASES[activeCase].image
+                      ? `url(${CASES[activeCase].image}) center/cover no-repeat`
+                      : (CARD as React.CSSProperties).background,
+                  }}
+                >
+                  {CASES[activeCase].image ? (
+                    <>
+                      {/* 图片渐变遮罩,保证底部信息可读 */}
+                      <div
+                        className="absolute inset-0"
+                        style={{
+                          background:
+                            "linear-gradient(180deg, hsla(0,0%,0%,0) 35%, hsla(0,0%,0%,0.55) 75%, hsla(0,0%,0%,0.8) 100%)",
+                        }}
+                      />
+                      {/* 顶部 tag */}
+                      <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
+                        <span
+                          className="inline-flex items-center gap-1.5 text-[11px] font-semibold px-2.5 py-1 rounded-full backdrop-blur-md"
+                          style={{
+                            background: "hsla(0,0%,100%,0.85)",
+                            color: CASES[activeCase].color,
+                          }}
+                        >
+                          {React.createElement(CASES[activeCase].icon, { size: 12 })}
+                          {CASES[activeCase].tag} · {CASES[activeCase].region}
+                        </span>
+                      </div>
+                      {/* 底部玻璃信息卡 — 重点信息 */}
+                      <div className="absolute left-3 right-3 bottom-3">
+                        <div
+                          className="rounded-xl px-4 py-3 backdrop-blur-xl border"
+                          style={{
+                            background: "hsla(0,0%,100%,0.18)",
+                            borderColor: "hsla(0,0%,100%,0.35)",
+                            boxShadow: "0 8px 24px -8px hsla(0,0%,0%,0.35)",
+                          }}
+                        >
+                          <div className="flex items-baseline gap-2 leading-none">
+                            <span
+                              className="text-[34px] md:text-[40px] font-extrabold tracking-tight tabular-nums"
+                              style={{ color: "#fff", textShadow: "0 1px 2px hsla(0,0%,0%,0.25)" }}
+                            >
+                              {CASES[activeCase].headline ?? CASES[activeCase].metric}
+                            </span>
+                            <span className="text-xs font-medium" style={{ color: "hsla(0,0%,100%,0.85)" }}>
+                              高质量用户
+                            </span>
+                          </div>
+                          <div
+                            className="mt-1.5 text-[12px] font-medium"
+                            style={{ color: "hsla(0,0%,100%,0.9)" }}
+                          >
+                            {CASES[activeCase].subMetric ?? CASES[activeCase].title} · 单月增量
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <div className="glass-card absolute inset-0 rounded-2xl flex flex-col items-center justify-center p-6 text-center">
+                      <div
+                        className="inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-4"
+                        style={{ background: CASES[activeCase].color, color: "#fff" }}
+                      >
+                        {React.createElement(CASES[activeCase].icon, { size: 28 })}
+                      </div>
+                      <div
+                        className="text-3xl md:text-4xl font-extrabold mb-3"
+                        style={{ color: CASES[activeCase].color, lineHeight: 1.1 }}
+                      >
+                        {CASES[activeCase].metric}
+                      </div>
+                      <div className="text-sm font-semibold" style={{ color: TEXT_DARK }}>
+                        {CASES[activeCase].title}
+                      </div>
                     </div>
-                    <div
-                      className="text-3xl md:text-4xl font-extrabold mb-3"
-                      style={{ color: CASES[activeCase].color, lineHeight: 1.1 }}
-                    >
-                      {CASES[activeCase].metric}
-                    </div>
-                    <div className="text-sm font-semibold" style={{ color: TEXT_DARK }}>
-                      {CASES[activeCase].title}
-                    </div>
-                  </motion.div>
-                </div>
+                  )}
+                </motion.div>
               </div>
+            </div>
 
-              {/* 图片下方:标题 + 描述 + CTA */}
+            {/* 右:标题 + 描述 + CTA */}
+            <div className="col-span-12 md:col-span-4">
               <motion.div
                 key={`txt-${activeCase}`}
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: 24 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
                 className="text-left"
               >
                 <h3
-                  className="text-2xl md:text-3xl font-bold mb-3"
+                  className="text-2xl md:text-3xl font-bold mb-4"
                   style={{ color: TEXT_DARK, lineHeight: 1.25 }}
                 >
                   {CASES[activeCase].title}
                   <span
-                    className="ml-2 text-sm font-medium"
+                    className="block text-sm font-medium mt-1"
                     style={{ color: TEXT_MID }}
                   >
                     ({CASES[activeCase].tag} · {CASES[activeCase].region})
                   </span>
                 </h3>
                 <p
-                  className="text-sm md:text-base mb-5 max-w-3xl"
+                  className="text-sm md:text-base mb-6"
                   style={{ color: TEXT_MID, lineHeight: 1.7 }}
                 >
                   {CASES[activeCase].summary}
