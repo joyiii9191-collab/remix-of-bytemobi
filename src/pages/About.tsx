@@ -131,11 +131,7 @@ export default function About() {
         <div className="absolute inset-0 pointer-events-none"
           style={{ background: "linear-gradient(180deg, rgba(245,245,247,0) 0%, rgba(245,245,247,0.6) 80%, #F5F5F7 100%)" }} />
         <ScreenInner>
-          <motion.div
-            initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium mb-5 self-start"
-            style={{ background: "rgba(99,102,241,0.1)", color: "hsl(245 60% 35%)", border: "1px solid rgba(124,58,237,0.18)" }}
-          >ABOUT US · 关于我们</motion.div>
+          {/* 顶部徽章已移除 */}
           <ScreenTitle size="xl">
             让数字连接
             <br />
