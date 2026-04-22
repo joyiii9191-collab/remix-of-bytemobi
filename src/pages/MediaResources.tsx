@@ -367,7 +367,6 @@ export default function MediaResources() {
                 </motion.div>
               ))}
             </div>
-            <p className="text-sm mt-5 italic text-center" style={{ color: TEXT_MID }}>帮助合作伙伴快速起量,实现稳定增长</p>
           </div>
         </ScreenInner>
       </SnapScreen>
@@ -510,6 +509,10 @@ export default function MediaResources() {
             })()}
           </div>
         </ScreenInner>
+        {/* 底部点睛文案 */}
+        <div className="relative z-10 w-full pb-2 text-center text-sm italic" style={{ color: TEXT_MID }}>
+          帮助合作伙伴快速起量,实现稳定增长
+        </div>
       </SnapScreen>
     </SnapPage>
   );
