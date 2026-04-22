@@ -49,6 +49,14 @@ import caseIggBanner from "@/assets/case-igg-banner.jpg";
 import caseFunplusLogo from "@/assets/case-funplus-logo.png";
 import caseFunplusBanner from "@/assets/case-funplus-banner.png";
 import caseTiktokImg from "@/assets/case-tiktok.png";
+import caseTiktokLogo from "@/assets/case-tiktok-logo.png";
+import caseTiktokBanner from "@/assets/case-tiktok-banner.png";
+import caseKwaiLogo from "@/assets/case-kwai-logo.png";
+import caseKwaiBanner from "@/assets/case-kwai-banner.png";
+import caseLikeeLogo from "@/assets/case-likee-logo.png";
+import caseLikeeBanner from "@/assets/case-likee-banner.png";
+import caseBigoLogo from "@/assets/case-bigo-logo.png";
+import caseBigoBanner from "@/assets/case-bigo-banner.png";
 import caseNordvpnImg from "@/assets/case-nordvpn.png";
 
 type CaseItem = {
