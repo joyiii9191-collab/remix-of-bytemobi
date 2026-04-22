@@ -6,6 +6,15 @@ import { SubPageLayout } from "@/components/SubPageLayout";
 import { GLASS_CARD as CARD, TEXT_DARK, TEXT_MID, ACCENT } from "@/lib/page-styles";
 
 import caseEcommerceImg from "@/assets/case-ecommerce-aliexpress.png";
+import caseAliexpressBanner from "@/assets/case-aliexpress-banner.jpg";
+import caseTaobaoLogo from "@/assets/case-taobao-logo.png";
+import caseTaobaoBanner from "@/assets/case-taobao-banner.png";
+import caseTemuLogo from "@/assets/case-temu-logo.png";
+import caseTemuBanner from "@/assets/case-temu-banner.jpg";
+import caseShopeeLogo from "@/assets/case-shopee-logo.png";
+import caseShopeeBanner from "@/assets/case-shopee-banner.jpg";
+import caseLazadaLogo from "@/assets/case-lazada-logo.png";
+import caseLazadaBanner from "@/assets/case-lazada-banner.png";
 import caseBinanceImg from "@/assets/case-binance.png";
 import caseBet365Img from "@/assets/case-bet365.png";
 import caseHungryImg from "@/assets/case-hungry-studio.png";
@@ -19,8 +28,15 @@ type CaseItem = {
   highlights: string[];
   metric: string;
   metricLabel: string;
+  /** 居中展示的 logo 图(白底/品牌底色),用 contain */
   image?: string;
   imageBg?: string;
+  /** 卡片头部大图(背景),与 logo 叠加使用更显品牌感 */
+  banner?: string;
+  /** 叠加在 banner 左上角的小 logo */
+  logo?: string;
+  /** logo 容器底色,默认白色 */
+  logoBg?: string;
 };
 
 type Category = {
@@ -44,28 +60,73 @@ const CATEGORIES: Category[] = [
     cases: [
       {
         brand: "AliExpress",
-        region: "SEA · 6 国",
-        goal: "新用户获取 & 首单转化",
-        highlights: ["高意向人群建模", "本地化创意快速迭代", "首单 CPA 持续下探"],
+        region: "Global",
+        goal: "全球新增用户 & GMV",
+        highlights: [
+          "基于多国家人群分层模型进行精准流量分发",
+          "跨境转化效率稳定提升",
+          "实现可控获客成本",
+        ],
         metric: "8,000+",
         metricLabel: "单月新增高质量用户",
-        image: caseEcommerceImg,
+        banner: caseAliexpressBanner,
+        logo: caseEcommerceImg,
       },
       {
-        brand: "全球快消品牌 A",
-        region: "EU · DE / FR / IT",
-        goal: "复购与高 LTV 用户增长",
-        highlights: ["复购人群分层", "动态商品重定向", "ROAS 60 天 +186%"],
-        metric: "ROAS +186%",
-        metricLabel: "60 天投放周期",
+        brand: "Taobao",
+        region: "CN · 跨境",
+        goal: "下单转化 & ROI 优化",
+        highlights: [
+          "通过转化漏斗优化(点击→下单)提升整体效率",
+          "有效降低获客成本约 10%",
+          "订单稳定性持续提升",
+        ],
+        metric: "40,000+",
+        metricLabel: "月均新增订单",
+        banner: caseTaobaoBanner,
+        logo: caseTaobaoLogo,
       },
       {
-        brand: "跨境时尚平台 B",
-        region: "MEA · UAE / KSA",
-        goal: "GMV 规模化扩张",
-        highlights: ["阿语本地化创意", "首单 CPA -38%", "周活跃买家 +72%"],
-        metric: "GMV +124%",
-        metricLabel: "季度对比",
+        brand: "Temu",
+        region: "Global",
+        goal: "CPS / 用户复购",
+        highlights: [
+          "构建复购导向用户分层投放模型",
+          "用户复购率达 25%",
+          "实现长期价值沉淀",
+        ],
+        metric: "3,000+",
+        metricLabel: "单月新增高转化下单用户",
+        banner: caseTemuBanner,
+        logo: caseTemuLogo,
+      },
+      {
+        brand: "Shopee",
+        region: "SEA · 4 大市场",
+        goal: "东南亚市场本地化增长",
+        highlights: [
+          "区域化素材本地适配",
+          "国家级流量调度",
+          "解决多市场分散带来的转化波动问题",
+        ],
+        metric: "20,000+",
+        metricLabel: "单月新增用户",
+        banner: caseShopeeBanner,
+        logo: caseShopeeLogo,
+      },
+      {
+        brand: "Lazada",
+        region: "SEA",
+        goal: "节点促销 & 转化提升",
+        highlights: [
+          "节点流量集中投放 + 动态预算优化",
+          "提升节日销售爆发能力",
+          "降低投放风险",
+        ],
+        metric: "15,000+",
+        metricLabel: "节日周期新增用户",
+        banner: caseLazadaBanner,
+        logo: caseLazadaLogo,
       },
     ],
   },
@@ -344,19 +405,38 @@ export default function CaseCategory() {
                 <div
                   className="relative w-full aspect-[16/10] flex items-center justify-center overflow-hidden"
                   style={{
-                    background: c.image
-                      ? c.imageBg ?? "hsl(220 15% 96%)"
-                      : `linear-gradient(135deg, ${data.color.replace("hsl(", "hsla(").replace(")", " / 0.18)")}, ${data.color.replace("hsl(", "hsla(").replace(")", " / 0.05)")})`,
+                    background: c.banner
+                      ? `url(${c.banner}) center/cover no-repeat`
+                      : c.image
+                        ? c.imageBg ?? "hsl(220 15% 96%)"
+                        : `linear-gradient(135deg, ${data.color.replace("hsl(", "hsla(").replace(")", " / 0.18)")}, ${data.color.replace("hsl(", "hsla(").replace(")", " / 0.05)")})`,
                   }}
                 >
-                  {c.image ? (
+                  {c.banner && c.logo && (
+                    <div
+                      className="absolute top-3 left-3 w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center shadow-lg"
+                      style={{
+                        background: c.logoBg ?? "hsl(0 0% 100%)",
+                        border: "1px solid hsla(0,0%,100%,0.6)",
+                      }}
+                    >
+                      <img
+                        src={c.logo}
+                        alt={`${c.brand} logo`}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+                  {!c.banner && c.image && (
                     <img
                       src={c.image}
                       alt={c.brand}
                       className="max-w-[60%] max-h-[70%] object-contain"
                       loading="lazy"
                     />
-                  ) : (
+                  )}
+                  {!c.banner && !c.image && (
                     <div
                       className="text-3xl md:text-4xl font-extrabold tracking-tight"
                       style={{ color: data.color }}
