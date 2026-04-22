@@ -692,7 +692,7 @@ export default function About() {
       <SnapScreen id="offices">
         <ScreenInner>
           <ScreenTitle>全球布局 · 本地深耕</ScreenTitle>
-          <ScreenLead>5 城办公网络协同,在每一个关键市场实现本地化运营与服务。</ScreenLead>
+          <ScreenLead>5 城办公网络协同,在每一个关键市场实现本地化运营与服务</ScreenLead>
           <div className="grid grid-cols-1 md:grid-cols-6 gap-x-5 gap-y-4 mt-8 items-start">
             {OFFICES.map((o, i) => (
               <motion.div
