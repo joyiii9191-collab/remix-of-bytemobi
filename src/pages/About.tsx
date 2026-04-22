@@ -179,7 +179,7 @@ function HorizontalTimeline() {
   const { scrollYProgress } = useScroll({
     target: ref,
     container: containerRef ?? undefined,
-    offset: ["start 75%", "end 30%"],
+    offset: ["start 70%", "end 60%"],
   });
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
@@ -675,6 +675,8 @@ export default function About() {
           <div className="mt-10 w-full">
             <HorizontalTimeline />
           </div>
+          {/* 底部留白:让最后一项 (2025) 有足够滚动空间完整展示后再翻页 */}
+          <div aria-hidden className="w-full" style={{ height: "55vh" }} />
         </ScreenInner>
       </SnapScreen>
 
