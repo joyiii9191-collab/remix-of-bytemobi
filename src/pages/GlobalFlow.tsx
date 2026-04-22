@@ -72,6 +72,7 @@ type Case = {
   summary: string; highlights: string[];
   icon: LucideIcon;
   color: string;
+  slug: string;
   image?: string;
   imageFit?: "cover" | "contain";
   imageBg?: string;
