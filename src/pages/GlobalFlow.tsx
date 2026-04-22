@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import StarBorder from "@/components/StarBorder";
 import { motion } from "motion/react";
 import {
