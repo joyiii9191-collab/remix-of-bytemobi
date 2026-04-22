@@ -630,7 +630,7 @@ const VALUES: ValueItem[] = [
  * ============================================================ */
 function ValueList() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 w-full">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 md:gap-3 w-full">
       {VALUES.map((v, i) => (
         <motion.div
           key={v.label}
@@ -642,10 +642,19 @@ function ValueList() {
             delay: 0.1 + i * 0.07,
             ease: [0.22, 1, 0.36, 1],
           }}
-          className="flex flex-col items-start text-left"
+          whileHover={{ y: -2 }}
+          className="rounded-xl px-3.5 py-3 flex flex-col items-start text-left"
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(255,255,255,0.55) 0%, rgba(120,90,240,0.06) 100%)",
+            border: "1px solid rgba(255,255,255,0.7)",
+            boxShadow: "0 4px 14px -8px rgba(99,102,241,0.18)",
+            backdropFilter: "blur(8px)",
+            transition: "box-shadow 0.3s ease",
+          }}
         >
           <h4
-            className="text-[14px] md:text-[15px] font-bold tracking-tight leading-tight mb-1"
+            className="text-[13.5px] md:text-[14.5px] font-bold tracking-tight leading-tight mb-1"
             style={{
               backgroundImage:
                 "linear-gradient(120deg, hsl(225 75% 52%) 0%, hsl(265 70% 58%) 100%)",
@@ -658,7 +667,7 @@ function ValueList() {
             {v.label}
           </h4>
           <p
-            className="text-[12.5px] md:text-[13px] leading-[1.7]"
+            className="text-[11.5px] md:text-[12.5px] leading-[1.6]"
             style={{ color: TEXT_MID }}
           >
             {v.desc}
