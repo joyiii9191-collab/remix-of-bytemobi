@@ -1,8 +1,8 @@
 import React from "react";
 import StarBorder from "@/components/StarBorder";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform, useMotionValueEvent } from "motion/react";
 import {
-  SnapPage, SnapScreen, ScreenInner,
+  SnapPage, SnapScreen, ScreenInner, SnapScrollContext,
   ScreenEyebrow, ScreenTitle, ScreenLead,
 } from "@/components/SnapPage";
 import { ParticleWorldMap } from "@/components/ParticleWorldMap";
