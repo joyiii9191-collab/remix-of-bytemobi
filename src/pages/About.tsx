@@ -653,17 +653,12 @@ function ValueList() {
             transition: "box-shadow 0.3s ease",
           }}
         >
-          <div
-            className="flex items-center justify-center mb-2.5 rounded-xl"
-            style={{
-              width: 36,
-              height: 36,
-              background: "rgba(120,120,140,0.08)",
-              border: "1px solid rgba(120,120,140,0.12)",
-            }}
-          >
-            <v.icon size={18} strokeWidth={1.8} color="hsl(225 10% 45%)" />
-          </div>
+          <v.icon
+            size={28}
+            strokeWidth={1.6}
+            color="hsl(225 10% 45%)"
+            className="mb-2.5"
+          />
           <h4
             className="text-[13.5px] md:text-[14.5px] font-bold tracking-tight leading-tight mb-1"
             style={{
