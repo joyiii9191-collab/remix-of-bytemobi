@@ -38,7 +38,7 @@ const HUB_LINES: Array<[number, number]> = [
 ];
 
 import { GLASS_CARD as CARD, TEXT_DARK, TEXT_MID, ACCENT } from "@/lib/page-styles";
-import caseEcommerceImg from "@/assets/case-ecommerce.jpg";
+import caseEcommerceImg from "@/assets/case-ecommerce-aliexpress.png";
 
 const STATS = [
   { label: "覆盖国家 / 地区", value: 220, suffix: "+" },
