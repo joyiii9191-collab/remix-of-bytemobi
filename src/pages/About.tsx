@@ -707,41 +707,40 @@ export default function About() {
         </ScreenInner>
       </SnapScreen>
 
-      {/* === Screen 5 — 企业文化 === */}
-      <SnapScreen id="culture">
+      {/* === Screen 5a — 使命 === */}
+      <SnapScreen id="mission">
         <ScreenInner>
-          <ScreenTitle>使命 · 愿景 · 价值观</ScreenTitle>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5 }}
-              className="rounded-2xl p-7 glass-card" style={CARD}>
-              <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>Mission</div>
-              <h3 className="text-xl font-bold mb-3" style={{ color: TEXT_DARK }}>使命</h3>
-              <p className="text-sm" style={{ color: TEXT_MID }}>让数字连接更有价值。</p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: 0.1 }}
-              className="rounded-2xl p-7 glass-card" style={CARD}>
-              <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>Vision</div>
-              <h3 className="text-xl font-bold mb-3" style={{ color: TEXT_DARK }}>愿景</h3>
-              <p className="text-sm" style={{ color: TEXT_MID }}>成为全球数字生态中值得信赖的桥梁。</p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: 0.2 }}
-              className="rounded-2xl p-7 glass-card" style={CARD}>
-              <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>Values</div>
-              <h3 className="text-xl font-bold mb-3" style={{ color: TEXT_DARK }}>价值观</h3>
-              <ul className="text-sm space-y-1.5" style={{ color: TEXT_MID }}>
-                <li>· 长期主义</li>
-                <li>· 开放协作</li>
-                <li>· 客户导向</li>
-                <li>· 持续创新</li>
-              </ul>
-            </motion.div>
-          </div>
+          <CultureStatement
+            eyebrow="Our Mission"
+            kicker="使命"
+            statement={["让数字连接", "更有价值"]}
+            sub="以技术与服务为支点,放大每一次跨地域、跨文化数字连接背后的商业与社会价值。"
+            icon={Rocket}
+          />
+        </ScreenInner>
+      </SnapScreen>
+
+      {/* === Screen 5b — 愿景 === */}
+      <SnapScreen id="vision" bg="tint">
+        <ScreenInner>
+          <CultureStatement
+            eyebrow="Our Vision"
+            kicker="愿景"
+            statement={["成为全球数字生态中", "值得信赖的桥梁"]}
+            sub="连接世界各地的伙伴、用户与机会,在每一个市场被认可为长期、稳定、可信赖的合作者。"
+            icon={Globe2}
+            align="right"
+          />
+        </ScreenInner>
+      </SnapScreen>
+
+      {/* === Screen 5c — 价值观 === */}
+      <SnapScreen id="values">
+        <ScreenInner>
+          <ScreenEyebrow>Our Values</ScreenEyebrow>
+          <ScreenTitle>四个我们坚持的事</ScreenTitle>
+          <ScreenLead>从战略到日常协作,这四件事定义我们如何思考、如何做选择。</ScreenLead>
+          <ValueGrid />
         </ScreenInner>
       </SnapScreen>
 
