@@ -643,14 +643,16 @@ function ValueList() {
             ease: [0.22, 1, 0.36, 1],
           }}
           whileHover={{ y: -2 }}
-          className="rounded-xl px-3.5 py-7 md:py-8 flex flex-col items-center text-center"
+          className="rounded-2xl px-3.5 py-7 md:py-8 flex flex-col items-center text-center relative overflow-hidden"
           style={{
             background:
-              "linear-gradient(135deg, rgba(255,255,255,0.55) 0%, rgba(120,90,240,0.06) 100%)",
-            border: "1px solid rgba(255,255,255,0.7)",
-            boxShadow: "0 4px 14px -8px rgba(99,102,241,0.18)",
-            backdropFilter: "blur(8px)",
-            transition: "box-shadow 0.3s ease",
+              "linear-gradient(140deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.18) 45%, rgba(180,170,255,0.10) 100%)",
+            border: "1px solid rgba(255,255,255,0.55)",
+            boxShadow:
+              "0 10px 30px -18px rgba(99,102,241,0.28), inset 0 1px 0 rgba(255,255,255,0.7), inset 0 -1px 0 rgba(255,255,255,0.18)",
+            backdropFilter: "blur(18px) saturate(160%)",
+            WebkitBackdropFilter: "blur(18px) saturate(160%)",
+            transition: "box-shadow 0.3s ease, transform 0.3s ease",
           }}
         >
           <v.icon
