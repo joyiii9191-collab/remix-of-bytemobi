@@ -97,7 +97,7 @@ const CASES: Case[] = [
     icon: Dice5, color: "hsl(150 60% 32%)",
     image: caseBet365Img, imageFit: "contain", imageBg: "hsl(150 60% 28%)",
     headline: "+3,000", subMetric: "首充 FTD 用户增量" },
-  { tag: "游戏", title: "游戏类 (IAA)", metric: "月新增 50,000+", region: "Global",
+  { tag: "游戏", title: "游戏类", metric: "月新增 50,000+", region: "Global",
     summary: "面向 IAA 休闲游戏的用户增长与广告变现协同优化。",
     highlights: ["创意快速 AB 测试", "高频素材迭代", "eCPM 与广告填充率同步提升"],
     icon: Gamepad2, color: "hsl(0 75% 55%)",
