@@ -150,7 +150,8 @@ export function SnapScreen({
   return (
     <section
       id={id}
-      className={`relative w-full overflow-hidden ${className}`}
+      data-no-snap={snap ? undefined : "true"}
+      className={`relative w-full ${snap ? "overflow-hidden" : ""} ${className}`}
       style={{
         ...snapStyle,
         paddingTop: pad ? "96px" : 0,
