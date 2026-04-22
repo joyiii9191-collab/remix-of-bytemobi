@@ -16,6 +16,16 @@ import caseShopeeBanner from "@/assets/case-shopee-banner.jpg";
 import caseLazadaLogo from "@/assets/case-lazada-logo.png";
 import caseLazadaBanner from "@/assets/case-lazada-banner.png";
 import caseBinanceImg from "@/assets/case-binance.png";
+import caseExnessLogo from "@/assets/case-exness-logo.png";
+import caseExnessBanner from "@/assets/case-exness-banner.png";
+import caseVantageLogo from "@/assets/case-vantage-logo.png";
+import caseVantageBanner from "@/assets/case-vantage-banner.png";
+import caseVtmarketsLogo from "@/assets/case-vtmarkets-logo.png";
+import caseVtmarketsBanner from "@/assets/case-vtmarkets-banner.png";
+import caseCryptocomLogo from "@/assets/case-cryptocom-logo.png";
+import caseCryptocomBanner from "@/assets/case-cryptocom-banner.png";
+import casePaybisLogo from "@/assets/case-paybis-logo.png";
+import casePaybisBanner from "@/assets/case-paybis-banner.png";
 import caseBet365Img from "@/assets/case-bet365.png";
 import caseHungryImg from "@/assets/case-hungry-studio.png";
 import caseTiktokImg from "@/assets/case-tiktok.png";
@@ -142,27 +152,85 @@ const CATEGORIES: Category[] = [
         brand: "Binance",
         region: "Global",
         goal: "注册 & 入金转化",
-        highlights: ["高意向人群建模", "转化路径压缩优化", "真实交易用户占比显著提升"],
+        highlights: [
+          "高意向人群建模 + 转化路径压缩优化",
+          "显著提升真实交易用户占比与入金效率",
+        ],
         metric: "8,000+",
         metricLabel: "单月新增注册用户",
-        image: caseBinanceImg,
-        imageBg: "hsl(0 0% 100%)",
+        banner: caseBinanceImg,
+        logo: caseBinanceImg,
+        logoBg: "hsl(0 0% 100%)",
       },
       {
-        brand: "LATAM 信贷平台",
-        region: "BR · MX",
-        goal: "授信通过率与首借转化",
-        highlights: ["风控信号联合建模", "授信通过率 +21%", "次月留存 +16%"],
-        metric: "CPA -42%",
-        metricLabel: "获客成本下降",
+        brand: "Exness",
+        region: "Global",
+        goal: "开户 & 首次入金",
+        highlights: [
+          "高净值用户定向 + 分市场 ROI 控制模型",
+          "降低无效流量占比",
+          "提高资金转化质量",
+        ],
+        metric: "有效开户率↑",
+        metricLabel: "首次入金转化显著提升",
+        banner: caseExnessBanner,
+        logo: caseExnessLogo,
       },
       {
-        brand: "新兴市场支付钱包",
-        region: "SEA · ID / PH",
-        goal: "首充转化 & KYC 完成率",
-        highlights: ["KYC 完成率 +28%", "首充转化 +35%", "次日留存 +12%"],
-        metric: "首充 +35%",
-        metricLabel: "转化率提升",
+        brand: "Vantage",
+        region: "Multi-Market",
+        goal: "用户增长 & ROI",
+        highlights: [
+          "多渠道组合投放 + 自动化预算调度",
+          "实现长期 ROI 稳定性提升",
+          "多市场稳定获客增长",
+        ],
+        metric: "ROI 稳定↑",
+        metricLabel: "长期投放回报稳定提升",
+        banner: caseVantageBanner,
+        logo: caseVantageLogo,
+      },
+      {
+        brand: "VT Markets",
+        region: "Global",
+        goal: "高质量用户获取",
+        highlights: [
+          "LTV 导向投放模型 + 用户质量筛选",
+          "提升长期留存与交易活跃度",
+          "优质用户占比显著提升",
+        ],
+        metric: "优质用户↑",
+        metricLabel: "LTV 与活跃度同步提升",
+        banner: caseVtmarketsBanner,
+        logo: caseVtmarketsLogo,
+      },
+      {
+        brand: "Crypto.com",
+        region: "Global",
+        goal: "注册 & 活跃用户",
+        highlights: [
+          "行为驱动再营销体系优化",
+          "增强平台整体交易活跃度",
+          "用户激活率持续提升",
+        ],
+        metric: "激活率↑",
+        metricLabel: "用户激活率持续提升",
+        banner: caseCryptocomBanner,
+        logo: caseCryptocomLogo,
+      },
+      {
+        brand: "Paybis",
+        region: "Multi-Region",
+        goal: "新市场拓展",
+        highlights: [
+          "本地化投放 + 国家级渠道优化",
+          "提升新市场转化效率与用户质量",
+          "多区域稳定增长",
+        ],
+        metric: "新市场↑",
+        metricLabel: "多区域稳定增长",
+        banner: casePaybisBanner,
+        logo: casePaybisLogo,
       },
     ],
   },
