@@ -9,6 +9,7 @@ import {
   KeyRound, Zap, Layers,
   Image as ImageIcon, Activity, ClipboardList,
   Palette, FileSearch, AlertTriangle,
+  Film, Globe, Share2, Boxes, GitMerge, ShieldAlert, Clock, Wallet, UserCog,
 } from "lucide-react";
 import {
   SnapPage, SnapScreen, ScreenInner,
@@ -64,17 +65,29 @@ export default function MediaResources() {
               {
                 t: "全链路赋能",
                 d: "短剧 + 品牌 + 多平台,覆盖营销全流程。",
-                items: ["短剧内容制作与发行", "品牌全球推广", "多平台协同投放"],
+                items: [
+                  { text: "短剧内容制作与发行", Icon: Film },
+                  { text: "品牌全球推广", Icon: Globe },
+                  { text: "多平台协同投放", Icon: Share2 },
+                ],
               },
               {
                 t: "稳定高效增长",
                 d: "账户健康度与素材效率持续监控,避免起量断档。",
-                items: ["多平台资源整合", "策略协同优化", "全流程合规风控"],
+                items: [
+                  { text: "多平台资源整合", Icon: Boxes },
+                  { text: "策略协同优化", Icon: GitMerge },
+                  { text: "全流程合规风控", Icon: ShieldAlert },
+                ],
               },
               {
                 t: "快速出海启动",
                 d: "从合规到上线,按周交付而不是按月。",
-                items: ["1–3 个工作日开户", "多主体 / 多币种支持", "账户代投代运营"],
+                items: [
+                  { text: "1–3 个工作日开户", Icon: Clock },
+                  { text: "多主体 / 多币种支持", Icon: Wallet },
+                  { text: "账户代投代运营", Icon: UserCog },
+                ],
               },
             ].map((c, i) => (
               <motion.div key={c.t}
@@ -84,13 +97,19 @@ export default function MediaResources() {
                 <div className="text-3xl font-bold mb-3" style={{ color: ACCENT }}>0{i + 1}</div>
                 <h3 className="text-lg font-semibold mb-2" style={{ color: TEXT_DARK }}>{c.t}</h3>
                 <p className="text-sm leading-relaxed mb-4" style={{ color: TEXT_MID }}>{c.d}</p>
-                <ul className="space-y-1.5 pt-3 border-t border-white/40">
-                  {c.items.map((it) => (
-                    <li key={it} className="text-sm flex items-start gap-2" style={{ color: TEXT_MID }}>
-                      <span className="mt-2 h-1 w-1 rounded-full flex-shrink-0" style={{ background: ACCENT }} />
-                      <span>{it}</span>
-                    </li>
-                  ))}
+                <ul className="space-y-2 pt-3 border-t border-white/40">
+                  {c.items.map((it) => {
+                    const ItemIcon = it.Icon;
+                    return (
+                      <li key={it.text} className="text-sm flex items-start gap-2.5" style={{ color: TEXT_MID }}>
+                        <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-md flex-shrink-0"
+                          style={{ background: "rgba(99,102,241,0.1)", color: ACCENT }}>
+                          <ItemIcon size={12} strokeWidth={2} />
+                        </span>
+                        <span>{it.text}</span>
+                      </li>
+                    );
+                  })}
                 </ul>
               </motion.div>
             ))}
