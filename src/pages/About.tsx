@@ -654,16 +654,15 @@ function ValueList() {
           }}
         >
           <div
-            className="flex items-center justify-center mb-2 rounded-lg"
+            className="flex items-center justify-center mb-2.5 rounded-xl"
             style={{
-              width: 28,
-              height: 28,
-              background:
-                "linear-gradient(135deg, hsl(225 75% 52%) 0%, hsl(265 70% 58%) 100%)",
-              boxShadow: "0 4px 10px -4px rgba(99,102,241,0.45)",
+              width: 36,
+              height: 36,
+              background: "rgba(120,120,140,0.08)",
+              border: "1px solid rgba(120,120,140,0.12)",
             }}
           >
-            <v.icon size={15} strokeWidth={2.2} color="#ffffff" />
+            <v.icon size={18} strokeWidth={1.8} color="hsl(225 10% 45%)" />
           </div>
           <h4
             className="text-[13.5px] md:text-[14.5px] font-bold tracking-tight leading-tight mb-1"
