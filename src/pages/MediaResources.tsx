@@ -316,7 +316,7 @@ export default function MediaResources() {
       <SnapScreen id="model">
         <ScreenInner>
           <ScreenTitle>灵活对接 · 共赢增长</ScreenTitle>
-          <ScreenLead>覆盖跨境与品牌的多类客户,提供长期稳定的资源与运营支持。</ScreenLead>
+          <ScreenLead>覆盖跨境与品牌的多类客户,提供长期稳定的资源与运营支持</ScreenLead>
 
           {/* 合作对象 */}
           <div className="mt-6 w-full">
