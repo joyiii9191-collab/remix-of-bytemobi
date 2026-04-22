@@ -11,7 +11,8 @@ import {
 } from "@/components/ui/dialog";
 import {
   Building2, MapPin, Users, Calendar, Sparkles,
-  Globe2, Award, Rocket, Star, TrendingUp, type LucideIcon,
+  Globe2, Award, Rocket, Star, TrendingUp, ShieldCheck, Cpu,
+  type LucideIcon,
 } from "lucide-react";
 
 type Office = {
