@@ -833,19 +833,57 @@ select:-webkit-autofill {
 }
 
 .glass-card:hover {
-  transform: translateY(-2px);
-  background: hsla(0, 0%, 100%, 0.1);
+  transform: translateY(-3px);
+  background: hsla(0, 0%, 100%, 0.12);
   backdrop-filter: blur(40px) saturate(160%);
   -webkit-backdrop-filter: blur(40px) saturate(160%);
-  border-color: hsla(0, 0%, 100%, 0.55);
+  border-color: hsla(0, 0%, 100%, 0.6);
   box-shadow:
-    inset 0 1px 0 0 hsla(0, 0%, 100%, 0.65),
-    inset 0 -1px 0 0 hsla(0, 0%, 100%, 0.18),
-    0 10px 24px -10px hsla(250, 35%, 25%, 0.14);
+    inset 0 1px 0 0 hsla(0, 0%, 100%, 0.7),
+    inset 0 -1px 0 0 hsla(0, 0%, 100%, 0.2),
+    0 18px 40px -16px hsla(245, 50%, 30%, 0.22),
+    0 4px 12px -6px hsla(245, 40%, 25%, 0.12);
 }
 
 .glass-card:hover::after {
-  opacity: 0.85;
+  opacity: 0.95;
+}
+
+/* 当 motion / framer 控制 transform 时，跳过 CSS transform，避免冲突 */
+.glass-card[style*="transform"]:hover {
+  transform: none;
+}
+
+/* ===========================================================
+   .card-lift —— 通用卡片悬停微抬升 + 阴影
+   适用于非 .glass-card 的自定义背景卡片
+   ============================================================ */
+.card-lift {
+  transition:
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s ease;
+  will-change: transform;
+}
+.card-lift:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 18px 40px -16px hsla(245, 50%, 30%, 0.22),
+    0 4px 12px -6px hsla(245, 40%, 25%, 0.12);
+}
+.card-lift[style*="transform"]:hover {
+  transform: none;
+}
+
+/* ===========================================================
+   .card-enter —— 纯 CSS 入场动效（适合静态 div 卡片）
+   ============================================================ */
+@keyframes cardEnter {
+  0%   { opacity: 0; transform: translateY(16px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.card-enter {
+  animation: cardEnter 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 /* === 科技感数字 stat-number ===
