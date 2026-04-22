@@ -1066,24 +1066,51 @@ export default function About() {
                   />
                 </div>
 
-                <div className="px-3 md:px-3.5 py-2.5 md:py-3 flex flex-col gap-1">
-                  <h3
-                    className="text-[12.5px] md:text-[13.5px] font-bold leading-tight tracking-tight line-clamp-1"
-                    style={{ color: TEXT_DARK }}
-                  >
-                    {e.name}
-                  </h3>
-
-                  <div className="flex items-center gap-1 text-[10.5px] md:text-[11px]" style={{ color: ACCENT }}>
-                    <Calendar size={11} strokeWidth={1.8} className="shrink-0" />
-                    <span className="font-medium tabular-nums tracking-wide">{e.date}</span>
+                <div className="px-3.5 md:px-4 py-3 md:py-3.5 flex flex-col gap-2">
+                  {/* 标题 + 日期徽章 */}
+                  <div className="flex items-start justify-between gap-2 min-w-0">
+                    <h3
+                      className="text-[12.5px] md:text-[13.5px] font-bold leading-tight tracking-tight truncate min-w-0 flex-1"
+                      style={{ color: TEXT_DARK }}
+                    >
+                      {e.name}
+                    </h3>
+                    <span
+                      className="shrink-0 text-[9.5px] md:text-[10px] font-semibold tabular-nums tracking-wide px-1.5 py-0.5 rounded-md"
+                      style={{
+                        color: ACCENT,
+                        background: "rgba(99,102,241,0.10)",
+                        border: "1px solid rgba(99,102,241,0.18)",
+                      }}
+                    >
+                      {e.date.replace(/^2026\./, "").replace(/\s/g, "")}
+                    </span>
                   </div>
 
-                  <div className="flex items-center gap-1 text-[10.5px] md:text-[11px] leading-snug min-w-0" style={{ color: TEXT_MID }}>
-                    <MapPin size={11} strokeWidth={1.8} className="shrink-0" style={{ color: TEXT_MID }} />
-                    <span className="truncate min-w-0 flex-1" title={`${e.city} · ${e.location}`}>
-                      <span style={{ color: TEXT_DARK }} className="font-medium">{e.city}</span>
-                      <span className="opacity-60"> · </span>
+                  {/* 分隔细线 */}
+                  <div
+                    aria-hidden
+                    className="h-px w-full"
+                    style={{
+                      background:
+                        "linear-gradient(90deg, rgba(99,102,241,0.18) 0%, rgba(99,102,241,0) 100%)",
+                    }}
+                  />
+
+                  {/* 地址(单行,溢出省略) */}
+                  <div
+                    className="flex items-center gap-1.5 text-[10.5px] md:text-[11px] leading-snug min-w-0"
+                    style={{ color: TEXT_MID }}
+                  >
+                    <MapPin size={11} strokeWidth={1.8} className="shrink-0" style={{ color: ACCENT }} />
+                    <span
+                      className="truncate min-w-0 flex-1"
+                      title={`${e.city} · ${e.location}`}
+                    >
+                      <span style={{ color: TEXT_DARK }} className="font-medium">
+                        {e.city}
+                      </span>
+                      <span className="opacity-50"> · </span>
                       {e.location}
                     </span>
                   </div>
