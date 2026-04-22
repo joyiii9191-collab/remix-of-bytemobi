@@ -640,8 +640,8 @@ export default function GlobalFlow() {
           </div>
 
           {/* 流量网络(网盟 / 联盟) */}
-          <div className="w-full mt-8">
-            <div className="flex flex-col items-center text-center mb-3 gap-1">
+          <div className="w-full mt-4">
+            <div className="flex flex-col items-center text-center mb-2 gap-0.5">
               <div className="text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: ACCENT }}>
                 我们的流量网络 · 网盟 / 联盟
               </div>
