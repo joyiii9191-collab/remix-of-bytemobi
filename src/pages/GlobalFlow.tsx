@@ -39,6 +39,11 @@ const HUB_LINES: Array<[number, number]> = [
 
 import { GLASS_CARD as CARD, TEXT_DARK, TEXT_MID, ACCENT } from "@/lib/page-styles";
 import caseEcommerceImg from "@/assets/case-ecommerce-aliexpress.png";
+import caseBinanceImg from "@/assets/case-binance.png";
+import caseBet365Img from "@/assets/case-bet365.png";
+import caseHungryImg from "@/assets/case-hungry-studio.png";
+import caseTiktokImg from "@/assets/case-tiktok.png";
+import caseNordvpnImg from "@/assets/case-nordvpn.png";
 
 const STATS = [
   { label: "覆盖国家 / 地区", value: 220, suffix: "+" },
@@ -68,6 +73,8 @@ type Case = {
   icon: LucideIcon;
   color: string;
   image?: string;
+  imageFit?: "cover" | "contain";
+  imageBg?: string;
   headline?: string;
   subMetric?: string;
 };
@@ -76,28 +83,38 @@ const CASES: Case[] = [
     summary: "针对东南亚六国快消品牌,完成从冷启动到规模化的全链路加速。",
     highlights: ["6 国并行投放", "ROAS 60 天提升 186%", "首单 CPA 下降 38%"],
     icon: ShoppingBag, color: "hsl(14 90% 58%)",
-    image: caseEcommerceImg,
+    image: caseEcommerceImg, imageFit: "cover",
     headline: "8,000+", subMetric: "单月新增高质量用户" },
-  { tag: "金融", title: "金融类", metric: "CPA -42%", region: "LATAM",
-    summary: "聚焦巴西、墨西哥信贷场景,基于人群分层与风控信号优化获客。",
-    highlights: ["授信通过率 +21%", "CPA -42%", "次月留存 +16%"],
-    icon: Landmark, color: "hsl(160 70% 42%)" },
-  { tag: "博彩", title: "博彩类", metric: "FTD +73%", region: "EU",
-    summary: "服务欧盟合规娱乐平台,完成从激活到首充的转化深度优化。",
-    highlights: ["FTD +73%", "活跃用户 +41%", "合规媒体 100% 直签"],
-    icon: Dice5, color: "hsl(340 75% 55%)" },
-  { tag: "游戏", title: "游戏类", metric: "D7 留存 +28%", region: "Global",
-    summary: "面向 SLG 品类设计长周期投放策略,平衡 ROI 与生命周期价值。",
-    highlights: ["D7 留存 +28%", "付费 LTV +35%", "买量 ROI 提升 22%"],
-    icon: Gamepad2, color: "hsl(255 75% 62%)" },
-  { tag: "短视频", title: "短视频类", metric: "CPI -35%", region: "MEA",
-    summary: "面向中东本地化短视频内容,基于阿语创意优化降低 CPI。",
-    highlights: ["CPI -35%", "活跃 DAU +210%", "本地化创意 12 套"],
-    icon: Video, color: "hsl(195 85% 50%)" },
-  { tag: "数字服务", title: "数字服务", metric: "新增 +220%", region: "Global",
-    summary: "面向工具类 App 的全球化扩张,完成 50+ 国家市场快速进入。",
-    highlights: ["50+ 国家上线", "新增 +220%", "买量结构多元化"],
-    icon: Cloud, color: "hsl(40 90% 55%)" },
+  { tag: "金融", title: "金融类", metric: "单月新增 8,000+ 注册", region: "Global",
+    summary: "服务全球头部加密交易平台,聚焦注册与入金转化全链路优化。",
+    highlights: ["高意向人群建模", "转化路径压缩优化", "真实交易用户占比显著提升"],
+    icon: Landmark, color: "hsl(45 90% 52%)",
+    image: caseBinanceImg, imageFit: "contain", imageBg: "hsl(0 0% 100%)",
+    headline: "8,000+", subMetric: "单月新增注册用户" },
+  { tag: "博彩", title: "博彩类", metric: "+3,000 FTD", region: "EU",
+    summary: "服务欧洲头部体育博彩平台,围绕注册与首充转化深度优化。",
+    highlights: ["高转化意图人群聚合", "全漏斗精细化优化", "首存转化效率持续提升"],
+    icon: Dice5, color: "hsl(150 60% 32%)",
+    image: caseBet365Img, imageFit: "contain", imageBg: "hsl(150 60% 28%)",
+    headline: "+3,000", subMetric: "首充 FTD 用户增量" },
+  { tag: "游戏", title: "游戏类 (IAA)", metric: "月新增 50,000+", region: "Global",
+    summary: "面向 IAA 休闲游戏的用户增长与广告变现协同优化。",
+    highlights: ["创意快速 AB 测试", "高频素材迭代", "eCPM 与广告填充率同步提升"],
+    icon: Gamepad2, color: "hsl(0 75% 55%)",
+    image: caseHungryImg, imageFit: "contain", imageBg: "hsl(0 0% 100%)",
+    headline: "50,000+", subMetric: "月新增用户" },
+  { tag: "短视频", title: "短视频类", metric: "+80,000 用户", region: "Multi-Market",
+    summary: "围绕短视频平台的下载与 DAU 增长,推动内容消费与活跃度提升。",
+    highlights: ["创意优化体系", "多市场扩张模型", "整体平台活跃度持续上升"],
+    icon: Video, color: "hsl(340 80% 55%)",
+    image: caseTiktokImg, imageFit: "contain", imageBg: "hsl(0 0% 100%)",
+    headline: "+80,000", subMetric: "用户增长 / 周期" },
+  { tag: "数字服务", title: "数字服务", metric: "订阅转化稳定增长", region: "Global",
+    summary: "服务全球订阅型数字服务品牌,聚焦高质量付费用户增长。",
+    highlights: ["高意向用户筛选", "转化路径优化", "稳定付费增长"],
+    icon: Cloud, color: "hsl(230 85% 60%)",
+    image: caseNordvpnImg, imageFit: "contain", imageBg: "hsl(0 0% 100%)",
+    headline: "稳定增长", subMetric: "订阅转化效率显著提升" },
 ];
 
 const MEDIA_BLOCKS = [
@@ -373,9 +390,12 @@ export default function GlobalFlow() {
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                   className="absolute inset-0 overflow-hidden"
                   style={{
-                    borderRadius: CASES[activeCase].image ? "22%" : 16,
+                    borderRadius:
+                      CASES[activeCase].imageFit === "cover" ? "22%" : 16,
                     background: CASES[activeCase].image
-                      ? `url(${CASES[activeCase].image}) center/cover no-repeat`
+                      ? `${CASES[activeCase].imageBg ?? "transparent"} url(${CASES[activeCase].image}) center/${
+                          CASES[activeCase].imageFit ?? "contain"
+                        } no-repeat`
                       : "repeating-linear-gradient(135deg, hsl(220 10% 75%) 0 8px, hsl(220 10% 82%) 8px 16px)",
                     boxShadow: "0 20px 50px -20px hsla(220, 10%, 40%, 0.35)",
                   }}
