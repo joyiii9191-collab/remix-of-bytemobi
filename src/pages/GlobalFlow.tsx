@@ -127,6 +127,7 @@ const MEDIA_BLOCKS = [
 ];
 
 export default function GlobalFlow() {
+  const navigate = useNavigate();
   const [openCase, setOpenCase] = React.useState<Case | null>(null);
   const [activeCase, setActiveCase] = React.useState(0);
   const [pauseCases, setPauseCases] = React.useState(false);
@@ -468,7 +469,7 @@ export default function GlobalFlow() {
                 >
                   {CASES[activeCase].summary}
                 </p>
-                <StarBorder speed="5s" onClick={() => setOpenCase(CASES[activeCase])}>
+                <StarBorder speed="5s" onClick={() => navigate(`/cases/${CASES[activeCase].slug}`)}>
                   了解更多
                 </StarBorder>
               </motion.div>
