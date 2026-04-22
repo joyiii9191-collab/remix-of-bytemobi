@@ -924,22 +924,20 @@ export default function About() {
 
       {/* === Screen 5 — 企业文化(使命 / 愿景 / 价值观 单屏) === */}
       <SnapScreen id="culture">
-        <ScreenInner>
-          <ScreenEyebrow>Culture</ScreenEyebrow>
+        <ScreenInner className="!justify-center">
           <ScreenTitle>使命 · 愿景 · 价值观</ScreenTitle>
 
           {/* 使命 + 愿景 双联玻璃卡 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 mt-8 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 mt-6 w-full">
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.25 }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-2xl p-6 md:p-7 glass-card"
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              className="rounded-2xl p-5 md:p-6 glass-card"
               style={CARD}
             >
               <CultureStatement
-                eyebrow="Our Mission"
                 kicker="使命"
                 statement={["让数字连接", "更有价值"]}
                 sub="以技术与服务为支点,放大每一次跨地域、跨文化数字连接背后的商业与社会价值。"
@@ -949,15 +947,14 @@ export default function About() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.25 }}
-              transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-2xl p-6 md:p-7 glass-card"
+              transition={{ duration: 0.55, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              className="rounded-2xl p-5 md:p-6 glass-card"
               style={CARD}
             >
               <CultureStatement
-                eyebrow="Our Vision"
                 kicker="愿景"
                 statement={["成为全球数字生态中", "值得信赖的桥梁"]}
                 sub="连接世界各地的伙伴、用户与机会,在每一个市场被认可为长期、稳定、可信赖的合作者。"
@@ -968,13 +965,13 @@ export default function About() {
           </div>
 
           {/* 价值观 */}
-          <div className="mt-10 w-full">
-            <div className="flex items-center gap-3 mb-1">
+          <div className="mt-6 w-full">
+            <div className="flex items-center gap-3 mb-2">
               <span
-                className="text-xs font-semibold uppercase tracking-[0.28em]"
-                style={{ color: ACCENT }}
+                className="text-sm md:text-base font-semibold"
+                style={{ color: TEXT_DARK, letterSpacing: "0.04em" }}
               >
-                Our Values
+                价值观
               </span>
               <span
                 aria-hidden
