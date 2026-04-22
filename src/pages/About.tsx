@@ -429,133 +429,125 @@ export default function About() {
         <ScreenInner>
           <ScreenTitle>全球布局 · 本地深耕</ScreenTitle>
           <ScreenLead>5 城办公网络协同,在每一个关键市场实现本地化运营与服务。</ScreenLead>
-          <div className="grid grid-cols-1 md:grid-cols-6 gap-5 mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-6 gap-x-5 gap-y-4 mt-8 items-start">
             {OFFICES.map((o, i) => (
-              <motion.button
+              <motion.div
                 key={o.name}
-                type="button"
-                onClick={() => setOpenOffice(o)}
-                onMouseEnter={() => setHoverIdx(i)}
-                onMouseLeave={() => setHoverIdx(null)}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.2 }}
                 transition={{ duration: 0.5, delay: i * 0.06 }}
-                className={`group relative rounded-2xl overflow-hidden text-left aspect-[16/10] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${
-                  i < 2 ? "md:col-span-3" : "md:col-span-2"
-                }`}
-                style={{
-                  border: "1px solid rgba(255,255,255,0.6)",
-                  boxShadow:
-                    hoverIdx === i
-                      ? "0 22px 50px -20px rgba(30,41,99,0.35)"
-                      : "0 10px 28px -16px rgba(30,41,99,0.22)",
-                  transition: "box-shadow 0.3s ease",
-                }}
+                className={`group ${i < 2 ? "md:col-span-3" : "md:col-span-2"}`}
               >
-                {/* 背景图 */}
-                <img
-                  src={o.image}
-                  alt={`${o.nameZh} ${o.nameEn} 办公点`}
-                  loading="lazy"
-                  width={1280}
-                  height={768}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                {/* 半透明白色遮罩 — 更亮以提升可读性 */}
-                <div
-                  className="absolute inset-0"
+                <button
+                  type="button"
+                  onClick={() => setOpenOffice(o)}
+                  onMouseEnter={() => setHoverIdx(i)}
+                  onMouseLeave={() => setHoverIdx(null)}
+                  className="relative w-full rounded-2xl overflow-hidden text-left aspect-[16/10] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 block"
                   style={{
-                    background:
-                      "linear-gradient(180deg, rgba(240,244,252,0.78) 0%, rgba(240,244,252,0.62) 55%, rgba(240,244,252,0.82) 100%)",
-                  }}
-                />
-
-                {/* HQ 标签 — 更小更精致 */}
-                {o.highlight && (
-                  <div className="absolute top-3 left-3 z-10">
-                    <span
-                      className="text-[9px] font-semibold tracking-[0.18em] uppercase px-2 py-0.5 rounded-full backdrop-blur-md"
-                      style={{
-                        background: "rgba(255,255,255,0.9)",
-                        color: ACCENT,
-                        border: "1px solid rgba(99,102,241,0.25)",
-                      }}
-                    >
-                      HQ
-                    </span>
-                  </div>
-                )}
-
-                {/* 文本内容居中 — 默认状态 */}
-                <div className="relative z-10 h-full w-full flex flex-col items-center justify-center px-6 text-center transition-all duration-300 group-hover:opacity-0 group-hover:-translate-y-2">
-                  <h3
-                    className="text-2xl md:text-3xl font-bold leading-tight"
-                    style={{
-                      color: "hsl(225 60% 18%)",
-                      textShadow: "0 1px 2px rgba(255,255,255,0.6)",
-                    }}
-                  >
-                    {o.nameZh}{" "}
-                    <span className="font-semibold">{o.nameEn}</span>
-                  </h3>
-                  <div
-                    className="mt-2.5 text-xs md:text-sm font-medium tracking-wide"
-                    style={{
-                      color: "hsl(225 35% 28%)",
-                      textShadow: "0 1px 2px rgba(255,255,255,0.5)",
-                    }}
-                  >
-                    {o.focus.split("·")[0].trim()}
-                  </div>
-                  <div
-                    className="mt-5 inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.18em] uppercase px-4 py-2 rounded-full transition-all"
-                    style={{
-                      background: "white",
-                      color: "hsl(225 60% 22%)",
-                      border: "1px solid rgba(30,41,99,0.12)",
-                      boxShadow: "0 6px 18px -8px rgba(30,41,99,0.25)",
-                    }}
-                  >
-                    <MapPin size={12} />
-                    View Details
-                  </div>
-                </div>
-
-                {/* 悬停状态 — 详细地址 */}
-                <div
-                  className="absolute inset-0 z-20 flex flex-col items-center justify-center px-6 text-center opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 pointer-events-none"
-                  style={{
-                    background:
-                      "linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(245,247,253,0.96) 100%)",
-                    backdropFilter: "blur(6px)",
+                    border: "1px solid rgba(255,255,255,0.6)",
+                    boxShadow:
+                      hoverIdx === i
+                        ? "0 22px 50px -20px rgba(30,41,99,0.35)"
+                        : "0 10px 28px -16px rgba(30,41,99,0.22)",
+                    transition: "box-shadow 0.3s ease",
                   }}
                 >
+                  {/* 背景图 */}
+                  <img
+                    src={o.image}
+                    alt={`${o.nameZh} ${o.nameEn} 办公点`}
+                    loading="lazy"
+                    width={1280}
+                    height={768}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  {/* 半透明白色遮罩 — 更亮以提升可读性 */}
                   <div
-                    className="flex items-center gap-2 text-[11px] font-semibold tracking-[0.18em] uppercase mb-2"
-                    style={{ color: ACCENT }}
-                  >
-                    <MapPin size={12} />
-                    {o.nameZh} · {o.nameEn}
-                  </div>
-                  <p
-                    className="text-[13px] md:text-sm leading-relaxed max-w-[92%]"
-                    style={{ color: "hsl(225 40% 22%)" }}
-                  >
-                    {o.addr}
-                  </p>
-                  <div
-                    className="mt-4 inline-flex items-center gap-2 text-[10px] font-semibold tracking-[0.18em] uppercase px-3 py-1.5 rounded-full"
+                    className="absolute inset-0"
                     style={{
-                      background: ACCENT,
-                      color: "white",
-                      boxShadow: "0 6px 18px -8px rgba(99,102,241,0.5)",
+                      background:
+                        "linear-gradient(180deg, rgba(240,244,252,0.78) 0%, rgba(240,244,252,0.62) 55%, rgba(240,244,252,0.82) 100%)",
                     }}
-                  >
-                    View Details
+                  />
+
+                  {/* HQ 标签 — 更小更精致 */}
+                  {o.highlight && (
+                    <div className="absolute top-3 left-3 z-10">
+                      <span
+                        className="text-[9px] font-semibold tracking-[0.18em] uppercase px-2 py-0.5 rounded-full backdrop-blur-md"
+                        style={{
+                          background: "rgba(255,255,255,0.9)",
+                          color: ACCENT,
+                          border: "1px solid rgba(99,102,241,0.25)",
+                        }}
+                      >
+                        HQ
+                      </span>
+                    </div>
+                  )}
+
+                  {/* 文本内容居中 */}
+                  <div className="relative z-10 h-full w-full flex flex-col items-center justify-center px-6 text-center">
+                    <h3
+                      className="text-2xl md:text-3xl font-bold leading-tight"
+                      style={{
+                        color: "hsl(225 60% 18%)",
+                        textShadow: "0 1px 2px rgba(255,255,255,0.6)",
+                      }}
+                    >
+                      {o.nameZh}{" "}
+                      <span className="font-semibold">{o.nameEn}</span>
+                    </h3>
+                    <div
+                      className="mt-2.5 text-xs md:text-sm font-medium tracking-wide"
+                      style={{
+                        color: "hsl(225 35% 28%)",
+                        textShadow: "0 1px 2px rgba(255,255,255,0.5)",
+                      }}
+                    >
+                      {o.focus.split("·")[0].trim()}
+                    </div>
+                    <div
+                      className="mt-5 inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.18em] uppercase px-4 py-2 rounded-full transition-all"
+                      style={{
+                        background: "white",
+                        color: "hsl(225 60% 22%)",
+                        border: "1px solid rgba(30,41,99,0.12)",
+                        boxShadow: "0 6px 18px -8px rgba(30,41,99,0.25)",
+                      }}
+                    >
+                      <MapPin size={12} />
+                      View Details
+                    </div>
+                  </div>
+                </button>
+
+                {/* 卡片下方 — 悬停时展示完整地址 */}
+                <div
+                  className="grid transition-all duration-300 ease-out grid-rows-[0fr] opacity-0 group-hover:grid-rows-[1fr] group-hover:opacity-100 group-hover:mt-3"
+                >
+                  <div className="overflow-hidden">
+                    <div
+                      className="flex items-start gap-2 px-3 py-2 rounded-lg"
+                      style={{
+                        background: "rgba(255,255,255,0.6)",
+                        border: "1px solid rgba(30,41,99,0.08)",
+                        backdropFilter: "blur(4px)",
+                      }}
+                    >
+                      <MapPin size={13} className="mt-0.5 shrink-0" style={{ color: ACCENT }} />
+                      <p
+                        className="text-[12px] md:text-[13px] leading-relaxed"
+                        style={{ color: "hsl(225 40% 25%)" }}
+                      >
+                        {o.addr}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </motion.button>
+              </motion.div>
             ))}
           </div>
         </ScreenInner>
