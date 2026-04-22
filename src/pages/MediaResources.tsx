@@ -344,34 +344,30 @@ export default function MediaResources() {
             </div>
           </div>
 
-          {/* 合作流程 — 彩色丝带标签 */}
+          {/* 合作流程 — 顶部色线 + 圆点引导 */}
           <div className="mt-5 w-full">
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3 text-left" style={{ color: ACCENT }}>合作流程</div>
-            <div className="flex flex-wrap items-stretch gap-3">
+            <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-4 text-left" style={{ color: ACCENT }}>合作流程</div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
               {[
-                { s: "STEP 01", t: "咨询沟通", d: "明确目标与初步方向", hue: 8 },
-                { s: "STEP 02", t: "需求评估", d: "诊断市场与产品匹配度", hue: 28 },
-                { s: "STEP 03", t: "签约合作", d: "确定方案与服务范围", hue: 48 },
-                { s: "STEP 04", t: "账户搭建", d: "媒介开户与素材准备", hue: 168 },
-                { s: "STEP 05", t: "投放优化", d: "持续测试与策略迭代", hue: 198 },
-                { s: "STEP 06", t: "数据复盘", d: "效果分析与长期增长", hue: 258 },
+                { s: "步骤一", t: "咨询沟通", d: "明确合作目标与初步方向,梳理客户核心诉求与市场预期。", hue: 8 },
+                { s: "步骤二", t: "需求评估", d: "诊断市场与产品匹配度,评估投放可行性与增长空间。", hue: 28 },
+                { s: "步骤三", t: "签约合作", d: "确定服务方案与合作范围,完成合同签署与资源对接。", hue: 142 },
+                { s: "步骤四", t: "账户搭建", d: "完成媒介账户开户、素材准备与投放结构搭建。", hue: 188 },
+                { s: "步骤五", t: "投放优化", d: "持续测试与策略迭代,优化投放表现与转化效率。", hue: 232 },
+                { s: "步骤六", t: "数据复盘", d: "周期性效果分析与复盘,沉淀方法论助力长期增长。", hue: 268 },
               ].map(({ s, t, d, hue }, i) => (
                 <motion.div key={t}
-                  initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: i * 0.07 }}
-                  whileHover={{ y: -4, scale: 1.03 }}
-                  className="flex-1 min-w-[150px] relative px-5 pt-5 pb-6 flex flex-col items-center text-center backdrop-blur-md transition-shadow"
-                  style={{
-                    background: `linear-gradient(160deg, hsla(${hue}, 85%, 72%, 0.55) 0%, hsla(${hue}, 75%, 60%, 0.7) 100%)`,
-                    border: `1px solid hsla(${hue}, 80%, 80%, 0.5)`,
-                    boxShadow: `inset 0 1px 0 rgba(255,255,255,0.55), 0 10px 28px -12px hsla(${hue}, 70%, 50%, 0.45)`,
-                    clipPath: "polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 16px), 0 100%)",
-                    minHeight: "130px",
-                  }}>
-                  <div className="text-base font-extrabold tracking-[0.18em] text-white drop-shadow-sm">{s}</div>
-                  <div className="mt-2 h-px w-8" style={{ background: "rgba(255,255,255,0.6)" }} />
-                  <div className="text-sm font-semibold mt-2 text-white/95">{t}</div>
-                  <div className="text-[11px] mt-1.5 leading-snug text-white/85">{d}</div>
+                  initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: i * 0.06 }}
+                  className="relative pt-4 text-left">
+                  {/* 顶部细横线 */}
+                  <div className="absolute top-0 left-0 right-0 h-px" style={{ background: `hsla(${hue}, 70%, 60%, 0.45)` }} />
+                  {/* 左上圆点 */}
+                  <div className="absolute -top-[5px] left-0 h-[11px] w-[11px] rounded-full ring-2 ring-white"
+                    style={{ background: `hsl(${hue}, 70%, 55%)`, boxShadow: `0 2px 8px hsla(${hue}, 70%, 50%, 0.4)` }} />
+                  <div className="text-base font-semibold mb-2" style={{ color: TEXT_DARK }}>{s}</div>
+                  <div className="text-[13px] font-bold mb-1.5" style={{ color: `hsl(${hue}, 65%, 45%)` }}>{t}</div>
+                  <div className="text-[11px] leading-relaxed" style={{ color: TEXT_MID }}>{d}</div>
                 </motion.div>
               ))}
             </div>
