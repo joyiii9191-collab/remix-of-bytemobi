@@ -6,6 +6,15 @@ import { SubPageLayout } from "@/components/SubPageLayout";
 import { GLASS_CARD as CARD, TEXT_DARK, TEXT_MID, ACCENT } from "@/lib/page-styles";
 
 import caseEcommerceImg from "@/assets/case-ecommerce-aliexpress.png";
+import caseAliexpressBanner from "@/assets/case-aliexpress-banner.jpg";
+import caseTaobaoLogo from "@/assets/case-taobao-logo.png";
+import caseTaobaoBanner from "@/assets/case-taobao-banner.png";
+import caseTemuLogo from "@/assets/case-temu-logo.png";
+import caseTemuBanner from "@/assets/case-temu-banner.jpg";
+import caseShopeeLogo from "@/assets/case-shopee-logo.png";
+import caseShopeeBanner from "@/assets/case-shopee-banner.jpg";
+import caseLazadaLogo from "@/assets/case-lazada-logo.png";
+import caseLazadaBanner from "@/assets/case-lazada-banner.png";
 import caseBinanceImg from "@/assets/case-binance.png";
 import caseBet365Img from "@/assets/case-bet365.png";
 import caseHungryImg from "@/assets/case-hungry-studio.png";
@@ -19,8 +28,15 @@ type CaseItem = {
   highlights: string[];
   metric: string;
   metricLabel: string;
+  /** 居中展示的 logo 图(白底/品牌底色),用 contain */
   image?: string;
   imageBg?: string;
+  /** 卡片头部大图(背景),与 logo 叠加使用更显品牌感 */
+  banner?: string;
+  /** 叠加在 banner 左上角的小 logo */
+  logo?: string;
+  /** logo 容器底色,默认白色 */
+  logoBg?: string;
 };
 
 type Category = {
