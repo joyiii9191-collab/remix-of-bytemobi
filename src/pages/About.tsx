@@ -123,13 +123,14 @@ function HorizontalTimeline() {
   );
 }
 
+type PillarPoint = { icon: LucideIcon; text: string };
 type Pillar = {
   key: string;
   icon: LucideIcon;
   label: string;
   en: string;
   desc: string;
-  points: string[];
+  points: PillarPoint[];
 };
 
 const PILLARS: Pillar[] = [
@@ -139,7 +140,11 @@ const PILLARS: Pillar[] = [
     label: "全球",
     en: "Global",
     desc: "5 个办公点协同,服务覆盖全球关键市场",
-    points: ["深圳 / 新加坡 / 东京", "杜塞尔多夫 / 洛杉矶", "10+ 国家本地化商务"],
+    points: [
+      { icon: MapPin, text: "深圳 / 新加坡 / 东京" },
+      { icon: Network, text: "杜塞尔多夫 / 洛杉矶" },
+      { icon: Languages, text: "10+ 国家本地化商务" },
+    ],
   },
   {
     key: "tech",
@@ -147,7 +152,11 @@ const PILLARS: Pillar[] = [
     label: "技术",
     en: "Technology",
     desc: "工程与算法驱动,持续投入数字连接基础设施",
-    points: ["工程与算法占比 50%+", "多项软件著作权与发明专利", "国家高新技术企业"],
+    points: [
+      { icon: Code2, text: "工程与算法占比 50%+" },
+      { icon: FileBadge, text: "多项软件著作权与发明专利" },
+      { icon: BadgeCheck, text: "国家高新技术企业" },
+    ],
   },
   {
     key: "trust",
@@ -155,15 +164,12 @@ const PILLARS: Pillar[] = [
     label: "可信赖",
     en: "Trustworthy",
     desc: "近十年稳健交付,与客户与生态长期共赢",
-    points: ["ISO 27001 信息安全认证", "数据合规、交付稳定可靠", "与客户长期共同成长"],
+    points: [
+      { icon: Lock, text: "ISO 27001 信息安全认证" },
+      { icon: ServerCog, text: "数据合规、交付稳定可靠" },
+      { icon: HeartHandshake, text: "与客户长期共同成长" },
+    ],
   },
-];
-
-const STATS: { value: string; unit: string; label: string }[] = [
-  { value: "2016", unit: "", label: "深圳总部成立" },
-  { value: "5", unit: "个", label: "全球办公点" },
-  { value: "200", unit: "+", label: "全球员工" },
-  { value: "10", unit: "+", label: "覆盖国家与地区" },
 ];
 
 function AnimatedNumber({ value, duration = 1.6 }: { value: string; duration?: number }) {
