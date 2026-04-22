@@ -487,8 +487,8 @@ export default function About() {
                   </div>
                 )}
 
-                {/* 文本内容居中 */}
-                <div className="relative z-10 h-full w-full flex flex-col items-center justify-center px-6 text-center">
+                {/* 文本内容居中 — 默认状态 */}
+                <div className="relative z-10 h-full w-full flex flex-col items-center justify-center px-6 text-center transition-all duration-300 group-hover:opacity-0 group-hover:-translate-y-2">
                   <h3
                     className="text-2xl md:text-3xl font-bold leading-tight"
                     style={{
@@ -518,6 +518,40 @@ export default function About() {
                     }}
                   >
                     <MapPin size={12} />
+                    View Details
+                  </div>
+                </div>
+
+                {/* 悬停状态 — 详细地址 */}
+                <div
+                  className="absolute inset-0 z-20 flex flex-col items-center justify-center px-6 text-center opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 pointer-events-none"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(245,247,253,0.96) 100%)",
+                    backdropFilter: "blur(6px)",
+                  }}
+                >
+                  <div
+                    className="flex items-center gap-2 text-[11px] font-semibold tracking-[0.18em] uppercase mb-2"
+                    style={{ color: ACCENT }}
+                  >
+                    <MapPin size={12} />
+                    {o.nameZh} · {o.nameEn}
+                  </div>
+                  <p
+                    className="text-[13px] md:text-sm leading-relaxed max-w-[92%]"
+                    style={{ color: "hsl(225 40% 22%)" }}
+                  >
+                    {o.addr}
+                  </p>
+                  <div
+                    className="mt-4 inline-flex items-center gap-2 text-[10px] font-semibold tracking-[0.18em] uppercase px-3 py-1.5 rounded-full"
+                    style={{
+                      background: ACCENT,
+                      color: "white",
+                      boxShadow: "0 6px 18px -8px rgba(99,102,241,0.5)",
+                    }}
+                  >
                     View Details
                   </div>
                 </div>
