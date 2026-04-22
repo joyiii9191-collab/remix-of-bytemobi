@@ -58,6 +58,16 @@ import caseLikeeBanner from "@/assets/case-likee-banner.png";
 import caseBigoLogo from "@/assets/case-bigo-logo.png";
 import caseBigoBanner from "@/assets/case-bigo-banner.png";
 import caseNordvpnImg from "@/assets/case-nordvpn.png";
+import caseNordvpnLogo from "@/assets/case-nordvpn-logo.png";
+import caseNordvpnBanner from "@/assets/case-nordvpn-banner.jpg";
+import casePurevpnLogo from "@/assets/case-purevpn-logo.png";
+import casePurevpnBanner from "@/assets/case-purevpn-banner.png";
+import caseSailyLogo from "@/assets/case-saily-logo.png";
+import caseSailyBanner from "@/assets/case-saily-banner.png";
+import caseFacetuneLogo from "@/assets/case-facetune-logo.png";
+import caseFacetuneBanner from "@/assets/case-facetune-banner.jpg";
+import caseAicleanerLogo from "@/assets/case-aicleaner-logo.png";
+import caseAicleanerBanner from "@/assets/case-aicleaner-banner.png";
 
 type CaseItem = {
   brand: string;
@@ -514,27 +524,71 @@ const CATEGORIES: Category[] = [
         brand: "NordVPN",
         region: "Global",
         goal: "订阅转化 & 高质量用户增长",
-        highlights: ["高意向用户筛选", "订阅漏斗优化", "稳定付费增长"],
-        metric: "稳定增长",
+        highlights: [
+          "高意向用户筛选",
+          "订阅漏斗优化",
+          "稳定付费增长",
+        ],
+        metric: "订阅 ↑",
         metricLabel: "订阅转化效率显著提升",
-        image: caseNordvpnImg,
-        imageBg: "hsl(0 0% 100%)",
+        banner: caseNordvpnBanner,
+        logo: caseNordvpnLogo,
       },
       {
-        brand: "全球工具类 App",
-        region: "Global · 50+ 国家",
-        goal: "全球化扩张 & 新增规模化",
-        highlights: ["50+ 国家上线", "新增 +220%", "买量结构多元化"],
-        metric: "新增 +220%",
-        metricLabel: "周期对比",
+        brand: "PureVPN",
+        region: "Global",
+        goal: "安装量与活跃度提升",
+        highlights: [
+          "工具场景高频需求驱动投放",
+          "安装量与活跃度同步提升",
+          "广告收益结构优化",
+        ],
+        metric: "安装 ↑",
+        metricLabel: "活跃度持续增长",
+        banner: casePurevpnBanner,
+        logo: casePurevpnLogo,
       },
       {
-        brand: "海外效率类订阅 App",
-        region: "NA · EU",
-        goal: "付费转化与 LTV 提升",
-        highlights: ["付费转化建模", "免费→付费 +27%", "12 月 LTV +33%"],
-        metric: "LTV +33%",
-        metricLabel: "12 月生命周期价值",
+        brand: "Saily",
+        region: "Global",
+        goal: "eSIM 订阅获客",
+        highlights: [
+          "出行场景高意图人群定向",
+          "多市场本地化投放",
+          "订阅转化效率持续优化",
+        ],
+        metric: "订阅 ↑",
+        metricLabel: "高意图用户转化提升",
+        banner: caseSailyBanner,
+        logo: caseSailyLogo,
+      },
+      {
+        brand: "Facetune",
+        region: "Global",
+        goal: "付费转化 & LTV 优化",
+        highlights: [
+          "免费 → 付费漏斗优化",
+          "高付费意向人群建模",
+          "长期 LTV 持续提升",
+        ],
+        metric: "LTV ↑",
+        metricLabel: "付费用户生命周期价值提升",
+        banner: caseFacetuneBanner,
+        logo: caseFacetuneLogo,
+      },
+      {
+        brand: "AI Cleaner",
+        region: "Global",
+        goal: "安装量与广告变现",
+        highlights: [
+          "工具场景高频需求驱动投放",
+          "安装量规模化提升",
+          "广告收益结构持续优化",
+        ],
+        metric: "安装 ↑",
+        metricLabel: "规模化增长 + 变现提升",
+        banner: caseAicleanerBanner,
+        logo: caseAicleanerLogo,
       },
     ],
   },
