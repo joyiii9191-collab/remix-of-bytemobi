@@ -125,7 +125,7 @@ export default function MediaResources() {
               },
               {
                 t: "创意与合规护航",
-                d: "检查素材、定向和投放方式是否符合平台规则。",
+                d: "检查素材、定向和投放方式是否符合平台规则",
                 Icon: ShieldCheck,
                 items: [
                   { text: "素材规范适配与创意指导", Icon: Palette },
