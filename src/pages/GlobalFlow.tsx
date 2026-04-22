@@ -38,7 +38,7 @@ const HUB_LINES: Array<[number, number]> = [
 ];
 
 import { GLASS_CARD as CARD, TEXT_DARK, TEXT_MID, ACCENT } from "@/lib/page-styles";
-import caseEcommerceImg from "@/assets/case-ecommerce.jpg";
+import caseEcommerceImg from "@/assets/case-ecommerce-aliexpress.png";
 
 const STATS = [
   { label: "覆盖国家 / 地区", value: 220, suffix: "+" },
@@ -365,43 +365,31 @@ export default function GlobalFlow() {
             {/* 中:海报卡片 + 错位灰色占位卡 */}
             <div className="col-span-12 md:col-span-5 flex justify-center items-center">
               <div className="relative w-full max-w-[360px] aspect-square">
-                {/* 背后灰色占位卡 */}
+                {/* 背后卡 — 使用品牌/案例图 */}
                 <motion.div
                   key={`bg-${activeCase}`}
                   initial={{ opacity: 0, x: -20, y: -20, rotate: -8 }}
                   animate={{ opacity: 1, x: 24, y: -24, rotate: -6 }}
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                  className="absolute inset-0 rounded-2xl"
+                  className="absolute inset-0 rounded-2xl overflow-hidden"
                   style={{
-                    background:
-                      "repeating-linear-gradient(135deg, hsl(220 10% 75%) 0 8px, hsl(220 10% 82%) 8px 16px)",
+                    background: CASES[activeCase].image
+                      ? `url(${CASES[activeCase].image}) center/cover no-repeat`
+                      : "repeating-linear-gradient(135deg, hsl(220 10% 75%) 0 8px, hsl(220 10% 82%) 8px 16px)",
                     boxShadow: "0 20px 50px -20px hsla(220, 10%, 40%, 0.35)",
                   }}
                 />
-                {/* 前置主卡 */}
+                {/* 前置主卡 — 仅保留玻璃信息卡,无背景图 */}
                 <motion.div
                   key={`fg-${activeCase}`}
                   initial={{ opacity: 0, scale: 0.92, y: 16 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
                   className="absolute inset-0 rounded-2xl overflow-hidden"
-                  style={{
-                    ...CARD,
-                    background: CASES[activeCase].image
-                      ? `url(${CASES[activeCase].image}) center/cover no-repeat`
-                      : (CARD as React.CSSProperties).background,
-                  }}
+                  style={CARD as React.CSSProperties}
                 >
                   {CASES[activeCase].image ? (
                     <>
-                      {/* 图片渐变遮罩,保证底部信息可读 */}
-                      <div
-                        className="absolute inset-0"
-                        style={{
-                          background:
-                            "linear-gradient(180deg, hsla(0,0%,0%,0) 35%, hsla(0,0%,0%,0.55) 75%, hsla(0,0%,0%,0.8) 100%)",
-                        }}
-                      />
                       {/* 顶部 tag */}
                       <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
                         <span
@@ -420,7 +408,7 @@ export default function GlobalFlow() {
                         <div
                           className="rounded-xl px-4 py-3 backdrop-blur-xl border"
                           style={{
-                            background: "hsla(0,0%,100%,0.18)",
+                            background: "hsla(245, 50%, 30%, 0.55)",
                             borderColor: "hsla(0,0%,100%,0.35)",
                             boxShadow: "0 8px 24px -8px hsla(0,0%,0%,0.35)",
                           }}
@@ -445,25 +433,7 @@ export default function GlobalFlow() {
                         </div>
                       </div>
                     </>
-                  ) : (
-                    <div className="glass-card absolute inset-0 rounded-2xl flex flex-col items-center justify-center p-6 text-center">
-                      <div
-                        className="inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-4"
-                        style={{ background: CASES[activeCase].color, color: "#fff" }}
-                      >
-                        {React.createElement(CASES[activeCase].icon, { size: 28 })}
-                      </div>
-                      <div
-                        className="text-3xl md:text-4xl font-extrabold mb-3"
-                        style={{ color: CASES[activeCase].color, lineHeight: 1.1 }}
-                      >
-                        {CASES[activeCase].metric}
-                      </div>
-                      <div className="text-sm font-semibold" style={{ color: TEXT_DARK }}>
-                        {CASES[activeCase].title}
-                      </div>
-                    </div>
-                  )}
+                  ) : null}
                 </motion.div>
               </div>
             </div>
