@@ -345,7 +345,7 @@ function CompanyIntro() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: false, amount: 0.3 }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className="pt-6 lg:pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-3"
+        className="pt-6 lg:pt-8 flex flex-col items-center justify-center gap-2 text-center"
         style={{ borderTop: "1px solid rgba(15,20,40,0.08)" }}
       >
         <div className="flex items-center gap-3">
