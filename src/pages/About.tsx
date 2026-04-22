@@ -12,6 +12,8 @@ import {
 import {
   Building2, MapPin, Users, Calendar, Sparkles,
   Globe2, Award, Rocket, Star, TrendingUp, ShieldCheck, Cpu,
+  Network, Languages, Code2, FileBadge, BadgeCheck,
+  Lock, ServerCog, HeartHandshake,
   type LucideIcon,
 } from "lucide-react";
 
@@ -121,13 +123,14 @@ function HorizontalTimeline() {
   );
 }
 
+type PillarPoint = { icon: LucideIcon; text: string };
 type Pillar = {
   key: string;
   icon: LucideIcon;
   label: string;
   en: string;
   desc: string;
-  points: string[];
+  points: PillarPoint[];
 };
 
 const PILLARS: Pillar[] = [
@@ -137,7 +140,11 @@ const PILLARS: Pillar[] = [
     label: "全球",
     en: "Global",
     desc: "5 个办公点协同,服务覆盖全球关键市场",
-    points: ["深圳 / 新加坡 / 东京", "杜塞尔多夫 / 洛杉矶", "10+ 国家本地化商务"],
+    points: [
+      { icon: MapPin, text: "深圳 / 新加坡 / 东京" },
+      { icon: Network, text: "杜塞尔多夫 / 洛杉矶" },
+      { icon: Languages, text: "10+ 国家本地化商务" },
+    ],
   },
   {
     key: "tech",
@@ -145,7 +152,11 @@ const PILLARS: Pillar[] = [
     label: "技术",
     en: "Technology",
     desc: "工程与算法驱动,持续投入数字连接基础设施",
-    points: ["工程与算法占比 50%+", "多项软件著作权与发明专利", "国家高新技术企业"],
+    points: [
+      { icon: Code2, text: "工程与算法占比 50%+" },
+      { icon: FileBadge, text: "多项软件著作权与发明专利" },
+      { icon: BadgeCheck, text: "国家高新技术企业" },
+    ],
   },
   {
     key: "trust",
@@ -153,7 +164,11 @@ const PILLARS: Pillar[] = [
     label: "可信赖",
     en: "Trustworthy",
     desc: "近十年稳健交付,与客户与生态长期共赢",
-    points: ["ISO 27001 信息安全认证", "数据合规、交付稳定可靠", "与客户长期共同成长"],
+    points: [
+      { icon: Lock, text: "ISO 27001 信息安全认证" },
+      { icon: ServerCog, text: "数据合规、交付稳定可靠" },
+      { icon: HeartHandshake, text: "与客户长期共同成长" },
+    ],
   },
 ];
 
@@ -267,28 +282,20 @@ function CompanyIntro() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.55, delay: i * 0.1 }}
-              className="relative md:px-2"
+              className="relative md:px-2 flex flex-col items-center text-center"
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
-                  style={{
-                    background: `linear-gradient(135deg, ${ACCENT} 0%, hsl(265 70% 60%) 100%)`,
-                    color: "white",
-                    boxShadow: "0 8px 22px -10px rgba(99,102,241,0.55)",
-                  }}
-                >
-                  <Icon size={22} />
-                </div>
-                <span
-                  className="text-xs font-mono tracking-widest"
-                  style={{ color: "rgba(15,20,40,0.35)" }}
-                >
-                  0{i + 1}
-                </span>
+              <div
+                className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 mb-4"
+                style={{
+                  background: `linear-gradient(135deg, ${ACCENT} 0%, hsl(265 70% 60%) 100%)`,
+                  color: "white",
+                  boxShadow: "0 10px 26px -10px rgba(99,102,241,0.55)",
+                }}
+              >
+                <Icon size={26} />
               </div>
 
-              <div className="flex items-baseline gap-2 mb-2">
+              <div className="flex flex-col items-center gap-1 mb-2">
                 <h3
                   className="text-2xl md:text-3xl font-bold leading-tight"
                   style={{ color: TEXT_DARK }}
@@ -296,7 +303,7 @@ function CompanyIntro() {
                   {p.label}
                 </h3>
                 <span
-                  className="text-xs font-medium uppercase tracking-wider"
+                  className="text-[11px] font-medium uppercase tracking-[0.2em]"
                   style={{ color: ACCENT }}
                 >
                   {p.en}
@@ -304,26 +311,34 @@ function CompanyIntro() {
               </div>
 
               <p
-                className="text-sm md:text-[15px] leading-relaxed mb-4"
+                className="text-sm md:text-[15px] leading-relaxed mb-5 max-w-xs"
                 style={{ color: TEXT_MID }}
               >
                 {p.desc}
               </p>
 
-              <ul className="space-y-1.5">
-                {p.points.map((pt) => (
-                  <li
-                    key={pt}
-                    className="text-xs md:text-sm leading-relaxed flex items-start gap-2"
-                    style={{ color: TEXT_MID }}
-                  >
-                    <span
-                      className="mt-2 w-1 h-1 rounded-full shrink-0"
-                      style={{ background: ACCENT }}
-                    />
-                    <span>{pt}</span>
-                  </li>
-                ))}
+              <ul className="space-y-2.5 w-full max-w-xs">
+                {p.points.map((pt) => {
+                  const PtIcon = pt.icon;
+                  return (
+                    <li
+                      key={pt.text}
+                      className="text-xs md:text-sm leading-relaxed flex items-center justify-center gap-2"
+                      style={{ color: TEXT_MID }}
+                    >
+                      <span
+                        className="w-6 h-6 rounded-full flex items-center justify-center shrink-0"
+                        style={{
+                          background: "rgba(99,102,241,0.10)",
+                          color: ACCENT,
+                        }}
+                      >
+                        <PtIcon size={13} strokeWidth={2.2} />
+                      </span>
+                      <span>{pt.text}</span>
+                    </li>
+                  );
+                })}
               </ul>
             </motion.div>
           );
