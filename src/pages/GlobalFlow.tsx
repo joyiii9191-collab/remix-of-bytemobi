@@ -67,12 +67,17 @@ type Case = {
   summary: string; highlights: string[];
   icon: LucideIcon;
   color: string;
+  image?: string;
+  headline?: string;
+  subMetric?: string;
 };
 const CASES: Case[] = [
-  { tag: "电商", title: "电商类", metric: "ROAS +186%", region: "SEA",
+  { tag: "电商", title: "电商类", metric: "单月新增 8,000+", region: "SEA",
     summary: "针对东南亚六国快消品牌,完成从冷启动到规模化的全链路加速。",
     highlights: ["6 国并行投放", "ROAS 60 天提升 186%", "首单 CPA 下降 38%"],
-    icon: ShoppingBag, color: "hsl(14 90% 58%)" },
+    icon: ShoppingBag, color: "hsl(14 90% 58%)",
+    image: caseEcommerceImg,
+    headline: "8,000+", subMetric: "单月新增高质量用户" },
   { tag: "金融", title: "金融类", metric: "CPA -42%", region: "LATAM",
     summary: "聚焦巴西、墨西哥信贷场景,基于人群分层与风控信号优化获客。",
     highlights: ["授信通过率 +21%", "CPA -42%", "次月留存 +16%"],
