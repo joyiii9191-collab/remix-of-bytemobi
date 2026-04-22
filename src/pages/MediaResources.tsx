@@ -213,20 +213,22 @@ export default function MediaResources() {
               <div className="absolute inset-[8%] rounded-full bg-white/30 backdrop-blur-sm border border-white/50" />
 
               {/* 中心圆 — 更清透 */}
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[34%] aspect-square rounded-full flex flex-col items-center justify-center text-center z-10 cursor-default"
-                style={{
-                  background: "linear-gradient(135deg, rgba(99,102,241,0.85) 0%, rgba(139,92,246,0.8) 100%)",
-                  backdropFilter: "blur(12px)",
-                  boxShadow: "0 10px 40px -8px rgba(99,102,241,0.4), inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -4px 12px rgba(0,0,0,0.08)",
-                  border: "1px solid rgba(255,255,255,0.35)",
-                }}>
-                <Repeat size={22} className="text-white/95 mb-1" strokeWidth={1.6} />
-                <div className="text-white text-base font-bold tracking-wide">闭环增长</div>
-                <div className="text-white/80 text-[9px] mt-0.5 tracking-wider">CONTENT → COMMERCE</div>
-              </motion.div>
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                  className="w-[156px] aspect-square rounded-full flex flex-col items-center justify-center text-center cursor-default"
+                  style={{
+                    background: "linear-gradient(135deg, rgba(99,102,241,0.85) 0%, rgba(139,92,246,0.8) 100%)",
+                    backdropFilter: "blur(12px)",
+                    boxShadow: "0 10px 40px -8px rgba(99,102,241,0.4), inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -4px 12px rgba(0,0,0,0.08)",
+                    border: "1px solid rgba(255,255,255,0.35)",
+                  }}>
+                  <Repeat size={22} className="text-white/95 mb-1" strokeWidth={1.6} />
+                  <div className="text-white text-base font-bold tracking-wide">闭环增长</div>
+                  <div className="text-white/80 text-[9px] mt-0.5 tracking-wider">CONTENT → COMMERCE</div>
+                </motion.div>
+              </div>
 
               {/* 循环箭头 SVG — 半径要小于节点环半径，落在节点和中心之间 */}
               <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
@@ -274,25 +276,31 @@ export default function MediaResources() {
                 const x = 50 + radius * Math.cos(rad);
                 const y = 50 + radius * Math.sin(rad);
                 return (
-                  <motion.div key={node.k}
-                    initial={{ opacity: 0, scale: 0.6 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: false, amount: 0.3 }}
-                    transition={{ duration: 0.5, delay: 0.15 + i * 0.1 }}
-                    whileHover={{ scale: 1.1, y: -3 }}
-                    className="absolute -translate-x-1/2 -translate-y-1/2 z-20 cursor-pointer group"
+                  <div
+                    key={node.k}
+                    className="absolute -translate-x-1/2 -translate-y-1/2 z-20"
                     style={{ left: `${x}%`, top: `${y}%` }}>
-                    <div
-                      className="w-[88px] h-[88px] rounded-full bg-white/90 backdrop-blur-md border-2 flex flex-col items-center justify-center text-center px-2 shadow-lg transition-all duration-300 group-hover:shadow-2xl"
-                      style={{
-                        borderColor: `${node.color}40`,
-                        boxShadow: `0 8px 24px -8px ${node.color}30`,
-                      }}>
-                      <Icon size={18} style={{ color: node.color }} strokeWidth={1.8} className="transition-transform duration-300 group-hover:scale-110" />
-                      <div className="text-[11px] font-bold mt-1" style={{ color: TEXT_DARK }}>{node.k}</div>
-                      <div className="text-[9px] leading-tight mt-0.5" style={{ color: TEXT_MID }}>{node.v}</div>
-                    </div>
-                  </motion.div>
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.6 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: false, amount: 0.3 }}
+                      transition={{ duration: 0.5, delay: 0.15 + i * 0.1 }}
+                      whileHover={{ scale: 1.1, y: -3 }}
+                      className="w-[88px] h-[88px] rounded-full bg-white/90 backdrop-blur-md border-2 flex flex-col items-center justify-center text-center px-2 shadow-lg transition-all duration-300 hover:shadow-2xl cursor-pointer">
+                      <div
+                        className="w-full h-full rounded-full flex flex-col items-center justify-center text-center px-2"
+                        style={{
+                          borderColor: `${node.color}40`,
+                          boxShadow: `0 8px 24px -8px ${node.color}30`,
+                          borderWidth: "2px",
+                          borderStyle: "solid",
+                        }}>
+                        <Icon size={18} style={{ color: node.color }} strokeWidth={1.8} className="transition-transform duration-300 hover:scale-110" />
+                        <div className="text-[11px] font-bold mt-1" style={{ color: TEXT_DARK }}>{node.k}</div>
+                        <div className="text-[9px] leading-tight mt-0.5" style={{ color: TEXT_MID }}>{node.v}</div>
+                      </div>
+                    </motion.div>
+                  </div>
                 );
               })}
             </div>
