@@ -870,7 +870,7 @@ export default function About() {
       {/* === Screen 5 — 企业文化(使命 / 愿景 / 价值观 单屏) === */}
       <SnapScreen id="culture">
         <ScreenInner className="!justify-center">
-          <ScreenTitle>使命 · 愿景 · 价值观</ScreenTitle>
+          <ScreenTitle>企业文化</ScreenTitle>
 
           {/* 使命 + 愿景 双联玻璃卡 */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 mt-6 w-full">
