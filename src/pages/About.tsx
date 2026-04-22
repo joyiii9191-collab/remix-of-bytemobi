@@ -26,32 +26,38 @@ type Office = {
   x: number; y: number; name: string; city: string; country: string;
   addr: string; established: string; team: string; focus: string;
   highlight?: boolean;
+  image: string;
+  nameZh: string;
+  nameEn: string;
 };
 
 const OFFICES: Office[] = [
-  { x: 73, y: 40, name: "西安(总部)", city: "Xi'an", country: "China",
+  { x: 73, y: 40, name: "西安(总部)", nameZh: "西安", nameEn: "Xi'an", city: "Xi'an", country: "China",
     addr: "西安市高新技术产业开发区科技路旺座现代城B座23层",
     established: "2016", team: "150+",
-    focus: "全球总部 · 技术研发 · 商务运营 · 数据中台", highlight: true },
-  { x: 78, y: 58, name: "新加坡", city: "Singapore", country: "Singapore",
+    focus: "全球总部 · 技术研发 · 商务运营 · 数据中台", highlight: true,
+    image: officeXian },
+  { x: 78, y: 58, name: "新加坡", nameZh: "新加坡", nameEn: "Singapore", city: "Singapore", country: "Singapore",
     addr: "The Corporate Tower - 10 Anson Road, #28-12, Singapore 079903",
     established: "2018", team: "20+",
-    focus: "亚太商务 · 跨境支付与合规" },
-  { x: 84, y: 38, name: "东京", city: "Tokyo", country: "Japan",
+    focus: "亚太商务 · 跨境支付与合规",
+    image: officeSingapore },
+  { x: 84, y: 38, name: "东京", nameZh: "东京", nameEn: "Tokyo", city: "Tokyo", country: "Japan",
     addr: "東京都港区六本木三丁目3番2 7号スハラ六本木",
     established: "2019", team: "47",
-    focus: "日本运营 · 商务 / 媒体合作" },
-  { x: 50, y: 30, name: "杜塞尔多夫", city: "Düsseldorf", country: "Germany",
+    focus: "日本运营 · 商务 / 媒体合作",
+    image: officeTokyo },
+  { x: 50, y: 30, name: "杜塞尔多夫", nameZh: "杜塞尔多夫", nameEn: "Düsseldorf", city: "Düsseldorf", country: "Germany",
     addr: "Königsallee 14, 3rd Floor, 40212 Düsseldorf, Germany",
     established: "2022", team: "10+",
-    focus: "欧洲商务 · GDPR 合规中心" },
-  { x: 14, y: 40, name: "洛杉矶", city: "Los Angeles", country: "USA",
+    focus: "欧洲商务 · GDPR 合规中心",
+    image: officeDusseldorf },
+  { x: 14, y: 40, name: "洛杉矶", nameZh: "洛杉矶", nameEn: "Los Angeles", city: "Los Angeles", country: "USA",
     addr: "Figueroa Center - 611 S Figueroa St, Suite 1750, Los Angeles, CA 90017",
     established: "2024", team: "10+",
-    focus: "北美运营 · 头部广告主对接" },
+    focus: "北美运营 · 头部广告主对接",
+    image: officeLosangeles },
 ];
-const MAP_MARKERS = OFFICES.map((o) => ({ x: o.x, y: o.y, highlight: o.highlight }));
-const MAP_LINES: Array<[number, number]> = [[0, 1], [0, 2], [0, 3], [0, 4]];
 
 type Milestone = { year: string; title: string; desc: string; icon: LucideIcon };
 const TIMELINE: Milestone[] = [
