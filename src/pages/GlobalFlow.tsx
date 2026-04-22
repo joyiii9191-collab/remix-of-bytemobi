@@ -388,7 +388,15 @@ export default function GlobalFlow() {
                   className="absolute inset-0 rounded-2xl overflow-hidden"
                   style={CARD as React.CSSProperties}
                 >
-                  <div className="glass-card absolute inset-0 rounded-2xl flex flex-col items-center justify-center p-6 text-center">
+                  <div
+                    className="glass-card absolute inset-0 rounded-2xl flex flex-col items-center justify-center p-6 text-center"
+                    style={{
+                      background: "hsla(0, 0%, 100%, 0.55)",
+                      backdropFilter: "blur(40px) saturate(160%)",
+                      WebkitBackdropFilter: "blur(40px) saturate(160%)",
+                      borderColor: "hsla(0, 0%, 100%, 0.7)",
+                    }}
+                  >
                     <div
                       className="inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-4"
                       style={{ background: CASES[activeCase].color, color: "#fff" }}
