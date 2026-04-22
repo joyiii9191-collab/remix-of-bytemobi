@@ -1016,7 +1016,7 @@ export default function About() {
         <ScreenInner>
           <ScreenTitle>全球近期活动</ScreenTitle>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mt-10 w-full">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-3 md:gap-4 mt-6 w-full">
             {EVENTS.map((e, i) => (
               <motion.div
                 key={e.name}
@@ -1037,7 +1037,7 @@ export default function About() {
                   transition: "box-shadow 0.35s ease, transform 0.35s ease",
                 }}
               >
-                <div className="relative aspect-[16/9] overflow-hidden bg-white">
+                <div className="relative aspect-[16/8] overflow-hidden bg-white">
                   <img
                     src={e.image}
                     alt={e.name}
@@ -1066,25 +1066,23 @@ export default function About() {
                   />
                 </div>
 
-                <div className="px-4 md:px-5 py-4 md:py-5 flex flex-col gap-2">
+                <div className="px-3 md:px-3.5 py-2.5 md:py-3 flex flex-col gap-1">
                   <h3
-                    className="text-[15px] md:text-base font-bold leading-tight tracking-tight"
+                    className="text-[12.5px] md:text-[13.5px] font-bold leading-tight tracking-tight line-clamp-1"
                     style={{ color: TEXT_DARK }}
                   >
                     {e.name}
                   </h3>
 
-                  <div className="flex items-center gap-1.5 text-[12px] md:text-[12.5px]" style={{ color: ACCENT }}>
-                    <Calendar size={12.5} strokeWidth={1.8} className="shrink-0" />
+                  <div className="flex items-center gap-1 text-[10.5px] md:text-[11px]" style={{ color: ACCENT }}>
+                    <Calendar size={11} strokeWidth={1.8} className="shrink-0" />
                     <span className="font-medium tabular-nums tracking-wide">{e.date}</span>
                   </div>
 
-                  <div className="flex items-start gap-1.5 text-[11.5px] md:text-[12px] leading-relaxed" style={{ color: TEXT_MID }}>
-                    <MapPin size={12.5} strokeWidth={1.8} className="shrink-0 mt-[2px]" style={{ color: TEXT_MID }} />
-                    <span className="line-clamp-2">
+                  <div className="flex items-start gap-1 text-[10.5px] md:text-[11px] leading-snug" style={{ color: TEXT_MID }}>
+                    <MapPin size={11} strokeWidth={1.8} className="shrink-0 mt-[1.5px]" style={{ color: TEXT_MID }} />
+                    <span className="line-clamp-1">
                       <span style={{ color: TEXT_DARK }} className="font-medium">{e.city}</span>
-                      <span className="opacity-60"> · </span>
-                      {e.location}
                     </span>
                   </div>
                 </div>
