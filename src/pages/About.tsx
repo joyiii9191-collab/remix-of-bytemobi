@@ -24,22 +24,26 @@ type Office = {
 };
 
 const OFFICES: Office[] = [
-  { x: 78, y: 48, name: "深圳(总部)", city: "Shenzhen", country: "China",
-    addr: "中国广东省深圳市",
+  { x: 73, y: 40, name: "西安(总部)", city: "Xi'an", country: "China",
+    addr: "西安市高新技术产业开发区科技路旺座现代城B座23层",
     established: "2016", team: "150+",
     focus: "全球总部 · 技术研发 · 商务运营 · 数据中台", highlight: true },
-  { x: 78, y: 52, name: "新加坡", city: "Singapore", country: "Singapore",
-    addr: "Singapore Office", established: "2018", team: "20+",
-    focus: "东南亚区域中心 · 跨境支付与合规" },
-  { x: 82, y: 36, name: "东京", city: "Tokyo", country: "Japan",
-    addr: "Tokyo Office", established: "2019", team: "47",
-    focus: "日本本地化运营 · 商务 / 媒体合作" },
+  { x: 78, y: 58, name: "新加坡", city: "Singapore", country: "Singapore",
+    addr: "The Corporate Tower - 10 Anson Road, #28-12, Singapore 079903",
+    established: "2018", team: "20+",
+    focus: "亚太商务 · 跨境支付与合规" },
+  { x: 84, y: 38, name: "东京", city: "Tokyo", country: "Japan",
+    addr: "東京都港区六本木三丁目3番2 7号スハラ六本木",
+    established: "2019", team: "47",
+    focus: "日本运营 · 商务 / 媒体合作" },
   { x: 50, y: 30, name: "杜塞尔多夫", city: "Düsseldorf", country: "Germany",
-    addr: "Düsseldorf Office", established: "2022", team: "10+",
-    focus: "欧洲市场拓展 · GDPR 合规中心" },
-  { x: 14, y: 38, name: "洛杉矶", city: "Los Angeles", country: "USA",
-    addr: "Los Angeles Office", established: "2024", team: "10+",
-    focus: "北美客户服务 · 头部广告主对接" },
+    addr: "Königsallee 14, 3rd Floor, 40212 Düsseldorf, Germany",
+    established: "2022", team: "10+",
+    focus: "欧洲商务 · GDPR 合规中心" },
+  { x: 14, y: 40, name: "洛杉矶", city: "Los Angeles", country: "USA",
+    addr: "Figueroa Center - 611 S Figueroa St, Suite 1750, Los Angeles, CA 90017",
+    established: "2024", team: "10+",
+    focus: "北美运营 · 头部广告主对接" },
 ];
 const MAP_MARKERS = OFFICES.map((o) => ({ x: o.x, y: o.y, highlight: o.highlight }));
 const MAP_LINES: Array<[number, number]> = [[0, 1], [0, 2], [0, 3], [0, 4]];
@@ -141,7 +145,7 @@ const PILLARS: Pillar[] = [
     en: "Global",
     desc: "5 个办公点协同,服务覆盖全球关键市场",
     points: [
-      { icon: MapPin, text: "深圳 / 新加坡 / 东京" },
+      { icon: MapPin, text: "西安 / 新加坡 / 东京" },
       { icon: MapPin, text: "杜塞尔多夫 / 洛杉矶" },
       { icon: Languages, text: "10+ 国家本地化商务" },
     ],
@@ -412,8 +416,8 @@ export default function About() {
       {/* === Screen 3 — 全球办公点 === */}
       <SnapScreen id="offices">
         <ScreenInner>
-          <ScreenTitle>覆盖关键市场的五个办公点</ScreenTitle>
-          <ScreenLead>悬停查看地图节点,点击查看详细信息。</ScreenLead>
+          <ScreenTitle>全球布局 · 本地深耕</ScreenTitle>
+          <ScreenLead>西安(总部)、新加坡(亚太商务)、东京(日本运营)、杜塞尔多夫(欧洲商务)、洛杉矶(北美运营)。鼠标悬停查看详细地址。</ScreenLead>
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-5 mt-6 flex-1 min-h-[320px]">
             <div className="lg:col-span-3 rounded-2xl overflow-hidden relative glass-card" style={CARD}>
               <ParticleWorldMap markers={MAP_MARKERS} lines={MAP_LINES} />
@@ -463,6 +467,20 @@ export default function About() {
                       <div className="text-[11px]" style={{ color: TEXT_MID }}>
                         {o.city}, {o.country} · 自 {o.established} 起
                       </div>
+                      <motion.div
+                        initial={false}
+                        animate={{
+                          height: hoverIdx === i ? "auto" : 0,
+                          opacity: hoverIdx === i ? 1 : 0,
+                          marginTop: hoverIdx === i ? 6 : 0,
+                        }}
+                        transition={{ duration: 0.25 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="text-[11px] leading-relaxed pr-2" style={{ color: TEXT_DARK }}>
+                          📍 {o.addr}
+                        </div>
+                      </motion.div>
                     </div>
                     <div className="text-xs font-medium shrink-0" style={{ color: ACCENT }}>详情 →</div>
                   </div>
