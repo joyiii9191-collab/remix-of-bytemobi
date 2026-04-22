@@ -1097,22 +1097,17 @@ export default function About() {
                     }}
                   />
 
-                  {/* 地址(单行,溢出省略) */}
+                  {/* 地址(单行完整显示) */}
                   <div
-                    className="flex items-center gap-1.5 text-[10.5px] md:text-[11px] leading-snug min-w-0"
+                    className="text-[9.5px] md:text-[10px] leading-snug whitespace-nowrap overflow-hidden text-ellipsis text-left"
                     style={{ color: TEXT_MID }}
+                    title={`${e.city} · ${e.location}`}
                   >
-                    <MapPin size={11} strokeWidth={1.8} className="shrink-0" style={{ color: ACCENT }} />
-                    <span
-                      className="truncate min-w-0 flex-1"
-                      title={`${e.city} · ${e.location}`}
-                    >
-                      <span style={{ color: TEXT_DARK }} className="font-medium">
-                        {e.city}
-                      </span>
-                      <span className="opacity-50"> · </span>
-                      {e.location}
+                    <span style={{ color: TEXT_DARK }} className="font-medium">
+                      {e.city}
                     </span>
+                    <span className="opacity-50"> · </span>
+                    {e.location}
                   </div>
                 </div>
 
