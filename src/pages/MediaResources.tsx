@@ -115,7 +115,7 @@ export default function MediaResources() {
               },
               {
                 t: "数据驱动优化",
-                d: "根据投放目标进行日常优化、素材迭代与预算调整。",
+                d: "根据投放目标进行日常优化、素材迭代与预算调整",
                 Icon: BarChart3,
                 items: [
                   { text: "多平台素材策略与本地化适配", Icon: ImageIcon },
