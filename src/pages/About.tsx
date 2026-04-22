@@ -976,11 +976,18 @@ export default function About() {
             </motion.div>
           </div>
 
-          {/* 价值观 — 同样使用 SectionHeader 形成同层级 */}
-          <div className="mt-6 w-full">
+          {/* 价值观 — 与使命/愿景同款大玻璃卡 */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.55, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-4 md:mt-5 w-full rounded-2xl p-5 md:p-6 glass-card"
+            style={CARD}
+          >
             <SectionHeader icon={Sparkles} label="价值观" />
-            <ValueGrid />
-          </div>
+            <ValueList />
+          </motion.div>
         </ScreenInner>
       </SnapScreen>
 
