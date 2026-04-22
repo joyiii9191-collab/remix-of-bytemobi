@@ -282,28 +282,20 @@ function CompanyIntro() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.55, delay: i * 0.1 }}
-              className="relative md:px-2"
+              className="relative md:px-2 flex flex-col items-center text-center"
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
-                  style={{
-                    background: `linear-gradient(135deg, ${ACCENT} 0%, hsl(265 70% 60%) 100%)`,
-                    color: "white",
-                    boxShadow: "0 8px 22px -10px rgba(99,102,241,0.55)",
-                  }}
-                >
-                  <Icon size={22} />
-                </div>
-                <span
-                  className="text-xs font-mono tracking-widest"
-                  style={{ color: "rgba(15,20,40,0.35)" }}
-                >
-                  0{i + 1}
-                </span>
+              <div
+                className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 mb-4"
+                style={{
+                  background: `linear-gradient(135deg, ${ACCENT} 0%, hsl(265 70% 60%) 100%)`,
+                  color: "white",
+                  boxShadow: "0 10px 26px -10px rgba(99,102,241,0.55)",
+                }}
+              >
+                <Icon size={26} />
               </div>
 
-              <div className="flex items-baseline gap-2 mb-2">
+              <div className="flex flex-col items-center gap-1 mb-2">
                 <h3
                   className="text-2xl md:text-3xl font-bold leading-tight"
                   style={{ color: TEXT_DARK }}
@@ -311,7 +303,7 @@ function CompanyIntro() {
                   {p.label}
                 </h3>
                 <span
-                  className="text-xs font-medium uppercase tracking-wider"
+                  className="text-[11px] font-medium uppercase tracking-[0.2em]"
                   style={{ color: ACCENT }}
                 >
                   {p.en}
@@ -319,26 +311,34 @@ function CompanyIntro() {
               </div>
 
               <p
-                className="text-sm md:text-[15px] leading-relaxed mb-4"
+                className="text-sm md:text-[15px] leading-relaxed mb-5 max-w-xs"
                 style={{ color: TEXT_MID }}
               >
                 {p.desc}
               </p>
 
-              <ul className="space-y-1.5">
-                {p.points.map((pt) => (
-                  <li
-                    key={pt}
-                    className="text-xs md:text-sm leading-relaxed flex items-start gap-2"
-                    style={{ color: TEXT_MID }}
-                  >
-                    <span
-                      className="mt-2 w-1 h-1 rounded-full shrink-0"
-                      style={{ background: ACCENT }}
-                    />
-                    <span>{pt}</span>
-                  </li>
-                ))}
+              <ul className="space-y-2.5 w-full max-w-xs">
+                {p.points.map((pt) => {
+                  const PtIcon = pt.icon;
+                  return (
+                    <li
+                      key={pt.text}
+                      className="text-xs md:text-sm leading-relaxed flex items-center justify-center gap-2"
+                      style={{ color: TEXT_MID }}
+                    >
+                      <span
+                        className="w-6 h-6 rounded-full flex items-center justify-center shrink-0"
+                        style={{
+                          background: "rgba(99,102,241,0.10)",
+                          color: ACCENT,
+                        }}
+                      >
+                        <PtIcon size={13} strokeWidth={2.2} />
+                      </span>
+                      <span>{pt.text}</span>
+                    </li>
+                  );
+                })}
               </ul>
             </motion.div>
           );
