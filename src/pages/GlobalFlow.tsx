@@ -185,7 +185,8 @@ export default function GlobalFlow() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, amount: 0.3 }}
-                    transition={{ duration: 0.5, delay: i * 0.08 }}
+                    transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                    whileHover={{ y: -4 }}
                     className="flex-1 rounded-2xl p-6 relative glass-card flex flex-col items-center text-center"
                     style={{
                       ...CARD,
@@ -212,7 +213,7 @@ export default function GlobalFlow() {
             {UA_STEPS.map((s, i) => {
               const Icon = s.icon;
               return (
-                <div key={s.title} className="rounded-2xl p-4 flex gap-3 glass-card" style={CARD}>
+                <div key={s.title} className="card-enter rounded-2xl p-4 flex gap-3 glass-card" style={{ ...CARD, animationDelay: `${i * 0.06}s` }}>
                   <div
                     className="w-9 h-9 shrink-0 rounded-xl flex items-center justify-center"
                     style={{ background: "rgba(99,102,241,0.1)", color: ACCENT }}
@@ -242,7 +243,8 @@ export default function GlobalFlow() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false, amount: 0.3 }}
-                  transition={{ duration: 0.5, delay: i * 0.08 }}
+                  transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                  whileHover={{ y: -4 }}
                   className="rounded-2xl p-5 flex flex-col items-center text-center glass-card relative"
                   style={{
                     ...CARD,
@@ -280,7 +282,8 @@ export default function GlobalFlow() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false, amount: 0.3 }}
-                  transition={{ duration: 0.5, delay: i * 0.08 }}
+                  transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                  whileHover={{ y: -4 }}
                   className="rounded-2xl p-6 glass-card flex flex-col items-center text-center"
                   style={{
                     ...CARD,

@@ -199,8 +199,9 @@ function SideCard({ data, dir }: { data: typeof ADV_SIDE; dir: "l" | "r" }) {
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.3 }}
-              transition={{ duration: 0.4, delay: i * 0.06 }}
-              className="group flex gap-4 p-5 rounded-2xl transition-all duration-300 hover:-translate-y-0.5 text-left border"
+              transition={{ duration: 0.4, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: -4 }}
+              className="group flex gap-4 p-5 rounded-2xl transition-[background,border-color,box-shadow] duration-300 text-left border hover:bg-[hsla(245,60%,45%,0.07)] hover:border-[hsla(245,60%,45%,0.32)] hover:shadow-[0_18px_40px_-16px_hsla(245,50%,30%,0.22)]"
               style={{
                 background: "hsla(245, 60%, 45%, 0.04)",
                 borderColor: "hsla(245, 60%, 45%, 0.18)",
