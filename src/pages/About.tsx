@@ -608,7 +608,7 @@ const VALUES: ValueItem[] = [
   {
     no: "02",
     label: "开放协作",
-    desc: "跨地域、跨团队、跨文化共建,让信息流动、伙伴受益。",
+    desc: "跨地域、跨团队、跨文化共建\n让信息流动、伙伴受益",
     icon: HeartHandshake,
   },
   {
