@@ -916,8 +916,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.25 }}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-2xl p-5 md:p-6 glass-card"
-              style={CARD}
+              className="p-5 md:p-6"
             >
               <SectionHeader icon={Rocket} label="使命" />
               <CultureStatement
@@ -931,8 +930,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.25 }}
               transition={{ duration: 0.55, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-2xl p-5 md:p-6 glass-card"
-              style={CARD}
+              className="p-5 md:p-6"
             >
               <SectionHeader icon={Globe2} label="愿景" />
               <CultureStatement
@@ -948,8 +946,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.55, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-4 md:mt-5 w-full rounded-2xl p-5 md:p-6 glass-card"
-            style={CARD}
+            className="mt-4 md:mt-5 w-full p-5 md:p-6"
           >
             <SectionHeader icon={Sparkles} label="价值观" />
             <ValueList />
