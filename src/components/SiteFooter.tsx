@@ -11,7 +11,7 @@ export function SiteFooter() {
       }}
     >
       <div className="max-w-[1200px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10 justify-items-center text-center">
           <div>
             <h4 className="text-white/80 text-sm font-semibold mb-4 tracking-wide">服务</h4>
             <ul className="flex flex-col gap-2.5">
