@@ -21,8 +21,8 @@ type Office = {
 };
 
 const OFFICES: Office[] = [
-  { x: 70, y: 42, name: "西安(总部)", city: "Xi'an", country: "China",
-    addr: "中国陕西省西安市高新技术产业开发区科技路旺座现代城 B 座 23 层",
+  { x: 78, y: 48, name: "深圳(总部)", city: "Shenzhen", country: "China",
+    addr: "中国广东省深圳市",
     established: "2016", team: "150+",
     focus: "全球总部 · 技术研发 · 商务运营 · 数据中台", highlight: true },
   { x: 78, y: 52, name: "新加坡", city: "Singapore", country: "Singapore",
