@@ -412,10 +412,11 @@ export default function GlobalFlow() {
                   <div
                     className="glass-card absolute inset-0 rounded-2xl flex flex-col items-center justify-center p-6 text-center"
                     style={{
-                      background: "hsla(0, 0%, 100%, 0.55)",
-                      backdropFilter: "blur(40px) saturate(160%)",
-                      WebkitBackdropFilter: "blur(40px) saturate(160%)",
-                      borderColor: "hsla(0, 0%, 100%, 0.7)",
+                      background: "hsla(0, 0%, 100%, 0.22)",
+                      backdropFilter: "blur(18px) saturate(140%)",
+                      WebkitBackdropFilter: "blur(18px) saturate(140%)",
+                      borderColor: "hsla(0, 0%, 100%, 0.45)",
+                      boxShadow: "0 10px 30px -12px hsla(0,0%,0%,0.25)",
                     }}
                   >
                     <div
