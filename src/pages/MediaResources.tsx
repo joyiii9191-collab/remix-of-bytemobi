@@ -241,7 +241,7 @@ export default function MediaResources() {
                   { from: 90, to: 180 },
                   { from: 180, to: 270 },
                 ].map((arc, i) => {
-                  const r = 30;
+                  const r = 38;
                   const startRad = ((arc.from + 18) * Math.PI) / 180;
                   const endRad = ((arc.to - 18) * Math.PI) / 180;
                   const x1 = 50 + r * Math.cos(startRad);
@@ -270,7 +270,7 @@ export default function MediaResources() {
               ].map((node, i) => {
                 const Icon = node.Icon;
                 const rad = (node.angle * Math.PI) / 180;
-                const radius = 42;
+                const radius = 38;
                 const x = 50 + radius * Math.cos(rad);
                 const y = 50 + radius * Math.sin(rad);
                 return (
