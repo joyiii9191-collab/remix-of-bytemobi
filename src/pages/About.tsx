@@ -1044,19 +1044,16 @@ export default function About() {
                     loading="lazy"
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.06]"
                   />
-                  {/* 日期徽章 — 右上角浮层 */}
-                  <div className="absolute top-2.5 right-2.5 z-10">
+                  <div className="absolute top-3 left-3 z-10">
                     <span
-                      className="inline-flex items-center gap-1 text-[10px] md:text-[10.5px] font-semibold tabular-nums tracking-wide px-2 py-1 rounded-md backdrop-blur-md"
+                      className="text-[10px] font-semibold tracking-[0.18em] uppercase px-2.5 py-1 rounded-full backdrop-blur-md"
                       style={{
-                        background: "rgba(255,255,255,0.9)",
+                        background: "rgba(255,255,255,0.85)",
                         color: ACCENT,
                         border: "1px solid rgba(99,102,241,0.22)",
-                        boxShadow: "0 4px 14px -6px rgba(99,102,241,0.25)",
                       }}
                     >
-                      <Calendar size={10.5} strokeWidth={2} />
-                      {e.date.replace(/\s/g, "")}
+                      2026
                     </span>
                   </div>
                   <div
@@ -1070,13 +1067,35 @@ export default function About() {
                 </div>
 
                 <div className="px-3.5 md:px-4 py-3 md:py-3.5 flex flex-col gap-2">
-                  {/* 标题 */}
-                  <h3
-                    className="text-[12.5px] md:text-[13.5px] font-bold leading-tight tracking-tight truncate"
-                    style={{ color: TEXT_DARK }}
-                  >
-                    {e.name}
-                  </h3>
+                  {/* 标题 + 日期徽章 */}
+                  <div className="flex items-start justify-between gap-2 min-w-0">
+                    <h3
+                      className="text-[12.5px] md:text-[13.5px] font-bold leading-tight tracking-tight truncate min-w-0 flex-1"
+                      style={{ color: TEXT_DARK }}
+                    >
+                      {e.name}
+                    </h3>
+                    <span
+                      className="shrink-0 text-[9.5px] md:text-[10px] font-semibold tabular-nums tracking-wide px-1.5 py-0.5 rounded-md"
+                      style={{
+                        color: ACCENT,
+                        background: "rgba(99,102,241,0.10)",
+                        border: "1px solid rgba(99,102,241,0.18)",
+                      }}
+                    >
+                      {e.date.replace(/^2026\./, "").replace(/\s/g, "")}
+                    </span>
+                  </div>
+
+                  {/* 分隔细线 */}
+                  <div
+                    aria-hidden
+                    className="h-px w-full"
+                    style={{
+                      background:
+                        "linear-gradient(90deg, rgba(99,102,241,0.18) 0%, rgba(99,102,241,0) 100%)",
+                    }}
+                  />
 
                   {/* 地址(单行,溢出省略) */}
                   <div
