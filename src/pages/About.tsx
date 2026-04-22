@@ -643,7 +643,7 @@ function ValueList() {
             ease: [0.22, 1, 0.36, 1],
           }}
           whileHover={{ y: -2 }}
-          className="rounded-xl px-3.5 py-3 flex flex-col items-start text-left"
+          className="rounded-xl px-3.5 py-4 flex flex-col items-center text-center"
           style={{
             background:
               "linear-gradient(135deg, rgba(255,255,255,0.55) 0%, rgba(120,90,240,0.06) 100%)",
@@ -654,16 +654,15 @@ function ValueList() {
           }}
         >
           <div
-            className="flex items-center justify-center mb-2 rounded-lg"
+            className="flex items-center justify-center mb-2.5 rounded-xl"
             style={{
-              width: 28,
-              height: 28,
-              background:
-                "linear-gradient(135deg, hsl(225 75% 52%) 0%, hsl(265 70% 58%) 100%)",
-              boxShadow: "0 4px 10px -4px rgba(99,102,241,0.45)",
+              width: 36,
+              height: 36,
+              background: "rgba(120,120,140,0.08)",
+              border: "1px solid rgba(120,120,140,0.12)",
             }}
           >
-            <v.icon size={15} strokeWidth={2.2} color="#ffffff" />
+            <v.icon size={18} strokeWidth={1.8} color="hsl(225 10% 45%)" />
           </div>
           <h4
             className="text-[13.5px] md:text-[14.5px] font-bold tracking-tight leading-tight mb-1"
