@@ -124,7 +124,7 @@ export function GradientGlassCardShell({
   className = "",
   withOverlay = true,
   withGlow = true,
-  padding = "px-4 py-3.5 md:px-5 md:py-4",
+  padding = "px-4 py-3 md:px-5 md:py-3.5",
   style,
   ...rest
 }: ShellProps) {
@@ -151,8 +151,9 @@ export function GradientGlassCard({
   desc,
   className = "",
   padding,
-  decoIconSize = 92,
-  decoIconPosition = "bottom-right",
+  decoIconSize = 64,
+  decoIconPosition = "top-right",
+  decoIconOpacity = 0.16,
 }: {
   icon: LucideIcon;
   no?: string;
@@ -162,6 +163,7 @@ export function GradientGlassCard({
   padding?: string;
   decoIconSize?: number;
   decoIconPosition?: "bottom-right" | "bottom-left" | "top-right" | "top-left";
+  decoIconOpacity?: number;
 }) {
   return (
     <GradientGlassCardShell className={className} padding={padding}>
@@ -169,39 +171,40 @@ export function GradientGlassCard({
         icon={icon}
         size={decoIconSize}
         position={decoIconPosition}
+        opacity={decoIconOpacity}
       />
 
-      <div className="relative flex items-center gap-3">
-        {no && (
-          <span
-            className="font-bold tabular-nums leading-none shrink-0"
-            style={{
-              fontSize: "1.5rem",
-              fontFamily:
-                "'Playfair Display', 'Cormorant Garamond', Georgia, serif",
-              ...GRADIENT_TEXT_BLUE_PURPLE_VIVID,
-            }}
-          >
-            {no}
-          </span>
-        )}
-
-        <div className="flex-1 min-w-0">
+      <div className="relative">
+        {/* 顶行:序号 + 标题 同一行,紧凑排列 */}
+        <div className="flex items-baseline gap-2 mb-1">
+          {no && (
+            <span
+              className="font-bold tabular-nums leading-none shrink-0"
+              style={{
+                fontSize: "0.95rem",
+                fontFamily:
+                  "'Playfair Display', 'Cormorant Garamond', Georgia, serif",
+                ...GRADIENT_TEXT_BLUE_PURPLE_VIVID,
+              }}
+            >
+              {no}
+            </span>
+          )}
           <h3
-            className="text-base md:text-lg font-bold leading-tight mb-1"
+            className="text-sm md:text-base font-bold leading-tight truncate"
             style={GRADIENT_TEXT_BLUE_PURPLE}
           >
             {title}
           </h3>
-          {desc && (
-            <p
-              className="text-[12.5px] md:text-[13px] leading-snug"
-              style={{ color: TEXT_MID }}
-            >
-              {desc}
-            </p>
-          )}
         </div>
+        {desc && (
+          <p
+            className="text-[12px] md:text-[12.5px] leading-snug pr-10"
+            style={{ color: TEXT_MID }}
+          >
+            {desc}
+          </p>
+        )}
       </div>
     </GradientGlassCardShell>
   );
