@@ -74,6 +74,7 @@ const TIMELINE: Milestone[] = [
 const EVENTS = ["IAB", "GDC", "Japan IT Week", "ChinaJoy", "TGS", "中东峰会", "IVS Kyoto"];
 
 import { GLASS_CARD as CARD, TEXT_DARK, TEXT_MID, ACCENT } from "@/lib/page-styles";
+import { GradientGlassCard } from "@/components/GradientGlassCard";
 
 // 时间轴渐变色:蓝 → 紫
 const TIMELINE_GRADIENT = "linear-gradient(180deg, hsl(220 90% 60%) 0%, hsl(250 80% 62%) 50%, hsl(280 75% 60%) 100%)";
