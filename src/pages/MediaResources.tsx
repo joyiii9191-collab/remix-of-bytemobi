@@ -378,125 +378,80 @@ export default function MediaResources() {
           <ScreenTitle>清晰路径 · 协同推进</ScreenTitle>
           <ScreenLead>从首次咨询到长期复盘,六步闭环陪伴合作伙伴稳健增长</ScreenLead>
 
-          {(() => {
-            const PRIMARY = "hsl(225 75% 42%)";
-            const PRIMARY_LIGHT = "hsl(225 70% 55%)";
-            const steps = [
-              { t: "咨询沟通", side: "top", bullets: ["需求初步确认", "目标市场对齐", "服务范围沟通"] },
-              { t: "需求评估", side: "bottom", bullets: ["市场与品类诊断", "投放可行性评估", "预算与目标拆解"] },
-              { t: "签约合作", side: "top", bullets: ["方案与报价确认", "合同签署", "资源对接启动"] },
-              { t: "账户搭建", side: "bottom", bullets: ["媒介开户", "投放结构搭建", "素材与落地页准备"] },
-              { t: "投放优化", side: "top", bullets: ["AB 测试与迭代", "ROI 持续优化", "周期复盘报告"] },
-              { t: "数据复盘", side: "bottom", bullets: ["效果回归分析", "方法论沉淀", "长期增长建议"] },
-            ];
-            const top = steps.filter(s => s.side === "top");
-            const bottom = steps.filter(s => s.side === "bottom");
+          <div className="mt-12 w-full">
+            {(() => {
+              const steps = [
+                { t: "咨询沟通", bullets: ["需求初步确认", "目标市场对齐", "服务范围沟通"] },
+                { t: "需求评估", bullets: ["市场与品类诊断", "投放可行性评估", "预算与目标拆解"] },
+                { t: "签约合作", bullets: ["方案与报价确认", "合同签署", "资源对接启动"] },
+                { t: "账户搭建", bullets: ["媒介开户", "投放结构搭建", "素材与落地页准备"] },
+                { t: "投放优化", bullets: ["AB 测试与迭代", "ROI 持续优化", "周期复盘报告"] },
+                { t: "数据复盘", bullets: ["效果回归分析", "方法论沉淀", "长期增长建议"] },
+              ];
+              return (
+                <div className="relative" style={{ paddingTop: "120px", paddingBottom: "120px" }}>
+                  {/* 贯穿紫蓝渐变时间轴 */}
+                  <div className="absolute left-0 right-0 h-[2px]" style={{
+                    top: "50%",
+                    transform: "translateY(-1px)",
+                    background: "linear-gradient(90deg, hsl(245 80% 68%) 0%, hsl(225 85% 60%) 50%, hsl(265 75% 62%) 100%)",
+                    boxShadow: "0 2px 14px hsla(235, 80%, 60%, 0.3)",
+                    opacity: 0.9,
+                  }} />
 
-            const Pill = ({ label }: { label: string }) => (
-              <div className="inline-flex items-center justify-center px-6 py-2.5 rounded-full text-white text-sm font-semibold shadow-lg"
-                style={{
-                  background: `linear-gradient(135deg, ${PRIMARY} 0%, ${PRIMARY_LIGHT} 100%)`,
-                  boxShadow: `0 6px 18px -6px ${PRIMARY}`,
-                  minWidth: "150px",
-                }}>
-                {label}
-              </div>
-            );
-
-            const Bullets = ({ items }: { items: string[] }) => (
-              <ul className="text-[13px] leading-relaxed space-y-1.5" style={{ color: TEXT_MID }}>
-                {items.map((b) => (
-                  <li key={b} className="flex items-start gap-2">
-                    <span className="mt-[7px] inline-block h-1 w-1 rounded-full flex-shrink-0" style={{ background: PRIMARY }} />
-                    <span>{b}</span>
-                  </li>
-                ))}
-              </ul>
-            );
-
-            return (
-              <div className="mt-12 w-full relative">
-                {/* SVG U 形流程箭头(底层) */}
-                <svg viewBox="0 0 1000 380" className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none">
-                  <defs>
-                    <linearGradient id="arrowGrad" x1="0" y1="0" x2="1" y2="0">
-                      <stop offset="0%" stopColor="hsl(225 75% 42%)" />
-                      <stop offset="50%" stopColor="hsl(235 70% 50%)" />
-                      <stop offset="100%" stopColor="hsl(245 70% 55%)" />
-                    </linearGradient>
-                  </defs>
-                  {/* 上行 + 右侧弯 + 下行 + 左端箭头 */}
-                  <path
-                    d="M 20 120
-                       L 880 120
-                       Q 960 120 960 190
-                       Q 960 260 880 260
-                       L 60 260
-                       L 60 240
-                       L 20 270
-                       L 60 300
-                       L 60 280
-                       L 880 280
-                       Q 980 280 980 190
-                       Q 980 100 880 100
-                       L 20 100 Z"
-                    fill="url(#arrowGrad)"
-                    opacity="0.92"
-                  />
-                </svg>
-
-                <div className="relative" style={{ minHeight: "380px" }}>
-                  {/* 上方要点(对应 top 步骤) */}
-                  <div className="absolute top-0 left-0 right-[6%] grid grid-cols-3 gap-6 px-2">
-                    {top.map((s, i) => (
-                      <motion.div key={s.t}
-                        initial={{ opacity: 0, y: -8 }} whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: i * 0.08 }}
-                        className="text-left pl-4">
-                        <Bullets items={s.bullets} />
-                      </motion.div>
-                    ))}
-                  </div>
-
-                  {/* 上排胶囊 (在上行轴上) */}
-                  <div className="absolute left-0 right-[6%] grid grid-cols-3 gap-6 px-2" style={{ top: "33%" }}>
-                    {top.map((s, i) => (
-                      <motion.div key={s.t}
-                        initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.35, delay: i * 0.08 }}
-                        className="flex justify-start pl-4">
-                        <Pill label={s.t} />
-                      </motion.div>
-                    ))}
-                  </div>
-
-                  {/* 下排胶囊 (在下行轴上,视觉上从右往左) */}
-                  <div className="absolute left-[6%] right-0 grid grid-cols-3 gap-6 px-2" style={{ top: "60%" }}>
-                    {bottom.slice().reverse().map((s, i) => (
-                      <motion.div key={s.t}
-                        initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.35, delay: i * 0.08 }}
-                        className="flex justify-end pr-4">
-                        <Pill label={s.t} />
-                      </motion.div>
-                    ))}
-                  </div>
-
-                  {/* 下方要点 (对应 bottom 步骤,从右往左) */}
-                  <div className="absolute bottom-0 left-[6%] right-0 grid grid-cols-3 gap-6 px-2">
-                    {bottom.slice().reverse().map((s, i) => (
-                      <motion.div key={s.t}
-                        initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: i * 0.08 }}
-                        className="text-right pr-4">
-                        <Bullets items={s.bullets} />
-                      </motion.div>
-                    ))}
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-5 relative">
+                    {steps.map(({ t, bullets }, i, arr) => {
+                      const ratio = i / (arr.length - 1);
+                      const hue = 245 + (ratio - 0.5) * 40;
+                      const dotColor = `hsl(${hue}, 78%, 60%)`;
+                      const isTop = i % 2 === 0;
+                      return (
+                        <motion.div key={t}
+                          initial={{ opacity: 0, y: isTop ? -10 : 10 }} whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: i * 0.07 }}
+                          className="relative flex flex-col items-center text-center">
+                          {/* 上方内容 */}
+                          {isTop && (
+                            <div className="absolute bottom-[calc(50%+18px)] left-0 right-0 px-1">
+                              <div className="text-base font-semibold mb-2" style={{ color: TEXT_DARK }}>{t}</div>
+                              <ul className="text-[12px] leading-relaxed space-y-1 text-left inline-block" style={{ color: TEXT_MID }}>
+                                {bullets.map(b => (
+                                  <li key={b} className="flex items-start gap-1.5">
+                                    <span className="mt-[6px] inline-block h-1 w-1 rounded-full flex-shrink-0" style={{ background: dotColor }} />
+                                    <span>{b}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                          {/* 圆点(置于轴中心) */}
+                          <div className="h-[16px] w-[16px] rounded-full ring-[3px] ring-white relative z-10"
+                            style={{
+                              background: dotColor,
+                              boxShadow: `0 2px 12px hsla(${hue}, 78%, 55%, 0.6)`,
+                            }} />
+                          {/* 下方内容 */}
+                          {!isTop && (
+                            <div className="absolute top-[calc(50%+18px)] left-0 right-0 px-1">
+                              <div className="text-base font-semibold mb-2" style={{ color: TEXT_DARK }}>{t}</div>
+                              <ul className="text-[12px] leading-relaxed space-y-1 text-left inline-block" style={{ color: TEXT_MID }}>
+                                {bullets.map(b => (
+                                  <li key={b} className="flex items-start gap-1.5">
+                                    <span className="mt-[6px] inline-block h-1 w-1 rounded-full flex-shrink-0" style={{ background: dotColor }} />
+                                    <span>{b}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                        </motion.div>
+                      );
+                    })}
                   </div>
                 </div>
-              </div>
-            );
-          })()}
+              );
+            })()}
+          </div>
         </ScreenInner>
       </SnapScreen>
     </SnapPage>
