@@ -643,7 +643,7 @@ function ValueList() {
             ease: [0.22, 1, 0.36, 1],
           }}
           whileHover={{ y: -2 }}
-          className="rounded-xl px-3.5 py-3 flex flex-col items-start text-left"
+          className="rounded-xl px-3.5 py-4 flex flex-col items-center text-center"
           style={{
             background:
               "linear-gradient(135deg, rgba(255,255,255,0.55) 0%, rgba(120,90,240,0.06) 100%)",
