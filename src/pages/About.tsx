@@ -616,12 +616,12 @@ export default function About() {
         </Dialog>
       </SnapScreen>
 
-      {/* === Screen 4 — 发展历程 === */}
-      <SnapScreen id="timeline" bg="tint">
-        <ScreenInner>
+      {/* === Screen 4 — 发展历程(不吸附,允许长内容自由滚动) === */}
+      <SnapScreen id="timeline" bg="tint" snap={false}>
+        <ScreenInner className="!justify-start py-12 md:py-16">
           <ScreenTitle>十年路径</ScreenTitle>
           <ScreenLead>从 2016 到 2025,八个里程碑串起公司的全球化轨迹。</ScreenLead>
-          <div className="mt-10">
+          <div className="mt-10 w-full">
             <HorizontalTimeline />
           </div>
         </ScreenInner>
