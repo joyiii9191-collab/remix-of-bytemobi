@@ -654,10 +654,10 @@ function ValueList() {
           }}
         >
           <v.icon
-            size={28}
-            strokeWidth={1.6}
-            color="hsl(225 10% 45%)"
-            className="mb-2.5"
+            size={56}
+            strokeWidth={1.2}
+            color="hsl(255 60% 72%)"
+            className="mb-3"
           />
           <h4
             className="text-[13.5px] md:text-[14.5px] font-bold tracking-tight leading-tight mb-1"
