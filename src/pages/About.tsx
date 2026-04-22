@@ -492,71 +492,88 @@ function CompanyIntro() {
 /* ============================================================
  * 企业文化 — 使命/愿景大字陈述屏
  * ============================================================ */
+/* ============================================================
+ * 分区小标题 — 使命 / 愿景 / 价值观 三处共用,形成同层级视觉
+ * ============================================================ */
+function SectionHeader({
+  icon: Icon,
+  label,
+}: {
+  icon: LucideIcon;
+  label: string;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, amount: 0.4 }}
+      transition={{ duration: 0.45 }}
+      className="flex items-center gap-2.5 mb-3"
+    >
+      <span
+        className="w-7 h-7 rounded-lg flex items-center justify-center backdrop-blur-md shrink-0"
+        style={{
+          background:
+            "linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(120,90,240,0.18) 100%)",
+          border: "1px solid rgba(255,255,255,0.6)",
+          color: ACCENT,
+          boxShadow: "0 6px 18px -10px rgba(99,102,241,0.35)",
+        }}
+      >
+        <Icon size={14} strokeWidth={1.8} />
+      </span>
+      <span
+        className="text-sm md:text-[15px] font-semibold"
+        style={{ color: TEXT_DARK, letterSpacing: "0.06em" }}
+      >
+        {label}
+      </span>
+      <span
+        aria-hidden
+        className="flex-1 h-px"
+        style={{
+          background:
+            "linear-gradient(90deg, rgba(99,102,241,0.35) 0%, rgba(99,102,241,0) 100%)",
+        }}
+      />
+    </motion.div>
+  );
+}
+
+/* ============================================================
+ * 使命 / 愿景 卡片内文 — 大字陈述 + 副文
+ * (图标 + 中文小标已外移到 SectionHeader)
+ * ============================================================ */
 function CultureStatement({
-  kicker,
   statement,
   sub,
-  icon: Icon,
-  compact = false,
 }: {
-  kicker: string;
   statement: string[];
   sub: string;
-  icon: LucideIcon;
-  compact?: boolean;
 }) {
-  const statementSize = compact
-    ? "clamp(1.5rem, 2.2vw, 2.1rem)"
-    : "clamp(2.6rem, 6.4vw, 5.4rem)";
-  const gap = compact ? "gap-3" : "gap-6";
-  const subSize = compact ? "text-[13px] md:text-sm" : "text-base md:text-lg";
-
   return (
-    <div className={`w-full flex flex-col items-start text-left ${gap}`}>
-      {/* 图标 + 中文小标(同一行) */}
-      <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.4 }}
-        transition={{ duration: 0.5 }}
-        className="flex items-center gap-2.5"
-      >
-        <span
-          className={`${compact ? "w-8 h-8" : "w-10 h-10"} rounded-xl flex items-center justify-center backdrop-blur-md`}
-          style={{
-            background:
-              "linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(120,90,240,0.18) 100%)",
-            border: "1px solid rgba(255,255,255,0.6)",
-            color: ACCENT,
-            boxShadow: "0 8px 24px -12px rgba(99,102,241,0.35)",
-          }}
-        >
-          <Icon size={compact ? 16 : 20} strokeWidth={1.7} />
-        </span>
-        <span
-          className={compact ? "text-sm font-semibold" : "text-base md:text-lg font-medium"}
-          style={{ color: TEXT_DARK, letterSpacing: "0.04em" }}
-        >
-          {kicker}
-        </span>
-      </motion.div>
-
-      {/* 大字陈述 — 蓝紫渐变 */}
+    <div className="w-full flex flex-col items-start text-left gap-3.5">
+      {/* 大字陈述 — 蓝紫渐变,逐行入场 */}
       <div className="w-full">
         {statement.map((line, i) => (
           <motion.div
             key={line + i}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.6, delay: 0.1 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="font-bold leading-[1.15] tracking-tight"
+            transition={{
+              duration: 0.6,
+              delay: 0.1 + i * 0.1,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="font-semibold leading-[1.18]"
             style={{
-              fontSize: statementSize,
+              fontSize: "clamp(1.55rem, 2.1vw, 2.2rem)",
               fontFamily:
                 "'Playfair Display', 'Cormorant Garamond', 'Noto Serif SC', Georgia, serif",
+              letterSpacing: "0.01em",
               backgroundImage:
-                "linear-gradient(135deg, hsl(220 90% 58%) 0%, hsl(250 85% 60%) 50%, hsl(280 80% 60%) 100%)",
+                "linear-gradient(135deg, hsl(220 90% 56%) 0%, hsl(255 85% 60%) 50%, hsl(285 80% 60%) 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -570,12 +587,12 @@ function CultureStatement({
 
       {/* 副文 */}
       <motion.p
-        initial={{ opacity: 0, y: 12 }}
+        initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.3 }}
-        transition={{ duration: 0.55, delay: 0.35 }}
-        className={`max-w-2xl ${subSize} leading-relaxed`}
-        style={{ color: TEXT_MID }}
+        transition={{ duration: 0.5, delay: 0.35 }}
+        className="text-[13px] md:text-[14px] leading-[1.7]"
+        style={{ color: TEXT_MID, maxWidth: "32ch" }}
       >
         {sub}
       </motion.p>
@@ -872,7 +889,7 @@ export default function About() {
         <ScreenInner className="!justify-center">
           <ScreenTitle>企业文化</ScreenTitle>
 
-          {/* 使命 + 愿景 双联玻璃卡 */}
+          {/* 使命 + 愿景 双联玻璃卡 — 各自带 SectionHeader,同层级视觉 */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 mt-6 w-full">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -882,12 +899,10 @@ export default function About() {
               className="rounded-2xl p-5 md:p-6 glass-card"
               style={CARD}
             >
+              <SectionHeader icon={Rocket} label="使命" />
               <CultureStatement
-                kicker="使命"
                 statement={["让数字连接", "更有价值"]}
                 sub="以技术与服务为支点,放大每一次跨地域、跨文化数字连接背后的商业与社会价值。"
-                icon={Rocket}
-                compact
               />
             </motion.div>
 
@@ -899,34 +914,17 @@ export default function About() {
               className="rounded-2xl p-5 md:p-6 glass-card"
               style={CARD}
             >
+              <SectionHeader icon={Globe2} label="愿景" />
               <CultureStatement
-                kicker="愿景"
                 statement={["成为全球数字生态中", "值得信赖的桥梁"]}
                 sub="连接世界各地的用户与机会,在每一个市场被认可为长期、稳定、可信赖的合作者。"
-                icon={Globe2}
-                compact
               />
             </motion.div>
           </div>
 
-          {/* 价值观 */}
+          {/* 价值观 — 同样使用 SectionHeader 形成同层级 */}
           <div className="mt-6 w-full">
-            <div className="flex items-center gap-3 mb-2">
-              <span
-                className="text-sm md:text-base font-semibold"
-                style={{ color: TEXT_DARK, letterSpacing: "0.04em" }}
-              >
-                价值观
-              </span>
-              <span
-                aria-hidden
-                className="flex-1 h-px"
-                style={{
-                  background:
-                    "linear-gradient(90deg, rgba(99,102,241,0.35) 0%, rgba(99,102,241,0) 100%)",
-                }}
-              />
-            </div>
+            <SectionHeader icon={Sparkles} label="价值观" />
             <ValueGrid />
           </div>
         </ScreenInner>
