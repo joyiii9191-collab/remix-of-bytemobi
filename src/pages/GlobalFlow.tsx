@@ -441,40 +441,6 @@ export default function GlobalFlow() {
               </motion.div>
             </div>
           </div>
-
-            {/* 右:标题 + 描述 + CTA */}
-            <div className="col-span-12 md:col-span-4">
-              <motion.div
-                key={`txt-${activeCase}`}
-                initial={{ opacity: 0, x: 24 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                className="text-left"
-              >
-                <h3
-                  className="text-2xl md:text-3xl font-bold mb-4"
-                  style={{ color: TEXT_DARK, lineHeight: 1.25 }}
-                >
-                  {CASES[activeCase].title}
-                  <span
-                    className="block text-sm font-medium mt-1"
-                    style={{ color: TEXT_MID }}
-                  >
-                    ({CASES[activeCase].tag} · {CASES[activeCase].region})
-                  </span>
-                </h3>
-                <p
-                  className="text-sm md:text-base mb-6"
-                  style={{ color: TEXT_MID, lineHeight: 1.7 }}
-                >
-                  {CASES[activeCase].summary}
-                </p>
-                <StarBorder speed="5s" onClick={() => setOpenCase(CASES[activeCase])}>
-                  了解更多
-                </StarBorder>
-              </motion.div>
-            </div>
-          </div>
           <p
             className="w-full text-center text-xs mt-8"
             style={{ color: "hsl(220 9% 60%)" }}
