@@ -548,51 +548,42 @@ function CultureStatement({
   statement,
   sub,
 }: {
-  statement: string[];
+  statement: string;
   sub: string;
 }) {
   return (
-    <div className="w-full flex flex-col items-start text-left gap-3.5">
-      {/* 大字陈述 — 蓝紫渐变,逐行入场 */}
-      <div className="w-full">
-        {statement.map((line, i) => (
-          <motion.div
-            key={line + i}
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{
-              duration: 0.6,
-              delay: 0.1 + i * 0.1,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="font-semibold leading-[1.18]"
-            style={{
-              fontSize: "clamp(1.55rem, 2.1vw, 2.2rem)",
-              fontFamily:
-                "'Playfair Display', 'Cormorant Garamond', 'Noto Serif SC', Georgia, serif",
-              letterSpacing: "0.01em",
-              backgroundImage:
-                "linear-gradient(135deg, hsl(220 90% 56%) 0%, hsl(255 85% 60%) 50%, hsl(285 80% 60%) 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-              color: "transparent",
-            }}
-          >
-            {line}
-          </motion.div>
-        ))}
-      </div>
+    <div className="w-full flex flex-col items-start text-left gap-3">
+      {/* 大字陈述 — 单行,简洁渐变 */}
+      <motion.div
+        initial={{ opacity: 0, y: 14 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.3 }}
+        transition={{ duration: 0.55, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+        className="font-medium leading-[1.25]"
+        style={{
+          fontSize: "clamp(1.35rem, 1.8vw, 1.85rem)",
+          fontFamily:
+            "'Noto Serif SC', 'Playfair Display', Georgia, serif",
+          letterSpacing: "0.005em",
+          backgroundImage:
+            "linear-gradient(120deg, hsl(225 75% 52%) 0%, hsl(265 70% 58%) 100%)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          backgroundClip: "text",
+          color: "transparent",
+        }}
+      >
+        {statement}
+      </motion.div>
 
       {/* 副文 */}
       <motion.p
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.3 }}
-        transition={{ duration: 0.5, delay: 0.35 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
         className="text-[13px] md:text-[14px] leading-[1.7]"
-        style={{ color: TEXT_MID, maxWidth: "32ch" }}
+        style={{ color: TEXT_MID }}
       >
         {sub}
       </motion.p>
@@ -955,7 +946,7 @@ export default function About() {
             >
               <SectionHeader icon={Rocket} label="使命" />
               <CultureStatement
-                statement={["让数字连接", "更有价值"]}
+                statement="让数字连接更有价值"
                 sub="以技术与服务为支点,放大每一次跨地域、跨文化数字连接背后的商业与社会价值。"
               />
             </motion.div>
@@ -970,7 +961,7 @@ export default function About() {
             >
               <SectionHeader icon={Globe2} label="愿景" />
               <CultureStatement
-                statement={["成为全球数字生态中", "值得信赖的桥梁"]}
+                statement="成为全球数字生态中值得信赖的桥梁"
                 sub="连接世界各地的用户与机会,在每一个市场被认可为长期、稳定、可信赖的合作者。"
               />
             </motion.div>
