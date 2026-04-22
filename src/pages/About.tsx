@@ -653,6 +653,18 @@ function ValueList() {
             transition: "box-shadow 0.3s ease",
           }}
         >
+          <div
+            className="flex items-center justify-center mb-2 rounded-lg"
+            style={{
+              width: 28,
+              height: 28,
+              background:
+                "linear-gradient(135deg, hsl(225 75% 52%) 0%, hsl(265 70% 58%) 100%)",
+              boxShadow: "0 4px 10px -4px rgba(99,102,241,0.45)",
+            }}
+          >
+            <v.icon size={15} strokeWidth={2.2} color="#ffffff" />
+          </div>
           <h4
             className="text-[13.5px] md:text-[14.5px] font-bold tracking-tight leading-tight mb-1"
             style={{
