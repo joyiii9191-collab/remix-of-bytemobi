@@ -430,9 +430,9 @@ export default function MediaResources() {
                         <stop offset="100%" stopColor="hsl(265 75% 62%)" />
                       </linearGradient>
                     </defs>
-                    {/* 上线 y=90, 右侧半圆弧到下线 y=380, 半径 145 */}
+                    {/* 上线 y=90, 右侧半圆弧到下线 y=380, 半径 145; 横线右端 x=800,弧最右点 945,留 55px 右边距 */}
                     <path
-                      d="M 30 90 L 855 90 A 145 145 0 0 1 855 380 L 30 380"
+                      d="M 30 90 L 800 90 A 145 145 0 0 1 800 380 L 30 380"
                       fill="none"
                       stroke="url(#trackGrad)"
                       strokeWidth="2.5"
@@ -444,7 +444,7 @@ export default function MediaResources() {
 
                   {/* 上行圆点行 — 绝对定位让圆点中心对齐线 (top: 16.07%) */}
                   <div className="absolute left-0 grid grid-cols-3 gap-x-6"
-                    style={{ top: "16.07%", right: "calc(11% + 15px)", transform: "translateY(-50%)" }}>
+                    style={{ top: "16.07%", right: "20%", transform: "translateY(-50%)" }}>
                     {top.map((s, idx) => {
                       const i = idx;
                       return (
@@ -460,7 +460,7 @@ export default function MediaResources() {
 
                   {/* 上行文字 — 紧跟圆点下方 */}
                   <div className="absolute left-0 grid grid-cols-3 gap-x-6"
-                    style={{ top: "calc(16.07% + 22px)", right: "calc(11% + 15px)" }}>
+                    style={{ top: "calc(16.07% + 22px)", right: "20%" }}>
                     {top.map((s, idx) => {
                       const i = idx;
                       return (
@@ -475,8 +475,8 @@ export default function MediaResources() {
                   </div>
 
                   {/* 下行圆点行 — top: 67.86% */}
-                  <div className="absolute right-0 grid grid-cols-3 gap-x-6"
-                    style={{ top: "67.86%", left: "calc(11% + 15px)", transform: "translateY(-50%)" }}>
+                  <div className="absolute right-[5.5%] grid grid-cols-3 gap-x-6"
+                    style={{ top: "67.86%", left: "calc(20% - 5.5%)", transform: "translateY(-50%)" }}>
                     {bottom.map((s, idx) => {
                       const i = 5 - idx;
                       return (
@@ -491,8 +491,8 @@ export default function MediaResources() {
                   </div>
 
                   {/* 下行文字 */}
-                  <div className="absolute right-0 grid grid-cols-3 gap-x-6"
-                    style={{ top: "calc(67.86% + 22px)", left: "calc(11% + 15px)" }}>
+                  <div className="absolute right-[5.5%] grid grid-cols-3 gap-x-6"
+                    style={{ top: "calc(67.86% + 22px)", left: "calc(20% - 5.5%)" }}>
                     {bottom.map((s, idx) => {
                       const i = 5 - idx;
                       return (
