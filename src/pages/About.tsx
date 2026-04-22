@@ -633,78 +633,42 @@ const VALUES: ValueItem[] = [
  * ============================================================ */
 function ValueList() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-3.5 w-full">
-      {VALUES.map((v, i) => {
-        const Icon = v.icon;
-        return (
-          <motion.div
-            key={v.label}
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{
-              duration: 0.5,
-              delay: 0.1 + i * 0.07,
-              ease: [0.22, 1, 0.36, 1],
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 w-full">
+      {VALUES.map((v, i) => (
+        <motion.div
+          key={v.label}
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{
+            duration: 0.5,
+            delay: 0.1 + i * 0.07,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="flex flex-col items-start text-left"
+        >
+          <h4
+            className="text-[14px] md:text-[15px] font-semibold leading-tight mb-1"
+            style={{
+              backgroundImage:
+                "linear-gradient(120deg, hsl(225 75% 52%) 0%, hsl(265 70% 58%) 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              color: "transparent",
+              letterSpacing: "0.02em",
             }}
-            className="flex items-start gap-3"
           >
-            {/* 图标小方块 — 与 SectionHeader 同语言 */}
-            <span
-              className="w-8 h-8 rounded-lg flex items-center justify-center backdrop-blur-md shrink-0 mt-0.5"
-              style={{
-                background:
-                  "linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(120,90,240,0.18) 100%)",
-                border: "1px solid rgba(255,255,255,0.6)",
-                color: ACCENT,
-                boxShadow: "0 6px 18px -10px rgba(99,102,241,0.35)",
-              }}
-            >
-              <Icon size={15} strokeWidth={1.8} />
-            </span>
-
-            <div className="flex-1 min-w-0">
-              <div className="flex items-baseline gap-2 mb-0.5">
-                <span
-                  className="font-bold tabular-nums leading-none"
-                  style={{
-                    fontSize: "0.85rem",
-                    fontFamily:
-                      "'Playfair Display', 'Cormorant Garamond', Georgia, serif",
-                    backgroundImage:
-                      "linear-gradient(135deg, hsl(220 90% 58%) 0%, hsl(280 80% 60%) 100%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                    color: "transparent",
-                  }}
-                >
-                  {v.no}
-                </span>
-                <h4
-                  className="text-[14px] md:text-[15px] font-semibold leading-tight"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(135deg, hsl(220 90% 50%) 0%, hsl(260 85% 55%) 50%, hsl(290 80% 58%) 100%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                    color: "transparent",
-                  }}
-                >
-                  {v.label}
-                </h4>
-              </div>
-              <p
-                className="text-[12.5px] md:text-[13px] leading-[1.65]"
-                style={{ color: TEXT_MID }}
-              >
-                {v.desc}
-              </p>
-            </div>
-          </motion.div>
-        );
-      })}
+            {v.label}
+          </h4>
+          <p
+            className="text-[12.5px] md:text-[13px] leading-[1.7]"
+            style={{ color: TEXT_MID }}
+          >
+            {v.desc}
+          </p>
+        </motion.div>
+      ))}
     </div>
   );
 }
