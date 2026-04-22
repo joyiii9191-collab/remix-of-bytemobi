@@ -492,49 +492,36 @@ function CompanyIntro() {
  * 企业文化 — 使命/愿景大字陈述屏
  * ============================================================ */
 function CultureStatement({
-  eyebrow,
   kicker,
   statement,
   sub,
   icon: Icon,
-  align = "left",
   compact = false,
 }: {
-  eyebrow: string;
   kicker: string;
   statement: string[];
   sub: string;
   icon: LucideIcon;
-  align?: "left" | "right";
   compact?: boolean;
 }) {
-  const isRight = align === "right";
   const statementSize = compact
-    ? "clamp(1.6rem, 2.4vw, 2.4rem)"
+    ? "clamp(1.5rem, 2.2vw, 2.1rem)"
     : "clamp(2.6rem, 6.4vw, 5.4rem)";
-  const gap = compact ? "gap-4" : "gap-6";
-  const subSize = compact ? "text-sm md:text-[15px]" : "text-base md:text-lg";
+  const gap = compact ? "gap-3" : "gap-6";
+  const subSize = compact ? "text-[13px] md:text-sm" : "text-base md:text-lg";
 
   return (
-    <div
-      className={`w-full flex flex-col ${
-        compact
-          ? "items-start text-left"
-          : isRight
-          ? "md:items-end md:text-right items-start text-left"
-          : "md:items-start md:text-left items-start text-left"
-      } ${gap}`}
-    >
-      {/* Eyebrow + Icon */}
+    <div className={`w-full flex flex-col items-start text-left ${gap}`}>
+      {/* 图标 + 中文小标(同一行) */}
       <motion.div
-        initial={{ opacity: 0, y: 16 }}
+        initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.4 }}
         transition={{ duration: 0.5 }}
-        className="flex items-center gap-3"
+        className="flex items-center gap-2.5"
       >
         <span
-          className={`${compact ? "w-9 h-9" : "w-10 h-10"} rounded-xl flex items-center justify-center backdrop-blur-md`}
+          className={`${compact ? "w-8 h-8" : "w-10 h-10"} rounded-xl flex items-center justify-center backdrop-blur-md`}
           style={{
             background:
               "linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(120,90,240,0.18) 100%)",
@@ -543,26 +530,14 @@ function CultureStatement({
             boxShadow: "0 8px 24px -12px rgba(99,102,241,0.35)",
           }}
         >
-          <Icon size={compact ? 17 : 20} strokeWidth={1.7} />
+          <Icon size={compact ? 16 : 20} strokeWidth={1.7} />
         </span>
         <span
-          className="text-xs md:text-sm font-semibold uppercase tracking-[0.28em]"
-          style={{ color: ACCENT }}
+          className={compact ? "text-sm font-semibold" : "text-base md:text-lg font-medium"}
+          style={{ color: TEXT_DARK, letterSpacing: "0.04em" }}
         >
-          {eyebrow}
+          {kicker}
         </span>
-      </motion.div>
-
-      {/* 中文小标(使命/愿景) */}
-      <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.4 }}
-        transition={{ duration: 0.5, delay: 0.08 }}
-        className={compact ? "text-sm font-medium" : "text-base md:text-lg font-medium"}
-        style={{ color: TEXT_MID, letterSpacing: "0.04em" }}
-      >
-        {kicker}
       </motion.div>
 
       {/* 大字陈述 — 蓝紫渐变 */}
@@ -570,11 +545,11 @@ function CultureStatement({
         {statement.map((line, i) => (
           <motion.div
             key={line + i}
-            initial={{ opacity: 0, y: 28 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.7, delay: 0.15 + i * 0.12, ease: [0.22, 1, 0.36, 1] }}
-            className="font-bold leading-[1.1] tracking-tight"
+            transition={{ duration: 0.6, delay: 0.1 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="font-bold leading-[1.15] tracking-tight"
             style={{
               fontSize: statementSize,
               fontFamily:
@@ -594,10 +569,10 @@ function CultureStatement({
 
       {/* 副文 */}
       <motion.p
-        initial={{ opacity: 0, y: 16 }}
+        initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.3 }}
-        transition={{ duration: 0.6, delay: 0.45 }}
+        transition={{ duration: 0.55, delay: 0.35 }}
         className={`max-w-2xl ${subSize} leading-relaxed`}
         style={{ color: TEXT_MID }}
       >
@@ -608,12 +583,11 @@ function CultureStatement({
 }
 
 /* ============================================================
- * 价值观 4 卡片网格
+ * 价值观 4 卡片网格(中文,精简)
  * ============================================================ */
 type ValueItem = {
   no: string;
   label: string;
-  en: string;
   desc: string;
   icon: LucideIcon;
 };
@@ -622,117 +596,104 @@ const VALUES: ValueItem[] = [
   {
     no: "01",
     label: "长期主义",
-    en: "Long-termism",
-    desc: "以十年视角做今天的选择,让每一项投入都为未来积累复利。",
+    desc: "以十年视角做今天的选择,让每一项投入积累复利。",
     icon: ShieldCheck,
   },
   {
     no: "02",
     label: "开放协作",
-    en: "Open Collaboration",
-    desc: "跨地域、跨团队、跨文化共建,让信息流动、让伙伴受益。",
+    desc: "跨地域、跨团队、跨文化共建,让信息流动、伙伴受益。",
     icon: HeartHandshake,
   },
   {
     no: "03",
     label: "客户导向",
-    en: "Customer First",
-    desc: "从客户的真实场景出发,用结果衡量价值,持续创造可被验证的增长。",
+    desc: "从客户真实场景出发,用结果衡量价值,创造可验证的增长。",
     icon: BadgeCheck,
   },
   {
     no: "04",
     label: "持续创新",
-    en: "Relentless Innovation",
-    desc: "不满足于既有解法,把技术、产品与服务持续推向更优的下一版本。",
+    desc: "不满足既有解法,把技术与服务持续推向更优的下一版本。",
     icon: Cpu,
   },
 ];
 
 function ValueGrid() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 mt-8 w-full">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-5 w-full">
       {VALUES.map((v, i) => {
         const Icon = v.icon;
         return (
           <motion.div
             key={v.label}
-            initial={{ opacity: 0, y: 28 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.25 }}
             transition={{
-              duration: 0.6,
-              delay: i * 0.1,
+              duration: 0.55,
+              delay: i * 0.08,
               ease: [0.22, 1, 0.36, 1],
             }}
-            whileHover={{ y: -4 }}
-            className="group relative rounded-2xl p-6 md:p-7 overflow-hidden glass-card"
+            whileHover={{ y: -3 }}
+            className="group relative rounded-2xl p-4 md:p-5 overflow-hidden glass-card"
             style={CARD}
           >
             {/* 悬浮渐变光斑 */}
             <div
               aria-hidden
-              className="absolute -top-16 -right-16 w-48 h-48 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              className="absolute -top-12 -right-12 w-36 h-36 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
               style={{
                 background:
                   "radial-gradient(circle, hsl(250 85% 65% / 0.35) 0%, transparent 70%)",
-                filter: "blur(20px)",
+                filter: "blur(18px)",
               }}
             />
 
-            <div className="relative flex items-start gap-4">
-              {/* 序号 — 渐变大字 */}
-              <div
-                className="font-bold leading-none tabular-nums shrink-0"
-                style={{
-                  fontSize: "2.25rem",
-                  fontFamily:
-                    "'Playfair Display', 'Cormorant Garamond', Georgia, serif",
-                  backgroundImage:
-                    "linear-gradient(135deg, hsl(220 90% 58%) 0%, hsl(280 80% 60%) 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                  color: "transparent",
-                  lineHeight: 1.05,
-                }}
-              >
-                {v.no}
+            <div className="relative">
+              {/* 顶行:序号 + 图标 */}
+              <div className="flex items-center justify-between mb-2.5">
+                <span
+                  className="font-bold tabular-nums leading-none"
+                  style={{
+                    fontSize: "1.35rem",
+                    fontFamily:
+                      "'Playfair Display', 'Cormorant Garamond', Georgia, serif",
+                    backgroundImage:
+                      "linear-gradient(135deg, hsl(220 90% 58%) 0%, hsl(280 80% 60%) 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                    color: "transparent",
+                  }}
+                >
+                  {v.no}
+                </span>
+                <span
+                  className="w-8 h-8 rounded-lg flex items-center justify-center"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(120,90,240,0.18) 100%)",
+                    border: "1px solid rgba(255,255,255,0.6)",
+                    color: ACCENT,
+                  }}
+                >
+                  <Icon size={15} strokeWidth={1.8} />
+                </span>
               </div>
 
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2.5 mb-1">
-                  <span
-                    className="w-9 h-9 rounded-xl flex items-center justify-center"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(120,90,240,0.18) 100%)",
-                      border: "1px solid rgba(255,255,255,0.6)",
-                      color: ACCENT,
-                    }}
-                  >
-                    <Icon size={17} strokeWidth={1.8} />
-                  </span>
-                  <h3
-                    className="text-lg md:text-xl font-bold"
-                    style={{ color: TEXT_DARK }}
-                  >
-                    {v.label}
-                  </h3>
-                </div>
-                <div
-                  className="text-[11px] font-semibold uppercase tracking-[0.18em] mb-3"
-                  style={{ color: ACCENT }}
-                >
-                  {v.en}
-                </div>
-                <p
-                  className="text-sm md:text-[15px] leading-relaxed"
-                  style={{ color: TEXT_MID }}
-                >
-                  {v.desc}
-                </p>
-              </div>
+              <h3
+                className="text-base md:text-lg font-bold mb-1.5"
+                style={{ color: TEXT_DARK }}
+              >
+                {v.label}
+              </h3>
+              <p
+                className="text-[12.5px] md:text-[13px] leading-relaxed"
+                style={{ color: TEXT_MID }}
+              >
+                {v.desc}
+              </p>
             </div>
           </motion.div>
         );
