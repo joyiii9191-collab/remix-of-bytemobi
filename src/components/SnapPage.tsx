@@ -16,7 +16,12 @@ interface SnapPageProps {
   children: React.ReactNode;
 }
 
+// 暴露滚动容器,供子组件 (e.g. useScroll) 使用
+export const SnapScrollContext = React.createContext<React.RefObject<HTMLDivElement> | null>(null);
+
 export function SnapPage({ title, children }: SnapPageProps) {
+  const scrollRef = React.useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const prev = document.title;
     document.title = `${title} · ByteMobi`;
@@ -26,31 +31,34 @@ export function SnapPage({ title, children }: SnapPageProps) {
   }, [title]);
 
   return (
-    <div
-      className="app-light-theme font-sans relative"
-      style={{
-        color: "hsl(230 25% 18%)",
-        height: "100vh",
-        overflowY: "auto",
-        scrollSnapType: "y mandatory",
-        scrollBehavior: "smooth",
-      }}
-    >
-      <HomeBackground />
-      <div className="relative z-10">
-        <OptimizedHeader />
-        {children}
-        {/* Footer 单独占一屏(自适应内容高度,但参与 snap) */}
-        <div
-          style={{
-            scrollSnapAlign: "start",
-            scrollSnapStop: "always",
-          }}
-        >
-          <SiteFooter />
+    <SnapScrollContext.Provider value={scrollRef}>
+      <div
+        ref={scrollRef}
+        className="app-light-theme font-sans relative"
+        style={{
+          color: "hsl(230 25% 18%)",
+          height: "100vh",
+          overflowY: "auto",
+          scrollSnapType: "y mandatory",
+          scrollBehavior: "smooth",
+        }}
+      >
+        <HomeBackground />
+        <div className="relative z-10">
+          <OptimizedHeader />
+          {children}
+          {/* Footer 单独占一屏(自适应内容高度,但参与 snap) */}
+          <div
+            style={{
+              scrollSnapAlign: "start",
+              scrollSnapStop: "always",
+            }}
+          >
+            <SiteFooter />
+          </div>
         </div>
       </div>
-    </div>
+    </SnapScrollContext.Provider>
   );
 }
 
