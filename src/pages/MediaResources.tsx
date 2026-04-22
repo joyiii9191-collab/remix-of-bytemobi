@@ -323,11 +323,11 @@ export default function MediaResources() {
             <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3 text-center" style={{ color: ACCENT }}>合作对象</div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 w-full">
               {[
-                { t: "跨境电商商家", d: "DTC / 平台卖家拓展海外市场", Icon: Store },
-                { t: "品牌广告主", d: "提升品牌曝光与转化效率", Icon: Megaphone },
-                { t: "渠道代理商", d: "媒介采买与本地化分发", Icon: Network },
-                { t: "出海创业团队", d: "0-1 启动与增长加速", Icon: Globe2 },
-              ].map(({ t, d, Icon }, i) => (
+                { t: "跨境电商商家", Icon: Store },
+                { t: "品牌广告主", Icon: Megaphone },
+                { t: "渠道代理商", Icon: Network },
+                { t: "出海创业团队", Icon: Globe2 },
+              ].map(({ t, Icon }, i) => (
                 <motion.div key={t}
                   initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: i * 0.06 }}
@@ -338,7 +338,6 @@ export default function MediaResources() {
                     <Icon size={18} strokeWidth={1.8} />
                   </span>
                   <span className="text-sm font-semibold" style={{ color: TEXT_DARK }}>{t}</span>
-                  <span className="text-[11px] leading-snug" style={{ color: TEXT_MID }}>{d}</span>
                 </motion.div>
               ))}
             </div>
