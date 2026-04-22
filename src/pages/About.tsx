@@ -614,7 +614,7 @@ const VALUES: ValueItem[] = [
   {
     no: "03",
     label: "客户导向",
-    desc: "从客户真实场景出发,用结果衡量价值,创造可验证的增长。",
+    desc: "从客户真实场景出发\n用结果衡量价值,创造可验证的增长",
     icon: BadgeCheck,
   },
   {
