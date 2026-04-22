@@ -430,9 +430,9 @@ export default function MediaResources() {
                         <stop offset="100%" stopColor="hsl(265 75% 62%)" />
                       </linearGradient>
                     </defs>
-                    {/* 上线 y=90 (≈16%), 下线 y=380 (≈67.86%), 右侧弯曲半径 145 */}
+                    {/* 上线 y=90, 右侧半圆弧到下线 y=380, 半径 145 */}
                     <path
-                      d="M 30 90 L 855 90 Q 970 90 970 235 Q 970 380 855 380 L 30 380"
+                      d="M 30 90 L 855 90 A 145 145 0 0 1 855 380 L 30 380"
                       fill="none"
                       stroke="url(#trackGrad)"
                       strokeWidth="2.5"
