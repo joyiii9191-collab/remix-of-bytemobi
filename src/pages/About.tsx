@@ -77,63 +77,89 @@ import { GLASS_CARD as CARD, TEXT_DARK, TEXT_MID, ACCENT } from "@/lib/page-styl
 
 function HorizontalTimeline() {
   const ref = React.useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const lineWidth = useTransform(scrollYProgress, [0.2, 0.8], ["0%", "100%"]);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 85%", "end 20%"] });
+  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <div ref={ref} className="relative">
-      <div className="hidden md:block relative">
-        <div className="absolute left-0 right-0 top-[58px] h-[2px] rounded-full"
-          style={{ background: "rgba(99,102,241,0.15)" }} />
-        <motion.div className="absolute left-0 top-[58px] h-[2px] rounded-full"
-          style={{
-            width: lineWidth,
-            background: `linear-gradient(90deg, ${ACCENT} 0%, hsl(265 70% 60%) 100%)`,
-          }} />
-        <div className="grid grid-cols-8 gap-2 relative">
-          {TIMELINE.map((m, i) => {
-            const Icon = m.icon;
-            return (
-              <motion.div key={m.year}
-                initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.06 }}
-                className="flex flex-col items-center text-center">
-                <div className="text-sm font-bold mb-2" style={{ color: ACCENT }}>{m.year}</div>
-                <motion.div whileHover={{ scale: 1.15 }}
-                  className="relative w-10 h-10 rounded-full flex items-center justify-center mb-3 z-10"
-                  style={{
-                    background: "white", border: `2px solid ${ACCENT}`, color: ACCENT,
-                    boxShadow: "0 4px 12px -4px rgba(99,102,241,0.4)",
-                  }}><Icon size={16} /></motion.div>
-                <div className="rounded-xl p-3 w-full"
-                  style={{ background: "white", border: "1px solid rgba(15,20,40,0.06)" }}>
-                  <div className="text-xs font-semibold mb-1" style={{ color: TEXT_DARK }}>{m.title}</div>
-                  <div className="text-[11px] leading-snug" style={{ color: TEXT_MID }}>{m.desc}</div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
-      </div>
-      <div className="md:hidden relative pl-6 border-l-2" style={{ borderColor: "rgba(99,102,241,0.25)" }}>
+    <div ref={ref} className="relative max-w-4xl mx-auto">
+      {/* 中轴线 — 背景 */}
+      <div
+        className="absolute top-0 bottom-0 w-[2px] rounded-full left-[18px] md:left-1/2 md:-translate-x-1/2"
+        style={{ background: "rgba(99,102,241,0.15)" }}
+      />
+      {/* 中轴线 — 进度 */}
+      <motion.div
+        className="absolute top-0 w-[2px] rounded-full left-[18px] md:left-1/2 md:-translate-x-1/2 origin-top"
+        style={{
+          height: lineHeight,
+          background: `linear-gradient(180deg, ${ACCENT} 0%, hsl(265 70% 60%) 100%)`,
+        }}
+      />
+
+      <ol className="relative space-y-10 md:space-y-14">
         {TIMELINE.map((m, i) => {
           const Icon = m.icon;
+          const isLeft = i % 2 === 0;
           return (
-            <motion.div key={m.year}
-              initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.05 }}
-              className="relative pb-4 last:pb-0">
-              <div className="absolute -left-[34px] top-0 w-7 h-7 rounded-full flex items-center justify-center"
-                style={{ background: "white", border: `2px solid ${ACCENT}`, color: ACCENT }}>
-                <Icon size={12} />
+            <li key={m.year} className="relative">
+              {/* 中轴节点 */}
+              <motion.div
+                initial={{ scale: 0, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: false, amount: 0.6 }}
+                transition={{ duration: 0.4, delay: 0.1 }}
+                className="absolute top-1 z-10 left-[18px] md:left-1/2 -translate-x-1/2 w-9 h-9 rounded-full flex items-center justify-center"
+                style={{
+                  background: "white",
+                  border: `2px solid ${ACCENT}`,
+                  color: ACCENT,
+                  boxShadow: "0 6px 16px -4px rgba(99,102,241,0.45)",
+                }}
+              >
+                <Icon size={15} />
+              </motion.div>
+
+              {/* 内容 — 移动端右侧；桌面端左右交错 */}
+              <div
+                className={`pl-16 md:pl-0 md:grid md:grid-cols-2 md:gap-12 ${
+                  isLeft ? "" : "md:[&>*:first-child]:col-start-2"
+                }`}
+              >
+                <motion.div
+                  initial={{ opacity: 0, x: isLeft ? -24 : 24, y: 12 }}
+                  whileInView={{ opacity: 1, x: 0, y: 0 }}
+                  viewport={{ once: false, amount: 0.3 }}
+                  transition={{ duration: 0.55, ease: "easeOut" }}
+                  className={`relative rounded-2xl p-5 md:p-6 ${
+                    isLeft ? "md:text-right md:mr-2" : "md:text-left md:ml-2"
+                  }`}
+                  style={{
+                    background: "white",
+                    border: "1px solid rgba(15,20,40,0.06)",
+                    boxShadow: "0 12px 30px -18px rgba(30,41,99,0.25)",
+                  }}
+                >
+                  <div
+                    className="text-xs font-semibold tracking-[0.2em] uppercase mb-1"
+                    style={{ color: ACCENT }}
+                  >
+                    {m.year}
+                  </div>
+                  <div
+                    className="text-base md:text-lg font-semibold mb-1"
+                    style={{ color: TEXT_DARK }}
+                  >
+                    {m.title}
+                  </div>
+                  <div className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>
+                    {m.desc}
+                  </div>
+                </motion.div>
               </div>
-              <div className="text-xs font-bold" style={{ color: ACCENT }}>{m.year}</div>
-              <div className="text-sm font-semibold" style={{ color: TEXT_DARK }}>{m.title}</div>
-              <div className="text-[11px]" style={{ color: TEXT_MID }}>{m.desc}</div>
-            </motion.div>
+            </li>
           );
         })}
-      </div>
+      </ol>
     </div>
   );
 }
