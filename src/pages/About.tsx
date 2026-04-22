@@ -92,40 +92,43 @@ function TimelineItem({
   const isLeft = index % 2 === 0;
   // 每一项在整体进度中的位置
   const itemPos = total > 1 ? index / (total - 1) : 0;
-  // 当滚动进度越过该项位置后,逐步染色
-  const colorProgress = useTransform(
-    scrollYProgress,
-    [Math.max(0, itemPos - 0.06), Math.min(1, itemPos + 0.02)],
-    [0, 1]
-  );
-  // 灰色 → 渐变色
+  const start = Math.max(0, itemPos - 0.08);
+  const end = Math.min(1, itemPos + 0.04);
+
+  // 染色进度
+  const colorProgress = useTransform(scrollYProgress, [start, end], [0, 1]);
+
+  // 灰色 → 蓝紫色
   const yearColor = useTransform(
     colorProgress,
     [0, 1],
-    ["rgba(15,20,40,0.18)", "rgba(99,102,241,1)"]
+    ["rgba(15,20,40,0.18)", "hsl(250 80% 58%)"]
   );
-  const titleOpacity = useTransform(colorProgress, [0, 1], [0.35, 1]);
-  const dotScale = useTransform(colorProgress, [0, 1], [0.6, 1]);
-  const dotOpacity = useTransform(colorProgress, [0, 1], [0.25, 1]);
-
-  // 节点颜色随进度填充
   const dotBg = useTransform(
     colorProgress,
     [0, 1],
-    ["#ffffff", "hsl(245 80% 60%)"]
+    ["rgba(255,255,255,1)", "hsl(250 80% 60%)"]
   );
 
+  // 入场动效:基于同一进度,把 opacity / x / y 一起推
+  const enterProgress = useTransform(scrollYProgress, [start - 0.02, end], [0, 1]);
+  const opacity = useTransform(enterProgress, [0, 1], [0, 1]);
+  const y = useTransform(enterProgress, [0, 1], [40, 0]);
+  const x = useTransform(enterProgress, [0, 1], [isLeft ? -40 : 40, 0]);
+  const dotScale = useTransform(enterProgress, [0, 1], [0.4, 1]);
+  const dotOpacity = useTransform(enterProgress, [0, 1], [0.2, 1]);
+
   return (
-    <li className="relative min-h-[110px] md:min-h-[140px]">
+    <li className="relative min-h-[140px] md:min-h-[180px]">
       {/* 中轴节点 */}
       <motion.div
-        className="absolute top-2 z-10 left-[18px] md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full"
+        className="absolute top-3 z-10 left-[18px] md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full"
         style={{
           background: dotBg,
-          border: "2px solid hsl(245 80% 60%)",
+          border: "2px solid hsl(250 80% 60%)",
           opacity: dotOpacity,
           scale: dotScale,
-          boxShadow: "0 0 0 6px rgba(99,102,241,0.08)",
+          boxShadow: "0 0 0 6px rgba(120,90,240,0.10)",
         }}
       />
 
@@ -135,8 +138,11 @@ function TimelineItem({
           isLeft ? "" : "md:[&>*:first-child]:col-start-2"
         }`}
       >
-        <div className={isLeft ? "md:text-right md:pr-4" : "md:text-left md:pl-4"}>
-          {/* 年份 — 大字号 + 衬线优化 */}
+        <motion.div
+          className={isLeft ? "md:text-right md:pr-6" : "md:text-left md:pl-6"}
+          style={{ opacity, x, y }}
+        >
+          {/* 年份 — 大字号 + 衬线 */}
           <motion.div
             className="font-bold leading-none tracking-tight tabular-nums"
             style={{
@@ -149,19 +155,19 @@ function TimelineItem({
           >
             {m.year}
           </motion.div>
-          <motion.div
+          <div
             className="mt-3 text-lg md:text-xl font-semibold"
-            style={{ color: TEXT_DARK, opacity: titleOpacity }}
+            style={{ color: TEXT_DARK }}
           >
             {m.title}
-          </motion.div>
-          <motion.div
+          </div>
+          <div
             className="mt-1 text-sm md:text-base leading-relaxed"
-            style={{ color: TEXT_MID, opacity: titleOpacity }}
+            style={{ color: TEXT_MID }}
           >
             {m.desc}
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </div>
     </li>
   );
@@ -169,11 +175,16 @@ function TimelineItem({
 
 function HorizontalTimeline() {
   const ref = React.useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 75%", "end 30%"] });
+  const containerRef = React.useContext(SnapScrollContext);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    container: containerRef ?? undefined,
+    offset: ["start 75%", "end 30%"],
+  });
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <div ref={ref} className="relative max-w-5xl mx-auto">
+    <div ref={ref} className="relative max-w-5xl mx-auto w-full">
       {/* 中轴线 — 背景 */}
       <div
         className="absolute top-0 bottom-0 w-[2px] rounded-full left-[18px] md:left-1/2 md:-translate-x-1/2"
