@@ -138,7 +138,7 @@ export default function About() {
             更有价值
           </ScreenTitle>
           <ScreenLead>
-            成立于 2016 年,全球 5 个办公点、200+ 员工,致力于成为全球数字生态中值得信赖的桥梁。
+            成立于 2016 年,全球 5 个办公点、200+ 员工,致力于成为全球数字生态中值得信赖的桥梁
           </ScreenLead>
           <div className="mt-10 flex items-center gap-6">
             <StarBorder
