@@ -602,7 +602,7 @@ const VALUES: ValueItem[] = [
   {
     no: "01",
     label: "长期主义",
-    desc: "以十年视角做今天的选择,让每一项投入积累复利。",
+    desc: "以十年视角做今天的选择\n让每一项投入积累复利。",
     icon: ShieldCheck,
   },
   {
@@ -673,7 +673,7 @@ function ValueList() {
             {v.label}
           </h4>
           <p
-            className="text-[11.5px] md:text-[12.5px] leading-[1.6]"
+            className="text-[11.5px] md:text-[12.5px] leading-[1.6] whitespace-pre-line"
             style={{ color: TEXT_MID }}
           >
             {v.desc}
