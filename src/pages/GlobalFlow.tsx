@@ -73,6 +73,8 @@ type Case = {
   icon: LucideIcon;
   color: string;
   image?: string;
+  imageFit?: "cover" | "contain";
+  imageBg?: string;
   headline?: string;
   subMetric?: string;
 };
