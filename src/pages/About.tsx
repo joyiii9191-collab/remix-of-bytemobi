@@ -627,7 +627,7 @@ function ValueGrid() {
         return (
           <motion.div
             key={v.label}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.25 }}
             transition={{
@@ -636,64 +636,94 @@ function ValueGrid() {
               ease: [0.22, 1, 0.36, 1],
             }}
             whileHover={{ y: -3 }}
-            className="group relative rounded-2xl p-4 md:p-5 overflow-hidden glass-card"
-            style={CARD}
+            className="group relative rounded-2xl px-4 py-3.5 md:px-5 md:py-4 overflow-hidden glass-card"
+            style={{
+              ...CARD,
+              backgroundImage:
+                "linear-gradient(135deg, rgba(99,102,241,0.10) 0%, rgba(168,85,247,0.08) 50%, rgba(236,72,153,0.06) 100%)",
+            }}
           >
-            {/* 悬浮渐变光斑 */}
+            {/* 蓝紫渐变高光底色 */}
             <div
               aria-hidden
-              className="absolute -top-12 -right-12 w-36 h-36 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              className="absolute inset-0 opacity-60 pointer-events-none"
               style={{
                 background:
-                  "radial-gradient(circle, hsl(250 85% 65% / 0.35) 0%, transparent 70%)",
-                filter: "blur(18px)",
+                  "linear-gradient(135deg, hsl(220 90% 70% / 0.12) 0%, hsl(260 85% 70% / 0.10) 50%, hsl(290 80% 72% / 0.08) 100%)",
               }}
             />
 
-            <div className="relative">
-              {/* 顶行:序号 + 图标 */}
-              <div className="flex items-center justify-between mb-2.5">
-                <span
-                  className="font-bold tabular-nums leading-none"
+            {/* 悬浮渐变光斑 */}
+            <div
+              aria-hidden
+              className="absolute -top-16 -right-16 w-44 h-44 rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+              style={{
+                background:
+                  "radial-gradient(circle, hsl(260 90% 70% / 0.45) 0%, transparent 70%)",
+                filter: "blur(22px)",
+              }}
+            />
+
+            {/* 大号半透明玻璃图标 — 右下作为装饰 */}
+            <div
+              aria-hidden
+              className="absolute -bottom-3 -right-3 pointer-events-none"
+              style={{
+                color: ACCENT,
+                opacity: 0.18,
+              }}
+            >
+              <Icon
+                size={92}
+                strokeWidth={1.1}
+                style={{
+                  filter:
+                    "drop-shadow(0 2px 6px rgba(99,102,241,0.25))",
+                }}
+              />
+            </div>
+
+            <div className="relative flex items-center gap-3">
+              {/* 序号 */}
+              <span
+                className="font-bold tabular-nums leading-none shrink-0"
+                style={{
+                  fontSize: "1.5rem",
+                  fontFamily:
+                    "'Playfair Display', 'Cormorant Garamond', Georgia, serif",
+                  backgroundImage:
+                    "linear-gradient(135deg, hsl(220 90% 58%) 0%, hsl(280 80% 60%) 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                  color: "transparent",
+                }}
+              >
+                {v.no}
+              </span>
+
+              <div className="flex-1 min-w-0">
+                {/* 标题 — 蓝紫渐变 */}
+                <h3
+                  className="text-base md:text-lg font-bold leading-tight mb-1"
                   style={{
-                    fontSize: "1.35rem",
-                    fontFamily:
-                      "'Playfair Display', 'Cormorant Garamond', Georgia, serif",
                     backgroundImage:
-                      "linear-gradient(135deg, hsl(220 90% 58%) 0%, hsl(280 80% 60%) 100%)",
+                      "linear-gradient(135deg, hsl(220 90% 50%) 0%, hsl(260 85% 55%) 50%, hsl(290 80% 58%) 100%)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text",
                     color: "transparent",
                   }}
                 >
-                  {v.no}
-                </span>
-                <span
-                  className="w-8 h-8 rounded-lg flex items-center justify-center"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(120,90,240,0.18) 100%)",
-                    border: "1px solid rgba(255,255,255,0.6)",
-                    color: ACCENT,
-                  }}
+                  {v.label}
+                </h3>
+                <p
+                  className="text-[12.5px] md:text-[13px] leading-snug"
+                  style={{ color: TEXT_MID }}
                 >
-                  <Icon size={15} strokeWidth={1.8} />
-                </span>
+                  {v.desc}
+                </p>
               </div>
-
-              <h3
-                className="text-base md:text-lg font-bold mb-1.5"
-                style={{ color: TEXT_DARK }}
-              >
-                {v.label}
-              </h3>
-              <p
-                className="text-[12.5px] md:text-[13px] leading-relaxed"
-                style={{ color: TEXT_MID }}
-              >
-                {v.desc}
-              </p>
             </div>
           </motion.div>
         );
