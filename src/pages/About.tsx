@@ -946,7 +946,7 @@ export default function About() {
             >
               <SectionHeader icon={Rocket} label="使命" />
               <CultureStatement
-                statement={["让数字连接", "更有价值"]}
+                statement="让数字连接更有价值"
                 sub="以技术与服务为支点,放大每一次跨地域、跨文化数字连接背后的商业与社会价值。"
               />
             </motion.div>
@@ -961,7 +961,7 @@ export default function About() {
             >
               <SectionHeader icon={Globe2} label="愿景" />
               <CultureStatement
-                statement={["成为全球数字生态中", "值得信赖的桥梁"]}
+                statement="成为全球数字生态中值得信赖的桥梁"
                 sub="连接世界各地的用户与机会,在每一个市场被认可为长期、稳定、可信赖的合作者。"
               />
             </motion.div>
