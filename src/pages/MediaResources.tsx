@@ -6,6 +6,9 @@ import {
   Store, Megaphone, Network, Globe2,
   MessageCircle, ClipboardCheck, FileSignature, Settings2, TrendingUp, PieChart,
   Gift, Sparkles, GraduationCap,
+  KeyRound, Zap, Layers,
+  Image as ImageIcon, Activity, ClipboardList,
+  Palette, FileSearch, AlertTriangle,
 } from "lucide-react";
 import {
   SnapPage, SnapScreen, ScreenInner,
