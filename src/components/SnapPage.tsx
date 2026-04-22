@@ -105,15 +105,16 @@ export function SnapScreen({
         scrollSnapStop: "always",
       }
     : {
-        // 不参与吸附:按内容自适应高度,允许超过一屏
+        // 长内容屏:仅在顶部设置吸附点,内容可超过一屏自由滚动,
+        // 直至用户滚到下一屏的吸附点。
         minHeight: "100vh",
-        scrollSnapAlign: "none",
+        scrollSnapAlign: "start",
+        scrollSnapStop: "normal",
       };
 
   return (
     <section
       id={id}
-      data-no-snap={snap ? undefined : "true"}
       className={`relative w-full ${snap ? "overflow-hidden" : ""} ${className}`}
       style={{
         ...snapStyle,
