@@ -553,18 +553,15 @@ function CultureStatement({
 }) {
   return (
     <div className="w-full flex flex-col items-start text-left gap-3">
-      {/* 大字陈述 — 单行,简洁渐变 */}
+      {/* 大字陈述 — 单行,与 ScreenTitle 同字体规范 */}
       <motion.div
         initial={{ opacity: 0, y: 14 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.3 }}
         transition={{ duration: 0.55, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-        className="font-medium leading-[1.25]"
+        className="font-bold tracking-tight leading-[1.25]"
         style={{
           fontSize: "clamp(1.35rem, 1.8vw, 1.85rem)",
-          fontFamily:
-            "'Noto Serif SC', 'Playfair Display', Georgia, serif",
-          letterSpacing: "0.005em",
           backgroundImage:
             "linear-gradient(120deg, hsl(225 75% 52%) 0%, hsl(265 70% 58%) 100%)",
           WebkitBackgroundClip: "text",
@@ -648,7 +645,7 @@ function ValueList() {
           className="flex flex-col items-start text-left"
         >
           <h4
-            className="text-[14px] md:text-[15px] font-semibold leading-tight mb-1"
+            className="text-[14px] md:text-[15px] font-bold tracking-tight leading-tight mb-1"
             style={{
               backgroundImage:
                 "linear-gradient(120deg, hsl(225 75% 52%) 0%, hsl(265 70% 58%) 100%)",
@@ -656,7 +653,6 @@ function ValueList() {
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
               color: "transparent",
-              letterSpacing: "0.02em",
             }}
           >
             {v.label}
