@@ -38,6 +38,7 @@ const HUB_LINES: Array<[number, number]> = [
 ];
 
 import { GLASS_CARD as CARD, TEXT_DARK, TEXT_MID, ACCENT } from "@/lib/page-styles";
+import caseEcommerceImg from "@/assets/case-ecommerce.jpg";
 
 const STATS = [
   { label: "覆盖国家 / 地区", value: 220, suffix: "+" },
@@ -66,12 +67,17 @@ type Case = {
   summary: string; highlights: string[];
   icon: LucideIcon;
   color: string;
+  image?: string;
+  headline?: string;
+  subMetric?: string;
 };
 const CASES: Case[] = [
-  { tag: "电商", title: "电商类", metric: "ROAS +186%", region: "SEA",
+  { tag: "电商", title: "电商类", metric: "单月新增 8,000+", region: "SEA",
     summary: "针对东南亚六国快消品牌,完成从冷启动到规模化的全链路加速。",
     highlights: ["6 国并行投放", "ROAS 60 天提升 186%", "首单 CPA 下降 38%"],
-    icon: ShoppingBag, color: "hsl(14 90% 58%)" },
+    icon: ShoppingBag, color: "hsl(14 90% 58%)",
+    image: caseEcommerceImg,
+    headline: "8,000+", subMetric: "单月新增高质量用户" },
   { tag: "金融", title: "金融类", metric: "CPA -42%", region: "LATAM",
     summary: "聚焦巴西、墨西哥信贷场景,基于人群分层与风控信号优化获客。",
     highlights: ["授信通过率 +21%", "CPA -42%", "次月留存 +16%"],
@@ -378,24 +384,86 @@ export default function GlobalFlow() {
                   initial={{ opacity: 0, scale: 0.92, y: 16 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                  className="absolute inset-0 rounded-2xl glass-card flex flex-col items-center justify-center p-6 text-center"
-                  style={CARD}
+                  className="absolute inset-0 rounded-2xl overflow-hidden"
+                  style={{
+                    ...CARD,
+                    background: CASES[activeCase].image
+                      ? `url(${CASES[activeCase].image}) center/cover no-repeat`
+                      : (CARD as React.CSSProperties).background,
+                  }}
                 >
-                  <div
-                    className="inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-4"
-                    style={{ background: CASES[activeCase].color, color: "#fff" }}
-                  >
-                    {React.createElement(CASES[activeCase].icon, { size: 28 })}
-                  </div>
-                  <div
-                    className="text-3xl md:text-4xl font-extrabold mb-3"
-                    style={{ color: CASES[activeCase].color, lineHeight: 1.1 }}
-                  >
-                    {CASES[activeCase].metric}
-                  </div>
-                  <div className="text-sm font-semibold" style={{ color: TEXT_DARK }}>
-                    {CASES[activeCase].title}
-                  </div>
+                  {CASES[activeCase].image ? (
+                    <>
+                      {/* 图片渐变遮罩,保证底部信息可读 */}
+                      <div
+                        className="absolute inset-0"
+                        style={{
+                          background:
+                            "linear-gradient(180deg, hsla(0,0%,0%,0) 35%, hsla(0,0%,0%,0.55) 75%, hsla(0,0%,0%,0.8) 100%)",
+                        }}
+                      />
+                      {/* 顶部 tag */}
+                      <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
+                        <span
+                          className="inline-flex items-center gap-1.5 text-[11px] font-semibold px-2.5 py-1 rounded-full backdrop-blur-md"
+                          style={{
+                            background: "hsla(0,0%,100%,0.85)",
+                            color: CASES[activeCase].color,
+                          }}
+                        >
+                          {React.createElement(CASES[activeCase].icon, { size: 12 })}
+                          {CASES[activeCase].tag} · {CASES[activeCase].region}
+                        </span>
+                      </div>
+                      {/* 底部玻璃信息卡 — 重点信息 */}
+                      <div className="absolute left-3 right-3 bottom-3">
+                        <div
+                          className="rounded-xl px-4 py-3 backdrop-blur-xl border"
+                          style={{
+                            background: "hsla(0,0%,100%,0.18)",
+                            borderColor: "hsla(0,0%,100%,0.35)",
+                            boxShadow: "0 8px 24px -8px hsla(0,0%,0%,0.35)",
+                          }}
+                        >
+                          <div className="flex items-baseline gap-2 leading-none">
+                            <span
+                              className="text-[34px] md:text-[40px] font-extrabold tracking-tight tabular-nums"
+                              style={{ color: "#fff", textShadow: "0 1px 2px hsla(0,0%,0%,0.25)" }}
+                            >
+                              {CASES[activeCase].headline ?? CASES[activeCase].metric}
+                            </span>
+                            <span className="text-xs font-medium" style={{ color: "hsla(0,0%,100%,0.85)" }}>
+                              高质量用户
+                            </span>
+                          </div>
+                          <div
+                            className="mt-1.5 text-[12px] font-medium"
+                            style={{ color: "hsla(0,0%,100%,0.9)" }}
+                          >
+                            {CASES[activeCase].subMetric ?? CASES[activeCase].title} · 单月增量
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <div className="glass-card absolute inset-0 rounded-2xl flex flex-col items-center justify-center p-6 text-center">
+                      <div
+                        className="inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-4"
+                        style={{ background: CASES[activeCase].color, color: "#fff" }}
+                      >
+                        {React.createElement(CASES[activeCase].icon, { size: 28 })}
+                      </div>
+                      <div
+                        className="text-3xl md:text-4xl font-extrabold mb-3"
+                        style={{ color: CASES[activeCase].color, lineHeight: 1.1 }}
+                      >
+                        {CASES[activeCase].metric}
+                      </div>
+                      <div className="text-sm font-semibold" style={{ color: TEXT_DARK }}>
+                        {CASES[activeCase].title}
+                      </div>
+                    </div>
+                  )}
                 </motion.div>
               </div>
             </div>
