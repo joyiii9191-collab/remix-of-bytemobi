@@ -38,6 +38,16 @@ import caseGgvegasBanner from "@/assets/case-ggvegas-banner.png";
 import casePrimepartnersLogo from "@/assets/case-primepartners-logo.png";
 import casePrimepartnersBanner from "@/assets/case-primepartners-banner.jpg";
 import caseHungryImg from "@/assets/case-hungry-studio.png";
+import caseSaygamesLogo from "@/assets/case-saygames-logo.png";
+import caseSaygamesBanner from "@/assets/case-saygames-banner.jpg";
+import caseSupersonicLogo from "@/assets/case-supersonic-logo.png";
+import caseSupersonicBanner from "@/assets/case-supersonic-banner.jpg";
+import caseLilithLogo from "@/assets/case-lilith-logo.png";
+import caseLilithBanner from "@/assets/case-lilith-banner.png";
+import caseIggLogo from "@/assets/case-igg-logo.jpg";
+import caseIggBanner from "@/assets/case-igg-banner.jpg";
+import caseFunplusLogo from "@/assets/case-funplus-logo.png";
+import caseFunplusBanner from "@/assets/case-funplus-banner.png";
 import caseTiktokImg from "@/assets/case-tiktok.png";
 import caseNordvpnImg from "@/assets/case-nordvpn.png";
 
@@ -336,27 +346,85 @@ const CATEGORIES: Category[] = [
         brand: "Hungry Studio",
         region: "Global",
         goal: "用户增长 & 广告变现 (IAA)",
-        highlights: ["创意快速 AB 测试", "高频素材迭代", "eCPM 与广告填充率同步提升"],
+        highlights: [
+          "创意快速 AB 测试",
+          "高频素材迭代",
+          "eCPM 与广告填充率同步提升",
+        ],
         metric: "50,000+",
         metricLabel: "月新增用户",
         image: caseHungryImg,
         imageBg: "hsl(0 0% 100%)",
       },
       {
-        brand: "全球 SLG 厂商",
+        brand: "SayGames",
         region: "Global",
-        goal: "长周期 ROI 与 LTV 优化",
-        highlights: ["D7 留存 +28%", "付费 LTV +35%", "买量 ROI +22%"],
-        metric: "LTV +35%",
-        metricLabel: "付费用户生命周期价值",
+        goal: "大规模拉新 (IAA)",
+        highlights: [
+          "素材测试驱动的规模化放量模型",
+          "CPI 下降约 15%",
+          "整体投放效率显著提升",
+        ],
+        metric: "CPI -15%",
+        metricLabel: "获客成本下降",
+        banner: caseSaygamesBanner,
+        logo: caseSaygamesLogo,
       },
       {
-        brand: "休闲消除品类 D",
-        region: "NA · EU",
-        goal: "IAA + IAP 双轨变现",
-        highlights: ["双轨变现模型", "ARPDAU +18%", "买量规模 ×2.6"],
-        metric: "ARPDAU +18%",
-        metricLabel: "日均收入提升",
+        brand: "Supersonic Studios",
+        region: "Global",
+        goal: "ROI 优化 (IAA)",
+        highlights: [
+          "自动化投放优化系统",
+          "稳定规模增长",
+          "整体收益稳定性提升",
+        ],
+        metric: "ROI ↑",
+        metricLabel: "稳定规模化增长",
+        banner: caseSupersonicBanner,
+        logo: caseSupersonicLogo,
+      },
+      {
+        brand: "Lilith Games",
+        region: "Global",
+        goal: "高价值用户获取 (IAP)",
+        highlights: [
+          "LTV 分层投放模型",
+          "付费用户占比提升",
+          "长期收入结构优化",
+        ],
+        metric: "付费占比 ↑",
+        metricLabel: "高价值付费用户提升",
+        banner: caseLilithBanner,
+        logo: caseLilithLogo,
+      },
+      {
+        brand: "IGG",
+        region: "Global",
+        goal: "全球发行增长 (IAP)",
+        highlights: [
+          "多市场协同投放策略",
+          "多区域转化提升",
+          "全球市场一致性表现",
+        ],
+        metric: "多区域 ↑",
+        metricLabel: "全球转化稳步提升",
+        banner: caseIggBanner,
+        logo: caseIggLogo,
+      },
+      {
+        brand: "FunPlus",
+        region: "Global",
+        goal: "长周期收益 (IAP)",
+        highlights: [
+          "生命周期价值导向运营",
+          "用户结构持续优化",
+          "强化长期付费能力",
+        ],
+        metric: "LTV ↑",
+        metricLabel: "长周期收益提升",
+        banner: caseFunplusBanner,
+        logo: caseFunplusLogo,
       },
     ],
   },
