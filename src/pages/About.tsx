@@ -488,6 +488,248 @@ function CompanyIntro() {
 }
 
 
+/* ============================================================
+ * 企业文化 — 使命/愿景大字陈述屏
+ * ============================================================ */
+function CultureStatement({
+  eyebrow,
+  kicker,
+  statement,
+  sub,
+  icon: Icon,
+  align = "left",
+}: {
+  eyebrow: string;
+  kicker: string;
+  statement: string[];
+  sub: string;
+  icon: LucideIcon;
+  align?: "left" | "right";
+}) {
+  const isRight = align === "right";
+  return (
+    <div
+      className={`w-full flex flex-col ${
+        isRight ? "md:items-end md:text-right" : "md:items-start md:text-left"
+      } items-start text-left gap-6`}
+    >
+      {/* Eyebrow + Icon */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.4 }}
+        transition={{ duration: 0.5 }}
+        className="flex items-center gap-3"
+      >
+        <span
+          className="w-10 h-10 rounded-xl flex items-center justify-center backdrop-blur-md"
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(120,90,240,0.18) 100%)",
+            border: "1px solid rgba(255,255,255,0.6)",
+            color: ACCENT,
+            boxShadow: "0 8px 24px -12px rgba(99,102,241,0.35)",
+          }}
+        >
+          <Icon size={20} strokeWidth={1.7} />
+        </span>
+        <span
+          className="text-xs md:text-sm font-semibold uppercase tracking-[0.28em]"
+          style={{ color: ACCENT }}
+        >
+          {eyebrow}
+        </span>
+      </motion.div>
+
+      {/* 中文小标(使命/愿景) */}
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.4 }}
+        transition={{ duration: 0.5, delay: 0.08 }}
+        className="text-base md:text-lg font-medium"
+        style={{ color: TEXT_MID, letterSpacing: "0.04em" }}
+      >
+        {kicker}
+      </motion.div>
+
+      {/* 大字陈述 — 蓝紫渐变 */}
+      <div className="w-full">
+        {statement.map((line, i) => (
+          <motion.div
+            key={line + i}
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.7, delay: 0.15 + i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+            className="font-bold leading-[1.05] tracking-tight"
+            style={{
+              fontSize: "clamp(2.6rem, 6.4vw, 5.4rem)",
+              fontFamily:
+                "'Playfair Display', 'Cormorant Garamond', 'Noto Serif SC', Georgia, serif",
+              backgroundImage:
+                "linear-gradient(135deg, hsl(220 90% 58%) 0%, hsl(250 85% 60%) 50%, hsl(280 80% 60%) 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              color: "transparent",
+            }}
+          >
+            {line}
+          </motion.div>
+        ))}
+      </div>
+
+      {/* 副文 */}
+      <motion.p
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.3 }}
+        transition={{ duration: 0.6, delay: 0.45 }}
+        className="max-w-2xl text-base md:text-lg leading-relaxed"
+        style={{ color: TEXT_MID }}
+      >
+        {sub}
+      </motion.p>
+    </div>
+  );
+}
+
+/* ============================================================
+ * 价值观 4 卡片网格
+ * ============================================================ */
+type ValueItem = {
+  no: string;
+  label: string;
+  en: string;
+  desc: string;
+  icon: LucideIcon;
+};
+
+const VALUES: ValueItem[] = [
+  {
+    no: "01",
+    label: "长期主义",
+    en: "Long-termism",
+    desc: "以十年视角做今天的选择,让每一项投入都为未来积累复利。",
+    icon: ShieldCheck,
+  },
+  {
+    no: "02",
+    label: "开放协作",
+    en: "Open Collaboration",
+    desc: "跨地域、跨团队、跨文化共建,让信息流动、让伙伴受益。",
+    icon: HeartHandshake,
+  },
+  {
+    no: "03",
+    label: "客户导向",
+    en: "Customer First",
+    desc: "从客户的真实场景出发,用结果衡量价值,持续创造可被验证的增长。",
+    icon: BadgeCheck,
+  },
+  {
+    no: "04",
+    label: "持续创新",
+    en: "Relentless Innovation",
+    desc: "不满足于既有解法,把技术、产品与服务持续推向更优的下一版本。",
+    icon: Cpu,
+  },
+];
+
+function ValueGrid() {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 mt-8 w-full">
+      {VALUES.map((v, i) => {
+        const Icon = v.icon;
+        return (
+          <motion.div
+            key={v.label}
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.25 }}
+            transition={{
+              duration: 0.6,
+              delay: i * 0.1,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            whileHover={{ y: -4 }}
+            className="group relative rounded-2xl p-6 md:p-7 overflow-hidden glass-card"
+            style={CARD}
+          >
+            {/* 悬浮渐变光斑 */}
+            <div
+              aria-hidden
+              className="absolute -top-16 -right-16 w-48 h-48 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              style={{
+                background:
+                  "radial-gradient(circle, hsl(250 85% 65% / 0.35) 0%, transparent 70%)",
+                filter: "blur(20px)",
+              }}
+            />
+
+            <div className="relative flex items-start gap-4">
+              {/* 序号 — 渐变大字 */}
+              <div
+                className="font-bold leading-none tabular-nums shrink-0"
+                style={{
+                  fontSize: "2.25rem",
+                  fontFamily:
+                    "'Playfair Display', 'Cormorant Garamond', Georgia, serif",
+                  backgroundImage:
+                    "linear-gradient(135deg, hsl(220 90% 58%) 0%, hsl(280 80% 60%) 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                  color: "transparent",
+                  lineHeight: 1.05,
+                }}
+              >
+                {v.no}
+              </div>
+
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2.5 mb-1">
+                  <span
+                    className="w-9 h-9 rounded-xl flex items-center justify-center"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(120,90,240,0.18) 100%)",
+                      border: "1px solid rgba(255,255,255,0.6)",
+                      color: ACCENT,
+                    }}
+                  >
+                    <Icon size={17} strokeWidth={1.8} />
+                  </span>
+                  <h3
+                    className="text-lg md:text-xl font-bold"
+                    style={{ color: TEXT_DARK }}
+                  >
+                    {v.label}
+                  </h3>
+                </div>
+                <div
+                  className="text-[11px] font-semibold uppercase tracking-[0.18em] mb-3"
+                  style={{ color: ACCENT }}
+                >
+                  {v.en}
+                </div>
+                <p
+                  className="text-sm md:text-[15px] leading-relaxed"
+                  style={{ color: TEXT_MID }}
+                >
+                  {v.desc}
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        );
+      })}
+    </div>
+  );
+}
+
+
 export default function About() {
   const [openOffice, setOpenOffice] = React.useState<Office | null>(null);
   const [hoverIdx, setHoverIdx] = React.useState<number | null>(null);
@@ -707,41 +949,40 @@ export default function About() {
         </ScreenInner>
       </SnapScreen>
 
-      {/* === Screen 5 — 企业文化 === */}
-      <SnapScreen id="culture">
+      {/* === Screen 5a — 使命 === */}
+      <SnapScreen id="mission">
         <ScreenInner>
-          <ScreenTitle>使命 · 愿景 · 价值观</ScreenTitle>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5 }}
-              className="rounded-2xl p-7 glass-card" style={CARD}>
-              <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>Mission</div>
-              <h3 className="text-xl font-bold mb-3" style={{ color: TEXT_DARK }}>使命</h3>
-              <p className="text-sm" style={{ color: TEXT_MID }}>让数字连接更有价值。</p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: 0.1 }}
-              className="rounded-2xl p-7 glass-card" style={CARD}>
-              <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>Vision</div>
-              <h3 className="text-xl font-bold mb-3" style={{ color: TEXT_DARK }}>愿景</h3>
-              <p className="text-sm" style={{ color: TEXT_MID }}>成为全球数字生态中值得信赖的桥梁。</p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: 0.2 }}
-              className="rounded-2xl p-7 glass-card" style={CARD}>
-              <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>Values</div>
-              <h3 className="text-xl font-bold mb-3" style={{ color: TEXT_DARK }}>价值观</h3>
-              <ul className="text-sm space-y-1.5" style={{ color: TEXT_MID }}>
-                <li>· 长期主义</li>
-                <li>· 开放协作</li>
-                <li>· 客户导向</li>
-                <li>· 持续创新</li>
-              </ul>
-            </motion.div>
-          </div>
+          <CultureStatement
+            eyebrow="Our Mission"
+            kicker="使命"
+            statement={["让数字连接", "更有价值"]}
+            sub="以技术与服务为支点,放大每一次跨地域、跨文化数字连接背后的商业与社会价值。"
+            icon={Rocket}
+          />
+        </ScreenInner>
+      </SnapScreen>
+
+      {/* === Screen 5b — 愿景 === */}
+      <SnapScreen id="vision" bg="tint">
+        <ScreenInner>
+          <CultureStatement
+            eyebrow="Our Vision"
+            kicker="愿景"
+            statement={["成为全球数字生态中", "值得信赖的桥梁"]}
+            sub="连接世界各地的伙伴、用户与机会,在每一个市场被认可为长期、稳定、可信赖的合作者。"
+            icon={Globe2}
+            align="right"
+          />
+        </ScreenInner>
+      </SnapScreen>
+
+      {/* === Screen 5c — 价值观 === */}
+      <SnapScreen id="values">
+        <ScreenInner>
+          <ScreenEyebrow>Our Values</ScreenEyebrow>
+          <ScreenTitle>四个我们坚持的事</ScreenTitle>
+          <ScreenLead>从战略到日常协作,这四件事定义我们如何思考、如何做选择。</ScreenLead>
+          <ValueGrid />
         </ScreenInner>
       </SnapScreen>
 
