@@ -508,20 +508,17 @@ function SectionHeader({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.4 }}
       transition={{ duration: 0.45 }}
-      className="flex items-center gap-2.5 mb-3"
+      className="flex items-center gap-2 mb-3"
     >
-      <span
-        className="w-7 h-7 rounded-lg flex items-center justify-center backdrop-blur-md shrink-0"
+      <Icon
+        size={18}
+        strokeWidth={1.4}
         style={{
-          background:
-            "linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(120,90,240,0.18) 100%)",
-          border: "1px solid rgba(255,255,255,0.6)",
-          color: ACCENT,
-          boxShadow: "0 6px 18px -10px rgba(99,102,241,0.35)",
+          color: "hsl(250 70% 62%)",
+          filter: "drop-shadow(0 2px 6px rgba(120,90,240,0.25))",
         }}
-      >
-        <Icon size={14} strokeWidth={1.8} />
-      </span>
+        className="shrink-0"
+      />
       <span
         className="text-sm md:text-[15px] font-semibold"
         style={{ color: TEXT_DARK, letterSpacing: "0.06em" }}
