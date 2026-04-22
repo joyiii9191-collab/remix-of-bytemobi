@@ -1079,10 +1079,12 @@ export default function About() {
                     <span className="font-medium tabular-nums tracking-wide">{e.date}</span>
                   </div>
 
-                  <div className="flex items-start gap-1 text-[10.5px] md:text-[11px] leading-snug" style={{ color: TEXT_MID }}>
-                    <MapPin size={11} strokeWidth={1.8} className="shrink-0 mt-[1.5px]" style={{ color: TEXT_MID }} />
-                    <span className="line-clamp-1">
+                  <div className="flex items-center gap-1 text-[10.5px] md:text-[11px] leading-snug min-w-0" style={{ color: TEXT_MID }}>
+                    <MapPin size={11} strokeWidth={1.8} className="shrink-0" style={{ color: TEXT_MID }} />
+                    <span className="truncate min-w-0 flex-1" title={`${e.city} · ${e.location}`}>
                       <span style={{ color: TEXT_DARK }} className="font-medium">{e.city}</span>
+                      <span className="opacity-60"> · </span>
+                      {e.location}
                     </span>
                   </div>
                 </div>
