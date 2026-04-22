@@ -416,8 +416,8 @@ export default function About() {
       {/* === Screen 3 — 全球办公点 === */}
       <SnapScreen id="offices">
         <ScreenInner>
-          <ScreenTitle>覆盖关键市场的五个办公点</ScreenTitle>
-          <ScreenLead>悬停查看地图节点,点击查看详细信息。</ScreenLead>
+          <ScreenTitle>全球布局 · 本地深耕</ScreenTitle>
+          <ScreenLead>西安(总部)、新加坡(亚太商务)、东京(日本运营)、杜塞尔多夫(欧洲商务)、洛杉矶(北美运营)。鼠标悬停查看详细地址。</ScreenLead>
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-5 mt-6 flex-1 min-h-[320px]">
             <div className="lg:col-span-3 rounded-2xl overflow-hidden relative glass-card" style={CARD}>
               <ParticleWorldMap markers={MAP_MARKERS} lines={MAP_LINES} />
