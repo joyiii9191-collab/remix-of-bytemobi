@@ -522,31 +522,27 @@ export default function About() {
                       View Details
                     </div>
                   </div>
-                </button>
 
-                {/* 卡片下方 — 悬停时展示完整地址 */}
-                <div
-                  className="grid transition-all duration-300 ease-out grid-rows-[0fr] opacity-0 group-hover:grid-rows-[1fr] group-hover:opacity-100 group-hover:mt-3"
-                >
-                  <div className="overflow-hidden">
-                    <div
-                      className="flex items-start gap-2 px-3 py-2 rounded-lg"
-                      style={{
-                        background: "rgba(255,255,255,0.6)",
-                        border: "1px solid rgba(30,41,99,0.08)",
-                        backdropFilter: "blur(4px)",
-                      }}
-                    >
+                  {/* 卡片内底部 — 悬停时显示完整地址 */}
+                  <div
+                    className="absolute bottom-0 left-0 right-0 z-20 px-4 pt-6 pb-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"
+                    style={{
+                      background:
+                        "linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.85) 35%, rgba(255,255,255,0.95) 100%)",
+                      backdropFilter: "blur(6px)",
+                    }}
+                  >
+                    <div className="flex items-start gap-2">
                       <MapPin size={13} className="mt-0.5 shrink-0" style={{ color: ACCENT }} />
                       <p
-                        className="text-[12px] md:text-[13px] leading-relaxed"
-                        style={{ color: "hsl(225 40% 25%)" }}
+                        className="text-[12px] md:text-[13px] leading-relaxed text-left"
+                        style={{ color: "hsl(225 45% 22%)" }}
                       >
                         {o.addr}
                       </p>
                     </div>
                   </div>
-                </div>
+                </button>
               </motion.div>
             ))}
           </div>
