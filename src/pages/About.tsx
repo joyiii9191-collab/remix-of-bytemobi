@@ -498,6 +498,7 @@ function CultureStatement({
   sub,
   icon: Icon,
   align = "left",
+  compact = false,
 }: {
   eyebrow: string;
   kicker: string;
@@ -505,13 +506,24 @@ function CultureStatement({
   sub: string;
   icon: LucideIcon;
   align?: "left" | "right";
+  compact?: boolean;
 }) {
   const isRight = align === "right";
+  const statementSize = compact
+    ? "clamp(1.6rem, 2.4vw, 2.4rem)"
+    : "clamp(2.6rem, 6.4vw, 5.4rem)";
+  const gap = compact ? "gap-4" : "gap-6";
+  const subSize = compact ? "text-sm md:text-[15px]" : "text-base md:text-lg";
+
   return (
     <div
       className={`w-full flex flex-col ${
-        isRight ? "md:items-end md:text-right" : "md:items-start md:text-left"
-      } items-start text-left gap-6`}
+        compact
+          ? "items-start text-left"
+          : isRight
+          ? "md:items-end md:text-right items-start text-left"
+          : "md:items-start md:text-left items-start text-left"
+      } ${gap}`}
     >
       {/* Eyebrow + Icon */}
       <motion.div
@@ -522,7 +534,7 @@ function CultureStatement({
         className="flex items-center gap-3"
       >
         <span
-          className="w-10 h-10 rounded-xl flex items-center justify-center backdrop-blur-md"
+          className={`${compact ? "w-9 h-9" : "w-10 h-10"} rounded-xl flex items-center justify-center backdrop-blur-md`}
           style={{
             background:
               "linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(120,90,240,0.18) 100%)",
@@ -531,7 +543,7 @@ function CultureStatement({
             boxShadow: "0 8px 24px -12px rgba(99,102,241,0.35)",
           }}
         >
-          <Icon size={20} strokeWidth={1.7} />
+          <Icon size={compact ? 17 : 20} strokeWidth={1.7} />
         </span>
         <span
           className="text-xs md:text-sm font-semibold uppercase tracking-[0.28em]"
@@ -547,7 +559,7 @@ function CultureStatement({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.4 }}
         transition={{ duration: 0.5, delay: 0.08 }}
-        className="text-base md:text-lg font-medium"
+        className={compact ? "text-sm font-medium" : "text-base md:text-lg font-medium"}
         style={{ color: TEXT_MID, letterSpacing: "0.04em" }}
       >
         {kicker}
@@ -562,9 +574,9 @@ function CultureStatement({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.7, delay: 0.15 + i * 0.12, ease: [0.22, 1, 0.36, 1] }}
-            className="font-bold leading-[1.05] tracking-tight"
+            className="font-bold leading-[1.1] tracking-tight"
             style={{
-              fontSize: "clamp(2.6rem, 6.4vw, 5.4rem)",
+              fontSize: statementSize,
               fontFamily:
                 "'Playfair Display', 'Cormorant Garamond', 'Noto Serif SC', Georgia, serif",
               backgroundImage:
@@ -586,7 +598,7 @@ function CultureStatement({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.3 }}
         transition={{ duration: 0.6, delay: 0.45 }}
-        className="max-w-2xl text-base md:text-lg leading-relaxed"
+        className={`max-w-2xl ${subSize} leading-relaxed`}
         style={{ color: TEXT_MID }}
       >
         {sub}
@@ -949,40 +961,71 @@ export default function About() {
         </ScreenInner>
       </SnapScreen>
 
-      {/* === Screen 5a — 使命 === */}
-      <SnapScreen id="mission">
+      {/* === Screen 5 — 企业文化(使命 / 愿景 / 价值观 单屏) === */}
+      <SnapScreen id="culture">
         <ScreenInner>
-          <CultureStatement
-            eyebrow="Our Mission"
-            kicker="使命"
-            statement={["让数字连接", "更有价值"]}
-            sub="以技术与服务为支点,放大每一次跨地域、跨文化数字连接背后的商业与社会价值。"
-            icon={Rocket}
-          />
-        </ScreenInner>
-      </SnapScreen>
+          <ScreenEyebrow>Culture</ScreenEyebrow>
+          <ScreenTitle>使命 · 愿景 · 价值观</ScreenTitle>
 
-      {/* === Screen 5b — 愿景 === */}
-      <SnapScreen id="vision" bg="tint">
-        <ScreenInner>
-          <CultureStatement
-            eyebrow="Our Vision"
-            kicker="愿景"
-            statement={["成为全球数字生态中", "值得信赖的桥梁"]}
-            sub="连接世界各地的伙伴、用户与机会,在每一个市场被认可为长期、稳定、可信赖的合作者。"
-            icon={Globe2}
-            align="right"
-          />
-        </ScreenInner>
-      </SnapScreen>
+          {/* 使命 + 愿景 双联玻璃卡 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 mt-8 w-full">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.25 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="rounded-2xl p-6 md:p-7 glass-card"
+              style={CARD}
+            >
+              <CultureStatement
+                eyebrow="Our Mission"
+                kicker="使命"
+                statement={["让数字连接", "更有价值"]}
+                sub="以技术与服务为支点,放大每一次跨地域、跨文化数字连接背后的商业与社会价值。"
+                icon={Rocket}
+                compact
+              />
+            </motion.div>
 
-      {/* === Screen 5c — 价值观 === */}
-      <SnapScreen id="values">
-        <ScreenInner>
-          <ScreenEyebrow>Our Values</ScreenEyebrow>
-          <ScreenTitle>四个我们坚持的事</ScreenTitle>
-          <ScreenLead>从战略到日常协作,这四件事定义我们如何思考、如何做选择。</ScreenLead>
-          <ValueGrid />
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.25 }}
+              transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              className="rounded-2xl p-6 md:p-7 glass-card"
+              style={CARD}
+            >
+              <CultureStatement
+                eyebrow="Our Vision"
+                kicker="愿景"
+                statement={["成为全球数字生态中", "值得信赖的桥梁"]}
+                sub="连接世界各地的伙伴、用户与机会,在每一个市场被认可为长期、稳定、可信赖的合作者。"
+                icon={Globe2}
+                compact
+              />
+            </motion.div>
+          </div>
+
+          {/* 价值观 */}
+          <div className="mt-10 w-full">
+            <div className="flex items-center gap-3 mb-1">
+              <span
+                className="text-xs font-semibold uppercase tracking-[0.28em]"
+                style={{ color: ACCENT }}
+              >
+                Our Values
+              </span>
+              <span
+                aria-hidden
+                className="flex-1 h-px"
+                style={{
+                  background:
+                    "linear-gradient(90deg, rgba(99,102,241,0.35) 0%, rgba(99,102,241,0) 100%)",
+                }}
+              />
+            </div>
+            <ValueGrid />
+          </div>
         </ScreenInner>
       </SnapScreen>
 
