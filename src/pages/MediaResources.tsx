@@ -202,7 +202,7 @@ export default function MediaResources() {
           <ScreenLead>从内容生产到商业转化的完整闭环</ScreenLead>
 
           <div className="mt-6 w-full flex items-center justify-center">
-            <div className="relative w-full max-w-[460px] aspect-square mx-auto">
+            <div className="relative aspect-square mx-auto" style={{ width: "min(460px, 70vh)" }}>
               {/* 外圈渐变环 */}
               <div className="absolute inset-0 rounded-full"
                 style={{
@@ -228,8 +228,8 @@ export default function MediaResources() {
                 <div className="text-white/80 text-[9px] mt-0.5 tracking-wider">CONTENT → COMMERCE</div>
               </motion.div>
 
-              {/* 循环箭头 SVG */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100">
+              {/* 循环箭头 SVG — 半径要小于节点环半径，落在节点和中心之间 */}
+              <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
                 <defs>
                   <marker id="arrowhead" markerWidth="5" markerHeight="5" refX="2.5" refY="2.5" orient="auto">
                     <path d="M0,0 L5,2.5 L0,5 z" fill={ACCENT} opacity="0.65" />
@@ -241,9 +241,9 @@ export default function MediaResources() {
                   { from: 90, to: 180 },
                   { from: 180, to: 270 },
                 ].map((arc, i) => {
-                  const r = 38;
-                  const startRad = ((arc.from + 16) * Math.PI) / 180;
-                  const endRad = ((arc.to - 16) * Math.PI) / 180;
+                  const r = 30;
+                  const startRad = ((arc.from + 18) * Math.PI) / 180;
+                  const endRad = ((arc.to - 18) * Math.PI) / 180;
                   const x1 = 50 + r * Math.cos(startRad);
                   const y1 = 50 + r * Math.sin(startRad);
                   const x2 = 50 + r * Math.cos(endRad);
@@ -261,7 +261,7 @@ export default function MediaResources() {
                 })}
               </svg>
 
-              {/* 4个节点 — 中心点正好落在外环上 */}
+              {/* 4个节点 — 中心点落在外环上 (radius=42%, 即 inset[8%] 圆环线上) */}
               {[
                 { angle: -90, k: "内容生产", v: "短剧创作 + 品牌内容", Icon: PlayCircle, color: "#6366f1" },
                 { angle: 0, k: "媒体投放", v: "TikTok / Meta / Google", Icon: Share2, color: "#8b5cf6" },
@@ -270,7 +270,7 @@ export default function MediaResources() {
               ].map((node, i) => {
                 const Icon = node.Icon;
                 const rad = (node.angle * Math.PI) / 180;
-                const radius = 50; // 外环半径 = 容器一半，节点中心刚好压在环上
+                const radius = 42;
                 const x = 50 + radius * Math.cos(rad);
                 const y = 50 + radius * Math.sin(rad);
                 return (
@@ -283,13 +283,13 @@ export default function MediaResources() {
                     className="absolute -translate-x-1/2 -translate-y-1/2 z-20 cursor-pointer group"
                     style={{ left: `${x}%`, top: `${y}%` }}>
                     <div
-                      className="w-[96px] h-[96px] rounded-full bg-white/90 backdrop-blur-md border-2 flex flex-col items-center justify-center text-center px-2 shadow-lg transition-all duration-300 group-hover:shadow-2xl"
+                      className="w-[88px] h-[88px] rounded-full bg-white/90 backdrop-blur-md border-2 flex flex-col items-center justify-center text-center px-2 shadow-lg transition-all duration-300 group-hover:shadow-2xl"
                       style={{
                         borderColor: `${node.color}40`,
                         boxShadow: `0 8px 24px -8px ${node.color}30`,
                       }}>
-                      <Icon size={20} style={{ color: node.color }} strokeWidth={1.8} className="transition-transform duration-300 group-hover:scale-110" />
-                      <div className="text-[12px] font-bold mt-1" style={{ color: TEXT_DARK }}>{node.k}</div>
+                      <Icon size={18} style={{ color: node.color }} strokeWidth={1.8} className="transition-transform duration-300 group-hover:scale-110" />
+                      <div className="text-[11px] font-bold mt-1" style={{ color: TEXT_DARK }}>{node.k}</div>
                       <div className="text-[9px] leading-tight mt-0.5" style={{ color: TEXT_MID }}>{node.v}</div>
                     </div>
                   </motion.div>
