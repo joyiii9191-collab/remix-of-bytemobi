@@ -1016,15 +1016,87 @@ export default function About() {
         <ScreenInner>
           <ScreenTitle>持续参与全球行业活动</ScreenTitle>
           <ScreenLead>覆盖游戏、广告、出海等多个行业的国际峰会与展会。</ScreenLead>
-          <div className="flex flex-wrap gap-3 mt-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mt-10 w-full">
             {EVENTS.map((e, i) => (
-              <motion.div key={e}
-                initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: i * 0.05 }}
-                className="px-5 py-2.5 rounded-full text-sm flex items-center gap-2 font-medium"
-                style={{ ...CARD, color: TEXT_DARK }}>
-                <span className="w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
-                {e}
+              <motion.div
+                key={e.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
+                whileHover={{ y: -4 }}
+                className="group relative rounded-2xl overflow-hidden flex flex-col"
+                style={{
+                  background:
+                    "linear-gradient(140deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.25) 50%, rgba(180,170,255,0.12) 100%)",
+                  border: "1px solid rgba(255,255,255,0.55)",
+                  boxShadow:
+                    "0 12px 36px -22px rgba(99,102,241,0.32), inset 0 1px 0 rgba(255,255,255,0.7)",
+                  backdropFilter: "blur(18px) saturate(160%)",
+                  WebkitBackdropFilter: "blur(18px) saturate(160%)",
+                  transition: "box-shadow 0.35s ease, transform 0.35s ease",
+                }}
+              >
+                <div className="relative aspect-[16/9] overflow-hidden bg-white">
+                  <img
+                    src={e.image}
+                    alt={e.name}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.06]"
+                  />
+                  <div className="absolute top-3 left-3 z-10">
+                    <span
+                      className="text-[10px] font-semibold tracking-[0.18em] uppercase px-2.5 py-1 rounded-full backdrop-blur-md"
+                      style={{
+                        background: "rgba(255,255,255,0.85)",
+                        color: ACCENT,
+                        border: "1px solid rgba(99,102,241,0.22)",
+                      }}
+                    >
+                      2026
+                    </span>
+                  </div>
+                  <div
+                    aria-hidden
+                    className="absolute inset-x-0 bottom-0 h-16"
+                    style={{
+                      background:
+                        "linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.55) 100%)",
+                    }}
+                  />
+                </div>
+
+                <div className="px-4 md:px-5 py-4 md:py-5 flex flex-col gap-2">
+                  <h3
+                    className="text-[15px] md:text-base font-bold leading-tight tracking-tight"
+                    style={{ color: TEXT_DARK }}
+                  >
+                    {e.name}
+                  </h3>
+
+                  <div className="flex items-center gap-1.5 text-[12px] md:text-[12.5px]" style={{ color: ACCENT }}>
+                    <Calendar size={12.5} strokeWidth={1.8} className="shrink-0" />
+                    <span className="font-medium tabular-nums tracking-wide">{e.date}</span>
+                  </div>
+
+                  <div className="flex items-start gap-1.5 text-[11.5px] md:text-[12px] leading-relaxed" style={{ color: TEXT_MID }}>
+                    <MapPin size={12.5} strokeWidth={1.8} className="shrink-0 mt-[2px]" style={{ color: TEXT_MID }} />
+                    <span className="line-clamp-2">
+                      <span style={{ color: TEXT_DARK }} className="font-medium">{e.city}</span>
+                      <span className="opacity-60"> · </span>
+                      {e.location}
+                    </span>
+                  </div>
+                </div>
+
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    boxShadow:
+                      "0 22px 50px -22px rgba(99,102,241,0.45), inset 0 1px 0 rgba(255,255,255,0.85)",
+                  }}
+                />
               </motion.div>
             ))}
           </div>
