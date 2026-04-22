@@ -49,6 +49,14 @@ import caseIggBanner from "@/assets/case-igg-banner.jpg";
 import caseFunplusLogo from "@/assets/case-funplus-logo.png";
 import caseFunplusBanner from "@/assets/case-funplus-banner.png";
 import caseTiktokImg from "@/assets/case-tiktok.png";
+import caseTiktokLogo from "@/assets/case-tiktok-logo.png";
+import caseTiktokBanner from "@/assets/case-tiktok-banner.png";
+import caseKwaiLogo from "@/assets/case-kwai-logo.png";
+import caseKwaiBanner from "@/assets/case-kwai-banner.png";
+import caseLikeeLogo from "@/assets/case-likee-logo.png";
+import caseLikeeBanner from "@/assets/case-likee-banner.png";
+import caseBigoLogo from "@/assets/case-bigo-logo.png";
+import caseBigoBanner from "@/assets/case-bigo-banner.png";
 import caseNordvpnImg from "@/assets/case-nordvpn.png";
 
 type CaseItem = {
@@ -440,27 +448,57 @@ const CATEGORIES: Category[] = [
         brand: "TikTok",
         region: "Multi-Market",
         goal: "下载 & DAU 增长",
-        highlights: ["创意优化体系", "多市场扩张模型", "整体平台活跃度持续上升"],
+        highlights: [
+          "创意优化体系",
+          "多市场扩张模型",
+          "提升整体平台活跃度与内容消费",
+        ],
         metric: "+80,000",
-        metricLabel: "用户增长 / 周期",
-        image: caseTiktokImg,
-        imageBg: "hsl(0 0% 100%)",
+        metricLabel: "用户增长",
+        banner: caseTiktokBanner,
+        logo: caseTiktokLogo,
       },
       {
-        brand: "中东本地化短视频平台",
-        region: "MEA",
-        goal: "本地化获客与活跃提升",
-        highlights: ["阿语本地化创意 12 套", "活跃 DAU +210%", "CPI -35%"],
-        metric: "DAU +210%",
-        metricLabel: "日活提升",
+        brand: "Kwai",
+        region: "LATAM · SEA",
+        goal: "新兴市场增长",
+        highlights: [
+          "区域内容适配 + 本地化投放策略",
+          "拉美 / 东南亚快速增长",
+          "区域渗透率与用户规模提升",
+        ],
+        metric: "新兴市场 ↑",
+        metricLabel: "区域规模化增长",
+        banner: caseKwaiBanner,
+        logo: caseKwaiLogo,
       },
       {
-        brand: "新兴市场内容 App",
-        region: "SEA · LATAM",
-        goal: "次留与长留驱动",
-        highlights: ["留存驱动召回模型", "D7 留存 +18%", "内容消费时长 +24%"],
-        metric: "D7 +18%",
-        metricLabel: "次周留存提升",
+        brand: "Likee",
+        region: "Global",
+        goal: "用户留存 & 互动",
+        highlights: [
+          "内容互动反馈优化机制",
+          "互动率提升约 15%+",
+          "增强社区活跃度与粘性",
+        ],
+        metric: "互动 +15%+",
+        metricLabel: "用户互动率提升",
+        banner: caseLikeeBanner,
+        logo: caseLikeeLogo,
+      },
+      {
+        brand: "Bigo Live",
+        region: "Global",
+        goal: "活跃用户 & 付费转化",
+        highlights: [
+          "直播场景高意图用户触达",
+          "直播付费转化提升",
+          "整体变现能力提升",
+        ],
+        metric: "付费 ↑",
+        metricLabel: "直播付费转化提升",
+        banner: caseBigoBanner,
+        logo: caseBigoLogo,
       },
     ],
   },
