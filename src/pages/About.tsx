@@ -957,7 +957,7 @@ export default function About() {
               <CultureStatement
                 kicker="愿景"
                 statement={["成为全球数字生态中", "值得信赖的桥梁"]}
-                sub="连接世界各地的伙伴、用户与机会,在每一个市场被认可为长期、稳定、可信赖的合作者。"
+                sub="连接世界各地的用户与机会,在每一个市场被认可为长期、稳定、可信赖的合作者。"
                 icon={Globe2}
                 compact
               />
