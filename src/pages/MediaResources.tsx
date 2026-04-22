@@ -377,7 +377,7 @@ export default function MediaResources() {
           <ScreenTitle>清晰路径 · 协同推进</ScreenTitle>
           <ScreenLead>从首次咨询到长期复盘,六步闭环陪伴合作伙伴稳健增长</ScreenLead>
 
-          <div className="mt-4 w-full">
+          <div className="-mt-2 w-full">
             {(() => {
               const steps = [
                 { t: "咨询沟通", bullets: ["需求初步确认", "目标市场对齐", "服务范围沟通"] },
@@ -510,7 +510,7 @@ export default function MediaResources() {
           </div>
         </ScreenInner>
         {/* 底部点睛文案 */}
-        <div className="relative z-10 w-full pb-2 text-center text-sm italic" style={{ color: TEXT_MID }}>
+        <div className="relative z-10 w-full pt-10 pb-6 text-center text-sm italic" style={{ color: TEXT_MID }}>
           帮助合作伙伴快速起量,实现稳定增长
         </div>
       </SnapScreen>
