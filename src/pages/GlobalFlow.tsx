@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import StarBorder from "@/components/StarBorder";
 import { motion } from "motion/react";
 import {
@@ -72,6 +73,7 @@ type Case = {
   summary: string; highlights: string[];
   icon: LucideIcon;
   color: string;
+  slug: string;
   image?: string;
   imageFit?: "cover" | "contain";
   imageBg?: string;
@@ -79,37 +81,37 @@ type Case = {
   subMetric?: string;
 };
 const CASES: Case[] = [
-  { tag: "电商", title: "电商类", metric: "单月新增 8,000+", region: "SEA",
+  { tag: "电商", title: "电商类", metric: "单月新增 8,000+", region: "SEA", slug: "ecommerce",
     summary: "针对东南亚六国快消品牌,完成从冷启动到规模化的全链路加速。",
     highlights: ["6 国并行投放", "ROAS 60 天提升 186%", "首单 CPA 下降 38%"],
     icon: ShoppingBag, color: "hsl(14 90% 58%)",
     image: caseEcommerceImg, imageFit: "cover",
     headline: "8,000+", subMetric: "单月新增高质量用户" },
-  { tag: "金融", title: "金融类", metric: "单月新增 8,000+ 注册", region: "Global",
+  { tag: "金融", title: "金融类", metric: "单月新增 8,000+ 注册", region: "Global", slug: "fintech",
     summary: "服务全球头部加密交易平台,聚焦注册与入金转化全链路优化。",
     highlights: ["高意向人群建模", "转化路径压缩优化", "真实交易用户占比显著提升"],
     icon: Landmark, color: "hsl(45 90% 52%)",
     image: caseBinanceImg, imageFit: "contain", imageBg: "hsl(0 0% 100%)",
     headline: "8,000+", subMetric: "单月新增注册用户" },
-  { tag: "博彩", title: "博彩类", metric: "+3,000 FTD", region: "EU",
+  { tag: "博彩", title: "博彩类", metric: "+3,000 FTD", region: "EU", slug: "igaming",
     summary: "服务欧洲头部体育博彩平台,围绕注册与首充转化深度优化。",
     highlights: ["高转化意图人群聚合", "全漏斗精细化优化", "首存转化效率持续提升"],
     icon: Dice5, color: "hsl(150 60% 32%)",
     image: caseBet365Img, imageFit: "contain", imageBg: "hsl(150 60% 28%)",
     headline: "+3,000", subMetric: "首充 FTD 用户增量" },
-  { tag: "游戏", title: "游戏类", metric: "月新增 50,000+", region: "Global",
+  { tag: "游戏", title: "游戏类", metric: "月新增 50,000+", region: "Global", slug: "game",
     summary: "面向 IAA 休闲游戏的用户增长与广告变现协同优化。",
     highlights: ["创意快速 AB 测试", "高频素材迭代", "eCPM 与广告填充率同步提升"],
     icon: Gamepad2, color: "hsl(0 75% 55%)",
     image: caseHungryImg, imageFit: "contain", imageBg: "hsl(0 0% 100%)",
     headline: "50,000+", subMetric: "月新增用户" },
-  { tag: "短视频", title: "短视频类", metric: "+80,000 用户", region: "Multi-Market",
+  { tag: "短视频", title: "短视频类", metric: "+80,000 用户", region: "Multi-Market", slug: "short-video",
     summary: "围绕短视频平台的下载与 DAU 增长,推动内容消费与活跃度提升。",
     highlights: ["创意优化体系", "多市场扩张模型", "整体平台活跃度持续上升"],
     icon: Video, color: "hsl(340 80% 55%)",
     image: caseTiktokImg, imageFit: "contain", imageBg: "hsl(0 0% 100%)",
     headline: "+80,000", subMetric: "用户增长 / 周期" },
-  { tag: "数字服务", title: "数字服务", metric: "订阅转化稳定增长", region: "Global",
+  { tag: "数字服务", title: "数字服务", metric: "订阅转化稳定增长", region: "Global", slug: "digital",
     summary: "服务全球订阅型数字服务品牌,聚焦高质量付费用户增长。",
     highlights: ["高意向用户筛选", "转化路径优化", "稳定付费增长"],
     icon: Cloud, color: "hsl(230 85% 60%)",
@@ -125,6 +127,7 @@ const MEDIA_BLOCKS = [
 ];
 
 export default function GlobalFlow() {
+  const navigate = useNavigate();
   const [openCase, setOpenCase] = React.useState<Case | null>(null);
   const [activeCase, setActiveCase] = React.useState(0);
   const [pauseCases, setPauseCases] = React.useState(false);
@@ -466,7 +469,7 @@ export default function GlobalFlow() {
                 >
                   {CASES[activeCase].summary}
                 </p>
-                <StarBorder speed="5s" onClick={() => setOpenCase(CASES[activeCase])}>
+                <StarBorder speed="5s" onClick={() => navigate(`/cases/${CASES[activeCase].slug}`)}>
                   了解更多
                 </StarBorder>
               </motion.div>
