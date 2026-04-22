@@ -120,6 +120,227 @@ function HorizontalTimeline() {
   );
 }
 
+type IntroCard = {
+  key: string;
+  icon: LucideIcon;
+  eyebrow?: string;
+  stat?: string;
+  unit?: string;
+  title: string;
+  desc: string;
+  details: string[];
+  feature?: boolean;
+  span?: string;
+};
+
+const INTRO_CARDS: IntroCard[] = [
+  {
+    key: "values",
+    icon: Sparkles,
+    eyebrow: "核心价值观",
+    title: "可信、协同、长期",
+    desc: "近十年行业积累,全球协同的技术与商务团队,与客户共同成长。",
+    details: [
+      "可信 — 数据安全合规、交付稳定可靠",
+      "协同 — 技术、商务、运营一体化作战",
+      "长期 — 与客户与生态伙伴共同成长",
+    ],
+    feature: true,
+    span: "lg:col-span-2 lg:row-span-2",
+  },
+  {
+    key: "founded",
+    icon: Calendar,
+    eyebrow: "成立时间",
+    stat: "2016",
+    unit: "年",
+    title: "深圳总部成立",
+    desc: "深耕行业近十年的稳健积累。",
+    details: [
+      "2016 年于深圳创立,聚焦数字连接",
+      "完成多轮产品与商业化验证",
+      "建立稳定的全球客户与媒体生态",
+    ],
+  },
+  {
+    key: "offices",
+    icon: Globe2,
+    eyebrow: "全球办公点",
+    stat: "5",
+    unit: "个",
+    title: "覆盖关键市场",
+    desc: "深圳、新加坡、东京、杜塞尔多夫、洛杉矶多地协同。",
+    details: [
+      "深圳(总部) · 全球研发与运营中枢",
+      "新加坡 / 东京 · 亚太区域中心",
+      "杜塞尔多夫 / 洛杉矶 · 欧美本地化服务",
+    ],
+  },
+  {
+    key: "team",
+    icon: Users,
+    eyebrow: "全球团队",
+    stat: "200+",
+    unit: "人",
+    title: "一体化的全球团队",
+    desc: "技术、产品、商务、运营协同作战。",
+    details: [
+      "工程与算法占比 50%+",
+      "本地化商务覆盖 10+ 国家与地区",
+      "7×24 全球运营与客户支持",
+    ],
+  },
+  {
+    key: "creds",
+    icon: Award,
+    eyebrow: "理念 · 资质",
+    title: "让数字连接更有价值",
+    desc: "以理念为指引,以资质为承诺。",
+    details: [
+      "ISO 27001 信息安全管理体系认证",
+      "国家高新技术企业",
+      "多项软件著作权与发明专利",
+    ],
+    span: "md:col-span-2 lg:col-span-2",
+  },
+];
+
+function IntroCards() {
+  const [openKey, setOpenKey] = React.useState<string | null>(null);
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-8">
+      {INTRO_CARDS.map((c, i) => {
+        const Icon = c.icon;
+        const isOpen = openKey === c.key;
+        const isFeature = !!c.feature;
+        return (
+          <motion.button
+            key={c.key}
+            type="button"
+            onClick={() => setOpenKey(isOpen ? null : c.key)}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.5, delay: i * 0.06 }}
+            whileHover={{ y: -3 }}
+            className={`group text-left rounded-2xl p-6 glass-card relative overflow-hidden transition-all ${c.span ?? ""}`}
+            style={{
+              ...CARD,
+              ...(isFeature
+                ? {
+                    background: `linear-gradient(135deg, ${ACCENT} 0%, hsl(265 70% 60%) 100%)`,
+                    color: "white",
+                    border: "1px solid rgba(255,255,255,0.2)",
+                    boxShadow: "0 14px 40px -16px rgba(99,102,241,0.5)",
+                  }
+                : {}),
+              ...(isOpen && !isFeature
+                ? { border: `1px solid ${ACCENT}`, boxShadow: "0 14px 40px -18px rgba(99,102,241,0.4)" }
+                : {}),
+            }}
+          >
+            {c.eyebrow && (
+              <div
+                className="text-[11px] font-semibold uppercase tracking-wider mb-3"
+                style={{ color: isFeature ? "rgba(255,255,255,0.7)" : ACCENT }}
+              >
+                {c.eyebrow}
+              </div>
+            )}
+
+            <div className="flex items-center gap-3 mb-3">
+              <div
+                className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
+                style={{
+                  background: isFeature ? "rgba(255,255,255,0.15)" : "rgba(99,102,241,0.1)",
+                  color: isFeature ? "white" : ACCENT,
+                }}
+              >
+                <Icon size={20} />
+              </div>
+              {c.stat && (
+                <div className="flex items-baseline gap-1">
+                  <span
+                    className="text-3xl md:text-4xl font-bold leading-none"
+                    style={{ color: isFeature ? "white" : TEXT_DARK }}
+                  >
+                    {c.stat}
+                  </span>
+                  {c.unit && (
+                    <span
+                      className="text-sm font-medium"
+                      style={{ color: isFeature ? "rgba(255,255,255,0.8)" : TEXT_MID }}
+                    >
+                      {c.unit}
+                    </span>
+                  )}
+                </div>
+              )}
+            </div>
+
+            <h3
+              className={`font-semibold mb-2 ${isFeature ? "text-2xl md:text-3xl leading-tight" : "text-base"}`}
+              style={{ color: isFeature ? "white" : TEXT_DARK }}
+            >
+              {c.title}
+            </h3>
+            <p
+              className={`leading-relaxed ${isFeature ? "text-sm md:text-base" : "text-sm"}`}
+              style={{ color: isFeature ? "rgba(255,255,255,0.85)" : TEXT_MID }}
+            >
+              {c.desc}
+            </p>
+
+            <div
+              className="flex items-center gap-1 mt-4 text-xs font-medium"
+              style={{ color: isFeature ? "rgba(255,255,255,0.85)" : ACCENT }}
+            >
+              <span>{isOpen ? "收起" : "查看更多"}</span>
+              <motion.span
+                animate={{ rotate: isOpen ? 180 : 0 }}
+                transition={{ duration: 0.25 }}
+                className="inline-block"
+              >
+                ▾
+              </motion.span>
+            </div>
+
+            <motion.div
+              initial={false}
+              animate={{
+                height: isOpen ? "auto" : 0,
+                opacity: isOpen ? 1 : 0,
+                marginTop: isOpen ? 16 : 0,
+              }}
+              transition={{ duration: 0.3 }}
+              className="overflow-hidden"
+            >
+              <ul
+                className="space-y-1.5 pt-3 border-t"
+                style={{
+                  borderColor: isFeature ? "rgba(255,255,255,0.2)" : "rgba(15,20,40,0.08)",
+                }}
+              >
+                {c.details.map((d) => (
+                  <li
+                    key={d}
+                    className="text-xs leading-relaxed flex gap-2"
+                    style={{ color: isFeature ? "rgba(255,255,255,0.9)" : TEXT_MID }}
+                  >
+                    <span style={{ color: isFeature ? "white" : ACCENT }}>•</span>
+                    <span>{d}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </motion.button>
+        );
+      })}
+    </div>
+  );
+}
+
 export default function About() {
   const [openOffice, setOpenOffice] = React.useState<Office | null>(null);
   const [hoverIdx, setHoverIdx] = React.useState<number | null>(null);
