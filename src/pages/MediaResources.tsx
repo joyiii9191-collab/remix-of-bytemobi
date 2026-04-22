@@ -396,11 +396,11 @@ export default function MediaResources() {
 
               const Card = ({ t, bullets, dotColor, align = "center" as "center" | "left" | "right" }: any) => (
                 <div className={`px-2 ${align === "left" ? "text-left" : align === "right" ? "text-right" : "text-center"}`}>
-                  <div className="text-[15px] font-semibold mb-2" style={{ color: TEXT_DARK }}>{t}</div>
-                  <ul className={`text-[12px] leading-relaxed space-y-1 inline-block text-left`} style={{ color: TEXT_MID }}>
+                  <div className="text-lg font-semibold mb-3" style={{ color: TEXT_DARK }}>{t}</div>
+                  <ul className="text-[14px] leading-7 space-y-2 inline-block text-left" style={{ color: TEXT_MID }}>
                     {bullets.map((b: string) => (
-                      <li key={b} className="flex items-start gap-1.5">
-                        <span className="mt-[6px] inline-block h-1 w-1 rounded-full flex-shrink-0" style={{ background: dotColor }} />
+                      <li key={b} className="flex items-start gap-2">
+                        <span className="mt-[10px] inline-block h-1.5 w-1.5 rounded-full flex-shrink-0" style={{ background: dotColor }} />
                         <span>{b}</span>
                       </li>
                     ))}
@@ -420,9 +420,9 @@ export default function MediaResources() {
               };
 
               return (
-                <div className="relative w-full" style={{ minHeight: "380px" }}>
+                <div className="relative w-full" style={{ minHeight: "560px" }}>
                   {/* 背景 U 形渐变细线 — 拉伸填满,与圆点行的 top 百分比一致对齐 */}
-                  <svg viewBox="0 0 1000 360" className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none">
+                  <svg viewBox="0 0 1000 560" className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none">
                     <defs>
                       <linearGradient id="trackGrad" x1="0" y1="0" x2="1" y2="1">
                         <stop offset="0%" stopColor="hsl(245 80% 68%)" />
@@ -430,21 +430,21 @@ export default function MediaResources() {
                         <stop offset="100%" stopColor="hsl(265 75% 62%)" />
                       </linearGradient>
                     </defs>
-                    {/* 上线 y=70 (≈19.4%), 下线 y=200 (≈55.6%) */}
+                    {/* 上线 y=90 (≈16%), 下线 y=380 (≈67.86%), 右侧弯曲半径 145 */}
                     <path
-                      d="M 30 70 L 880 70 Q 970 70 970 135 Q 970 200 880 200 L 30 200"
+                      d="M 30 90 L 855 90 Q 970 90 970 235 Q 970 380 855 380 L 30 380"
                       fill="none"
                       stroke="url(#trackGrad)"
-                      strokeWidth="2"
+                      strokeWidth="2.5"
                       strokeLinecap="round"
                       opacity="0.9"
-                      style={{ filter: "drop-shadow(0 2px 10px hsla(235, 80%, 60%, 0.25))" }}
+                      style={{ filter: "drop-shadow(0 2px 12px hsla(235, 80%, 60%, 0.28))" }}
                     />
                   </svg>
 
-                  {/* 上行圆点行 — 绝对定位让圆点中心对齐线 (top: 19.4%) */}
+                  {/* 上行圆点行 — 绝对定位让圆点中心对齐线 (top: 16.07%) */}
                   <div className="absolute left-0 grid grid-cols-3 gap-x-6"
-                    style={{ top: "19.4%", right: "calc(8% + 15px)", transform: "translateY(-50%)" }}>
+                    style={{ top: "16.07%", right: "calc(11% + 15px)", transform: "translateY(-50%)" }}>
                     {top.map((s, idx) => {
                       const i = idx;
                       return (
@@ -460,23 +460,23 @@ export default function MediaResources() {
 
                   {/* 上行文字 — 紧跟圆点下方 */}
                   <div className="absolute left-0 grid grid-cols-3 gap-x-6"
-                    style={{ top: "calc(19.4% + 18px)", right: "calc(8% + 15px)" }}>
+                    style={{ top: "calc(16.07% + 22px)", right: "calc(11% + 15px)" }}>
                     {top.map((s, idx) => {
                       const i = idx;
                       return (
                         <motion.div key={`txt-top-${s.t}`}
                           initial={{ opacity: 0, y: -6 }} whileInView={{ opacity: 1, y: 0 }}
                           viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: i * 0.07 }}
-                          className="pt-3">
+                          className="pt-4">
                           <Card t={s.t} bullets={s.bullets} dotColor={`hsl(${hueFor(i)}, 78%, 60%)`} />
                         </motion.div>
                       );
                     })}
                   </div>
 
-                  {/* 下行圆点行 — top: 55.6% */}
+                  {/* 下行圆点行 — top: 67.86% */}
                   <div className="absolute right-0 grid grid-cols-3 gap-x-6"
-                    style={{ top: "55.6%", left: "calc(8% + 15px)", transform: "translateY(-50%)" }}>
+                    style={{ top: "67.86%", left: "calc(11% + 15px)", transform: "translateY(-50%)" }}>
                     {bottom.map((s, idx) => {
                       const i = 5 - idx;
                       return (
@@ -492,14 +492,14 @@ export default function MediaResources() {
 
                   {/* 下行文字 */}
                   <div className="absolute right-0 grid grid-cols-3 gap-x-6"
-                    style={{ top: "calc(55.6% + 18px)", left: "calc(8% + 15px)" }}>
+                    style={{ top: "calc(67.86% + 22px)", left: "calc(11% + 15px)" }}>
                     {bottom.map((s, idx) => {
                       const i = 5 - idx;
                       return (
                         <motion.div key={`txt-bot-${s.t}`}
                           initial={{ opacity: 0, y: 6 }} whileInView={{ opacity: 1, y: 0 }}
                           viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: idx * 0.07 }}
-                          className="pt-3">
+                          className="pt-4">
                           <Card t={s.t} bullets={s.bullets} dotColor={`hsl(${hueFor(i)}, 78%, 60%)`} />
                         </motion.div>
                       );
