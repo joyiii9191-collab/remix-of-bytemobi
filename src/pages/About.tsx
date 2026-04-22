@@ -73,7 +73,7 @@ const TIMELINE: Milestone[] = [
 
 import eventIabAlm from "@/assets/event-iab-alm.png";
 import eventGdc from "@/assets/event-gdc.jpg";
-import eventJapanItWeek from "@/assets/event-japan-it-week.jpg";
+import eventJapanItWeek from "@/assets/event-japan-it-week.webp";
 import eventChinajoy from "@/assets/event-chinajoy.jpg";
 import eventTgs from "@/assets/event-tgs.jpg";
 import eventAffiliateWorld from "@/assets/event-affiliate-world.png";
