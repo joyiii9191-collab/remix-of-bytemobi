@@ -6,6 +6,9 @@ import {
   Store, Megaphone, Network, Globe2,
   MessageCircle, ClipboardCheck, FileSignature, Settings2, TrendingUp, PieChart,
   Gift, Sparkles, GraduationCap,
+  KeyRound, Zap, Layers,
+  Image as ImageIcon, Activity, ClipboardList,
+  Palette, FileSearch, AlertTriangle,
 } from "lucide-react";
 import {
   SnapPage, SnapScreen, ScreenInner,
@@ -105,9 +108,9 @@ export default function MediaResources() {
                 d: "为广告主完成账号开设、账户准备与投放上线前配置。",
                 Icon: Rocket,
                 items: [
-                  "TikTok / Facebook / Google 快速开户",
-                  "1–3 工作日启动投放",
-                  "多主体、多币种、多账户体系",
+                  { text: "TikTok / Facebook / Google 快速开户", Icon: KeyRound },
+                  { text: "1–3 工作日启动投放", Icon: Zap },
+                  { text: "多主体、多币种、多账户体系", Icon: Layers },
                 ],
               },
               {
@@ -115,9 +118,9 @@ export default function MediaResources() {
                 d: "根据投放目标进行日常优化、素材迭代与预算调整。",
                 Icon: BarChart3,
                 items: [
-                  "多平台素材策略与本地化适配",
-                  "实时数据监测与跨平台优化",
-                  "全案运营(策略 + 执行 + 复盘)",
+                  { text: "多平台素材策略与本地化适配", Icon: ImageIcon },
+                  { text: "实时数据监测与跨平台优化", Icon: Activity },
+                  { text: "全案运营(策略 + 执行 + 复盘)", Icon: ClipboardList },
                 ],
               },
               {
@@ -125,9 +128,9 @@ export default function MediaResources() {
                 d: "检查素材、定向和投放方式是否符合平台规则。",
                 Icon: ShieldCheck,
                 items: [
-                  "素材规范适配与创意指导",
-                  "广告预审与合规审核",
-                  "风控监测 + 封禁预警 + 快速申诉",
+                  { text: "素材规范适配与创意指导", Icon: Palette },
+                  { text: "广告预审与合规审核", Icon: FileSearch },
+                  { text: "风控监测 + 封禁预警 + 快速申诉", Icon: AlertTriangle },
                 ],
               },
             ].map((c, i) => {
@@ -143,13 +146,19 @@ export default function MediaResources() {
                   </div>
                   <h3 className="text-lg font-semibold mb-2" style={{ color: TEXT_DARK }}>{c.t}</h3>
                   <p className="text-sm leading-relaxed mb-4" style={{ color: TEXT_MID }}>{c.d}</p>
-                  <ul className="space-y-1.5 pt-3 border-t border-white/40">
-                    {c.items.map((it) => (
-                      <li key={it} className="text-sm flex items-start gap-2" style={{ color: TEXT_MID }}>
-                        <span className="mt-2 h-1 w-1 rounded-full flex-shrink-0" style={{ background: ACCENT }} />
-                        <span>{it}</span>
-                      </li>
-                    ))}
+                  <ul className="space-y-2 pt-3 border-t border-white/40">
+                    {c.items.map((it) => {
+                      const ItemIcon = it.Icon;
+                      return (
+                        <li key={it.text} className="text-sm flex items-start gap-2.5" style={{ color: TEXT_MID }}>
+                          <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-md flex-shrink-0"
+                            style={{ background: "rgba(99,102,241,0.1)", color: ACCENT }}>
+                            <ItemIcon size={12} strokeWidth={2} />
+                          </span>
+                          <span>{it.text}</span>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </motion.div>
               );
