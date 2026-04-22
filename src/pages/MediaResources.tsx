@@ -378,7 +378,7 @@ export default function MediaResources() {
           <ScreenTitle>清晰路径 · 协同推进</ScreenTitle>
           <ScreenLead>从首次咨询到长期复盘,六步闭环陪伴合作伙伴稳健增长</ScreenLead>
 
-          <div className="mt-12 w-full">
+          <div className="mt-10 w-full">
             {(() => {
               const steps = [
                 { t: "咨询沟通", bullets: ["需求初步确认", "目标市场对齐", "服务范围沟通"] },
@@ -388,62 +388,91 @@ export default function MediaResources() {
                 { t: "投放优化", bullets: ["AB 测试与迭代", "ROI 持续优化", "周期复盘报告"] },
                 { t: "数据复盘", bullets: ["效果回归分析", "方法论沉淀", "长期增长建议"] },
               ];
-              return (
-                <div className="relative" style={{ paddingTop: "120px", paddingBottom: "120px" }}>
-                  {/* 贯穿紫蓝渐变时间轴 */}
-                  <div className="absolute left-0 right-0 h-[2px]" style={{
-                    top: "50%",
-                    transform: "translateY(-1px)",
-                    background: "linear-gradient(90deg, hsl(245 80% 68%) 0%, hsl(225 85% 60%) 50%, hsl(265 75% 62%) 100%)",
-                    boxShadow: "0 2px 14px hsla(235, 80%, 60%, 0.3)",
-                    opacity: 0.9,
-                  }} />
+              // 上行(0-2)从左到右,下行(3-5)从右到左
+              const top = steps.slice(0, 3);
+              const bottom = steps.slice(3).reverse(); // 从右到左渲染
 
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-5 relative">
-                    {steps.map(({ t, bullets }, i, arr) => {
-                      const ratio = i / (arr.length - 1);
-                      const hue = 245 + (ratio - 0.5) * 40;
-                      const dotColor = `hsl(${hue}, 78%, 60%)`;
-                      const isTop = i % 2 === 0;
+              const hueFor = (i: number) => 245 + (i / (steps.length - 1) - 0.5) * 40;
+
+              const Card = ({ t, bullets, dotColor, align = "center" as "center" | "left" | "right" }: any) => (
+                <div className={`px-2 ${align === "left" ? "text-left" : align === "right" ? "text-right" : "text-center"}`}>
+                  <div className="text-[15px] font-semibold mb-2" style={{ color: TEXT_DARK }}>{t}</div>
+                  <ul className={`text-[12px] leading-relaxed space-y-1 inline-block text-left`} style={{ color: TEXT_MID }}>
+                    {bullets.map((b: string) => (
+                      <li key={b} className="flex items-start gap-1.5">
+                        <span className="mt-[6px] inline-block h-1 w-1 rounded-full flex-shrink-0" style={{ background: dotColor }} />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+
+              const Dot = ({ i }: { i: number }) => {
+                const hue = hueFor(i);
+                return (
+                  <div className="h-[18px] w-[18px] rounded-full ring-[3px] ring-white"
+                    style={{
+                      background: `hsl(${hue}, 78%, 60%)`,
+                      boxShadow: `0 2px 12px hsla(${hue}, 78%, 55%, 0.6)`,
+                    }} />
+                );
+              };
+
+              return (
+                <div className="relative w-full">
+                  {/* 背景 U 形渐变细线 */}
+                  <svg viewBox="0 0 1000 320" className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none">
+                    <defs>
+                      <linearGradient id="trackGrad" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stopColor="hsl(245 80% 68%)" />
+                        <stop offset="50%" stopColor="hsl(225 85% 60%)" />
+                        <stop offset="100%" stopColor="hsl(265 75% 62%)" />
+                      </linearGradient>
+                    </defs>
+                    {/* 上行 → 右弯 → 下行,使用一条平滑路径 */}
+                    <path
+                      d="M 30 80 L 880 80 Q 970 80 970 160 Q 970 240 880 240 L 30 240"
+                      fill="none"
+                      stroke="url(#trackGrad)"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      opacity="0.9"
+                      style={{ filter: "drop-shadow(0 2px 10px hsla(235, 80%, 60%, 0.25))" }}
+                    />
+                  </svg>
+
+                  {/* 上行三个步骤 */}
+                  <div className="grid grid-cols-3 gap-x-6 relative" style={{ paddingRight: "8%" }}>
+                    {top.map((s, idx) => {
+                      const i = idx; // 0,1,2
                       return (
-                        <motion.div key={t}
-                          initial={{ opacity: 0, y: isTop ? -10 : 10 }} whileInView={{ opacity: 1, y: 0 }}
+                        <motion.div key={s.t}
+                          initial={{ opacity: 0, y: -10 }} whileInView={{ opacity: 1, y: 0 }}
                           viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: i * 0.07 }}
-                          className="relative flex flex-col items-center text-center">
-                          {/* 上方内容 */}
-                          {isTop && (
-                            <div className="absolute bottom-[calc(50%+18px)] left-0 right-0 px-1">
-                              <div className="text-base font-semibold mb-2" style={{ color: TEXT_DARK }}>{t}</div>
-                              <ul className="text-[12px] leading-relaxed space-y-1 text-left inline-block" style={{ color: TEXT_MID }}>
-                                {bullets.map(b => (
-                                  <li key={b} className="flex items-start gap-1.5">
-                                    <span className="mt-[6px] inline-block h-1 w-1 rounded-full flex-shrink-0" style={{ background: dotColor }} />
-                                    <span>{b}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          )}
-                          {/* 圆点(置于轴中心) */}
-                          <div className="h-[16px] w-[16px] rounded-full ring-[3px] ring-white relative z-10"
-                            style={{
-                              background: dotColor,
-                              boxShadow: `0 2px 12px hsla(${hue}, 78%, 55%, 0.6)`,
-                            }} />
-                          {/* 下方内容 */}
-                          {!isTop && (
-                            <div className="absolute top-[calc(50%+18px)] left-0 right-0 px-1">
-                              <div className="text-base font-semibold mb-2" style={{ color: TEXT_DARK }}>{t}</div>
-                              <ul className="text-[12px] leading-relaxed space-y-1 text-left inline-block" style={{ color: TEXT_MID }}>
-                                {bullets.map(b => (
-                                  <li key={b} className="flex items-start gap-1.5">
-                                    <span className="mt-[6px] inline-block h-1 w-1 rounded-full flex-shrink-0" style={{ background: dotColor }} />
-                                    <span>{b}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          )}
+                          className="flex flex-col items-center" style={{ paddingTop: "70px" }}>
+                          <Dot i={i} />
+                          <div className="mt-4 w-full">
+                            <Card t={s.t} bullets={s.bullets} dotColor={`hsl(${hueFor(i)}, 78%, 60%)`} />
+                          </div>
+                        </motion.div>
+                      );
+                    })}
+                  </div>
+
+                  {/* 下行三个步骤 (从右到左,实际索引 5,4,3) */}
+                  <div className="grid grid-cols-3 gap-x-6 relative mt-2" style={{ paddingLeft: "8%" }}>
+                    {bottom.map((s, idx) => {
+                      const i = 5 - idx; // 5,4,3
+                      return (
+                        <motion.div key={s.t}
+                          initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: idx * 0.07 }}
+                          className="flex flex-col items-center" style={{ paddingTop: "20px" }}>
+                          <Dot i={i} />
+                          <div className="mt-4 w-full">
+                            <Card t={s.t} bullets={s.bullets} dotColor={`hsl(${hueFor(i)}, 78%, 60%)`} />
+                          </div>
                         </motion.div>
                       );
                     })}
