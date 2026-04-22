@@ -17,6 +17,8 @@ interface SnapPageProps {
 }
 
 export function SnapPage({ title, children }: SnapPageProps) {
+  const scrollerRef = React.useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const prev = document.title;
     document.title = `${title} · ByteMobi`;
@@ -25,14 +27,49 @@ export function SnapPage({ title, children }: SnapPageProps) {
     };
   }, [title]);
 
+  /**
+   * 动态吸附:当某个标记为 data-no-snap 的子区进入视口时,
+   * 临时关闭父容器的 scroll-snap,让用户自由滚动该长内容;
+   * 离开后恢复 mandatory 吸附。
+   */
+  useEffect(() => {
+    const scroller = scrollerRef.current;
+    if (!scroller) return;
+    const noSnapEls = scroller.querySelectorAll<HTMLElement>("[data-no-snap='true']");
+    if (noSnapEls.length === 0) return;
+
+    const setSnap = (enabled: boolean) => {
+      scroller.style.scrollSnapType = enabled ? "y mandatory" : "none";
+    };
+
+    const update = () => {
+      const vh = window.innerHeight;
+      const anyActive = Array.from(noSnapEls).some((el) => {
+        const rect = el.getBoundingClientRect();
+        // 当非吸附区与视口有显著相交(>20% 视口),关闭吸附
+        return rect.top < vh * 0.8 && rect.bottom > vh * 0.2;
+      });
+      setSnap(!anyActive);
+    };
+
+    update();
+    scroller.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      scroller.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, [children]);
+
   return (
     <div
+      ref={scrollerRef}
       className="app-light-theme font-sans relative"
       style={{
         color: "hsl(230 25% 18%)",
         height: "100vh",
         overflowY: "auto",
-        scrollSnapType: "y proximity",
+        scrollSnapType: "y mandatory",
         scrollBehavior: "smooth",
       }}
     >
