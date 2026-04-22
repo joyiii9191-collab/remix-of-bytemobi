@@ -344,32 +344,49 @@ export default function MediaResources() {
             </div>
           </div>
 
-          {/* 合作流程 — 顶部色线 + 圆点引导 */}
+          {/* 合作流程 — 连贯紫蓝时间轴,步骤标题在轴上方 */}
           <div className="mt-5 w-full">
             <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-4 text-left" style={{ color: ACCENT }}>合作流程</div>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
-              {[
-                { s: "步骤一", t: "咨询沟通", d: "明确合作目标与初步方向,梳理客户核心诉求与市场预期。", hue: 8 },
-                { s: "步骤二", t: "需求评估", d: "诊断市场与产品匹配度,评估投放可行性与增长空间。", hue: 28 },
-                { s: "步骤三", t: "签约合作", d: "确定服务方案与合作范围,完成合同签署与资源对接。", hue: 142 },
-                { s: "步骤四", t: "账户搭建", d: "完成媒介账户开户、素材准备与投放结构搭建。", hue: 188 },
-                { s: "步骤五", t: "投放优化", d: "持续测试与策略迭代,优化投放表现与转化效率。", hue: 232 },
-                { s: "步骤六", t: "数据复盘", d: "周期性效果分析与复盘,沉淀方法论助力长期增长。", hue: 268 },
-              ].map(({ s, t, d, hue }, i) => (
-                <motion.div key={t}
-                  initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: i * 0.06 }}
-                  className="relative pt-4 text-left">
-                  {/* 顶部细横线 */}
-                  <div className="absolute top-0 left-0 right-0 h-px" style={{ background: `hsla(${hue}, 70%, 60%, 0.45)` }} />
-                  {/* 左上圆点 */}
-                  <div className="absolute -top-[5px] left-0 h-[11px] w-[11px] rounded-full ring-2 ring-white"
-                    style={{ background: `hsl(${hue}, 70%, 55%)`, boxShadow: `0 2px 8px hsla(${hue}, 70%, 50%, 0.4)` }} />
-                  <div className="text-base font-semibold mb-2" style={{ color: TEXT_DARK }}>{s}</div>
-                  <div className="text-[13px] font-bold mb-1.5" style={{ color: `hsl(${hue}, 65%, 45%)` }}>{t}</div>
-                  <div className="text-[11px] leading-relaxed" style={{ color: TEXT_MID }}>{d}</div>
-                </motion.div>
-              ))}
+            <div className="relative pt-12">
+              {/* 贯穿时间轴 */}
+              <div className="absolute left-0 right-0 h-[2px]" style={{
+                top: "44px",
+                background: "linear-gradient(90deg, hsl(245 80% 68%) 0%, hsl(225 85% 60%) 50%, hsl(265 75% 62%) 100%)",
+                opacity: 0.9,
+                boxShadow: "0 2px 12px hsla(235, 80%, 60%, 0.25)",
+              }} />
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-5">
+                {[
+                  { s: "步骤一", t: "咨询沟通", d: "明确合作目标与初步方向,梳理客户核心诉求与市场预期。" },
+                  { s: "步骤二", t: "需求评估", d: "诊断市场与产品匹配度,评估投放可行性与增长空间。" },
+                  { s: "步骤三", t: "签约合作", d: "确定服务方案与合作范围,完成合同签署与资源对接。" },
+                  { s: "步骤四", t: "账户搭建", d: "完成媒介账户开户、素材准备与投放结构搭建。" },
+                  { s: "步骤五", t: "投放优化", d: "持续测试与策略迭代,优化投放表现与转化效率。" },
+                  { s: "步骤六", t: "数据复盘", d: "周期性效果分析与复盘,沉淀方法论助力长期增长。" },
+                ].map(({ s, t, d }, i, arr) => {
+                  const ratio = i / (arr.length - 1);
+                  const hue = 245 + (ratio - 0.5) * 40;
+                  const dotColor = `hsl(${hue}, 78%, 60%)`;
+                  return (
+                    <motion.div key={t}
+                      initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: i * 0.07 }}
+                      className="relative text-left">
+                      {/* 步骤标题(轴上方) */}
+                      <div className="absolute -top-[40px] left-0 text-[15px] font-semibold" style={{ color: TEXT_DARK }}>{s}</div>
+                      {/* 圆点 */}
+                      <div className="absolute -top-[10px] left-0 h-[14px] w-[14px] rounded-full ring-[3px] ring-white"
+                        style={{
+                          background: dotColor,
+                          boxShadow: `0 2px 10px hsla(${hue}, 78%, 55%, 0.55)`,
+                        }} />
+                      {/* 子标题与描述 */}
+                      <div className="pt-3 text-[12px] font-bold mb-1.5" style={{ color: TEXT_DARK }}>{t}</div>
+                      <div className="text-[11px] leading-relaxed" style={{ color: TEXT_MID }}>{d}</div>
+                    </motion.div>
+                  );
+                })}
+              </div>
             </div>
           </div>
 
