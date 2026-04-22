@@ -155,10 +155,10 @@ export default function About() {
       {/* === Screen 2 — 公司简介 === */}
       <SnapScreen id="intro" bg="tint">
         <ScreenInner>
-          <ScreenTitle>可信、协同、长期</ScreenTitle>
-          <ScreenLead>近十年行业积累,全球协同的技术与商务团队</ScreenLead>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-10">
+          <ScreenTitle>公司简介</ScreenTitle>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
             {[
+              { t: "可信、协同、长期", d: "近十年行业积累,全球协同的技术与商务团队" },
               { t: "2016 年成立", d: "总部位于深圳,深耕行业近十年的稳健积累" },
               { t: "全球 5 个办公点", d: "深圳、新加坡、东京、杜塞尔多夫、洛杉矶多地协同" },
               { t: "200+ 员工", d: "技术、产品、商务、运营一体化的全球团队" },
