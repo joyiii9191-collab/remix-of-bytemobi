@@ -509,18 +509,6 @@ export default function About() {
                     >
                       {o.focus.split("·")[0].trim()}
                     </div>
-                    <div
-                      className="mt-5 inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.18em] uppercase px-4 py-2 rounded-full transition-all"
-                      style={{
-                        background: "white",
-                        color: "hsl(225 60% 22%)",
-                        border: "1px solid rgba(30,41,99,0.12)",
-                        boxShadow: "0 6px 18px -8px rgba(30,41,99,0.25)",
-                      }}
-                    >
-                      <MapPin size={12} />
-                      View Details
-                    </div>
                   </div>
 
                   {/* 卡片内底部 — 悬停时显示完整地址 */}
@@ -532,10 +520,10 @@ export default function About() {
                       backdropFilter: "blur(6px)",
                     }}
                   >
-                    <div className="flex items-start gap-2">
-                      <MapPin size={13} className="mt-0.5 shrink-0" style={{ color: ACCENT }} />
+                    <div className="flex items-center justify-center gap-2">
+                      <MapPin size={13} className="shrink-0" style={{ color: ACCENT }} />
                       <p
-                        className="text-[12px] md:text-[13px] leading-relaxed text-left"
+                        className="text-[12px] md:text-[13px] leading-relaxed text-center"
                         style={{ color: "hsl(225 45% 22%)" }}
                       >
                         {o.addr}
