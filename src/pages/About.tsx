@@ -172,6 +172,13 @@ const PILLARS: Pillar[] = [
   },
 ];
 
+const STATS: { value: string; unit: string; label: string }[] = [
+  { value: "2016", unit: "", label: "深圳总部成立" },
+  { value: "5", unit: "个", label: "全球办公点" },
+  { value: "200", unit: "+", label: "全球员工" },
+  { value: "10", unit: "+", label: "覆盖国家与地区" },
+];
+
 function AnimatedNumber({ value, duration = 1.6 }: { value: string; duration?: number }) {
   const numericMatch = value.match(/^(\d+)/);
   const target = numericMatch ? parseInt(numericMatch[1], 10) : 0;
