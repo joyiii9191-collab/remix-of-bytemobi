@@ -350,7 +350,7 @@ export default function About() {
       <SnapScreen id="intro" bg="tint">
         <ScreenInner>
           <ScreenTitle>公司简介</ScreenTitle>
-          <IntroCards />
+          <CompanyIntro />
         </ScreenInner>
       </SnapScreen>
 
