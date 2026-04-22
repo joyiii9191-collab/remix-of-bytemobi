@@ -285,14 +285,17 @@ function CompanyIntro() {
               className="relative md:px-2 flex flex-col items-center text-center"
             >
               <div
-                className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 mb-4"
+                className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 mb-4 backdrop-blur-md"
                 style={{
-                  background: `linear-gradient(135deg, ${ACCENT} 0%, hsl(265 70% 60%) 100%)`,
-                  color: "white",
-                  boxShadow: "0 10px 26px -10px rgba(99,102,241,0.55)",
+                  background:
+                    "linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(99,102,241,0.18) 100%)",
+                  color: ACCENT,
+                  border: "1px solid rgba(255,255,255,0.6)",
+                  boxShadow:
+                    "0 8px 24px -12px rgba(99,102,241,0.35), inset 0 1px 0 rgba(255,255,255,0.7)",
                 }}
               >
-                <Icon size={26} />
+                <Icon size={26} strokeWidth={1.6} />
               </div>
 
               <div className="flex flex-col items-center mb-2">
