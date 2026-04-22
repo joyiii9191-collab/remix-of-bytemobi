@@ -312,16 +312,16 @@ export default function MediaResources() {
         </ScreenInner>
       </SnapScreen>
 
-      {/* === Screen 5 — 合作模式 + 政策支持 === */}
+      {/* === Screen 5 — 合作对象 + 政策支持 === */}
       <SnapScreen id="model">
         <ScreenInner>
           <ScreenTitle>灵活对接 · 共赢增长</ScreenTitle>
           <ScreenLead>覆盖跨境与品牌的多类客户,提供长期稳定的资源与运营支持</ScreenLead>
 
           {/* 合作对象 */}
-          <div className="mt-8 w-full">
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3 text-center" style={{ color: ACCENT }}>合作对象</div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 w-full">
+          <div className="mt-12 w-full">
+            <div className="text-sm font-semibold uppercase tracking-[0.2em] mb-5 text-center" style={{ color: ACCENT }}>合作对象</div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-5 w-full">
               {[
                 { t: "跨境电商商家", Icon: Store },
                 { t: "品牌广告主", Icon: Megaphone },
@@ -331,30 +331,63 @@ export default function MediaResources() {
                 <motion.div key={t}
                   initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: i * 0.06 }}
-                  className="rounded-xl px-4 py-4 flex flex-col items-center gap-2 glass-card text-center"
+                  className="rounded-2xl px-5 py-7 flex flex-col items-center gap-3 glass-card text-center"
                   style={CARD}>
-                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg"
+                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl"
                     style={{ background: "rgba(99,102,241,0.1)", color: ACCENT }}>
-                    <Icon size={18} strokeWidth={1.8} />
+                    <Icon size={24} strokeWidth={1.8} />
                   </span>
-                  <span className="text-sm font-semibold" style={{ color: TEXT_DARK }}>{t}</span>
+                  <span className="text-base font-semibold" style={{ color: TEXT_DARK }}>{t}</span>
                 </motion.div>
               ))}
             </div>
           </div>
 
-          {/* 合作流程 — 连贯紫蓝时间轴,步骤标题在轴上方 */}
-          <div className="mt-10 w-full">
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-4 text-center" style={{ color: ACCENT }}>合作流程</div>
-            <div className="relative pt-12">
+          {/* 政策支持 */}
+          <div className="mt-14 w-full">
+            <div className="text-sm font-semibold uppercase tracking-[0.2em] mb-5 text-center" style={{ color: ACCENT }}>政策支持</div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              {[
+                { t: "平台资源支持与返点政策", d: "结合平台政策为合作伙伴争取更优条件。", Icon: Gift },
+                { t: "流量扶持与投放策略支持", d: "新客户起量与冷启动阶段的策略陪跑。", Icon: Sparkles },
+                { t: "专业培训与长期运营指导", d: "持续输出方法论,帮助团队自我成长。", Icon: GraduationCap },
+              ].map(({ t, d, Icon }, i) => (
+                <motion.div key={t}
+                  initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: i * 0.08 }}
+                  className="rounded-2xl p-6 glass-card text-left" style={CARD}>
+                  <div className="flex items-center gap-3 mb-2.5">
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl"
+                      style={{ background: "rgba(99,102,241,0.1)", color: ACCENT }}>
+                      <Icon size={20} strokeWidth={1.8} />
+                    </span>
+                    <h3 className="text-base font-semibold" style={{ color: TEXT_DARK }}>{t}</h3>
+                  </div>
+                  <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>{d}</p>
+                </motion.div>
+              ))}
+            </div>
+            <p className="text-sm mt-5 italic text-center" style={{ color: TEXT_MID }}>帮助合作伙伴快速起量,实现稳定增长。</p>
+          </div>
+        </ScreenInner>
+      </SnapScreen>
+
+      {/* === Screen 6 — 合作流程 === */}
+      <SnapScreen id="process" bg="tint">
+        <ScreenInner>
+          <ScreenTitle>清晰路径 · 协同推进</ScreenTitle>
+          <ScreenLead>从首次咨询到长期复盘,六步闭环陪伴合作伙伴稳健增长</ScreenLead>
+
+          <div className="mt-14 w-full">
+            <div className="relative pt-16">
               {/* 贯穿时间轴 */}
               <div className="absolute left-0 right-0 h-[2px]" style={{
-                top: "44px",
+                top: "60px",
                 background: "linear-gradient(90deg, hsl(245 80% 68%) 0%, hsl(225 85% 60%) 50%, hsl(265 75% 62%) 100%)",
                 opacity: 0.9,
-                boxShadow: "0 2px 12px hsla(235, 80%, 60%, 0.25)",
+                boxShadow: "0 2px 14px hsla(235, 80%, 60%, 0.3)",
               }} />
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-5">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-7">
                 {[
                   { s: "步骤一", t: "咨询沟通", d: "明确合作目标与初步方向,梳理客户核心诉求与市场预期。" },
                   { s: "步骤二", t: "需求评估", d: "诊断市场与产品匹配度,评估投放可行性与增长空间。" },
@@ -372,48 +405,21 @@ export default function MediaResources() {
                       viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: i * 0.07 }}
                       className="relative text-left">
                       {/* 步骤标题(轴上方) */}
-                      <div className="absolute -top-[40px] left-0 text-[15px] font-semibold" style={{ color: TEXT_DARK }}>{s}</div>
+                      <div className="absolute -top-[54px] left-0 text-lg font-semibold" style={{ color: TEXT_DARK }}>{s}</div>
                       {/* 圆点 */}
-                      <div className="absolute -top-[10px] left-0 h-[14px] w-[14px] rounded-full ring-[3px] ring-white"
+                      <div className="absolute -top-[12px] left-0 h-[16px] w-[16px] rounded-full ring-[3px] ring-white"
                         style={{
                           background: dotColor,
-                          boxShadow: `0 2px 10px hsla(${hue}, 78%, 55%, 0.55)`,
+                          boxShadow: `0 2px 12px hsla(${hue}, 78%, 55%, 0.6)`,
                         }} />
                       {/* 子标题与描述 */}
-                      <div className="pt-3 text-[12px] font-bold mb-1.5" style={{ color: TEXT_DARK }}>{t}</div>
-                      <div className="text-[11px] leading-relaxed" style={{ color: TEXT_MID }}>{d}</div>
+                      <div className="pt-5 text-sm font-bold mb-2" style={{ color: TEXT_DARK }}>{t}</div>
+                      <div className="text-[13px] leading-relaxed" style={{ color: TEXT_MID }}>{d}</div>
                     </motion.div>
                   );
                 })}
               </div>
             </div>
-          </div>
-
-          {/* 政策支持 */}
-          <div className="mt-10 w-full">
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3 text-center" style={{ color: ACCENT }}>政策支持</div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-              {[
-                { t: "平台资源支持与返点政策", d: "结合平台政策为合作伙伴争取更优条件。", Icon: Gift },
-                { t: "流量扶持与投放策略支持", d: "新客户起量与冷启动阶段的策略陪跑。", Icon: Sparkles },
-                { t: "专业培训与长期运营指导", d: "持续输出方法论,帮助团队自我成长。", Icon: GraduationCap },
-              ].map(({ t, d, Icon }, i) => (
-                <motion.div key={t}
-                  initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: i * 0.08 }}
-                  className="rounded-xl p-4 glass-card text-left" style={CARD}>
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg"
-                      style={{ background: "rgba(99,102,241,0.1)", color: ACCENT }}>
-                      <Icon size={16} strokeWidth={1.8} />
-                    </span>
-                    <h3 className="text-sm font-semibold" style={{ color: TEXT_DARK }}>{t}</h3>
-                  </div>
-                  <p className="text-xs leading-relaxed" style={{ color: TEXT_MID }}>{d}</p>
-                </motion.div>
-              ))}
-            </div>
-            <p className="text-xs mt-3 italic text-center" style={{ color: TEXT_MID }}>帮助合作伙伴快速起量,实现稳定增长。</p>
           </div>
         </ScreenInner>
       </SnapScreen>
