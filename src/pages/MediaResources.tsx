@@ -344,35 +344,50 @@ export default function MediaResources() {
             </div>
           </div>
 
-          {/* 合作流程 — 箭头标签式 */}
+          {/* 合作流程 — 玻璃质感箭头标签 */}
           <div className="mt-5 w-full">
             <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3 text-left" style={{ color: ACCENT }}>合作流程</div>
-            <div className="flex flex-wrap items-stretch gap-1.5">
+            <div className="flex flex-wrap items-stretch gap-2">
               {[
-                { s: "STEP 01", t: "咨询沟通", Icon: MessageCircle },
-                { s: "STEP 02", t: "需求评估", Icon: ClipboardCheck },
-                { s: "STEP 03", t: "签约合作", Icon: FileSignature },
-                { s: "STEP 04", t: "账户搭建", Icon: Settings2 },
-                { s: "STEP 05", t: "投放优化", Icon: TrendingUp },
-                { s: "STEP 06", t: "数据复盘", Icon: PieChart },
-              ].map(({ s, t, Icon }, i) => (
-                <motion.div key={t}
-                  initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.35, delay: i * 0.06 }}
-                  className="flex-1 min-w-[110px] relative px-3 py-2.5 flex items-center gap-2"
-                  style={{
-                    background: `linear-gradient(135deg, hsl(${230 + i * 8} 70% ${60 + (i % 2) * 5}%) 0%, hsl(${245 + i * 6} 65% ${52 + (i % 2) * 5}%) 100%)`,
-                    color: "white",
-                    clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%, 12px 50%)",
-                    paddingLeft: i === 0 ? "12px" : "20px",
-                  }}>
-                  <Icon size={16} strokeWidth={2} className="flex-shrink-0" />
-                  <div className="text-left leading-tight">
-                    <div className="text-[10px] font-bold opacity-80 tracking-wider">{s}</div>
-                    <div className="text-xs font-semibold">{t}</div>
-                  </div>
-                </motion.div>
-              ))}
+                { s: "STEP 01", t: "咨询沟通", d: "明确目标与初步方向", Icon: MessageCircle },
+                { s: "STEP 02", t: "需求评估", d: "诊断市场与产品匹配度", Icon: ClipboardCheck },
+                { s: "STEP 03", t: "签约合作", d: "确定方案与服务范围", Icon: FileSignature },
+                { s: "STEP 04", t: "账户搭建", d: "媒介开户与素材准备", Icon: Settings2 },
+                { s: "STEP 05", t: "投放优化", d: "持续测试与策略迭代", Icon: TrendingUp },
+                { s: "STEP 06", t: "数据复盘", d: "效果分析与长期增长", Icon: PieChart },
+              ].map(({ s, t, d, Icon }, i) => {
+                const hue = 225 + i * 10;
+                return (
+                  <motion.div key={t}
+                    initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.35, delay: i * 0.06 }}
+                    whileHover={{ y: -3, scale: 1.02 }}
+                    className="flex-1 min-w-[140px] relative px-4 py-4 flex items-center gap-3 backdrop-blur-md transition-shadow"
+                    style={{
+                      background: `linear-gradient(135deg, hsla(${hue}, 85%, 70%, 0.22) 0%, hsla(${hue + 15}, 80%, 60%, 0.32) 100%)`,
+                      border: `1px solid hsla(${hue}, 80%, 70%, 0.35)`,
+                      boxShadow: `inset 0 1px 0 rgba(255,255,255,0.5), 0 8px 24px -12px hsla(${hue}, 70%, 50%, 0.25)`,
+                      clipPath: "polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%, 14px 50%)",
+                      paddingLeft: i === 0 ? "16px" : "26px",
+                      paddingRight: "26px",
+                      minHeight: "84px",
+                    }}>
+                    <span className="inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg backdrop-blur-sm"
+                      style={{
+                        background: `hsla(${hue}, 80%, 96%, 0.7)`,
+                        color: `hsl(${hue}, 70%, 45%)`,
+                        border: `1px solid hsla(${hue}, 70%, 60%, 0.3)`,
+                      }}>
+                      <Icon size={16} strokeWidth={2} />
+                    </span>
+                    <div className="text-left leading-tight">
+                      <div className="text-[10px] font-bold tracking-wider" style={{ color: `hsl(${hue}, 60%, 40%)` }}>{s}</div>
+                      <div className="text-sm font-semibold mt-0.5" style={{ color: TEXT_DARK }}>{t}</div>
+                      <div className="text-[10px] mt-1 leading-snug" style={{ color: TEXT_MID }}>{d}</div>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
 
