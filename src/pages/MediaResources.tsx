@@ -105,7 +105,7 @@ export default function MediaResources() {
             {[
               {
                 t: "账户与投放启动",
-                d: "为广告主完成账号开设、账户准备与投放上线前配置。",
+                d: "完成账号开设、账户准备与投放上线前配置",
                 Icon: Rocket,
                 items: [
                   { text: "TikTok / Facebook / Google 快速开户", Icon: KeyRound },
