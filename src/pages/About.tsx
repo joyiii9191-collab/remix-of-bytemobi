@@ -142,7 +142,7 @@ const PILLARS: Pillar[] = [
     desc: "5 个办公点协同,服务覆盖全球关键市场",
     points: [
       { icon: MapPin, text: "深圳 / 新加坡 / 东京" },
-      { icon: Network, text: "杜塞尔多夫 / 洛杉矶" },
+      { icon: MapPin, text: "杜塞尔多夫 / 洛杉矶" },
       { icon: Languages, text: "10+ 国家本地化商务" },
     ],
   },
