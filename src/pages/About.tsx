@@ -74,6 +74,7 @@ const TIMELINE: Milestone[] = [
 const EVENTS = ["IAB", "GDC", "Japan IT Week", "ChinaJoy", "TGS", "中东峰会", "IVS Kyoto"];
 
 import { GLASS_CARD as CARD, TEXT_DARK, TEXT_MID, ACCENT } from "@/lib/page-styles";
+import { GradientGlassCard } from "@/components/GradientGlassCard";
 
 // 时间轴渐变色:蓝 → 紫
 const TIMELINE_GRADIENT = "linear-gradient(180deg, hsl(220 90% 60%) 0%, hsl(250 80% 62%) 50%, hsl(280 75% 60%) 100%)";
@@ -622,112 +623,26 @@ const VALUES: ValueItem[] = [
 function ValueGrid() {
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-5 w-full">
-      {VALUES.map((v, i) => {
-        const Icon = v.icon;
-        return (
-          <motion.div
-            key={v.label}
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.25 }}
-            transition={{
-              duration: 0.55,
-              delay: i * 0.08,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            whileHover={{ y: -3 }}
-            className="group relative rounded-2xl px-4 py-3.5 md:px-5 md:py-4 overflow-hidden glass-card"
-            style={{
-              ...CARD,
-              backgroundImage:
-                "linear-gradient(135deg, rgba(99,102,241,0.10) 0%, rgba(168,85,247,0.08) 50%, rgba(236,72,153,0.06) 100%)",
-            }}
-          >
-            {/* 蓝紫渐变高光底色 */}
-            <div
-              aria-hidden
-              className="absolute inset-0 opacity-60 pointer-events-none"
-              style={{
-                background:
-                  "linear-gradient(135deg, hsl(220 90% 70% / 0.12) 0%, hsl(260 85% 70% / 0.10) 50%, hsl(290 80% 72% / 0.08) 100%)",
-              }}
-            />
-
-            {/* 悬浮渐变光斑 */}
-            <div
-              aria-hidden
-              className="absolute -top-16 -right-16 w-44 h-44 rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-              style={{
-                background:
-                  "radial-gradient(circle, hsl(260 90% 70% / 0.45) 0%, transparent 70%)",
-                filter: "blur(22px)",
-              }}
-            />
-
-            {/* 大号半透明玻璃图标 — 右下作为装饰 */}
-            <div
-              aria-hidden
-              className="absolute -bottom-3 -right-3 pointer-events-none"
-              style={{
-                color: ACCENT,
-                opacity: 0.18,
-              }}
-            >
-              <Icon
-                size={92}
-                strokeWidth={1.1}
-                style={{
-                  filter:
-                    "drop-shadow(0 2px 6px rgba(99,102,241,0.25))",
-                }}
-              />
-            </div>
-
-            <div className="relative flex items-center gap-3">
-              {/* 序号 */}
-              <span
-                className="font-bold tabular-nums leading-none shrink-0"
-                style={{
-                  fontSize: "1.5rem",
-                  fontFamily:
-                    "'Playfair Display', 'Cormorant Garamond', Georgia, serif",
-                  backgroundImage:
-                    "linear-gradient(135deg, hsl(220 90% 58%) 0%, hsl(280 80% 60%) 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                  color: "transparent",
-                }}
-              >
-                {v.no}
-              </span>
-
-              <div className="flex-1 min-w-0">
-                {/* 标题 — 蓝紫渐变 */}
-                <h3
-                  className="text-base md:text-lg font-bold leading-tight mb-1"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(135deg, hsl(220 90% 50%) 0%, hsl(260 85% 55%) 50%, hsl(290 80% 58%) 100%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                    color: "transparent",
-                  }}
-                >
-                  {v.label}
-                </h3>
-                <p
-                  className="text-[12.5px] md:text-[13px] leading-snug"
-                  style={{ color: TEXT_MID }}
-                >
-                  {v.desc}
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        );
-      })}
+      {VALUES.map((v, i) => (
+        <motion.div
+          key={v.label}
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.25 }}
+          transition={{
+            duration: 0.55,
+            delay: i * 0.08,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+        >
+          <GradientGlassCard
+            icon={v.icon}
+            no={v.no}
+            title={v.label}
+            desc={v.desc}
+          />
+        </motion.div>
+      ))}
     </div>
   );
 }
