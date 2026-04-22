@@ -6,6 +6,11 @@ import {
   ScreenEyebrow, ScreenTitle, ScreenLead,
 } from "@/components/SnapPage";
 import { ParticleWorldMap } from "@/components/ParticleWorldMap";
+import officeXian from "@/assets/office-xian.jpg";
+import officeSingapore from "@/assets/office-singapore.jpg";
+import officeTokyo from "@/assets/office-tokyo.jpg";
+import officeDusseldorf from "@/assets/office-dusseldorf.jpg";
+import officeLosangeles from "@/assets/office-losangeles.jpg";
 import {
   Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription,
 } from "@/components/ui/dialog";
