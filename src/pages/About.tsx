@@ -1074,16 +1074,19 @@ export default function About() {
                     {e.name}
                   </h3>
 
-                  <div className="grid grid-cols-[12px_1fr] items-center gap-x-1 gap-y-1 text-[10.5px] md:text-[11px]">
-                    <Calendar size={11} strokeWidth={1.8} className="shrink-0" style={{ color: ACCENT }} />
-                    <span className="font-medium tabular-nums tracking-wide truncate" style={{ color: ACCENT }}>{e.date}</span>
-
-                    <MapPin size={11} strokeWidth={1.8} className="shrink-0" style={{ color: TEXT_MID }} />
-                    <span className="truncate min-w-0 leading-snug" style={{ color: TEXT_MID }} title={`${e.city} · ${e.location}`}>
-                      <span style={{ color: TEXT_DARK }} className="font-medium">{e.city}</span>
-                      <span className="opacity-60"> · </span>
-                      {e.location}
-                    </span>
+                  <div className="flex flex-col gap-1 text-[10.5px] md:text-[11px]">
+                    <div className="relative pl-0">
+                      <Calendar size={11} strokeWidth={1.8} className="absolute -left-4 top-1/2 -translate-y-1/2 shrink-0" style={{ color: ACCENT }} />
+                      <span className="block truncate font-medium tabular-nums tracking-wide" style={{ color: ACCENT }}>{e.date}</span>
+                    </div>
+                    <div className="relative pl-0">
+                      <MapPin size={11} strokeWidth={1.8} className="absolute -left-4 top-[0.35em] shrink-0" style={{ color: TEXT_MID }} />
+                      <span className="block truncate leading-snug" style={{ color: TEXT_MID }} title={`${e.city} · ${e.location}`}>
+                        <span style={{ color: TEXT_DARK }} className="font-medium">{e.city}</span>
+                        <span className="opacity-60"> · </span>
+                        {e.location}
+                      </span>
+                    </div>
                   </div>
                 </div>
 
