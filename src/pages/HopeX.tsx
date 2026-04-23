@@ -121,7 +121,7 @@ export default function HopeX() {
       <SnapScreen id="scale" bg="tint">
         <ScreenInner className="max-w-[1440px] px-8 xl:px-10">
           <ScreenTitle className="text-center">平台规模与基础能力</ScreenTitle>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 xl:gap-x-12 gap-y-4 mt-4 w-full">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-3 md:gap-x-4 xl:gap-x-5 gap-y-4 mt-4 w-full max-w-[1100px] mx-auto">
             {SCALE.map((s, i) => (
               <motion.div
                 key={s.l}
