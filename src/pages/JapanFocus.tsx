@@ -333,13 +333,23 @@ export default function JapanFocus() {
                   {g.label}
                 </div>
                 <div className="grid gap-3" style={{ gridTemplateColumns: `repeat(${g.slots.length}, minmax(0,1fr))` }}>
-                  {g.slots.map((name) => (
+                  {g.slots.map((s) => (
                     <div
-                      key={name}
-                      className="h-16 rounded-xl flex items-center justify-center text-sm font-semibold glass-card"
+                      key={s.name}
+                      className="h-16 rounded-xl flex items-center justify-center text-sm font-semibold glass-card px-3"
                       style={{ ...CARD, color: TEXT_MID }}
+                      title={s.name}
                     >
-                      {name}
+                      {s.logo ? (
+                        <img
+                          src={s.logo}
+                          alt={s.name}
+                          className="max-h-10 max-w-full object-contain"
+                          loading="lazy"
+                        />
+                      ) : (
+                        s.name
+                      )}
                     </div>
                   ))}
                 </div>
