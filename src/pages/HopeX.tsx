@@ -408,7 +408,7 @@ export default function HopeX() {
               <GlassTag>DSP 能力</GlassTag>
             </div>
           </div>
-          <ScreenLead>跨越多元行业,服务全球头部客户。</ScreenLead>
+          
           <div className="w-full mt-10 space-y-5 max-w-[1200px] mx-auto">
             {(() => {
               const groups = [
@@ -493,9 +493,6 @@ export default function HopeX() {
                   <div className="text-left pl-2">
                     <div className="text-sm font-bold tracking-wide" style={{ color: ACCENT }}>
                       {g.t}
-                    </div>
-                    <div className="text-[10px] uppercase tracking-[0.18em] mt-0.5" style={{ color: TEXT_MID }}>
-                      {g.en}
                     </div>
                   </div>
                   <div
