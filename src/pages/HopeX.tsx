@@ -35,6 +35,16 @@ import oemOpera from "@/assets/oem-opera.png";
 import oemBluex from "@/assets/oem-bluex.png";
 import oemIronsrc from "@/assets/oem-ironsrc.png";
 
+// 外部开发者 logo
+import devDoomsday from "@/assets/dev-doomsday.jpeg";
+import devMihoyo from "@/assets/dev-mihoyo.png";
+import devCavequeen from "@/assets/dev-cavequeen.png";
+import devXingqu from "@/assets/dev-xingqu.png";
+import devMushroom from "@/assets/dev-mushroom.png";
+import devDragonnest from "@/assets/dev-dragonnest.jpeg";
+import devBoMahjong from "@/assets/dev-bo-mahjong.jpeg";
+import devMlbb from "@/assets/dev-mlbb.jpeg";
+
 // 案例品牌 logo (来源:全球汇流 cases 子页面)
 import caseEcommerceImg from "@/assets/case-ecommerce-aliexpress.png";
 import caseTaobaoLogo from "@/assets/case-taobao-logo.png";
@@ -832,9 +842,14 @@ export default function HopeX() {
                 t: "外部开发者",
                 direction: "left" as const,
                 apps: [
-                  { name: "Partner A" }, { name: "Partner B" }, { name: "Partner C" }, { name: "Partner D" },
-                  { name: "Partner E" }, { name: "Partner F" }, { name: "Partner G" }, { name: "Partner H" },
-                  { name: "Partner I" }, { name: "Partner J" },
+                  { name: "Doomsday", src: devDoomsday },
+                  { name: "miHoYo", src: devMihoyo },
+                  { name: "Cave Queen", src: devCavequeen },
+                  { name: "星曲 Ultra", src: devXingqu },
+                  { name: "Mushroom Hero", src: devMushroom },
+                  { name: "Dragon Nest", src: devDragonnest, fit: "contain" as const },
+                  { name: "波克麻将", src: devBoMahjong },
+                  { name: "Mobile Legends", src: devMlbb },
                 ],
               },
             ].map((row) => (
