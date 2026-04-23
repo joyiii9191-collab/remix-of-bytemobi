@@ -11,6 +11,39 @@ import { GLASS_CARD as CARD, TEXT_DARK, TEXT_MID, ACCENT } from "@/lib/page-styl
 import { FormatShowcase } from "@/components/FormatShowcase";
 import { TrendingUp, Target, Globe2, Wallet, Coins, Cpu } from "lucide-react";
 
+// 案例品牌 logo (来源:全球汇流 cases 子页面)
+import caseEcommerceImg from "@/assets/case-ecommerce-aliexpress.png";
+import caseTaobaoLogo from "@/assets/case-taobao-logo.png";
+import caseTemuLogo from "@/assets/case-temu-logo.png";
+import caseShopeeLogo from "@/assets/case-shopee-logo.png";
+import caseLazadaLogo from "@/assets/case-lazada-logo.png";
+import caseBinanceImg from "@/assets/case-binance.png";
+import caseExnessLogo from "@/assets/case-exness-logo.png";
+import caseVantageLogo from "@/assets/case-vantage-logo.png";
+import caseVtmarketsLogo from "@/assets/case-vtmarkets-logo.png";
+import caseCryptocomLogo from "@/assets/case-cryptocom-logo.png";
+import casePaybisLogo from "@/assets/case-paybis-logo.png";
+import caseBet365Logo from "@/assets/case-bet365-logo.png";
+import case1xbetLogo from "@/assets/case-1xbet-logo.png";
+import caseMelbetLogo from "@/assets/case-melbet-logo.png";
+import caseGgvegasLogo from "@/assets/case-ggvegas-logo.png";
+import casePrimepartnersLogo from "@/assets/case-primepartners-logo.png";
+import caseHungryImg from "@/assets/case-hungry-studio.png";
+import caseSaygamesLogo from "@/assets/case-saygames-logo.png";
+import caseSupersonicLogo from "@/assets/case-supersonic-logo.png";
+import caseLilithLogo from "@/assets/case-lilith-logo.png";
+import caseIggLogo from "@/assets/case-igg-logo.jpg";
+import caseFunplusLogo from "@/assets/case-funplus-logo.png";
+import caseTiktokLogo from "@/assets/case-tiktok-logo.png";
+import caseKwaiLogo from "@/assets/case-kwai-logo.png";
+import caseLikeeLogo from "@/assets/case-likee-logo.png";
+import caseBigoLogo from "@/assets/case-bigo-logo.png";
+import caseNordvpnLogo from "@/assets/case-nordvpn-logo.png";
+import casePurevpnLogo from "@/assets/case-purevpn-logo.png";
+import caseSailyLogo from "@/assets/case-saily-logo.png";
+import caseFacetuneLogo from "@/assets/case-facetune-logo.png";
+import caseAicleanerLogo from "@/assets/case-aicleaner-logo.png";
+
 const HOPEX_MARKERS = [
   { x: 18, y: 35, highlight: true, label: "NA" },
   { x: 78, y: 50, highlight: true, label: "SEA" },
@@ -337,49 +370,115 @@ export default function HopeX() {
           <GlassTag>DSP 能力</GlassTag>
           <ScreenTitle>全球行业覆盖</ScreenTitle>
           <ScreenLead>跨越多元行业,服务全球头部客户。</ScreenLead>
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-4 mt-10 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 w-full">
             {[
-              { t: "电商", en: "E-commerce" },
-              { t: "游戏", en: "Gaming" },
-              { t: "工具", en: "Utility" },
-              { t: "短剧", en: "Short Drama" },
-              { t: "娱乐内容", en: "Entertainment" },
-              { t: "金融科技", en: "FinTech" },
+              {
+                t: "电商",
+                en: "E-commerce",
+                logos: [
+                  { name: "AliExpress", src: caseEcommerceImg },
+                  { name: "Taobao", src: caseTaobaoLogo },
+                  { name: "Temu", src: caseTemuLogo },
+                  { name: "Shopee", src: caseShopeeLogo },
+                  { name: "Lazada", src: caseLazadaLogo },
+                ],
+              },
+              {
+                t: "金融科技",
+                en: "FinTech",
+                logos: [
+                  { name: "Binance", src: caseBinanceImg },
+                  { name: "Exness", src: caseExnessLogo },
+                  { name: "Vantage", src: caseVantageLogo },
+                  { name: "VT Markets", src: caseVtmarketsLogo },
+                  { name: "Crypto.com", src: caseCryptocomLogo },
+                  { name: "Paybis", src: casePaybisLogo },
+                ],
+              },
+              {
+                t: "博彩",
+                en: "iGaming",
+                logos: [
+                  { name: "Bet365", src: caseBet365Logo },
+                  { name: "1xBet", src: case1xbetLogo },
+                  { name: "Melbet", src: caseMelbetLogo },
+                  { name: "GGVegas", src: caseGgvegasLogo },
+                  { name: "Prime Partners", src: casePrimepartnersLogo },
+                ],
+              },
+              {
+                t: "游戏",
+                en: "Gaming",
+                logos: [
+                  { name: "Hungry Studio", src: caseHungryImg },
+                  { name: "SayGames", src: caseSaygamesLogo },
+                  { name: "Supersonic", src: caseSupersonicLogo },
+                  { name: "Lilith", src: caseLilithLogo },
+                  { name: "IGG", src: caseIggLogo },
+                  { name: "FunPlus", src: caseFunplusLogo },
+                ],
+              },
+              {
+                t: "娱乐内容",
+                en: "Entertainment",
+                logos: [
+                  { name: "TikTok", src: caseTiktokLogo },
+                  { name: "Kwai", src: caseKwaiLogo },
+                  { name: "Likee", src: caseLikeeLogo },
+                  { name: "Bigo", src: caseBigoLogo },
+                ],
+              },
+              {
+                t: "工具",
+                en: "Utility",
+                logos: [
+                  { name: "NordVPN", src: caseNordvpnLogo },
+                  { name: "PureVPN", src: casePurevpnLogo },
+                  { name: "Saily", src: caseSailyLogo },
+                  { name: "Facetune", src: caseFacetuneLogo },
+                  { name: "AI Cleaner", src: caseAicleanerLogo },
+                ],
+              },
             ].map((c, i) => (
               <motion.div key={c.t}
                 initial={{ opacity: 0, y: 20, scale: 0.96 }} whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.45, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
-                whileHover={{ y: -4, scale: 1.03 }}
-                className="rounded-2xl glass-card aspect-square flex flex-col items-center justify-center gap-2"
+                whileHover={{ y: -4 }}
+                className="rounded-2xl glass-card p-5 flex flex-col gap-4"
                 style={CARD}
               >
-                <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center text-xs font-bold"
-                  style={{
-                    background: "linear-gradient(135deg, hsl(245 70% 55%) 0%, hsl(265 65% 60%) 100%)",
-                    color: "#fff",
-                  }}
-                >
-                  {c.t.slice(0, 1)}
+                {/* 类目头部 */}
+                <div className="flex items-baseline justify-between border-b pb-3" style={{ borderColor: "hsl(245 30% 92%)" }}>
+                  <div className="flex items-baseline gap-2">
+                    <h3 className="text-base font-semibold" style={{ color: TEXT_DARK }}>{c.t}</h3>
+                    <span className="text-[10px] uppercase tracking-[0.18em]" style={{ color: TEXT_MID }}>{c.en}</span>
+                  </div>
+                  <span className="text-[11px] font-semibold" style={{ color: "hsl(245 50% 55%)" }}>
+                    {c.logos.length} 家
+                  </span>
                 </div>
-                <div className="text-sm font-semibold" style={{ color: TEXT_DARK }}>{c.t}</div>
-                <div className="text-[10px] uppercase tracking-[0.15em]" style={{ color: TEXT_MID }}>{c.en}</div>
-              </motion.div>
-            ))}
-          </div>
-          <div className="mt-6 grid grid-cols-3 md:grid-cols-6 gap-4 w-full">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <motion.div key={i}
-                initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.4, delay: i * 0.05 }}
-                className="rounded-xl h-16 flex items-center justify-center text-[10px] font-semibold uppercase tracking-[0.2em]"
-                style={{
-                  background: "rgba(99,102,241,0.06)",
-                  border: "1px dashed rgba(99,102,241,0.25)",
-                  color: "hsl(245 30% 50%)",
-                }}
-              >
-                Logo
+                {/* logo 网格 */}
+                <div className="grid grid-cols-3 gap-2.5">
+                  {c.logos.map((l) => (
+                    <div
+                      key={l.name}
+                      title={l.name}
+                      className="aspect-[4/3] rounded-lg flex items-center justify-center p-2 transition-all duration-300 hover:scale-105"
+                      style={{
+                        background: "hsl(0 0% 100%)",
+                        border: "1px solid hsl(245 30% 92%)",
+                        boxShadow: "0 1px 2px hsl(245 30% 50% / 0.04)",
+                      }}
+                    >
+                      <img
+                        src={l.src}
+                        alt={l.name}
+                        className="max-w-full max-h-full object-contain"
+                        loading="lazy"
+                      />
+                    </div>
+                  ))}
+                </div>
               </motion.div>
             ))}
           </div>
