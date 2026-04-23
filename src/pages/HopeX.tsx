@@ -21,6 +21,14 @@ import ownedLogo5 from "@/assets/owned-logo-5.png";
 import ownedLogo6 from "@/assets/owned-logo-6.png";
 import ownedLogo7 from "@/assets/owned-logo-7.png";
 
+// OEM SDK logo
+import oemXiaomi from "@/assets/oem-xiaomi.png";
+import oemHuawei from "@/assets/oem-huawei.png";
+import oemOppo from "@/assets/oem-oppo.png";
+import oemSamsung from "@/assets/oem-samsung.png";
+import oemVivo from "@/assets/oem-vivo.png";
+import oemTranssion from "@/assets/oem-transsion.png";
+
 // 案例品牌 logo (来源:全球汇流 cases 子页面)
 import caseEcommerceImg from "@/assets/case-ecommerce-aliexpress.png";
 import caseTaobaoLogo from "@/assets/case-taobao-logo.png";
@@ -105,7 +113,7 @@ function GlassTag({ children }: { children: React.ReactNode }) {
  */
 function HopexLogoMarquee({
   tag, direction, apps,
-}: { tag: string; direction: "left" | "right"; apps: Array<{ name: string; src?: string }> }) {
+}: { tag: string; direction: "left" | "right"; apps: Array<{ name: string; src?: string; fit?: "cover" | "contain" }> }) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [phase, setPhase] = useState<"idle" | "centered" | "flowing">("idle");
   const doubled = [...apps, ...apps];
@@ -194,12 +202,21 @@ function HopexLogoMarquee({
                 title={item.name}
               >
                 {item.src ? (
-                  <img
-                    src={item.src}
-                    alt={item.name}
-                    loading="lazy"
-                    className="w-full h-full object-cover rounded-2xl"
-                  />
+                  item.fit === "contain" ? (
+                    <img
+                      src={item.src}
+                      alt={item.name}
+                      loading="lazy"
+                      className="max-w-[78%] max-h-[58%] object-contain"
+                    />
+                  ) : (
+                    <img
+                      src={item.src}
+                      alt={item.name}
+                      loading="lazy"
+                      className="w-full h-full object-cover rounded-2xl"
+                    />
+                  )
                 ) : (
                   <div
                     className="w-9 h-9 rounded-md flex items-center justify-center text-[14px] font-bold"
@@ -791,8 +808,16 @@ export default function HopeX() {
                 t: "OEM SDK",
                 direction: "right" as const,
                 apps: [
-                  { name: "Xiaomi" }, { name: "OPPO" }, { name: "vivo" }, { name: "Honor" },
-                  { name: "Realme" }, { name: "Transsion" }, { name: "Tecno" }, { name: "Infinix" }, { name: "Samsung" },
+                  { name: "Xiaomi", src: oemXiaomi, fit: "contain" as const },
+                  { name: "HUAWEI", src: oemHuawei, fit: "contain" as const },
+                  { name: "OPPO", src: oemOppo, fit: "contain" as const },
+                  { name: "Samsung", src: oemSamsung, fit: "contain" as const },
+                  { name: "vivo", src: oemVivo, fit: "contain" as const },
+                  { name: "Transsion", src: oemTranssion, fit: "contain" as const },
+                  { name: "Honor" },
+                  { name: "Realme" },
+                  { name: "Tecno" },
+                  { name: "Infinix" },
                 ],
               },
               {
