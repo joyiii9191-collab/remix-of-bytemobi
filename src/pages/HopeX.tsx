@@ -483,7 +483,7 @@ export default function HopeX() {
                 key={c.t}
                 initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.45, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
-                className="flex items-center gap-5 py-4 border-b"
+                className="flex items-center gap-5 py-6 border-b"
                 style={{ borderColor: "hsl(245 30% 92%)" }}
               >
                 {/* 左侧:行业名 */}
