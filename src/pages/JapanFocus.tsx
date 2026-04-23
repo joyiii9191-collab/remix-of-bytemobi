@@ -24,6 +24,7 @@ import partnerOppo from "@/assets/partner-oppo.png";
 import partnerTranssion from "@/assets/partner-transsion.png";
 import partnerVmate from "@/assets/partner-vmate.png";
 import partnerSimeji from "@/assets/partner-simeji.png";
+import partnerFacemoji from "@/assets/partner-facemoji.png";
 import partnerSnaptube from "@/assets/partner-snaptube.png";
 import partnerMeitu from "@/assets/partner-meitu.png";
 import partnerUnity from "@/assets/partner-unity.png";
@@ -55,7 +56,7 @@ const PARTNER_GROUPS: { label: string; slots: PartnerSlot[] }[] = [
   { label: "DIRECT APPS", slots: [
     { name: "VMate", logo: partnerVmate },
     { name: "Simeji", logo: partnerSimeji },
-    { name: "Joyme" },
+    { name: "Facemoji", logo: partnerFacemoji },
     { name: "Snaptube", logo: partnerSnaptube },
     { name: "Meitu", logo: partnerMeitu },
   ] },
