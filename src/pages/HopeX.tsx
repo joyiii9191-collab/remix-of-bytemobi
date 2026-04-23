@@ -127,17 +127,17 @@ export default function HopeX() {
                 key={s.l}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.6, delay: i * 0.08 }}
-                className="relative flex items-center justify-center h-20 md:h-24 min-w-0"
+                className="relative flex items-center justify-center h-24 md:h-28 min-w-0"
               >
                 <div
                   aria-hidden
                   className="absolute inset-0 flex items-center justify-center font-black select-none pointer-events-none"
                   style={{
-                    fontSize: "clamp(2.8rem, 3.8vw, 4.4rem)",
+                    fontSize: "clamp(3.6rem, 5vw, 5.6rem)",
                     lineHeight: 1,
                     letterSpacing: "-0.04em",
                     color: "transparent",
-                    WebkitTextStroke: "1px hsla(230, 20%, 60%, 0.45)",
+                    WebkitTextStroke: "1.2px hsla(230, 20%, 60%, 0.45)",
                     fontFamily: "'Inter', system-ui, sans-serif",
                   }}
                 >
