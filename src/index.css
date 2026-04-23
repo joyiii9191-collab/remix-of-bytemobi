@@ -924,15 +924,14 @@ select:-webkit-autofill {
 }
 
 /* ========================================================================
-   SITE FOOTER — escape app-light-theme overrides
-   The .app-light-theme block force-rewrites rgba(10,5,20,*) backgrounds
-   and white text to dark for readability on light surfaces. The footer
-   is intentionally a dark panel, so we re-assert its colors here with
-   higher specificity.
+   SITE FOOTER — light glass aesthetic, harmonized with app-light-theme
+   The footer uses a translucent light surface to flow with the rest of
+   the page. We re-assert text colors so the .app-light-theme global
+   `.text-white*` remap doesn't hijack our intentional dark text.
    ======================================================================== */
 .app-light-theme .site-footer {
-  background: hsl(258 60% 6%) !important;
-  color: hsla(0, 0%, 100%, 0.7) !important;
+  background: linear-gradient(180deg, hsla(245, 60%, 96%, 0.6) 0%, hsla(245, 60%, 92%, 0.85) 100%) !important;
+  color: hsl(245 35% 28%) !important;
 }
 .app-light-theme .site-footer h1,
 .app-light-theme .site-footer h2,
@@ -940,18 +939,19 @@ select:-webkit-autofill {
 .app-light-theme .site-footer h4,
 .app-light-theme .site-footer h5,
 .app-light-theme .site-footer h6 {
-  color: hsla(0, 0%, 100%, 0.92) !important;
+  color: hsl(245 60% 14%) !important;
 }
 .app-light-theme .site-footer p,
 .app-light-theme .site-footer span,
 .app-light-theme .site-footer a,
 .app-light-theme .site-footer li {
-  color: hsla(0, 0%, 100%, 0.65) !important;
+  color: hsl(245 35% 30%) !important;
 }
 .app-light-theme .site-footer a:hover,
 .app-light-theme .site-footer span:hover {
-  color: hsla(0, 0%, 100%, 0.98) !important;
+  color: hsl(245 70% 22%) !important;
 }
 .app-light-theme .site-footer .footer-muted {
-  color: hsla(0, 0%, 100%, 0.4) !important;
+  color: hsl(245 20% 45%) !important;
 }
+
