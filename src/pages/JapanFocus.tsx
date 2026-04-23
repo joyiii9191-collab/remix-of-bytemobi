@@ -615,7 +615,7 @@ export default function JapanFocus() {
           <div className="flex flex-col gap-4 sm:gap-5 mt-4 flex-1 min-h-0">
             {/* 上:世界地图 + 日本高亮 */}
             <div
-              className="rounded-2xl overflow-hidden glass-card flex items-center justify-center flex-1 min-h-0"
+              className="rounded-2xl overflow-hidden glass-card flex items-center justify-center mx-auto w-full max-w-4xl h-[42vh] sm:h-[46vh] max-h-[460px]"
               style={CARD}
             >
               <img
