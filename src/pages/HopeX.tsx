@@ -127,36 +127,36 @@ export default function HopeX() {
                 key={s.l}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.6, delay: i * 0.08 }}
-                className="relative flex items-center justify-center h-24 md:h-28 min-w-0"
+                className="relative flex items-center justify-center h-20 md:h-24 min-w-0"
               >
                 <div
                   aria-hidden
                   className="absolute inset-0 flex items-center justify-center font-black select-none pointer-events-none"
                   style={{
-                    fontSize: "clamp(3.5rem, 4.8vw, 5.5rem)",
+                    fontSize: "clamp(2.8rem, 3.8vw, 4.4rem)",
                     lineHeight: 1,
                     letterSpacing: "-0.04em",
                     color: "transparent",
-                    WebkitTextStroke: "1.2px hsla(230, 20%, 60%, 0.45)",
+                    WebkitTextStroke: "1px hsla(230, 20%, 60%, 0.45)",
                     fontFamily: "'Inter', system-ui, sans-serif",
                   }}
                 >
                   <CountUp value={s.v} />
                 </div>
-                <div className="relative z-10 flex items-center gap-2.5 max-w-full px-2">
+                <div className="relative z-10 flex items-center gap-2 max-w-full px-2">
                   <span
                     aria-hidden
-                    className="block h-[2px] w-6 rounded-full shrink-0"
+                    className="block h-[2px] w-5 rounded-full shrink-0"
                     style={{ background: "hsl(245 70% 55%)" }}
                   />
                   <div className="flex flex-col min-w-0">
                     <div
-                      className="text-sm md:text-base font-semibold tracking-wide leading-tight"
+                      className="text-xs md:text-sm font-semibold tracking-wide leading-tight"
                       style={{ color: TEXT_DARK }}
                     >
                       {s.l}
                     </div>
-                    <div className="text-xs font-medium mt-0.5" style={{ color: TEXT_MID }}>
+                    <div className="text-[11px] font-medium mt-0.5" style={{ color: TEXT_MID }}>
                       <CountUp value={s.v} suffix={s.s} />
                     </div>
                   </div>
