@@ -87,6 +87,8 @@ type CaseItem = {
   logo?: string;
   /** logo 容器底色,默认白色 */
   logoBg?: string;
+  /** logo 形状: 'square'(默认,方形容器,适合方形/圆形 logo) | 'wide'(长方形容器,适合横幅式 logo) */
+  logoShape?: "square" | "wide";
 };
 
 type Category = {
@@ -706,20 +708,37 @@ export default function CaseCategory() {
                   }}
                 >
                   {c.banner && c.logo && (
-                    <div
-                      className="absolute top-3 left-3 h-11 min-w-11 max-w-[60%] rounded-xl overflow-hidden flex items-center justify-center shadow-lg px-1.5"
-                      style={{
-                        background: c.logoBg ?? "hsl(0 0% 100%)",
-                        border: "1px solid hsla(0,0%,100%,0.6)",
-                      }}
-                    >
-                      <img
-                        src={c.logo}
-                        alt={`${c.brand} logo`}
-                        className="h-full w-auto max-w-full object-contain"
-                        loading="lazy"
-                      />
-                    </div>
+                    c.logoShape === "wide" ? (
+                      <div
+                        className="absolute top-3 left-3 h-11 min-w-11 max-w-[60%] rounded-xl overflow-hidden flex items-center justify-center shadow-lg px-1.5"
+                        style={{
+                          background: c.logoBg ?? "hsl(0 0% 100%)",
+                          border: "1px solid hsla(0,0%,100%,0.6)",
+                        }}
+                      >
+                        <img
+                          src={c.logo}
+                          alt={`${c.brand} logo`}
+                          className="h-full w-auto max-w-full object-contain"
+                          loading="lazy"
+                        />
+                      </div>
+                    ) : (
+                      <div
+                        className="absolute top-3 left-3 w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center shadow-lg"
+                        style={{
+                          background: c.logoBg ?? "hsl(0 0% 100%)",
+                          border: "1px solid hsla(0,0%,100%,0.6)",
+                        }}
+                      >
+                        <img
+                          src={c.logo}
+                          alt={`${c.brand} logo`}
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                        />
+                      </div>
+                    )
                   )}
                   {!c.banner && c.image && (
                     <img
