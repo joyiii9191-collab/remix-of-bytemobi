@@ -120,43 +120,43 @@ export default function HopeX() {
       {/* === Screen 2 — 平台规模 === */}
       <SnapScreen id="scale" bg="tint">
         <ScreenInner className="max-w-[1440px] px-8 xl:px-10">
-          <ScreenTitle>平台规模与基础能力</ScreenTitle>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-10 xl:gap-x-14 gap-y-6 mt-6 w-full">
+          <ScreenTitle className="text-center">平台规模与基础能力</ScreenTitle>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 xl:gap-x-12 gap-y-4 mt-4 w-full">
             {SCALE.map((s, i) => (
               <motion.div
                 key={s.l}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.6, delay: i * 0.08 }}
-                className="relative flex items-center justify-center h-32 md:h-36 min-w-0"
+                className="relative flex items-center justify-center h-24 md:h-28 min-w-0"
               >
                 <div
                   aria-hidden
                   className="absolute inset-0 flex items-center justify-center font-black select-none pointer-events-none"
                   style={{
-                    fontSize: "clamp(4.5rem, 6.2vw, 7rem)",
+                    fontSize: "clamp(3.5rem, 4.8vw, 5.5rem)",
                     lineHeight: 1,
                     letterSpacing: "-0.04em",
                     color: "transparent",
-                    WebkitTextStroke: "1.5px hsla(230, 20%, 60%, 0.45)",
+                    WebkitTextStroke: "1.2px hsla(230, 20%, 60%, 0.45)",
                     fontFamily: "'Inter', system-ui, sans-serif",
                   }}
                 >
                   <CountUp value={s.v} />
                 </div>
-                <div className="relative z-10 flex items-center gap-3 max-w-full px-2">
+                <div className="relative z-10 flex items-center gap-2.5 max-w-full px-2">
                   <span
                     aria-hidden
-                    className="block h-[2px] w-7 rounded-full shrink-0"
+                    className="block h-[2px] w-6 rounded-full shrink-0"
                     style={{ background: "hsl(245 70% 55%)" }}
                   />
                   <div className="flex flex-col min-w-0">
                     <div
-                      className="text-base md:text-lg font-semibold tracking-wide leading-tight"
+                      className="text-sm md:text-base font-semibold tracking-wide leading-tight"
                       style={{ color: TEXT_DARK }}
                     >
                       {s.l}
                     </div>
-                    <div className="text-xs md:text-sm font-medium mt-0.5" style={{ color: TEXT_MID }}>
+                    <div className="text-xs font-medium mt-0.5" style={{ color: TEXT_MID }}>
                       <CountUp value={s.v} suffix={s.s} />
                     </div>
                   </div>
@@ -168,28 +168,25 @@ export default function HopeX() {
           <motion.div
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.2 }} transition={{ duration: 0.6, delay: 0.2 }}
-            className="rounded-2xl glass-card mt-6 p-5 lg:p-6 w-full max-w-[1200px] mx-auto"
+            className="rounded-2xl glass-card mt-4 p-4 lg:p-5 w-full max-w-[1100px] mx-auto"
             style={CARD}
           >
-            <div className="flex items-baseline justify-between mb-4">
-              <div>
-                <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-1.5" style={{ color: ACCENT }}>
-                  Global Network
-                </div>
-                <p className="text-base md:text-lg font-medium leading-relaxed" style={{ color: TEXT_DARK }}>
-                  HopeX 已构建全球化流量网络,覆盖四大核心区域
-                </p>
+            <div className="text-center mb-3">
+              <div className="text-[11px] font-semibold uppercase tracking-[0.2em] mb-1" style={{ color: ACCENT }}>
+                Global Network
               </div>
+              <p className="text-sm md:text-base font-medium leading-relaxed" style={{ color: TEXT_DARK }}>
+                HopeX 已构建全球化流量网络,覆盖四大核心区域
+              </p>
             </div>
 
             {/* 世界地图 + 区域标签卡叠加 */}
-            <div className="relative w-full rounded-xl overflow-hidden aspect-[16/7]">
+            <div className="relative w-full rounded-xl overflow-hidden aspect-[20/7] max-h-[320px] mx-auto">
               <img
                 src={hopexWorldMap}
                 alt="HopeX 全球流量网络覆盖图"
                 className="absolute inset-0 w-full h-full object-cover"
               />
-              {/* 轻微渐变让卡片更易读 */}
               <div
                 aria-hidden
                 className="absolute inset-0 pointer-events-none"
@@ -198,10 +195,10 @@ export default function HopeX() {
 
               {/* 区域标签卡 - 绝对定位贴合各大洲 */}
               {[
-                { r: "北美", d: "US / CA", color: "hsl(220 90% 58%)", pos: "top-[8%] left-[6%]" },
+                { r: "北美", d: "US / CA", color: "hsl(220 90% 58%)", pos: "top-[8%] left-[5%]" },
                 { r: "欧洲及中东非", d: "EMEA", color: "hsl(265 70% 60%)", pos: "top-[6%] left-1/2 -translate-x-1/2" },
-                { r: "亚太", d: "SEA / JP / KR / IN", color: "hsl(195 85% 55%)", pos: "top-[10%] right-[5%]" },
-                { r: "拉美", d: "BR / MX 等", color: "hsl(245 75% 62%)", pos: "bottom-[10%] left-[18%]" },
+                { r: "亚太", d: "SEA / JP / KR / IN", color: "hsl(195 85% 55%)", pos: "top-[8%] right-[4%]" },
+                { r: "拉美", d: "BR / MX 等", color: "hsl(245 75% 62%)", pos: "bottom-[10%] left-[16%]" },
               ].map((item) => (
                 <motion.div
                   key={item.r}
@@ -210,20 +207,20 @@ export default function HopeX() {
                   viewport={{ once: false, amount: 0.3 }}
                   transition={{ duration: 0.5 }}
                   whileHover={{ y: -3 }}
-                  className={`absolute ${item.pos} rounded-xl px-4 py-2.5 backdrop-blur-md border min-w-[140px]`}
+                  className={`absolute ${item.pos} rounded-lg px-3 py-2 backdrop-blur-md border min-w-[120px]`}
                   style={{
                     background: "rgba(255,255,255,0.92)",
                     borderColor: "rgba(255,255,255,0.9)",
-                    boxShadow: "0 8px 28px -10px rgba(60,80,160,0.35), 0 2px 6px -2px rgba(60,80,160,0.15)",
+                    boxShadow: "0 6px 20px -8px rgba(60,80,160,0.35), 0 2px 4px -2px rgba(60,80,160,0.15)",
                   }}
                 >
-                  <div className="flex items-center gap-2 mb-0.5">
-                    <span className="block w-2 h-2 rounded-full shrink-0" style={{ background: item.color }} />
-                    <span className="text-sm md:text-[15px] font-bold" style={{ color: TEXT_DARK }}>
+                  <div className="flex items-center gap-1.5 mb-0.5">
+                    <span className="block w-1.5 h-1.5 rounded-full shrink-0" style={{ background: item.color }} />
+                    <span className="text-xs md:text-sm font-bold" style={{ color: TEXT_DARK }}>
                       {item.r}
                     </span>
                   </div>
-                  <div className="text-xs md:text-sm font-medium pl-4" style={{ color: TEXT_MID, letterSpacing: "0.02em" }}>
+                  <div className="text-[11px] md:text-xs font-medium pl-3" style={{ color: TEXT_MID, letterSpacing: "0.02em" }}>
                     {item.d}
                   </div>
                 </motion.div>
