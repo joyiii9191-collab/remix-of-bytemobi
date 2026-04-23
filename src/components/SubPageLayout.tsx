@@ -50,20 +50,20 @@ export function SubPageLayout({
       {/* Hero */}
       <section
         className="relative w-full overflow-hidden"
-        style={{ paddingTop: "120px", paddingBottom: "80px" }}
+        style={{ paddingTop: "112px", paddingBottom: "32px" }}
       >
         {/* 背景动效层 */}
         {heroVisual && (
-          <div className="absolute inset-0 pointer-events-none opacity-70">
+          <div className="absolute inset-0 pointer-events-none opacity-60">
             {heroVisual}
           </div>
         )}
-        {/* 渐隐遮罩，让文字更清晰 */}
+        {/* 柔和渐隐遮罩，让 Hero 与主体自然融合（不再形成明显分界） */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "linear-gradient(180deg, rgba(245,245,247,0.0) 0%, rgba(245,245,247,0.7) 80%, #F5F5F7 100%)",
+              "linear-gradient(180deg, rgba(245,245,247,0.0) 0%, rgba(245,245,247,0.0) 60%, rgba(245,245,247,0.0) 100%)",
           }}
         />
         <div className="relative z-10 max-w-[1200px] mx-auto px-6">
@@ -72,11 +72,13 @@ export function SubPageLayout({
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium mb-5"
+              className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium mb-4"
               style={{
-                background: "hsla(30, 80%, 70%, 0.18)",
-                color: "hsl(25 60% 30%)",
-                border: "1px solid hsla(0, 0%, 100%, 0.6)",
+                background: "hsla(245, 60%, 60%, 0.10)",
+                color: "hsl(245 50% 35%)",
+                border: "1px solid hsla(245, 60%, 60%, 0.18)",
+                backdropFilter: "blur(8px)",
+                WebkitBackdropFilter: "blur(8px)",
               }}
             >
               {eyebrow}
@@ -86,13 +88,13 @@ export function SubPageLayout({
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="text-4xl md:text-6xl font-bold tracking-tight mb-5"
+            className="text-4xl md:text-5xl font-bold tracking-tight mb-4"
             style={{
               background:
                 "linear-gradient(180deg, hsl(245 60% 12%) 0%, hsl(245 45% 30%) 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
-              lineHeight: 1.15,
+              lineHeight: 1.2,
             }}
           >
             {heroTitle}
@@ -101,8 +103,8 @@ export function SubPageLayout({
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-            className="text-base md:text-xl max-w-3xl"
-            style={{ color: "hsl(230 25% 32%)", lineHeight: 1.7 }}
+            className="text-sm md:text-base max-w-3xl"
+            style={{ color: "hsl(230 20% 40%)", lineHeight: 1.7 }}
           >
             {heroSubtitle}
           </motion.p>

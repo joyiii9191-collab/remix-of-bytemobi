@@ -607,15 +607,10 @@ export default function CaseCategory() {
   return (
     <SubPageLayout
       title={`${data.zh} 案例 — 增长成果精选`}
-      eyebrow={
-        <span className="inline-flex items-center gap-2">
-          <span style={{ color: data.color }}>●</span> 增长成果精选 · {data.en}
-        </span>
-      }
       heroTitle={
         <>
           <span style={{ color: data.color }}>{data.zh}</span>
-          <span className="block text-xl md:text-2xl font-medium mt-3" style={{ color: TEXT_MID }}>
+          <span className="block text-lg md:text-xl font-medium mt-2" style={{ color: TEXT_MID }}>
             {data.en}
           </span>
         </>
@@ -623,13 +618,22 @@ export default function CaseCategory() {
       heroSubtitle={data.intro}
     >
       <section className="max-w-[1200px] mx-auto px-6 pb-24">
-        {/* 返回 */}
+        {/* 返回按钮：玻璃态药丸样式 */}
         <Link
           to="/global#cases"
-          className="inline-flex items-center gap-1.5 text-sm mb-8 hover:opacity-80 transition-opacity"
-          style={{ color: TEXT_MID }}
+          className="group inline-flex items-center gap-2 text-sm mb-8 px-4 py-2 rounded-full transition-all hover:-translate-x-0.5"
+          style={{
+            background: "hsla(0, 0%, 100%, 0.55)",
+            color: TEXT_MID,
+            border: "1px solid hsla(245, 30%, 60%, 0.18)",
+            backdropFilter: "blur(12px) saturate(140%)",
+            WebkitBackdropFilter: "blur(12px) saturate(140%)",
+            boxShadow:
+              "inset 0 1px 0 0 hsla(0,0%,100%,0.9), 0 6px 18px -8px hsla(245, 40%, 25%, 0.18)",
+          }}
         >
-          <ArrowLeft size={16} /> 返回 增长成果精选
+          <ArrowLeft size={14} className="transition-transform group-hover:-translate-x-0.5" />
+          <span className="font-medium">返回增长成果精选</span>
         </Link>
 
         {/* 核心方法论 */}
