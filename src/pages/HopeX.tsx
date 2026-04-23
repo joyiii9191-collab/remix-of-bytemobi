@@ -230,8 +230,12 @@ export default function HopeX() {
       {/* === Screen 4 — DSP 全渠道增长能力 === */}
       <SnapScreen id="dsp" bg="tint">
         <ScreenInner>
-          <GlassTag>DSP 能力</GlassTag>
-          <ScreenTitle>全渠道增长能力</ScreenTitle>
+          <div className="flex flex-wrap items-center gap-4 mb-3">
+            <ScreenTitle>全渠道增长能力</ScreenTitle>
+            <div className="mb-5">
+              <GlassTag>DSP 能力</GlassTag>
+            </div>
+          </div>
           <ScreenLead>HopeX DSP 聚合多元流量来源</ScreenLead>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10 w-full">
             {[
