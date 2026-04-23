@@ -39,7 +39,7 @@ export function SnapPage({ title, children }: SnapPageProps) {
           color: "hsl(230 25% 18%)",
           height: "100vh",
           overflowY: "auto",
-          scrollSnapType: "y mandatory",
+          scrollSnapType: "y proximity",
           scrollBehavior: "smooth",
         }}
       >
