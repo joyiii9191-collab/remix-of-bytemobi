@@ -170,11 +170,6 @@ export default function HopeX() {
             viewport={{ once: false, amount: 0.2 }} transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-4 w-full max-w-[1100px] mx-auto"
           >
-            <div className="text-center mb-3">
-              <p className="text-sm md:text-base font-medium leading-relaxed" style={{ color: TEXT_DARK }}>
-                HopeX 已构建全球化流量网络,覆盖四大核心区域
-              </p>
-            </div>
 
             {/* 世界地图 + 区域标签卡叠加 */}
             <div className="relative w-full rounded-xl overflow-hidden aspect-[20/7] max-h-[320px] mx-auto">
