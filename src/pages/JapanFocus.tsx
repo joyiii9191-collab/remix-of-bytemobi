@@ -19,6 +19,13 @@ import {
 } from "lucide-react";
 
 import { GLASS_CARD as CARD, TEXT_DARK, TEXT_MID } from "@/lib/page-styles";
+import partnerXiaomi from "@/assets/partner-xiaomi.png";
+import partnerOppo from "@/assets/partner-oppo.png";
+import partnerTranssion from "@/assets/partner-transsion.png";
+import partnerVmate from "@/assets/partner-vmate.png";
+import partnerSimeji from "@/assets/partner-simeji.png";
+import partnerSnaptube from "@/assets/partner-snaptube.png";
+import partnerMeitu from "@/assets/partner-meitu.png";
 const JP_RED = "hsl(245 60% 45%)";
 const JP_RED_SOFT = "hsla(245, 60%, 45%, 0.08)";
 
@@ -33,10 +40,27 @@ const CATEGORIES: { variant: "dating" | "lifestyle" | "game" | "finance" | "ente
   { variant: "more", name: "更多品类" },
 ];
 
-const PARTNER_GROUPS = [
-  { label: "OEM", slots: ["Xiaomi", "OPPO", "TRANSSION"] },
-  { label: "DIRECT APPS", slots: ["VMate", "Simeji", "Joyme", "Snaptube", "Meitu"] },
-  { label: "SSP", slots: ["Unity", "Tapjoy", "Appnext", "AppLovin", "ironSource"] },
+type PartnerSlot = { name: string; logo?: string };
+const PARTNER_GROUPS: { label: string; slots: PartnerSlot[] }[] = [
+  { label: "OEM", slots: [
+    { name: "Xiaomi", logo: partnerXiaomi },
+    { name: "OPPO", logo: partnerOppo },
+    { name: "TRANSSION", logo: partnerTranssion },
+  ] },
+  { label: "DIRECT APPS", slots: [
+    { name: "VMate", logo: partnerVmate },
+    { name: "Simeji", logo: partnerSimeji },
+    { name: "Joyme" },
+    { name: "Snaptube", logo: partnerSnaptube },
+    { name: "Meitu", logo: partnerMeitu },
+  ] },
+  { label: "SSP", slots: [
+    { name: "Unity" },
+    { name: "Tapjoy" },
+    { name: "Appnext" },
+    { name: "AppLovin" },
+    { name: "ironSource" },
+  ] },
 ];
 
 const FRAUD_LOOP = [
@@ -309,13 +333,23 @@ export default function JapanFocus() {
                   {g.label}
                 </div>
                 <div className="grid gap-3" style={{ gridTemplateColumns: `repeat(${g.slots.length}, minmax(0,1fr))` }}>
-                  {g.slots.map((name) => (
+                  {g.slots.map((s) => (
                     <div
-                      key={name}
-                      className="h-16 rounded-xl flex items-center justify-center text-sm font-semibold glass-card"
+                      key={s.name}
+                      className="h-16 rounded-xl flex items-center justify-center text-sm font-semibold glass-card px-3"
                       style={{ ...CARD, color: TEXT_MID }}
+                      title={s.name}
                     >
-                      {name}
+                      {s.logo ? (
+                        <img
+                          src={s.logo}
+                          alt={s.name}
+                          className="max-h-10 max-w-full object-contain"
+                          loading="lazy"
+                        />
+                      ) : (
+                        s.name
+                      )}
                     </div>
                   ))}
                 </div>
