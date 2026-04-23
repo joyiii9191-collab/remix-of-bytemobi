@@ -121,23 +121,23 @@ export default function HopeX() {
       <SnapScreen id="scale" bg="tint">
         <ScreenInner className="max-w-[1440px] px-8 xl:px-10">
           <ScreenTitle className="text-center">平台规模与基础能力</ScreenTitle>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 xl:gap-x-12 gap-y-4 mt-4 w-full">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-3 md:gap-x-4 xl:gap-x-5 gap-y-4 mt-4 w-full max-w-[1100px] mx-auto">
             {SCALE.map((s, i) => (
               <motion.div
                 key={s.l}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.6, delay: i * 0.08 }}
-                className="relative flex items-center justify-center h-20 md:h-24 min-w-0"
+                className="relative flex items-center justify-center h-24 md:h-28 min-w-0"
               >
                 <div
                   aria-hidden
                   className="absolute inset-0 flex items-center justify-center font-black select-none pointer-events-none"
                   style={{
-                    fontSize: "clamp(2.8rem, 3.8vw, 4.4rem)",
+                    fontSize: "clamp(3.6rem, 5vw, 5.6rem)",
                     lineHeight: 1,
                     letterSpacing: "-0.04em",
                     color: "transparent",
-                    WebkitTextStroke: "1px hsla(230, 20%, 60%, 0.45)",
+                    WebkitTextStroke: "1.2px hsla(230, 20%, 60%, 0.45)",
                     fontFamily: "'Inter', system-ui, sans-serif",
                   }}
                 >
