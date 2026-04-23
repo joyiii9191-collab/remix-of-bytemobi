@@ -27,6 +27,7 @@ import partnerSimeji from "@/assets/partner-simeji.png";
 import partnerFacemoji from "@/assets/partner-facemoji.png";
 import partnerSnaptube from "@/assets/partner-snaptube.png";
 import partnerMeitu from "@/assets/partner-meitu.png";
+import japanWorldMap from "@/assets/japan-world-map.png";
 import partnerUnity from "@/assets/partner-unity.png";
 import partnerTapjoy from "@/assets/partner-tapjoy.png";
 import partnerAppnext from "@/assets/partner-appnext.png";
@@ -617,7 +618,12 @@ export default function JapanFocus() {
               className="rounded-2xl overflow-hidden glass-card flex items-center justify-center p-3 sm:p-4 flex-1 min-h-[260px]"
               style={CARD}
             >
-              <WorldMapJapan accent={JP_RED} land="hsl(230 20% 55%)" />
+              <img
+                src={japanWorldMap}
+                alt="日本核心市场 — 全球连接示意图"
+                className="w-full h-full object-contain"
+                loading="lazy"
+              />
             </div>
             {/* 下:4 个简化信息卡 */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
