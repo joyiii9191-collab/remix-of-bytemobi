@@ -640,78 +640,49 @@ export default function HopeX() {
               <GlassTag>SSP 能力</GlassTag>
             </div>
           </div>
-          <div className="w-full mt-10 space-y-5 max-w-[1200px] mx-auto">
-            {(() => {
-              const groups = [
-                {
-                  t: "自有核心流量",
-                  apps: [
-                    "ShortMax", "DramaBox", "ReelShort", "FlexTV",
-                    "GoodNovel", "TopShort", "MyDrama", "FunStory",
-                    "PlayLet", "MiniMax",
-                  ],
-                },
-                {
-                  t: "OEM SDK",
-                  apps: [
-                    "Xiaomi", "OPPO", "vivo", "Honor",
-                    "Realme", "Transsion", "Tecno", "Infinix", "Samsung",
-                  ],
-                },
-                {
-                  t: "外部开发者",
-                  apps: [
-                    "Partner A", "Partner B", "Partner C", "Partner D",
-                    "Partner E", "Partner F", "Partner G", "Partner H",
-                    "Partner I", "Partner J",
-                  ],
-                },
-              ];
-              const maxCols = Math.max(...groups.map((g) => g.apps.length));
-              return groups.map((g, gi) => (
-                <motion.div
-                  key={g.t}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false, amount: 0.3 }}
-                  transition={{ duration: 0.5, delay: gi * 0.08 }}
-                  className="grid grid-cols-[120px_1fr] gap-4 items-center"
-                >
-                  <div className="text-left pl-2">
-                    <div className="text-sm font-bold tracking-wide" style={{ color: ACCENT }}>
-                      {g.t}
-                    </div>
-                  </div>
-                  <div
-                    className="grid gap-3"
-                    style={{ gridTemplateColumns: `repeat(${maxCols}, minmax(0,1fr))` }}
-                  >
-                    {g.apps.map((name) => (
-                      <div
-                        key={name}
-                        className="h-16 rounded-xl flex flex-col items-center justify-center gap-1 glass-card px-2"
-                        style={{ ...CARD, color: TEXT_MID }}
-                        title={name}
-                      >
-                        <div
-                          className="w-7 h-7 rounded-md flex items-center justify-center text-[12px] font-bold"
-                          style={{
-                            background: "linear-gradient(135deg, hsl(245 70% 55%) 0%, hsl(265 65% 60%) 100%)",
-                            color: "#fff",
-                          }}
-                        >
-                          {name.slice(0, 1).toUpperCase()}
-                        </div>
-                        <div className="text-[9px] font-medium leading-none truncate w-full text-center" style={{ color: TEXT_MID }}>
-                          {name}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
-              ));
-            })()}
+          <div className="w-full mt-10 max-w-[1400px] mx-auto flex flex-col gap-8">
+            {[
+              {
+                t: "自有核心流量",
+                direction: "left" as const,
+                apps: [
+                  "ShortMax", "DramaBox", "ReelShort", "FlexTV",
+                  "GoodNovel", "TopShort", "MyDrama", "FunStory",
+                  "PlayLet", "MiniMax",
+                ],
+              },
+              {
+                t: "OEM SDK",
+                direction: "right" as const,
+                apps: [
+                  "Xiaomi", "OPPO", "vivo", "Honor",
+                  "Realme", "Transsion", "Tecno", "Infinix", "Samsung",
+                ],
+              },
+              {
+                t: "外部开发者",
+                direction: "left" as const,
+                apps: [
+                  "Partner A", "Partner B", "Partner C", "Partner D",
+                  "Partner E", "Partner F", "Partner G", "Partner H",
+                  "Partner I", "Partner J",
+                ],
+              },
+            ].map((row) => (
+              <HopexLogoMarquee key={row.t} tag={row.t} direction={row.direction} apps={row.apps} />
+            ))}
           </div>
+
+          <style>{`
+            @keyframes hopexMarqueeLeft {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            @keyframes hopexMarqueeRight {
+              0% { transform: translateX(-50%); }
+              100% { transform: translateX(0); }
+            }
+          `}</style>
         </ScreenInner>
       </SnapScreen>
 
