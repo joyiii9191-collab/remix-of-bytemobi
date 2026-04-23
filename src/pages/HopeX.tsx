@@ -504,10 +504,6 @@ export default function HopeX() {
                     />
                   ))}
                 </div>
-                {/* 数量 */}
-                <span className="text-[11px] font-semibold shrink-0 ml-auto" style={{ color: "hsl(245 50% 55%)" }}>
-                  {c.logos.length} 家
-                </span>
               </motion.div>
             ))}
           </div>
