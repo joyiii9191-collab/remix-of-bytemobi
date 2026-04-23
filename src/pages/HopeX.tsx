@@ -168,33 +168,66 @@ export default function HopeX() {
           <motion.div
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.2 }} transition={{ duration: 0.6, delay: 0.2 }}
-            className="rounded-2xl glass-card mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6 p-5 lg:p-6 items-center w-full max-w-[1200px] mx-auto"
+            className="rounded-2xl glass-card mt-6 p-5 lg:p-6 w-full max-w-[1200px] mx-auto"
             style={CARD}
           >
-            <div className="min-w-0">
-              <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: ACCENT }}>
-                Global Network
+            <div className="flex items-baseline justify-between mb-4">
+              <div>
+                <div className="text-xs font-semibold uppercase tracking-[0.2em] mb-1.5" style={{ color: ACCENT }}>
+                  Global Network
+                </div>
+                <p className="text-base md:text-lg font-medium leading-relaxed" style={{ color: TEXT_DARK }}>
+                  HopeX 已构建全球化流量网络,覆盖四大核心区域
+                </p>
               </div>
-              <p className="text-base md:text-lg font-medium leading-relaxed mb-4" style={{ color: TEXT_DARK }}>
-                HopeX 已构建全球化流量网络,覆盖:
-              </p>
-              <ul className="space-y-2.5 text-sm md:text-[15px]" style={{ color: TEXT_MID }}>
-                {[
-                  { r: "北美", d: "US / CA" },
-                  { r: "亚太", d: "SEA / JP / KR / IN" },
-                  { r: "拉美", d: "BR / MX 等" },
-                  { r: "欧洲及中东非", d: "EMEA" },
-                ].map((item) => (
-                  <li key={item.r} className="flex items-center gap-3">
-                    <span className="block h-1.5 w-1.5 rounded-full shrink-0" style={{ background: ACCENT }} />
-                    <span style={{ color: TEXT_DARK }} className="font-semibold">{item.r}</span>
-                    <span>({item.d})</span>
-                  </li>
-                ))}
-              </ul>
             </div>
-            <div className="relative h-[200px] lg:h-[240px] rounded-xl overflow-hidden">
-              <ParticleWorldMap markers={HOPEX_MARKERS} lines={HOPEX_LINES} />
+
+            {/* 世界地图 + 区域标签卡叠加 */}
+            <div className="relative w-full rounded-xl overflow-hidden aspect-[16/7]">
+              <img
+                src={hopexWorldMap}
+                alt="HopeX 全球流量网络覆盖图"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              {/* 轻微渐变让卡片更易读 */}
+              <div
+                aria-hidden
+                className="absolute inset-0 pointer-events-none"
+                style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 40%)" }}
+              />
+
+              {/* 区域标签卡 - 绝对定位贴合各大洲 */}
+              {[
+                { r: "北美", d: "US / CA", color: "hsl(220 90% 58%)", pos: "top-[8%] left-[6%]" },
+                { r: "欧洲及中东非", d: "EMEA", color: "hsl(265 70% 60%)", pos: "top-[6%] left-1/2 -translate-x-1/2" },
+                { r: "亚太", d: "SEA / JP / KR / IN", color: "hsl(195 85% 55%)", pos: "top-[10%] right-[5%]" },
+                { r: "拉美", d: "BR / MX 等", color: "hsl(245 75% 62%)", pos: "bottom-[10%] left-[18%]" },
+              ].map((item) => (
+                <motion.div
+                  key={item.r}
+                  initial={{ opacity: 0, y: 8 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, amount: 0.3 }}
+                  transition={{ duration: 0.5 }}
+                  whileHover={{ y: -3 }}
+                  className={`absolute ${item.pos} rounded-xl px-4 py-2.5 backdrop-blur-md border min-w-[140px]`}
+                  style={{
+                    background: "rgba(255,255,255,0.92)",
+                    borderColor: "rgba(255,255,255,0.9)",
+                    boxShadow: "0 8px 28px -10px rgba(60,80,160,0.35), 0 2px 6px -2px rgba(60,80,160,0.15)",
+                  }}
+                >
+                  <div className="flex items-center gap-2 mb-0.5">
+                    <span className="block w-2 h-2 rounded-full shrink-0" style={{ background: item.color }} />
+                    <span className="text-sm md:text-[15px] font-bold" style={{ color: TEXT_DARK }}>
+                      {item.r}
+                    </span>
+                  </div>
+                  <div className="text-xs md:text-sm font-medium pl-4" style={{ color: TEXT_MID, letterSpacing: "0.02em" }}>
+                    {item.d}
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         </ScreenInner>
