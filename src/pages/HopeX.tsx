@@ -168,8 +168,7 @@ export default function HopeX() {
           <motion.div
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.2 }} transition={{ duration: 0.6, delay: 0.2 }}
-            className="rounded-2xl glass-card mt-4 p-4 lg:p-5 w-full max-w-[1100px] mx-auto"
-            style={CARD}
+            className="mt-4 w-full max-w-[1100px] mx-auto"
           >
             <div className="text-center mb-3">
               <div className="text-[11px] font-semibold uppercase tracking-[0.2em] mb-1" style={{ color: ACCENT }}>
