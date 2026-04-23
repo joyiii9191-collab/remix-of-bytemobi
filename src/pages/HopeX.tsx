@@ -303,12 +303,6 @@ export default function HopeX() {
                 className="relative rounded-2xl p-6 glass-card flex flex-col items-stretch overflow-hidden group"
                 style={CARD}
               >
-                <div
-                  className="absolute top-0 left-0 right-0 h-[3px] opacity-80"
-                  style={{
-                    background: "linear-gradient(90deg, hsl(245 70% 55%) 0%, hsl(265 65% 60%) 50%, transparent 100%)",
-                  }}
-                />
                 <div className="min-w-0 flex-1">
                   <div className="text-[10px] font-semibold uppercase tracking-[0.2em] mb-1.5" style={{ color: "hsl(245 50% 55%)" }}>
                     {c.sub}
