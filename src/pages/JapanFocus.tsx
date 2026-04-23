@@ -612,10 +612,10 @@ export default function JapanFocus() {
         <ScreenInner>
           <ScreenTitle>日本核心市场深耕</ScreenTitle>
           
-          <div className="flex flex-col gap-4 sm:gap-5 mt-4 flex-1 min-h-0">
+          <div className="flex flex-col gap-6 sm:gap-8 mt-4 flex-1 min-h-0 w-full max-w-6xl mx-auto">
             {/* 上:世界地图 + 日本高亮 */}
             <div
-              className="rounded-2xl overflow-hidden glass-card flex items-center justify-center mx-auto w-full max-w-4xl h-[42vh] sm:h-[46vh] max-h-[460px]"
+              className="rounded-2xl overflow-hidden glass-card flex items-center justify-center w-full h-[42vh] sm:h-[46vh] max-h-[460px]"
               style={CARD}
             >
               <img
@@ -626,7 +626,7 @@ export default function JapanFocus() {
               />
             </div>
             {/* 下:4 个简化信息卡 */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 shrink-0">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 shrink-0 w-full">
               {[
                 { icon: Target, t: "重点布局", d: "聚焦日本核心战略市场" },
                 { icon: Users, t: "理解用户", d: "把握本地偏好与习惯" },
