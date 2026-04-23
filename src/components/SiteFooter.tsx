@@ -24,10 +24,10 @@ export function SiteFooter() {
       className="w-full py-12 px-6 site-footer"
       style={{
         background:
-          "linear-gradient(180deg, hsla(245, 60%, 96%, 0.6) 0%, hsla(245, 60%, 92%, 0.85) 100%)",
-        borderTop: "1px solid hsla(245, 40%, 70%, 0.18)",
-        backdropFilter: "blur(18px) saturate(140%)",
-        WebkitBackdropFilter: "blur(18px) saturate(140%)",
+          "linear-gradient(180deg, hsla(245, 60%, 98%, 0.25) 0%, hsla(245, 60%, 94%, 0.45) 100%)",
+        borderTop: "1px solid hsla(245, 40%, 70%, 0.12)",
+        backdropFilter: "blur(28px) saturate(160%)",
+        WebkitBackdropFilter: "blur(28px) saturate(160%)",
       }}
     >
       <div className="max-w-[1200px] mx-auto">
