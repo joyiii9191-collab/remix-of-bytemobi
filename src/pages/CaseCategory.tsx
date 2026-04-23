@@ -657,9 +657,7 @@ export default function CaseCategory() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                  whileHover={{ y: -4 }}
-                  className="glass-card rounded-2xl p-5 flex items-start gap-3"
-                  style={CARD}
+                  className="rounded-2xl p-5 flex items-start gap-3"
                 >
                   <div
                     className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
