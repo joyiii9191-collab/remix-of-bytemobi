@@ -409,103 +409,118 @@ export default function HopeX() {
             </div>
           </div>
           <ScreenLead>跨越多元行业,服务全球头部客户。</ScreenLead>
-          <div className="flex flex-col gap-0 mt-8 w-full max-w-[1200px] mx-auto">
-            {[
-              {
-                t: "电商",
-                en: "E-commerce",
-                logos: [
-                  { name: "AliExpress", src: caseEcommerceImg },
-                  { name: "Taobao", src: caseTaobaoLogo },
-                  { name: "Temu", src: caseTemuLogo },
-                  { name: "Shopee", src: caseShopeeLogo },
-                  { name: "Lazada", src: caseLazadaLogo },
-                ],
-              },
-              {
-                t: "金融科技",
-                en: "FinTech",
-                logos: [
-                  { name: "Binance", src: caseBinanceImg },
-                  { name: "Exness", src: caseExnessLogo },
-                  { name: "Vantage", src: caseVantageLogo },
-                  { name: "VT Markets", src: caseVtmarketsLogo },
-                  { name: "Crypto.com", src: caseCryptocomLogo },
-                  { name: "Paybis", src: casePaybisLogo },
-                ],
-              },
-              {
-                t: "博彩",
-                en: "iGaming",
-                logos: [
-                  { name: "Bet365", src: caseBet365Logo },
-                  { name: "1xBet", src: case1xbetLogo },
-                  { name: "Melbet", src: caseMelbetLogo },
-                  { name: "GGVegas", src: caseGgvegasLogo },
-                  { name: "Prime Partners", src: casePrimepartnersLogo },
-                ],
-              },
-              {
-                t: "游戏",
-                en: "Gaming",
-                logos: [
-                  { name: "Hungry Studio", src: caseHungryImg },
-                  { name: "SayGames", src: caseSaygamesLogo },
-                  { name: "Supersonic", src: caseSupersonicLogo },
-                  { name: "Lilith", src: caseLilithLogo },
-                  { name: "IGG", src: caseIggLogo },
-                  { name: "FunPlus", src: caseFunplusLogo },
-                ],
-              },
-              {
-                t: "娱乐内容",
-                en: "Entertainment",
-                logos: [
-                  { name: "TikTok", src: caseTiktokLogo },
-                  { name: "Kwai", src: caseKwaiLogo },
-                  { name: "Likee", src: caseLikeeLogo },
-                  { name: "Bigo", src: caseBigoLogo },
-                ],
-              },
-              {
-                t: "工具",
-                en: "Utility",
-                logos: [
-                  { name: "NordVPN", src: caseNordvpnLogo },
-                  { name: "PureVPN", src: casePurevpnLogo },
-                  { name: "Saily", src: caseSailyLogo },
-                  { name: "Facetune", src: caseFacetuneLogo },
-                  { name: "AI Cleaner", src: caseAicleanerLogo },
-                ],
-              },
-            ].map((c, i) => (
-              <motion.div
-                key={c.t}
-                initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.45, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
-                className="flex items-center gap-5 py-6 border-b"
-                style={{ borderColor: "hsl(245 30% 92%)" }}
-              >
-                {/* 左侧:行业名 */}
-                <div className="flex items-baseline gap-2 shrink-0 w-[180px]">
-                  <h3 className="text-base font-semibold" style={{ color: TEXT_DARK }}>{c.t}</h3>
-                  <span className="text-[10px] uppercase tracking-[0.18em]" style={{ color: TEXT_MID }}>{c.en}</span>
-                </div>
-                {/* 右侧:logo 横排(无白底) */}
-                <div className="flex items-center gap-5 flex-1 flex-wrap">
-                  {c.logos.map((l) => (
-                    <img
-                      key={l.name}
-                      src={l.src}
-                      alt={l.name}
-                      title={l.name}
-                      loading="lazy"
-                      className="h-8 md:h-9 w-auto object-contain transition-all duration-300 hover:scale-110"
-                    />
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+          <div className="w-full mt-10 space-y-5 max-w-[1200px] mx-auto">
+            {(() => {
+              const groups = [
+                {
+                  t: "电商",
+                  en: "E-commerce",
+                  logos: [
+                    { name: "AliExpress", src: caseEcommerceImg },
+                    { name: "Taobao", src: caseTaobaoLogo },
+                    { name: "Temu", src: caseTemuLogo },
+                    { name: "Shopee", src: caseShopeeLogo },
+                    { name: "Lazada", src: caseLazadaLogo },
+                  ],
+                },
+                {
+                  t: "金融科技",
+                  en: "FinTech",
+                  logos: [
+                    { name: "Binance", src: caseBinanceImg },
+                    { name: "Exness", src: caseExnessLogo },
+                    { name: "Vantage", src: caseVantageLogo },
+                    { name: "VT Markets", src: caseVtmarketsLogo },
+                    { name: "Crypto.com", src: caseCryptocomLogo },
+                    { name: "Paybis", src: casePaybisLogo },
+                  ],
+                },
+                {
+                  t: "博彩",
+                  en: "iGaming",
+                  logos: [
+                    { name: "Bet365", src: caseBet365Logo },
+                    { name: "1xBet", src: case1xbetLogo },
+                    { name: "Melbet", src: caseMelbetLogo },
+                    { name: "GGVegas", src: caseGgvegasLogo },
+                    { name: "Prime Partners", src: casePrimepartnersLogo },
+                  ],
+                },
+                {
+                  t: "游戏",
+                  en: "Gaming",
+                  logos: [
+                    { name: "Hungry Studio", src: caseHungryImg },
+                    { name: "SayGames", src: caseSaygamesLogo },
+                    { name: "Supersonic", src: caseSupersonicLogo },
+                    { name: "Lilith", src: caseLilithLogo },
+                    { name: "IGG", src: caseIggLogo },
+                    { name: "FunPlus", src: caseFunplusLogo },
+                  ],
+                },
+                {
+                  t: "娱乐内容",
+                  en: "Entertainment",
+                  logos: [
+                    { name: "TikTok", src: caseTiktokLogo },
+                    { name: "Kwai", src: caseKwaiLogo },
+                    { name: "Likee", src: caseLikeeLogo },
+                    { name: "Bigo", src: caseBigoLogo },
+                  ],
+                },
+                {
+                  t: "工具",
+                  en: "Utility",
+                  logos: [
+                    { name: "NordVPN", src: caseNordvpnLogo },
+                    { name: "PureVPN", src: casePurevpnLogo },
+                    { name: "Saily", src: caseSailyLogo },
+                    { name: "Facetune", src: caseFacetuneLogo },
+                    { name: "AI Cleaner", src: caseAicleanerLogo },
+                  ],
+                },
+              ];
+              const maxCols = Math.max(...groups.map((g) => g.logos.length));
+              return groups.map((g, gi) => (
+                <motion.div
+                  key={g.t}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, amount: 0.3 }}
+                  transition={{ duration: 0.5, delay: gi * 0.08 }}
+                  className="grid grid-cols-[120px_1fr] gap-4 items-center"
+                >
+                  <div className="text-left pl-2">
+                    <div className="text-sm font-bold tracking-wide" style={{ color: ACCENT }}>
+                      {g.t}
+                    </div>
+                    <div className="text-[10px] uppercase tracking-[0.18em] mt-0.5" style={{ color: TEXT_MID }}>
+                      {g.en}
+                    </div>
+                  </div>
+                  <div
+                    className="grid gap-3"
+                    style={{ gridTemplateColumns: `repeat(${maxCols}, minmax(0,1fr))` }}
+                  >
+                    {g.logos.map((l) => (
+                      <div
+                        key={l.name}
+                        className="h-16 rounded-xl flex items-center justify-center glass-card px-3"
+                        style={{ ...CARD, color: TEXT_MID }}
+                        title={l.name}
+                      >
+                        <img
+                          src={l.src}
+                          alt={l.name}
+                          className="max-h-10 max-w-full object-contain"
+                          loading="lazy"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              ));
+            })()}
           </div>
         </ScreenInner>
       </SnapScreen>
