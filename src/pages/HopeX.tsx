@@ -171,9 +171,6 @@ export default function HopeX() {
             className="mt-4 w-full max-w-[1100px] mx-auto"
           >
             <div className="text-center mb-3">
-              <div className="text-[11px] font-semibold uppercase tracking-[0.2em] mb-1" style={{ color: ACCENT }}>
-                Global Network
-              </div>
               <p className="text-sm md:text-base font-medium leading-relaxed" style={{ color: TEXT_DARK }}>
                 HopeX 已构建全球化流量网络,覆盖四大核心区域
               </p>
