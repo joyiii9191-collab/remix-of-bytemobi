@@ -96,7 +96,7 @@ function GlassTag({ children }: { children: React.ReactNode }) {
  */
 function HopexLogoMarquee({
   tag, direction, apps,
-}: { tag: string; direction: "left" | "right"; apps: string[] }) {
+}: { tag: string; direction: "left" | "right"; apps: Array<{ name: string; src?: string }> }) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [phase, setPhase] = useState<"idle" | "centered" | "flowing">("idle");
   const doubled = [...apps, ...apps];
@@ -177,25 +177,31 @@ function HopexLogoMarquee({
               transform: phase === "flowing" ? undefined : initialTransform,
             }}
           >
-            {doubled.map((name, i) => (
+            {doubled.map((item, i) => (
               <div
-                key={`${name}-${i}`}
-                className="shrink-0 w-[112px] h-[64px] rounded-xl flex flex-col items-center justify-center gap-1 glass-card px-2"
+                key={`${item.name}-${i}`}
+                className="shrink-0 w-[80px] h-[80px] rounded-2xl flex items-center justify-center glass-card overflow-hidden"
                 style={{ ...CARD, color: TEXT_MID }}
-                title={name}
+                title={item.name}
               >
-                <div
-                  className="w-8 h-8 rounded-md flex items-center justify-center text-[13px] font-bold"
-                  style={{
-                    background: "linear-gradient(135deg, hsl(245 70% 55%) 0%, hsl(265 65% 60%) 100%)",
-                    color: "#fff",
-                  }}
-                >
-                  {name.slice(0, 1).toUpperCase()}
-                </div>
-                <div className="text-[10px] font-medium leading-none truncate w-full text-center" style={{ color: TEXT_MID }}>
-                  {name}
-                </div>
+                {item.src ? (
+                  <img
+                    src={item.src}
+                    alt={item.name}
+                    loading="lazy"
+                    className="w-full h-full object-cover rounded-2xl"
+                  />
+                ) : (
+                  <div
+                    className="w-9 h-9 rounded-md flex items-center justify-center text-[14px] font-bold"
+                    style={{
+                      background: "linear-gradient(135deg, hsl(245 70% 55%) 0%, hsl(265 65% 60%) 100%)",
+                      color: "#fff",
+                    }}
+                  >
+                    {item.name.slice(0, 1).toUpperCase()}
+                  </div>
+                )}
               </div>
             ))}
           </div>
