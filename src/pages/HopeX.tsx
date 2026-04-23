@@ -299,27 +299,37 @@ export default function HopeX() {
               <motion.div key={c.t}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                className="p-4 flex flex-col items-center text-center"
+                whileHover={{ y: -4 }}
+                className="relative rounded-2xl p-6 glass-card flex flex-col items-stretch overflow-hidden group"
+                style={CARD}
               >
-                <div className="text-[10px] font-semibold uppercase tracking-[0.2em] mb-1.5" style={{ color: "hsl(245 50% 55%)" }}>
-                  {c.sub}
-                </div>
-                <h3 className="text-lg font-semibold mb-2" style={{ color: TEXT_DARK }}>{c.t}</h3>
-                <p className="text-sm leading-relaxed mb-3" style={{ color: TEXT_MID }}>{c.d}</p>
-                <div className="flex flex-wrap justify-center gap-1.5">
-                  {c.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-0.5 rounded-md text-[11px] font-medium"
-                      style={{
-                        background: "hsl(245 60% 96%)",
-                        color: "hsl(245 50% 45%)",
-                        border: "1px solid hsl(245 50% 90%)",
-                      }}
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                <div
+                  className="absolute top-0 left-0 right-0 h-[3px] opacity-80"
+                  style={{
+                    background: "linear-gradient(90deg, hsl(245 70% 55%) 0%, hsl(265 65% 60%) 50%, transparent 100%)",
+                  }}
+                />
+                <div className="min-w-0 flex-1">
+                  <div className="text-[10px] font-semibold uppercase tracking-[0.2em] mb-1.5" style={{ color: "hsl(245 50% 55%)" }}>
+                    {c.sub}
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2" style={{ color: TEXT_DARK }}>{c.t}</h3>
+                  <p className="text-sm leading-relaxed mb-3" style={{ color: TEXT_MID }}>{c.d}</p>
+                  <div className="flex flex-wrap justify-center gap-1.5">
+                    {c.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2 py-0.5 rounded-md text-[11px] font-medium"
+                        style={{
+                          background: "hsl(245 60% 96%)",
+                          color: "hsl(245 50% 45%)",
+                          border: "1px solid hsl(245 50% 90%)",
+                        }}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             ))}
