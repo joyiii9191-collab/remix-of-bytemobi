@@ -326,8 +326,12 @@ export default function HopeX() {
       {/* === Screen 5 — SSP 能力 === */}
       <SnapScreen id="ssp">
         <ScreenInner>
-          <GlassTag>DSP 能力</GlassTag>
-          <ScreenTitle>智能投放与优化能力</ScreenTitle>
+          <div className="flex flex-wrap items-center gap-4 mb-3">
+            <ScreenTitle>智能投放与优化能力</ScreenTitle>
+            <div className="mb-5">
+              <GlassTag>DSP 能力</GlassTag>
+            </div>
+          </div>
           <ScreenLead>以算法 + 数据 + 人工经验,持续放大投放效率与 ROI。</ScreenLead>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 w-full">
             {[
@@ -398,8 +402,12 @@ export default function HopeX() {
       {/* === Screen 5b — 全球行业覆盖 === */}
       <SnapScreen id="industries">
         <ScreenInner>
-          <GlassTag>DSP 能力</GlassTag>
-          <ScreenTitle>全球行业覆盖</ScreenTitle>
+          <div className="flex flex-wrap items-center gap-4 mb-3">
+            <ScreenTitle>全球行业覆盖</ScreenTitle>
+            <div className="mb-5">
+              <GlassTag>DSP 能力</GlassTag>
+            </div>
+          </div>
           <ScreenLead>跨越多元行业,服务全球头部客户。</ScreenLead>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 w-full">
             {[
@@ -519,8 +527,12 @@ export default function HopeX() {
       {/* === Screen 5c — 全场景流量变现能力 === */}
       <SnapScreen id="formats" bg="tint">
         <ScreenInner>
-          <GlassTag>SSP 能力</GlassTag>
-          <ScreenTitle>全场景流量变现能力</ScreenTitle>
+          <div className="flex flex-wrap items-center gap-4 mb-3">
+            <ScreenTitle>全场景流量变现能力</ScreenTitle>
+            <div className="mb-5">
+              <GlassTag>SSP 能力</GlassTag>
+            </div>
+          </div>
           <ScreenLead>支持多种广告形式 · 全端覆盖</ScreenLead>
           <FormatShowcase />
         </ScreenInner>
@@ -529,8 +541,12 @@ export default function HopeX() {
       {/* === Screen 5d — 多元预算接入 === */}
       <SnapScreen id="budget">
         <ScreenInner>
-          <GlassTag>SSP 能力</GlassTag>
-          <ScreenTitle>多元预算接入</ScreenTitle>
+          <div className="flex flex-wrap items-center gap-4 mb-3">
+            <ScreenTitle>多元预算接入</ScreenTitle>
+            <div className="mb-5">
+              <GlassTag>SSP 能力</GlassTag>
+            </div>
+          </div>
           <ScreenLead>HopeX SSP 已对接多类型预算,稳定覆盖效果与品牌双目标。</ScreenLead>
 
           {/* Budget sources */}
@@ -625,8 +641,12 @@ export default function HopeX() {
       {/* === Screen 6 — 流量来源 === */}
       <SnapScreen id="traffic" bg="tint">
         <ScreenInner>
-          <GlassTag>SSP 能力</GlassTag>
-          <ScreenTitle>全域流量矩阵</ScreenTitle>
+          <div className="flex flex-wrap items-center gap-4 mb-3">
+            <ScreenTitle>全域流量矩阵</ScreenTitle>
+            <div className="mb-5">
+              <GlassTag>SSP 能力</GlassTag>
+            </div>
+          </div>
           <ScreenLead>自有矩阵保证基本盘,外部对接保证规模与多样性。</ScreenLead>
           <div className="flex flex-col gap-6 mt-10 w-full">
             {[
