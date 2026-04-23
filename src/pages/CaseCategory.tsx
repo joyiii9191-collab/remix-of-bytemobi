@@ -39,6 +39,7 @@ import caseGgvegasBanner from "@/assets/case-ggvegas-banner.png";
 import casePrimepartnersLogo from "@/assets/case-primepartners-logo.png";
 import casePrimepartnersBanner from "@/assets/case-primepartners-banner.jpg";
 import caseHungryImg from "@/assets/case-hungry-studio.png";
+import caseHungryBanner from "@/assets/case-hungry-banner.png";
 import caseSaygamesLogo from "@/assets/case-saygames-logo.png";
 import caseSaygamesBanner from "@/assets/case-saygames-banner.jpg";
 import caseSupersonicLogo from "@/assets/case-supersonic-logo.png";
@@ -372,8 +373,9 @@ const CATEGORIES: Category[] = [
         ],
         metric: "50,000+",
         metricLabel: "月新增用户",
-        image: caseHungryImg,
-        imageBg: "hsl(0 0% 100%)",
+        banner: caseHungryBanner,
+        logo: caseHungryImg,
+        logoBg: "hsl(0 0% 100%)",
       },
       {
         brand: "SayGames",
@@ -705,7 +707,7 @@ export default function CaseCategory() {
                 >
                   {c.banner && c.logo && (
                     <div
-                      className="absolute top-3 left-3 w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center shadow-lg"
+                      className="absolute top-3 left-3 h-11 min-w-11 max-w-[60%] rounded-xl overflow-hidden flex items-center justify-center shadow-lg px-1.5"
                       style={{
                         background: c.logoBg ?? "hsl(0 0% 100%)",
                         border: "1px solid hsla(0,0%,100%,0.6)",
@@ -714,7 +716,7 @@ export default function CaseCategory() {
                       <img
                         src={c.logo}
                         alt={`${c.brand} logo`}
-                        className="w-full h-full object-cover"
+                        className="h-full w-auto max-w-full object-contain"
                         loading="lazy"
                       />
                     </div>
