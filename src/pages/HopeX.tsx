@@ -126,41 +126,36 @@ function HopexLogoMarquee({
   return (
     <div ref={wrapperRef} className="relative w-full overflow-hidden">
       <div className="flex flex-col gap-3">
-        {/* Tag row — 居中, 与 logo 同方向同速度流动 */}
+        {/* Tag row — 单标签居中, 与 logo 同方向同速度流出 */}
         <div
           className="relative w-full overflow-hidden"
           style={{
             height: "32px",
             opacity: phase === "idle" ? 0 : 1,
             transition: "opacity 0.6s ease-out",
-            maskImage: "linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%)",
-            WebkitMaskImage: "linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%)",
           }}
         >
           <div
-            className="flex items-center"
+            className="absolute left-1/2 top-0"
             style={{
-              width: "max-content",
-              animation: phase === "flowing" ? `${animName} 40s linear infinite` : "none",
-              transform: phase === "flowing" ? undefined : initialTransform,
+              animation: phase === "flowing"
+                ? `${isLeft ? "hopexSingleTagLeft" : "hopexSingleTagRight"} 40s linear infinite`
+                : "none",
+              transform: "translateX(-50%)",
             }}
           >
-            {[0, 1].map((dup) => (
-              <div key={dup} className="flex items-center justify-center" style={{ width: "50vw", minWidth: "50vw" }}>
-                <span
-                  className="inline-flex items-center justify-center px-4 py-1 rounded-full text-xs font-semibold tracking-wide whitespace-nowrap"
-                  style={{
-                    border: `1px solid ${ACCENT}33`,
-                    background: "rgba(255,255,255,0.6)",
-                    color: ACCENT,
-                    backdropFilter: "blur(6px)",
-                    boxShadow: "0 2px 8px -4px rgba(60,60,120,0.15)",
-                  }}
-                >
-                  {tag}
-                </span>
-              </div>
-            ))}
+            <span
+              className="inline-flex items-center justify-center px-4 py-1 rounded-full text-xs font-semibold tracking-wide whitespace-nowrap"
+              style={{
+                border: `1px solid ${ACCENT}33`,
+                background: "rgba(255,255,255,0.6)",
+                color: ACCENT,
+                backdropFilter: "blur(6px)",
+                boxShadow: "0 2px 8px -4px rgba(60,60,120,0.15)",
+              }}
+            >
+              {tag}
+            </span>
           </div>
         </div>
 
@@ -803,6 +798,14 @@ export default function HopeX() {
             @keyframes hopexMarqueeRight {
               0% { transform: translateX(-50%); }
               100% { transform: translateX(0); }
+            }
+            @keyframes hopexSingleTagLeft {
+              0% { transform: translateX(-50%); }
+              100% { transform: translateX(calc(-50vw - 50%)); }
+            }
+            @keyframes hopexSingleTagRight {
+              0% { transform: translateX(-50%); }
+              100% { transform: translateX(calc(50vw - 50%)); }
             }
           `}</style>
         </ScreenInner>
