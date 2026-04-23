@@ -44,6 +44,10 @@ import devMushroom from "@/assets/dev-mushroom.png";
 import devDragonnest from "@/assets/dev-dragonnest.jpeg";
 import devBoMahjong from "@/assets/dev-bo-mahjong.jpeg";
 import devMlbb from "@/assets/dev-mlbb.jpeg";
+import devOtome from "@/assets/dev-otome.png";
+import devKingCat from "@/assets/dev-king-cat.jpeg";
+import devMushroomLegend from "@/assets/dev-mushroom-legend.jpeg";
+import devQin from "@/assets/dev-qin.png";
 
 // 案例品牌 logo (来源:全球汇流 cases 子页面)
 import caseEcommerceImg from "@/assets/case-ecommerce-aliexpress.png";
@@ -850,6 +854,10 @@ export default function HopeX() {
                   { name: "Dragon Nest", src: devDragonnest, fit: "contain" as const },
                   { name: "波克麻将", src: devBoMahjong },
                   { name: "Mobile Legends", src: devMlbb },
+                  { name: "恋爱物语", src: devOtome },
+                  { name: "猫咪国王", src: devKingCat },
+                  { name: "菇勇者传说", src: devMushroomLegend, fit: "contain" as const },
+                  { name: "寻秦记", src: devQin, fit: "contain" as const },
                 ],
               },
             ].map((row) => (
