@@ -409,7 +409,7 @@ export default function HopeX() {
             </div>
           </div>
           <ScreenLead>跨越多元行业,服务全球头部客户。</ScreenLead>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 w-full">
+          <div className="flex flex-col gap-3 mt-8 w-full max-w-[1200px] mx-auto">
             {[
               {
                 t: "电商",
@@ -479,30 +479,27 @@ export default function HopeX() {
                 ],
               },
             ].map((c, i) => (
-              <motion.div key={c.t}
-                initial={{ opacity: 0, y: 20, scale: 0.96 }} whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              <motion.div
+                key={c.t}
+                initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.45, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
-                whileHover={{ y: -4 }}
-                className="rounded-2xl glass-card p-5 flex flex-col gap-4"
+                className="rounded-xl glass-card flex items-center gap-5 px-5 py-3"
                 style={CARD}
               >
-                {/* 类目头部 */}
-                <div className="flex items-baseline justify-between border-b pb-3" style={{ borderColor: "hsl(245 30% 92%)" }}>
-                  <div className="flex items-baseline gap-2">
-                    <h3 className="text-base font-semibold" style={{ color: TEXT_DARK }}>{c.t}</h3>
-                    <span className="text-[10px] uppercase tracking-[0.18em]" style={{ color: TEXT_MID }}>{c.en}</span>
-                  </div>
-                  <span className="text-[11px] font-semibold" style={{ color: "hsl(245 50% 55%)" }}>
-                    {c.logos.length} 家
-                  </span>
+                {/* 左侧:行业名 */}
+                <div className="flex items-baseline gap-2 shrink-0 w-[180px]">
+                  <h3 className="text-base font-semibold" style={{ color: TEXT_DARK }}>{c.t}</h3>
+                  <span className="text-[10px] uppercase tracking-[0.18em]" style={{ color: TEXT_MID }}>{c.en}</span>
                 </div>
-                {/* logo 网格 */}
-                <div className="grid grid-cols-3 gap-2.5">
+                {/* 分隔竖线 */}
+                <div className="w-px h-10 shrink-0" style={{ background: "hsl(245 30% 92%)" }} />
+                {/* 右侧:logo 横排 */}
+                <div className="flex items-center gap-2.5 flex-1 flex-wrap">
                   {c.logos.map((l) => (
                     <div
                       key={l.name}
                       title={l.name}
-                      className="aspect-[4/3] rounded-lg flex items-center justify-center p-2 transition-all duration-300 hover:scale-105"
+                      className="h-10 w-[88px] rounded-md flex items-center justify-center px-2 transition-all duration-300 hover:scale-105"
                       style={{
                         background: "hsl(0 0% 100%)",
                         border: "1px solid hsl(245 30% 92%)",
@@ -518,6 +515,10 @@ export default function HopeX() {
                     </div>
                   ))}
                 </div>
+                {/* 数量 */}
+                <span className="text-[11px] font-semibold shrink-0 ml-auto" style={{ color: "hsl(245 50% 55%)" }}>
+                  {c.logos.length} 家
+                </span>
               </motion.div>
             ))}
           </div>
