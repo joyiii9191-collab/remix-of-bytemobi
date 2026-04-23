@@ -88,6 +88,128 @@ function GlassTag({ children }: { children: React.ReactNode }) {
   );
 }
 
+/**
+ * HopexLogoMarquee — 参考首页"合作伙伴生态资源"流动样式
+ * - 上方:单个分类标签 pill
+ * - 下方:logo 一排横向流动
+ * - tag 与 logo 共用相同方向与速度 (40s),进入视口后先静止 1.2s 再开始流动
+ */
+function HopexLogoMarquee({
+  tag, direction, apps,
+}: { tag: string; direction: "left" | "right"; apps: string[] }) {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const [phase, setPhase] = useState<"idle" | "centered" | "flowing">("idle");
+  const doubled = [...apps, ...apps];
+  const isLeft = direction === "left";
+
+  useEffect(() => {
+    const el = wrapperRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setPhase("centered");
+          const timer = setTimeout(() => setPhase("flowing"), 1200);
+          observer.disconnect();
+          return () => clearTimeout(timer);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const animName = isLeft ? "hopexMarqueeLeft" : "hopexMarqueeRight";
+  const initialTransform = isLeft ? "translateX(0)" : "translateX(-50%)";
+
+  return (
+    <div ref={wrapperRef} className="relative w-full overflow-hidden">
+      <div className="flex flex-col gap-3">
+        {/* Tag row — 居中, 与 logo 同方向同速度流动 */}
+        <div
+          className="relative w-full overflow-hidden"
+          style={{
+            height: "32px",
+            opacity: phase === "idle" ? 0 : 1,
+            transition: "opacity 0.6s ease-out",
+            maskImage: "linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%)",
+          }}
+        >
+          <div
+            className="flex items-center"
+            style={{
+              width: "max-content",
+              animation: phase === "flowing" ? `${animName} 40s linear infinite` : "none",
+              transform: phase === "flowing" ? undefined : initialTransform,
+            }}
+          >
+            {[0, 1].map((dup) => (
+              <div key={dup} className="flex items-center justify-center" style={{ width: "50vw", minWidth: "50vw" }}>
+                <span
+                  className="inline-flex items-center justify-center px-4 py-1 rounded-full text-xs font-semibold tracking-wide whitespace-nowrap"
+                  style={{
+                    border: `1px solid ${ACCENT}33`,
+                    background: "rgba(255,255,255,0.6)",
+                    color: ACCENT,
+                    backdropFilter: "blur(6px)",
+                    boxShadow: "0 2px 8px -4px rgba(60,60,120,0.15)",
+                  }}
+                >
+                  {tag}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Logos row */}
+        <div
+          className="relative w-full overflow-hidden"
+          style={{
+            opacity: phase === "idle" ? 0 : 1,
+            transition: "opacity 0.8s ease-out",
+            maskImage: "linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%)",
+          }}
+        >
+          <div
+            className="flex items-center gap-4"
+            style={{
+              width: "max-content",
+              animation: phase === "flowing" ? `${animName} 40s linear infinite` : "none",
+              transform: phase === "flowing" ? undefined : initialTransform,
+            }}
+          >
+            {doubled.map((name, i) => (
+              <div
+                key={`${name}-${i}`}
+                className="shrink-0 w-[112px] h-[64px] rounded-xl flex flex-col items-center justify-center gap-1 glass-card px-2"
+                style={{ ...CARD, color: TEXT_MID }}
+                title={name}
+              >
+                <div
+                  className="w-8 h-8 rounded-md flex items-center justify-center text-[13px] font-bold"
+                  style={{
+                    background: "linear-gradient(135deg, hsl(245 70% 55%) 0%, hsl(265 65% 60%) 100%)",
+                    color: "#fff",
+                  }}
+                >
+                  {name.slice(0, 1).toUpperCase()}
+                </div>
+                <div className="text-[10px] font-medium leading-none truncate w-full text-center" style={{ color: TEXT_MID }}>
+                  {name}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function HopeX() {
   return (
     <SnapPage title="程序化广告">
