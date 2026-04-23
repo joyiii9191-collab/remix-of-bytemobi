@@ -43,6 +43,11 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
+                <Link to="/japan" className="text-sm" style={linkStyle} onMouseEnter={onEnter} onMouseLeave={onLeave}>
+                  日本聚势
+                </Link>
+              </li>
+              <li>
                 <Link to="/hopex" className="text-sm" style={linkStyle} onMouseEnter={onEnter} onMouseLeave={onLeave}>
                   程序化广告
                 </Link>
