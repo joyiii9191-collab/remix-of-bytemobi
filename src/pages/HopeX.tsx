@@ -172,24 +172,29 @@ export default function HopeX() {
           >
 
             {/* 世界地图 + 区域标签卡叠加 */}
-            <div className="relative w-full rounded-xl overflow-hidden aspect-[20/7] max-h-[320px] mx-auto">
+            <div className="relative w-full rounded-xl overflow-hidden aspect-[16/7] max-h-[420px] mx-auto">
               <img
                 src={hopexWorldMap}
                 alt="HopeX 全球流量网络覆盖图"
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover scale-110"
+                style={{ transformOrigin: "center 55%" }}
               />
               <div
                 aria-hidden
                 className="absolute inset-0 pointer-events-none"
-                style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 40%)" }}
+                style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 35%)" }}
               />
 
-              {/* 区域标签卡 - 绝对定位贴合各大洲 */}
+              {/* 区域标签卡 - 紧贴各大洲主节点 */}
               {[
-                { r: "北美", d: "US / CA", color: "hsl(220 90% 58%)", pos: "top-[8%] left-[5%]" },
-                { r: "欧洲及中东非", d: "EMEA", color: "hsl(265 70% 60%)", pos: "top-[6%] left-1/2 -translate-x-1/2" },
-                { r: "亚太", d: "SEA / JP / KR / IN", color: "hsl(195 85% 55%)", pos: "top-[8%] right-[4%]" },
-                { r: "拉美", d: "BR / MX 等", color: "hsl(245 75% 62%)", pos: "bottom-[10%] left-[16%]" },
+                // 北美主节点 ~ x:20% y:45% → 卡片放节点上方
+                { r: "北美", d: "US / CA", color: "hsl(220 90% 58%)", pos: "top-[18%] left-[10%]" },
+                // 欧洲主节点 ~ x:50% y:38% → 卡片放节点上方
+                { r: "欧洲及中东非", d: "EMEA", color: "hsl(265 70% 60%)", pos: "top-[10%] left-[44%]" },
+                // 亚太主节点 ~ x:72% y:47% → 卡片放节点右上
+                { r: "亚太", d: "SEA / JP / KR / IN", color: "hsl(195 85% 55%)", pos: "top-[20%] right-[6%]" },
+                // 南美主节点 ~ x:27% y:68% → 卡片放节点左下
+                { r: "拉美", d: "BR / MX 等", color: "hsl(245 75% 62%)", pos: "bottom-[8%] left-[6%]" },
               ].map((item) => (
                 <motion.div
                   key={item.r}
