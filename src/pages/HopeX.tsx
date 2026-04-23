@@ -409,7 +409,7 @@ export default function HopeX() {
             </div>
           </div>
           <ScreenLead>跨越多元行业,服务全球头部客户。</ScreenLead>
-          <div className="flex flex-col gap-3 mt-8 w-full max-w-[1200px] mx-auto">
+          <div className="flex flex-col gap-0 mt-8 w-full max-w-[1200px] mx-auto">
             {[
               {
                 t: "电商",
