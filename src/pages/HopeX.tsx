@@ -300,7 +300,7 @@ export default function HopeX() {
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
                 whileHover={{ y: -4 }}
-                className="relative rounded-2xl p-6 glass-card flex gap-5 items-start overflow-hidden group"
+                className="relative rounded-2xl p-6 glass-card flex flex-col items-stretch overflow-hidden group"
                 style={CARD}
               >
                 <div
@@ -309,24 +309,13 @@ export default function HopeX() {
                     background: "linear-gradient(90deg, hsl(245 70% 55%) 0%, hsl(265 65% 60%) 50%, transparent 100%)",
                   }}
                 />
-                <div
-                  className="shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center text-base font-bold transition-transform duration-500 group-hover:scale-105"
-                  style={{
-                    background: "linear-gradient(135deg, hsl(245 70% 55%) 0%, hsl(265 65% 60%) 100%)",
-                    color: "#fff",
-                    letterSpacing: "0.05em",
-                    boxShadow: "0 8px 24px -8px hsl(245 70% 55% / 0.5)",
-                  }}
-                >
-                  {c.icon}
-                </div>
                 <div className="min-w-0 flex-1">
                   <div className="text-[10px] font-semibold uppercase tracking-[0.2em] mb-1.5" style={{ color: "hsl(245 50% 55%)" }}>
                     {c.sub}
                   </div>
                   <h3 className="text-lg font-semibold mb-2" style={{ color: TEXT_DARK }}>{c.t}</h3>
                   <p className="text-sm leading-relaxed mb-3" style={{ color: TEXT_MID }}>{c.d}</p>
-                  <div className="flex flex-wrap gap-1.5">
+                  <div className="flex flex-wrap justify-center gap-1.5">
                     {c.tags.map((tag) => (
                       <span
                         key={tag}
