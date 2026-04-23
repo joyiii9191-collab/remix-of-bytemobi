@@ -826,10 +826,6 @@ export default function HopeX() {
                   { name: "Opera", src: oemOpera, fit: "contain" as const },
                   { name: "X", src: oemBluex },
                   { name: "ironSource", src: oemIronsrc },
-                  { name: "Honor" },
-                  { name: "Realme" },
-                  { name: "Tecno" },
-                  { name: "Infinix" },
                 ],
               },
               {
