@@ -617,25 +617,17 @@ export default function CaseCategory() {
       }
       heroSubtitle={data.intro}
     >
-      {/* 返回按钮：圆形纯箭头，与下方主体内容左边距对齐 */}
+      {/* 返回按钮：纯箭头，无背景 */}
       <div className="fixed z-30 top-28 left-0 right-0 pointer-events-none">
         <div className="max-w-[1200px] mx-auto px-6">
           <Link
             to="/global#cases"
             aria-label="返回增长成果精选"
             title="返回增长成果精选"
-            className="group pointer-events-auto inline-flex items-center justify-center w-10 h-10 rounded-full transition-all hover:-translate-x-0.5"
-            style={{
-              background: "hsla(0, 0%, 100%, 0.65)",
-              color: TEXT_MID,
-              border: "1px solid hsla(245, 30%, 60%, 0.18)",
-              backdropFilter: "blur(12px) saturate(140%)",
-              WebkitBackdropFilter: "blur(12px) saturate(140%)",
-              boxShadow:
-                "inset 0 1px 0 0 hsla(0,0%,100%,0.9), 0 6px 18px -8px hsla(245, 40%, 25%, 0.18)",
-            }}
+            className="group pointer-events-auto inline-flex items-center justify-center w-8 h-8 -ml-1 transition-all hover:-translate-x-0.5 hover:opacity-70"
+            style={{ color: TEXT_MID }}
           >
-            <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-0.5" />
+            <ArrowLeft size={20} strokeWidth={2.25} className="transition-transform group-hover:-translate-x-0.5" />
           </Link>
         </div>
       </div>
