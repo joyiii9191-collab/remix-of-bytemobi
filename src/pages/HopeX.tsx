@@ -11,6 +11,39 @@ import { GLASS_CARD as CARD, TEXT_DARK, TEXT_MID, ACCENT } from "@/lib/page-styl
 import { FormatShowcase } from "@/components/FormatShowcase";
 import { TrendingUp, Target, Globe2, Wallet, Coins, Cpu } from "lucide-react";
 
+// 案例品牌 logo (来源:全球汇流 cases 子页面)
+import caseEcommerceImg from "@/assets/case-ecommerce-aliexpress.png";
+import caseTaobaoLogo from "@/assets/case-taobao-logo.png";
+import caseTemuLogo from "@/assets/case-temu-logo.png";
+import caseShopeeLogo from "@/assets/case-shopee-logo.png";
+import caseLazadaLogo from "@/assets/case-lazada-logo.png";
+import caseBinanceImg from "@/assets/case-binance.png";
+import caseExnessLogo from "@/assets/case-exness-logo.png";
+import caseVantageLogo from "@/assets/case-vantage-logo.png";
+import caseVtmarketsLogo from "@/assets/case-vtmarkets-logo.png";
+import caseCryptocomLogo from "@/assets/case-cryptocom-logo.png";
+import casePaybisLogo from "@/assets/case-paybis-logo.png";
+import caseBet365Logo from "@/assets/case-bet365-logo.png";
+import case1xbetLogo from "@/assets/case-1xbet-logo.png";
+import caseMelbetLogo from "@/assets/case-melbet-logo.png";
+import caseGgvegasLogo from "@/assets/case-ggvegas-logo.png";
+import casePrimepartnersLogo from "@/assets/case-primepartners-logo.png";
+import caseHungryImg from "@/assets/case-hungry-studio.png";
+import caseSaygamesLogo from "@/assets/case-saygames-logo.png";
+import caseSupersonicLogo from "@/assets/case-supersonic-logo.png";
+import caseLilithLogo from "@/assets/case-lilith-logo.png";
+import caseIggLogo from "@/assets/case-igg-logo.jpg";
+import caseFunplusLogo from "@/assets/case-funplus-logo.png";
+import caseTiktokLogo from "@/assets/case-tiktok-logo.png";
+import caseKwaiLogo from "@/assets/case-kwai-logo.png";
+import caseLikeeLogo from "@/assets/case-likee-logo.png";
+import caseBigoLogo from "@/assets/case-bigo-logo.png";
+import caseNordvpnLogo from "@/assets/case-nordvpn-logo.png";
+import casePurevpnLogo from "@/assets/case-purevpn-logo.png";
+import caseSailyLogo from "@/assets/case-saily-logo.png";
+import caseFacetuneLogo from "@/assets/case-facetune-logo.png";
+import caseAicleanerLogo from "@/assets/case-aicleaner-logo.png";
+
 const HOPEX_MARKERS = [
   { x: 18, y: 35, highlight: true, label: "NA" },
   { x: 78, y: 50, highlight: true, label: "SEA" },
