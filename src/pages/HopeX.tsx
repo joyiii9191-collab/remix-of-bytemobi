@@ -265,26 +265,34 @@ export default function HopeX() {
           <GlassTag>DSP 能力</GlassTag>
           <ScreenTitle>智能投放与优化能力</ScreenTitle>
           <ScreenLead>以算法 + 数据 + 人工经验,持续放大投放效率与 ROI。</ScreenLead>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-10 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 w-full">
             {[
               {
                 t: "智能受众分群与精准定向",
+                sub: "Audience Targeting",
                 d: "基于多维行为与画像数据,自动构建高价值人群,精准触达目标用户。",
+                tags: ["多维画像", "高价值人群", "精准触达"],
                 icon: "01",
               },
               {
-                t: "实时策略调整(秒级响应)",
+                t: "实时策略调整",
+                sub: "Real-time Optimization",
                 d: "毫秒级竞价决策,秒级策略迭代,快速响应流量与市场变化。",
+                tags: ["毫秒竞价", "秒级迭代", "动态响应"],
                 icon: "02",
               },
               {
                 t: "预算自适应与智能限流",
+                sub: "Smart Budget Control",
                 d: "动态分配预算,智能限流防止超投,确保投放节奏稳定可控。",
+                tags: ["动态分配", "防超投", "节奏可控"],
                 icon: "03",
               },
               {
                 t: "人机协同优化策略",
+                sub: "Human + AI Collaboration",
                 d: "AI 自动优化 + 资深优化师经验复核,兼顾效率与判断深度。",
+                tags: ["AI 优化", "人工复核", "效率与深度"],
                 icon: "04",
               },
             ].map((c, i) => (
@@ -292,22 +300,47 @@ export default function HopeX() {
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
                 whileHover={{ y: -4 }}
-                className="rounded-2xl p-6 glass-card flex gap-4 items-start"
+                className="relative rounded-2xl p-6 glass-card flex gap-5 items-start overflow-hidden group"
                 style={CARD}
               >
                 <div
-                  className="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-sm font-bold"
+                  className="absolute top-0 left-0 right-0 h-[3px] opacity-80"
+                  style={{
+                    background: "linear-gradient(90deg, hsl(245 70% 55%) 0%, hsl(265 65% 60%) 50%, transparent 100%)",
+                  }}
+                />
+                <div
+                  className="shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center text-base font-bold transition-transform duration-500 group-hover:scale-105"
                   style={{
                     background: "linear-gradient(135deg, hsl(245 70% 55%) 0%, hsl(265 65% 60%) 100%)",
                     color: "#fff",
                     letterSpacing: "0.05em",
+                    boxShadow: "0 8px 24px -8px hsl(245 70% 55% / 0.5)",
                   }}
                 >
                   {c.icon}
                 </div>
-                <div className="min-w-0">
-                  <h3 className="text-lg font-semibold mb-1.5" style={{ color: TEXT_DARK }}>{c.t}</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: TEXT_MID }}>{c.d}</p>
+                <div className="min-w-0 flex-1">
+                  <div className="text-[10px] font-semibold uppercase tracking-[0.2em] mb-1.5" style={{ color: "hsl(245 50% 55%)" }}>
+                    {c.sub}
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2" style={{ color: TEXT_DARK }}>{c.t}</h3>
+                  <p className="text-sm leading-relaxed mb-3" style={{ color: TEXT_MID }}>{c.d}</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {c.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2 py-0.5 rounded-md text-[11px] font-medium"
+                        style={{
+                          background: "hsl(245 60% 96%)",
+                          color: "hsl(245 50% 45%)",
+                          border: "1px solid hsl(245 50% 90%)",
+                        }}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             ))}
