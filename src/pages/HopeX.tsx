@@ -190,9 +190,9 @@ export default function HopeX() {
                 // 北美主节点 ~ x:20% y:45% → 卡片放节点上方
                 { r: "北美", d: "US / CA", color: "hsl(220 90% 58%)", pos: "top-[18%] left-[10%]" },
                 // 欧洲主节点 ~ x:50% y:38% → 卡片放节点上方
-                { r: "欧洲及中东非", d: "EMEA", color: "hsl(265 70% 60%)", pos: "top-[10%] left-[44%]" },
+                { r: "欧洲及中东非", d: "EMEA", color: "hsl(265 70% 60%)", pos: "top-[22%] left-[44%]" },
                 // 亚太主节点 ~ x:72% y:47% → 卡片放节点右上
-                { r: "亚太", d: "SEA / JP / KR / IN", color: "hsl(195 85% 55%)", pos: "top-[20%] right-[6%]" },
+                { r: "亚太", d: "SEA / JP / KR / IN", color: "hsl(195 85% 55%)", pos: "top-[34%] right-[12%]" },
                 // 南美主节点 ~ x:27% y:68% → 卡片放节点左下
                 { r: "拉美", d: "BR / MX 等", color: "hsl(245 75% 62%)", pos: "bottom-[20%] left-[14%]" },
               ].map((item) => (
