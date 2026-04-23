@@ -25,9 +25,10 @@ export function SiteFooter() {
     <footer
       className="w-full py-12 px-6 site-footer"
       style={{
+        // 与首页 ReflectApp 页脚保持一致的深紫近黑面板
         // 用 hsl 形式,避开 .app-light-theme 对 rgba(10,5,20,*) 的强制透明覆盖
-        background: "hsl(258 60% 6%)",
-        borderTop: "1px solid hsla(265, 80%, 75%, 0.12)",
+        background: "hsl(265 60% 6%)",
+        borderTop: "1px solid hsla(265, 80%, 75%, 0.1)",
       }}
     >
       <div className="max-w-[1200px] mx-auto">
