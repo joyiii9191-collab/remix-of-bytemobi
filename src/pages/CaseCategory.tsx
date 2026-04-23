@@ -392,6 +392,7 @@ const CATEGORIES: Category[] = [
         metricLabel: "获客成本下降",
         banner: caseSaygamesBanner,
         logo: caseSaygamesLogo,
+        logoShape: "wide",
       },
       {
         brand: "Supersonic Studios",
@@ -406,6 +407,7 @@ const CATEGORIES: Category[] = [
         metricLabel: "稳定规模化增长",
         banner: caseSupersonicBanner,
         logo: caseSupersonicLogo,
+        logoShape: "wide",
       },
       {
         brand: "Lilith Games",
