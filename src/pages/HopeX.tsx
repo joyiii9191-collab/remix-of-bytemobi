@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import StarBorder from "@/components/StarBorder";
 import { motion } from "motion/react";
 import {
@@ -85,6 +85,128 @@ function GlassTag({ children }: { children: React.ReactNode }) {
       <span className="w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
       {children}
     </motion.div>
+  );
+}
+
+/**
+ * HopexLogoMarquee — 参考首页"合作伙伴生态资源"流动样式
+ * - 上方:单个分类标签 pill
+ * - 下方:logo 一排横向流动
+ * - tag 与 logo 共用相同方向与速度 (40s),进入视口后先静止 1.2s 再开始流动
+ */
+function HopexLogoMarquee({
+  tag, direction, apps,
+}: { tag: string; direction: "left" | "right"; apps: string[] }) {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const [phase, setPhase] = useState<"idle" | "centered" | "flowing">("idle");
+  const doubled = [...apps, ...apps];
+  const isLeft = direction === "left";
+
+  useEffect(() => {
+    const el = wrapperRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setPhase("centered");
+          const timer = setTimeout(() => setPhase("flowing"), 1200);
+          observer.disconnect();
+          return () => clearTimeout(timer);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const animName = isLeft ? "hopexMarqueeLeft" : "hopexMarqueeRight";
+  const initialTransform = isLeft ? "translateX(0)" : "translateX(-50%)";
+
+  return (
+    <div ref={wrapperRef} className="relative w-full overflow-hidden">
+      <div className="flex flex-col gap-3">
+        {/* Tag row — 居中, 与 logo 同方向同速度流动 */}
+        <div
+          className="relative w-full overflow-hidden"
+          style={{
+            height: "32px",
+            opacity: phase === "idle" ? 0 : 1,
+            transition: "opacity 0.6s ease-out",
+            maskImage: "linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%)",
+          }}
+        >
+          <div
+            className="flex items-center"
+            style={{
+              width: "max-content",
+              animation: phase === "flowing" ? `${animName} 40s linear infinite` : "none",
+              transform: phase === "flowing" ? undefined : initialTransform,
+            }}
+          >
+            {[0, 1].map((dup) => (
+              <div key={dup} className="flex items-center justify-center" style={{ width: "50vw", minWidth: "50vw" }}>
+                <span
+                  className="inline-flex items-center justify-center px-4 py-1 rounded-full text-xs font-semibold tracking-wide whitespace-nowrap"
+                  style={{
+                    border: `1px solid ${ACCENT}33`,
+                    background: "rgba(255,255,255,0.6)",
+                    color: ACCENT,
+                    backdropFilter: "blur(6px)",
+                    boxShadow: "0 2px 8px -4px rgba(60,60,120,0.15)",
+                  }}
+                >
+                  {tag}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Logos row */}
+        <div
+          className="relative w-full overflow-hidden"
+          style={{
+            opacity: phase === "idle" ? 0 : 1,
+            transition: "opacity 0.8s ease-out",
+            maskImage: "linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%)",
+          }}
+        >
+          <div
+            className="flex items-center gap-4"
+            style={{
+              width: "max-content",
+              animation: phase === "flowing" ? `${animName} 40s linear infinite` : "none",
+              transform: phase === "flowing" ? undefined : initialTransform,
+            }}
+          >
+            {doubled.map((name, i) => (
+              <div
+                key={`${name}-${i}`}
+                className="shrink-0 w-[112px] h-[64px] rounded-xl flex flex-col items-center justify-center gap-1 glass-card px-2"
+                style={{ ...CARD, color: TEXT_MID }}
+                title={name}
+              >
+                <div
+                  className="w-8 h-8 rounded-md flex items-center justify-center text-[13px] font-bold"
+                  style={{
+                    background: "linear-gradient(135deg, hsl(245 70% 55%) 0%, hsl(265 65% 60%) 100%)",
+                    color: "#fff",
+                  }}
+                >
+                  {name.slice(0, 1).toUpperCase()}
+                </div>
+                <div className="text-[10px] font-medium leading-none truncate w-full text-center" style={{ color: TEXT_MID }}>
+                  {name}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -640,78 +762,49 @@ export default function HopeX() {
               <GlassTag>SSP 能力</GlassTag>
             </div>
           </div>
-          <div className="w-full mt-10 space-y-5 max-w-[1200px] mx-auto">
-            {(() => {
-              const groups = [
-                {
-                  t: "自有核心流量",
-                  apps: [
-                    "ShortMax", "DramaBox", "ReelShort", "FlexTV",
-                    "GoodNovel", "TopShort", "MyDrama", "FunStory",
-                    "PlayLet", "MiniMax",
-                  ],
-                },
-                {
-                  t: "OEM SDK",
-                  apps: [
-                    "Xiaomi", "OPPO", "vivo", "Honor",
-                    "Realme", "Transsion", "Tecno", "Infinix", "Samsung",
-                  ],
-                },
-                {
-                  t: "外部开发者",
-                  apps: [
-                    "Partner A", "Partner B", "Partner C", "Partner D",
-                    "Partner E", "Partner F", "Partner G", "Partner H",
-                    "Partner I", "Partner J",
-                  ],
-                },
-              ];
-              const maxCols = Math.max(...groups.map((g) => g.apps.length));
-              return groups.map((g, gi) => (
-                <motion.div
-                  key={g.t}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false, amount: 0.3 }}
-                  transition={{ duration: 0.5, delay: gi * 0.08 }}
-                  className="grid grid-cols-[120px_1fr] gap-4 items-center"
-                >
-                  <div className="text-left pl-2">
-                    <div className="text-sm font-bold tracking-wide" style={{ color: ACCENT }}>
-                      {g.t}
-                    </div>
-                  </div>
-                  <div
-                    className="grid gap-3"
-                    style={{ gridTemplateColumns: `repeat(${maxCols}, minmax(0,1fr))` }}
-                  >
-                    {g.apps.map((name) => (
-                      <div
-                        key={name}
-                        className="h-16 rounded-xl flex flex-col items-center justify-center gap-1 glass-card px-2"
-                        style={{ ...CARD, color: TEXT_MID }}
-                        title={name}
-                      >
-                        <div
-                          className="w-7 h-7 rounded-md flex items-center justify-center text-[12px] font-bold"
-                          style={{
-                            background: "linear-gradient(135deg, hsl(245 70% 55%) 0%, hsl(265 65% 60%) 100%)",
-                            color: "#fff",
-                          }}
-                        >
-                          {name.slice(0, 1).toUpperCase()}
-                        </div>
-                        <div className="text-[9px] font-medium leading-none truncate w-full text-center" style={{ color: TEXT_MID }}>
-                          {name}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
-              ));
-            })()}
+          <div className="w-full mt-10 max-w-[1400px] mx-auto flex flex-col gap-8">
+            {[
+              {
+                t: "自有核心流量",
+                direction: "left" as const,
+                apps: [
+                  "ShortMax", "DramaBox", "ReelShort", "FlexTV",
+                  "GoodNovel", "TopShort", "MyDrama", "FunStory",
+                  "PlayLet", "MiniMax",
+                ],
+              },
+              {
+                t: "OEM SDK",
+                direction: "right" as const,
+                apps: [
+                  "Xiaomi", "OPPO", "vivo", "Honor",
+                  "Realme", "Transsion", "Tecno", "Infinix", "Samsung",
+                ],
+              },
+              {
+                t: "外部开发者",
+                direction: "left" as const,
+                apps: [
+                  "Partner A", "Partner B", "Partner C", "Partner D",
+                  "Partner E", "Partner F", "Partner G", "Partner H",
+                  "Partner I", "Partner J",
+                ],
+              },
+            ].map((row) => (
+              <HopexLogoMarquee key={row.t} tag={row.t} direction={row.direction} apps={row.apps} />
+            ))}
           </div>
+
+          <style>{`
+            @keyframes hopexMarqueeLeft {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            @keyframes hopexMarqueeRight {
+              0% { transform: translateX(-50%); }
+              100% { transform: translateX(0); }
+            }
+          `}</style>
         </ScreenInner>
       </SnapScreen>
 
