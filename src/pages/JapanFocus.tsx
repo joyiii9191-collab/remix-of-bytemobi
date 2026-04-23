@@ -204,39 +204,25 @@ function SideCard({ data, dir }: { data: typeof ADV_SIDE; dir: "l" | "r" }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.2 }}
       transition={{ duration: 0.6 }}
-      className="w-full max-w-6xl mx-auto"
+      className="rounded-3xl p-8 md:p-10 glass-card w-full max-w-5xl mx-auto"
+      style={{
+        ...CARD,
+        backdropFilter: "blur(24px) saturate(140%)",
+        WebkitBackdropFilter: "blur(24px) saturate(140%)",
+        background: "hsla(0, 0%, 100%, 0.55)",
+      }}
     >
-      {/* 标题 */}
-      <div className="flex flex-col items-center gap-3 md:gap-4 mb-6 text-center">
+      <div className="flex flex-col items-center gap-3 md:gap-4 mb-5 text-center">
         <h3 className="text-2xl md:text-3xl font-bold" style={{ color: TEXT_DARK }}>
           {data.subtitle}
         </h3>
       </div>
-
-      {/* 核心目标卡片(独立) */}
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{ duration: 0.5 }}
-        className="rounded-2xl px-6 md:px-10 py-6 md:py-7 mb-6 mx-auto max-w-4xl text-center glass-card"
-        style={{
-          ...CARD,
-          background:
-            "linear-gradient(135deg, hsla(245,60%,45%,0.10) 0%, hsla(0,72%,52%,0.06) 100%)",
-          borderColor: "hsla(245,60%,45%,0.22)",
-        }}
-      >
-        <p
-          className="text-[15px] md:text-base leading-relaxed"
-          style={{ color: TEXT_DARK }}
-        >
+      <div className="mb-7 text-center">
+        <p className="text-[15px] md:text-base leading-relaxed text-center" style={{ color: TEXT_DARK }}>
           {data.core}
         </p>
-      </motion.div>
-
-      {/* 4 个小卡 */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
         {data.items.map((it, i) => {
           const Icon = it.icon;
           return (
@@ -247,21 +233,20 @@ function SideCard({ data, dir }: { data: typeof ADV_SIDE; dir: "l" | "r" }) {
               viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 0.4, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ y: -4 }}
-              className="group flex flex-col gap-3 p-6 rounded-2xl transition-[background,border-color,box-shadow] duration-300 text-left border glass-card hover:bg-[hsla(245,60%,45%,0.07)] hover:border-[hsla(245,60%,45%,0.32)] hover:shadow-[0_18px_40px_-16px_hsla(245,50%,30%,0.22)]"
+              className="group flex gap-4 p-5 rounded-2xl transition-[background,border-color,box-shadow] duration-300 text-left border hover:bg-[hsla(245,60%,45%,0.07)] hover:border-[hsla(245,60%,45%,0.32)] hover:shadow-[0_18px_40px_-16px_hsla(245,50%,30%,0.22)]"
               style={{
-                ...CARD,
                 background: "hsla(245, 60%, 45%, 0.04)",
                 borderColor: "hsla(245, 60%, 45%, 0.18)",
               }}
             >
               <div
-                className="w-12 h-12 shrink-0 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
+                className="w-10 h-10 shrink-0 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
                 style={{ background: JP_RED_SOFT, color: JP_RED }}
               >
-                <Icon size={22} />
+                <Icon size={18} />
               </div>
               <div className="min-w-0 text-left">
-                <div className="text-base md:text-[17px] font-semibold mb-1.5 text-left" style={{ color: TEXT_DARK }}>
+                <div className="text-[15px] font-semibold mb-1 text-left" style={{ color: TEXT_DARK }}>
                   {it.t}
                 </div>
                 <div className="text-sm leading-relaxed text-left" style={{ color: TEXT_MID }}>
@@ -275,7 +260,6 @@ function SideCard({ data, dir }: { data: typeof ADV_SIDE; dir: "l" | "r" }) {
     </motion.div>
   );
 }
-
 
 export default function JapanFocus() {
   return (
