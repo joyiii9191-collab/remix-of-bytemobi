@@ -8940,34 +8940,9 @@ export default function ReflectApp() {
     <div
       className="w-full relative"
       data-name="Reflect App"
-      style={{
-        backgroundImage: `url(${homeBg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
-        backgroundRepeat: "no-repeat",
-      }}
     >
-      {/* 背景轻微模糊 + 提亮蒙层（fixed 全屏，置于内容下方） */}
-      <div
-        aria-hidden
-        className="fixed inset-0 pointer-events-none z-0"
-        style={{
-          backgroundImage: `url(${homeBg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          filter: "blur(80px) saturate(0.6) brightness(1.05)",
-          transform: "scale(1.3)",
-          opacity: 0.18,
-        }}
-      />
-      <div
-        aria-hidden
-        className="fixed inset-0 pointer-events-none z-0"
-        style={{
-          background: "hsla(0, 0%, 100%, 0.78)",
-        }}
-      />
+      {/* 背景由外层 Index.tsx 中的 <HomeBackground /> 统一提供，
+          这里不再重复叠加图片/模糊/白蒙层，否则会让首页比子页面明显更白。 */}
 
       {/* 第1屏：Hero */}
       <SnapSection>
