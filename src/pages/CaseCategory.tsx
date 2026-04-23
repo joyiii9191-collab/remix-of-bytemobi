@@ -618,7 +618,7 @@ export default function CaseCategory() {
       heroSubtitle={data.intro}
     >
       {/* 返回按钮：圆形纯箭头，与下方主体内容左边距对齐 */}
-      <div className="fixed z-30 top-20 left-0 right-0 pointer-events-none">
+      <div className="fixed z-30 top-28 left-0 right-0 pointer-events-none">
         <div className="max-w-[1200px] mx-auto px-6">
           <Link
             to="/global#cases"
