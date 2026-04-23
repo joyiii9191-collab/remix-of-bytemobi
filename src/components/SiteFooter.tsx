@@ -3,17 +3,15 @@ import { Link } from "react-router-dom";
 
 /**
  * SiteFooter
- * 注意:由于 SnapPage 等容器套用了 .app-light-theme,会把
- *   - rgba(10,5,20,*) 背景改成透明
- *   - text-white/* 文本改成深色
- * 所以这里改用 hsl 形式背景 + inline style 颜色,绕开全局覆盖,
- * 保持页脚原本的"深色面板 + 浅色文字"观感。
+ * 浅色玻璃风格,与全站 light 主题一致(此前的"深色面板"被用户反馈与页面割裂)。
+ * 使用 hsl 形式 + .site-footer 类配合 index.css 中的 light theme override,
+ * 既能保持视觉一致,也能在不同子页面下保留可读性。
  */
 export function SiteFooter() {
-  const linkColor = "hsla(0, 0%, 100%, 0.6)";
-  const linkHover = "hsla(0, 0%, 100%, 0.95)";
-  const headColor = "hsla(0, 0%, 100%, 0.92)";
-  const muted = "hsla(0, 0%, 100%, 0.4)";
+  const linkColor = "hsl(245 35% 30%)";
+  const linkHover = "hsl(245 70% 22%)";
+  const headColor = "hsl(245 60% 14%)";
+  const muted = "hsl(245 20% 45%)";
 
   const linkStyle: React.CSSProperties = { color: linkColor, transition: "color .2s" };
   const onEnter = (e: React.MouseEvent<HTMLElement>) =>
@@ -25,9 +23,11 @@ export function SiteFooter() {
     <footer
       className="w-full py-12 px-6 site-footer"
       style={{
-        // 用 hsl 形式,避开 .app-light-theme 对 rgba(10,5,20,*) 的强制透明覆盖
-        background: "hsl(258 60% 6%)",
-        borderTop: "1px solid hsla(265, 80%, 75%, 0.12)",
+        background:
+          "linear-gradient(180deg, hsla(245, 60%, 96%, 0.6) 0%, hsla(245, 60%, 92%, 0.85) 100%)",
+        borderTop: "1px solid hsla(245, 40%, 70%, 0.18)",
+        backdropFilter: "blur(18px) saturate(140%)",
+        WebkitBackdropFilter: "blur(18px) saturate(140%)",
       }}
     >
       <div className="max-w-[1200px] mx-auto">
@@ -136,7 +136,7 @@ export function SiteFooter() {
             </ul>
           </div>
         </div>
-        <div className="pt-6" style={{ borderTop: "1px solid hsla(0, 0%, 100%, 0.08)" }}>
+        <div className="pt-6" style={{ borderTop: "1px solid hsla(245, 40%, 60%, 0.15)" }}>
           <p className="text-xs mb-2 footer-muted" style={{ color: muted }}>
             地址:中国陕西省西安市高新技术产业开发区科技路旺座现代城B座23层
           </p>
