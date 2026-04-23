@@ -323,7 +323,9 @@ export default function JapanFocus() {
           <ScreenTitle>全球优质的合作伙伴</ScreenTitle>
           <ScreenLead>与头部 OEM、Direct Apps 与 SSP 深度对接,资源协同高效</ScreenLead>
           <div className="w-full mt-10 space-y-5">
-            {PARTNER_GROUPS.map((g, gi) => (
+            {(() => {
+              const maxCols = Math.max(...PARTNER_GROUPS.map((g) => g.slots.length));
+              return PARTNER_GROUPS.map((g, gi) => (
               <motion.div
                 key={g.label}
                 initial={{ opacity: 0, y: 16 }}
@@ -338,7 +340,7 @@ export default function JapanFocus() {
                 >
                   {g.label}
                 </div>
-                <div className="grid gap-3" style={{ gridTemplateColumns: `repeat(${g.slots.length}, minmax(0,1fr))` }}>
+                <div className="grid gap-3" style={{ gridTemplateColumns: `repeat(${maxCols}, minmax(0,1fr))` }}>
                   {g.slots.map((s) => (
                     <div
                       key={s.name}
