@@ -19,6 +19,7 @@ import imgVerticalDivider from "@/assets/ac2eb037d77f8237ede48a3afc7330a2c1d2a95
 import imgVerticalDivider1 from "@/assets/1591e87697198101447f11664b328358928e0134.png";
 import imgQC92Fad10Png from "@/assets/0e0b93789f680040932a23db46863f95278916f9.png";
 import logo3d from "@/assets/logo-3d.png";
+import { SiteFooter } from "./SiteFooter";
 import homeBg from "@/assets/home-bg.jpg";
 import logoChartboost from "@/assets/logo-chartboost.png";
 import logoAudienceNetwork from "@/assets/logo-audience-network.png";
