@@ -66,7 +66,7 @@ export function SubPageLayout({
               "linear-gradient(180deg, rgba(245,245,247,0.0) 0%, rgba(245,245,247,0.0) 60%, rgba(245,245,247,0.0) 100%)",
           }}
         />
-        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6 flex flex-col items-center text-center">
           {eyebrow && (
             <motion.div
               initial={{ opacity: 0, y: 12 }}
@@ -103,7 +103,7 @@ export function SubPageLayout({
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-            className="text-sm md:text-base max-w-3xl"
+            className="text-sm md:text-base max-w-3xl mx-auto"
             style={{ color: "hsl(230 20% 40%)", lineHeight: 1.7 }}
           >
             {heroSubtitle}
