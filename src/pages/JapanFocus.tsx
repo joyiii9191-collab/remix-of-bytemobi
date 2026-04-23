@@ -26,6 +26,11 @@ import partnerVmate from "@/assets/partner-vmate.png";
 import partnerSimeji from "@/assets/partner-simeji.png";
 import partnerSnaptube from "@/assets/partner-snaptube.png";
 import partnerMeitu from "@/assets/partner-meitu.png";
+import partnerUnity from "@/assets/partner-unity.png";
+import partnerTapjoy from "@/assets/partner-tapjoy.png";
+import partnerAppnext from "@/assets/partner-appnext.png";
+import partnerApplovin from "@/assets/partner-applovin.png";
+import partnerIronsource from "@/assets/partner-ironsource.png";
 const JP_RED = "hsl(245 60% 45%)";
 const JP_RED_SOFT = "hsla(245, 60%, 45%, 0.08)";
 
@@ -55,11 +60,11 @@ const PARTNER_GROUPS: { label: string; slots: PartnerSlot[] }[] = [
     { name: "Meitu", logo: partnerMeitu },
   ] },
   { label: "SSP", slots: [
-    { name: "Unity" },
-    { name: "Tapjoy" },
-    { name: "Appnext" },
-    { name: "AppLovin" },
-    { name: "ironSource" },
+    { name: "Unity", logo: partnerUnity },
+    { name: "Tapjoy", logo: partnerTapjoy },
+    { name: "Appnext", logo: partnerAppnext },
+    { name: "AppLovin", logo: partnerApplovin },
+    { name: "ironSource", logo: partnerIronsource },
   ] },
 ];
 
