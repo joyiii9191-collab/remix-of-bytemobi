@@ -10,6 +10,7 @@ import { ParticleWorldMap } from "@/components/ParticleWorldMap";
 import { GLASS_CARD as CARD, TEXT_DARK, TEXT_MID, ACCENT } from "@/lib/page-styles";
 import { FormatShowcase } from "@/components/FormatShowcase";
 import { TrendingUp, Target, Globe2, Wallet, Coins, Cpu } from "lucide-react";
+import hopexWorldMap from "@/assets/hopex-world-map.png";
 
 // 案例品牌 logo (来源:全球汇流 cases 子页面)
 import caseEcommerceImg from "@/assets/case-ecommerce-aliexpress.png";
