@@ -216,7 +216,7 @@ export default function HopeX() {
                       {item.r}
                     </span>
                   </div>
-                  <div className="text-[11px] md:text-xs font-medium pl-3" style={{ color: TEXT_MID, letterSpacing: "0.02em" }}>
+                  <div className="text-[11px] md:text-xs font-medium" style={{ color: TEXT_MID, letterSpacing: "0.02em" }}>
                     {item.d}
                   </div>
                 </motion.div>
