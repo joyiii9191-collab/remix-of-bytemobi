@@ -362,7 +362,8 @@ export default function JapanFocus() {
                   ))}
                 </div>
               </motion.div>
-            ))}
+            ));
+            })()}
           </div>
         </ScreenInner>
       </SnapScreen>
