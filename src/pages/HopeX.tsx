@@ -799,6 +799,14 @@ export default function HopeX() {
               0% { transform: translateX(-50%); }
               100% { transform: translateX(0); }
             }
+            @keyframes hopexSingleTagLeft {
+              0% { transform: translateX(-50%); }
+              100% { transform: translateX(calc(-50vw - 50%)); }
+            }
+            @keyframes hopexSingleTagRight {
+              0% { transform: translateX(-50%); }
+              100% { transform: translateX(calc(50vw - 50%)); }
+            }
           `}</style>
         </ScreenInner>
       </SnapScreen>
