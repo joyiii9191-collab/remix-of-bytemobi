@@ -132,10 +132,10 @@ export function SiteFooter() {
           </div>
         </div>
         <div className="pt-6" style={{ borderTop: "1px solid hsla(0, 0%, 100%, 0.08)" }}>
-          <p className="text-xs mb-2" style={{ color: muted }}>
+          <p className="text-xs mb-2 footer-muted" style={{ color: muted }}>
             地址:中国陕西省西安市高新技术产业开发区科技路旺座现代城B座23层
           </p>
-          <p className="text-xs" style={{ color: muted }}>
+          <p className="text-xs footer-muted" style={{ color: muted }}>
             © 2026 ByteMobi. All rights reserved.
           </p>
         </div>
