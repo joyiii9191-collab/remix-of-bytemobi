@@ -616,12 +616,12 @@ export default function JapanFocus() {
           <div className="flex flex-col gap-8 sm:gap-10 mt-4 flex-1 min-h-0">
             {/* 上:世界地图 + 日本高亮 */}
             <div
-              className="rounded-2xl overflow-hidden flex items-center justify-center mx-auto w-full max-w-6xl h-[38vh] sm:h-[42vh] max-h-[420px]"
+              className="rounded-2xl overflow-hidden flex items-center justify-center mx-auto w-full max-w-6xl h-[42vh] sm:h-[48vh] max-h-[480px]"
             >
               <img
                 src={japanWorldMap}
                 alt="日本核心市场 — 全球连接示意图"
-                className="w-full h-full object-contain"
+                className="w-full h-full object-cover scale-[1.12]"
                 loading="lazy"
               />
             </div>
