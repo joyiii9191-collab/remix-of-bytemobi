@@ -16,6 +16,7 @@ import caseShopeeBanner from "@/assets/case-shopee-banner.jpg";
 import caseLazadaLogo from "@/assets/case-lazada-logo.png";
 import caseLazadaBanner from "@/assets/case-lazada-banner.png";
 import caseBinanceImg from "@/assets/case-binance.png";
+import caseBinanceBanner from "@/assets/case-binance-banner.png";
 import caseExnessLogo from "@/assets/case-exness-logo.png";
 import caseExnessBanner from "@/assets/case-exness-banner.png";
 import caseVantageLogo from "@/assets/case-vantage-logo.png";
@@ -196,7 +197,7 @@ const CATEGORIES: Category[] = [
         ],
         metric: "8,000+",
         metricLabel: "单月新增注册用户",
-        banner: caseBinanceImg,
+        banner: caseBinanceBanner,
         logo: caseBinanceImg,
         logoBg: "hsl(0 0% 100%)",
       },
