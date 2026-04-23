@@ -12,6 +12,15 @@ import { FormatShowcase } from "@/components/FormatShowcase";
 import { TrendingUp, Target, Globe2, Wallet, Coins, Cpu } from "lucide-react";
 import hopexWorldMap from "@/assets/hopex-world-map.png";
 
+// 自有核心流量 logo
+import ownedLogo1 from "@/assets/owned-logo-1.jpeg";
+import ownedLogo2 from "@/assets/owned-logo-2.png";
+import ownedLogo3 from "@/assets/owned-logo-3.png";
+import ownedLogo4 from "@/assets/owned-logo-4.png";
+import ownedLogo5 from "@/assets/owned-logo-5.png";
+import ownedLogo6 from "@/assets/owned-logo-6.png";
+import ownedLogo7 from "@/assets/owned-logo-7.png";
+
 // 案例品牌 logo (来源:全球汇流 cases 子页面)
 import caseEcommerceImg from "@/assets/case-ecommerce-aliexpress.png";
 import caseTaobaoLogo from "@/assets/case-taobao-logo.png";
@@ -769,26 +778,30 @@ export default function HopeX() {
                 t: "自有核心流量",
                 direction: "left" as const,
                 apps: [
-                  "ShortMax", "DramaBox", "ReelShort", "FlexTV",
-                  "GoodNovel", "TopShort", "MyDrama", "FunStory",
-                  "PlayLet", "MiniMax",
+                  { name: "Bear Cookie", src: ownedLogo1 },
+                  { name: "GPS Locator", src: ownedLogo2 },
+                  { name: "Block Puzzle", src: ownedLogo3 },
+                  { name: "Find Phone", src: ownedLogo4 },
+                  { name: "Cleaner 2026", src: ownedLogo5 },
+                  { name: "DramaStar", src: ownedLogo6 },
+                  { name: "PDF 2026", src: ownedLogo7 },
                 ],
               },
               {
                 t: "OEM SDK",
                 direction: "right" as const,
                 apps: [
-                  "Xiaomi", "OPPO", "vivo", "Honor",
-                  "Realme", "Transsion", "Tecno", "Infinix", "Samsung",
+                  { name: "Xiaomi" }, { name: "OPPO" }, { name: "vivo" }, { name: "Honor" },
+                  { name: "Realme" }, { name: "Transsion" }, { name: "Tecno" }, { name: "Infinix" }, { name: "Samsung" },
                 ],
               },
               {
                 t: "外部开发者",
                 direction: "left" as const,
                 apps: [
-                  "Partner A", "Partner B", "Partner C", "Partner D",
-                  "Partner E", "Partner F", "Partner G", "Partner H",
-                  "Partner I", "Partner J",
+                  { name: "Partner A" }, { name: "Partner B" }, { name: "Partner C" }, { name: "Partner D" },
+                  { name: "Partner E" }, { name: "Partner F" }, { name: "Partner G" }, { name: "Partner H" },
+                  { name: "Partner I" }, { name: "Partner J" },
                 ],
               },
             ].map((row) => (
