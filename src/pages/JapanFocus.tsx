@@ -678,10 +678,10 @@ export default function JapanFocus() {
         <ScreenInner>
           <ScreenTitle>区域概览</ScreenTitle>
           <ScreenLead>自2019年布局，“本地团队、本地运营、本地融入”</ScreenLead>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-8 items-stretch w-full max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-5 mt-8 items-stretch w-full max-w-6xl mx-auto">
             <div
               className="grid grid-cols-1 sm:grid-cols-2 gap-4"
-              style={{ gridTemplateRows: "1fr 1fr", height: 420 }}
+              style={{ gridTemplateRows: "1fr 1fr" }}
             >
               {/* 员工规模 */}
               <motion.div
