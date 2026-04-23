@@ -177,9 +177,11 @@ export function ScreenEyebrow({ children }: { children: React.ReactNode }) {
 export function ScreenTitle({
   children,
   size = "lg",
+  className = "",
 }: {
   children: React.ReactNode;
   size?: "lg" | "xl";
+  className?: string;
 }) {
   return (
     <motion.h2
@@ -188,9 +190,10 @@ export function ScreenTitle({
       viewport={{ once: false, amount: 0.4 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
       className={
-        size === "xl"
+        (size === "xl"
           ? "text-4xl md:text-6xl font-bold tracking-tight mb-5"
-          : "text-3xl md:text-5xl font-bold tracking-tight mb-5"
+          : "text-3xl md:text-5xl font-bold tracking-tight mb-5") +
+        (className ? " " + className : "")
       }
       style={{
         background:
