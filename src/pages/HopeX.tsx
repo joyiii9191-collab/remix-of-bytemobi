@@ -326,8 +326,12 @@ export default function HopeX() {
       {/* === Screen 5 — SSP 能力 === */}
       <SnapScreen id="ssp">
         <ScreenInner>
-          <GlassTag>DSP 能力</GlassTag>
-          <ScreenTitle>智能投放与优化能力</ScreenTitle>
+          <div className="flex flex-wrap items-center gap-4 mb-3">
+            <ScreenTitle>智能投放与优化能力</ScreenTitle>
+            <div className="mb-5">
+              <GlassTag>DSP 能力</GlassTag>
+            </div>
+          </div>
           <ScreenLead>以算法 + 数据 + 人工经验,持续放大投放效率与 ROI。</ScreenLead>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 w-full">
             {[
