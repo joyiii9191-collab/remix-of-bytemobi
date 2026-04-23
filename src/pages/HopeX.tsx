@@ -194,7 +194,7 @@ export default function HopeX() {
                 // 亚太主节点 ~ x:72% y:47% → 卡片放节点右上
                 { r: "亚太", d: "SEA / JP / KR / IN", color: "hsl(195 85% 55%)", pos: "top-[20%] right-[6%]" },
                 // 南美主节点 ~ x:27% y:68% → 卡片放节点左下
-                { r: "拉美", d: "BR / MX 等", color: "hsl(245 75% 62%)", pos: "bottom-[8%] left-[6%]" },
+                { r: "拉美", d: "BR / MX 等", color: "hsl(245 75% 62%)", pos: "bottom-[20%] left-[14%]" },
               ].map((item) => (
                 <motion.div
                   key={item.r}
