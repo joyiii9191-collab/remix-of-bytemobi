@@ -127,36 +127,36 @@ export default function HopeX() {
                 key={s.l}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.6, delay: i * 0.08 }}
-                className="relative flex items-center justify-center h-24 md:h-28 min-w-0"
+                className="relative flex items-center justify-center h-20 md:h-24 min-w-0"
               >
                 <div
                   aria-hidden
                   className="absolute inset-0 flex items-center justify-center font-black select-none pointer-events-none"
                   style={{
-                    fontSize: "clamp(3.5rem, 4.8vw, 5.5rem)",
+                    fontSize: "clamp(2.8rem, 3.8vw, 4.4rem)",
                     lineHeight: 1,
                     letterSpacing: "-0.04em",
                     color: "transparent",
-                    WebkitTextStroke: "1.2px hsla(230, 20%, 60%, 0.45)",
+                    WebkitTextStroke: "1px hsla(230, 20%, 60%, 0.45)",
                     fontFamily: "'Inter', system-ui, sans-serif",
                   }}
                 >
                   <CountUp value={s.v} />
                 </div>
-                <div className="relative z-10 flex items-center gap-2.5 max-w-full px-2">
+                <div className="relative z-10 flex items-center gap-2 max-w-full px-2">
                   <span
                     aria-hidden
-                    className="block h-[2px] w-6 rounded-full shrink-0"
+                    className="block h-[2px] w-5 rounded-full shrink-0"
                     style={{ background: "hsl(245 70% 55%)" }}
                   />
                   <div className="flex flex-col min-w-0">
                     <div
-                      className="text-sm md:text-base font-semibold tracking-wide leading-tight"
+                      className="text-xs md:text-sm font-semibold tracking-wide leading-tight"
                       style={{ color: TEXT_DARK }}
                     >
                       {s.l}
                     </div>
-                    <div className="text-xs font-medium mt-0.5" style={{ color: TEXT_MID }}>
+                    <div className="text-[11px] font-medium mt-0.5" style={{ color: TEXT_MID }}>
                       <CountUp value={s.v} suffix={s.s} />
                     </div>
                   </div>
@@ -172,24 +172,29 @@ export default function HopeX() {
           >
 
             {/* 世界地图 + 区域标签卡叠加 */}
-            <div className="relative w-full rounded-xl overflow-hidden aspect-[20/7] max-h-[320px] mx-auto">
+            <div className="relative w-full rounded-xl overflow-hidden aspect-[16/7] max-h-[420px] mx-auto">
               <img
                 src={hopexWorldMap}
                 alt="HopeX 全球流量网络覆盖图"
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover scale-110"
+                style={{ transformOrigin: "center 55%" }}
               />
               <div
                 aria-hidden
                 className="absolute inset-0 pointer-events-none"
-                style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 40%)" }}
+                style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 35%)" }}
               />
 
-              {/* 区域标签卡 - 绝对定位贴合各大洲 */}
+              {/* 区域标签卡 - 紧贴各大洲主节点 */}
               {[
-                { r: "北美", d: "US / CA", color: "hsl(220 90% 58%)", pos: "top-[8%] left-[5%]" },
-                { r: "欧洲及中东非", d: "EMEA", color: "hsl(265 70% 60%)", pos: "top-[6%] left-1/2 -translate-x-1/2" },
-                { r: "亚太", d: "SEA / JP / KR / IN", color: "hsl(195 85% 55%)", pos: "top-[8%] right-[4%]" },
-                { r: "拉美", d: "BR / MX 等", color: "hsl(245 75% 62%)", pos: "bottom-[10%] left-[16%]" },
+                // 北美主节点 ~ x:20% y:45% → 卡片放节点上方
+                { r: "北美", d: "US / CA", color: "hsl(220 90% 58%)", pos: "top-[18%] left-[10%]" },
+                // 欧洲主节点 ~ x:50% y:38% → 卡片放节点上方
+                { r: "欧洲及中东非", d: "EMEA", color: "hsl(265 70% 60%)", pos: "top-[10%] left-[44%]" },
+                // 亚太主节点 ~ x:72% y:47% → 卡片放节点右上
+                { r: "亚太", d: "SEA / JP / KR / IN", color: "hsl(195 85% 55%)", pos: "top-[20%] right-[6%]" },
+                // 南美主节点 ~ x:27% y:68% → 卡片放节点左下
+                { r: "拉美", d: "BR / MX 等", color: "hsl(245 75% 62%)", pos: "bottom-[8%] left-[6%]" },
               ].map((item) => (
                 <motion.div
                   key={item.r}
