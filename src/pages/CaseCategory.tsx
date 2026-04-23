@@ -647,6 +647,33 @@ export default function CaseCategory() {
           <h2 className="text-xl md:text-2xl font-bold mb-5" style={{ color: TEXT_DARK }}>
             核心方法论
           </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {data.methodology.map((m, i) => {
+              const Icon = METHODOLOGY_ICONS[i % METHODOLOGY_ICONS.length];
+              return (
+                <motion.div
+                  key={m}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                  whileHover={{ y: -4 }}
+                  className="glass-card rounded-2xl p-5 flex items-start gap-3"
+                  style={CARD}
+                >
+                  <div
+                    className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
+                    style={{ background: `${data.color.replace("hsl(", "hsla(").replace(")", " / 0.14)")}`, color: data.color }}
+                  >
+                    <Icon size={18} />
+                  </div>
+                  <div className="pt-1.5 text-sm md:text-base font-semibold" style={{ color: TEXT_DARK }}>
+                    {m}
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
 
         {/* 案例卡片 */}
