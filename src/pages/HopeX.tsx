@@ -28,6 +28,12 @@ import oemOppo from "@/assets/oem-oppo.png";
 import oemSamsung from "@/assets/oem-samsung.png";
 import oemVivo from "@/assets/oem-vivo.png";
 import oemTranssion from "@/assets/oem-transsion.png";
+import oemUnity from "@/assets/oem-unity.png";
+import oemCx from "@/assets/oem-cx.png";
+import oemWebeye from "@/assets/oem-webeye.png";
+import oemOpera from "@/assets/oem-opera.png";
+import oemBluex from "@/assets/oem-bluex.png";
+import oemIronsrc from "@/assets/oem-ironsrc.png";
 
 // 案例品牌 logo (来源:全球汇流 cases 子页面)
 import caseEcommerceImg from "@/assets/case-ecommerce-aliexpress.png";
@@ -814,6 +820,12 @@ export default function HopeX() {
                   { name: "Samsung", src: oemSamsung, fit: "contain" as const },
                   { name: "vivo", src: oemVivo, fit: "contain" as const },
                   { name: "Transsion", src: oemTranssion, fit: "contain" as const },
+                  { name: "Unity", src: oemUnity, fit: "contain" as const },
+                  { name: "CX", src: oemCx, fit: "contain" as const },
+                  { name: "Webeye", src: oemWebeye },
+                  { name: "Opera", src: oemOpera, fit: "contain" as const },
+                  { name: "X", src: oemBluex },
+                  { name: "ironSource", src: oemIronsrc },
                   { name: "Honor" },
                   { name: "Realme" },
                   { name: "Tecno" },
