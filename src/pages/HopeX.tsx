@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import StarBorder from "@/components/StarBorder";
 import { motion } from "motion/react";
 import {
