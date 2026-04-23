@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import StarBorder from "@/components/StarBorder";
 import { motion } from "motion/react";
 import {
@@ -128,9 +128,25 @@ const MEDIA_BLOCKS = [
 
 export default function GlobalFlow() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [openCase, setOpenCase] = React.useState<Case | null>(null);
   const [activeCase, setActiveCase] = React.useState(0);
   const [pauseCases, setPauseCases] = React.useState(false);
+
+  // 处理 hash 滚动:SnapPage 的滚动容器是内部 div,需手动滚动到目标屏
+  React.useEffect(() => {
+    const hash = location.hash.replace("#", "");
+    if (!hash) return;
+    const tryScroll = (retries = 10) => {
+      const el = document.getElementById(hash);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else if (retries > 0) {
+        setTimeout(() => tryScroll(retries - 1), 60);
+      }
+    };
+    tryScroll();
+  }, [location.hash, location.key]);
 
   React.useEffect(() => {
     if (pauseCases) return;
