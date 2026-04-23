@@ -488,13 +488,8 @@ export default function HopeX() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false, amount: 0.3 }}
                   transition={{ duration: 0.5, delay: gi * 0.08 }}
-                  className="grid grid-cols-[120px_1fr] gap-4 items-center"
+                  className="w-full"
                 >
-                  <div className="text-left pl-2">
-                    <div className="text-sm font-bold tracking-wide" style={{ color: ACCENT }}>
-                      {g.t}
-                    </div>
-                  </div>
                   <div
                     className="grid gap-3"
                     style={{ gridTemplateColumns: `repeat(${maxCols}, minmax(0,1fr))` }}
