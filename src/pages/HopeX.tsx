@@ -887,7 +887,7 @@ export default function HopeX() {
       </SnapScreen>
 
       {/* === Screen 7 — 合作价值 === */}
-      <SnapScreen id="value">
+      <SnapScreen id="value" snap={false}>
         <ScreenInner>
           <ScreenTitle>合作价值总结</ScreenTitle>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 w-full">
