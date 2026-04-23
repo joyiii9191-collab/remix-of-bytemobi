@@ -483,36 +483,25 @@ export default function HopeX() {
                 key={c.t}
                 initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.45, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
-                className="rounded-xl glass-card flex items-center gap-5 px-5 py-3"
-                style={CARD}
+                className="flex items-center gap-5 py-4 border-b"
+                style={{ borderColor: "hsl(245 30% 92%)" }}
               >
                 {/* 左侧:行业名 */}
                 <div className="flex items-baseline gap-2 shrink-0 w-[180px]">
                   <h3 className="text-base font-semibold" style={{ color: TEXT_DARK }}>{c.t}</h3>
                   <span className="text-[10px] uppercase tracking-[0.18em]" style={{ color: TEXT_MID }}>{c.en}</span>
                 </div>
-                {/* 分隔竖线 */}
-                <div className="w-px h-10 shrink-0" style={{ background: "hsl(245 30% 92%)" }} />
-                {/* 右侧:logo 横排 */}
-                <div className="flex items-center gap-2.5 flex-1 flex-wrap">
+                {/* 右侧:logo 横排(无白底) */}
+                <div className="flex items-center gap-5 flex-1 flex-wrap">
                   {c.logos.map((l) => (
-                    <div
+                    <img
                       key={l.name}
+                      src={l.src}
+                      alt={l.name}
                       title={l.name}
-                      className="h-10 w-[88px] rounded-md flex items-center justify-center px-2 transition-all duration-300 hover:scale-105"
-                      style={{
-                        background: "hsl(0 0% 100%)",
-                        border: "1px solid hsl(245 30% 92%)",
-                        boxShadow: "0 1px 2px hsl(245 30% 50% / 0.04)",
-                      }}
-                    >
-                      <img
-                        src={l.src}
-                        alt={l.name}
-                        className="max-w-full max-h-full object-contain"
-                        loading="lazy"
-                      />
-                    </div>
+                      loading="lazy"
+                      className="h-8 md:h-9 w-auto object-contain transition-all duration-300 hover:scale-110"
+                    />
                   ))}
                 </div>
                 {/* 数量 */}
