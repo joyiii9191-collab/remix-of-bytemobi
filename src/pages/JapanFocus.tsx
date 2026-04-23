@@ -613,7 +613,7 @@ export default function JapanFocus() {
         <ScreenInner>
           <ScreenTitle>日本核心市场深耕</ScreenTitle>
           
-          <div className="flex flex-col gap-4 sm:gap-5 mt-10 sm:mt-12 flex-1 min-h-0">
+          <div className="flex flex-col gap-4 sm:gap-5 mt-4 flex-1 min-h-0">
             {/* 上:世界地图 + 日本高亮 */}
             <div
               className="rounded-2xl overflow-hidden glass-card flex items-center justify-center mx-auto w-full max-w-5xl h-[50vh] sm:h-[56vh] max-h-[560px]"
