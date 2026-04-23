@@ -922,3 +922,36 @@ select:-webkit-autofill {
   font-weight: 600;
   letter-spacing: 0.02em;
 }
+
+/* ========================================================================
+   SITE FOOTER — escape app-light-theme overrides
+   The .app-light-theme block force-rewrites rgba(10,5,20,*) backgrounds
+   and white text to dark for readability on light surfaces. The footer
+   is intentionally a dark panel, so we re-assert its colors here with
+   higher specificity.
+   ======================================================================== */
+.app-light-theme .site-footer {
+  background: hsl(258 60% 6%) !important;
+  color: hsla(0, 0%, 100%, 0.7) !important;
+}
+.app-light-theme .site-footer h1,
+.app-light-theme .site-footer h2,
+.app-light-theme .site-footer h3,
+.app-light-theme .site-footer h4,
+.app-light-theme .site-footer h5,
+.app-light-theme .site-footer h6 {
+  color: hsla(0, 0%, 100%, 0.92) !important;
+}
+.app-light-theme .site-footer p,
+.app-light-theme .site-footer span,
+.app-light-theme .site-footer a,
+.app-light-theme .site-footer li {
+  color: hsla(0, 0%, 100%, 0.65) !important;
+}
+.app-light-theme .site-footer a:hover,
+.app-light-theme .site-footer span:hover {
+  color: hsla(0, 0%, 100%, 0.98) !important;
+}
+.app-light-theme .site-footer .footer-muted {
+  color: hsla(0, 0%, 100%, 0.4) !important;
+}
