@@ -33,6 +33,9 @@ import partnerTapjoy from "@/assets/partner-tapjoy.png";
 import partnerAppnext from "@/assets/partner-appnext.png";
 import partnerApplovin from "@/assets/partner-applovin.png";
 import partnerIronsource from "@/assets/partner-ironsource.png";
+import officeEntrance from "@/assets/office-entrance.png";
+import officeWorkspace from "@/assets/office-workspace.png";
+import officeMeeting from "@/assets/office-meeting.png";
 const JP_RED = "hsl(245 60% 45%)";
 const JP_RED_SOFT = "hsla(245, 60%, 45%, 0.08)";
 
@@ -133,10 +136,9 @@ const PUB_SIDE = {
 };
 
 const OFFICE_PHOTOS = [
-  { title: "东京办公室 · 主入口", caption: "Tokyo Office · Entrance" },
-  { title: "团队工位区", caption: "Open Workspace" },
-  { title: "会议与协作区", caption: "Meeting Room" },
-  { title: "本地团队合影", caption: "Local Team" },
+  { title: "东京办公室 · 主入口", caption: "Tokyo Office · Entrance", image: officeEntrance },
+  { title: "团队工位区", caption: "Open Workspace", image: officeWorkspace },
+  { title: "会议与协作区", caption: "Meeting Room", image: officeMeeting },
 ];
 
 function OfficeCarousel() {
@@ -150,7 +152,7 @@ function OfficeCarousel() {
   const prev = () => setIdx((i) => (i - 1 + total) % total);
 
   return (
-    <div className="relative rounded-2xl overflow-hidden w-full" style={{ ...CARD, height: 420 }}>
+    <div className="relative rounded-2xl overflow-hidden w-full aspect-[16/9]" style={CARD}>
       <AnimatePresence mode="wait">
         <motion.div
           key={idx}
@@ -158,15 +160,14 @@ function OfficeCarousel() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.98 }}
           transition={{ duration: 0.6 }}
-          className="absolute inset-0 flex items-center justify-center"
-          style={{
-            background: `linear-gradient(135deg, hsl(${245 + idx * 5} 60% 92%) 0%, hsl(${260 + idx * 8} 50% 88%) 100%)`,
-          }}
+          className="absolute inset-0"
         >
-          <svg width="200" height="200" viewBox="0 0 200 200" className="opacity-40">
-            <circle cx="100" cy="100" r="60" fill={JP_RED} fillOpacity="0.5" />
-            <circle cx="100" cy="100" r="40" fill="white" fillOpacity="0.6" />
-          </svg>
+          <img
+            src={OFFICE_PHOTOS[idx].image}
+            alt={OFFICE_PHOTOS[idx].title}
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
           <div
             className="absolute bottom-0 left-0 right-0 px-6 py-5"
             style={{
