@@ -12,6 +12,15 @@ import { FormatShowcase } from "@/components/FormatShowcase";
 import { TrendingUp, Target, Globe2, Wallet, Coins, Cpu } from "lucide-react";
 import hopexWorldMap from "@/assets/hopex-world-map.png";
 
+// 自有核心流量 logo
+import ownedLogo1 from "@/assets/owned-logo-1.jpeg";
+import ownedLogo2 from "@/assets/owned-logo-2.png";
+import ownedLogo3 from "@/assets/owned-logo-3.png";
+import ownedLogo4 from "@/assets/owned-logo-4.png";
+import ownedLogo5 from "@/assets/owned-logo-5.png";
+import ownedLogo6 from "@/assets/owned-logo-6.png";
+import ownedLogo7 from "@/assets/owned-logo-7.png";
+
 // 案例品牌 logo (来源:全球汇流 cases 子页面)
 import caseEcommerceImg from "@/assets/case-ecommerce-aliexpress.png";
 import caseTaobaoLogo from "@/assets/case-taobao-logo.png";
@@ -96,7 +105,7 @@ function GlassTag({ children }: { children: React.ReactNode }) {
  */
 function HopexLogoMarquee({
   tag, direction, apps,
-}: { tag: string; direction: "left" | "right"; apps: string[] }) {
+}: { tag: string; direction: "left" | "right"; apps: Array<{ name: string; src?: string }> }) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [phase, setPhase] = useState<"idle" | "centered" | "flowing">("idle");
   const doubled = [...apps, ...apps];
@@ -177,25 +186,31 @@ function HopexLogoMarquee({
               transform: phase === "flowing" ? undefined : initialTransform,
             }}
           >
-            {doubled.map((name, i) => (
+            {doubled.map((item, i) => (
               <div
-                key={`${name}-${i}`}
-                className="shrink-0 w-[112px] h-[64px] rounded-xl flex flex-col items-center justify-center gap-1 glass-card px-2"
+                key={`${item.name}-${i}`}
+                className="shrink-0 w-[80px] h-[80px] rounded-2xl flex items-center justify-center glass-card overflow-hidden"
                 style={{ ...CARD, color: TEXT_MID }}
-                title={name}
+                title={item.name}
               >
-                <div
-                  className="w-8 h-8 rounded-md flex items-center justify-center text-[13px] font-bold"
-                  style={{
-                    background: "linear-gradient(135deg, hsl(245 70% 55%) 0%, hsl(265 65% 60%) 100%)",
-                    color: "#fff",
-                  }}
-                >
-                  {name.slice(0, 1).toUpperCase()}
-                </div>
-                <div className="text-[10px] font-medium leading-none truncate w-full text-center" style={{ color: TEXT_MID }}>
-                  {name}
-                </div>
+                {item.src ? (
+                  <img
+                    src={item.src}
+                    alt={item.name}
+                    loading="lazy"
+                    className="w-full h-full object-cover rounded-2xl"
+                  />
+                ) : (
+                  <div
+                    className="w-9 h-9 rounded-md flex items-center justify-center text-[14px] font-bold"
+                    style={{
+                      background: "linear-gradient(135deg, hsl(245 70% 55%) 0%, hsl(265 65% 60%) 100%)",
+                      color: "#fff",
+                    }}
+                  >
+                    {item.name.slice(0, 1).toUpperCase()}
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -763,26 +778,30 @@ export default function HopeX() {
                 t: "自有核心流量",
                 direction: "left" as const,
                 apps: [
-                  "ShortMax", "DramaBox", "ReelShort", "FlexTV",
-                  "GoodNovel", "TopShort", "MyDrama", "FunStory",
-                  "PlayLet", "MiniMax",
+                  { name: "Bear Cookie", src: ownedLogo1 },
+                  { name: "GPS Locator", src: ownedLogo2 },
+                  { name: "Block Puzzle", src: ownedLogo3 },
+                  { name: "Find Phone", src: ownedLogo4 },
+                  { name: "Cleaner 2026", src: ownedLogo5 },
+                  { name: "DramaStar", src: ownedLogo6 },
+                  { name: "PDF 2026", src: ownedLogo7 },
                 ],
               },
               {
                 t: "OEM SDK",
                 direction: "right" as const,
                 apps: [
-                  "Xiaomi", "OPPO", "vivo", "Honor",
-                  "Realme", "Transsion", "Tecno", "Infinix", "Samsung",
+                  { name: "Xiaomi" }, { name: "OPPO" }, { name: "vivo" }, { name: "Honor" },
+                  { name: "Realme" }, { name: "Transsion" }, { name: "Tecno" }, { name: "Infinix" }, { name: "Samsung" },
                 ],
               },
               {
                 t: "外部开发者",
                 direction: "left" as const,
                 apps: [
-                  "Partner A", "Partner B", "Partner C", "Partner D",
-                  "Partner E", "Partner F", "Partner G", "Partner H",
-                  "Partner I", "Partner J",
+                  { name: "Partner A" }, { name: "Partner B" }, { name: "Partner C" }, { name: "Partner D" },
+                  { name: "Partner E" }, { name: "Partner F" }, { name: "Partner G" }, { name: "Partner H" },
+                  { name: "Partner I" }, { name: "Partner J" },
                 ],
               },
             ].map((row) => (
