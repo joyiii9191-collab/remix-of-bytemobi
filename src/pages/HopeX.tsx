@@ -645,109 +645,77 @@ export default function HopeX() {
               <GlassTag>SSP 能力</GlassTag>
             </div>
           </div>
-          <ScreenLead>自有矩阵保证基本盘,外部对接保证规模与多样性。</ScreenLead>
-          <div className="flex flex-col gap-6 mt-10 w-full">
-            {[
-              {
-                tag: "OWNED",
-                t: "自有核心流量",
-                d: "短剧 / 工具 / 娱乐等自营 App。",
-                apps: [
-                  "ShortMax", "DramaBox", "ReelShort", "FlexTV",
-                  "GoodNovel", "TopShort", "MyDrama", "FunStory",
-                  "PlayLet", "MiniMax",
-                ],
-                direction: "left" as const,
-              },
-              {
-                tag: "OEM",
-                t: "OEM SDK",
-                d: "深度集成主流安卓 OEM 渠道。",
-                apps: [
-                  "Xiaomi", "OPPO", "vivo", "Honor",
-                  "Realme", "Transsion", "Tecno", "Infinix",
-                  "Samsung",
-                ],
-                direction: "right" as const,
-              },
-              {
-                tag: "PARTNERS",
-                t: "外部开发者体系",
-                d: "持续扩张第三方开发者生态。",
-                apps: [
-                  "Partner A", "Partner B", "Partner C", "Partner D",
-                  "Partner E", "Partner F", "Partner G", "Partner H",
-                  "Partner I", "Partner J",
-                ],
-                direction: "left" as const,
-              },
-            ].map((c, i) => (
-              <motion.div key={c.t}
-                initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="flex items-center gap-6 w-full"
-              >
-                {/* Left: label */}
-                <div className="shrink-0 w-[200px] flex flex-col gap-1.5 text-left">
-                  <span
-                    className="text-[10px] font-bold uppercase tracking-[0.2em]"
-                    style={{ color: ACCENT }}
-                  >
-                    {c.tag}
-                  </span>
-                  <h3 className="text-base font-semibold leading-tight" style={{ color: TEXT_DARK }}>{c.t}</h3>
-                  <p className="text-[12px] leading-snug" style={{ color: TEXT_MID }}>{c.d}</p>
-                </div>
-
-                {/* Right: marquee row */}
-                <div
-                  className="relative flex-1 min-w-0 overflow-hidden"
-                  style={{
-                    maskImage:
-                      "linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%)",
-                    WebkitMaskImage:
-                      "linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%)",
-                  }}
+          <div className="w-full mt-10 space-y-5 max-w-[1200px] mx-auto">
+            {(() => {
+              const groups = [
+                {
+                  t: "自有核心流量",
+                  apps: [
+                    "ShortMax", "DramaBox", "ReelShort", "FlexTV",
+                    "GoodNovel", "TopShort", "MyDrama", "FunStory",
+                    "PlayLet", "MiniMax",
+                  ],
+                },
+                {
+                  t: "OEM SDK",
+                  apps: [
+                    "Xiaomi", "OPPO", "vivo", "Honor",
+                    "Realme", "Transsion", "Tecno", "Infinix", "Samsung",
+                  ],
+                },
+                {
+                  t: "外部开发者",
+                  apps: [
+                    "Partner A", "Partner B", "Partner C", "Partner D",
+                    "Partner E", "Partner F", "Partner G", "Partner H",
+                    "Partner I", "Partner J",
+                  ],
+                },
+              ];
+              const maxCols = Math.max(...groups.map((g) => g.apps.length));
+              return groups.map((g, gi) => (
+                <motion.div
+                  key={g.t}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, amount: 0.3 }}
+                  transition={{ duration: 0.5, delay: gi * 0.08 }}
+                  className="grid grid-cols-[120px_1fr] gap-4 items-center"
                 >
+                  <div className="text-left pl-2">
+                    <div className="text-sm font-bold tracking-wide" style={{ color: ACCENT }}>
+                      {g.t}
+                    </div>
+                  </div>
                   <div
-                    className="flex gap-3 w-max"
-                    style={{
-                      animation: `${c.direction === "left" ? "logo-marquee" : "logo-marquee-reverse"} 32s linear infinite`,
-                    }}
+                    className="grid gap-3"
+                    style={{ gridTemplateColumns: `repeat(${maxCols}, minmax(0,1fr))` }}
                   >
-                    {[...c.apps, ...c.apps].map((name, idx) => (
+                    {g.apps.map((name) => (
                       <div
-                        key={`${name}-${idx}`}
-                        className="shrink-0 w-[68px] h-[68px] rounded-xl flex flex-col items-center justify-center gap-1"
-                        style={{
-                          background: "rgba(255,255,255,0.6)",
-                          border: "1px dashed rgba(99,102,241,0.3)",
-                          backdropFilter: "blur(6px)",
-                        }}
+                        key={name}
+                        className="h-16 rounded-xl flex flex-col items-center justify-center gap-1 glass-card px-2"
+                        style={{ ...CARD, color: TEXT_MID }}
                         title={name}
                       >
                         <div
                           className="w-7 h-7 rounded-md flex items-center justify-center text-[12px] font-bold"
                           style={{
-                            background:
-                              "linear-gradient(135deg, hsl(245 70% 55%) 0%, hsl(265 65% 60%) 100%)",
+                            background: "linear-gradient(135deg, hsl(245 70% 55%) 0%, hsl(265 65% 60%) 100%)",
                             color: "#fff",
                           }}
                         >
                           {name.slice(0, 1).toUpperCase()}
                         </div>
-                        <div
-                          className="text-[9px] font-medium leading-none truncate w-full text-center px-1"
-                          style={{ color: TEXT_MID }}
-                        >
+                        <div className="text-[9px] font-medium leading-none truncate w-full text-center" style={{ color: TEXT_MID }}>
                           {name}
                         </div>
                       </div>
                     ))}
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ));
+            })()}
           </div>
         </ScreenInner>
       </SnapScreen>
