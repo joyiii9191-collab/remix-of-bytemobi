@@ -22,6 +22,46 @@ export const SnapScrollContext = React.createContext<React.RefObject<HTMLDivElem
 export function SnapPage({ title, children }: SnapPageProps) {
   const scrollRef = React.useRef<HTMLDivElement>(null);
 
+  // ===== 调试 HUD 状态(仅 dev 显示) =====
+  const debugRef = React.useRef({
+    accum: 0,
+    trigger: 220,
+    cooldown: 3000,
+    lockUntil: 0,
+    currentIdx: 0,
+    targetIdx: 0,
+    screens: 0,
+  });
+  const [hud, setHud] = React.useState({
+    accum: 0,
+    trigger: 220,
+    cooldownLeft: 0,
+    currentIdx: 0,
+    targetIdx: 0,
+    screens: 0,
+  });
+  const showHud = import.meta.env.DEV;
+
+  React.useEffect(() => {
+    if (!showHud) return;
+    let raf = 0;
+    const tick = () => {
+      const d = debugRef.current;
+      const left = Math.max(0, d.lockUntil - performance.now());
+      setHud({
+        accum: Math.round(d.accum),
+        trigger: d.trigger,
+        cooldownLeft: Math.round(left),
+        currentIdx: d.currentIdx,
+        targetIdx: d.targetIdx,
+        screens: d.screens,
+      });
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [showHud]);
+
   useEffect(() => {
     const prev = document.title;
     document.title = `${title} · ByteMobi`;
