@@ -40,7 +40,11 @@ export function SnapPage({ title, children }: SnapPageProps) {
     targetIdx: 0,
     screens: 0,
   });
-  const showHud = import.meta.env.DEV;
+  // 默认显示;在 URL 加 ?nohud=1 可关闭
+  const showHud =
+    typeof window === "undefined"
+      ? false
+      : !new URLSearchParams(window.location.search).has("nohud");
 
   React.useEffect(() => {
     if (!showHud) return;
