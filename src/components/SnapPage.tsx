@@ -82,25 +82,31 @@ export function SnapPage({ title, children }: SnapPageProps) {
     };
 
     // 统一滚轮 / 触控板手感:
-    // - 鼠标滚轮:单次 deltaY 大(通常 ≥100),离散触发 → 直接吸附
-    // - 触控板:连续小 delta 流(惯性),需要累积 + 长冷却,避免一次滑动连跳多屏
+    // - 鼠标滚轮:单次 deltaY 通常很大(100+),需要更高阈值 + 更长冷却,避免一格就跳
+    // - 触控板:连续小 delta 流(惯性),累积达阈值才触发
     let wheelLock = 0;
     let lastWheelTs = 0;
     let accumDelta = 0;
     let lastDir: 1 | -1 = 1;
-    const COOLDOWN = 1700; // 与动画时长保持一致,动画期间不再接受新输入
-    const TRIGGER = 40;    // 触控板累积阈值
+    const COOLDOWN = 2000;     // 动画期 + 缓冲,期间忽略所有 wheel
+    const TRIGGER = 220;       // 累积阈值:鼠标滚轮约需 2 格,触控板需推一段
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
       const now = performance.now();
-      if (isAnimating || now - wheelLock < COOLDOWN) return;
+      if (isAnimating || now - wheelLock < COOLDOWN) {
+        // 冷却期内仍在持续输入,重置累积避免冷却结束瞬间立刻再触发
+        accumDelta = 0;
+        lastWheelTs = now;
+        return;
+      }
 
       const dir: 1 | -1 = e.deltaY > 0 ? 1 : -1;
-      // 方向反转或停顿 >180ms,重置累积
-      if (dir !== lastDir || now - lastWheelTs > 180) accumDelta = 0;
+      // 方向反转或停顿 >220ms,重置累积
+      if (dir !== lastDir || now - lastWheelTs > 220) accumDelta = 0;
       lastDir = dir;
       lastWheelTs = now;
-      accumDelta += Math.abs(e.deltaY);
+      // 单次 delta 截顶,削弱鼠标滚轮的"暴力一格"
+      accumDelta += Math.min(Math.abs(e.deltaY), 60);
 
       if (accumDelta < TRIGGER) return;
       accumDelta = 0;
