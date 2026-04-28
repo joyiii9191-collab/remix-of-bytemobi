@@ -116,7 +116,7 @@ import { imgGradient, imgGradientOverlay, imgContainer, imgContainer1, imgContai
 function Container1() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-0 px-[120px] right-0 top-[260px]" data-name="Container">
-      <div className="flex flex-col font-['Inter',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-center tracking-[0.12em]">
+      <div className="flex flex-col font-['Inter',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-center tracking-[0.04em]">
         <p className="leading-[28px]">Intelligently Driven, Converging Global Streams, Igniting Momentum in Japan</p>
       </div>
     </div>
