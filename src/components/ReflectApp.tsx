@@ -245,7 +245,6 @@ function Heading() {
 function Container() {
   return (
     <div className="h-[340px] relative shrink-0 w-[1440px] z-[4]" data-name="Container">
-      <Container1 />
       <Link />
       <Heading />
     </div>
