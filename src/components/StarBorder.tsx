@@ -54,42 +54,59 @@ const StarBorder: React.FC<StarBorderProps> = ({
       </span>
 
       <style>{`
-        .sb-wave-btn .sb-wave {
+        /* 底部光晕:无边缘的柔光,从按钮下方升起并扩散 */
+        .sb-wave-btn .sb-glow {
           pointer-events: none;
           position: absolute;
           left: -10%;
           right: -10%;
-          bottom: -120%;
-          height: 200%;
+          bottom: 0;
+          height: 100%;
           opacity: 0;
-          transition: bottom 700ms cubic-bezier(.22,.9,.3,1), opacity 500ms ease-out;
-          will-change: bottom, transform, opacity;
-          /* 振幅压扁:波峰波谷只在 48%~52% 之间,波浪更低更细 */
-          clip-path: polygon(
-            0% 52%, 5% 51%, 10% 49.5%, 15% 48.6%, 20% 48.2%, 25% 48.6%, 30% 49.5%,
-            35% 51%, 40% 52%, 45% 52.6%, 50% 52.8%, 55% 52.6%, 60% 52%, 65% 51%,
-            70% 49.5%, 75% 48.6%, 80% 48.2%, 85% 48.6%, 90% 49.5%, 95% 51%, 100% 52%,
-            100% 100%, 0% 100%
-          );
-        }
-        .sb-wave-btn .sb-wave-1 {
-          background: radial-gradient(120% 80% at 50% 100%,
-            hsl(270, 100%, 78%) 0%,
-            hsl(245, 100%, 72%) 35%,
-            hsl(220, 100%, 70%) 65%,
-            hsla(220, 100%, 70%, 0.3) 85%,
-            transparent 100%);
-          filter: blur(1px) saturate(1.2);
-        }
-        .sb-wave-btn .sb-wave-2 {
-          background: radial-gradient(120% 80% at 50% 100%,
-            hsl(220, 100%, 75%) 0%,
-            hsl(265, 100%, 75%) 50%,
-            hsla(270, 95%, 72%, 0.3) 80%,
-            transparent 100%);
-          filter: blur(5px) saturate(1.3);
-          transition-delay: 80ms;
+          transform: translateY(35%) scaleY(0.7);
+          transform-origin: 50% 100%;
+          transition: opacity 700ms ease-out, transform 900ms cubic-bezier(.22,.9,.3,1);
+          will-change: opacity, transform;
           mix-blend-mode: screen;
+        }
+        .sb-wave-btn .sb-glow-1 {
+          background: radial-gradient(80% 110% at 50% 115%,
+            hsl(275, 100%, 82%) 0%,
+            hsl(250, 100%, 72%) 25%,
+            hsla(225, 100%, 68%, 0.7) 50%,
+            hsla(225, 100%, 68%, 0.25) 72%,
+            transparent 88%);
+          filter: blur(2px) saturate(1.4) brightness(1.1);
+        }
+        .sb-wave-btn .sb-glow-2 {
+          background: radial-gradient(95% 130% at 50% 120%,
+            hsl(220, 100%, 78%) 0%,
+            hsl(265, 100%, 74%) 40%,
+            hsla(270, 95%, 70%, 0.35) 70%,
+            transparent 92%);
+          filter: blur(10px) saturate(1.4) brightness(1.15);
+          transition-delay: 80ms;
+        }
+        /* 底部贴边细光带,强化"光源在下方"的暗示 */
+        .sb-wave-btn .sb-glow-line {
+          pointer-events: none;
+          position: absolute;
+          left: 8%;
+          right: 8%;
+          bottom: 0;
+          height: 2px;
+          border-radius: 9999px;
+          background: linear-gradient(90deg,
+            transparent 0%,
+            hsla(245, 100%, 85%, 0.9) 30%,
+            hsla(270, 100%, 90%, 1) 50%,
+            hsla(245, 100%, 85%, 0.9) 70%,
+            transparent 100%);
+          filter: blur(0.6px);
+          opacity: 0;
+          mix-blend-mode: screen;
+          transition: opacity 600ms ease-out;
+          box-shadow: 0 0 14px hsla(260, 100%, 75%, 0.85);
         }
 
         /* 玻璃高光:顶部贴合 pill 弧度的细高光 */
