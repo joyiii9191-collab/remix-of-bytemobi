@@ -8315,16 +8315,24 @@ function Section9Solution() {
             stroke="hsla(260, 60%, 50%, 0.15)"
             strokeWidth="0.8"
           />
-          {/* 流动的小光点 */}
+          {/* 流动的箭头 */}
           {[0, 1, 2].map((i) => (
-            <circle key={i} r="3" fill="hsla(260, 90%, 70%, 0.95)">
-              <animateMotion
-                dur="12s"
-                repeatCount="indefinite"
-                begin={`${i * 4}s`}
-                path={`M ${cx + radius},${cy} A ${radius},${radius} 0 1 1 ${cx - radius},${cy} A ${radius},${radius} 0 1 1 ${cx + radius},${cy}`}
-              />
-            </circle>
+            <g key={i}>
+              {/* 箭头形状：朝向 +x 方向，配合 rotate="auto" 沿路径切线方向 */}
+              <path
+                d="M -5,-4 L 5,0 L -5,4 L -2,0 Z"
+                fill="hsla(260, 90%, 65%, 0.95)"
+                style={{ filter: "drop-shadow(0 0 4px hsla(260, 90%, 70%, 0.6))" }}
+              >
+                <animateMotion
+                  dur="12s"
+                  repeatCount="indefinite"
+                  begin={`${i * 4}s`}
+                  rotate="auto"
+                  path={`M ${cx + radius},${cy} A ${radius},${radius} 0 1 1 ${cx - radius},${cy} A ${radius},${radius} 0 1 1 ${cx + radius},${cy}`}
+                />
+              </path>
+            </g>
           ))}
         </svg>
 
