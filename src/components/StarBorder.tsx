@@ -35,20 +35,15 @@ const StarBorder: React.FC<StarBorderProps> = ({
       {/* 玻璃 pill —— 底色保持透明玻璃,hover 不再整体填充 */}
       <span
         className="sb-pill relative z-[1] overflow-hidden block backdrop-blur-xl text-center text-[14px] font-medium py-[12px] px-[32px] rounded-full border transition-[border-color,box-shadow] duration-500 ease-out
-          bg-white/[0.08] border-white/[0.18] text-white
-          group-hover:border-white/35
-          shadow-[inset_0_1px_0_0_hsla(0,0%,100%,0.35),inset_0_-1px_0_0_hsla(0,0%,100%,0.08)]
-          group-hover:shadow-[inset_0_1px_0_0_hsla(0,0%,100%,0.5),0_14px_36px_-14px_hsla(265,85%,60%,0.55)]"
+          bg-white/[0.06] border-white/[0.16] text-white
+          group-hover:border-white/30
+          shadow-[inset_0_1px_0_0_hsla(0,0%,100%,0.18)]
+          group-hover:shadow-[0_18px_42px_-18px_hsla(265,90%,60%,0.5)]"
       >
         {/* 底部光晕层 —— 从按钮下方柔和亮起的蓝紫光,无波浪边缘 */}
         <span aria-hidden="true" className="sb-glow sb-glow-1" />
         {/* 第二层光晕,更宽更柔,做层叠扩散 */}
         <span aria-hidden="true" className="sb-glow sb-glow-2" />
-        {/* 底部细光带,模拟光源贴边 */}
-        <span aria-hidden="true" className="sb-glow-line" />
-        {/* 玻璃高光反射:顶部细弧 + 斜向扫光 */}
-        <span aria-hidden="true" className="sb-gloss" />
-        <span aria-hidden="true" className="sb-sheen" />
 
         <span className="relative z-[1]">{children}</span>
       </span>
