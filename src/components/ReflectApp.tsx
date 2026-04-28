@@ -222,6 +222,9 @@ function Heading() {
           智能驱动，全球汇流，日本聚势
         </p>
       </div>
+      <div className="flex flex-col font-['Inter',sans-serif] font-normal justify-center leading-[0] not-italic text-white relative shrink-0 text-[16px] text-center tracking-[0.04em] mt-[20px]">
+        <p className="leading-[28px]">Intelligently Driven, Converging Global Streams, Igniting Momentum in Japan</p>
+      </div>
       <div className="mt-[180px] pointer-events-auto">
         <StarBorder
           as="button"
