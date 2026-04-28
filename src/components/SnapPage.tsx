@@ -44,7 +44,7 @@ export function SnapPage({ title, children }: SnapPageProps) {
     const getScreens = () =>
       Array.from(el.querySelectorAll<HTMLElement>("section[style*='scroll-snap-align']"));
 
-    const animateTo = (target: number, duration = 2200) => {
+    const animateTo = (target: number, duration = 2800) => {
       cancelAnimationFrame(rafId);
       const start = el.scrollTop;
       const distance = target - start;
@@ -74,10 +74,10 @@ export function SnapPage({ title, children }: SnapPageProps) {
       const nextIdx = Math.max(0, Math.min(screens.length - 1, idx + dir));
       if (dir === 1 && nextIdx === idx) {
         const maxScroll = el.scrollHeight - vh;
-        if (current < maxScroll - 4) animateTo(maxScroll, 2200);
+        if (current < maxScroll - 4) animateTo(maxScroll, 2800);
         return;
       }
-      animateTo(screens[nextIdx].offsetTop, 2200);
+      animateTo(screens[nextIdx].offsetTop, 2800);
     };
 
     // 统一滚轮 / 触控板手感:
@@ -87,7 +87,7 @@ export function SnapPage({ title, children }: SnapPageProps) {
     let lastWheelTs = 0;
     let accumDelta = 0;
     let lastDir: 1 | -1 = 1;
-    const COOLDOWN = 2400;     // 略长于动画时长,期间忽略所有 wheel
+    const COOLDOWN = 3000;     // 略长于动画时长,期间忽略所有 wheel
     const TRIGGER = 220;       // 累积阈值:鼠标滚轮约需 2 格,触控板需推一段
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
