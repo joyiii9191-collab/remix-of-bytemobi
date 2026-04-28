@@ -129,12 +129,34 @@ export function SnapPage({ title, children }: SnapPageProps) {
     let lastDir: 1 | -1 = 1;
     const COOLDOWN = 3000;     // 略长于动画时长,期间忽略所有 wheel
     const TRIGGER = 220;       // 累积阈值:鼠标滚轮约需 2 格,触控板需推一段
+    debugRef.current.trigger = TRIGGER;
+    debugRef.current.cooldown = COOLDOWN;
+
+    const updateScreenInfo = (targetIdx?: number) => {
+      const screens = getScreens();
+      const current = el.scrollTop;
+      const vh = el.clientHeight;
+      let idx = 0;
+      for (let i = 0; i < screens.length; i++) {
+        if (screens[i].offsetTop <= current + vh / 3) idx = i;
+      }
+      debugRef.current.screens = screens.length;
+      debugRef.current.currentIdx = idx;
+      if (typeof targetIdx === "number") debugRef.current.targetIdx = targetIdx;
+      else debugRef.current.targetIdx = idx;
+    };
+
+    const onScroll = () => updateScreenInfo();
+    el.addEventListener("scroll", onScroll, { passive: true });
+    updateScreenInfo();
+
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
       const now = performance.now();
       if (isAnimating || now - wheelLock < COOLDOWN) {
         // 冷却期内仍在持续输入,重置累积避免冷却结束瞬间立刻再触发
         accumDelta = 0;
+        debugRef.current.accum = 0;
         lastWheelTs = now;
         return;
       }
@@ -146,10 +168,22 @@ export function SnapPage({ title, children }: SnapPageProps) {
       lastWheelTs = now;
       // 单次 delta 截顶,削弱鼠标滚轮的"暴力一格"
       accumDelta += Math.min(Math.abs(e.deltaY), 60);
+      debugRef.current.accum = accumDelta;
 
       if (accumDelta < TRIGGER) return;
       accumDelta = 0;
+      debugRef.current.accum = 0;
       wheelLock = now;
+      debugRef.current.lockUntil = now + COOLDOWN;
+      // 计算目标索引并写入 HUD
+      const screens = getScreens();
+      const vh = el.clientHeight;
+      let cur = 0;
+      for (let i = 0; i < screens.length; i++) {
+        if (screens[i].offsetTop <= el.scrollTop + vh / 3) cur = i;
+      }
+      const next = Math.max(0, Math.min(screens.length - 1, cur + dir));
+      debugRef.current.targetIdx = next;
       snapToNext(dir);
     };
 
