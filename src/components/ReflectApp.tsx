@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import * as LucideIcons from "lucide-react";
 import svgPaths from "./svg-ww2hb5tg6t";
 import IntegrationsGrid from "./IntegrationsGrid";
+import { WorldMapJapan } from "./WorldMapJapan";
 import BentoBusinessCards from "./BentoBusinessCards";
 import Aurora from "./Aurora";
 import ColorBends from "./ColorBends";
