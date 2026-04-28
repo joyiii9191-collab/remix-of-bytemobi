@@ -44,6 +44,9 @@ const StarBorder: React.FC<StarBorderProps> = ({
         <span aria-hidden="true" className="sb-wave sb-wave-1" />
         {/* 第二层波浪,反向、半透明,做层叠光晕 */}
         <span aria-hidden="true" className="sb-wave sb-wave-2" />
+        {/* 玻璃高光反射:顶部细弧 + 斜向扫光 */}
+        <span aria-hidden="true" className="sb-gloss" />
+        <span aria-hidden="true" className="sb-sheen" />
 
         <span className="relative z-[1]">{children}</span>
       </span>
@@ -69,22 +72,77 @@ const StarBorder: React.FC<StarBorderProps> = ({
         }
         .sb-wave-btn .sb-wave-1 {
           background: radial-gradient(120% 80% at 50% 100%,
-            hsl(275, 100%, 88%) 0%,
-            hsl(250, 100%, 80%) 30%,
-            hsl(225, 100%, 75%) 60%,
-            hsla(220, 100%, 72%, 0.6) 85%,
+            hsl(270, 100%, 78%) 0%,
+            hsl(245, 100%, 72%) 35%,
+            hsl(220, 100%, 70%) 65%,
+            hsla(220, 100%, 70%, 0.3) 85%,
             transparent 100%);
-          filter: blur(0.5px) saturate(1.6) brightness(1.2);
+          filter: blur(1px) saturate(1.2);
         }
         .sb-wave-btn .sb-wave-2 {
           background: radial-gradient(120% 80% at 50% 100%,
-            hsl(220, 100%, 85%) 0%,
-            hsl(265, 100%, 82%) 45%,
-            hsla(270, 100%, 78%, 0.55) 75%,
+            hsl(220, 100%, 75%) 0%,
+            hsl(265, 100%, 75%) 50%,
+            hsla(270, 95%, 72%, 0.3) 80%,
             transparent 100%);
-          filter: blur(4px) saturate(1.6) brightness(1.25);
+          filter: blur(5px) saturate(1.3);
           transition-delay: 80ms;
           mix-blend-mode: screen;
+        }
+
+        /* 玻璃高光:顶部贴合 pill 弧度的细高光 */
+        .sb-wave-btn .sb-gloss {
+          pointer-events: none;
+          position: absolute;
+          left: 6%;
+          right: 6%;
+          top: 1px;
+          height: 42%;
+          border-radius: 9999px 9999px 50% 50% / 9999px 9999px 100% 100%;
+          background: linear-gradient(
+            180deg,
+            hsla(0, 0%, 100%, 0.32) 0%,
+            hsla(0, 0%, 100%, 0.08) 55%,
+            transparent 100%
+          );
+          opacity: 0.55;
+          mix-blend-mode: screen;
+          transition: opacity 500ms ease-out;
+        }
+        .sb-wave-btn:hover .sb-gloss,
+        .sb-wave-btn:focus-visible .sb-gloss {
+          opacity: 0.95;
+        }
+
+        /* 斜向扫光:hover 时从左到右滑过,模拟玻璃反射 */
+        .sb-wave-btn .sb-sheen {
+          pointer-events: none;
+          position: absolute;
+          inset: 0;
+          border-radius: inherit;
+          background: linear-gradient(
+            115deg,
+            transparent 30%,
+            hsla(0, 0%, 100%, 0.18) 46%,
+            hsla(245, 100%, 92%, 0.42) 50%,
+            hsla(0, 0%, 100%, 0.18) 54%,
+            transparent 70%
+          );
+          background-size: 220% 100%;
+          background-position: -120% 0;
+          opacity: 0;
+          mix-blend-mode: screen;
+          transition: opacity 400ms ease-out;
+        }
+        .sb-wave-btn:hover .sb-sheen,
+        .sb-wave-btn:focus-visible .sb-sheen {
+          opacity: 1;
+          animation: sb-sheen-slide 2.4s cubic-bezier(.4,0,.2,1) 350ms infinite;
+        }
+        @keyframes sb-sheen-slide {
+          0%   { background-position: -120% 0; }
+          60%  { background-position: 220% 0; }
+          100% { background-position: 220% 0; }
         }
         .sb-wave-btn:hover .sb-wave,
         .sb-wave-btn:focus-visible .sb-wave {
