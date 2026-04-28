@@ -1305,47 +1305,50 @@ function Section1() {
           </div>
           {/* Content */}
           <div className="overflow-clip rounded-[inherit] size-full relative z-[1]">
-            <div className="flex items-center gap-12 p-10 relative">
-              {/* Left side — brand text */}
-              <div className="w-[380px] shrink-0 flex flex-col gap-6">
+            <div className="flex items-stretch gap-12 p-10 relative">
+              {/* Left side — brand text (精简:直接把主张做主标题) */}
+              <div className="w-[400px] shrink-0 flex flex-col gap-6 self-center">
                 {/* Tag pill */}
                 <div className="flex items-center px-[16px] py-[5px] rounded-full relative self-start" style={{ border: "1px solid hsla(0,0%,100%,0.7)", background: "hsla(0,0%,100%,0.45)",  boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
                   <span className="text-[14px] font-normal tracking-[-0.21px] leading-[1.6]" style={{ color: 'hsl(260, 60%, 40%)' }}>About ByteMobi</span>
                 </div>
 
-                {/* Title */}
-                <h2 className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[44px] leading-[1.1] font-semibold tracking-tight" style={{ color: 'hsl(230, 30%, 18%)' }}>
-                  品牌简介
+                {/* Title — 主张直接上 H2 */}
+                <h2 className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[40px] leading-[1.15] font-semibold tracking-tight" style={{ color: 'hsl(230, 30%, 18%)' }}>
+                  聚焦全球品牌<br />与效果广告营销
                 </h2>
-
-                {/* Subtitle */}
-                <p className="text-[18px] leading-[28px] font-medium" style={{ color: 'hsl(230, 25%, 25%)' }}>
-                  聚焦全球品牌与效果广告营销
-                </p>
 
                 {/* Divider — neutral */}
                 <div className="w-12 h-px" style={{ background: 'hsla(230, 30%, 40%, 0.25)' }} />
 
-                {/* Description */}
-                <p className="text-[13px] leading-[22px] text-justify max-w-[360px]" style={{ color: 'hsl(230, 15%, 40%)' }}>
-                  依托自有程序化流量体系整合全球头部媒体及合作伙伴生态资源，构建多元化流量网络，以全球布局为基础，深度拓展日本市场，为广告主提供高效的一站式广告投放与流量变现解决方案。
-                </p>
+                {/* Description — 拆为两段更短的句子 */}
+                <div className="flex flex-col gap-3 max-w-[380px]">
+                  <p className="text-[14px] leading-[24px] font-medium" style={{ color: 'hsl(230, 22%, 28%)' }}>
+                    自有程序化流量体系,整合全球头部媒体与合作伙伴生态。
+                  </p>
+                  <p className="text-[13px] leading-[22px]" style={{ color: 'hsl(230, 15%, 42%)' }}>
+                    以全球布局为基础,深耕日本市场,为广告主提供一站式投放与流量变现解决方案。
+                  </p>
+                </div>
 
-                {/* Stats row */}
-                <div className="flex gap-8 mt-2">
+                {/* Stats row — 加英文副标,字体呼应 Aeonik */}
+                <div className="flex gap-7 mt-2">
                   <div className="flex flex-col gap-1">
                     <AnimatedNumber value={200} suffix="+" />
                     <span className="text-[11px] tracking-wide" style={{ color: 'hsl(230, 15%, 45%)' }}>合作媒体</span>
+                    <span className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[10px] tracking-[0.08em] uppercase" style={{ color: 'hsl(230, 15%, 60%)' }}>Media Partners</span>
                   </div>
-                  <div className="w-px h-12" style={{ background: 'hsla(230, 30%, 40%, 0.15)' }} />
+                  <div className="w-px h-14" style={{ background: 'hsla(230, 30%, 40%, 0.15)' }} />
                   <div className="flex flex-col gap-1">
                     <AnimatedNumber value={50} suffix="+" />
                     <span className="text-[11px] tracking-wide" style={{ color: 'hsl(230, 15%, 45%)' }}>覆盖国家</span>
+                    <span className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[10px] tracking-[0.08em] uppercase" style={{ color: 'hsl(230, 15%, 60%)' }}>Countries</span>
                   </div>
-                  <div className="w-px h-12" style={{ background: 'hsla(230, 30%, 40%, 0.15)' }} />
+                  <div className="w-px h-14" style={{ background: 'hsla(230, 30%, 40%, 0.15)' }} />
                   <div className="flex flex-col gap-1">
                     <AnimatedNumber value={10} suffix="亿+" />
                     <span className="text-[11px] tracking-wide" style={{ color: 'hsl(230, 15%, 45%)' }}>日均流量</span>
+                    <span className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[10px] tracking-[0.08em] uppercase" style={{ color: 'hsl(230, 15%, 60%)' }}>Daily Impressions</span>
                   </div>
                 </div>
               </div>
@@ -1355,9 +1358,51 @@ function Section1() {
                 background: 'linear-gradient(180deg, transparent 5%, hsla(230, 30%, 40%, 0.18) 30%, hsla(230, 30%, 40%, 0.18) 70%, transparent 95%)',
               }} />
 
-              {/* Right side — 4 cards grid */}
-              <div className="flex-1 grid grid-cols-2 gap-5">
-                <IntegrationsGrid />
+              {/* Right side — 全球流量网络可视化 */}
+              <div className="flex-1 relative flex flex-col gap-3 min-h-[360px]">
+                {/* 顶部小标 */}
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full" style={{ background: 'hsl(260, 90%, 60%)', boxShadow: '0 0 10px hsl(260, 90%, 60%)' }} />
+                    <span className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[11px] tracking-[0.14em] uppercase" style={{ color: 'hsl(230, 20%, 35%)' }}>Global Traffic Network</span>
+                  </div>
+                  <span className="text-[11px]" style={{ color: 'hsl(230, 15%, 50%)' }}>实时联通 50+ 国家</span>
+                </div>
+
+                {/* 地图主体 */}
+                <div className="relative flex-1 rounded-2xl overflow-hidden" style={{
+                  background: 'linear-gradient(160deg, hsla(225, 60%, 96%, 0.6) 0%, hsla(260, 50%, 94%, 0.4) 100%)',
+                  border: '1px solid hsla(230, 30%, 70%, 0.18)',
+                  boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.6)',
+                }}>
+                  {/* 蓝紫光晕底 */}
+                  <div className="absolute inset-0 pointer-events-none" style={{
+                    background: 'radial-gradient(60% 50% at 75% 55%, hsla(265, 90%, 65%, 0.18), transparent 70%), radial-gradient(50% 40% at 30% 40%, hsla(220, 90%, 65%, 0.14), transparent 70%)',
+                  }} />
+                  <WorldMapJapan
+                    accent="hsl(265 90% 62%)"
+                    land="hsla(230, 35%, 55%, 0.42)"
+                    className="relative z-[1] w-full h-full"
+                  />
+                </div>
+
+                {/* 底部 chip — 关键节点信息 */}
+                <div className="flex gap-2 flex-wrap">
+                  {[
+                    { label: 'Tokyo · 主战场', dot: 'hsl(265, 90%, 62%)' },
+                    { label: 'APAC · 深耕', dot: 'hsl(245, 85%, 62%)' },
+                    { label: 'Global · 50+', dot: 'hsl(220, 85%, 62%)' },
+                  ].map((c) => (
+                    <div key={c.label} className="flex items-center gap-2 px-3 py-1.5 rounded-full" style={{
+                      background: 'hsla(0, 0%, 100%, 0.55)',
+                      border: '1px solid hsla(230, 30%, 70%, 0.25)',
+                      boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.7)',
+                    }}>
+                      <span className="w-1.5 h-1.5 rounded-full" style={{ background: c.dot, boxShadow: `0 0 8px ${c.dot}` }} />
+                      <span className="text-[11px] font-medium" style={{ color: 'hsl(230, 25%, 25%)' }}>{c.label}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
