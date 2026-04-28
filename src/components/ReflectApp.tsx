@@ -38,6 +38,12 @@ import logoAppsflyer from "@/assets/logo-appsflyer.png";
 import logoAdjust from "@/assets/logo-adjust.png";
 import adjustLogo from "@/assets/adjust-logo.png";
 import appsflyerLogo from "@/assets/appsflyer-logo.png";
+import solutionStep1 from "@/assets/solution-step-1-strategy.png";
+import solutionStep2 from "@/assets/solution-step-2-media.png";
+import solutionStep3 from "@/assets/solution-step-3-creative.png";
+import solutionStep4 from "@/assets/solution-step-4-launch.png";
+import solutionStep5 from "@/assets/solution-step-5-ai.png";
+import solutionStep6 from "@/assets/solution-step-6-report.png";
 import singularLogo from "@/assets/singular-logo.png";
 import logoFirebase from "@/assets/logo-firebase.png";
 import logoTenjin from "@/assets/logo-tenjin.png";
@@ -8236,12 +8242,12 @@ function Container279() {
 
 function Section9Solution() {
   const steps = [
-    { icon: "Crosshair", title: "投放策略制定", desc: "深入了解客户推广目标、预算与目标市场，量身定制投放策略。", hue: 260 }, // 紫
-    { icon: "Network", title: "媒体开户与资源整合", desc: "快速完成主流媒体平台开户，整合优质流量资源与渠道。", hue: 215 }, // 蓝
-    { icon: "Wand2", title: "素材制作与创意支持", desc: "多语言素材制作与 A/B 测试，持续提升广告创意效果。", hue: 330 }, // 粉
-    { icon: "Send", title: "投手投放与执行管理", desc: "全渠道精准投放，实时监控数据，灵活调整优化策略。", hue: 25 },  // 橙
-    { icon: "Cpu", title: "智能优化与效果提升", desc: "AI 驱动智能出价与人群定向，持续提升 ROI 与转化率。", hue: 165 }, // 青绿
-    { icon: "TrendingUp", title: "流量变现与报告分析", desc: "数据报告与 ROI 复盘反哺策略，驱动持续增长闭环。", hue: 45 },  // 金黄
+    { image: solutionStep1, title: "投放策略制定", desc: "深入了解客户推广目标、预算与目标市场，量身定制投放策略。", hue: 260 }, // 紫
+    { image: solutionStep2, title: "媒体开户与资源整合", desc: "快速完成主流媒体平台开户，整合优质流量资源与渠道。", hue: 215 }, // 蓝
+    { image: solutionStep3, title: "素材制作与创意支持", desc: "多语言素材制作与 A/B 测试，持续提升广告创意效果。", hue: 330 }, // 粉
+    { image: solutionStep4, title: "投手投放与执行管理", desc: "全渠道精准投放，实时监控数据，灵活调整优化策略。", hue: 25 },  // 橙
+    { image: solutionStep5, title: "智能优化与效果提升", desc: "AI 驱动智能出价与人群定向，持续提升 ROI 与转化率。", hue: 165 }, // 青绿
+    { image: solutionStep6, title: "流量变现与报告分析", desc: "数据报告与 ROI 复盘反哺策略，驱动持续增长闭环。", hue: 45 },  // 金黄
   ];
 
   // 圆形布局参数
@@ -8392,7 +8398,6 @@ function Section9Solution() {
           const angle = -Math.PI / 2 + (i * 2 * Math.PI) / N;
           const x = cx + radius * Math.cos(angle);
           const y = cy + radius * Math.sin(angle);
-          const IconComp = LucideIcons[step.icon as keyof typeof LucideIcons] as React.ComponentType<any>;
           // 根据角度决定卡片在节点的哪一侧（避免遮挡中心）
           const isRight = Math.cos(angle) >= 0;
           const isTop = Math.sin(angle) < -0.3;
@@ -8426,14 +8431,13 @@ function Section9Solution() {
                   className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping pointer-events-none"
                   style={{ background: "hsla(260, 75%, 60%, 0.25)", animationDuration: "1.4s" }}
                 />
-                {IconComp && (
-                  <IconComp
-                    size={26}
-                    style={{ color: `hsl(${step.hue}, 70%, 55%)` }}
-                    strokeWidth={2}
-                    className="transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110 relative z-10"
-                  />
-                )}
+                <img
+                  src={step.image}
+                  alt={step.title}
+                  className="w-[42px] h-[42px] object-contain transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110 relative z-10"
+                  style={{ filter: `drop-shadow(0 4px 10px hsla(${step.hue}, 70%, 55%, 0.35))` }}
+                />
+
                 {/* 序号徽标 */}
                 <div
                   className="absolute -top-1 -right-1 w-[22px] h-[22px] rounded-full flex items-center justify-center text-[11px] font-semibold transition-all duration-500 group-hover:scale-110"
