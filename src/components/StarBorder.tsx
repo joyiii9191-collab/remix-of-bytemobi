@@ -158,20 +158,17 @@ const StarBorder: React.FC<StarBorderProps> = ({
           opacity: 1;
           background-position: 40% 0;
         }
-        .sb-wave-btn:hover .sb-wave,
-        .sb-wave-btn:focus-visible .sb-wave {
-          /* 上涌停在更低位置,波浪高度更小 */
-          bottom: -75%;
+        .sb-wave-btn:hover .sb-glow,
+        .sb-wave-btn:focus-visible .sb-glow {
           opacity: 1;
-          animation: sb-wave-flow 3.6s ease-in-out 700ms infinite alternate;
+          transform: translateY(0) scaleY(1);
         }
-        .sb-wave-btn:hover .sb-wave-2 {
-          animation-direction: alternate-reverse;
-          animation-duration: 4.2s;
+        .sb-wave-btn:hover .sb-glow-2 {
+          opacity: 0.9;
         }
-        @keyframes sb-wave-flow {
-          0%   { transform: translateX(-4%); }
-          100% { transform: translateX(4%); }
+        .sb-wave-btn:hover .sb-glow-line,
+        .sb-wave-btn:focus-visible .sb-glow-line {
+          opacity: 1;
         }
 
       `}</style>
