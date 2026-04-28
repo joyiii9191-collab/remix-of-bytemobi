@@ -8236,12 +8236,12 @@ function Container279() {
 
 function Section9Solution() {
   const steps = [
-    { icon: "Crosshair", title: "投放策略制定", desc: "深入了解客户推广目标、预算与目标市场，量身定制投放策略。", hue: 260 }, // 紫
-    { icon: "Network", title: "媒体开户与资源整合", desc: "快速完成主流媒体平台开户，整合优质流量资源与渠道。", hue: 215 }, // 蓝
-    { icon: "Wand2", title: "素材制作与创意支持", desc: "多语言素材制作与 A/B 测试，持续提升广告创意效果。", hue: 330 }, // 粉
-    { icon: "Send", title: "投手投放与执行管理", desc: "全渠道精准投放，实时监控数据，灵活调整优化策略。", hue: 25 },  // 橙
-    { icon: "Cpu", title: "智能优化与效果提升", desc: "AI 驱动智能出价与人群定向，持续提升 ROI 与转化率。", hue: 165 }, // 青绿
-    { icon: "TrendingUp", title: "流量变现与报告分析", desc: "数据报告与 ROI 复盘反哺策略，驱动持续增长闭环。", hue: 45 },  // 金黄
+    { icon: "Target",   title: "投放策略制定",       desc: "深入了解客户推广目标、预算与目标市场，量身定制投放策略。", hue: 260 }, // 紫
+    { icon: "Share2",   title: "媒体开户与资源整合", desc: "快速完成主流媒体平台开户，整合优质流量资源与渠道。",       hue: 215 }, // 蓝
+    { icon: "Sparkles", title: "素材制作与创意支持", desc: "多语言素材制作与 A/B 测试，持续提升广告创意效果。",         hue: 330 }, // 粉
+    { icon: "Radio",    title: "投手投放与执行管理", desc: "全渠道精准投放，实时监控数据，灵活调整优化策略。",         hue: 25  }, // 橙
+    { icon: "Cpu",      title: "智能优化与效果提升", desc: "AI 驱动智能出价与人群定向，持续提升 ROI 与转化率。",       hue: 165 }, // 青绿
+    { icon: "Activity", title: "流量变现与报告分析", desc: "数据报告与 ROI 复盘反哺策略，驱动持续增长闭环。",         hue: 45  }, // 金黄
   ];
 
   // 圆形布局参数
@@ -8427,12 +8427,47 @@ function Section9Solution() {
                   style={{ background: "hsla(260, 75%, 60%, 0.25)", animationDuration: "1.4s" }}
                 />
                 {IconComp && (
-                  <IconComp
-                    size={26}
-                    style={{ color: `hsl(${step.hue}, 70%, 55%)` }}
-                    strokeWidth={2}
-                    className="transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110 relative z-10"
-                  />
+                  <span className="relative z-10 inline-flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110">
+                    {/* 幽灵光晕层：高饱和高亮，模糊后做发光底 */}
+                    <IconComp
+                      size={26}
+                      strokeWidth={1.6}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      style={{
+                        color: `hsl(${step.hue}, 90%, 70%)`,
+                        filter: `blur(4px) drop-shadow(0 0 6px hsla(${step.hue}, 90%, 65%, 0.55))`,
+                        opacity: 0.85,
+                        position: "absolute",
+                        inset: 0,
+                      }}
+                      className="transition-opacity duration-500 group-hover:opacity-100"
+                      aria-hidden
+                    />
+                    {/* 主图标 */}
+                    <IconComp
+                      size={26}
+                      strokeWidth={1.6}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      style={{ color: `hsl(${step.hue}, 65%, 48%)` }}
+                    />
+                    {/* 高光描边：错位 0.5px，营造双线质感 */}
+                    <IconComp
+                      size={26}
+                      strokeWidth={1.6}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      style={{
+                        color: `hsla(0, 0%, 100%, 0.55)`,
+                        position: "absolute",
+                        inset: 0,
+                        transform: "translate(-0.5px, -0.5px)",
+                        mixBlendMode: "overlay",
+                      }}
+                      aria-hidden
+                    />
+                  </span>
                 )}
                 {/* 序号徽标 */}
                 <div
