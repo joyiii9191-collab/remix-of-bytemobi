@@ -128,21 +128,16 @@ const StarBorder: React.FC<StarBorderProps> = ({
             hsla(0, 0%, 100%, 0.18) 54%,
             transparent 70%
           );
-          background-size: 220% 100%;
-          background-position: -120% 0;
+          background-size: 180% 100%;
+          background-position: 60% 0;
           opacity: 0;
           mix-blend-mode: screen;
-          transition: opacity 400ms ease-out;
+          transition: opacity 600ms ease-out, background-position 900ms cubic-bezier(.22,.9,.3,1);
         }
         .sb-wave-btn:hover .sb-sheen,
         .sb-wave-btn:focus-visible .sb-sheen {
           opacity: 1;
-          animation: sb-sheen-slide 2.4s cubic-bezier(.4,0,.2,1) 350ms infinite;
-        }
-        @keyframes sb-sheen-slide {
-          0%   { background-position: -120% 0; }
-          60%  { background-position: 220% 0; }
-          100% { background-position: 220% 0; }
+          background-position: 40% 0;
         }
         .sb-wave-btn:hover .sb-wave,
         .sb-wave-btn:focus-visible .sb-wave {
