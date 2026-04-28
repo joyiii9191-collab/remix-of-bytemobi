@@ -201,6 +201,7 @@ export function SnapPage({ title, children }: SnapPageProps) {
     window.addEventListener("keydown", onKey);
     return () => {
       el.removeEventListener("wheel", onWheel);
+      el.removeEventListener("scroll", onScroll);
       window.removeEventListener("keydown", onKey);
       cancelAnimationFrame(rafId);
     };
