@@ -38,13 +38,14 @@ export function SnapPage({ title, children }: SnapPageProps) {
 
     let isAnimating = false;
     let rafId = 0;
-    // easeInOutSine:两端更绵长,整体更柔,无急促中段
-    const ease = (t: number) => -(Math.cos(Math.PI * t) - 1) / 2;
+    // easeInOutCubic:开头平稳 → 中段加速 → 末段缓停,变化感强
+    const ease = (t: number) =>
+      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
     const getScreens = () =>
       Array.from(el.querySelectorAll<HTMLElement>("section[style*='scroll-snap-align']"));
 
-    const animateTo = (target: number, duration = 2800) => {
+    const animateTo = (target: number, duration = 900) => {
       cancelAnimationFrame(rafId);
       const start = el.scrollTop;
       const distance = target - start;
@@ -67,50 +68,30 @@ export function SnapPage({ title, children }: SnapPageProps) {
       const screens = getScreens();
       const current = el.scrollTop;
       const vh = el.clientHeight;
+      // 找到当前屏索引(以视口顶部为基准,容差 vh/3)
       let idx = 0;
       for (let i = 0; i < screens.length; i++) {
         if (screens[i].offsetTop <= current + vh / 3) idx = i;
       }
       const nextIdx = Math.max(0, Math.min(screens.length - 1, idx + dir));
+      // 若已到最后一屏且向下,放行让 footer 自然出现
       if (dir === 1 && nextIdx === idx) {
         const maxScroll = el.scrollHeight - vh;
-        if (current < maxScroll - 4) animateTo(maxScroll, 2800);
+        if (current < maxScroll - 4) animateTo(maxScroll, 900);
         return;
       }
-      animateTo(screens[nextIdx].offsetTop, 2800);
+      animateTo(screens[nextIdx].offsetTop, 900);
     };
 
-    // 统一滚轮 / 触控板手感:
-    // - 鼠标滚轮:单次 deltaY 通常很大(100+),需要更高阈值 + 更长冷却,避免一格就跳
-    // - 触控板:连续小 delta 流(惯性),累积达阈值才触发
     let wheelLock = 0;
-    let lastWheelTs = 0;
-    let accumDelta = 0;
-    let lastDir: 1 | -1 = 1;
-    const COOLDOWN = 3000;     // 略长于动画时长,期间忽略所有 wheel
-    const TRIGGER = 220;       // 累积阈值:鼠标滚轮约需 2 格,触控板需推一段
     const onWheel = (e: WheelEvent) => {
+      // 触控板/鼠标滚轮统一拦截,避免线性匀速感
+      if (Math.abs(e.deltaY) < 4) return;
       e.preventDefault();
       const now = performance.now();
-      if (isAnimating || now - wheelLock < COOLDOWN) {
-        // 冷却期内仍在持续输入,重置累积避免冷却结束瞬间立刻再触发
-        accumDelta = 0;
-        lastWheelTs = now;
-        return;
-      }
-
-      const dir: 1 | -1 = e.deltaY > 0 ? 1 : -1;
-      // 方向反转或停顿 >220ms,重置累积
-      if (dir !== lastDir || now - lastWheelTs > 220) accumDelta = 0;
-      lastDir = dir;
-      lastWheelTs = now;
-      // 单次 delta 截顶,削弱鼠标滚轮的"暴力一格"
-      accumDelta += Math.min(Math.abs(e.deltaY), 60);
-
-      if (accumDelta < TRIGGER) return;
-      accumDelta = 0;
+      if (isAnimating || now - wheelLock < 750) return;
       wheelLock = now;
-      snapToNext(dir);
+      snapToNext(e.deltaY > 0 ? 1 : -1);
     };
 
     const onKey = (e: KeyboardEvent) => {
