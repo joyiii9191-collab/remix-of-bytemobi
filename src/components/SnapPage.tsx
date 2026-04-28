@@ -38,14 +38,14 @@ export function SnapPage({ title, children }: SnapPageProps) {
 
     let isAnimating = false;
     let rafId = 0;
-    // easeInOutCubic:开头平稳 → 中段加速 → 末段缓停,变化感强
+    // easeInOutQuint:开头更轻、中段加速更明显、末段更长缓停,曲线感更强
     const ease = (t: number) =>
-      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      t < 0.5 ? 16 * t * t * t * t * t : 1 - Math.pow(-2 * t + 2, 5) / 2;
 
     const getScreens = () =>
       Array.from(el.querySelectorAll<HTMLElement>("section[style*='scroll-snap-align']"));
 
-    const animateTo = (target: number, duration = 1400) => {
+    const animateTo = (target: number, duration = 1700) => {
       cancelAnimationFrame(rafId);
       const start = el.scrollTop;
       const distance = target - start;
@@ -68,30 +68,44 @@ export function SnapPage({ title, children }: SnapPageProps) {
       const screens = getScreens();
       const current = el.scrollTop;
       const vh = el.clientHeight;
-      // 找到当前屏索引(以视口顶部为基准,容差 vh/3)
       let idx = 0;
       for (let i = 0; i < screens.length; i++) {
         if (screens[i].offsetTop <= current + vh / 3) idx = i;
       }
       const nextIdx = Math.max(0, Math.min(screens.length - 1, idx + dir));
-      // 若已到最后一屏且向下,放行让 footer 自然出现
       if (dir === 1 && nextIdx === idx) {
         const maxScroll = el.scrollHeight - vh;
-        if (current < maxScroll - 4) animateTo(maxScroll, 1400);
+        if (current < maxScroll - 4) animateTo(maxScroll, 1700);
         return;
       }
-      animateTo(screens[nextIdx].offsetTop, 1400);
+      animateTo(screens[nextIdx].offsetTop, 1700);
     };
 
+    // 统一滚轮 / 触控板手感:
+    // - 鼠标滚轮:单次 deltaY 大(通常 ≥100),离散触发 → 直接吸附
+    // - 触控板:连续小 delta 流(惯性),需要累积 + 长冷却,避免一次滑动连跳多屏
     let wheelLock = 0;
+    let lastWheelTs = 0;
+    let accumDelta = 0;
+    let lastDir: 1 | -1 = 1;
+    const COOLDOWN = 1700; // 与动画时长保持一致,动画期间不再接受新输入
+    const TRIGGER = 40;    // 触控板累积阈值
     const onWheel = (e: WheelEvent) => {
-      // 触控板/鼠标滚轮统一拦截,避免线性匀速感
-      if (Math.abs(e.deltaY) < 4) return;
       e.preventDefault();
       const now = performance.now();
-      if (isAnimating || now - wheelLock < 1200) return;
+      if (isAnimating || now - wheelLock < COOLDOWN) return;
+
+      const dir: 1 | -1 = e.deltaY > 0 ? 1 : -1;
+      // 方向反转或停顿 >180ms,重置累积
+      if (dir !== lastDir || now - lastWheelTs > 180) accumDelta = 0;
+      lastDir = dir;
+      lastWheelTs = now;
+      accumDelta += Math.abs(e.deltaY);
+
+      if (accumDelta < TRIGGER) return;
+      accumDelta = 0;
       wheelLock = now;
-      snapToNext(e.deltaY > 0 ? 1 : -1);
+      snapToNext(dir);
     };
 
     const onKey = (e: KeyboardEvent) => {
