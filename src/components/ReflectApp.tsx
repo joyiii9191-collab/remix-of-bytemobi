@@ -8236,12 +8236,12 @@ function Container279() {
 
 function Section9Solution() {
   const steps = [
-    { icon: "ClipboardList", title: "投放策略制定", desc: "深入了解客户推广目标、预算与目标市场，量身定制投放策略。", hue: 260 }, // 紫
-    { icon: "Building2", title: "媒体开户与资源整合", desc: "快速完成主流媒体平台开户，整合优质流量资源与渠道。", hue: 215 }, // 蓝
-    { icon: "Palette", title: "素材制作与创意支持", desc: "多语言素材制作与 A/B 测试，持续提升广告创意效果。", hue: 330 }, // 粉
-    { icon: "Rocket", title: "投手投放与执行管理", desc: "全渠道精准投放，实时监控数据，灵活调整优化策略。", hue: 25 },  // 橙
-    { icon: "BrainCircuit", title: "智能优化与效果提升", desc: "AI 驱动智能出价与人群定向，持续提升 ROI 与转化率。", hue: 165 }, // 青绿
-    { icon: "BarChart3", title: "流量变现与报告分析", desc: "数据报告与 ROI 复盘反哺策略，驱动持续增长闭环。", hue: 45 },  // 金黄
+    { icon: "Crosshair", title: "投放策略制定", desc: "深入了解客户推广目标、预算与目标市场，量身定制投放策略。", hue: 260 }, // 紫
+    { icon: "Network", title: "媒体开户与资源整合", desc: "快速完成主流媒体平台开户，整合优质流量资源与渠道。", hue: 215 }, // 蓝
+    { icon: "Wand2", title: "素材制作与创意支持", desc: "多语言素材制作与 A/B 测试，持续提升广告创意效果。", hue: 330 }, // 粉
+    { icon: "Send", title: "投手投放与执行管理", desc: "全渠道精准投放，实时监控数据，灵活调整优化策略。", hue: 25 },  // 橙
+    { icon: "Cpu", title: "智能优化与效果提升", desc: "AI 驱动智能出价与人群定向，持续提升 ROI 与转化率。", hue: 165 }, // 青绿
+    { icon: "TrendingUp", title: "流量变现与报告分析", desc: "数据报告与 ROI 复盘反哺策略，驱动持续增长闭环。", hue: 45 },  // 金黄
   ];
 
   // 圆形布局参数
