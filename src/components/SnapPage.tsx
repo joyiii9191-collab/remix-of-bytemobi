@@ -38,14 +38,13 @@ export function SnapPage({ title, children }: SnapPageProps) {
 
     let isAnimating = false;
     let rafId = 0;
-    // easeInOutCubic:开头平稳 → 中段加速 → 末段缓停,变化感强
-    const ease = (t: number) =>
-      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    // easeOutQuart:开头迅速启动 → 中段持续 → 末段轻盈缓停,有重量感且不拖沓
+    const ease = (t: number) => 1 - Math.pow(1 - t, 4);
 
     const getScreens = () =>
       Array.from(el.querySelectorAll<HTMLElement>("section[style*='scroll-snap-align']"));
 
-    const animateTo = (target: number, duration = 1400) => {
+    const animateTo = (target: number, duration = 850) => {
       cancelAnimationFrame(rafId);
       const start = el.scrollTop;
       const distance = target - start;
