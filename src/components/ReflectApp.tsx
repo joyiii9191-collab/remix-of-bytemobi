@@ -8364,17 +8364,13 @@ function Section9Solution() {
           <p className="text-[11px] mt-[4px] leading-[1.5] px-[20px]" style={{ color: "hsl(245, 40%, 35%)" }}>
             数据驱动 · 持续优化
           </p>
-          <div className="flex items-center gap-[3px] mt-[10px]">
-            {[0, 1, 2].map((i) => (
-              <span
-                key={i}
-                className="w-[4px] h-[4px] rounded-full animate-pulse"
-                style={{
-                  background: "hsl(260, 70%, 55%)",
-                  animationDelay: `${i * 0.3}s`,
-                }}
-              />
-            ))}
+          <div className="flex items-center justify-center mt-[10px]">
+            <LucideIcons.ArrowRight
+              className="animate-pulse"
+              size={14}
+              strokeWidth={2.25}
+              style={{ color: "hsl(260, 70%, 55%)" }}
+            />
           </div>
         </div>
 
