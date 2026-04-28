@@ -17,14 +17,10 @@ export default function Index() {
     const ease = (t: number) =>
       t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
-    // 首页屏是 <div class="snap-start ...">,子页面是 <section style="scroll-snap-align:start">,
-    // 这里用 .snap-start 同时命中两类,确保吸附节奏一致。
     const getScreens = () =>
       Array.from(
-        el.querySelectorAll<HTMLElement>(
-          ".snap-start, section[style*='scroll-snap-align'], section[data-snap='true']"
-        )
-      ).filter((n) => n.offsetParent !== null || n === el.firstElementChild);
+        el.querySelectorAll<HTMLElement>("section[style*='scroll-snap-align'], section[data-snap='true']")
+      );
 
     const animateTo = (target: number, duration = 900) => {
       cancelAnimationFrame(rafId);
