@@ -22,50 +22,6 @@ export const SnapScrollContext = React.createContext<React.RefObject<HTMLDivElem
 export function SnapPage({ title, children }: SnapPageProps) {
   const scrollRef = React.useRef<HTMLDivElement>(null);
 
-  // ===== 调试 HUD 状态(仅 dev 显示) =====
-  const debugRef = React.useRef({
-    accum: 0,
-    trigger: 220,
-    cooldown: 3000,
-    lockUntil: 0,
-    currentIdx: 0,
-    targetIdx: 0,
-    screens: 0,
-  });
-  const [hud, setHud] = React.useState({
-    accum: 0,
-    trigger: 220,
-    cooldownLeft: 0,
-    currentIdx: 0,
-    targetIdx: 0,
-    screens: 0,
-  });
-  // 默认显示;在 URL 加 ?nohud=1 可关闭
-  const showHud =
-    typeof window === "undefined"
-      ? false
-      : !new URLSearchParams(window.location.search).has("nohud");
-
-  React.useEffect(() => {
-    if (!showHud) return;
-    let raf = 0;
-    const tick = () => {
-      const d = debugRef.current;
-      const left = Math.max(0, d.lockUntil - performance.now());
-      setHud({
-        accum: Math.round(d.accum),
-        trigger: d.trigger,
-        cooldownLeft: Math.round(left),
-        currentIdx: d.currentIdx,
-        targetIdx: d.targetIdx,
-        screens: d.screens,
-      });
-      raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [showHud]);
-
   useEffect(() => {
     const prev = document.title;
     document.title = `${title} · ByteMobi`;
@@ -133,34 +89,12 @@ export function SnapPage({ title, children }: SnapPageProps) {
     let lastDir: 1 | -1 = 1;
     const COOLDOWN = 3000;     // 略长于动画时长,期间忽略所有 wheel
     const TRIGGER = 220;       // 累积阈值:鼠标滚轮约需 2 格,触控板需推一段
-    debugRef.current.trigger = TRIGGER;
-    debugRef.current.cooldown = COOLDOWN;
-
-    const updateScreenInfo = (targetIdx?: number) => {
-      const screens = getScreens();
-      const current = el.scrollTop;
-      const vh = el.clientHeight;
-      let idx = 0;
-      for (let i = 0; i < screens.length; i++) {
-        if (screens[i].offsetTop <= current + vh / 3) idx = i;
-      }
-      debugRef.current.screens = screens.length;
-      debugRef.current.currentIdx = idx;
-      if (typeof targetIdx === "number") debugRef.current.targetIdx = targetIdx;
-      else debugRef.current.targetIdx = idx;
-    };
-
-    const onScroll = () => updateScreenInfo();
-    el.addEventListener("scroll", onScroll, { passive: true });
-    updateScreenInfo();
-
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
       const now = performance.now();
       if (isAnimating || now - wheelLock < COOLDOWN) {
         // 冷却期内仍在持续输入,重置累积避免冷却结束瞬间立刻再触发
         accumDelta = 0;
-        debugRef.current.accum = 0;
         lastWheelTs = now;
         return;
       }
@@ -172,22 +106,10 @@ export function SnapPage({ title, children }: SnapPageProps) {
       lastWheelTs = now;
       // 单次 delta 截顶,削弱鼠标滚轮的"暴力一格"
       accumDelta += Math.min(Math.abs(e.deltaY), 60);
-      debugRef.current.accum = accumDelta;
 
       if (accumDelta < TRIGGER) return;
       accumDelta = 0;
-      debugRef.current.accum = 0;
       wheelLock = now;
-      debugRef.current.lockUntil = now + COOLDOWN;
-      // 计算目标索引并写入 HUD
-      const screens = getScreens();
-      const vh = el.clientHeight;
-      let cur = 0;
-      for (let i = 0; i < screens.length; i++) {
-        if (screens[i].offsetTop <= el.scrollTop + vh / 3) cur = i;
-      }
-      const next = Math.max(0, Math.min(screens.length - 1, cur + dir));
-      debugRef.current.targetIdx = next;
       snapToNext(dir);
     };
 
@@ -205,7 +127,6 @@ export function SnapPage({ title, children }: SnapPageProps) {
     window.addEventListener("keydown", onKey);
     return () => {
       el.removeEventListener("wheel", onWheel);
-      el.removeEventListener("scroll", onScroll);
       window.removeEventListener("keydown", onKey);
       cancelAnimationFrame(rafId);
     };
@@ -234,54 +155,6 @@ export function SnapPage({ title, children }: SnapPageProps) {
           </div>
         </div>
       </div>
-      {showHud && (
-        <div
-          style={{
-            position: "fixed",
-            right: 16,
-            bottom: 16,
-            zIndex: 9999,
-            padding: "10px 14px",
-            borderRadius: 10,
-            background: "rgba(15, 18, 38, 0.82)",
-            color: "#E6ECFF",
-            font: "12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace",
-            boxShadow: "0 8px 24px rgba(0,0,0,0.25)",
-            backdropFilter: "blur(8px)",
-            pointerEvents: "none",
-            minWidth: 200,
-          }}
-        >
-          <div style={{ opacity: 0.7, marginBottom: 4 }}>SnapPage debug</div>
-          <div>
-            accum: <b>{hud.accum}</b> / {hud.trigger}
-          </div>
-          <div
-            style={{
-              height: 4,
-              background: "rgba(255,255,255,0.12)",
-              borderRadius: 2,
-              margin: "4px 0 6px",
-              overflow: "hidden",
-            }}
-          >
-            <div
-              style={{
-                width: `${Math.min(100, (hud.accum / hud.trigger) * 100)}%`,
-                height: "100%",
-                background: hud.accum >= hud.trigger ? "#7CF6B4" : "#8AB4FF",
-                transition: "width 80ms linear",
-              }}
-            />
-          </div>
-          <div>
-            cooldown: <b>{hud.cooldownLeft}</b> ms
-          </div>
-          <div>
-            screen: <b>{hud.currentIdx}</b> → <b>{hud.targetIdx}</b> / {Math.max(0, hud.screens - 1)}
-          </div>
-        </div>
-      )}
     </SnapScrollContext.Provider>
   );
 }
