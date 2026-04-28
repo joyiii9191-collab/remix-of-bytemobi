@@ -57,36 +57,41 @@ const StarBorder: React.FC<StarBorderProps> = ({
           left: -10%;
           right: -10%;
           bottom: -120%;
-          height: 220%;
+          height: 200%;
           opacity: 0;
           transition: bottom 700ms cubic-bezier(.22,.9,.3,1), opacity 500ms ease-out;
           will-change: bottom, transform, opacity;
+          /* 振幅压扁:波峰波谷只在 48%~52% 之间,波浪更低更细 */
           clip-path: polygon(
-            0% 50%, 5% 47%, 10% 44%, 15% 42%, 20% 41%, 25% 42%, 30% 44%,
-            35% 47%, 40% 50%, 45% 52%, 50% 53%, 55% 52%, 60% 50%, 65% 47%,
-            70% 44%, 75% 42%, 80% 41%, 85% 42%, 90% 44%, 95% 47%, 100% 50%,
+            0% 52%, 5% 51%, 10% 49.5%, 15% 48.6%, 20% 48.2%, 25% 48.6%, 30% 49.5%,
+            35% 51%, 40% 52%, 45% 52.6%, 50% 52.8%, 55% 52.6%, 60% 52%, 65% 51%,
+            70% 49.5%, 75% 48.6%, 80% 48.2%, 85% 48.6%, 90% 49.5%, 95% 51%, 100% 52%,
             100% 100%, 0% 100%
           );
         }
         .sb-wave-btn .sb-wave-1 {
           background: radial-gradient(120% 80% at 50% 100%,
-            hsla(265, 95%, 72%, 0.85) 0%,
-            hsla(245, 95%, 65%, 0.65) 35%,
-            hsla(220, 95%, 60%, 0.30) 65%,
-            transparent 90%);
-          filter: blur(2px);
+            hsl(270, 100%, 78%) 0%,
+            hsl(245, 100%, 72%) 35%,
+            hsl(220, 100%, 70%) 65%,
+            hsla(220, 100%, 70%, 0.3) 85%,
+            transparent 100%);
+          filter: blur(1px) saturate(1.2);
         }
         .sb-wave-btn .sb-wave-2 {
           background: radial-gradient(120% 80% at 50% 100%,
-            hsla(220, 95%, 70%, 0.55) 0%,
-            hsla(265, 90%, 65%, 0.30) 50%,
-            transparent 85%);
-          filter: blur(6px);
+            hsl(220, 100%, 75%) 0%,
+            hsl(265, 100%, 75%) 50%,
+            hsla(270, 95%, 72%, 0.3) 80%,
+            transparent 100%);
+          filter: blur(5px) saturate(1.3);
           transition-delay: 80ms;
+          mix-blend-mode: screen;
         }
         .sb-wave-btn:hover .sb-wave,
         .sb-wave-btn:focus-visible .sb-wave {
-          bottom: -55%;
+          /* 上涌停在更低位置,波浪高度更小 */
+          bottom: -75%;
           opacity: 1;
           animation: sb-wave-flow 3.6s ease-in-out 700ms infinite alternate;
         }
@@ -108,13 +113,13 @@ const StarBorder: React.FC<StarBorderProps> = ({
           bottom: 0;
           height: 1px;
           opacity: 0;
-          background: linear-gradient(90deg, transparent 0%, hsla(0,0%,100%,0.7) 50%, transparent 100%);
-          box-shadow: 0 0 10px hsla(265, 95%, 80%, 0.7);
+          background: linear-gradient(90deg, transparent 0%, hsl(245, 100%, 85%) 50%, transparent 100%);
+          box-shadow: 0 0 12px hsl(265, 100%, 75%), 0 0 4px hsl(220, 100%, 80%);
           transition: bottom 700ms cubic-bezier(.22,.9,.3,1), opacity 500ms ease-out;
         }
         .sb-wave-btn:hover .sb-wave-crest,
         .sb-wave-btn:focus-visible .sb-wave-crest {
-          bottom: 52%;
+          bottom: 30%;
           opacity: 1;
         }
       `}</style>
