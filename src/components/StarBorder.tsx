@@ -40,10 +40,12 @@ const StarBorder: React.FC<StarBorderProps> = ({
           shadow-[inset_0_1px_0_0_hsla(0,0%,100%,0.35),inset_0_-1px_0_0_hsla(0,0%,100%,0.08)]
           group-hover:shadow-[inset_0_1px_0_0_hsla(0,0%,100%,0.5),0_14px_36px_-14px_hsla(265,85%,60%,0.55)]"
       >
-        {/* 波浪光层 —— 用 clip-path 画顶端波浪,蓝紫渐变 + 模糊呈光感 */}
-        <span aria-hidden="true" className="sb-wave sb-wave-1" />
-        {/* 第二层波浪,反向、半透明,做层叠光晕 */}
-        <span aria-hidden="true" className="sb-wave sb-wave-2" />
+        {/* 底部光晕层 —— 从按钮下方柔和亮起的蓝紫光,无波浪边缘 */}
+        <span aria-hidden="true" className="sb-glow sb-glow-1" />
+        {/* 第二层光晕,更宽更柔,做层叠扩散 */}
+        <span aria-hidden="true" className="sb-glow sb-glow-2" />
+        {/* 底部细光带,模拟光源贴边 */}
+        <span aria-hidden="true" className="sb-glow-line" />
         {/* 玻璃高光反射:顶部细弧 + 斜向扫光 */}
         <span aria-hidden="true" className="sb-gloss" />
         <span aria-hidden="true" className="sb-sheen" />
