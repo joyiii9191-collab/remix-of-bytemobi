@@ -230,6 +230,54 @@ export function SnapPage({ title, children }: SnapPageProps) {
           </div>
         </div>
       </div>
+      {showHud && (
+        <div
+          style={{
+            position: "fixed",
+            right: 16,
+            bottom: 16,
+            zIndex: 9999,
+            padding: "10px 14px",
+            borderRadius: 10,
+            background: "rgba(15, 18, 38, 0.82)",
+            color: "#E6ECFF",
+            font: "12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace",
+            boxShadow: "0 8px 24px rgba(0,0,0,0.25)",
+            backdropFilter: "blur(8px)",
+            pointerEvents: "none",
+            minWidth: 200,
+          }}
+        >
+          <div style={{ opacity: 0.7, marginBottom: 4 }}>SnapPage debug</div>
+          <div>
+            accum: <b>{hud.accum}</b> / {hud.trigger}
+          </div>
+          <div
+            style={{
+              height: 4,
+              background: "rgba(255,255,255,0.12)",
+              borderRadius: 2,
+              margin: "4px 0 6px",
+              overflow: "hidden",
+            }}
+          >
+            <div
+              style={{
+                width: `${Math.min(100, (hud.accum / hud.trigger) * 100)}%`,
+                height: "100%",
+                background: hud.accum >= hud.trigger ? "#7CF6B4" : "#8AB4FF",
+                transition: "width 80ms linear",
+              }}
+            />
+          </div>
+          <div>
+            cooldown: <b>{hud.cooldownLeft}</b> ms
+          </div>
+          <div>
+            screen: <b>{hud.currentIdx}</b> → <b>{hud.targetIdx}</b> / {Math.max(0, hud.screens - 1)}
+          </div>
+        </div>
+      )}
     </SnapScrollContext.Provider>
   );
 }
