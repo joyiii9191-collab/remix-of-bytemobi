@@ -44,8 +44,6 @@ const StarBorder: React.FC<StarBorderProps> = ({
         <span aria-hidden="true" className="sb-wave sb-wave-1" />
         {/* 第二层波浪,反向、半透明,做层叠光晕 */}
         <span aria-hidden="true" className="sb-wave sb-wave-2" />
-        {/* 波峰高光细线 */}
-        <span aria-hidden="true" className="sb-wave-crest" />
 
         <span className="relative z-[1]">{children}</span>
       </span>
@@ -71,20 +69,20 @@ const StarBorder: React.FC<StarBorderProps> = ({
         }
         .sb-wave-btn .sb-wave-1 {
           background: radial-gradient(120% 80% at 50% 100%,
-            hsl(270, 100%, 78%) 0%,
-            hsl(245, 100%, 72%) 35%,
-            hsl(220, 100%, 70%) 65%,
-            hsla(220, 100%, 70%, 0.3) 85%,
+            hsl(275, 100%, 88%) 0%,
+            hsl(250, 100%, 80%) 30%,
+            hsl(225, 100%, 75%) 60%,
+            hsla(220, 100%, 72%, 0.6) 85%,
             transparent 100%);
-          filter: blur(1px) saturate(1.2);
+          filter: blur(0.5px) saturate(1.6) brightness(1.2);
         }
         .sb-wave-btn .sb-wave-2 {
           background: radial-gradient(120% 80% at 50% 100%,
-            hsl(220, 100%, 75%) 0%,
-            hsl(265, 100%, 75%) 50%,
-            hsla(270, 95%, 72%, 0.3) 80%,
+            hsl(220, 100%, 85%) 0%,
+            hsl(265, 100%, 82%) 45%,
+            hsla(270, 100%, 78%, 0.55) 75%,
             transparent 100%);
-          filter: blur(5px) saturate(1.3);
+          filter: blur(4px) saturate(1.6) brightness(1.25);
           transition-delay: 80ms;
           mix-blend-mode: screen;
         }
@@ -104,24 +102,6 @@ const StarBorder: React.FC<StarBorderProps> = ({
           100% { transform: translateX(4%); }
         }
 
-        /* 波峰高光线:贴在光波顶端 */
-        .sb-wave-btn .sb-wave-crest {
-          pointer-events: none;
-          position: absolute;
-          left: 12%;
-          right: 12%;
-          bottom: 0;
-          height: 1px;
-          opacity: 0;
-          background: linear-gradient(90deg, transparent 0%, hsl(245, 100%, 85%) 50%, transparent 100%);
-          box-shadow: 0 0 12px hsl(265, 100%, 75%), 0 0 4px hsl(220, 100%, 80%);
-          transition: bottom 700ms cubic-bezier(.22,.9,.3,1), opacity 500ms ease-out;
-        }
-        .sb-wave-btn:hover .sb-wave-crest,
-        .sb-wave-btn:focus-visible .sb-wave-crest {
-          bottom: 30%;
-          opacity: 1;
-        }
       `}</style>
     </Component>
   );
