@@ -1307,10 +1307,6 @@ function Section1() {
             <div className="flex items-center gap-12 p-10 relative">
               {/* Left side — brand text */}
               <div className="w-[380px] shrink-0 flex flex-col gap-6">
-                {/* Tag pill */}
-                <div className="flex items-center px-[16px] py-[5px] rounded-full relative self-start" style={{ border: "1px solid hsla(0,0%,100%,0.7)", background: "hsla(0,0%,100%,0.45)",  boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
-                  <span className="text-[14px] font-normal tracking-[-0.21px] leading-[1.6]" style={{ color: 'hsl(260, 60%, 40%)' }}>About ByteMobi</span>
-                </div>
 
                 {/* Title */}
                 <h2 className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[44px] leading-[1.1] font-semibold tracking-tight" style={{ color: 'hsl(230, 30%, 18%)' }}>
@@ -1945,9 +1941,6 @@ function Section2() {
       {/* Background image removed for clean light theme */}
       {/* Header */}
       <div className="relative z-10 flex flex-col items-center gap-4 mb-10">
-        <div className="flex items-center px-[16px] py-[5px] rounded-full relative" style={{ border: "1px solid hsla(0,0%,100%,0.7)", background: "hsla(0,0%,100%,0.45)",  boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
-          <span className="text-[14px] font-normal tracking-[-0.21px] leading-[1.6]" style={{ color: 'hsl(260, 60%, 40%)' }}>Core Business</span>
-        </div>
         <h2 className="font-['Aeonik_TRIAL:Regular',sans-serif] text-[44px] leading-[1.1] font-semibold tracking-tight" style={{ color: 'hsl(230, 30%, 18%)' }}>
           核心业务板块
         </h2>
@@ -2693,9 +2686,6 @@ function Section8TrafficMap() {
     <div className="relative w-full h-full flex flex-col items-center justify-center px-[80px] gap-[24px] pt-[80px]" data-name="Section8TrafficMap">
       {/* Header */}
       <div className="flex flex-col items-center gap-3 z-10">
-        <div className="flex items-center px-[16px] py-[5px] rounded-full relative" style={{ border: "1px solid hsla(0,0%,100%,0.7)", background: "hsla(0,0%,100%,0.45)", boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
-          <span className="text-[14px] font-normal tracking-[-0.21px] leading-[1.6]" style={{ color: 'hsl(260, 60%, 40%)' }}>Global Coverage</span>
-        </div>
         <h2 className="text-[36px] font-semibold leading-[1.15] tracking-tight text-center" style={{ color: 'rgba(20,18,45,0.95)' }}>
           我们的流量分布区域
         </h2>
@@ -8267,9 +8257,6 @@ function Section9Solution() {
     <div className="relative w-full h-full flex flex-col items-center justify-center px-[80px] gap-[40px]">
       {/* Header */}
       <div className="flex flex-col items-center gap-[20px] z-10">
-        <div className="flex items-center px-[16px] py-[5px] rounded-full relative" style={{ border: "1px solid hsla(0,0%,100%,0.7)", background: "hsla(0,0%,100%,0.45)", boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
-          <span className="text-[14px] font-normal tracking-[-0.21px] leading-[1.6]" style={{ color: 'hsl(260, 60%, 40%)' }}>One-Stop Closed-Loop Solution</span>
-        </div>
         <h2
           className="text-[48px] font-medium leading-[1.1] tracking-[-2px] text-center"
           style={{
@@ -8520,9 +8507,6 @@ function Section10Contact() {
         {/* Left: Text */}
         <div className="flex flex-col gap-[32px] flex-1">
           <div className="flex flex-col gap-[24px]">
-            <div className="flex items-center px-[16px] py-[5px] rounded-full relative w-fit" style={{ border: "1px solid hsla(0,0%,100%,0.7)", background: "hsla(0,0%,100%,0.45)", boxShadow: 'inset 0 1px 0 hsla(0,0%,100%,0.8)' }}>
-              <span className="text-[14px] font-normal tracking-[-0.21px] leading-[1.6]" style={{ color: 'hsl(260, 60%, 40%)' }}>Contact Us</span>
-            </div>
             <h2 className="text-[36px] font-semibold text-white leading-[1.15] tracking-[-0.72px]">
               联系我们
             </h2>
