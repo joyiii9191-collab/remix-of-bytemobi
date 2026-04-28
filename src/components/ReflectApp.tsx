@@ -213,11 +213,11 @@ function Link() {
 
 function Heading() {
   return (
-    <div className="absolute content-stretch flex flex-col items-center left-0 px-[120px] right-0 top-[40px]" data-name="Heading 1">
+    <div className="absolute content-stretch flex flex-col items-center left-0 px-[120px] right-0 top-[120px]" data-name="Heading 1">
       <div className=" flex flex-col font-['Inter',sans-serif] font-bold justify-center leading-[0] not-italic text-white relative shrink-0 text-[80px] text-center">
         <p className="leading-[96px] tracking-[-0.02em]">全球广告增长平台</p>
       </div>
-      <div className="flex flex-col justify-center leading-[0] not-italic text-white relative shrink-0 text-center mt-[36px]">
+      <div className="flex flex-col justify-center leading-[0] not-italic text-white relative shrink-0 text-center mt-[64px]">
         <p className="leading-[52px] text-[36px] font-medium tracking-[0.04em]">
           智能驱动，全球汇流，日本聚势
         </p>
