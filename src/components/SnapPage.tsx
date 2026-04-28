@@ -45,7 +45,7 @@ export function SnapPage({ title, children }: SnapPageProps) {
     const getScreens = () =>
       Array.from(el.querySelectorAll<HTMLElement>("section[style*='scroll-snap-align']"));
 
-    const animateTo = (target: number, duration = 900) => {
+    const animateTo = (target: number, duration = 1400) => {
       cancelAnimationFrame(rafId);
       const start = el.scrollTop;
       const distance = target - start;
@@ -77,10 +77,10 @@ export function SnapPage({ title, children }: SnapPageProps) {
       // 若已到最后一屏且向下,放行让 footer 自然出现
       if (dir === 1 && nextIdx === idx) {
         const maxScroll = el.scrollHeight - vh;
-        if (current < maxScroll - 4) animateTo(maxScroll, 900);
+        if (current < maxScroll - 4) animateTo(maxScroll, 1400);
         return;
       }
-      animateTo(screens[nextIdx].offsetTop, 900);
+      animateTo(screens[nextIdx].offsetTop, 1400);
     };
 
     let wheelLock = 0;
@@ -89,7 +89,7 @@ export function SnapPage({ title, children }: SnapPageProps) {
       if (Math.abs(e.deltaY) < 4) return;
       e.preventDefault();
       const now = performance.now();
-      if (isAnimating || now - wheelLock < 750) return;
+      if (isAnimating || now - wheelLock < 1200) return;
       wheelLock = now;
       snapToNext(e.deltaY > 0 ? 1 : -1);
     };
