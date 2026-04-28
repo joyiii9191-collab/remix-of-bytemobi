@@ -76,10 +76,10 @@ export function SnapPage({ title, children }: SnapPageProps) {
       // 若已到最后一屏且向下,放行让 footer 自然出现
       if (dir === 1 && nextIdx === idx) {
         const maxScroll = el.scrollHeight - vh;
-        if (current < maxScroll - 4) animateTo(maxScroll, 1400);
+        if (current < maxScroll - 4) animateTo(maxScroll, 850);
         return;
       }
-      animateTo(screens[nextIdx].offsetTop, 1400);
+      animateTo(screens[nextIdx].offsetTop, 850);
     };
 
     let wheelLock = 0;
@@ -88,7 +88,7 @@ export function SnapPage({ title, children }: SnapPageProps) {
       if (Math.abs(e.deltaY) < 4) return;
       e.preventDefault();
       const now = performance.now();
-      if (isAnimating || now - wheelLock < 1200) return;
+      if (isAnimating || now - wheelLock < 750) return;
       wheelLock = now;
       snapToNext(e.deltaY > 0 ? 1 : -1);
     };
